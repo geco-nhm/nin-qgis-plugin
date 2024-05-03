@@ -1,0 +1,24 @@
+Gangen i arbeidet:
+1. Lag oversikt over feltarbeidere (navn, epost, brukernavn, passord, flater) og lagre som CSV
+2. Last denne inn postgreSQL
+3. Last ned ortofoto (og ev. N50) for aktuelle flater og lagre som COG (*_cog.tif) Cloud Optimized GeoTiff
+4. Lag ev. grunnlagsfiler (geopackage) som f.eks. humlelinjer, fuglereg-punkter, karplantepunkter
+5. Lag egenskapsfiler (csv) (egenskapsnavn og format) som brukes til å lage tomt kartlag i geopackage-fil
+6. Tilpass og kjør løypa som lager tomme geopackage-filer for registreringer (digitalisering av punkter, linjer eller polygoner)
+7. Lag kodefiler (csv) som brukes i Value Map-widget i QGIS-skjemaet.
+8. Start QGIS og last inn aktuelle filer og lag prosjektrelasjoner, tilpass stiler og skjema og lagre som qml-filer.
+9. Tilpass (med relasjoner og qml-filer) og kjør løypa som lager geopackage-file(r) med aktuelle layere og lager individuelle
+   QGIS-prosjekt tilpasset den enkelte feltarbeider basert på CSV-fila i punkt 1. 
+   Stiler fra qml-filer lagres i gpkg-filene. QGIS leser symbologi fra gpkg (i motsetning til ArcGIS...)
+
+QGIS
+7. Åpne prosjekt i QGIS, zoom inn til aktuelt layer, skjul aktuelle layere, lagre
+8. Last prosjektet opp i NIBIO-skya med QFieldSync
+
+NIBIO-skya
+9. Opprett brukere med navn og passord (fra punkt 1). For hvert prosjekt legges tilhørende bruker til som Editor.
+
+QField
+10. Last ned aktuell prosjekt
+11. Åpne prosjekt og gjør registreringer.
+12. PUSH endringer (data/registreringer) til NIBIO-skya
