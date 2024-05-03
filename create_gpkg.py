@@ -99,7 +99,7 @@ def create_table_from_csv(csv_path: str, gpkg_path: str, layer_name: str):
 def set_style(layer: str, lname: str):
     lyr = QgsVectorLayer(layer,lname,"ogr")
     name = lyr.name()
-    lyr.loadNamedStyle('S:/Forvaltning/Geomatikk/abni/fugler/qml/'+lname+'.qml')
+    lyr.loadNamedStyle('S:/.../qml/'+lname+'.qml')
     lyr.saveStyleToDatabase(name,'style '+lname,True,'')
 
 # Funsksjon for å sette riktig QVaraint-type
@@ -136,7 +136,7 @@ if os.path.exists(gpkg_reg):                          # If gpkg-file already exi
     os.remove(gpkg_reg)
 
 # # All spatial layers and non-spatial tables are saved in the same geopackage-file fugleregistrering.gpkg
-# gpkg_pkt = "S:/Forvaltning/Geomatikk/abni/fugler/gpkg/fuglepunkter.gpkg"  # existing gpkg with 1162 fuglepunkter, fields flatenr and pnr exists
+# gpkg_pkt = "S:/.../gpkg/fuglepunkter.gpkg"  # existing gpkg with 1162 fuglepunkter, fields flatenr and pnr exists
 
 ###### Hvis man skal kopiere et lag i en gpkg-fil #####
 # # Åpner fuglepunkter.gpkg, kopierer alle punkter til nytt layer fugleobs, legger til egenskaper og lagrer i NY gpkg-fil: fugleregistrering.gpkg. 
@@ -147,7 +147,7 @@ if os.path.exists(gpkg_reg):                          # If gpkg-file already exi
 # create_gpkg_layer("fugleobs", nl, gpkg_reg)  # Save as new layer fugleobs, geometry type and crs inherited from original point-layer
 #####
 
-# Layer 1 vv_vegtype (to be added to the new gpkg-file juest created above)
+# Layer 1 fugleobs (to be added to the new gpkg-file juest created above)
 f = open("./egenskaper/egenskaper_fugleobs.csv",'r') # open file
 f.readline()
 layer_name = "fugleobs" 
@@ -169,37 +169,14 @@ f.close()  # close file
 
 create_blank_gpkg_layer(gpkg_reg, layer_name, geom, crs, fields)  # Ikke inkl. True når FØRSTE lag lages
 
-# # Layer 2 fugleobs - lager et tomt layer
-# # f = open("S:\\Forvaltning\\Geomatikk\\abni\\fugler\\egenskaper\\egenskaper_fugleobs.csv",'r') # open file
-# f = open("./egenskaper/egenskaper_fugleobs.csv",'r') # open file
-# f.readline()  # read the first line of the file (the "metadata"/heading)
-# layer_name = "fugleobs"              # set layer name
-# print('creates layer', layer_name)   # print layer name
-# geom = QgsWkbTypes.PointZ            # geometrytype
-# crs = 'epsg:25833'                   # coordinate system
-# fields = QgsFields()
-# for line in f:                       # Read attrubutes from csv-file
-	# r = {}
-	# r = line.split(';')  # 0 navn, 1 QVariant-type, 2 lengde og 3 presisjon
-	# fname = r[0]
-	# l = int(r[2])
-	# p = int(r[3])
-	# try:
-		# fields.append(QgsField(fname,set_variant(r[1]),'',l,p))  # add field to layer 
-	# except:
-		# print("Noe gikk galt - får ikke laget egenskaper fra " +str(f))
-# f.close()  # close file
-
-# create_blank_gpkg_layer(gpkg_reg, layer_name, geom, crs, fields, True)  # Inkl. True for å legge til et nytt lag i samme gpkg-fil
-
 # Add a cvs-file as a table in the gpkg
 # Layer 3 fugleartsliste
-csv = "file:///S:\\Forvaltning\\Geomatikk\\abni\\fugler\\egenskaper\\fugleartsliste.csv?delimiter=;"
+csv = "file:///S:\\...\\fugler\\egenskaper\\fugleartsliste.csv?delimiter=;"
 lyrname = 'fugleartsliste'
 create_table_from_csv(csv, gpkg_reg, lyrname)
 
 # Layer 4 vegetasjonstypeliste
-csv = "file:///S:\\Forvaltning\\Geomatikk\\abni\\fugler\\egenskaper\\vegetasjonstypeliste.csv?delimiter=;"
+csv = "file:///S:\\...\\fugler\\egenskaper\\vegetasjonstypeliste.csv?delimiter=;"
 lyrname = 'vegetasjonstypeliste'
 create_table_from_csv(csv, gpkg_reg, lyrname)
 
