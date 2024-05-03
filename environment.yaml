@@ -1,0 +1,8 @@
+name: qgis-plugin-dev
+channels:
+  - conda-forge
+dependencies:
+  - pip=24.0
+  - python=3.12
+  - pip:
+      - pb-tool==3.1.0
