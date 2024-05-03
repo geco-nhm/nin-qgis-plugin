@@ -44,7 +44,7 @@ print(u)
 
 # https://superuser.com/questions/153165/what-does-represent-while-giving-path
 print(os.getcwd())                                    # print current working directory
-os.chdir('S:\\Forvaltning\\Geomatikk\\abni\\fugler')  # change directory
+os.chdir('S:\\...\\fugler')  # change directory
 pname = "freg_"+str(u)+".qgs"                         # set project name
 print(pname)
 if os.path.exists(pname):                             # If project already exists, delete it
@@ -213,7 +213,7 @@ QgsProject.instance().setSnappingConfig(snapping_config)          # Activate the
 
 # Save QGIS-prosject
 print('Prosjekt lagres: '+pname)
-project.write('S:\\Forvaltning\\Geomatikk\\abni\\fugler\\'+pname)  # Save project
+project.write('S:\\...\\fugler\\'+pname)  # Save project
 project.clear()                                                    # close project
 
 # Close qgis and remove the provider and layer registries from memory
