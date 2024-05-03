@@ -28,10 +28,10 @@ if exist fugleregistrering.gpkg del fugleregistrering.gpkg
 if exist ..\kode\fugl_feltarbeidere_inf.csv del ..\kode\fugl_feltarbeidere_inf.csv
 
 REM echo 1 Lager n5hoyde-tabell for flatene som skal besøkes
-REM call psql -h db04.int.nibio.no -d sl -U sl_ban -f .\kode\create_table_fugler_n5hoyder.sql
+REM call psql -h xxxxx.int.nibio.no -d sl -U yyy -f .\kode\create_table_fugler_n5hoyder.sql
 REM echo:
 REM echo 2 Lager 3qflater-tabell for flatene som skal besøkes (BRUKES IKKE)
-REM call psql -h db04.int.nibio.no -d sl -U sl_ban -f .\kode\create_table_fugler_3qflater.sql
+REM call psql -h xxxxx.int.nibio.no -d sl -U yyy -f .\kode\create_table_fugler_3qflater.sql
 REM echo:
 
 REM ".\" is a sub-folder of the current working directory
@@ -43,7 +43,7 @@ call python ..\kode\create_gpkg.py
 echo:
 REM input i sql er antall feltarbeider = antall tilfeldige tall mellom 1000 og 1000 som skal genereres
 echo 2 Lager tabell med informasjon om feltarbeidere og deres flater
-call psql -h db04.int.nibio.no -U org_treqbm -d sl -f ..\kode\create_table_fugl_kode_feltarbeidere.sql -v ant=3
+call psql -h xxxxx.int.nibio.no -U org_treqbm -d sl -f ..\kode\create_table_fugl_kode_feltarbeidere.sql -v ant=3
 echo
 echo 3 Lager QGIS-prosjekt
 for /F "tokens=4,6 delims=; skip=1" %%a in (..\kode\fugl_feltarbeidere_inf.csv) do (
