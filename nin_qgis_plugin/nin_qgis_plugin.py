@@ -24,11 +24,15 @@
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
+from qgis.core import QgsVectorLayer, QgsField, QgsProject, QgsFeature
+from PyQt5.QtCore import QVariant
+
 # Initialize Qt resources from file resources.py
 from .resources import *
 
 # Import the code for the DockWidget
 from .nin_qgis_plugin_dockwidget import NinMapperDockWidget
+from .polygon_draw_tool import PolygonDrawTool
 import os.path
 
 
@@ -45,6 +49,9 @@ class NinMapper:
         """
         # Save reference to the QGIS interface
         self.iface = iface
+
+        # Now get the map canvas using the 'iface' object and assign it to 'self.canvas'
+        self.canvas = iface.mapCanvas()
 
         # initialize plugin directory
         self.plugin_dir = os.path.dirname(__file__)
@@ -72,6 +79,10 @@ class NinMapper:
 
         self.pluginIsActive = False
         self.dockwidget = None
+
+        # Set up the custom tool
+        self.polygon_draw_tool = PolygonDrawTool(self.canvas)
+        self.polygon_draw_tool.polygonCreated.connect(self.polygon_created)
 
 
     # noinspection PyMethodMayBeStatic
@@ -173,6 +184,61 @@ class NinMapper:
             text=self.tr(u'Open NiN mapper'),
             callback=self.run,
             parent=self.iface.mainWindow())
+        
+        # Create an action to start the drawing tool
+        self.action = QAction("Draw Polygon", self.iface.mainWindow())
+        self.action.triggered.connect(self.start_drawing)
+        # Add the action to a toolbar, menu, etc. as desired
+        # ...
+
+    def start_drawing(self):
+        self.canvas.setMapTool(self.polygon_draw_tool)
+
+    def polygon_created(self, geometry):
+
+        # Identify or create the layer to which the polygon will be added
+        layer = self.get_or_create_layer()
+        
+        # Create the feature with the geometry
+        feat = QgsFeature()
+        feat.setGeometry(geometry)
+        
+        # Add predefined attributes if necessary
+        #feat.setAttributes(["NiN-major", "Nin-minor"])
+        
+        # Add the feature to the layer
+        layer.startEditing()
+        layer.addFeature(feat)
+        layer.commitChanges()
+
+    def get_or_create_layer(self):
+
+        # Replace 'your_layer_name' with the name of the layer you wish to use or create.
+        layer_name = 'test_layer'
+
+        # Check if the layer already exists in the Layers panel
+        for layer in QgsProject.instance().mapLayers().values():
+            if layer.name() == layer_name:
+                return layer
+
+        # If the layer does not exist, create a new one
+        layer = QgsVectorLayer("Polygon?crs=EPSG:4326", layer_name, "memory")
+        
+        # Add predefined attributes (fields) to the layer
+        provider = layer.dataProvider()
+        provider.addAttributes([
+            QgsField("id", QVariant.Int),
+            QgsField("name", QVariant.String),
+            QgsField("hovedtype", QVariant.String),
+            QgsField("grunntype", QVariant.String),
+            # Add more fields as necessary
+        ])
+        layer.updateFields()  # Tell the vector layer to fetch changes from the provider
+
+        # Add the new layer to the Layers panel
+        QgsProject.instance().addMapLayer(layer)
+    
+        return layer
 
     #--------------------------------------------------------------------------
 
@@ -221,7 +287,7 @@ class NinMapper:
             #    removed on close (see self.onClosePlugin method)
             if self.dockwidget == None:
                 # Create the dockwidget (after translation) and keep reference
-                self.dockwidget = NinMapperDockWidget()
+                self.dockwidget = NinMapperDockWidget(self.canvas)
 
             # connect to provide cleanup on closing of dockwidget
             self.dockwidget.closingPlugin.connect(self.onClosePlugin)

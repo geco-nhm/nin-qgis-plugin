@@ -1,2 +1,3 @@
 # Zipped project
 /nin_qgis_plugin/zip_build
+nin_qgis_plugin/__pycache__/

@@ -26,6 +26,7 @@ import os
 
 from qgis.PyQt import QtGui, QtWidgets, uic
 from qgis.PyQt.QtCore import pyqtSignal
+from qgis.core import QgsRectangle, QgsRasterLayer, QgsProject
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'nin_qgis_plugin_dockwidget_base.ui'))
@@ -35,9 +36,12 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
 
     closingPlugin = pyqtSignal()
 
-    def __init__(self, parent=None):
+    def __init__(self, canvas, parent=None):
         """Constructor."""
+
         super(NinMapperDockWidget, self).__init__(parent)
+        self.canvas = canvas
+
         # Set up the user interface from Designer.
         # After setupUI you can access any designer object by doing
         # self.<objectname>, and you can use autoconnect slots - see
@@ -45,6 +49,65 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         # #widgets-and-dialogs-with-auto-connect
         self.setupUi(self)
 
+        # Connect the button action to the create_polygon method
+        self.createPolygonButton.clicked.connect(self.create_polygon)
+
+    def create_polygon(self):
+
+        # Draw map canvas
+        self.add_base_map()
+
+        # Get the filename from the QLineEdit widget.
+        file_name = self.filenameLineEdit.text()
+
+        if file_name:  # Simple check to make sure it's not empty.
+            # Logic for creating the polygon goes here.
+            # You can now use the `file_name` as needed to store the new feature.
+            print("The 'Create new polygon' button was clicked.")
+            print(f"File name entered: {file_name}")
+        else:
+            # Inform the user to enter a file name or handle as needed.
+            print("Please enter a file name.")
+
     def closeEvent(self, event):
         self.closingPlugin.emit()
         event.accept()
+
+    def add_base_map(self):
+    
+        wmts_base_url = "https://opencache.statkart.no/gatekeeper/gk/gk.open_wmts?"
+        layer_name = "norgeskart_bakgrunn"
+        epsg = 3857
+
+        wmts_layer = QgsRasterLayer(
+            f'type=xyz&url={wmts_base_url}layer={layer_name}&style=default&tilematrixset=EPSG:{epsg}&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image/png&TileMatrix=EPSG:{epsg}:{{z}}&TileCol={{x}}&TileRow={{y}}',
+            'Norway Background Map',
+            'wms'
+        )
+        
+        if not wmts_layer.isValid():
+            print("Failed to load the background map layer!")
+        else:
+            # Add the layer to QGIS
+            QgsProject.instance().addMapLayer(wmts_layer, False)
+            # Create a new layer tree group
+            group = QgsProject.instance().layerTreeRoot().insertGroup(0, 'Base Maps')
+            group.addLayer(wmts_layer)
+
+            # Define bounds for Norway
+            #norway_extent = QgsRectangle(4.0, 57.9, 31.1, 71.2)  # Approximate bounds for Norway in lon,lat
+            #self.canvas.setExtent(norway_extent)
+            #self.canvas.refresh()
+
+            # Define the approximate bounding box for the Oslo area
+            # You may need to adjust these coordinates based on the desired zoom and location
+            oslo_extent = QgsRectangle(10.645, 59.842, 10.916, 59.975)  # Coordinates around Oslo
+            
+            # Set the canvas to the Oslo extent
+            self.canvas.setExtent(oslo_extent)
+            
+            # Set an appropriate zoom level if needed (optional)
+            self.canvas.zoomScale(1)  # Set the canvas zoom scale (the value may need adjustment)
+            
+            self.canvas.refreshAllLayers()
+

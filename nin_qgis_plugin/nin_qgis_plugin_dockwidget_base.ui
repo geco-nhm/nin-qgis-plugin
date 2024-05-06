@@ -20,7 +20,21 @@
       <property name="text">
        <string>Replace this QLabel
 with the desired
-plugin content.</string>
+plugin content. Yo.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLineEdit" name="filenameLineEdit">
+      <property name="placeholderText">
+       <string>Enter file name...</string>
+     </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="createPolygonButton">
+      <property name="text">
+       <string>Create new polygon!</string>
       </property>
      </widget>
     </item>
