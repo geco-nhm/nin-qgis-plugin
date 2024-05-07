@@ -23,6 +23,7 @@
 """
 
 import os
+from . import create_gpkg as cgpkg
 
 from qgis.PyQt import QtGui, QtWidgets, uic
 from qgis.PyQt.QtCore import pyqtSignal
@@ -55,7 +56,7 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
     def create_polygon(self):
 
         # Draw map canvas
-        self.add_base_map()
+        #self.add_base_map()
 
         # Get the filename from the QLineEdit widget.
         file_name = self.filenameLineEdit.text()
@@ -65,6 +66,9 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             # You can now use the `file_name` as needed to store the new feature.
             print("The 'Create new polygon' button was clicked.")
             print(f"File name entered: {file_name}")
+
+            cgpkg.main()
+
         else:
             # Inform the user to enter a file name or handle as needed.
             print("Please enter a file name.")
