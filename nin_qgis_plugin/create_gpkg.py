@@ -1,9 +1,9 @@
-'''Creates a NiN-conforming empty geopackage (.gpkg)'''
+'''Creates an empty geopackage (.gpkg) with vectors and attribute tables for NiN-mapping'''
 # -*- coding: utf-8 -*-
 
 import os
 from pathlib import Path
-from typing import Any
+from typing import Any, Union
 import pandas as pd
 
 from qgis.core import (
@@ -15,8 +15,11 @@ from qgis.core import (
 )
 from qgis.PyQt.QtCore import QVariant
 
-def set_qvariant(qvariant: str) -> Any:
-    '''Returns QVariant object for corresponding short-hand strings'''
+def get_qvariant(qvariant: str) -> Any:
+    '''
+    Returns QVariant object for corresponding short-hand strings.
+    Raises an error if provided string does not match a supported Qvariant type.
+    '''
 
     if qvariant == 'Int':
         return QVariant.Int
@@ -33,42 +36,133 @@ def set_qvariant(qvariant: str) -> Any:
     raise ValueError("Qvariant Type not supported!")
 
 
-def create_gpkg_from_layer(
-    gpkg_path: str,
-    layer_name: str,
-    geometry: QgsWkbTypes,
+def create_empty_gpkg(
+    gpkg_save_path: Union[str, Path],
     crs: str,
-    fields: QgsFields,
-    overwrite_layer: bool = False,
-) -> bool:
+) -> None:
     '''
-    Creates an empty geopackage object with an empty layer of predifined attributes.
+    Creates an empty geopackage (.gpkg file) with a specified geometry and crs.
+    '''
+
+    # Set QgsVectorFileWriter options
+    options = QgsVectorFileWriter.SaveVectorOptions()
+    options.driverName = "GPKG"
+    options.fileEncoding = "UTF-8"
+
+    # Create an empty GeoPackage
+    _writer = QgsVectorFileWriter.create(
+        str(gpkg_save_path),
+        QgsFields(),  # No fields yet
+        QgsWkbTypes.NoGeometry,  # No geometry for the empty gpkg
+        QgsCoordinateReferenceSystem(crs),  # Specify the CRS
+        QgsCoordinateTransformContext(),
+        options,
+    )  # Format
+
+    # Release the file writer to flush changes to disk
+    del _writer
+
+
+def create_empty_layer(
+    layer_name: str,
+    geometry: Union[str, None],
+    crs: Union[str, None] = 'epsg:25833',
+    data_provider: str = 'memory',
+) -> QgsVectorLayer:
+    '''
+    Creates and returns a layer (in memory by default).
+
+    Geometry needs to be one of: ('point', 'linestring', 'polygon', 'multipoint', 'multilinestring', 'multipolygon') or None.
+
+    If crs is None, a layer with no geometry (for tables) is created.
+    https://gis.stackexchange.com/questions/183692/creating-geometry-less-memory-layer-using-pyqgis
+    '''
+
+    layer = QgsVectorLayer(
+        path=f'{geometry}?crs={crs}&index=yes' if geometry else 'None',
+        baseName=layer_name,
+        providerLib=data_provider,
+        options=QgsVectorLayer.LayerOptions(),
+    )
+
+    return layer
+
+    """
+    # Constructor
+    # QgsVectorLayer(path: str = '', baseName: str = '', providerLib: str = '', options: QgsVectorLayer.LayerOptions = QgsVectorLayer.LayerOptions())
+    layer = QgsVectorLayer(
+        path="",
+        baseName="",
+        providerLib="",
+        options=QgsVectorLayer.LayerOptions(),
+    )
+
+    # QgsFeature(fields: QgsFields, id: int = FID_NULL) Constructor for QgsFeature
+
+    # Create new layer in memory
+    layer_name = 'vegreg'
+    crs = 'epsg:25833'
+    layer = QgsVectorLayer(f'multipoint?crs={crs}', layer_name, 'memory')  # points for testing
+    QgsProject.instance().addMapLayer(layer)
+    geom = QgsWkbTypes.NoGeometry
+    crs = ''
+    fields = QgsFields()
+    fields.append(QgsField("delomr", QVariant.String, '', 1, 0))            # a-f
+    fields.append(QgsField("vegtype", QVariant.String, '', 50, 0))          # delområdets vegetasjonstype
+    fields.append(QgsField("pdekning", QVariant.Int, '', 3, 0))			    # aktuell vegetasjonsdekkeandel
+    fields.append(QgsField("vr_id", QVariant.String, '', 38, 0))            # Relasjon mellom NYE punkter i vv_vegtype med vegtypedekning
+    """
+
+
+def write_layer_to_gpkg_file(
+    gpkg_out_path: Union[str, Path],
+    layer: QgsVectorLayer,
+    extend_existing: bool = True,
+) -> None:
+    '''
+    Creates or extends a geopackage file with a specified layer.
 
     https://gis.stackexchange.com/questions/417916/creating-empty-layers-in-a-geopackage-using-pyqgis
     '''
 
-    # To add a layer to an existing GPKG file, pass 'append' as True
+    # Set QgsVectorFileWriter options
     options = QgsVectorFileWriter.SaveVectorOptions()
+    options.layerName = layer.name()
     options.driverName = "GPKG"
-    options.layerName = layer_name
+    options.fileEncoding = "UTF-8"
+    options.layerOptions = ['ENCODING=UTF-8']
+    #options.layerName = new_layer_name
 
-    if overwrite_layer:
+    # Add to existing gpkg?
+    if extend_existing:
         options.actionOnExistingFile = QgsVectorFileWriter.CreateOrOverwriteLayer
 
-    writer = QgsVectorFileWriter.create(
-        fileName=str(gpkg_path),
-        fields=fields,
-        geometryType=geometry,
-        srs=QgsCoordinateReferenceSystem(crs),
+    print(f"Writing layer to '{gpkg_out_path}'")
+
+    QgsVectorFileWriter.writeAsVectorFormatV3(
+        layer=layer,
+        fileName=str(gpkg_out_path),
         transformContext=QgsCoordinateTransformContext(),
         options=options,
     )
 
-    del writer
 
-    return True
+    #if writer_result == QgsVectorFileWriter.NoError:
+    #    print("Success!")
+    #else:
+    #    print(error_message)
 
-
+    """
+    file_writer = QgsVectorFileWriter.create(
+        fileName=str(gpkg_out_path),
+        fields=layer.fields(),
+        geometryType=layer.wkbType(),
+        srs=layer.crs(),  #QgsCoordinateReferenceSystem(crs),
+        transformContext=QgsCoordinateTransformContext(),
+        options=options,
+    )
+    """
+"""
 def create_gpkg_from_layer(
     layer_name: str,
     layer: QgsVectorLayer,
@@ -89,17 +183,20 @@ def create_gpkg_from_layer(
     if append:
         options.actionOnExistingFile = QgsVectorFileWriter.CreateOrOverwriteLayer
 
-    writer = QgsVectorFileWriter.writeAsVectorFormatV3(
+    writer_result, error_message = QgsVectorFileWriter.writeAsVectorFormatV3(
         layer=layer,
         fileName=str(gpkg_path),
         transformContext=QgsCoordinateTransformContext(),
         options=options,
     )
 
-    del writer
+    if writer_result == QgsVectorFileWriter.NoError:
+        print ("Success!")
+    else:
+        print (error_message)
 
     return True
-
+"""
 
 def copy_layer(gpkg_path: str, layer_name: str) -> QgsVectorLayer:
     '''
@@ -126,11 +223,10 @@ def copy_layer(gpkg_path: str, layer_name: str) -> QgsVectorLayer:
 
 def add_layer_attributes_from_file(
     attribute_csv_file_path: str,
-    data_provider: QgsDataProvider,
-    lyr: QgsVectorLayer,
+    layer: QgsVectorLayer,
 ) -> QgsVectorLayer:
     '''
-    Adds attributes defined in csv file to a QGis vector layer.
+    Adds attributes defined in csv file to a QgsVectorLayer.
 
     https://gis.stackexchange.com/questions/262549/pyqgis-adding-fields-to-a-feature-layer
     '''
@@ -141,7 +237,10 @@ def add_layer_attributes_from_file(
         header=0,
     )
 
+    data_provider = layer.dataProvider()
+
     for _, row in attribute_df.iterrows():
+
         # Extract and cast attribute metadata
         attribute_name = str(row['name'])
         attribute_length = int(row['length'])
@@ -151,33 +250,36 @@ def add_layer_attributes_from_file(
         try:
             data_provider.addAttributes(
                 [QgsField(
-                    attribute_name,
-                    set_qvariant(attribute_type),
-                    '',
-                    attribute_length,
-                    attribute_precision,
+                    name=attribute_name,
+                    type=get_qvariant(attribute_type),
+                    typeName='',  # Field type (e.g., char, varchar, text, int, serial, double) -> not needed for now
+                    len=attribute_length,
+                    prec=attribute_precision,
                 )]
             )  # add field to layer
-            lyr.updateFields()  # update vector layer from the datasource
+            layer.updateFields()  # update vector layer from the datasource
 
         except Exception as exception:
             print(
-				f"Could not create attribute {attribute_name} from {attribute_csv_file_path}."
+				f"Could not create attribute {attribute_name} from {attribute_csv_file_path}. Check the csv for correct formatting!"
 			)
             raise exception
 
     print(attribute_df)
 
-    return lyr
+    return layer
 
 
-# https://gis.stackexchange.com/questions/364211/importing-csv-table-to-geopackage-with-pyqgis-using-csv-file-name
 def create_table_from_csv(
     csv_path: str,
     gpkg_path: str,
     layer_name: str,
 ) -> None:
-    '''Creates a vector format Table from a csv.'''
+    '''
+    Creates a vector format Table from a csv.
+
+    https://gis.stackexchange.com/questions/364211/importing-csv-table-to-geopackage-with-pyqgis-using-csv-file-name
+    '''
 
     table = QgsVectorLayer(csv_path, "csv", 'delimitedtext')
     opt = QgsVectorFileWriter.SaveVectorOptions()
@@ -223,41 +325,75 @@ def main() -> None:
     # create_gpkg_layer("fugleobs", nl, gpkg_reg)  # Save as new layer fugleobs, geometry type and crs inherited from original point-layer
     #####
 
+    # Define name and path of new geopackage
+    gpkg_name = "nin_survey.gpkg"
+    gpkg_path = Path(__file__).parent / gpkg_name
+    if gpkg_path.is_file():  # If gpkg-file already exists, raise Error
+        os.remove(gpkg_path)
+        #raise ValueError(f"{gpkg_path} already exists! Define a different one to avoid data loss.")
+
     # Define path to attribute csv
     nin_attributes_csv_path = Path(__file__).parent / 'bird_attributes_test.csv'
 
-    print(f"Creating empty layer with attributes from {nin_attributes_csv_path}.")
-
-    # Create new layer in memory
-    layer_name = 'NiN-observations'
+    # Define CRS string (EPSG:25833 -> ETRS89 / UTM zone 33N)
     crs = 'epsg:25833'
-    layer = QgsVectorLayer(f'multipoint?crs={crs}', layer_name, 'memory')  # points for testing
-    QgsProject.instance().addMapLayer(layer)
-    data_provider = layer.dataProvider()
 
-    # Add attributes to empty polygon layer
-    layer = add_layer_attributes_from_file(
-        attribute_csv_file_path=nin_attributes_csv_path,
-        data_provider=data_provider,
-        lyr=layer,
+    # Create empty geopackage
+    print(f"Creating empty geopackage in {gpkg_path}.")
+    create_empty_gpkg(
+        gpkg_save_path=gpkg_path,
+        crs=crs,
     )
 
-    # the NEW gpkg to be created
-    gpkg_name = "nin_survey.gpkg"
-    gpkg_path = Path(__file__).parent / gpkg_name
-    if gpkg_path.is_file():  # If gpkg-file already exists, delete it
-        os.remove(gpkg_path)
-
-    create_empty_gpkg(
-        gpkg_path=gpkg_path,
-        layer_name=layer_name,
-        geometry=QgsWkbTypes.PointZ,
+    # Create NiN multipolygon layer
+    print(f"Creating NiN multipolygon layer with attributes defined in {nin_attributes_csv_path}.")
+    nin_polygons_layer = create_empty_layer(
+        layer_name='nin_polygons',
+        geometry='multipolygon',
         crs=crs,
-        fields=QgsFields(),
-        append=False,
-    )  # Ikke inkl. True når FØRSTE lag lages
+        data_provider='memory',
+    )
 
-    print("Done testing.")
+    #QgsProject.instance().addMapLayer(layer)
+
+    # Add attributes to nin polygon layer from csv file
+    nin_polygons_layer = add_layer_attributes_from_file(
+        attribute_csv_file_path=nin_attributes_csv_path,
+        layer=nin_polygons_layer,
+    )
+
+    # Save to created geopackage
+    write_layer_to_gpkg_file(
+        gpkg_out_path=gpkg_path,
+        layer=nin_polygons_layer,
+        extend_existing=True,
+    )
+
+    print("Written nin polygon layer to gpkg. Now add another one for testing.")
+
+    helper_point_layer = create_empty_layer(
+        layer_name='nin_helper_points',
+        geometry='multipoint',
+        crs=crs,
+        data_provider='memory',
+    )
+
+    # Get the data provider of the layer
+    helper_point_layer.startEditing()
+    provider = helper_point_layer.dataProvider()
+    provider.addAttributes([QgsField("Comment", QVariant.String)])
+    helper_point_layer.updateFields()
+    helper_point_layer.commitChanges()
+
+    write_layer_to_gpkg_file(
+        gpkg_out_path=gpkg_path,
+        layer=helper_point_layer,
+        extend_existing=True,
+    )
+
+    # Remove layers from memory
+    del nin_polygons_layer, helper_point_layer
+
 
     '''
     # Add a cvs-file as a table in the gpkg
