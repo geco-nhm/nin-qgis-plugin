@@ -18,9 +18,7 @@
     <item row="0" column="0">
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>Replace this QLabel
-with the desired
-plugin content. Yo.</string>
+       <string>NiN-mapping in QGIS!</string>
       </property>
      </widget>
     </item>
@@ -34,7 +32,14 @@ plugin content. Yo.</string>
     <item row="2" column="0">
      <widget class="QPushButton" name="createPolygonButton">
       <property name="text">
-       <string>Create new polygon!</string>
+       <string>Create new geopackage!</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="changeProjectSettingsButton">
+      <property name="text">
+       <string>Load geopackage and adapt project!</string>
       </property>
      </widget>
     </item>

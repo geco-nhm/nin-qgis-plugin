@@ -1,0 +1,69 @@
+fid,typer_fkey,langkode,kode_id,navn
+0,0,NIN-3.0-T-A-LV-BM-0-BM-A,BM-A,Bremassiv
+1,1,NIN-3.0-T-A-LV-EL-0-EL-G,EL-G,Kunstige elveløp og elveløp med sterkt endret hydromorfologi
+2,1,NIN-3.0-T-A-LV-EL-0-EL-F,EL-F,Elveløp med klart endret hydromorfologi
+3,1,NIN-3.0-T-A-LV-EL-0-EL-E,EL-E,Kompleks elvemunning
+4,1,NIN-3.0-T-A-LV-EL-0-EL-D,EL-D,Elveløp i og gjennom kohesive sedimenter
+5,1,NIN-3.0-T-A-LV-EL-0-EL-C,EL-C,Elveløp preget av glasiale og fluviale prosesser
+6,1,NIN-3.0-T-A-LV-EL-0-EL-B,EL-B,Elveløp preget av fluviale prosesser
+7,1,NIN-3.0-T-A-LV-EL-0-EL-A,EL-A,Elveløp i fast fjell
+8,2,NIN-3.0-T-A-LV-FL-0-FL-P,FL-P,Vulkanske landformer
+9,2,NIN-3.0-T-A-LV-FL-0-FL-O,FL-O,Vindlandformer
+10,2,NIN-3.0-T-A-LV-FL-0-FL-N,FL-N,Utstrømningslandformer
+11,2,NIN-3.0-T-A-LV-FL-0-FL-M,FL-M,Havstrømlandformer
+12,2,NIN-3.0-T-A-LV-FL-0-FL-L,FL-L,Skredlandformer
+13,2,NIN-3.0-T-A-LV-FL-0-FL-K,FL-K,Skyve-foldebeltelandformer
+14,2,NIN-3.0-T-A-LV-FL-0-FL-J,FL-J,Lagdelingsformer i berggrunn
+15,2,NIN-3.0-T-A-LV-FL-0-FL-I,FL-I,Kystlandformer
+16,2,NIN-3.0-T-A-LV-FL-0-FL-H,FL-H,Glasiale landformer
+17,2,NIN-3.0-T-A-LV-FL-0-FL-G,FL-G,Forvitringslandformer
+18,2,NIN-3.0-T-A-LV-FL-0-FL-F,FL-F,Frostlandformer
+19,2,NIN-3.0-T-A-LV-FL-0-FL-E,FL-E,Forkastnings- og oppsprekkingslandformer
+20,2,NIN-3.0-T-A-LV-FL-0-FL-D,FL-D,Elvelandformer
+21,2,NIN-3.0-T-A-LV-FL-0-FL-C,FL-C,Bresjølandformer
+22,2,NIN-3.0-T-A-LV-FL-0-FL-B,FL-B,Biogene landformer
+23,2,NIN-3.0-T-A-LV-FL-0-FL-A,FL-A,Breelvlandformer
+24,3,NIN-3.0-T-A-LV-IB-0-IB-N,IB-N,Basseng formet av mennesker
+25,3,NIN-3.0-T-A-LV-IB-0-IB-M,IB-M,Basseng formet av dyrs aktiviteter
+26,3,NIN-3.0-T-A-LV-IB-0-IB-L,IB-L,Basseng i torv
+27,3,NIN-3.0-T-A-LV-IB-0-IB-K,IB-K,Basseng formet av kystprosesser
+28,3,NIN-3.0-T-A-LV-IB-0-IB-J,IB-J,Vinderosjonsbasseng
+29,3,NIN-3.0-T-A-LV-IB-0-IB-I,IB-I,Elvesediment-basseng
+30,3,NIN-3.0-T-A-LV-IB-0-IB-H,IB-H,Elveerosjonsbasseng
+31,3,NIN-3.0-T-A-LV-IB-0-IB-G,IB-G,Basseng formet av kjemiske oppløsningsprosesser
+32,3,NIN-3.0-T-A-LV-IB-0-IB-F,IB-F,Frostprosess-basseng
+33,3,NIN-3.0-T-A-LV-IB-0-IB-E,IB-E,Bre- og breelvsedimentasjonsbasseng
+34,3,NIN-3.0-T-A-LV-IB-0-IB-D,IB-D,Breerosjonsbasseng
+35,3,NIN-3.0-T-A-LV-IB-0-IB-C,IB-C,Bredemt basseng
+36,3,NIN-3.0-T-A-LV-IB-0-IB-B,IB-B,Massetransport-basseng
+37,3,NIN-3.0-T-A-LV-IB-0-IB-A,IB-A,Basseng formet av jordas indre prosesser
+38,4,NIN-3.0-T-A-LV-TM-0-TM-H,TM-H,Høgmyrmassiv
+39,4,NIN-3.0-T-A-LV-TM-0-TM-G,TM-G,Ombrogent ikke-hvelvet torvmassiv
+40,4,NIN-3.0-T-A-LV-TM-0-TM-F,TM-F,Mellomstillingsmassiv
+41,4,NIN-3.0-T-A-LV-TM-0-TM-E,TM-E,Blandingsmyrtorvmassiv
+42,4,NIN-3.0-T-A-LV-TM-0-TM-D,TM-D,Flommyrtorvmassiv
+43,4,NIN-3.0-T-A-LV-TM-0-TM-C,TM-C,Kildetorvmassiv
+44,4,NIN-3.0-T-A-LV-TM-0-TM-B,TM-B,Soligene torvmassiv
+45,4,NIN-3.0-T-A-LV-TM-0-TM-A,TM-A,Topogene torvmassiv
+46,5,NIN-3.0-T-A-MV-0-0-MV-B,MV-B,Fjordvannmasser
+47,5,NIN-3.0-T-A-MV-0-0-MV-A,MV-A,Hav-vannmasser
+48,6,NIN-3.0-T-C-LI-0-0-LI-TU,LI-TU,Substratfrie livsmedier på land
+49,6,NIN-3.0-T-C-LI-0-0-LI-TS,LI-TS,Substrat på land
+50,6,NIN-3.0-T-C-LI-0-0-LI-MU,LI-MU,Substratfrie livsmedier i marine systemer
+51,6,NIN-3.0-T-C-LI-0-0-LI-MS,LI-MS,Substrat i marine systemer
+52,6,NIN-3.0-T-C-LI-0-0-LI-FU,LI-FU,Substratfrie livsmedier i ferskvann
+53,6,NIN-3.0-T-C-LI-0-0-LI-FS,LI-FS,Substrat i ferskvann
+54,7,NIN-3.0-T-C-PE-LA-0-LA-M,LA-M,Marine landskap
+55,7,NIN-3.0-T-C-PE-LA-0-LA-K,LA-K,Kystlandskap
+56,7,NIN-3.0-T-C-PE-LA-0-LA-I,LA-I,Innlandslandskap
+57,8,NIN-3.0-T-C-PE-NA-VM-NA-S,NA-S,Marine vannmassesystemer
+58,8,NIN-3.0-T-C-PE-NA-VM-NA-F,NA-F,Limniske vannmassesystemer
+59,8,NIN-3.0-T-C-PE-NA-MB-NA-V,NA-V,Våtmarkssystemer
+60,8,NIN-3.0-T-C-PE-NA-MB-NA-T,NA-T,Fastmarkssystemer
+61,8,NIN-3.0-T-C-PE-NA-MB-NA-O,NA-O,Elvebunnsystemer
+62,8,NIN-3.0-T-C-PE-NA-MB-NA-M,NA-M,Marine bunnsystemer
+63,8,NIN-3.0-T-C-PE-NA-MB-NA-L,NA-L,Innsjøbunnsystemer
+64,8,NIN-3.0-T-C-PE-NA-MB-NA-I,NA-I,Snø- og issystemer
+65,9,NIN-3.0-T-C-SE-NK-0-NK-E,NK-E,Naturkompleks betinget av destabiliserende forstyrrelse
+66,9,NIN-3.0-T-C-SE-NK-0-NK-D,NK-D,Naturkompleks betinget av regulerende forstyrrelse
+67,9,NIN-3.0-T-C-SE-NK-0-NK-C,NK-C,Naturkompleks betinget av miljøstress

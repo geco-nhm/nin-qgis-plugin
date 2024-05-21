@@ -24,6 +24,7 @@
 
 import os
 from . import create_gpkg as cgpkg
+from . import project_setup as ps
 
 from qgis.PyQt import QtGui, QtWidgets, uic
 from qgis.PyQt.QtCore import pyqtSignal
@@ -53,10 +54,13 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         # Connect the button action to the create_polygon method
         self.createPolygonButton.clicked.connect(self.create_polygon)
 
+        # Connect the button action to the create_polygon method
+        self.changeProjectSettingsButton.clicked.connect(self.load_project)
+
     def create_polygon(self):
 
         # Draw map canvas
-        #self.add_base_map()
+        # self.add_base_map()
 
         # Get the filename from the QLineEdit widget.
         file_name = self.filenameLineEdit.text()
@@ -73,12 +77,17 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             # Inform the user to enter a file name or handle as needed.
             print("Please enter a file name.")
 
+    def load_project(self) -> None:
+        '''Loads project settings'''
+
+        ps.main()
+
     def closeEvent(self, event):
         self.closingPlugin.emit()
         event.accept()
 
     def add_base_map(self):
-    
+
         wmts_base_url = "https://opencache.statkart.no/gatekeeper/gk/gk.open_wmts?"
         layer_name = "norgeskart_bakgrunn"
         epsg = 3857
@@ -88,7 +97,7 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             'Norway Background Map',
             'wms'
         )
-        
+
         if not wmts_layer.isValid():
             print("Failed to load the background map layer!")
         else:
@@ -99,19 +108,20 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             group.addLayer(wmts_layer)
 
             # Define bounds for Norway
-            #norway_extent = QgsRectangle(4.0, 57.9, 31.1, 71.2)  # Approximate bounds for Norway in lon,lat
-            #self.canvas.setExtent(norway_extent)
-            #self.canvas.refresh()
+            # norway_extent = QgsRectangle(4.0, 57.9, 31.1, 71.2)  # Approximate bounds for Norway in lon,lat
+            # self.canvas.setExtent(norway_extent)
+            # self.canvas.refresh()
 
             # Define the approximate bounding box for the Oslo area
             # You may need to adjust these coordinates based on the desired zoom and location
-            oslo_extent = QgsRectangle(10.645, 59.842, 10.916, 59.975)  # Coordinates around Oslo
-            
+            # Coordinates around Oslo
+            oslo_extent = QgsRectangle(10.645, 59.842, 10.916, 59.975)
+
             # Set the canvas to the Oslo extent
             self.canvas.setExtent(oslo_extent)
-            
-            # Set an appropriate zoom level if needed (optional)
-            self.canvas.zoomScale(1)  # Set the canvas zoom scale (the value may need adjustment)
-            
-            self.canvas.refreshAllLayers()
 
+            # Set an appropriate zoom level if needed (optional)
+            # Set the canvas zoom scale (the value may need adjustment)
+            self.canvas.zoomScale(1)
+
+            self.canvas.refreshAllLayers()
