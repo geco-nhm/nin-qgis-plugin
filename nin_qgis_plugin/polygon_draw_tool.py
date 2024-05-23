@@ -11,9 +11,9 @@ class PolygonDrawTool(QgsMapToolEmitPoint):
         super().__init__(canvas)
         self.canvas = canvas
         self.points = []
-        self.rubberBand = QgsRubberBand(self.canvas, True)
-        self.rubberBand.setColor(QColor(255, 0, 0, 100))
-        self.rubberBand.setWidth(2)
+        #self.rubberBand = QgsRubberBand(self.canvas, True)
+        #self.rubberBand.setColor(QColor(255, 0, 0, 100))
+        #self.rubberBand.setWidth(2)
 
 
     def canvasPressEvent(self, e):
@@ -42,15 +42,15 @@ class PolygonDrawTool(QgsMapToolEmitPoint):
         if len(self.points) > 0:
             # Add the current mouse position as a temporary point.
             temp_point = self.toMapCoordinates(e.pos())
-            self.rubberBand.reset(True)
-            for point in self.points + [QgsPointXY(temp_point)]:
-                self.rubberBand.addPoint(point, False)
-            self.rubberBand.show()
+            #self.rubberBand.reset(True)
+            #for point in self.points + [QgsPointXY(temp_point)]:
+                #self.rubberBand.addPoint(point, False)
+            #self.rubberBand.show()
 
     
     def deactivate(self):
         super().deactivate()
         self.deactivated.emit()  # Emit the signal
         # Reset the rubber band and remove point markers when the tool is deactivated
-        self.rubberBand.reset(True)
-        self.canvas.scene().clear()
+        #self.rubberBand.reset(True)
+        #self.canvas.scene().clear()
