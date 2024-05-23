@@ -75,7 +75,7 @@ def field_to_value_relation(
     config = {
         'AllowMulti': False,
         'AllowNull': True,
-        'FilterExpression': QgsExpression(filter_expression),
+        'FilterExpression': filter_expression,  # QgsExpression()?
         'Key': foreign_key_field_name,
         'Layer': forgein_attribute_table_layer.id(),  # Foreign key layer by ID
         'NofColumns': 1,
@@ -177,7 +177,7 @@ def main() -> None:
         },
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
-            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName('hovedtypegrupper')[0],
+            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName('hovedtypgrupper')[0],
             "primary_key_field_name": "hovedtypegruppe",
             "foreign_key_field_name": "fid",
             "foreign_field_to_display": "navn",

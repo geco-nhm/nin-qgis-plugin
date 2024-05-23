@@ -233,10 +233,6 @@ def add_attribute_values_from_csv(
                 if not isinstance(new_value, str):
                     new_value = int(new_value)
 
-                print(
-                    f"feat_id: {feature.id()}, field_idx: {field_idx}, new_val: {new_value}"
-                )
-
                 layer.changeAttributeValue(
                     feature.id(), field_idx, new_value
                 )
