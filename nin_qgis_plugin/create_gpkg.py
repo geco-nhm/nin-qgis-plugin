@@ -12,7 +12,7 @@ from qgis.core import (
     QgsProject, QgsCoordinateReferenceSystem,
     QgsCoordinateTransformContext, QgsVectorLayer,
     QgsFeatureRequest, QgsDataProvider, QgsFeature,
-    edit
+    QgsRelation, edit
 )
 from qgis.PyQt.QtCore import QVariant
 
@@ -233,10 +233,6 @@ def add_attribute_values_from_csv(
                 if not isinstance(new_value, str):
                     new_value = int(new_value)
 
-                print(
-                    f"feat_id: {feature.id()}, field_idx: {field_idx}, new_val: {new_value}"
-                )
-
                 layer.changeAttributeValue(
                     feature.id(), field_idx, new_value
                 )
@@ -292,7 +288,7 @@ def main() -> None:
     gpkg_path = Path(__file__).parent / gpkg_name
     if gpkg_path.is_file():  # If gpkg-file already exists, raise Error
         os.remove(gpkg_path)
-        # raise ValueError(f"{gpkg_path} already exists! Define a different one to avoid data loss.")
+        # raise ValueError(f"{gpkg_path} already exists! Use a different name to avoid data loss.")
 
     # Define paths to attribute csvs
     csv_root = Path(__file__).parent
@@ -327,7 +323,7 @@ def main() -> None:
 
     print("Written nin polygon layer to .gpkg file.")
 
-    # Helper point layer for testing
+    # Add helper point layer for testing
     helper_point_layer = create_empty_layer(
         layer_name='nin_helper_points',
         geometry='multipoint',
@@ -335,7 +331,6 @@ def main() -> None:
         data_provider='memory',
     )
 
-    # Get the data provider of the layer
     helper_point_layer.startEditing()
     provider = helper_point_layer.dataProvider()
     provider.addAttributes([QgsField("Comment", QVariant.String)])
