@@ -8,7 +8,7 @@
                              -------------------
         begin                : 2024-05-03
         git sha              : $Format:%H$
-        copyright            : (C) 2024 by Lasse Keetz, Peter Horvath
+        copyright            : (C) 2024 by Lasse Keetz, Peter Horvath, Anne B. Nilsen
         email                : test@dev.com
  ***************************************************************************/
 
@@ -29,6 +29,8 @@ from . import project_setup as ps
 from qgis.PyQt import QtGui, QtWidgets, uic
 from qgis.PyQt.QtCore import pyqtSignal
 from qgis.core import QgsRectangle, QgsRasterLayer, QgsProject
+#from PyQt5 import QtWidgets, uic
+from PyQt5.QtWidgets import QAction, QFileDialog
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'nin_qgis_plugin_dockwidget_base.ui'))
@@ -56,6 +58,22 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
 
         # Connect the button action to the create_polygon method
         self.changeProjectSettingsButton.clicked.connect(self.load_project)
+
+    def select_output_file(self):
+
+        file_suffix = ".gpkg"
+        
+        file_name = QFileDialog.getSaveFileName(
+            self.dlg,
+            "Select output file ",
+            "",
+            f'*{file_suffix}'
+        )
+        
+        if not file_name.endswith(file_suffix):
+            file_name += file_suffix
+
+        self.dlg.lineEdit.setText(file_name)
 
     def create_polygon(self):
 

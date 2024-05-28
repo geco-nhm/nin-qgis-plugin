@@ -7,7 +7,7 @@ name=Natur i Norge mapping
 qgisMinimumVersion=3.0
 description=Natur i Norge (NiN) mapping tool.
 version=0.1
-author=Lasse Keetz, Peter Horvath
+author=Lasse Keetz, Peter Horvath, Anne B. Nilsen
 email=test@dev.com
 
 about=Convenience tool for creating georeferenced NiN polygons.

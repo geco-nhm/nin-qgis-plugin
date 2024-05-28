@@ -18,25 +18,32 @@
     <item row="0" column="0">
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>NiN-mapping in QGIS!</string>
+       <string>Please select a target location for a new geopackage.</string>
       </property>
      </widget>
     </item>
     <item row="1" column="0">
      <widget class="QLineEdit" name="filenameLineEdit">
       <property name="placeholderText">
-       <string>Enter file name...</string>
+       <string>Select file location...</string>
      </property>
      </widget>
     </item>
     <item row="2" column="0">
+      <widget class="QPushButton" name="selectFileButton">
+        <property name="text">
+          <string>Select file location</string>
+        </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
      <widget class="QPushButton" name="createPolygonButton">
       <property name="text">
        <string>Create new geopackage!</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
+    <item row="4" column="0">
      <widget class="QPushButton" name="changeProjectSettingsButton">
       <property name="text">
        <string>Load geopackage and adapt project!</string>

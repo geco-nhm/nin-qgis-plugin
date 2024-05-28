@@ -32,7 +32,6 @@ from .resources import *
 
 # Import the code for the DockWidget
 from .nin_qgis_plugin_dockwidget import NinMapperDockWidget
-from .polygon_draw_tool import PolygonDrawTool
 import os.path
 
 
@@ -61,7 +60,8 @@ class NinMapper:
         locale_path = os.path.join(
             self.plugin_dir,
             'i18n',
-            'NinMapper_{}.qm'.format(locale))
+            'NinMapper_{}.qm'.format(locale)
+        )
 
         if os.path.exists(locale_path):
             self.translator = QTranslator()
@@ -70,22 +70,18 @@ class NinMapper:
 
         # Declare instance attributes
         self.actions = []
-        self.menu = self.tr(u'&Natur i Norge mapping')
+        self.menu = self.tr('&Natur i Norge mapping')
         # TODO: We are going to let the user set this up in a future iteration
-        self.toolbar = self.iface.addToolBar(u'NinMapper')
-        self.toolbar.setObjectName(u'NinMapper')
+        self.toolbar = self.iface.addToolBar('NinMapper')
+        self.toolbar.setObjectName('NinMapper')
 
-        #print "** INITIALIZING NinMapper"
+        # print "** INITIALIZING NinMapper"
 
         self.pluginIsActive = False
         self.dockwidget = None
 
-        # Set up the custom tool
-        self.polygon_draw_tool = PolygonDrawTool(self.canvas)
-        self.polygon_draw_tool.polygonCreated.connect(self.polygon_created)
-
-
     # noinspection PyMethodMayBeStatic
+
     def tr(self, message):
         """Get the translation for a string using Qt translation API.
 
@@ -100,18 +96,17 @@ class NinMapper:
         # noinspection PyTypeChecker,PyArgumentList,PyCallByClass
         return QCoreApplication.translate('NinMapper', message)
 
-
     def add_action(
-        self,
-        icon_path,
-        text,
-        callback,
-        enabled_flag=True,
-        add_to_menu=True,
-        add_to_toolbar=True,
-        status_tip=None,
-        whats_this=None,
-        parent=None):
+            self,
+            icon_path,
+            text,
+            callback,
+            enabled_flag=True,
+            add_to_menu=True,
+            add_to_toolbar=True,
+            status_tip=None,
+            whats_this=None,
+            parent=None):
         """Add a toolbar icon to the toolbar.
 
         :param icon_path: Path to the icon for this action. Can be a resource
@@ -174,78 +169,28 @@ class NinMapper:
 
         return action
 
-
     def initGui(self):
         """Create the menu entries and toolbar icons inside the QGIS GUI."""
 
         icon_path = ':/plugins/nin_qgis_plugin/icon.png'
         self.add_action(
             icon_path,
-            text=self.tr(u'Open NiN mapper'),
+            text=self.tr('Open NiN mapper'),
             callback=self.run,
-            parent=self.iface.mainWindow())
-        
+            parent=self.iface.mainWindow()
+        )
+
         # Create an action to start the drawing tool
         self.action = QAction("Draw Polygon", self.iface.mainWindow())
-        self.action.triggered.connect(self.start_drawing)
         # Add the action to a toolbar, menu, etc. as desired
         # ...
 
-    def start_drawing(self):
-        self.canvas.setMapTool(self.polygon_draw_tool)
-
-    def polygon_created(self, geometry):
-
-        # Identify or create the layer to which the polygon will be added
-        layer = self.get_or_create_layer()
-        
-        # Create the feature with the geometry
-        feat = QgsFeature()
-        feat.setGeometry(geometry)
-        
-        # Add predefined attributes if necessary
-        #feat.setAttributes(["NiN-major", "Nin-minor"])
-        
-        # Add the feature to the layer
-        layer.startEditing()
-        layer.addFeature(feat)
-        layer.commitChanges()
-
-    def get_or_create_layer(self):
-
-        # Replace 'your_layer_name' with the name of the layer you wish to use or create.
-        layer_name = 'test_layer'
-
-        # Check if the layer already exists in the Layers panel
-        for layer in QgsProject.instance().mapLayers().values():
-            if layer.name() == layer_name:
-                return layer
-
-        # If the layer does not exist, create a new one
-        layer = QgsVectorLayer("Polygon?crs=EPSG:4326", layer_name, "memory")
-        
-        # Add predefined attributes (fields) to the layer
-        provider = layer.dataProvider()
-        provider.addAttributes([
-            QgsField("id", QVariant.Int),
-            QgsField("name", QVariant.String),
-            QgsField("hovedtype", QVariant.String),
-            QgsField("grunntype", QVariant.String),
-            # Add more fields as necessary
-        ])
-        layer.updateFields()  # Tell the vector layer to fetch changes from the provider
-
-        # Add the new layer to the Layers panel
-        QgsProject.instance().addMapLayer(layer)
-    
-        return layer
-
-    #--------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
 
     def onClosePlugin(self):
         """Cleanup necessary items here when plugin dockwidget is closed"""
 
-        #print "** CLOSING NinMapper"
+        # print "** CLOSING NinMapper"
 
         # disconnects
         self.dockwidget.closingPlugin.disconnect(self.onClosePlugin)
@@ -258,11 +203,10 @@ class NinMapper:
 
         self.pluginIsActive = False
 
-
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
 
-        #print "** UNLOAD NinMapper"
+        # print "** UNLOAD NinMapper"
 
         for action in self.actions:
             self.iface.removePluginMenu(
@@ -272,7 +216,7 @@ class NinMapper:
         # remove the toolbar
         del self.toolbar
 
-    #--------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
 
     def run(self):
         """Run method that loads and starts the plugin"""
@@ -280,7 +224,7 @@ class NinMapper:
         if not self.pluginIsActive:
             self.pluginIsActive = True
 
-            #print "** STARTING NinMapper"
+            # print "** STARTING NinMapper"
 
             # dockwidget may not exist if:
             #    first run of plugin
