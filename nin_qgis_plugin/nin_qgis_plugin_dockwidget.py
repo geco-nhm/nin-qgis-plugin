@@ -23,14 +23,14 @@
 """
 
 import os
+import csv
 from . import create_gpkg as cgpkg
 from . import project_setup as ps
 
 from qgis.PyQt import QtGui, QtWidgets, uic
 from qgis.PyQt.QtCore import pyqtSignal
 from qgis.core import QgsRectangle, QgsRasterLayer, QgsProject
-#from PyQt5 import QtWidgets, uic
-from PyQt5.QtWidgets import QAction, QFileDialog
+from PyQt5.QtWidgets import QAction, QFileDialog, QDialog, QApplication, QComboBox
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'nin_qgis_plugin_dockwidget_base.ui'))
@@ -58,6 +58,18 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
 
         # Connect the button action to the create_polygon method
         self.changeProjectSettingsButton.clicked.connect(self.load_project)
+        
+        # Access the combo box
+        self.comboBox = self.findChild(QComboBox, 'SelectType')  #  the objectName of your QComboBox
+        
+        # Path to the CSV file
+        typer_path = 'typer_attribute_table.csv'
+        
+        # Read the CSV file and add items to the combo box
+        with open(typer_path, newline='', encoding='utf-8') as typer_file:
+            reader = csv.DictReader(typer_file)
+            for row in reader:
+                self.comboBox.addItem(row['navn'], row['kode_id'])
 
     def select_output_file(self):
 
@@ -74,6 +86,7 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             file_name += file_suffix
 
         self.dlg.lineEdit.setText(file_name)
+        
 
     def create_polygon(self):
 

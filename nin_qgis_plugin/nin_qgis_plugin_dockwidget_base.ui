@@ -6,44 +6,64 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>232</width>
-    <height>141</height>
+    <width>349</width>
+    <height>384</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Natur i Norge mapping</string>
   </property>
   <widget class="QWidget" name="dockWidgetContents">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
      <widget class="QLabel" name="label">
       <property name="text">
        <string>Please select a target location for a new geopackage.</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Select Type</string>
+        </property>
+        <property name="buddy">
+         <cstring>label_2</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="SelectType"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Select Hovedtypegruppe</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="SelectHovedtypegruppe"/>
+      </item>
+     </layout>
+    </item>
+    <item>
      <widget class="QLineEdit" name="filenameLineEdit">
       <property name="placeholderText">
-       <string>Select file location...</string>
-     </property>
+       <string>Enter file name...</string>
+      </property>
      </widget>
     </item>
-    <item row="2" column="0">
-      <widget class="QPushButton" name="selectFileButton">
-        <property name="text">
-          <string>Select file location</string>
-        </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
+    <item>
      <widget class="QPushButton" name="createPolygonButton">
       <property name="text">
        <string>Create new geopackage!</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="0">
+    <item>
      <widget class="QPushButton" name="changeProjectSettingsButton">
       <property name="text">
        <string>Load geopackage and adapt project!</string>
