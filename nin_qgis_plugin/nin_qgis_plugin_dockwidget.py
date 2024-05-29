@@ -34,7 +34,7 @@ from qgis.core import QgsRectangle, QgsRasterLayer, QgsProject
 #from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QAction, QFileDialog
 from PyQt5.QtCore import Qt  # Import Qt from PyQt5.QtCore
-from PyQt5.QtWidgets import QDialog, QApplication, QComboBox, QListWidget, QListWidgetItem
+from PyQt5.QtWidgets import QDialog, QApplication, QComboBox, QListWidget, QListWidgetItem, QPushButton
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'nin_qgis_plugin_dockwidget_base.ui'))
@@ -66,12 +66,16 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         # Access the combo box for Selecting Type and Selecting Hovedtypegruppe
         self.comboBox = self.findChild(QComboBox, 'SelectType')  # 
         self.listWidget = self.findChild(QListWidget, 'SelectHovedtypegrupper') 
-        
+        self.printButton = self.findChild(QPushButton, 'printSelection')  # replace 'printButton' with the objectName of your QPushButton
+
         # Load the first combo box
         self.load_type_combo_box()
 
         # Connect the first combo box selection change to a handler
         self.comboBox.currentIndexChanged.connect(self.on_type_combo_box_changed)
+        
+        # Connect the print button to the print_selection method
+        self.printButton.clicked.connect(self.print_selection)
 
     def load_type_combo_box(self):
         # Path to the typer CSV file
@@ -100,11 +104,30 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                 reader = csv.DictReader(htgrfile)
                 for row in reader:
                     if row['typer_fkey'] == str(self.comboBox.currentIndex()): #Filtering the rows based on the selected item in the "Type combo box".
-                        item = QListWidgetItem(row['kode_id']) #Creating a new list item for each matching row.
-                        item.setData(0, row['navn']) #Setting the display text and additional data for the list item.
+                        item = QListWidgetItem(row['navn']) #Creating a new list item for each matching row.
+                        item.setData(Qt.UserRole, row['kode_id']) #Setting the display text and additional data for the list item.
                         item.setFlags(item.flags() | Qt.ItemIsUserCheckable)  # Making the list item checkable and setting its initial check state.
                         item.setCheckState(Qt.Unchecked)  # Set initial state to unchecked
                         self.listWidget.addItem(item) #Adding the list item to the QListWidget.
+                        print(row)
+                        
+    
+    # DEBUG
+    # print the selected items from the listWidget                    
+    def print_selection(self):
+        selected_items = []
+        for index in range(self.listWidget.count()):
+            item = self.listWidget.item(index)
+            if item.checkState() == Qt.Checked:
+                selected_items.append({
+                    'display_text': item.text(),
+                    'kode_id': item.data(Qt.UserRole)  # Retrieve associated data
+                })
+        # Print selected items to the console
+        print("Selected items:")
+        for item in selected_items:
+            print(f"Display Text: {item['display_text']}, Kode ID: {item['kode_id']}")
+
 
     def select_output_file(self):
 

@@ -30,23 +30,27 @@
      </widget>
     </item>
     <item row="4" column="0">
-     <widget class="QListWidget" name="SelectHovedtypegrupper"/>
+     <widget class="QListWidget" name="SelectHovedtypegrupper">
+      <property name="resizeMode">
+       <enum>QListView::Adjust</enum>
+      </property>
+     </widget>
     </item>
-    <item row="8" column="0">
+    <item row="9" column="0">
      <widget class="QPushButton" name="changeProjectSettingsButton">
       <property name="text">
        <string>Load geopackage and adapt project!</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="0">
+    <item row="8" column="0">
      <widget class="QPushButton" name="createPolygonButton">
       <property name="text">
        <string>Create new geopackage!</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
+    <item row="6" column="0">
      <widget class="QLineEdit" name="filenameLineEdit">
       <property name="placeholderText">
        <string>Select file location...</string>
@@ -63,10 +67,17 @@
     <item row="2" column="0">
      <widget class="QComboBox" name="SelectType"/>
     </item>
-    <item row="6" column="0">
+    <item row="7" column="0">
      <widget class="QPushButton" name="selectFileButton">
       <property name="text">
        <string>Select file location</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QPushButton" name="printSelection">
+      <property name="text">
+       <string>Print Selected Hovedtypegrupper</string>
       </property>
      </widget>
     </item>
