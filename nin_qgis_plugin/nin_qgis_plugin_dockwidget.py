@@ -24,6 +24,7 @@
 
 import os
 import csv
+from pathlib import Path
 from . import create_gpkg as cgpkg
 from . import project_setup as ps
 
@@ -58,13 +59,15 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
 
         # Connect the button action to the create_polygon method
         self.changeProjectSettingsButton.clicked.connect(self.load_project)
-        
+
         # Access the combo box
-        self.comboBox = self.findChild(QComboBox, 'SelectType')  #  the objectName of your QComboBox
-        
+        # the objectName of your QComboBox
+        self.comboBox = self.findChild(QComboBox, 'SelectType')
+
         # Path to the CSV file
-        typer_path = 'typer_attribute_table.csv'
-        
+        typer_path = Path(__file__).parent / 'csv' / \
+            'attribute_tables' / 'typer_attribute_table.csv'
+
         # Read the CSV file and add items to the combo box
         with open(typer_path, newline='', encoding='utf-8') as typer_file:
             reader = csv.DictReader(typer_file)
@@ -74,19 +77,18 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
     def select_output_file(self):
 
         file_suffix = ".gpkg"
-        
+
         file_name = QFileDialog.getSaveFileName(
             self.dlg,
             "Select output file ",
             "",
             f'*{file_suffix}'
         )
-        
+
         if not file_name.endswith(file_suffix):
             file_name += file_suffix
 
         self.dlg.lineEdit.setText(file_name)
-        
 
     def create_polygon(self):
 

@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 from typing import Any, Union
 import pandas as pd
+import numpy as np
 
 from qgis.core import (
     QgsApplication, QgsFields,
@@ -15,6 +16,10 @@ from qgis.core import (
     QgsRelation, edit
 )
 from qgis.PyQt.QtCore import QVariant
+
+ATTRIBUTE_TABLES_PATH = Path(__file__).parent / 'csv' / 'attribute_tables'
+FIELD_DEFINITIONS_CSV_PATH = Path(
+    __file__).parent / 'csv' / 'layer_fields_meta'
 
 
 def get_qvariant(qvariant: str) -> Any:
@@ -228,10 +233,15 @@ def add_attribute_values_from_csv(
                 new_value = attribute_df.loc[idx, col_name]
 
                 # TODO: this is hacking around the fact that layer.changeAttributeValue()
-                # cannot deal with numpy.int values from pandas. Need a more sustainable
+                # cannot deal with numpy data types from pandas. Need a more sustainable
                 # solution!
-                if not isinstance(new_value, str):
+                print(type(new_value))
+                if pd.isnull(new_value):
+                    new_value = None
+                elif isinstance(new_value, np.int64):
                     new_value = int(new_value)
+                elif isinstance(new_value, np.float64):
+                    new_value = float(new_value)
 
                 layer.changeAttributeValue(
                     feature.id(), field_idx, new_value
@@ -291,8 +301,7 @@ def main() -> None:
         # raise ValueError(f"{gpkg_path} already exists! Use a different name to avoid data loss.")
 
     # Define paths to attribute csvs
-    csv_root = Path(__file__).parent
-    nin_polygons_meta_csv_path = csv_root / 'nin_polygons_meta.csv'
+    nin_polygons_meta_csv_path = FIELD_DEFINITIONS_CSV_PATH / 'nin_polygons_meta.csv'
 
     # Define CRS string (EPSG:25833 -> ETRS89 / UTM zone 33N)
     crs = "epsg:25833"
@@ -331,11 +340,10 @@ def main() -> None:
         data_provider='memory',
     )
 
-    helper_point_layer.startEditing()
-    provider = helper_point_layer.dataProvider()
-    provider.addAttributes([QgsField("Comment", QVariant.String)])
-    helper_point_layer.updateFields()
-    helper_point_layer.commitChanges()
+    with edit(helper_point_layer):
+        provider = helper_point_layer.dataProvider()
+        provider.addAttributes([QgsField("Comment", QVariant.String)])
+        helper_point_layer.updateFields()
 
     write_layer_to_gpkg_file(
         gpkg_out_path=gpkg_path,
@@ -347,7 +355,10 @@ def main() -> None:
     del nin_polygons_layer, helper_point_layer
 
     # Create attribute tables! MAKE SURE .CSV FILES EXIST AND ARE NAMED CORRECTLY
-    table_names = ('typer', 'hovedtypgrupper', 'hovedtyper')
+    
+    # TODO: Here we need to fetch info from the plugin selection!
+    user_selection_mapping_scale = "M005"
+    table_names = ('typer', 'hovedtypegrupper', 'hovedtyper', user_selection_mapping_scale)
 
     for name in table_names:
 
@@ -359,13 +370,13 @@ def main() -> None:
         )
         # Add fields to attribute table
         table_layer = add_layer_attributes_from_file(
-            attribute_csv_file_path=csv_root / f'{name}_meta.csv',
+            attribute_csv_file_path=FIELD_DEFINITIONS_CSV_PATH / f'{name}_meta.csv',
             layer=table_layer,
         )
         # Populate attribute table
         table_layer = add_attribute_values_from_csv(
             layer=table_layer,
-            csv_path=csv_root / f'{name}_attribute_table.csv',
+            csv_path=ATTRIBUTE_TABLES_PATH / f'{name}_attribute_table.csv',
         )
         # Write to .gpkg
         write_layer_to_gpkg_file(
@@ -375,49 +386,6 @@ def main() -> None:
         )
 
         del table_layer
-
-    '''
-    # Add a cvs-file as a table in the gpkg
-    # Layer 3 fugleartsliste
-    csv = "file:///S:\\...\\fugler\\egenskaper\\fugleartsliste.csv?delimiter=;"
-    lyrname = 'fugleartsliste'
-    create_table_from_csv(csv, gpkg_reg, lyrname)
-
-    # Layer 4 vegetasjonstypeliste
-    csv = "file:///S:\\...\\fugler\\egenskaper\\vegetasjonstypeliste.csv?delimiter=;"
-    lyrname = 'vegetasjonstypeliste'
-    create_table_from_csv(csv, gpkg_reg, lyrname)
-
-    # Create tables and add to gpkg
-    # Layer 5 vegtypedekning (lagre vegtype med tilhørednde prosentdekning)
-    layer_name = "vegreg"
-    geom = QgsWkbTypes.NoGeometry
-    crs = ''
-    fields = QgsFields()
-    fields.append(QgsField("delomr", QVariant.String, '', 1, 0))            # a-f
-    fields.append(QgsField("vegtype", QVariant.String, '', 50, 0))          # delområdets vegetasjonstype
-    fields.append(QgsField("pdekning", QVariant.Int, '', 3, 0))			    # aktuell vegetasjonsdekkeandel
-    fields.append(QgsField("vr_id", QVariant.String, '', 38, 0))            # Relasjon mellom NYE punkter i vv_vegtype med vegtypedekning
-    create_empty_gpkg(gpkg_reg, layer_name, geom, crs, fields, True)  # create the layer, is added to the same gpkg
-
-    # Layer 6 fuglereg (lagrer art, ant, avst, delomr m.m.)
-    layer_name = "fuglereg"
-    geom = QgsWkbTypes.NoGeometry
-    crs = ''
-    fields = QgsFields()
-    fields.append(QgsField("art", QVariant.String, '', 50, 0))              # fugleart (norsk - latin)
-    fields.append(QgsField("art_annen", QVariant.String, '', 50, 0))        # hvis fugleart mangler i opprinnelige liste
-    fields.append(QgsField("ant", QVariant.Int, '', 3, 0))                  # antall hekkende par, hvis 999 skal flokk angis
-    fields.append(QgsField("flokk", QVariant.Int, '', 3, 0))                # antall individer hvis flokk
-    fields.append(QgsField("avst", QVariant.Int, '', 1, 0))                 # 1,2 eller 3 (innafor/utafor 50 m fra punkt eller mellom punkter)
-    fields.append(QgsField("delomr", QVariant.String, '', 1, 0))            # innhold bestemmes av delområder angitt i vegreg
-    fields.append(QgsField("fr_id", QVariant.String, '', 38, 0))            # relasjon mellom NYE punkter i fugleartsdekning med fugleobs
-    create_empty_gpkg(gpkg_reg, layer_name, geom, crs, fields, True)  # create the layer, is added to the same gpkg 
-    # Load qml and save style in geopackage.
-    # Layer fugleobs gets style set when QGIS-project is created (see create_project.py) due to the project relations dependency
-    set_style('fugleregistrering.gpkg|layername=fuglereg',"fuglereg")
-    set_style('fugleregistrering.gpkg|layername=vegreg',"vegreg")
-    '''
 
 
 if __name__ == "__main__":

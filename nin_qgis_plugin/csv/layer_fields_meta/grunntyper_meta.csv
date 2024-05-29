@@ -1,0 +1,9 @@
+name,type,length,precision
+fid,Int,4,0
+hovedtyper_fkey,Int,4,0
+langkode,String,0,0
+kode_id,String,0,0
+navn,String,0,0
+kartleggingsenhet_m005_fkey,Int,4,0
+kartleggingsenhet_m020_fkey,Int,4,0
+kartleggingsenhet_m050_fkey,Int,4,0
