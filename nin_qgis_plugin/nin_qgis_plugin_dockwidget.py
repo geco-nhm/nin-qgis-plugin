@@ -33,7 +33,8 @@ from qgis.PyQt.QtCore import pyqtSignal
 from qgis.core import QgsRectangle, QgsRasterLayer, QgsProject
 #from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QAction, QFileDialog
-from PyQt5.QtWidgets import QDialog, QApplication, QComboBox
+from PyQt5.QtCore import Qt  # Import Qt from PyQt5.QtCore
+from PyQt5.QtWidgets import QDialog, QApplication, QComboBox, QListWidget, QListWidgetItem
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'nin_qgis_plugin_dockwidget_base.ui'))
@@ -64,7 +65,7 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
 
         # Access the combo box for Selecting Type and Selecting Hovedtypegruppe
         self.comboBox = self.findChild(QComboBox, 'SelectType')  # 
-        self.comboBox2 = self.findChild(QComboBox, 'SelectHovedtypegruppe')  # 
+        self.listWidget = self.findChild(QListWidget, 'SelectHovedtypegrupper') 
         
         # Load the first combo box
         self.load_type_combo_box()
@@ -73,33 +74,37 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         self.comboBox.currentIndexChanged.connect(self.on_type_combo_box_changed)
 
     def load_type_combo_box(self):
-            # Path to the typer CSV file
-            csv_root = Path(__file__).parent
-            type_file_path = csv_root / 'typer_attribute_table.csv'
-            self.type_combo_data = {} # To store data for the type combo box
-            # Read the CSV file and add items to the combo box
-            with open(type_file_path, newline='', encoding='utf-8') as typefile:
-                reader = csv.DictReader(typefile)
-                for row in reader:
-                    self.comboBox.addItem(row['navn'], row['kode_id'])
-                    self.type_combo_data[row['kode_id']] = row['navn']
+        # Path to the typer CSV file
+        csv_root = Path(__file__).parent
+        type_file_path = csv_root / 'typer_attribute_table.csv'
+        self.type_combo_data = {} # To store data for the type combo box
+        # Read the CSV file and add items to the combo box
+        with open(type_file_path, newline='', encoding='utf-8') as typefile:
+            reader = csv.DictReader(typefile)
+            for row in reader:
+                self.comboBox.addItem(row['navn'], row['kode_id'])
+                self.type_combo_data[row['kode_id']] = row['navn']
 
     def on_type_combo_box_changed(self, index):
-            selected_code_id = self.comboBox.itemData(index)
-            self.load_hovedtypegruppe_combo_box(selected_code_id)
+        selected_code_id = self.comboBox.itemData(index)
+        print(f"Selected code_id: {selected_code_id}")
+        self.load_hovedtypegruppe_list_widget(selected_code_id)
 
-    def load_hovedtypegruppe_combo_box(self, selected_code_id):    
+    def load_hovedtypegruppe_list_widget(self, selected_code_id):    
             # Path to the hovedtypegrupper CSV file
             csv_root = Path(__file__).parent
             htgr_file_path = csv_root / 'hovedtypgrupper_attribute_table.csv'
-            self.comboBox2.clear()  # Clear the second combo box
+            self.listWidget.clear()  # Clear the second combo box
             # Read the CSV file and add items to the combo box
             with open(htgr_file_path, newline='', encoding='utf-8') as htgrfile:
                 reader = csv.DictReader(htgrfile)
                 for row in reader:
                     if row['typer_fkey'] == str(self.comboBox.currentIndex()):
-                        self.comboBox2.addItem(row['navn'], row['kode_id'])
-
+                        item = QListWidgetItem(row['navn'])
+                        item.setData(0, row['kode_id'])
+                        item.setFlags(item.flags() | Qt.ItemIsUserCheckable)  # Add a check box
+                        item.setCheckState(Qt.Unchecked)  # Set initial state to unchecked
+                        self.listWidget.addItem(item)
 
     def select_output_file(self):
 
