@@ -99,12 +99,12 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             with open(htgr_file_path, newline='', encoding='utf-8') as htgrfile:
                 reader = csv.DictReader(htgrfile)
                 for row in reader:
-                    if row['typer_fkey'] == str(self.comboBox.currentIndex()):
-                        item = QListWidgetItem(row['navn'])
-                        item.setData(0, row['kode_id'])
-                        item.setFlags(item.flags() | Qt.ItemIsUserCheckable)  # Add a check box
+                    if row['typer_fkey'] == str(self.comboBox.currentIndex()): #Filtering the rows based on the selected item in the "Type combo box".
+                        item = QListWidgetItem(row['kode_id']) #Creating a new list item for each matching row.
+                        item.setData(0, row['navn']) #Setting the display text and additional data for the list item.
+                        item.setFlags(item.flags() | Qt.ItemIsUserCheckable)  # Making the list item checkable and setting its initial check state.
                         item.setCheckState(Qt.Unchecked)  # Set initial state to unchecked
-                        self.listWidget.addItem(item)
+                        self.listWidget.addItem(item) #Adding the list item to the QListWidget.
 
     def select_output_file(self):
 
