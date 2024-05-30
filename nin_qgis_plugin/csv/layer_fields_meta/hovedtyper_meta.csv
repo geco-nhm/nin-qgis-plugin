@@ -1,6 +1,6 @@
 name,type,length,precision
 fid,Int,4,0
 hovedtypegrupper_fkey,Int,4,0
-langkode,String,30,0
-kode_id,String,10,0
-navn,String,120,0
+langkode,String,0,0
+kode_id,String,0,0
+navn,String,0,0

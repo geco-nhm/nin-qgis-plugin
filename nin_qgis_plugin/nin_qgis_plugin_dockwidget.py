@@ -82,6 +82,15 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         csv_root = Path(__file__).parent
         type_file_path = csv_root / 'typer_attribute_table.csv'
         self.type_combo_data = {} # To store data for the type combo box
+
+        # Access the combo box
+        # the objectName of your QComboBox
+        self.comboBox = self.findChild(QComboBox, 'SelectType')
+
+        # Path to the CSV file
+        typer_path = Path(__file__).parent / 'csv' / \
+            'attribute_tables' / 'typer_attribute_table.csv'
+
         # Read the CSV file and add items to the combo box
         with open(type_file_path, newline='', encoding='utf-8') as typefile:
             reader = csv.DictReader(typefile)
@@ -132,14 +141,14 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
     def select_output_file(self):
 
         file_suffix = ".gpkg"
-        
+
         file_name = QFileDialog.getSaveFileName(
             self.dlg,
             "Select output file ",
             "",
             f'*{file_suffix}'
         )
-        
+
         if not file_name.endswith(file_suffix):
             file_name += file_suffix
 

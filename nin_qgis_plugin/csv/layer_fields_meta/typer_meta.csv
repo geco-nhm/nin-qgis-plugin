@@ -1,0 +1,5 @@
+name,type,length,precision
+fid,Int,4,0
+langkode,String,0,0
+kode_id,String,0,0
+navn,String,0,0
