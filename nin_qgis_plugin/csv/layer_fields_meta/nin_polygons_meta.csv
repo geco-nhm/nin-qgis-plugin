@@ -5,3 +5,4 @@ regdato,Date,0,0
 type,String,0,0
 hovedtypegruppe,String,0,0
 hovedtype,String,0,0
+grunntype_or_klenhet,String,0,0

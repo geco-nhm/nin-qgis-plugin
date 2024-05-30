@@ -47,19 +47,19 @@ fid,typer_fkey,langkode,kode_id,navn
 45,4,NIN-3.0-T-A-LV-TM-0-TM-A,TM-A,Topogene torvmassiv
 46,5,NIN-3.0-T-A-MV-0-0-MV-B,MV-B,Fjordvannmasser
 47,5,NIN-3.0-T-A-MV-0-0-MV-A,MV-A,Hav-vannmasser
-48,6,NIN-3.0-T-C-LI-0-0-LI-TU,LI-TU,Substratfrie livsmedier på land
-49,6,NIN-3.0-T-C-LI-0-0-LI-TS,LI-TS,Substrat på land
-50,6,NIN-3.0-T-C-LI-0-0-LI-MU,LI-MU,Substratfrie livsmedier i marine systemer
+48,6,NIN-3.0-T-C-LI-0-0-LI-MU,LI-MU,Substratfrie livsmedier i marine systemer
+49,6,NIN-3.0-T-C-LI-0-0-LI-TU,LI-TU,Substratfrie livsmedier på land
+50,6,NIN-3.0-T-C-LI-0-0-LI-TS,LI-TS,Substrat på land
 51,6,NIN-3.0-T-C-LI-0-0-LI-MS,LI-MS,Substrat i marine systemer
 52,6,NIN-3.0-T-C-LI-0-0-LI-FU,LI-FU,Substratfrie livsmedier i ferskvann
 53,6,NIN-3.0-T-C-LI-0-0-LI-FS,LI-FS,Substrat i ferskvann
-54,7,NIN-3.0-T-C-PE-LA-0-LA-M,LA-M,Marine landskap
-55,7,NIN-3.0-T-C-PE-LA-0-LA-K,LA-K,Kystlandskap
-56,7,NIN-3.0-T-C-PE-LA-0-LA-I,LA-I,Innlandslandskap
-57,8,NIN-3.0-T-C-PE-NA-VM-NA-S,NA-S,Marine vannmassesystemer
-58,8,NIN-3.0-T-C-PE-NA-VM-NA-F,NA-F,Limniske vannmassesystemer
-59,8,NIN-3.0-T-C-PE-NA-MB-NA-V,NA-V,Våtmarkssystemer
-60,8,NIN-3.0-T-C-PE-NA-MB-NA-T,NA-T,Fastmarkssystemer
+54,7,NIN-3.0-T-C-PE-LA-0-LA-I,LA-I,Innlandslandskap
+55,7,NIN-3.0-T-C-PE-LA-0-LA-M,LA-M,Marine landskap
+56,7,NIN-3.0-T-C-PE-LA-0-LA-K,LA-K,Kystlandskap
+57,8,NIN-3.0-T-C-PE-NA-MB-NA-T,NA-T,Fastmarkssystemer
+58,8,NIN-3.0-T-C-PE-NA-VM-NA-S,NA-S,Marine vannmassesystemer
+59,8,NIN-3.0-T-C-PE-NA-VM-NA-F,NA-F,Limniske vannmassesystemer
+60,8,NIN-3.0-T-C-PE-NA-MB-NA-V,NA-V,Våtmarkssystemer
 61,8,NIN-3.0-T-C-PE-NA-MB-NA-O,NA-O,Elvebunnsystemer
 62,8,NIN-3.0-T-C-PE-NA-MB-NA-M,NA-M,Marine bunnsystemer
 63,8,NIN-3.0-T-C-PE-NA-MB-NA-L,NA-L,Innsjøbunnsystemer
