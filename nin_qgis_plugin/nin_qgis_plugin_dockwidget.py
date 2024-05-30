@@ -77,9 +77,13 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         # Connect the print button to the print_selection method
         self.printButton.clicked.connect(self.get_selected_htgr_items)
 
+        # Initialize selected type variable
+        self.selected_type_id = None
+
     def load_type_combo_box(self):
         # Path to the typer CSV file
-        csv_root = Path(__file__).parent
+        csv_root = Path(__file__).parent / 'csv' / \
+            'attribute_tables'
         type_file_path = csv_root / 'typer_attribute_table.csv'
         self.type_combo_data = {} # To store data for the type combo box
 
@@ -88,25 +92,26 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         self.comboBox = self.findChild(QComboBox, 'SelectType')
 
         # Path to the CSV file
-        typer_path = Path(__file__).parent / 'csv' / \
-            'attribute_tables' / 'typer_attribute_table.csv'
+        typer_path = csv_root / 'typer_attribute_table.csv'
 
         # Read the CSV file and add items to the combo box
-        with open(type_file_path, newline='', encoding='utf-8') as typefile:
+        with open(typer_path, newline='', encoding='utf-8') as typefile:
             reader = csv.DictReader(typefile)
             for row in reader:
                 self.comboBox.addItem(row['navn'], row['kode_id'])
                 self.type_combo_data[row['kode_id']] = row['navn']
 
-    def on_type_combo_box_changed(self, index):
-        selected_code_id = self.comboBox.itemData(index)
-        print(f"Selected code_id: {selected_code_id}")
-        self.load_hovedtypegruppe_list_widget(selected_code_id)
+    def get_selected_type_id(self) -> str:
+        return self.selected_type_id
 
-    def load_hovedtypegruppe_list_widget(self, selected_code_id):    
+    def on_type_combo_box_changed(self, index):
+        self.selected_type_id = self.comboBox.itemData(index)
+        self.load_hovedtypegruppe_list_widget()
+
+    def load_hovedtypegruppe_list_widget(self):    
             # Path to the hovedtypegrupper CSV file
-            csv_root = Path(__file__).parent
-            htgr_file_path = csv_root / 'hovedtypgrupper_attribute_table.csv'
+            csv_root = Path(__file__).parent / 'csv' / 'attribute_tables'
+            htgr_file_path = csv_root / 'hovedtypegrupper_attribute_table.csv'
             self.selectHovetypegrupperWidget.clear()  # Clear the second combo box
             # Read the CSV file and add items to the combo box
             with open(htgr_file_path, newline='', encoding='utf-8') as htgrfile:
@@ -132,11 +137,12 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                     'display_text': item.text(),
                     'kode_id': item.data(Qt.UserRole)  # Retrieve associated data
                 })
-        return selected_items
+        
         # Print selected items to the console
-        print("Selected items:")
-        for item in selected_items:
-            print(f"Display Text: {item['display_text']}, Kode ID: {item['kode_id']}")
+        # print("Selected items:")
+        # for item in selected_items:
+        #     print(f"Display Text: {item['display_text']}, Kode ID: {item['kode_id']}")
+        return selected_items
 
     def select_output_file(self):
 
@@ -176,8 +182,10 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
 
     def load_project(self) -> None:
         '''Loads project settings'''
-
-        ps.main()
+        ps.main(
+            self.get_selected_htgr_items(),
+            self.get_selected_type_id()
+        )
 
     def closeEvent(self, event):
         self.closingPlugin.emit()
