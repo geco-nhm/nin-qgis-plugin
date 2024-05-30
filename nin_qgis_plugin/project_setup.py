@@ -168,7 +168,7 @@ def main() -> None:
     # Set field to value relations in widget
     # TODO: Also depends on user choices!
     user_selection_mapping_scale = "M005"
-    
+
     relations_to_set = (
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
