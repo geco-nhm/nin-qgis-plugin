@@ -143,7 +143,8 @@ def set_relation(
     QgsProject.instance().relationManager().addRelation(rel)
 
 
-def main() -> None:
+def main(selected_items: list,
+         selected_type_id: str) -> None:
     '''Adapt QGIS project settings.'''
 
     # Get the project instance
@@ -169,6 +170,19 @@ def main() -> None:
     # TODO: Also depends on user choices!
     user_selection_mapping_scale = "M005"
 
+    # passing the selected "Type" from the UI
+    selected_type_id = "'" + selected_type_id + "'"
+
+    for item in selected_items:
+        print(
+            f"Display Text: {item['display_text']}, Kode ID: {item['kode_id']}"
+        )
+
+    if selected_items:
+        selected_kode_ids = [f"'{item['kode_id']}'" for item in selected_items]
+        # passing the selected "Hovedtypegrupper" from the UI
+        additional_filter = f'"kode_id" IN ({", ".join(map(str, selected_kode_ids))})'
+
     relations_to_set = (
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
@@ -176,7 +190,7 @@ def main() -> None:
             "primary_key_field_name": "type",
             "foreign_key_field_name": "fid",
             "foreign_field_to_display": "navn",
-            "filter_expression": "",
+            "filter_expression": f'''"kode_id" = {selected_type_id}''',
         },
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
@@ -184,7 +198,7 @@ def main() -> None:
             "primary_key_field_name": "hovedtypegruppe",
             "foreign_key_field_name": "fid",
             "foreign_field_to_display": "navn",
-            "filter_expression": '''"typer_fkey" = current_value('type')''',
+            "filter_expression": f'''"typer_fkey" = current_value('type') AND {additional_filter}''',
         },
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
@@ -214,7 +228,3 @@ def main() -> None:
             foreign_field_to_display=rel["foreign_field_to_display"],
             filter_expression=rel["filter_expression"],
         )
-
-
-if __name__ == "__main__":
-    main()
