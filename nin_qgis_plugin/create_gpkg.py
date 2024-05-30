@@ -235,7 +235,7 @@ def add_attribute_values_from_csv(
                 # TODO: this is hacking around the fact that layer.changeAttributeValue()
                 # cannot deal with numpy data types from pandas. Need a more sustainable
                 # solution!
-                print(type(new_value))
+                
                 if pd.isnull(new_value):
                     new_value = None
                 elif isinstance(new_value, np.int64):
