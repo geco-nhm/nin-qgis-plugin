@@ -166,6 +166,9 @@ def main() -> None:
     _ = load_gpkg_layers(gpkg_settings)
 
     # Set field to value relations in widget
+    # TODO: Also depends on user choices!
+    user_selection_mapping_scale = "M005"
+    
     relations_to_set = (
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
@@ -177,7 +180,7 @@ def main() -> None:
         },
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
-            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName('hovedtypgrupper')[0],
+            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName('hovedtypegrupper')[0],
             "primary_key_field_name": "hovedtypegruppe",
             "foreign_key_field_name": "fid",
             "foreign_field_to_display": "navn",
@@ -190,6 +193,14 @@ def main() -> None:
             "foreign_key_field_name": "fid",
             "foreign_field_to_display": "navn",
             "filter_expression": '''"hovedtypegrupper_fkey" = current_value('hovedtypegruppe')''',
+        },
+        {
+            "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
+            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName(user_selection_mapping_scale)[0],
+            "primary_key_field_name": "grunntype_or_klenhet",
+            "foreign_key_field_name": "fid",
+            "foreign_field_to_display": "navn",
+            "filter_expression": '''"hovedtyper_fkey" = current_value('hovedtype')''',
         },
     )
 
