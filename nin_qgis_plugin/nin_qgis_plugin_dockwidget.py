@@ -65,7 +65,7 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
 
         # Access the combo box for Selecting Type and Selecting Hovedtypegruppe
         self.comboBox = self.findChild(QComboBox, 'SelectType')  # 
-        self.listWidget = self.findChild(QListWidget, 'SelectHovedtypegrupper') 
+        self.selectHovetypegrupperWidget = self.findChild(QListWidget, 'SelectHovedtypegrupper') 
         self.printButton = self.findChild(QPushButton, 'printSelection')  # replace 'printButton' with the objectName of your QPushButton
 
         # Load the first combo box
@@ -75,7 +75,7 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         self.comboBox.currentIndexChanged.connect(self.on_type_combo_box_changed)
         
         # Connect the print button to the print_selection method
-        self.printButton.clicked.connect(self.print_selection)
+        self.printButton.clicked.connect(self.get_selected_htgr_items)
 
     def load_type_combo_box(self):
         # Path to the typer CSV file
@@ -98,7 +98,7 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             # Path to the hovedtypegrupper CSV file
             csv_root = Path(__file__).parent
             htgr_file_path = csv_root / 'hovedtypgrupper_attribute_table.csv'
-            self.listWidget.clear()  # Clear the second combo box
+            self.selectHovetypegrupperWidget.clear()  # Clear the second combo box
             # Read the CSV file and add items to the combo box
             with open(htgr_file_path, newline='', encoding='utf-8') as htgrfile:
                 reader = csv.DictReader(htgrfile)
@@ -108,26 +108,26 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                         item.setData(Qt.UserRole, row['kode_id']) #Setting the display text and additional data for the list item.
                         item.setFlags(item.flags() | Qt.ItemIsUserCheckable)  # Making the list item checkable and setting its initial check state.
                         item.setCheckState(Qt.Unchecked)  # Set initial state to unchecked
-                        self.listWidget.addItem(item) #Adding the list item to the QListWidget.
+                        self.selectHovetypegrupperWidget.addItem(item) #Adding the list item to the QListWidget.
                         print(row)
-                        
+                print(self.selectHovetypegrupperWidget)
     
     # DEBUG
     # print the selected items from the listWidget                    
-    def print_selection(self):
+    def get_selected_htgr_items(self):
         selected_items = []
-        for index in range(self.listWidget.count()):
-            item = self.listWidget.item(index)
+        for index in range(self.selectHovetypegrupperWidget.count()):
+            item = self.selectHovetypegrupperWidget.item(index)
             if item.checkState() == Qt.Checked:
                 selected_items.append({
                     'display_text': item.text(),
                     'kode_id': item.data(Qt.UserRole)  # Retrieve associated data
                 })
+        return selected_items
         # Print selected items to the console
         print("Selected items:")
         for item in selected_items:
             print(f"Display Text: {item['display_text']}, Kode ID: {item['kode_id']}")
-
 
     def select_output_file(self):
 
