@@ -64,9 +64,10 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         self.changeProjectSettingsButton.clicked.connect(self.load_project)
 
         # Access the combo box for Selecting Type and Selecting Hovedtypegruppe
-        self.comboBox = self.findChild(QComboBox, 'SelectType')  # 
+        self.comboBox = self.findChild(QComboBox, 'SelectType')  
         self.selectHovetypegrupperWidget = self.findChild(QListWidget, 'SelectHovedtypegrupper') 
-        self.printButton = self.findChild(QPushButton, 'printSelection')  # replace 'printButton' with the objectName of your QPushButton
+        self.selectMappingScale = self.findChild(QComboBox, 'SelectMappingScale')  
+
 
         # Load the first combo box
         self.load_type_combo_box()
@@ -74,12 +75,13 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         # Connect the first combo box selection change to a handler
         self.comboBox.currentIndexChanged.connect(self.on_type_combo_box_changed)
         
-        # Connect the print button to the print_selection method
-        self.printButton.clicked.connect(self.get_selected_htgr_items)
-
         # Initialize selected type variable
         self.selected_type_id = None
+        
+        # Populate the mapping scale combo box
+        self.load_mapping_scale_combo_box()
 
+        
     def load_type_combo_box(self):
         # Path to the typer CSV file
         csv_root = Path(__file__).parent / 'csv' / \
@@ -103,7 +105,7 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
 
     def get_selected_type_id(self) -> str:
         return self.selected_type_id
-
+    
     def on_type_combo_box_changed(self, index):
         self.selected_type_id = self.comboBox.itemData(index)
         self.load_hovedtypegruppe_list_widget()
@@ -124,7 +126,7 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                         item.setCheckState(Qt.Unchecked)  # Set initial state to unchecked
                         self.selectHovetypegrupperWidget.addItem(item) #Adding the list item to the QListWidget.
                         print(row)
-                print(self.selectHovetypegrupperWidget)
+                
     
     # DEBUG
     # print the selected items from the listWidget                    
@@ -143,7 +145,12 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         # for item in selected_items:
         #     print(f"Display Text: {item['display_text']}, Kode ID: {item['kode_id']}")
         return selected_items
+    
+    
 
+    def load_mapping_scale_combo_box(self):
+        self.selectMappingScale.addItems(["M005", "M020", "M050"])
+        
     def select_output_file(self):
 
         file_suffix = ".gpkg"
@@ -174,7 +181,9 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             print("The 'Create new polygon' button was clicked.")
             print(f"File name entered: {file_name}")
 
-            cgpkg.main()
+            selected_mapping_scale = self.selectMappingScale.currentText()
+
+            cgpkg.main(selected_mapping_scale)
 
         else:
             # Inform the user to enter a file name or handle as needed.
@@ -182,9 +191,12 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
 
     def load_project(self) -> None:
         '''Loads project settings'''
+        selected_mapping_scale = self.selectMappingScale.currentText()
+        
         ps.main(
             self.get_selected_htgr_items(),
-            self.get_selected_type_id()
+            self.get_selected_type_id(), 
+            selected_mapping_scale
         )
 
     def closeEvent(self, event):

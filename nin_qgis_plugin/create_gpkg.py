@@ -290,8 +290,10 @@ def set_style(layer: str, lname: str) -> None:
     pass
 
 
-def main() -> None:
-    '''Creates new NiN-conforming gpkg based on definitions in csv file.'''
+def main(selected_mapping_scale: str) -> None:
+    '''Creates new NiN-conforming gpkg based on definitions in csv file.
+        Passing variable from mapping scale selection in the UI
+    '''
 
     # Define name and path of new geopackage
     gpkg_name = "nin_survey.gpkg"
@@ -357,8 +359,8 @@ def main() -> None:
     # Create attribute tables! MAKE SURE .CSV FILES EXIST AND ARE NAMED CORRECTLY
     
     # TODO: Here we need to fetch info from the plugin selection!
-    user_selection_mapping_scale = "M005"
-    table_names = ('typer', 'hovedtypegrupper', 'hovedtyper', user_selection_mapping_scale)
+    
+    table_names = ('typer', 'hovedtypegrupper', 'hovedtyper', selected_mapping_scale)
 
     for name in table_names:
 
