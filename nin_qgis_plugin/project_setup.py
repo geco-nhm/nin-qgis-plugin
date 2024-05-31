@@ -144,7 +144,8 @@ def set_relation(
 
 
 def main(selected_items: list,
-         selected_type_id: str) -> None:
+         selected_type_id: str, 
+         selected_mapping_scale="M005") -> None:
     '''Adapt QGIS project settings.'''
 
     # Get the project instance
@@ -168,7 +169,8 @@ def main(selected_items: list,
 
     # Set field to value relations in widget
     # TODO: Also depends on user choices!
-    user_selection_mapping_scale = "M005"
+    user_selection_mapping_scale = selected_mapping_scale
+
     selected_type_id = "'" + selected_type_id + "'" # passing the selected "Type" from the UI
     for item in selected_items:
             print(f"Display Text: {item['display_text']}, Kode ID: {item['kode_id']}")
