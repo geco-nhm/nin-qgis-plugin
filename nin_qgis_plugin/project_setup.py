@@ -5,27 +5,17 @@ from typing import Union, Literal
 
 from qgis.core import (
     QgsDataProvider, QgsVectorLayer, QgsProject,
-    QgsCoordinateReferenceSystem, QgsRelation,
-    QgsExpression, QgsEditorWidgetSetup,
+    QgsEditorWidgetSetup, QgsCoordinateReferenceSystem,
+    QgsRelation
+)
+
+from PyQt5.QtWidgets import (
+    QMessageBox,
 )
 
 
-class GpkgSettings:
-    '''Handles .gpkg settings'''
-
-    def __init__(self, path: Union[str, Path]) -> None:
-        if (path := Path(path)).is_file() and (path.suffix == '.gpkg'):
-            self.path = path
-
-    def get_path(self) -> Path:
-        '''Return path to geopackage'''
-        return self.path
-
-
-def load_gpkg_layers(gpkg_settings: GpkgSettings) -> QgsVectorLayer:
+def load_gpkg_layers(gpkg_path: Union[str, Path]) -> QgsVectorLayer:
     '''Loads all .gpkg layers into current QGIS project'''
-
-    gpkg_path = gpkg_settings.get_path()
 
     layer = QgsVectorLayer(
         str(gpkg_path),
@@ -143,17 +133,39 @@ def set_relation(
     QgsProject.instance().relationManager().addRelation(rel)
 
 
-def main(selected_items: list,
-         selected_type_id: str) -> None:
+def main(
+    selected_items: list,
+    selected_type_id: str,
+    gpkg_path: Union[str, Path],
+) -> None:
     '''Adapt QGIS project settings.'''
+
+    if not selected_items:
+        QMessageBox.information(
+            None,
+            "No hovedtypegrupper selected!",
+            "Please select the 'hovedtypegrupper' you want to map."
+        )
+        return
+
+    # passing the selected "Type" from the UI
+    if selected_type_id:
+        selected_type_id = "'" + selected_type_id + "'"
+    else:
+        QMessageBox.information(
+            None,
+            "No type selected!",
+            "Please select the 'type' you want to map."
+        )
+        return
 
     # Get the project instance
     project = QgsProject.instance()
 
     # Define name and path of existing geopackage
+    # TODO: Remove after testing!
     gpkg_name = "nin_survey.gpkg"
     gpkg_path = Path(__file__).parent / gpkg_name
-    gpkg_settings = GpkgSettings(path=gpkg_path)
 
     # Declare a SpatialReference
     # PostGIS SRID 25833 is allocated for ETRS89 UTM-zone 33N
@@ -164,14 +176,11 @@ def main(selected_items: list,
         print("Invalid CRS!")
 
     # Load all layers from geopackage
-    _ = load_gpkg_layers(gpkg_settings)
+    _ = load_gpkg_layers(gpkg_path)
 
     # Set field to value relations in widget
     # TODO: Also depends on user choices!
     user_selection_mapping_scale = "M005"
-
-    # passing the selected "Type" from the UI
-    selected_type_id = "'" + selected_type_id + "'"
 
     for item in selected_items:
         print(
@@ -198,7 +207,7 @@ def main(selected_items: list,
             "primary_key_field_name": "hovedtypegruppe",
             "foreign_key_field_name": "fid",
             "foreign_field_to_display": "navn",
-            "filter_expression": f'''"typer_fkey" = current_value('type') AND {additional_filter}''',
+            "filter_expression": f'''"typer_fkey" = current_value('type') AND {additional_filter}''' if additional_filter else f'''"typer_fkey" = current_value('type')''',
         },
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
