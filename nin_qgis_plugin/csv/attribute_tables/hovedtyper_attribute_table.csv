@@ -1,431 +1,430 @@
 fid,hovedtypegrupper_fkey,langkode,kode_id,navn
-0,0,NIN-3.0-T-A-LV-BM-0-M-A09,BM-A09,Steinbre med bre-opphav
-1,0,NIN-3.0-T-A-LV-BM-0-M-A08,BM-A08,Isfonn
-2,0,NIN-3.0-T-A-LV-BM-0-M-A07,BM-A07,Regenerert bre
-3,0,NIN-3.0-T-A-LV-BM-0-M-A06,BM-A06,Dalsidebre
-4,0,NIN-3.0-T-A-LV-BM-0-M-A05,BM-A05,Botnbre
-5,0,NIN-3.0-T-A-LV-BM-0-M-A04,BM-A04,Dalbre
-6,0,NIN-3.0-T-A-LV-BM-0-M-A03,BM-A03,Utløpsbre
-7,0,NIN-3.0-T-A-LV-BM-0-M-A02,BM-A02,Sammensatt bre
-8,0,NIN-3.0-T-A-LV-BM-0-M-A01,BM-A01,Brekappe
-9,1,NIN-3.0-T-A-LV-EL-0-L-G01,EL-G01,Kunstige elveløp og elveløp med sterkt endret hydromorfologi
-10,2,NIN-3.0-T-A-LV-EL-0-L-F01,EL-F01,Elveløp med klart endret hydromorfologi
-11,3,NIN-3.0-T-A-LV-EL-0-L-E04,EL-E04,Tidevannspreget elvemunning
-12,3,NIN-3.0-T-A-LV-EL-0-L-E03,EL-E03,Bølgeprosesspreget kompleks elvemunning i saltvann
-13,3,NIN-3.0-T-A-LV-EL-0-L-E02,EL-E02,Bølgeprosesspreget kompleks elvemunning i innsjø
-14,3,NIN-3.0-T-A-LV-EL-0-L-E01,EL-E01,Elveprosesspreget kompleks elvemunning i innsjø
-15,4,NIN-3.0-T-A-LV-EL-0-L-D03,EL-D03,"Enkelt elveløp gjennom torv, med sedimentbunn"
-16,4,NIN-3.0-T-A-LV-EL-0-L-D02,EL-D02,Enkelt elveløp i torv
-17,4,NIN-3.0-T-A-LV-EL-0-L-D01,EL-D01,Elveløp gjennom leire
-18,5,NIN-3.0-T-A-LV-EL-0-L-C03,EL-C03,Glasifluvialt elveløp med kulp-strykmorfologi
-19,5,NIN-3.0-T-A-LV-EL-0-L-C02,EL-C02,"Glasifluvialt elveløp med jevn, grus- og steindominert bunn"
-20,5,NIN-3.0-T-A-LV-EL-0-L-C01,EL-C01,Stein- og blokkdominert glasifluvialt elveløp med kaskade- eller trappetrinnsmorfologi
-21,6,NIN-3.0-T-A-LV-EL-0-L-B04,EL-B04,"Enkelt fluvialt elveløp med jevn, sand- og/eller finmaterialdominert bunn"
-22,6,NIN-3.0-T-A-LV-EL-0-L-B03,EL-B03,Fluvialt elveløp med kulp-strykmorfologi
-23,6,NIN-3.0-T-A-LV-EL-0-L-B02,EL-B02,"Fluvialt elveløp med jevn, grus- og steindominert bunn"
-24,6,NIN-3.0-T-A-LV-EL-0-L-B01,EL-B01,Stein- og blokkdominert fluvialt elveløp med kaskade- eller trappetrinnsmorfologi
-25,7,NIN-3.0-T-A-LV-EL-0-L-A03,EL-A03,Elveløp i karstfjell
-26,7,NIN-3.0-T-A-LV-EL-0-L-A02,EL-A02,Elveløp i fast fjell uten foss
-27,7,NIN-3.0-T-A-LV-EL-0-L-A01,EL-A01,Elveløp i fast fjell med foss
-28,8,NIN-3.0-T-A-LV-FL-0-L-P08,FL-P08,Vulkanspalte
-29,8,NIN-3.0-T-A-LV-FL-0-L-P07,FL-P07,Vulkankrater
-30,8,NIN-3.0-T-A-LV-FL-0-L-P06,FL-P06,Vulkankjegle
-31,8,NIN-3.0-T-A-LV-FL-0-L-P05,FL-P05,Undervannsfjell
-32,8,NIN-3.0-T-A-LV-FL-0-L-P04,FL-P04,Lavatunnel
-33,8,NIN-3.0-T-A-LV-FL-0-L-P03,FL-P03,Lavastrøm
-34,8,NIN-3.0-T-A-LV-FL-0-L-P02,FL-P02,Hydrotermisk skorstein
-35,8,NIN-3.0-T-A-LV-FL-0-L-P01,FL-P01,Hydrotermisk haug
-36,9,NIN-3.0-T-A-LV-FL-0-L-O02,FL-O02,Flygesanddyne
-37,9,NIN-3.0-T-A-LV-FL-0-L-O01,FL-O01,Deflasjonsgrop
-38,10,NIN-3.0-T-A-LV-FL-0-L-N05,FL-N05,Slamvulkan
-39,10,NIN-3.0-T-A-LV-FL-0-L-N04,FL-N04,Pockmark
-40,10,NIN-3.0-T-A-LV-FL-0-L-N03,FL-N03,Gasshydratpingo
-41,10,NIN-3.0-T-A-LV-FL-0-L-N02,FL-N02,Gasshydrateksplosjonskrater
-42,10,NIN-3.0-T-A-LV-FL-0-L-N01,FL-N01,Diapir
-43,11,NIN-3.0-T-A-LV-FL-0-L-M07,FL-M07,Havbunnsstrømningsspor
-44,11,NIN-3.0-T-A-LV-FL-0-L-M06,FL-M06,Havbunnsstrømrenne
-45,11,NIN-3.0-T-A-LV-FL-0-L-M05,FL-M05,Sedimentbølge
-46,11,NIN-3.0-T-A-LV-FL-0-L-M04,FL-M04,Strømgrop
-47,11,NIN-3.0-T-A-LV-FL-0-L-M03,FL-M03,Havbunnssedimentbanke
-48,11,NIN-3.0-T-A-LV-FL-0-L-M02,FL-M02,Konturitt
-49,11,NIN-3.0-T-A-LV-FL-0-L-M01,FL-M01,Havbunnskanal
-50,12,NIN-3.0-T-A-LV-FL-0-L-L10,FL-L10,Undersjøiske skredformer
-51,12,NIN-3.0-T-A-LV-FL-0-L-L09,FL-L09,Talusvoll
-52,12,NIN-3.0-T-A-LV-FL-0-L-L08,FL-L08,Talus
-53,12,NIN-3.0-T-A-LV-FL-0-L-L07,FL-L07,Snøskredformer
-54,12,NIN-3.0-T-A-LV-FL-0-L-L06,FL-L06,Steinsprangblokk
-55,12,NIN-3.0-T-A-LV-FL-0-L-L05,FL-L05,Leirskredgrop
-56,12,NIN-3.0-T-A-LV-FL-0-L-L04,FL-L04,Jordskredformer
-57,12,NIN-3.0-T-A-LV-FL-0-L-L03,FL-L03,Jordpyramide
-58,12,NIN-3.0-T-A-LV-FL-0-L-L02,FL-L02,Fjellskredformer
-59,12,NIN-3.0-T-A-LV-FL-0-L-L01,FL-L01,Flomskredformer
-60,13,NIN-3.0-T-A-LV-FL-0-L-K03,FL-K03,Kalkrygg
-61,13,NIN-3.0-T-A-LV-FL-0-L-K02,FL-K02,Foldeås
-62,13,NIN-3.0-T-A-LV-FL-0-L-K01,FL-K01,Dekkerestfjell
-63,14,NIN-3.0-T-A-LV-FL-0-L-J04,FL-J04,Platåfjell
-64,14,NIN-3.0-T-A-LV-FL-0-L-J03,FL-J03,Hogback
-65,14,NIN-3.0-T-A-LV-FL-0-L-J02,FL-J02,Cuesta
-66,14,NIN-3.0-T-A-LV-FL-0-L-J01,FL-J01,Benk
-67,15,NIN-3.0-T-A-LV-FL-0-L-I12,FL-I12,Tombolo
-68,15,NIN-3.0-T-A-LV-FL-0-L-I11,FL-I11,Tidevannsslette
-69,15,NIN-3.0-T-A-LV-FL-0-L-I10,FL-I10,Strandvoll
-70,15,NIN-3.0-T-A-LV-FL-0-L-I09,FL-I09,Strandlinje
-71,15,NIN-3.0-T-A-LV-FL-0-L-I08,FL-I08,Strandflate
-72,15,NIN-3.0-T-A-LV-FL-0-L-I07,FL-I07,Revle
-73,15,NIN-3.0-T-A-LV-FL-0-L-I06,FL-I06,Rauk
-74,15,NIN-3.0-T-A-LV-FL-0-L-I05,FL-I05,Leirslette
-75,15,NIN-3.0-T-A-LV-FL-0-L-I04,FL-I04,Kystrestfjell
-76,15,NIN-3.0-T-A-LV-FL-0-L-I03,FL-I03,Krumodde
-77,15,NIN-3.0-T-A-LV-FL-0-L-I02,FL-I02,Kystklippe
-78,15,NIN-3.0-T-A-LV-FL-0-L-I01,FL-I01,Brenningsgrotte
-79,16,NIN-3.0-T-A-LV-FL-0-L-H30,FL-H30,Veikimorene
-80,16,NIN-3.0-T-A-LV-FL-0-L-H29,FL-H29,U-dal
-81,16,NIN-3.0-T-A-LV-FL-0-L-H28,FL-H28,Traumunningsvifte
-82,16,NIN-3.0-T-A-LV-FL-0-L-H27,FL-H27,Tind
-83,16,NIN-3.0-T-A-LV-FL-0-L-H26,FL-H26,Sprekkefyllrygg
-84,16,NIN-3.0-T-A-LV-FL-0-L-H25,FL-H25,Rundsva
-85,16,NIN-3.0-T-A-LV-FL-0-L-H24,FL-H24,Rogenmorene
-86,16,NIN-3.0-T-A-LV-FL-0-L-H23,FL-H23,Randmorene
-87,16,NIN-3.0-T-A-LV-FL-0-L-H22,FL-H22,Plastisk form
-88,16,NIN-3.0-T-A-LV-FL-0-L-H21,FL-H21,Murtoo-morene
-89,16,NIN-3.0-T-A-LV-FL-0-L-H20,FL-H20,Morenehaug
-90,16,NIN-3.0-T-A-LV-FL-0-L-H19,FL-H19,Megaskala glasial lineasjon
-91,16,NIN-3.0-T-A-LV-FL-0-L-H18,FL-H18,Knaus og hale
-92,16,NIN-3.0-T-A-LV-FL-0-L-H17,FL-H17,Jettegryte
-93,16,NIN-3.0-T-A-LV-FL-0-L-H16,FL-H16,Isskuringsstripe
-94,16,NIN-3.0-T-A-LV-FL-0-L-H15,FL-H15,Isfjellpløyespor
-95,16,NIN-3.0-T-A-LV-FL-0-L-H14,FL-H14,Iskjernemorene
-96,16,NIN-3.0-T-A-LV-FL-0-L-H13,FL-H13,Isfjellgrop
-97,16,NIN-3.0-T-A-LV-FL-0-L-H12,FL-H12,Hengende dal
-98,16,NIN-3.0-T-A-LV-FL-0-L-H11,FL-H11,Grunningssonekile
-99,16,NIN-3.0-T-A-LV-FL-0-L-H10,FL-H10,Glasitektonisk grop og haug
-100,16,NIN-3.0-T-A-LV-FL-0-L-H09,FL-H09,Fjord
-101,16,NIN-3.0-T-A-LV-FL-0-L-H08,FL-H08,Dalsidesva
-102,16,NIN-3.0-T-A-LV-FL-0-L-H07,FL-H07,Flute
-103,16,NIN-3.0-T-A-LV-FL-0-L-H06,FL-H06,Flyttblokk
-104,16,NIN-3.0-T-A-LV-FL-0-L-H05,FL-H05,Egg
-105,16,NIN-3.0-T-A-LV-FL-0-L-H04,FL-H04,Drumlin
-106,16,NIN-3.0-T-A-LV-FL-0-L-H03,FL-H03,Dødisgrop
-107,16,NIN-3.0-T-A-LV-FL-0-L-H02,FL-H02,De Geer-morene
-108,16,NIN-3.0-T-A-LV-FL-0-L-H01,FL-H01,Botn
-109,17,NIN-3.0-T-A-LV-FL-0-L-G08,FL-G08,Tor
-110,17,NIN-3.0-T-A-LV-FL-0-L-G07,FL-G07,Tafone
-111,17,NIN-3.0-T-A-LV-FL-0-L-G06,FL-G06,Sokkelstein
-112,17,NIN-3.0-T-A-LV-FL-0-L-G05,FL-G05,Sinterterrasse
-113,17,NIN-3.0-T-A-LV-FL-0-L-G04,FL-G04,Polje
-114,17,NIN-3.0-T-A-LV-FL-0-L-G03,FL-G03,Karstdekke
-115,17,NIN-3.0-T-A-LV-FL-0-L-G02,FL-G02,Karstgrotte
-116,17,NIN-3.0-T-A-LV-FL-0-L-G01,FL-G01,Doline
-117,18,NIN-3.0-T-A-LV-FL-0-L-F06,FL-F06,Termokarst
-118,18,NIN-3.0-T-A-LV-FL-0-L-F05,FL-F05,Sigejordstunge
-119,18,NIN-3.0-T-A-LV-FL-0-L-F04,FL-F04,Strukturmark
-120,18,NIN-3.0-T-A-LV-FL-0-L-F03,FL-F03,Steinbre
-121,18,NIN-3.0-T-A-LV-FL-0-L-F02,FL-F02,Pingo
-122,18,NIN-3.0-T-A-LV-FL-0-L-F01,FL-F01,Iskile
-123,19,NIN-3.0-T-A-LV-FL-0-L-E04,FL-E04,Sprekkekløft og sprekkedal
-124,19,NIN-3.0-T-A-LV-FL-0-L-E03,FL-E03,Forkastningstrinn
-125,19,NIN-3.0-T-A-LV-FL-0-L-E02,FL-E02,Forkastningsrygg
-126,19,NIN-3.0-T-A-LV-FL-0-L-E01,FL-E01,Aksedal
-127,20,NIN-3.0-T-A-LV-FL-0-L-D11,FL-D11,Elvevoll
-128,20,NIN-3.0-T-A-LV-FL-0-L-D10,FL-D10,Elvevifte
-129,20,NIN-3.0-T-A-LV-FL-0-L-D09,FL-D09,V-dal
-130,20,NIN-3.0-T-A-LV-FL-0-L-D08,FL-D08,Elveslette
-131,20,NIN-3.0-T-A-LV-FL-0-L-D07,FL-D07,Elveskrent
-132,20,NIN-3.0-T-A-LV-FL-0-L-D06,FL-D06,Ravine i morene
-133,20,NIN-3.0-T-A-LV-FL-0-L-D05,FL-D05,Leirravine
-134,20,NIN-3.0-T-A-LV-FL-0-L-D04,FL-D04,Ravine i bresjøsediment
-135,20,NIN-3.0-T-A-LV-FL-0-L-D03,FL-D03,Meanderbue
-136,20,NIN-3.0-T-A-LV-FL-0-L-D02,FL-D02,Elvedelta
-137,20,NIN-3.0-T-A-LV-FL-0-L-D01,FL-D01,Elvebanke
-138,21,NIN-3.0-T-A-LV-FL-0-L-C05,FL-C05,Bresjøstrandlinje
-139,21,NIN-3.0-T-A-LV-FL-0-L-C04,FL-C04,Oppskyllingsnivå fra bresjøtapping
-140,21,NIN-3.0-T-A-LV-FL-0-L-C03,FL-C03,Flomdyne fra bresjøtapping
-141,21,NIN-3.0-T-A-LV-FL-0-L-C02,FL-C02,Flombanke fra bresjøtapping
-142,21,NIN-3.0-T-A-LV-FL-0-L-C01,FL-C01,Flomkanal fra bresjøtapping
-143,22,NIN-3.0-T-A-LV-FL-0-L-B01,FL-B01,Korallrev
-144,23,NIN-3.0-T-A-LV-FL-0-L-A10,FL-A10,Tunneldal
-145,23,NIN-3.0-T-A-LV-FL-0-L-A09,FL-A09,Spylerenne
-146,23,NIN-3.0-T-A-LV-FL-0-L-A08,FL-A08,Spylefelt
-147,23,NIN-3.0-T-A-LV-FL-0-L-A07,FL-A07,Bresjødelta
-148,23,NIN-3.0-T-A-LV-FL-0-L-A06,FL-A06,Sandur
-149,23,NIN-3.0-T-A-LV-FL-0-L-A05,FL-A05,Kameterrasse
-150,23,NIN-3.0-T-A-LV-FL-0-L-A04,FL-A04,Kame
-151,23,NIN-3.0-T-A-LV-FL-0-L-A03,FL-A03,Gjel
-152,23,NIN-3.0-T-A-LV-FL-0-L-A02,FL-A02,Esker
-153,23,NIN-3.0-T-A-LV-FL-0-L-A01,FL-A01,Breelvdelta
-154,24,NIN-3.0-T-A-LV-IB-0-B-N04,IB-N04,Basseng i nytt materiale
-155,24,NIN-3.0-T-A-LV-IB-0-B-N03,IB-N03,Fastfjellsbasseng
-156,24,NIN-3.0-T-A-LV-IB-0-B-N02,IB-N02,Sedimentbunn-basseng
-157,24,NIN-3.0-T-A-LV-IB-0-B-N01,IB-N01,Reguleringsbasseng
-158,25,NIN-3.0-T-A-LV-IB-0-B-M01,IB-M01,Beverdam
-159,26,NIN-3.0-T-A-LV-IB-0-B-L02,IB-L02,Høljegjøl-basseng
-160,26,NIN-3.0-T-A-LV-IB-0-B-L01,IB-L01,Flarkgjøl-basseng
-161,27,NIN-3.0-T-A-LV-IB-0-B-K01,IB-K01,Strandvoll-basseng
-162,28,NIN-3.0-T-A-LV-IB-0-B-J01,IB-J01,Dynetrau-basseng
-163,29,NIN-3.0-T-A-LV-IB-0-B-I09,IB-I09,Trestammedemt basseng
-164,29,NIN-3.0-T-A-LV-IB-0-B-I08,IB-I08,Bakevje-basseng
-165,29,NIN-3.0-T-A-LV-IB-0-B-I07,IB-I07,Yttersving-basseng
-166,29,NIN-3.0-T-A-LV-IB-0-B-I06,IB-I06,Innersving-basseng
-167,29,NIN-3.0-T-A-LV-IB-0-B-I05,IB-I05,Kroksjø-basseng
-168,29,NIN-3.0-T-A-LV-IB-0-B-I04,IB-I04,Elveslettebasseng
-169,29,NIN-3.0-T-A-LV-IB-0-B-I03,IB-I03,Deltabankebasseng
-170,29,NIN-3.0-T-A-LV-IB-0-B-I02,IB-I02,Basseng avsnørt fra sideelv
-171,29,NIN-3.0-T-A-LV-IB-0-B-I01,IB-I01,Basseng avsnørt fra innsjø
-172,30,NIN-3.0-T-A-LV-IB-0-B-H01,IB-H01,V-dalsbasseng
-173,31,NIN-3.0-T-A-LV-IB-0-B-G04,IB-G04,Sprekkedal-basseng
-174,31,NIN-3.0-T-A-LV-IB-0-B-G03,IB-G03,Kalksinterbasseng
-175,31,NIN-3.0-T-A-LV-IB-0-B-G02,IB-G02,Kalkgrottebasseng
-176,31,NIN-3.0-T-A-LV-IB-0-B-G01,IB-G01,Karstbasseng
-177,32,NIN-3.0-T-A-LV-IB-0-B-F02,IB-F02,Pingo-basseng
-178,32,NIN-3.0-T-A-LV-IB-0-B-F01,IB-F01,Termokarst-basseng
-179,33,NIN-3.0-T-A-LV-IB-0-B-E02,IB-E02,Basseng i breelv-sedimenter
-180,33,NIN-3.0-T-A-LV-IB-0-B-E01,IB-E01,Morenebasseng
-181,34,NIN-3.0-T-A-LV-IB-0-B-D06,IB-D06,Torvdemt skålbasseng
-182,34,NIN-3.0-T-A-LV-IB-0-B-D05,IB-D05,Løsmassedemt dalbasseng
-183,34,NIN-3.0-T-A-LV-IB-0-B-D04,IB-D04,Botnbasseng
-184,34,NIN-3.0-T-A-LV-IB-0-B-D03,IB-D03,Skålbasseng
-185,34,NIN-3.0-T-A-LV-IB-0-B-D02,IB-D02,U-dalsbasseng
-186,34,NIN-3.0-T-A-LV-IB-0-B-D01,IB-D01,Fjordsjøbasseng
-187,35,NIN-3.0-T-A-LV-IB-0-B-C02,IB-C02,Basseng med terskel av breis
-188,35,NIN-3.0-T-A-LV-IB-0-B-C01,IB-C01,Basseng på bre
-189,36,NIN-3.0-T-A-LV-IB-0-B-B02,IB-B02,Leirskredbasseng
-190,36,NIN-3.0-T-A-LV-IB-0-B-B01,IB-B01,Jord- og steinskredbasseng
-191,37,NIN-3.0-T-A-LV-IB-0-B-A02,IB-A02,Basseng betinget av strukturgeologiske prosesser
-192,37,NIN-3.0-T-A-LV-IB-0-B-A01,IB-A01,Basseng i avsnørt havbukt
-193,38,NIN-3.0-T-A-LV-TM-0-M-H06,TM-H06,Eksentrisk høgmyr
-194,38,NIN-3.0-T-A-LV-TM-0-M-H05,TM-H05,Skogshøgmyr
-195,38,NIN-3.0-T-A-LV-TM-0-M-H04,TM-H04,Konsentrisk høgmyr
-196,38,NIN-3.0-T-A-LV-TM-0-M-H03,TM-H03,Platåhøgmyr
-197,38,NIN-3.0-T-A-LV-TM-0-M-H02,TM-H02,Kanthøgmyr
-198,38,NIN-3.0-T-A-LV-TM-0-M-H01,TM-H01,Atlantisk høgmyr
-199,39,NIN-3.0-T-A-LV-TM-0-M-G01,TM-G01,Terrengdekkende myr
-200,40,NIN-3.0-T-A-LV-TM-0-M-F01,TM-F01,Mellomstillingsmyr
-201,41,NIN-3.0-T-A-LV-TM-0-M-E03,TM-E03,Strengblandingsmyr
-202,41,NIN-3.0-T-A-LV-TM-0-M-E02,TM-E02,Palsmyr
-203,41,NIN-3.0-T-A-LV-TM-0-M-E01,TM-E01,Øyblandingsmyr
-204,42,NIN-3.0-T-A-LV-TM-0-M-D03,TM-D03,Saltflommyr
-205,42,NIN-3.0-T-A-LV-TM-0-M-D02,TM-D02,Elveflommyr
-206,42,NIN-3.0-T-A-LV-TM-0-M-D01,TM-D01,Innsjøflommyr
-207,43,NIN-3.0-T-A-LV-TM-0-M-C01,TM-C01,Torvkilde
-208,44,NIN-3.0-T-A-LV-TM-0-M-B05,TM-B05,Strengmyr
-209,44,NIN-3.0-T-A-LV-TM-0-M-B04,TM-B04,Flarkmyr
-210,44,NIN-3.0-T-A-LV-TM-0-M-B03,TM-B03,Bakkemyr
-211,44,NIN-3.0-T-A-LV-TM-0-M-B02,TM-B02,Gjennomstrømningsmyr
-212,44,NIN-3.0-T-A-LV-TM-0-M-B01,TM-B01,Slakmyr
-213,45,NIN-3.0-T-A-LV-TM-0-M-A02,TM-A02,Flatmyr
-214,45,NIN-3.0-T-A-LV-TM-0-M-A01,TM-A01,Gjenvoksningsmyr
-215,46,NIN-3.0-T-A-MV-0-0-V-B07,MV-B07,Stabilisert iskaldt fjord-dypvann
-216,46,NIN-3.0-T-A-MV-0-0-V-B06,MV-B06,Stabilisert kaldt fjord-dypvann
-217,46,NIN-3.0-T-A-MV-0-0-V-B05,MV-B05,Fjord-dypvann dannet fra kystvann
-218,46,NIN-3.0-T-A-MV-0-0-V-B04,MV-B04,Fjord-dypvann dannet fra atlantisk vann
-219,46,NIN-3.0-T-A-MV-0-0-V-B03,MV-B03,Stabilisert varmt intermediært fjordvann
-220,46,NIN-3.0-T-A-MV-0-0-V-B02,MV-B02,Øvre fjordvannlag med estuarin sirkulasjon
-221,46,NIN-3.0-T-A-MV-0-0-V-B01,MV-B01,Tidevannsbetinget fullsirkulerende fjordvann
-222,47,NIN-3.0-T-A-MV-0-0-V-A05,MV-A05,Arktisk vann
-223,47,NIN-3.0-T-A-MV-0-0-V-A04,MV-A04,Dyphavsvann
-224,47,NIN-3.0-T-A-MV-0-0-V-A03,MV-A03,Intermediært vann
-225,47,NIN-3.0-T-A-MV-0-0-V-A02,MV-A02,Atlantisk vann
-226,47,NIN-3.0-T-A-MV-0-0-V-A01,MV-A01,Kystvann
-227,48,NIN-3.0-T-C-LI-0-0-I-MU01,LI-MU01,Substratfrie livsmedier i marine systemer
-228,49,NIN-3.0-T-C-LI-0-0-I-TU02,LI-TU02,Luft
-229,49,NIN-3.0-T-C-LI-0-0-I-TU01,LI-TU01,Snø og is på land
-230,50,NIN-3.0-T-C-LI-0-0-I-TS09,LI-TS09,Dødt plantemateriale
-231,50,NIN-3.0-T-C-LI-0-0-I-TS08,LI-TS08,Levende dyr og dyrebo
-232,50,NIN-3.0-T-C-LI-0-0-I-TS07,LI-TS07,Lav og markboende sopp
-233,50,NIN-3.0-T-C-LI-0-0-I-TS12,LI-TS12,Syntetiske livsmedier på land
-234,50,NIN-3.0-T-C-LI-0-0-I-TS11,LI-TS11,Dyremøkk og fuglegjødsel
-235,50,NIN-3.0-T-C-LI-0-0-I-TS10,LI-TS10,Dødt animalsk materiale
-236,50,NIN-3.0-T-C-LI-0-0-I-TS06,LI-TS06,Ved-livsmedier
-237,50,NIN-3.0-T-C-LI-0-0-I-TS05,LI-TS05,"Bladverk, nåleverk og reproduktive deler av levende forvedete planter på land"
-238,50,NIN-3.0-T-C-LI-0-0-I-TS04,LI-TS04,"Levende, ikke forvedete planter på land"
-239,50,NIN-3.0-T-C-LI-0-0-I-TS03,LI-TS03,Organisk jord
-240,50,NIN-3.0-T-C-LI-0-0-I-TS02,LI-TS02,Finere uorganiske substrater på land
-241,50,NIN-3.0-T-C-LI-0-0-I-TS01,LI-TS01,Grovere uorganiske substrater på land
-242,51,NIN-3.0-T-C-LI-0-0-I-MS09,LI-MS09,Syntetiske livsmedier i marine systemer
-243,51,NIN-3.0-T-C-LI-0-0-I-MS08,LI-MS08,Døde dyr i marine systemer
-244,51,NIN-3.0-T-C-LI-0-0-I-MS07,LI-MS07,Dødt plantemateriale i marine systemer
-245,51,NIN-3.0-T-C-LI-0-0-I-MS06,LI-MS06,Levende marine dyr
-246,51,NIN-3.0-T-C-LI-0-0-I-MS05,LI-MS05,Levende marine planter
-247,51,NIN-3.0-T-C-LI-0-0-I-MS04,LI-MS04,Levende organismer med karbonatsubstrater i marine systemer
-248,51,NIN-3.0-T-C-LI-0-0-I-MS03,LI-MS03,Biogene karbonatsubstrater fra døde organismer i marine systemer
-249,51,NIN-3.0-T-C-LI-0-0-I-MS02,LI-MS02,Bløtbunn i marine systemer
-250,51,NIN-3.0-T-C-LI-0-0-I-MS01,LI-MS01,Hardbunn i marine systemer
-251,52,NIN-3.0-T-C-LI-0-0-I-FU01,LI-FU01,Substratfrie livsmedier i ferskvann
-252,53,NIN-3.0-T-C-LI-0-0-I-FS06,LI-FS06,Syntetiske livsmedier i ferskvann
-253,53,NIN-3.0-T-C-LI-0-0-I-FS05,LI-FS05,Dødt organisk materiale i ferskvann
-254,53,NIN-3.0-T-C-LI-0-0-I-FS04,LI-FS04,Levende ferskvannsdyr
-255,53,NIN-3.0-T-C-LI-0-0-I-FS03,LI-FS03,Levende ferskvannsplanter
-256,53,NIN-3.0-T-C-LI-0-0-I-FS02,LI-FS02,Bløtbunn i ferskvann
-257,53,NIN-3.0-T-C-LI-0-0-I-FS01,LI-FS01,Hardbunn i ferskvann
-258,54,NIN-3.0-T-C-PE-LA-0-A-I03,LA-I03,Innlandsslettelandskap
-259,54,NIN-3.0-T-C-PE-LA-0-A-I02,LA-I02,Innlandsdallandskap
-260,54,NIN-3.0-T-C-PE-LA-0-A-I01,LA-I01,Innlandsås- og fjellandskap
-261,55,NIN-3.0-T-C-PE-LA-0-A-M03,LA-M03,Marine sletter
-262,55,NIN-3.0-T-C-PE-LA-0-A-M02,LA-M02,Marine dallandskap
-263,55,NIN-3.0-T-C-PE-LA-0-A-M01,LA-M01,Marine ås- og fjellandskap
-264,56,NIN-3.0-T-C-PE-LA-0-A-K03,LA-K03,Kystslettelandskap
-265,56,NIN-3.0-T-C-PE-LA-0-A-K02,LA-K02,Fjordlandskap
-266,56,NIN-3.0-T-C-PE-LA-0-A-K01,LA-K01,Kystås- og kystfjellandskap
-267,57,NIN-3.0-T-C-PE-NA-MB-A-TE09,NA-TE09,Isinnfrysingsmark
-268,57,NIN-3.0-T-C-PE-NA-MB-A-TE08,NA-TE08,Flommarkseng
-269,57,NIN-3.0-T-C-PE-NA-MB-A-TE07,NA-TE07,Ferskvannsdriftvoll
-270,57,NIN-3.0-T-C-PE-NA-MB-A-TO04,NA-TO04,Upløyd jordbruksmark med intensivt hevdpreg
-271,57,NIN-3.0-T-C-PE-NA-MB-A-TO03,NA-TO03,Oppdyrket varig eng
-272,57,NIN-3.0-T-C-PE-NA-MB-A-TO02,NA-TO02,Oppdyrket mark med semi-naturlig engpreg
-273,57,NIN-3.0-T-C-PE-NA-MB-A-TO01,NA-TO01,Åker
-274,57,NIN-3.0-T-C-PE-NA-MB-A-TN03,NA-TN03,"Vegkanter, plener, parker og liknende uten semi-naturlig hevdpreg"
-275,57,NIN-3.0-T-C-PE-NA-MB-A-TN02,NA-TN02,"Blomsterenger, usprøytete vegkanter og liknende med semi-naturlig hevdpreg"
-276,57,NIN-3.0-T-C-PE-NA-MB-A-TN01,NA-TN01,Blomsterbed og annen hyppig bearbeidet mark
-277,57,NIN-3.0-T-C-PE-NA-MB-A-TM06,NA-TM06,Sterkt endret skogsmark
-278,57,NIN-3.0-T-C-PE-NA-MB-A-TM05,NA-TM05,Ny løs fastmark på drenert våtmark
-279,57,NIN-3.0-T-C-PE-NA-MB-A-TM04,NA-TM04,Ny løs fastmark på tørrlagt ferskvannsbunn
-280,57,NIN-3.0-T-C-PE-NA-MB-A-TM03,NA-TM03,Løs sterkt endret fastmark
-281,57,NIN-3.0-T-C-PE-NA-MB-A-TM02,NA-TM02,Ny hard fastmark på tørrlagt ferskvannsbunn
-282,57,NIN-3.0-T-C-PE-NA-MB-A-TM01,NA-TM01,Hard sterkt endret fastmark
-283,57,NIN-3.0-T-C-PE-NA-MB-A-TL01,NA-TL01,Ny eng med semi-naturlig preg
-284,57,NIN-3.0-T-C-PE-NA-MB-A-TK03,NA-TK03,Kystlynghei
-285,57,NIN-3.0-T-C-PE-NA-MB-A-TK02,NA-TK02,Semi-naturlig strandeng
-286,57,NIN-3.0-T-C-PE-NA-MB-A-TK01,NA-TK01,Semi-naturlig eng
-287,57,NIN-3.0-T-C-PE-NA-MB-A-TI01,NA-TI01,Klart endret skogsmark
-288,57,NIN-3.0-T-C-PE-NA-MB-A-TH01,NA-TH01,Avskoget hei og eng
-289,57,NIN-3.0-T-C-PE-NA-MB-A-TG01,NA-TG01,Nakne løsmasser
-290,57,NIN-3.0-T-C-PE-NA-MB-A-TF02,NA-TF02,Flomskogsmark
-291,57,NIN-3.0-T-C-PE-NA-MB-A-TF01,NA-TF01,Sand- og dyneskogsmark
-292,57,NIN-3.0-T-C-PE-NA-MB-A-TE06,NA-TE06,Marin driftvoll
-293,57,NIN-3.0-T-C-PE-NA-MB-A-TE05,NA-TE05,Oppfrysingsmark
-294,57,NIN-3.0-T-C-PE-NA-MB-A-TE04,NA-TE04,Langvarig oversvømt flommark
-295,57,NIN-3.0-T-C-PE-NA-MB-A-TE03,NA-TE03,Åpen flomfastmark
-296,57,NIN-3.0-T-C-PE-NA-MB-A-TE02,NA-TE02,Aktiv skredmark
-297,57,NIN-3.0-T-C-PE-NA-MB-A-TE01,NA-TE01,Sanddynemark
-298,57,NIN-3.0-T-C-PE-NA-MB-A-TD06,NA-TD06,Rabbe
-299,57,NIN-3.0-T-C-PE-NA-MB-A-TD05,NA-TD05,Naturlig beitebetinget eng
-300,57,NIN-3.0-T-C-PE-NA-MB-A-TD04,NA-TD04,Fosse-eng
-301,57,NIN-3.0-T-C-PE-NA-MB-A-TD03,NA-TD03,Rasmarkeng
-302,57,NIN-3.0-T-C-PE-NA-MB-A-TD02,NA-TD02,Flomskredmark
-303,57,NIN-3.0-T-C-PE-NA-MB-A-TD01,NA-TD01,Rasmark
-304,57,NIN-3.0-T-C-PE-NA-MB-A-TC08,NA-TC08,Snøleie
-305,57,NIN-3.0-T-C-PE-NA-MB-A-TC07,NA-TC07,Fugletopp
-306,57,NIN-3.0-T-C-PE-NA-MB-A-TC06,NA-TC06,Fuglefjell-eng
-307,57,NIN-3.0-T-C-PE-NA-MB-A-TC05,NA-TC05,Strandeng
-308,57,NIN-3.0-T-C-PE-NA-MB-A-TC04,NA-TC04,Saltanrikningsmark
-309,57,NIN-3.0-T-C-PE-NA-MB-A-TC03,NA-TC03,Løsmasse-strand
-310,57,NIN-3.0-T-C-PE-NA-MB-A-TC02,NA-TC02,Grotte og overheng
-311,57,NIN-3.0-T-C-PE-NA-MB-A-TC01,NA-TC01,Strandberg
-312,57,NIN-3.0-T-C-PE-NA-MB-A-TB01,NA-TB01,Fastmarksskogsmark
-313,57,NIN-3.0-T-C-PE-NA-MB-A-TA04,NA-TA04,Arktisk-alpin grasmark
-314,57,NIN-3.0-T-C-PE-NA-MB-A-TA03,NA-TA03,Arktisk-alpin hei og leside
-315,57,NIN-3.0-T-C-PE-NA-MB-A-TA02,NA-TA02,Åpen grunnlendt mark
-316,57,NIN-3.0-T-C-PE-NA-MB-A-TA01,NA-TA01,Nakent berg
-317,58,NIN-3.0-T-C-PE-NA-VM-A-SM03,NA-SM03,Marine vannmassesystemer preget av kronisk fysikalsk-kjemisk påvirkning
-318,58,NIN-3.0-T-C-PE-NA-VM-A-SM02,NA-SM02,Marine vannmassesystemer preget av kronisk fysisk påvirkning
-319,58,NIN-3.0-T-C-PE-NA-VM-A-SM01,NA-SM01,Nye marine vannmassesystemer
-320,58,NIN-3.0-T-C-PE-NA-VM-A-SC07,NA-SC07,Marine vannmassesystemer på polar havis
-321,58,NIN-3.0-T-C-PE-NA-VM-A-SC06,NA-SC06,Marine vannmassesystemer nær og nord for iskanten
-322,58,NIN-3.0-T-C-PE-NA-VM-A-SC05,NA-SC05,Marine vannmassesystemer i poller og littoralbasseng
-323,58,NIN-3.0-T-C-PE-NA-VM-A-SC04,NA-SC04,Marine vannmassesystemer preget av oksygenmangel
-324,58,NIN-3.0-T-C-PE-NA-VM-A-SC03,NA-SC03,Afotiske sirkulerende fjordvannmassesystemer
-325,58,NIN-3.0-T-C-PE-NA-VM-A-SC02,NA-SC02,Eufotiske fjordvannmassesystemer
-326,58,NIN-3.0-T-C-PE-NA-VM-A-SC01,NA-SC01,Afotiske havvannmassesystemer
-327,58,NIN-3.0-T-C-PE-NA-VM-A-SA01,NA-SA01,Eufotiske havvannmassesystemer sør for iskanten
-328,59,NIN-3.0-T-C-PE-NA-VM-A-FM05,NA-FM05,Elvevannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
-329,59,NIN-3.0-T-C-PE-NA-VM-A-FM04,NA-FM04,Elvevannmassesystemer preget av kronisk fysikalsk-kjemisk påvirkning
-330,59,NIN-3.0-T-C-PE-NA-VM-A-FM03,NA-FM03,Innsjø-vannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
-331,59,NIN-3.0-T-C-PE-NA-VM-A-FM02,NA-FM02,Innsjø-vannmassesystemer preget av kronisk fysikalsk-kjemisk påvirkning
-332,59,NIN-3.0-T-C-PE-NA-VM-A-FM01,NA-FM01,Nye innsjø-vannmassesystemer
-333,59,NIN-3.0-T-C-PE-NA-VM-A-FC05,NA-FC05,Limniske vannmassesystemer på isoverflate
-334,59,NIN-3.0-T-C-PE-NA-VM-A-FC04,NA-FC04,Innsjø-vannmassesystemer preget av oksygenmangel
-335,59,NIN-3.0-T-C-PE-NA-VM-A-FC03,NA-FC03,Limniske vannmassesystemer preget av naturlig gjødsling
-336,59,NIN-3.0-T-C-PE-NA-VM-A-FC02,NA-FC02,Grottesjø-vannmassesystemer
-337,59,NIN-3.0-T-C-PE-NA-VM-A-FC01,NA-FC01,Bresjø-vannmassesystemer
-338,59,NIN-3.0-T-C-PE-NA-VM-A-FB03,NA-FB03,Elvevannmassesystemer
-339,59,NIN-3.0-T-C-PE-NA-VM-A-FB02,NA-FB02,Ikke lagdelte innsjø-vannmassesystemer
-340,59,NIN-3.0-T-C-PE-NA-VM-A-FB01,NA-FB01,"Lagdelte, fullsirkulerende innsjø-vannmassesystemer"
-341,59,NIN-3.0-T-C-PE-NA-VM-A-FA02,NA-FA02,"Ikke lagdelte, fullsirkulerende, naturlig fisketomme innsjø-vannmassesystemer"
-342,59,NIN-3.0-T-C-PE-NA-VM-A-FA01,NA-FA01,"Lagdelte, fullsirkulerende, naturlig fisketomme innsjø-vannmassesystemer"
-343,60,NIN-3.0-T-C-PE-NA-MB-A-VO01,NA-VO01,Sterkt tråkkpreget våtmark
-344,60,NIN-3.0-T-C-PE-NA-MB-A-VM06,NA-VM06,Ny grunn våtmark på menneskebetinget forsumpet fastmark
-345,60,NIN-3.0-T-C-PE-NA-MB-A-VM05,NA-VM05,Ny grunn våtmark på tidligere ferskvannsbunn
-346,60,NIN-3.0-T-C-PE-NA-MB-A-VM04,NA-VM04,"Sterkt endret, ikke torvproduserende våtmark"
-347,60,NIN-3.0-T-C-PE-NA-MB-A-VM03,NA-VM03,Ny torvmark på menneskebetinget forsumpet fastmark
-348,60,NIN-3.0-T-C-PE-NA-MB-A-VM02,NA-VM02,Ny torvmark på tidligere ferskvannsbunn
-349,60,NIN-3.0-T-C-PE-NA-MB-A-VM01,NA-VM01,Sterkt endret torvmark
-350,60,NIN-3.0-T-C-PE-NA-MB-A-VK02,NA-VK02,Semi-naturlig våteng
-351,60,NIN-3.0-T-C-PE-NA-MB-A-VK01,NA-VK01,Slåttemyr
-352,60,NIN-3.0-T-C-PE-NA-MB-A-VI01,NA-VI01,Klart endret våtmarksskogsmark
-353,60,NIN-3.0-T-C-PE-NA-MB-A-VG02,NA-VG02,Ny naturgitt grunn våtmark
-354,60,NIN-3.0-T-C-PE-NA-MB-A-VG01,NA-VG01,Ny naturgitt torvmark
-355,60,NIN-3.0-T-C-PE-NA-MB-A-VF02,NA-VF02,Strandsumpskogsmark
-356,60,NIN-3.0-T-C-PE-NA-MB-A-VF01,NA-VF01,Nedbørsmyr-skogsmark
-357,60,NIN-3.0-T-C-PE-NA-MB-A-VE01,NA-VE01,Oppfrysingsvåtmark
-358,60,NIN-3.0-T-C-PE-NA-MB-A-VC05,NA-VC05,Permafrost-våtmark
-359,60,NIN-3.0-T-C-PE-NA-MB-A-VC04,NA-VC04,Våt- og kildesnøleie
-360,60,NIN-3.0-T-C-PE-NA-MB-A-VC03,NA-VC03,Grunnkilde
-361,60,NIN-3.0-T-C-PE-NA-MB-A-VC02,NA-VC02,Torvmarkskilde
-362,60,NIN-3.0-T-C-PE-NA-MB-A-VC01,NA-VC01,Åpen nedbørsmyr
-363,60,NIN-3.0-T-C-PE-NA-MB-A-VB01,NA-VB01,Myr- og sumpskogsmark
-364,60,NIN-3.0-T-C-PE-NA-MB-A-VA01,NA-VA01,Åpen jordvannsmyr
-365,61,NIN-3.0-T-C-PE-NA-MB-A-OM02,NA-OM02,Elvebunn preget av kronisk fysikalsk-kjemisk påvirkning
-366,61,NIN-3.0-T-C-PE-NA-MB-A-OM01,NA-OM01,Elvebunn preget av kronisk fysisk forstyrrelse
-367,61,NIN-3.0-T-C-PE-NA-MB-A-OG01,NA-OG01,Ny elvebunn
-368,61,NIN-3.0-T-C-PE-NA-MB-A-OC03,NA-OC03,Dy- og gytjebunn i elv
-369,61,NIN-3.0-T-C-PE-NA-MB-A-OC02,NA-OC02,Varm ferskvannskildebunn
-370,61,NIN-3.0-T-C-PE-NA-MB-A-OC01,NA-OC01,Ferskvannskildebunn
-371,61,NIN-3.0-T-C-PE-NA-MB-A-OB01,NA-OB01,Elve-undervannseng
-372,61,NIN-3.0-T-C-PE-NA-MB-A-OA02,NA-OA02,Elvesedimentbunn
-373,61,NIN-3.0-T-C-PE-NA-MB-A-OA01,NA-OA01,Fast elvebunn
-374,62,NIN-3.0-T-C-PE-NA-MB-A-MC02,NA-MC02,Fast brakkvannsbunn
-375,62,NIN-3.0-T-C-PE-NA-MB-A-MC01,NA-MC01,Fast brakkvanns-fjærebeltebunn
-376,62,NIN-3.0-T-C-PE-NA-MB-A-MB03,NA-MB03,Korallrev
-377,62,NIN-3.0-T-C-PE-NA-MB-A-MB02,NA-MB02,Saltvanns-undervannseng
-378,62,NIN-3.0-T-C-PE-NA-MB-A-MM02,NA-MM02,Sterkt endret marin bunn preget av kronisk kjemisk påvirkning
-379,62,NIN-3.0-T-C-PE-NA-MB-A-MM01,NA-MM01,Sterkt endret eller ny marin bunn
-380,62,NIN-3.0-T-C-PE-NA-MB-A-MJ01,NA-MJ01,Taretrålingsbunn
-381,62,NIN-3.0-T-C-PE-NA-MB-A-MF01,NA-MF01,Brakkvanns-undervannseng
-382,62,NIN-3.0-T-C-PE-NA-MB-A-MC10,NA-MC10,Havis-underside
-383,62,NIN-3.0-T-C-PE-NA-MB-A-MC09,NA-MC09,Havisbunn
-384,62,NIN-3.0-T-C-PE-NA-MB-A-MC08,NA-MC08,Marint bunnsystem preget av oksygenmangel
-385,62,NIN-3.0-T-C-PE-NA-MB-A-MC07,NA-MC07,Varm havkilde
-386,62,NIN-3.0-T-C-PE-NA-MB-A-MC06,NA-MC06,Kald havkilde
-387,62,NIN-3.0-T-C-PE-NA-MB-A-MC05,NA-MC05,Marine grotter og overheng
-388,62,NIN-3.0-T-C-PE-NA-MB-A-MC04,NA-MC04,Brakkvanns-sedimentbunn
-389,62,NIN-3.0-T-C-PE-NA-MB-A-MC03,NA-MC03,Littoralbassengbunn
-390,62,NIN-3.0-T-C-PE-NA-MB-A-MB01,NA-MB01,Marin helofyttsump
-391,62,NIN-3.0-T-C-PE-NA-MB-A-MA06,NA-MA06,Afotisk saltvanns-sedimentbunn
-392,62,NIN-3.0-T-C-PE-NA-MB-A-MA05,NA-MA05,Eufotisk saltvanns-sedimentbunn
-393,62,NIN-3.0-T-C-PE-NA-MB-A-MA04,NA-MA04,Fjærebelte-sedimentbunn
-394,62,NIN-3.0-T-C-PE-NA-MB-A-MA03,NA-MA03,Afotisk fast saltvannsbunn
-395,62,NIN-3.0-T-C-PE-NA-MB-A-MA02,NA-MA02,Eufotisk fast saltvannsbunn
-396,62,NIN-3.0-T-C-PE-NA-MB-A-MA01,NA-MA01,Fast saltvanns-fjærebeltebunn
-397,63,NIN-3.0-T-C-PE-NA-MB-A-LM05,NA-LM05,Innsjøbunn preget av kronisk fysiskalsk-kjemisk påvirkning
-398,63,NIN-3.0-T-C-PE-NA-MB-A-LM04,NA-LM04,Innsjøbunn preget av kronisk fysisk forstyrrelse
-399,63,NIN-3.0-T-C-PE-NA-MB-A-LM03,NA-LM03,Ny innsjøbunn med opphav i våtmarkssystemer
-400,63,NIN-3.0-T-C-PE-NA-MB-A-LM02,NA-LM02,Ny innsjøbunn med opphav i elvebunn
-401,63,NIN-3.0-T-C-PE-NA-MB-A-LM01,NA-LM01,Ny sterkt endret innsjøbunn
-402,63,NIN-3.0-T-C-PE-NA-MB-A-LJ01,NA-LJ01,Klart endret innsjøbunn preget av næringsstoff-overbelastning
-403,63,NIN-3.0-T-C-PE-NA-MB-A-LG01,NA-LG01,Ny innsjøbunn
-404,63,NIN-3.0-T-C-PE-NA-MB-A-LC06,NA-LC06,Innsjø-sedimentbunn betinget av naturlig gjødsling
-405,63,NIN-3.0-T-C-PE-NA-MB-A-LC05,NA-LC05,Innsjø-isbunn
-406,63,NIN-3.0-T-C-PE-NA-MB-A-LC04,NA-LC04,Innsjøbunn preget av oksygenmangel
-407,63,NIN-3.0-T-C-PE-NA-MB-A-LC03,NA-LC03,Innsjøbunn som består av grovt organisk materiale
-408,63,NIN-3.0-T-C-PE-NA-MB-A-LC02,NA-LC02,Dy- og gytjebunn i innsjø
-409,63,NIN-3.0-T-C-PE-NA-MB-A-LC01,NA-LC01,Myrtorv-innsjøbunn
-410,63,NIN-3.0-T-C-PE-NA-MB-A-LB02,NA-LB02,Innsjø-undervannseng
-411,63,NIN-3.0-T-C-PE-NA-MB-A-LB01,NA-LB01,Helofytt-ferskvannssump
-412,63,NIN-3.0-T-C-PE-NA-MB-A-LA03,NA-LA03,Afotisk innsjøbunn
-413,63,NIN-3.0-T-C-PE-NA-MB-A-LA02,NA-LA02,Eufotisk innsjø-sedimentbunn
-414,63,NIN-3.0-T-C-PE-NA-MB-A-LA01,NA-LA01,Eufotisk fast innsjøbunn
-415,64,NIN-3.0-T-C-PE-NA-MB-A-IA01,NA-IA01,Snø og isflater
-416,65,NIN-3.0-T-C-SE-NK-0-K-E03,NK-E03,Flommarkskompleks
-417,65,NIN-3.0-T-C-SE-NK-0-K-E02,NK-E02,Skredmarkskompleks
-418,65,NIN-3.0-T-C-SE-NK-0-K-E01,NK-E01,Sanddynekompleks
-419,66,NIN-3.0-T-C-SE-NK-0-K-D03,NK-D03,Fossesprutkompleks
-420,66,NIN-3.0-T-C-SE-NK-0-K-D02,NK-D02,Rasmarkskompleks
-421,66,NIN-3.0-T-C-SE-NK-0-K-D01,NK-D01,Flomskredkompleks
-422,67,NIN-3.0-T-C-SE-NK-0-K-C08,NK-C08,Snøleiekompleks
-423,67,NIN-3.0-T-C-SE-NK-0-K-C07,NK-C07,Saltpannekompleks
-424,67,NIN-3.0-T-C-SE-NK-0-K-C06,NK-C06,Fuglefjellkompleks
-425,67,NIN-3.0-T-C-SE-NK-0-K-C05,NK-C05,Grunnkildekompleks
-426,67,NIN-3.0-T-C-SE-NK-0-K-C04,NK-C04,Torvkildekompleks
-427,67,NIN-3.0-T-C-SE-NK-0-K-C03,NK-C03,Ferskvanns- og våtmarkskildekompleks
-428,67,NIN-3.0-T-C-SE-NK-0-K-C02,NK-C02,Ferskvannskildekompleks
-429,67,NIN-3.0-T-C-SE-NK-0-K-C01,NK-C01,Varmkildekompleks
+0,0,NIN-3.0-T-A-LV-BM-0-M-A09,BM-A09,BM-A09 Steinbre med bre-opphav
+1,0,NIN-3.0-T-A-LV-BM-0-M-A08,BM-A08,BM-A08 Isfonn
+2,0,NIN-3.0-T-A-LV-BM-0-M-A07,BM-A07,BM-A07 Regenerert bre
+3,0,NIN-3.0-T-A-LV-BM-0-M-A06,BM-A06,BM-A06 Dalsidebre
+4,0,NIN-3.0-T-A-LV-BM-0-M-A05,BM-A05,BM-A05 Botnbre
+5,0,NIN-3.0-T-A-LV-BM-0-M-A04,BM-A04,BM-A04 Dalbre
+6,0,NIN-3.0-T-A-LV-BM-0-M-A03,BM-A03,BM-A03 Utløpsbre
+7,0,NIN-3.0-T-A-LV-BM-0-M-A02,BM-A02,BM-A02 Sammensatt bre
+8,0,NIN-3.0-T-A-LV-BM-0-M-A01,BM-A01,BM-A01 Brekappe
+9,1,NIN-3.0-T-A-LV-EL-0-L-G01,EL-G01,EL-G01 Kunstige elveløp og elveløp med sterkt endret hydromorfologi
+10,2,NIN-3.0-T-A-LV-EL-0-L-F01,EL-F01,EL-F01 Elveløp med klart endret hydromorfologi
+11,3,NIN-3.0-T-A-LV-EL-0-L-E04,EL-E04,EL-E04 Tidevannspreget elvemunning
+12,3,NIN-3.0-T-A-LV-EL-0-L-E03,EL-E03,EL-E03 Bølgeprosesspreget kompleks elvemunning i saltvann
+13,3,NIN-3.0-T-A-LV-EL-0-L-E02,EL-E02,EL-E02 Bølgeprosesspreget kompleks elvemunning i innsjø
+14,3,NIN-3.0-T-A-LV-EL-0-L-E01,EL-E01,EL-E01 Elveprosesspreget kompleks elvemunning i innsjø
+15,4,NIN-3.0-T-A-LV-EL-0-L-D03,EL-D03,"EL-D03 Elveløp gjennom torv, med sedimentbunn"
+16,4,NIN-3.0-T-A-LV-EL-0-L-D02,EL-D02,EL-D02 Elveløp i torv
+17,4,NIN-3.0-T-A-LV-EL-0-L-D01,EL-D01,EL-D01 Elveløp gjennom leire
+18,5,NIN-3.0-T-A-LV-EL-0-L-C03,EL-C03,EL-C03 Glasifluvialt elveløp med kulp-strykmorfologi
+19,5,NIN-3.0-T-A-LV-EL-0-L-C02,EL-C02,"EL-C02 Glasifluvialt elveløp med jevn, grus- og steindominert bunn"
+20,5,NIN-3.0-T-A-LV-EL-0-L-C01,EL-C01,EL-C01 Stein- og blokkdominert glasifluvialt elveløp med kaskade- eller trappetrinnsmorfologi
+21,6,NIN-3.0-T-A-LV-EL-0-L-B04,EL-B04,"EL-B04 Fluvialt elveløp med jevn, sand- og/eller finmaterialdominert bunn"
+22,6,NIN-3.0-T-A-LV-EL-0-L-B03,EL-B03,EL-B03 Fluvialt elveløp med kulp-strykmorfologi
+23,6,NIN-3.0-T-A-LV-EL-0-L-B02,EL-B02,"EL-B02 Fluvialt elveløp med jevn, grus- og steindominert bunn"
+24,6,NIN-3.0-T-A-LV-EL-0-L-B01,EL-B01,EL-B01 Stein- og blokkdominert fluvialt elveløp med kaskade- eller trappetrinnsmorfologi
+25,7,NIN-3.0-T-A-LV-EL-0-L-A03,EL-A03,EL-A03 Elveløp i karstfjell
+26,7,NIN-3.0-T-A-LV-EL-0-L-A02,EL-A02,EL-A02 Elveløp i fast fjell uten foss
+27,7,NIN-3.0-T-A-LV-EL-0-L-A01,EL-A01,EL-A01 Elveløp i fast fjell med foss
+28,8,NIN-3.0-T-A-LV-FL-0-L-P08,FL-P08,FL-P08 Vulkanspalte
+29,8,NIN-3.0-T-A-LV-FL-0-L-P07,FL-P07,FL-P07 Vulkankrater
+30,8,NIN-3.0-T-A-LV-FL-0-L-P06,FL-P06,FL-P06 Vulkankjegle
+31,8,NIN-3.0-T-A-LV-FL-0-L-P05,FL-P05,FL-P05 Undervannsfjell
+32,8,NIN-3.0-T-A-LV-FL-0-L-P04,FL-P04,FL-P04 Lavatunnel
+33,8,NIN-3.0-T-A-LV-FL-0-L-P03,FL-P03,FL-P03 Lavastrøm
+34,8,NIN-3.0-T-A-LV-FL-0-L-P02,FL-P02,FL-P02 Hydrotermisk skorstein
+35,8,NIN-3.0-T-A-LV-FL-0-L-P01,FL-P01,FL-P01 Hydrotermisk haug
+36,9,NIN-3.0-T-A-LV-FL-0-L-O02,FL-O02,FL-O02 Flygesanddyne
+37,9,NIN-3.0-T-A-LV-FL-0-L-O01,FL-O01,FL-O01 Deflasjonsgrop
+38,10,NIN-3.0-T-A-LV-FL-0-L-N05,FL-N05,FL-N05 Slamvulkan
+39,10,NIN-3.0-T-A-LV-FL-0-L-N04,FL-N04,FL-N04 Pockmark
+40,10,NIN-3.0-T-A-LV-FL-0-L-N03,FL-N03,FL-N03 Gasshydratpingo
+41,10,NIN-3.0-T-A-LV-FL-0-L-N02,FL-N02,FL-N02 Gasshydrateksplosjonskrater
+42,10,NIN-3.0-T-A-LV-FL-0-L-N01,FL-N01,FL-N01 Diapir
+43,11,NIN-3.0-T-A-LV-FL-0-L-M07,FL-M07,FL-M07 Havbunnsstrømningsspor
+44,11,NIN-3.0-T-A-LV-FL-0-L-M06,FL-M06,FL-M06 Havbunnsstrømrenne
+45,11,NIN-3.0-T-A-LV-FL-0-L-M05,FL-M05,FL-M05 Sedimentbølge
+46,11,NIN-3.0-T-A-LV-FL-0-L-M04,FL-M04,FL-M04 Strømgrop
+47,11,NIN-3.0-T-A-LV-FL-0-L-M03,FL-M03,FL-M03 Havbunnssedimentbanke
+48,11,NIN-3.0-T-A-LV-FL-0-L-M02,FL-M02,FL-M02 Konturitt
+49,11,NIN-3.0-T-A-LV-FL-0-L-M01,FL-M01,FL-M01 Havbunnskanal
+50,12,NIN-3.0-T-A-LV-FL-0-L-L10,FL-L10,FL-L10 Undersjøiske skredformer
+51,12,NIN-3.0-T-A-LV-FL-0-L-L09,FL-L09,FL-L09 Talusvoll
+52,12,NIN-3.0-T-A-LV-FL-0-L-L08,FL-L08,FL-L08 Talus
+53,12,NIN-3.0-T-A-LV-FL-0-L-L07,FL-L07,FL-L07 Snøskredformer
+54,12,NIN-3.0-T-A-LV-FL-0-L-L06,FL-L06,FL-L06 Steinsprangblokk
+55,12,NIN-3.0-T-A-LV-FL-0-L-L05,FL-L05,FL-L05 Leirskredgrop
+56,12,NIN-3.0-T-A-LV-FL-0-L-L04,FL-L04,FL-L04 Jordskredformer
+57,12,NIN-3.0-T-A-LV-FL-0-L-L03,FL-L03,FL-L03 Jordpyramide
+58,12,NIN-3.0-T-A-LV-FL-0-L-L02,FL-L02,FL-L02 Fjellskredformer
+59,12,NIN-3.0-T-A-LV-FL-0-L-L01,FL-L01,FL-L01 Flomskredformer
+60,13,NIN-3.0-T-A-LV-FL-0-L-K03,FL-K03,FL-K03 Kalkrygg
+61,13,NIN-3.0-T-A-LV-FL-0-L-K02,FL-K02,FL-K02 Foldeås
+62,13,NIN-3.0-T-A-LV-FL-0-L-K01,FL-K01,FL-K01 Dekkerestfjell
+63,14,NIN-3.0-T-A-LV-FL-0-L-J04,FL-J04,FL-J04 Platåfjell
+64,14,NIN-3.0-T-A-LV-FL-0-L-J02,FL-J02,FL-J02 Cuesta
+65,14,NIN-3.0-T-A-LV-FL-0-L-J01,FL-J01,FL-J01 Benk
+66,15,NIN-3.0-T-A-LV-FL-0-L-I12,FL-I12,FL-I12 Tombolo
+67,15,NIN-3.0-T-A-LV-FL-0-L-I11,FL-I11,FL-I11 Tidevannsslette
+68,15,NIN-3.0-T-A-LV-FL-0-L-I10,FL-I10,FL-I10 Strandvoll
+69,15,NIN-3.0-T-A-LV-FL-0-L-I09,FL-I09,FL-I09 Strandlinje
+70,15,NIN-3.0-T-A-LV-FL-0-L-I08,FL-I08,FL-I08 Strandflate
+71,15,NIN-3.0-T-A-LV-FL-0-L-I07,FL-I07,FL-I07 Revle
+72,15,NIN-3.0-T-A-LV-FL-0-L-I06,FL-I06,FL-I06 Rauk
+73,15,NIN-3.0-T-A-LV-FL-0-L-I05,FL-I05,FL-I05 Leirslette
+74,15,NIN-3.0-T-A-LV-FL-0-L-I04,FL-I04,FL-I04 Kystrestfjell
+75,15,NIN-3.0-T-A-LV-FL-0-L-I03,FL-I03,FL-I03 Krumodde
+76,15,NIN-3.0-T-A-LV-FL-0-L-I02,FL-I02,FL-I02 Kystklippe
+77,15,NIN-3.0-T-A-LV-FL-0-L-I01,FL-I01,FL-I01 Brenningsgrotte
+78,16,NIN-3.0-T-A-LV-FL-0-L-H30,FL-H30,FL-H30 Veikimorene
+79,16,NIN-3.0-T-A-LV-FL-0-L-H29,FL-H29,FL-H29 U-dal
+80,16,NIN-3.0-T-A-LV-FL-0-L-H28,FL-H28,FL-H28 Traumunningsvifte
+81,16,NIN-3.0-T-A-LV-FL-0-L-H27,FL-H27,FL-H27 Tind
+82,16,NIN-3.0-T-A-LV-FL-0-L-H26,FL-H26,FL-H26 Sprekkefyllrygg
+83,16,NIN-3.0-T-A-LV-FL-0-L-H25,FL-H25,FL-H25 Rundsva
+84,16,NIN-3.0-T-A-LV-FL-0-L-H24,FL-H24,FL-H24 Rogenmorene
+85,16,NIN-3.0-T-A-LV-FL-0-L-H23,FL-H23,FL-H23 Randmorene
+86,16,NIN-3.0-T-A-LV-FL-0-L-H22,FL-H22,FL-H22 Plastisk form
+87,16,NIN-3.0-T-A-LV-FL-0-L-H21,FL-H21,FL-H21 Murtoo-morene
+88,16,NIN-3.0-T-A-LV-FL-0-L-H20,FL-H20,FL-H20 Morenehaug
+89,16,NIN-3.0-T-A-LV-FL-0-L-H19,FL-H19,FL-H19 Megaskala glasial lineasjon
+90,16,NIN-3.0-T-A-LV-FL-0-L-H18,FL-H18,FL-H18 Knaus og hale
+91,16,NIN-3.0-T-A-LV-FL-0-L-H17,FL-H17,FL-H17 Jettegryte
+92,16,NIN-3.0-T-A-LV-FL-0-L-H16,FL-H16,FL-H16 Isskuringsstripe
+93,16,NIN-3.0-T-A-LV-FL-0-L-H15,FL-H15,FL-H15 Isfjellpløyespor
+94,16,NIN-3.0-T-A-LV-FL-0-L-H14,FL-H14,FL-H14 Iskjernemorene
+95,16,NIN-3.0-T-A-LV-FL-0-L-H13,FL-H13,FL-H13 Isfjellgrop
+96,16,NIN-3.0-T-A-LV-FL-0-L-H12,FL-H12,FL-H12 Hengende dal
+97,16,NIN-3.0-T-A-LV-FL-0-L-H11,FL-H11,FL-H11 Grunningssonekile
+98,16,NIN-3.0-T-A-LV-FL-0-L-H10,FL-H10,FL-H10 Glasitektonisk grop og haug
+99,16,NIN-3.0-T-A-LV-FL-0-L-H09,FL-H09,FL-H09 Fjord
+100,16,NIN-3.0-T-A-LV-FL-0-L-H08,FL-H08,FL-H08 Dalsidesva
+101,16,NIN-3.0-T-A-LV-FL-0-L-H07,FL-H07,FL-H07 Flute
+102,16,NIN-3.0-T-A-LV-FL-0-L-H06,FL-H06,FL-H06 Flyttblokk
+103,16,NIN-3.0-T-A-LV-FL-0-L-H05,FL-H05,FL-H05 Egg
+104,16,NIN-3.0-T-A-LV-FL-0-L-H04,FL-H04,FL-H04 Drumlin
+105,16,NIN-3.0-T-A-LV-FL-0-L-H03,FL-H03,FL-H03 Dødisgrop
+106,16,NIN-3.0-T-A-LV-FL-0-L-H02,FL-H02,FL-H02 De Geer-morene
+107,16,NIN-3.0-T-A-LV-FL-0-L-H01,FL-H01,FL-H01 Botn
+108,17,NIN-3.0-T-A-LV-FL-0-L-G08,FL-G08,FL-G08 Tor
+109,17,NIN-3.0-T-A-LV-FL-0-L-G07,FL-G07,FL-G07 Tafone
+110,17,NIN-3.0-T-A-LV-FL-0-L-G06,FL-G06,FL-G06 Sokkelstein
+111,17,NIN-3.0-T-A-LV-FL-0-L-G05,FL-G05,FL-G05 Sinterterrasse
+112,17,NIN-3.0-T-A-LV-FL-0-L-G04,FL-G04,FL-G04 Polje
+113,17,NIN-3.0-T-A-LV-FL-0-L-G03,FL-G03,FL-G03 Karstdekke
+114,17,NIN-3.0-T-A-LV-FL-0-L-G02,FL-G02,FL-G02 Karstgrotte
+115,17,NIN-3.0-T-A-LV-FL-0-L-G01,FL-G01,FL-G01 Doline
+116,18,NIN-3.0-T-A-LV-FL-0-L-F06,FL-F06,FL-F06 Termokarst
+117,18,NIN-3.0-T-A-LV-FL-0-L-F05,FL-F05,FL-F05 Sigejordstunge
+118,18,NIN-3.0-T-A-LV-FL-0-L-F04,FL-F04,FL-F04 Strukturmark
+119,18,NIN-3.0-T-A-LV-FL-0-L-F03,FL-F03,FL-F03 Steinbre
+120,18,NIN-3.0-T-A-LV-FL-0-L-F02,FL-F02,FL-F02 Pingo
+121,18,NIN-3.0-T-A-LV-FL-0-L-F01,FL-F01,FL-F01 Iskile
+122,19,NIN-3.0-T-A-LV-FL-0-L-E04,FL-E04,FL-E04 Sprekkekløft og sprekkedal
+123,19,NIN-3.0-T-A-LV-FL-0-L-E03,FL-E03,FL-E03 Forkastningstrinn
+124,19,NIN-3.0-T-A-LV-FL-0-L-E02,FL-E02,FL-E02 Forkastningsrygg
+125,19,NIN-3.0-T-A-LV-FL-0-L-E01,FL-E01,FL-E01 Aksedal
+126,20,NIN-3.0-T-A-LV-FL-0-L-D11,FL-D11,FL-D11 Elvevoll
+127,20,NIN-3.0-T-A-LV-FL-0-L-D10,FL-D10,FL-D10 Elvevifte
+128,20,NIN-3.0-T-A-LV-FL-0-L-D09,FL-D09,FL-D09 V-dal
+129,20,NIN-3.0-T-A-LV-FL-0-L-D08,FL-D08,FL-D08 Elveslette
+130,20,NIN-3.0-T-A-LV-FL-0-L-D07,FL-D07,FL-D07 Elveskrent
+131,20,NIN-3.0-T-A-LV-FL-0-L-D06,FL-D06,FL-D06 Ravine i morene
+132,20,NIN-3.0-T-A-LV-FL-0-L-D05,FL-D05,FL-D05 Leirravine
+133,20,NIN-3.0-T-A-LV-FL-0-L-D04,FL-D04,FL-D04 Ravine i bresjøsediment
+134,20,NIN-3.0-T-A-LV-FL-0-L-D03,FL-D03,FL-D03 Meanderbue
+135,20,NIN-3.0-T-A-LV-FL-0-L-D02,FL-D02,FL-D02 Elvedelta
+136,20,NIN-3.0-T-A-LV-FL-0-L-D01,FL-D01,FL-D01 Elvebanke
+137,21,NIN-3.0-T-A-LV-FL-0-L-C05,FL-C05,FL-C05 Bresjøstrandlinje
+138,21,NIN-3.0-T-A-LV-FL-0-L-C04,FL-C04,FL-C04 Oppskyllingsnivå fra bresjøtapping
+139,21,NIN-3.0-T-A-LV-FL-0-L-C03,FL-C03,FL-C03 Flomdyne fra bresjøtapping
+140,21,NIN-3.0-T-A-LV-FL-0-L-C02,FL-C02,FL-C02 Flombanke fra bresjøtapping
+141,21,NIN-3.0-T-A-LV-FL-0-L-C01,FL-C01,FL-C01 Flomkanal fra bresjøtapping
+142,22,NIN-3.0-T-A-LV-FL-0-L-B01,FL-B01,FL-B01 Korallrev
+143,23,NIN-3.0-T-A-LV-FL-0-L-A10,FL-A10,FL-A10 Tunneldal
+144,23,NIN-3.0-T-A-LV-FL-0-L-A09,FL-A09,FL-A09 Spylerenne
+145,23,NIN-3.0-T-A-LV-FL-0-L-A08,FL-A08,FL-A08 Spylefelt
+146,23,NIN-3.0-T-A-LV-FL-0-L-A07,FL-A07,FL-A07 Bresjødelta
+147,23,NIN-3.0-T-A-LV-FL-0-L-A06,FL-A06,FL-A06 Sandur
+148,23,NIN-3.0-T-A-LV-FL-0-L-A05,FL-A05,FL-A05 Kameterrasse
+149,23,NIN-3.0-T-A-LV-FL-0-L-A04,FL-A04,FL-A04 Kame
+150,23,NIN-3.0-T-A-LV-FL-0-L-A03,FL-A03,FL-A03 Gjel
+151,23,NIN-3.0-T-A-LV-FL-0-L-A02,FL-A02,FL-A02 Esker
+152,23,NIN-3.0-T-A-LV-FL-0-L-A01,FL-A01,FL-A01 Breelvdelta
+153,24,NIN-3.0-T-A-LV-IB-0-B-N04,IB-N04,IB-N04 Basseng i nytt materiale
+154,24,NIN-3.0-T-A-LV-IB-0-B-N03,IB-N03,IB-N03 Fastfjellsbasseng
+155,24,NIN-3.0-T-A-LV-IB-0-B-N02,IB-N02,IB-N02 Sedimentbunn-basseng
+156,24,NIN-3.0-T-A-LV-IB-0-B-N01,IB-N01,IB-N01 Reguleringsbasseng
+157,25,NIN-3.0-T-A-LV-IB-0-B-M01,IB-M01,IB-M01 Beverdam
+158,26,NIN-3.0-T-A-LV-IB-0-B-L02,IB-L02,IB-L02 Høljegjøl-basseng
+159,26,NIN-3.0-T-A-LV-IB-0-B-L01,IB-L01,IB-L01 Flarkgjøl-basseng
+160,27,NIN-3.0-T-A-LV-IB-0-B-K01,IB-K01,IB-K01 Strandvoll-basseng
+161,28,NIN-3.0-T-A-LV-IB-0-B-J01,IB-J01,IB-J01 Dynetrau-basseng
+162,29,NIN-3.0-T-A-LV-IB-0-B-I09,IB-I09,IB-I09 Trestammedemt basseng
+163,29,NIN-3.0-T-A-LV-IB-0-B-I08,IB-I08,IB-I08 Bakevje-basseng
+164,29,NIN-3.0-T-A-LV-IB-0-B-I07,IB-I07,IB-I07 Yttersving-basseng
+165,29,NIN-3.0-T-A-LV-IB-0-B-I06,IB-I06,IB-I06 Innersving-basseng
+166,29,NIN-3.0-T-A-LV-IB-0-B-I05,IB-I05,IB-I05 Kroksjø-basseng
+167,29,NIN-3.0-T-A-LV-IB-0-B-I04,IB-I04,IB-I04 Elveslettebasseng
+168,29,NIN-3.0-T-A-LV-IB-0-B-I03,IB-I03,IB-I03 Deltabankebasseng
+169,29,NIN-3.0-T-A-LV-IB-0-B-I02,IB-I02,IB-I02 Basseng avsnørt fra sideelv
+170,29,NIN-3.0-T-A-LV-IB-0-B-I01,IB-I01,IB-I01 Basseng avsnørt fra innsjø
+171,30,NIN-3.0-T-A-LV-IB-0-B-H01,IB-H01,IB-H01 V-dalsbasseng
+172,31,NIN-3.0-T-A-LV-IB-0-B-G04,IB-G04,IB-G04 Sprekkedal-basseng
+173,31,NIN-3.0-T-A-LV-IB-0-B-G03,IB-G03,IB-G03 Kalksinterbasseng
+174,31,NIN-3.0-T-A-LV-IB-0-B-G02,IB-G02,IB-G02 Kalkgrottebasseng
+175,31,NIN-3.0-T-A-LV-IB-0-B-G01,IB-G01,IB-G01 Karstbasseng
+176,32,NIN-3.0-T-A-LV-IB-0-B-F02,IB-F02,IB-F02 Pingo-basseng
+177,32,NIN-3.0-T-A-LV-IB-0-B-F01,IB-F01,IB-F01 Termokarst-basseng
+178,33,NIN-3.0-T-A-LV-IB-0-B-E02,IB-E02,IB-E02 Basseng i breelv-sedimenter
+179,33,NIN-3.0-T-A-LV-IB-0-B-E01,IB-E01,IB-E01 Morenebasseng
+180,34,NIN-3.0-T-A-LV-IB-0-B-D06,IB-D06,IB-D06 Torvdemt skålbasseng
+181,34,NIN-3.0-T-A-LV-IB-0-B-D05,IB-D05,IB-D05 Løsmassedemt dalbasseng
+182,34,NIN-3.0-T-A-LV-IB-0-B-D04,IB-D04,IB-D04 Botnbasseng
+183,34,NIN-3.0-T-A-LV-IB-0-B-D03,IB-D03,IB-D03 Skålbasseng
+184,34,NIN-3.0-T-A-LV-IB-0-B-D02,IB-D02,IB-D02 U-dalsbasseng
+185,34,NIN-3.0-T-A-LV-IB-0-B-D01,IB-D01,IB-D01 Fjordsjøbasseng
+186,35,NIN-3.0-T-A-LV-IB-0-B-C02,IB-C02,IB-C02 Basseng med terskel av breis
+187,35,NIN-3.0-T-A-LV-IB-0-B-C01,IB-C01,IB-C01 Basseng på bre
+188,36,NIN-3.0-T-A-LV-IB-0-B-B02,IB-B02,IB-B02 Leirskredbasseng
+189,36,NIN-3.0-T-A-LV-IB-0-B-B01,IB-B01,IB-B01 Jord- og steinskredbasseng
+190,37,NIN-3.0-T-A-LV-IB-0-B-A02,IB-A02,IB-A02 Basseng betinget av strukturgeologiske prosesser
+191,37,NIN-3.0-T-A-LV-IB-0-B-A01,IB-A01,IB-A01 Basseng i avsnørt havbukt
+192,38,NIN-3.0-T-A-LV-TM-0-M-H06,TM-H06,TM-H06 Eksentrisk høgmyr
+193,38,NIN-3.0-T-A-LV-TM-0-M-H05,TM-H05,TM-H05 Skogshøgmyr
+194,38,NIN-3.0-T-A-LV-TM-0-M-H04,TM-H04,TM-H04 Konsentrisk høgmyr
+195,38,NIN-3.0-T-A-LV-TM-0-M-H03,TM-H03,TM-H03 Platåhøgmyr
+196,38,NIN-3.0-T-A-LV-TM-0-M-H02,TM-H02,TM-H02 Kanthøgmyr
+197,38,NIN-3.0-T-A-LV-TM-0-M-H01,TM-H01,TM-H01 Atlantisk høgmyr
+198,39,NIN-3.0-T-A-LV-TM-0-M-G01,TM-G01,TM-G01 Terrengdekkende myr
+199,40,NIN-3.0-T-A-LV-TM-0-M-F01,TM-F01,TM-F01 Mellomstillingsmyr
+200,41,NIN-3.0-T-A-LV-TM-0-M-E03,TM-E03,TM-E03 Strengblandingsmyr
+201,41,NIN-3.0-T-A-LV-TM-0-M-E02,TM-E02,TM-E02 Palsmyr
+202,41,NIN-3.0-T-A-LV-TM-0-M-E01,TM-E01,TM-E01 Øyblandingsmyr
+203,42,NIN-3.0-T-A-LV-TM-0-M-D03,TM-D03,TM-D03 Saltflommyr
+204,42,NIN-3.0-T-A-LV-TM-0-M-D02,TM-D02,TM-D02 Elveflommyr
+205,42,NIN-3.0-T-A-LV-TM-0-M-D01,TM-D01,TM-D01 Innsjøflommyr
+206,43,NIN-3.0-T-A-LV-TM-0-M-C01,TM-C01,TM-C01 Torvkilde
+207,44,NIN-3.0-T-A-LV-TM-0-M-B05,TM-B05,TM-B05 Strengmyr
+208,44,NIN-3.0-T-A-LV-TM-0-M-B04,TM-B04,TM-B04 Flarkmyr
+209,44,NIN-3.0-T-A-LV-TM-0-M-B03,TM-B03,TM-B03 Bakkemyr
+210,44,NIN-3.0-T-A-LV-TM-0-M-B02,TM-B02,TM-B02 Gjennomstrømningsmyr
+211,44,NIN-3.0-T-A-LV-TM-0-M-B01,TM-B01,TM-B01 Slakmyr
+212,45,NIN-3.0-T-A-LV-TM-0-M-A02,TM-A02,TM-A02 Flatmyr
+213,45,NIN-3.0-T-A-LV-TM-0-M-A01,TM-A01,TM-A01 Gjenvoksningsmyr
+214,46,NIN-3.0-T-A-MV-0-0-V-B07,MV-B07,MV-B07 Stabilisert iskaldt fjord-dypvann
+215,46,NIN-3.0-T-A-MV-0-0-V-B06,MV-B06,MV-B06 Stabilisert kaldt fjord-dypvann
+216,46,NIN-3.0-T-A-MV-0-0-V-B05,MV-B05,MV-B05 Fjord-dypvann dannet fra kystvann
+217,46,NIN-3.0-T-A-MV-0-0-V-B04,MV-B04,MV-B04 Fjord-dypvann dannet fra atlantisk vann
+218,46,NIN-3.0-T-A-MV-0-0-V-B03,MV-B03,MV-B03 Stabilisert varmt intermediært fjordvann
+219,46,NIN-3.0-T-A-MV-0-0-V-B02,MV-B02,MV-B02 Øvre fjordvannlag med estuarin sirkulasjon
+220,46,NIN-3.0-T-A-MV-0-0-V-B01,MV-B01,MV-B01 Tidevannsbetinget fullsirkulerende fjordvann
+221,47,NIN-3.0-T-A-MV-0-0-V-A05,MV-A05,MV-A05 Arktisk vann
+222,47,NIN-3.0-T-A-MV-0-0-V-A04,MV-A04,MV-A04 Dyphavsvann
+223,47,NIN-3.0-T-A-MV-0-0-V-A03,MV-A03,MV-A03 Intermediært vann
+224,47,NIN-3.0-T-A-MV-0-0-V-A02,MV-A02,MV-A02 Atlantisk vann
+225,47,NIN-3.0-T-A-MV-0-0-V-A01,MV-A01,MV-A01 Kystvann
+226,48,NIN-3.0-T-C-LI-0-0-I-TU02,LI-TU02,LI-TU02 Luft
+227,48,NIN-3.0-T-C-LI-0-0-I-TU01,LI-TU01,LI-TU01 Snø og is på land
+228,49,NIN-3.0-T-C-LI-0-0-I-TS12,LI-TS12,LI-TS12 Syntetiske livsmedier på land
+229,49,NIN-3.0-T-C-LI-0-0-I-TS11,LI-TS11,LI-TS11 Dyremøkk og fuglegjødsel
+230,49,NIN-3.0-T-C-LI-0-0-I-TS10,LI-TS10,LI-TS10 Dødt animalsk materiale
+231,49,NIN-3.0-T-C-LI-0-0-I-TS09,LI-TS09,LI-TS09 Dødt plantemateriale
+232,49,NIN-3.0-T-C-LI-0-0-I-TS08,LI-TS08,LI-TS08 Levende dyr og dyrebo
+233,49,NIN-3.0-T-C-LI-0-0-I-TS07,LI-TS07,LI-TS07 Lav og markboende sopp
+234,49,NIN-3.0-T-C-LI-0-0-I-TS06,LI-TS06,LI-TS06 Ved-livsmedier
+235,49,NIN-3.0-T-C-LI-0-0-I-TS05,LI-TS05,"LI-TS05 Bladverk, nåleverk og reproduktive deler av levende forvedete planter på land"
+236,49,NIN-3.0-T-C-LI-0-0-I-TS04,LI-TS04,"LI-TS04 Levende, ikke forvedete planter på land"
+237,49,NIN-3.0-T-C-LI-0-0-I-TS03,LI-TS03,LI-TS03 Organisk jord
+238,49,NIN-3.0-T-C-LI-0-0-I-TS02,LI-TS02,LI-TS02 Finere uorganiske substrater på land
+239,49,NIN-3.0-T-C-LI-0-0-I-TS01,LI-TS01,LI-TS01 Grovere uorganiske substrater på land
+240,50,NIN-3.0-T-C-LI-0-0-I-MU01,LI-MU01,LI-MU01 Substratfrie livsmedier i marine systemer
+241,51,NIN-3.0-T-C-LI-0-0-I-MS09,LI-MS09,LI-MS09 Syntetiske livsmedier i marine systemer
+242,51,NIN-3.0-T-C-LI-0-0-I-MS08,LI-MS08,LI-MS08 Døde dyr i marine systemer
+243,51,NIN-3.0-T-C-LI-0-0-I-MS07,LI-MS07,LI-MS07 Dødt plantemateriale i marine systemer
+244,51,NIN-3.0-T-C-LI-0-0-I-MS06,LI-MS06,LI-MS06 Levende marine dyr
+245,51,NIN-3.0-T-C-LI-0-0-I-MS05,LI-MS05,LI-MS05 Levende marine planter
+246,51,NIN-3.0-T-C-LI-0-0-I-MS04,LI-MS04,LI-MS04 Levende organismer med karbonatsubstrater i marine systemer
+247,51,NIN-3.0-T-C-LI-0-0-I-MS03,LI-MS03,LI-MS03 Biogene karbonatsubstrater fra døde organismer i marine systemer
+248,51,NIN-3.0-T-C-LI-0-0-I-MS02,LI-MS02,LI-MS02 Bløtbunni marine systemer
+249,51,NIN-3.0-T-C-LI-0-0-I-MS01,LI-MS01,LI-MS01 Hardbunn i marine systemer
+250,52,NIN-3.0-T-C-LI-0-0-I-FU01,LI-FU01,LI-FU01 Substratfrie livsmedier i ferskvann
+251,53,NIN-3.0-T-C-LI-0-0-I-FS06,LI-FS06,LI-FS06 Syntetiske livsmedier i ferskvann
+252,53,NIN-3.0-T-C-LI-0-0-I-FS05,LI-FS05,LI-FS05 Dødt organisk materiale i ferskvann
+253,53,NIN-3.0-T-C-LI-0-0-I-FS04,LI-FS04,LI-FS04 Levende ferskvannsdyr
+254,53,NIN-3.0-T-C-LI-0-0-I-FS03,LI-FS03,LI-FS03 Levende ferskvannsplanter
+255,53,NIN-3.0-T-C-LI-0-0-I-FS02,LI-FS02,LI-FS02 Bløtbunn i ferskvann
+256,53,NIN-3.0-T-C-LI-0-0-I-FS01,LI-FS01,LI-FS01 Hardbunn i ferskvann
+257,54,NIN-3.0-T-C-PE-LA-0-A-M03,LA-M03,LA-M03 Marine sletter
+258,54,NIN-3.0-T-C-PE-LA-0-A-M02,LA-M02,LA-M02 Marine dallandskap
+259,54,NIN-3.0-T-C-PE-LA-0-A-M01,LA-M01,LA-M01 Marine ås- og fjellandskap
+260,55,NIN-3.0-T-C-PE-LA-0-A-K03,LA-K03,LA-K03 Kystslettelandskap
+261,55,NIN-3.0-T-C-PE-LA-0-A-K02,LA-K02,LA-K02 Fjordlandskap
+262,55,NIN-3.0-T-C-PE-LA-0-A-K01,LA-K01,LA-K01 Kystås- og kystfjellandskap
+263,56,NIN-3.0-T-C-PE-LA-0-A-I03,LA-I03,LA-I03 Innlandsslettelandskap
+264,56,NIN-3.0-T-C-PE-LA-0-A-I02,LA-I02,LA-I02 Innlandsdallandskap
+265,56,NIN-3.0-T-C-PE-LA-0-A-I01,LA-I01,LA-I01 Innlandsås- og fjellandskap
+266,57,NIN-3.0-T-C-PE-NA-VM-A-SM03,NA-SM03,NA-SM03 Marine vannmassesystemer preget av kronisk fysikalsk-kjemisk påvirkning
+267,57,NIN-3.0-T-C-PE-NA-VM-A-SM02,NA-SM02,NA-SM02 Marine vannmassesystemer preget av kronisk fysisk påvirkning
+268,57,NIN-3.0-T-C-PE-NA-VM-A-SM01,NA-SM01,NA-SM01 Nye marine vannmassesystemer
+269,57,NIN-3.0-T-C-PE-NA-VM-A-SC07,NA-SC07,NA-SC07 Marine vannmassesystemer på polar havis
+270,57,NIN-3.0-T-C-PE-NA-VM-A-SC06,NA-SC06,NA-SC06 Marine vannmassesystemer nær og nord for iskanten
+271,57,NIN-3.0-T-C-PE-NA-VM-A-SC05,NA-SC05,NA-SC05 Marine vannmassesystemer i poller og littoralbasseng
+272,57,NIN-3.0-T-C-PE-NA-VM-A-SC04,NA-SC04,NA-SC04 Marine vannmassesystemer preget av oksygenmangel
+273,57,NIN-3.0-T-C-PE-NA-VM-A-SC03,NA-SC03,NA-SC03 Afotiske sirkulerende fjordvannmassesystemer
+274,57,NIN-3.0-T-C-PE-NA-VM-A-SC02,NA-SC02,NA-SC02 Eufotiske fjordvannmassesystemer
+275,57,NIN-3.0-T-C-PE-NA-VM-A-SC01,NA-SC01,NA-SC01 Afotiske havvannmassesystemer
+276,57,NIN-3.0-T-C-PE-NA-VM-A-SA01,NA-SA01,NA-SA01 Eufotiske havvannmassesystemer
+277,58,NIN-3.0-T-C-PE-NA-MB-A-OM02,NA-OM02,NA-OM02 Elvebunn preget av kronisk fysikalsk-kjemisk påvirkning
+278,58,NIN-3.0-T-C-PE-NA-MB-A-OM01,NA-OM01,NA-OM01 Elvebunn preget av kronisk fysisk forstyrrelse
+279,58,NIN-3.0-T-C-PE-NA-MB-A-OG01,NA-OG01,NA-OG01 Ny elvebunn
+280,58,NIN-3.0-T-C-PE-NA-MB-A-OC03,NA-OC03,NA-OC03 Dy- og gytjebunn i elv
+281,58,NIN-3.0-T-C-PE-NA-MB-A-OC02,NA-OC02,NA-OC02 Varm ferskvannskildebunn
+282,58,NIN-3.0-T-C-PE-NA-MB-A-OC01,NA-OC01,NA-OC01 Ferskvannskildebunn
+283,58,NIN-3.0-T-C-PE-NA-MB-A-OB01,NA-OB01,NA-OB01 Elve-undervannseng
+284,58,NIN-3.0-T-C-PE-NA-MB-A-OA02,NA-OA02,NA-OA02 Elvesedimentbunn
+285,58,NIN-3.0-T-C-PE-NA-MB-A-OA01,NA-OA01,NA-OA01 Fast elvebunn
+286,59,NIN-3.0-T-C-PE-NA-VM-A-FM05,NA-FM05,NA-FM05 Elvevannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+287,59,NIN-3.0-T-C-PE-NA-VM-A-FM04,NA-FM04,NA-FM04 Elvevannmassesystemer preget av kronisk fysikalsk-kjemisk påvirkning
+288,59,NIN-3.0-T-C-PE-NA-VM-A-FM03,NA-FM03,NA-FM03 Innsjø-vannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+289,59,NIN-3.0-T-C-PE-NA-VM-A-FM02,NA-FM02,NA-FM02 Innsjø-vannmassesystemer preget av kronisk fysikalsk-kjemisk påvirkning
+290,59,NIN-3.0-T-C-PE-NA-VM-A-FM01,NA-FM01,NA-FM01 Nye innsjø-vannmassesystemer
+291,59,NIN-3.0-T-C-PE-NA-VM-A-FC05,NA-FC05,NA-FC05 Limniske vannmassesystemer på isoverflate
+292,59,NIN-3.0-T-C-PE-NA-VM-A-FC04,NA-FC04,NA-FC04 Innsjø-vannmassesystemer preget av oksygenmangel
+293,59,NIN-3.0-T-C-PE-NA-VM-A-FC03,NA-FC03,NA-FC03 Limniske vannmassesystemer preget av naturlig gjødsling
+294,59,NIN-3.0-T-C-PE-NA-VM-A-FC02,NA-FC02,NA-FC02 Grottesjø-vannmassesystemer
+295,59,NIN-3.0-T-C-PE-NA-VM-A-FC01,NA-FC01,NA-FC01 Bresjø-vannmassesystemer
+296,59,NIN-3.0-T-C-PE-NA-VM-A-FB03,NA-FB03,NA-FB03 Elvevannmassesystemer
+297,59,NIN-3.0-T-C-PE-NA-VM-A-FB02,NA-FB02,NA-FB02 Ikke lagdelte innsjø-vannmassesystemer
+298,59,NIN-3.0-T-C-PE-NA-VM-A-FB01,NA-FB01,"NA-FB01 Lagdelte, fullsirkulerende innsjø-vannmassesystemer"
+299,59,NIN-3.0-T-C-PE-NA-VM-A-FA02,NA-FA02,"NA-FA02 Ikke lagdelte, fullsirkulerende, naturlig fisketomme innsjø-vannmassesystemer"
+300,59,NIN-3.0-T-C-PE-NA-VM-A-FA01,NA-FA01,"NA-FA01 Lagdelte, fullsirkulerende, naturlig fisketomme innsjø-vannmassesystemer"
+301,60,NIN-3.0-T-C-PE-NA-MB-A-VO01,NA-VO01,NA-VO01 Sterkt tråkkpreget våtmark
+302,60,NIN-3.0-T-C-PE-NA-MB-A-VM06,NA-VM06,NA-VM06 Ny grunn våtmark på menneskebetinget forsumpet fastmark
+303,60,NIN-3.0-T-C-PE-NA-MB-A-VM05,NA-VM05,NA-VM05 Ny grunn våtmark på tidligere ferskvannsbunn
+304,60,NIN-3.0-T-C-PE-NA-MB-A-VM04,NA-VM04,"NA-VM04 Sterkt endret, ikke torvproduserende våtmark"
+305,60,NIN-3.0-T-C-PE-NA-MB-A-VM03,NA-VM03,NA-VM03 Ny torvmark på menneskebetinget forsumpet fastmark
+306,60,NIN-3.0-T-C-PE-NA-MB-A-VM02,NA-VM02,NA-VM02 Ny torvmark på tidligere ferskvannsbunn
+307,60,NIN-3.0-T-C-PE-NA-MB-A-VM01,NA-VM01,NA-VM01 Sterkt endret torvmark
+308,60,NIN-3.0-T-C-PE-NA-MB-A-VK02,NA-VK02,NA-VK02 Semi-naturlig våteng
+309,60,NIN-3.0-T-C-PE-NA-MB-A-VK01,NA-VK01,NA-VK01 Slåttemyr
+310,60,NIN-3.0-T-C-PE-NA-MB-A-VI01,NA-VI01,NA-VI01 Klart endret våtmarksskogsmark
+311,60,NIN-3.0-T-C-PE-NA-MB-A-VG02,NA-VG02,NA-VG02 Ny naturgitt grunn våtmark
+312,60,NIN-3.0-T-C-PE-NA-MB-A-VG01,NA-VG01,NA-VG01 Ny naturgitt torvmark
+313,60,NIN-3.0-T-C-PE-NA-MB-A-VF02,NA-VF02,NA-VF02 Strandsumpskogsmark
+314,60,NIN-3.0-T-C-PE-NA-MB-A-VF01,NA-VF01,NA-VF01 Nedbørsmyr-skogsmark
+315,60,NIN-3.0-T-C-PE-NA-MB-A-VE01,NA-VE01,NA-VE01 Oppfrysingsvåtmark
+316,60,NIN-3.0-T-C-PE-NA-MB-A-VC05,NA-VC05,NA-VC05 Permafrost-våtmark
+317,60,NIN-3.0-T-C-PE-NA-MB-A-VC04,NA-VC04,NA-VC04 Våt- og kildesnøleie
+318,60,NIN-3.0-T-C-PE-NA-MB-A-VC03,NA-VC03,NA-VC03 Grunnkilde
+319,60,NIN-3.0-T-C-PE-NA-MB-A-VC02,NA-VC02,NA-VC02 Torvmarkskilde
+320,60,NIN-3.0-T-C-PE-NA-MB-A-VC01,NA-VC01,NA-VC01 Åpen nedbørsmyr
+321,60,NIN-3.0-T-C-PE-NA-MB-A-VB01,NA-VB01,NA-VB01 Myr- og sumpskogsmark
+322,60,NIN-3.0-T-C-PE-NA-MB-A-VA01,NA-VA01,NA-VA01 Åpen jordvannsmyr
+323,61,NIN-3.0-T-C-PE-NA-MB-A-TO04,NA-TO04,NA-TO04 Upløyd jordbruksmark med intensivt hevdpreg
+324,61,NIN-3.0-T-C-PE-NA-MB-A-TO03,NA-TO03,NA-TO03 Oppdyrket varig eng
+325,61,NIN-3.0-T-C-PE-NA-MB-A-TO02,NA-TO02,NA-TO02 Oppdyrket mark med semi-naturlig engpreg
+326,61,NIN-3.0-T-C-PE-NA-MB-A-TO01,NA-TO01,NA-TO01 Åker
+327,61,NIN-3.0-T-C-PE-NA-MB-A-TN03,NA-TN03,"NA-TN03 Vegkanter, plener, parker og liknende uten semi-naturlig hevdpreg"
+328,61,NIN-3.0-T-C-PE-NA-MB-A-TN02,NA-TN02,"NA-TN02 Blomsterenger, usprøytete vegkanter og liknende med semi-naturlig hevdpreg"
+329,61,NIN-3.0-T-C-PE-NA-MB-A-TN01,NA-TN01,NA-TN01 Blomsterbed og annen hyppig bearbeidet mark
+330,61,NIN-3.0-T-C-PE-NA-MB-A-TM06,NA-TM06,NA-TM06 Sterkt endret skogsmark
+331,61,NIN-3.0-T-C-PE-NA-MB-A-TE07,NA-TE07,NA-TE07 Ferskvannsdriftvoll
+332,61,NIN-3.0-T-C-PE-NA-MB-A-TM05,NA-TM05,NA-TM05 Ny løs fastmark på drenert våtmark
+333,61,NIN-3.0-T-C-PE-NA-MB-A-TM04,NA-TM04,NA-TM04 Ny løs fastmark på tørrlagt ferskvannsbunn
+334,61,NIN-3.0-T-C-PE-NA-MB-A-TM03,NA-TM03,NA-TM03 Løs sterkt endret fastmark
+335,61,NIN-3.0-T-C-PE-NA-MB-A-TM02,NA-TM02,NA-TM02 Ny hard fastmark på tørrlagt ferskvannsbunn
+336,61,NIN-3.0-T-C-PE-NA-MB-A-TM01,NA-TM01,NA-TM01 Hard sterkt endret fastmark
+337,61,NIN-3.0-T-C-PE-NA-MB-A-TL01,NA-TL01,NA-TL01 Ny eng med semi-naturlig preg
+338,61,NIN-3.0-T-C-PE-NA-MB-A-TK03,NA-TK03,NA-TK03 Kystlynghei
+339,61,NIN-3.0-T-C-PE-NA-MB-A-TK02,NA-TK02,NA-TK02 Semi-naturlig strandeng
+340,61,NIN-3.0-T-C-PE-NA-MB-A-TK01,NA-TK01,NA-TK01 Semi-naturlig eng
+341,61,NIN-3.0-T-C-PE-NA-MB-A-TI01,NA-TI01,NA-TI01 Klart endret skogsmark
+342,61,NIN-3.0-T-C-PE-NA-MB-A-TH01,NA-TH01,NA-TH01 Avskoget hei og eng
+343,61,NIN-3.0-T-C-PE-NA-MB-A-TG01,NA-TG01,NA-TG01 Nakne løsmasser
+344,61,NIN-3.0-T-C-PE-NA-MB-A-TF02,NA-TF02,NA-TF02 Flomskogsmark
+345,61,NIN-3.0-T-C-PE-NA-MB-A-TF01,NA-TF01,NA-TF01 Sand- og dyneskogsmark
+346,61,NIN-3.0-T-C-PE-NA-MB-A-TE09,NA-TE09,NA-TE09 Isinnfrysingsmark
+347,61,NIN-3.0-T-C-PE-NA-MB-A-TE08,NA-TE08,NA-TE08 Flommarkseng
+348,61,NIN-3.0-T-C-PE-NA-MB-A-TE06,NA-TE06,NA-TE06 Marin driftvoll
+349,61,NIN-3.0-T-C-PE-NA-MB-A-TE05,NA-TE05,NA-TE05 Oppfrysingsmark
+350,61,NIN-3.0-T-C-PE-NA-MB-A-TE04,NA-TE04,NA-TE04 Langvarig oversvømt flommark
+351,61,NIN-3.0-T-C-PE-NA-MB-A-TE03,NA-TE03,NA-TE03 Åpen flomfastmark
+352,61,NIN-3.0-T-C-PE-NA-MB-A-TE02,NA-TE02,NA-TE02 Aktiv skredmark
+353,61,NIN-3.0-T-C-PE-NA-MB-A-TE01,NA-TE01,NA-TE01 Sanddynemark
+354,61,NIN-3.0-T-C-PE-NA-MB-A-TD06,NA-TD06,NA-TD06 Rabbe
+355,61,NIN-3.0-T-C-PE-NA-MB-A-TD05,NA-TD05,NA-TD05 Naturlig beitebetinget eng
+356,61,NIN-3.0-T-C-PE-NA-MB-A-TD04,NA-TD04,NA-TD04 Fosse-eng
+357,61,NIN-3.0-T-C-PE-NA-MB-A-TD03,NA-TD03,NA-TD03 Rasmarkeng
+358,61,NIN-3.0-T-C-PE-NA-MB-A-TD02,NA-TD02,NA-TD02 Flomskredmark
+359,61,NIN-3.0-T-C-PE-NA-MB-A-TD01,NA-TD01,NA-TD01 Rasmark
+360,61,NIN-3.0-T-C-PE-NA-MB-A-TC08,NA-TC08,NA-TC08 Snøleie
+361,61,NIN-3.0-T-C-PE-NA-MB-A-TC07,NA-TC07,NA-TC07 Fugletopp
+362,61,NIN-3.0-T-C-PE-NA-MB-A-TC06,NA-TC06,NA-TC06 Fuglefjell-eng
+363,61,NIN-3.0-T-C-PE-NA-MB-A-TC05,NA-TC05,NA-TC05 Strandeng
+364,61,NIN-3.0-T-C-PE-NA-MB-A-TC04,NA-TC04,NA-TC04 Saltanrikningsmark
+365,61,NIN-3.0-T-C-PE-NA-MB-A-TC03,NA-TC03,NA-TC03 Løsmasse-strand
+366,61,NIN-3.0-T-C-PE-NA-MB-A-TC02,NA-TC02,NA-TC02 Grotte og overheng
+367,61,NIN-3.0-T-C-PE-NA-MB-A-TC01,NA-TC01,NA-TC01 Strandberg
+368,61,NIN-3.0-T-C-PE-NA-MB-A-TB01,NA-TB01,NA-TB01 Fastmarksskogsmark
+369,61,NIN-3.0-T-C-PE-NA-MB-A-TA04,NA-TA04,NA-TA04 Arktisk-alpin grasmark
+370,61,NIN-3.0-T-C-PE-NA-MB-A-TA03,NA-TA03,NA-TA03 Arktisk-alpin hei og leside
+371,61,NIN-3.0-T-C-PE-NA-MB-A-TA02,NA-TA02,NA-TA02 Åpen grunnlendt mark
+372,61,NIN-3.0-T-C-PE-NA-MB-A-TA01,NA-TA01,NA-TA01 Nakent berg
+373,62,NIN-3.0-T-C-PE-NA-MB-A-MM02,NA-MM02,NA-MM02 Sterkt endret marin bunn preget av kronisk kjemisk påvirkning
+374,62,NIN-3.0-T-C-PE-NA-MB-A-MM01,NA-MM01,NA-MM01 Sterkt endret eller ny marin bunn
+375,62,NIN-3.0-T-C-PE-NA-MB-A-MJ01,NA-MJ01,NA-MJ01 Taretrålingsbunn
+376,62,NIN-3.0-T-C-PE-NA-MB-A-MF01,NA-MF01,NA-MF01 Brakkvanns-undervannseng
+377,62,NIN-3.0-T-C-PE-NA-MB-A-MC10,NA-MC10,NA-MC10 Havis-underside
+378,62,NIN-3.0-T-C-PE-NA-MB-A-MC09,NA-MC09,NA-MC09 Havisbunn
+379,62,NIN-3.0-T-C-PE-NA-MB-A-MC08,NA-MC08,NA-MC08 Marint bunnsystem preget av oksygenmangel
+380,62,NIN-3.0-T-C-PE-NA-MB-A-MC07,NA-MC07,NA-MC07 Varm havkilde
+381,62,NIN-3.0-T-C-PE-NA-MB-A-MC06,NA-MC06,NA-MC06 Kald havkilde
+382,62,NIN-3.0-T-C-PE-NA-MB-A-MC05,NA-MC05,NA-MC05 Marine grotter og overheng
+383,62,NIN-3.0-T-C-PE-NA-MB-A-MC04,NA-MC04,NA-MC04 Brakkvanns-sedimentbunn
+384,62,NIN-3.0-T-C-PE-NA-MB-A-MC03,NA-MC03,NA-MC03 Littoralbassengbunn
+385,62,NIN-3.0-T-C-PE-NA-MB-A-MC02,NA-MC02,NA-MC02 Fast brakkvannsbunn
+386,62,NIN-3.0-T-C-PE-NA-MB-A-MC01,NA-MC01,NA-MC01 Fast brakkvanns-fjærebeltebunn
+387,62,NIN-3.0-T-C-PE-NA-MB-A-MB03,NA-MB03,NA-MB03 Korallrev
+388,62,NIN-3.0-T-C-PE-NA-MB-A-MB02,NA-MB02,NA-MB02 Saltvanns-undervannseng
+389,62,NIN-3.0-T-C-PE-NA-MB-A-MB01,NA-MB01,NA-MB01 Marin helofyttsump
+390,62,NIN-3.0-T-C-PE-NA-MB-A-MA06,NA-MA06,NA-MA06 Afotisk saltvanns-sedimentbunn
+391,62,NIN-3.0-T-C-PE-NA-MB-A-MA05,NA-MA05,NA-MA05 Eufotisk saltvanns-sedimentbunn
+392,62,NIN-3.0-T-C-PE-NA-MB-A-MA04,NA-MA04,NA-MA04 Fjærebelte-sedimentbunn
+393,62,NIN-3.0-T-C-PE-NA-MB-A-MA03,NA-MA03,NA-MA03 Afotisk fast saltvannsbunn
+394,62,NIN-3.0-T-C-PE-NA-MB-A-MA02,NA-MA02,NA-MA02 Eufotisk fast saltvannsbunn
+395,62,NIN-3.0-T-C-PE-NA-MB-A-MA01,NA-MA01,NA-MA01 Fast saltvanns-fjærebeltebunn
+396,63,NIN-3.0-T-C-PE-NA-MB-A-LM05,NA-LM05,NA-LM05 Innsjøbunn preget av kronisk fysikalsk-kjemisk påvirkning
+397,63,NIN-3.0-T-C-PE-NA-MB-A-LM04,NA-LM04,NA-LM04 Innsjøbunn preget av kronisk fysisk forstyrrelse
+398,63,NIN-3.0-T-C-PE-NA-MB-A-LM03,NA-LM03,NA-LM03 Ny innsjøbunn med opphav i våtmarkssystemer
+399,63,NIN-3.0-T-C-PE-NA-MB-A-LM02,NA-LM02,NA-LM02 Ny innsjøbunn med opphav i elvebunn
+400,63,NIN-3.0-T-C-PE-NA-MB-A-LM01,NA-LM01,NA-LM01 Ny sterkt endret innsjøbunn
+401,63,NIN-3.0-T-C-PE-NA-MB-A-LJ01,NA-LJ01,NA-LJ01 Klart endret innsjøbunn preget av næringsstoff-overbelastning
+402,63,NIN-3.0-T-C-PE-NA-MB-A-LG01,NA-LG01,NA-LG01 Ny innsjøbunn
+403,63,NIN-3.0-T-C-PE-NA-MB-A-LC06,NA-LC06,NA-LC06 Innsjø-sedimentbunn betinget av naturlig gjødsling
+404,63,NIN-3.0-T-C-PE-NA-MB-A-LC05,NA-LC05,NA-LC05 Innsjø-isbunn
+405,63,NIN-3.0-T-C-PE-NA-MB-A-LC04,NA-LC04,NA-LC04 Innsjøbunn preget av oksygenmangel
+406,63,NIN-3.0-T-C-PE-NA-MB-A-LC03,NA-LC03,NA-LC03 Innsjøbunn som består av grovt organisk materiale
+407,63,NIN-3.0-T-C-PE-NA-MB-A-LC02,NA-LC02,NA-LC02 Dy- og gytjebunn i innsjø
+408,63,NIN-3.0-T-C-PE-NA-MB-A-LC01,NA-LC01,NA-LC01 Myrtorv-innsjøbunn
+409,63,NIN-3.0-T-C-PE-NA-MB-A-LB02,NA-LB02,NA-LB02 Innsjø-undervannseng
+410,63,NIN-3.0-T-C-PE-NA-MB-A-LB01,NA-LB01,NA-LB01 Helofytt-ferskvannssump
+411,63,NIN-3.0-T-C-PE-NA-MB-A-LA03,NA-LA03,NA-LA03 Afotisk innsjøbunn
+412,63,NIN-3.0-T-C-PE-NA-MB-A-LA02,NA-LA02,NA-LA02 Eufotisk innsjø-sedimentbunn
+413,63,NIN-3.0-T-C-PE-NA-MB-A-LA01,NA-LA01,NA-LA01 Eufotisk fast innsjøbunn
+414,64,NIN-3.0-T-C-PE-NA-MB-A-IA01,NA-IA01,NA-IA01 Snø og isflater
+415,65,NIN-3.0-T-C-SE-NK-0-K-E03,NK-E03,NK-E03 Flommarkskompleks
+416,65,NIN-3.0-T-C-SE-NK-0-K-E02,NK-E02,NK-E02 Skredmarkskompleks
+417,65,NIN-3.0-T-C-SE-NK-0-K-E01,NK-E01,NK-E01 Sanddynekompleks
+418,66,NIN-3.0-T-C-SE-NK-0-K-D03,NK-D03,NK-D03 Fossesprutkompleks
+419,66,NIN-3.0-T-C-SE-NK-0-K-D02,NK-D02,NK-D02 Rasmarkskompleks
+420,66,NIN-3.0-T-C-SE-NK-0-K-D01,NK-D01,NK-D01 Flomskredkompleks
+421,67,NIN-3.0-T-C-SE-NK-0-K-C08,NK-C08,NK-C08 Snøleiekompleks
+422,67,NIN-3.0-T-C-SE-NK-0-K-C07,NK-C07,NK-C07 Saltpannekompleks
+423,67,NIN-3.0-T-C-SE-NK-0-K-C06,NK-C06,NK-C06 Fuglefjellkompleks
+424,67,NIN-3.0-T-C-SE-NK-0-K-C05,NK-C05,NK-C05 Grunnkildekompleks
+425,67,NIN-3.0-T-C-SE-NK-0-K-C04,NK-C04,NK-C04 Torvkildekompleks
+426,67,NIN-3.0-T-C-SE-NK-0-K-C03,NK-C03,NK-C03 Ferskvanns- og våtmarkskildekompleks
+427,67,NIN-3.0-T-C-SE-NK-0-K-C02,NK-C02,NK-C02 Ferskvannskildekompleks
+428,67,NIN-3.0-T-C-SE-NK-0-K-C01,NK-C01,NK-C01 Varmkildekompleks

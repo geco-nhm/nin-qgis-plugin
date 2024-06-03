@@ -357,10 +357,13 @@ def main(selected_mapping_scale: str, gpkg_path: Union[str, Path]) -> None:
     del nin_polygons_layer, helper_point_layer
 
     # Create attribute tables! MAKE SURE .CSV FILES EXIST AND ARE NAMED CORRECTLY
-    
-    # TODO: Here we need to fetch info from the plugin selection!
-    
-    table_names = ('typer', 'hovedtypegrupper', 'hovedtyper', selected_mapping_scale)
+    table_names = (
+        'typer',
+        'hovedtypegrupper',
+        'hovedtyper',
+        selected_mapping_scale,
+        f"var_{selected_mapping_scale}"
+    )
 
     for name in table_names:
 
