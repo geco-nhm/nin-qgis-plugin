@@ -213,7 +213,8 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             pass
             #QMessageBox.information(None, "No path entered!", "Enter a valid .gpkg file path!")
             #return
-            selected_mapping_scale = self.selectMappingScale.currentText()
+        
+        selected_mapping_scale = self.selectMappingScale.currentText()
 
         cgpkg.main(
             selected_mapping_scale, 
