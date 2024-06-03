@@ -62,30 +62,22 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         self.changeProjectSettingsButton.clicked.connect(self.load_project)
 
         # Access the combo box for Selecting Type and Selecting Hovedtypegruppe
-        self.comboBox = self.findChild(QComboBox, 'SelectType')  #
-        self.selectHovetypegrupperWidget = self.findChild(
-            QListWidget, 'SelectHovedtypegrupper'
-        )
-        # replace 'printButton' with the objectName of your QPushButton
-        self.printButton = self.findChild(QPushButton, 'printSelection')
-        self.file_widget = self.findChild(QgsFileWidget, 'gpkgFilePicker')
+        self.comboBox = self.findChild(QComboBox, 'SelectType')  
+        self.selectHovetypegrupperWidget = self.findChild(QListWidget, 'SelectHovedtypegrupper') 
+        self.selectMappingScale = self.findChild(QComboBox, 'SelectMappingScale')  
 
         # Load the first combo box
         self.load_type_combo_box()
 
         # Connect the first combo box selection change to a handler
-        self.comboBox.currentIndexChanged.connect(
-            self.on_type_combo_box_changed
-        )
-
-        # Connect the print button to the print_selection method
-        self.printButton.clicked.connect(self.get_selected_htgr_items)
-
-        # Connect logic for file picker
-        self.file_widget.fileChanged.connect(self.file_location_selected)
+        self.comboBox.currentIndexChanged.connect(self.on_type_combo_box_changed)
+        
 
         # Initialize selected type variable
         self.selected_type_id = None
+        
+        # Populate the mapping scale combo box
+        self.load_mapping_scale_combo_box()
 
         # Initialize .gpkg path variable
         self.geopackage_path = None
@@ -117,10 +109,11 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
 
     def get_selected_type_id(self) -> str:
         return self.selected_type_id
-
+    
     def on_type_combo_box_changed(self, index):
         self.selected_type_id = self.comboBox.itemData(index)
         self.load_hovedtypegruppe_list_widget()
+
 
     def load_hovedtypegruppe_list_widget(self):
         # Path to the hovedtypegrupper CSV file
@@ -164,6 +157,11 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         # for item in selected_items:
         #     print(f"Display Text: {item['display_text']}, Kode ID: {item['kode_id']}")
         return selected_items
+    
+    
+    def load_mapping_scale_combo_box(self):
+        self.selectMappingScale.addItems(["M005", "M020", "M050"])
+        
 
     def file_location_selected(self):
         '''
@@ -215,18 +213,22 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             pass
             #QMessageBox.information(None, "No path entered!", "Enter a valid .gpkg file path!")
             #return
+            selected_mapping_scale = self.selectMappingScale.currentText()
 
         cgpkg.main(
+            selected_mapping_scale, 
             gpkg_path=self.geopackage_path,
-        )
-
+            )
 
     def load_project(self) -> None:
         '''Loads project settings'''
+        selected_mapping_scale = self.selectMappingScale.currentText() #pass chosen mapping scale
+        
         ps.main(
             self.get_selected_htgr_items(),
             self.get_selected_type_id(),
             gpkg_path=self.geopackage_path,
+            selected_mapping_scale=selected_mapping_scale,
         )
 
     def closeEvent(self, event) -> None:
