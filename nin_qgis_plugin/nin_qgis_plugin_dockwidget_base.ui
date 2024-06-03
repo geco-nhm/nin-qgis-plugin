@@ -15,7 +15,45 @@
   </property>
   <widget class="QWidget" name="dockWidgetContents">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="6" column="0">
+    <item row="7" column="0">
+     <widget class="QLabel" name="LabSelectFileLocation">
+      <property name="text">
+       <string>Select geopackage file location...</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="0">
+     <widget class="QPushButton" name="changeProjectSettingsButton">
+      <property name="text">
+       <string>Load geopackage and adapt project!</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="LabSelectType">
+      <property name="text">
+       <string>Select Type</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QListWidget" name="SelectHovedtypegrupper">
+      <property name="resizeMode">
+       <enum>QListView::Adjust</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="LabSelectHovedtypegruppe">
+      <property name="text">
+       <string>Select Hovedtypegruppe</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QComboBox" name="SelectType"/>
+    </item>
+    <item row="8" column="0">
      <widget class="QgsFileWidget" name="gpkgFilePicker">
       <property name="acceptDrops">
        <bool>false</bool>
@@ -40,30 +78,6 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QComboBox" name="SelectType"/>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="LabSelectType">
-      <property name="text">
-       <string>Select file location</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="0">
-     <widget class="QPushButton" name="changeProjectSettingsButton">
-      <property name="text">
-       <string>Load geopackage and adapt project!</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QListWidget" name="SelectHovedtypegrupper">
-      <property name="resizeMode">
-       <enum>QListView::Adjust</enum>
-      </property>
-     </widget>
-    </item>
     <item row="4" column="0">
      <widget class="QPushButton" name="printSelection">
       <property name="text">
@@ -71,14 +85,14 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="LabSelectHovedtypegruppe">
+    <item row="5" column="0">
+     <widget class="QLabel" name="LabSelectMappingScale">
       <property name="text">
-       <string>Select Hovedtypegruppe</string>
+       <string>TextLabel</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="0">
+    <item row="9" column="0">
      <widget class="QPushButton" name="createPolygonButton">
       <property name="text">
        <string>Create new geopackage!</string>
@@ -87,16 +101,6 @@
     </item>
     <item row="6" column="0">
      <widget class="QComboBox" name="SelectMappingScale"/>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="LabSelectMappingScale">
-      <property name="text">
-       <string>Select Mapping Scale</string>
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Select geopackage file location...</string>
-      </property>
-     </widget>
     </item>
    </layout>
   </widget>
