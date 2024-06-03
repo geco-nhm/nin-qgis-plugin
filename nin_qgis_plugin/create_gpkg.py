@@ -288,7 +288,7 @@ def set_style(layer: str, lname: str) -> None:
     # lyr.saveStyleToDatabase(name,'style '+lname,True,'')
     pass
 
-def main(gpkg_path: Union[str, Path], selected_mapping_scale: str) -> None:
+def main(selected_mapping_scale: str, gpkg_path: Union[str, Path]) -> None:
     '''Creates new NiN-conforming gpkg based on definitions in csv file.
         Passing variable from mapping scale selection in the UI
     '''
