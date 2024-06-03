@@ -28,13 +28,16 @@ from pathlib import Path
 from . import create_gpkg as cgpkg
 from . import project_setup as ps
 
-from qgis.PyQt import QtGui, QtWidgets, uic
+from qgis.PyQt import QtWidgets, uic
 from qgis.PyQt.QtCore import pyqtSignal
 from qgis.core import QgsRectangle, QgsRasterLayer, QgsProject
-#from PyQt5 import QtWidgets, uic
-from PyQt5.QtWidgets import QAction, QFileDialog
+from qgis.gui import QgsFileWidget
+# from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import Qt  # Import Qt from PyQt5.QtCore
-from PyQt5.QtWidgets import QDialog, QApplication, QComboBox, QListWidget, QListWidgetItem, QPushButton
+from PyQt5.QtWidgets import (
+    QMessageBox, QComboBox, QListWidget,
+    QListWidgetItem, QPushButton,
+)
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'nin_qgis_plugin_dockwidget_base.ui'))
@@ -50,17 +53,12 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         super(NinMapperDockWidget, self).__init__(parent)
         self.canvas = canvas
 
-        # Set up the user interface from Designer.
-        # After setupUI you can access any designer object by doing
-        # self.<objectname>, and you can use autoconnect slots - see
-        # http://doc.qt.io/qt-5/designer-using-a-ui-file.html
-        # #widgets-and-dialogs-with-auto-connect
         self.setupUi(self)
 
-        # Connect the button action to the create_polygon method
-        self.createPolygonButton.clicked.connect(self.create_polygon)
+        # Connect the button action to the create_geopackage method
+        self.createPolygonButton.clicked.connect(self.create_geopackage)
 
-        # Connect the button action to the create_polygon method
+        # Connect the button action to the create_geopackage method
         self.changeProjectSettingsButton.clicked.connect(self.load_project)
 
         # Access the combo box for Selecting Type and Selecting Hovedtypegruppe
@@ -68,26 +66,31 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         self.selectHovetypegrupperWidget = self.findChild(QListWidget, 'SelectHovedtypegrupper') 
         self.selectMappingScale = self.findChild(QComboBox, 'SelectMappingScale')  
 
-
         # Load the first combo box
         self.load_type_combo_box()
 
         # Connect the first combo box selection change to a handler
         self.comboBox.currentIndexChanged.connect(self.on_type_combo_box_changed)
         
+
         # Initialize selected type variable
         self.selected_type_id = None
         
         # Populate the mapping scale combo box
         self.load_mapping_scale_combo_box()
 
+        # Initialize .gpkg path variable
+        self.geopackage_path = None
         
+        # Set UI default values
+        self.set_ui_default_values()
+
     def load_type_combo_box(self):
         # Path to the typer CSV file
         csv_root = Path(__file__).parent / 'csv' / \
             'attribute_tables'
         type_file_path = csv_root / 'typer_attribute_table.csv'
-        self.type_combo_data = {} # To store data for the type combo box
+        self.type_combo_data = {}  # To store data for the type combo box
 
         # Access the combo box
         # the objectName of your QComboBox
@@ -103,6 +106,7 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                 self.comboBox.addItem(row['navn'], row['kode_id'])
                 self.type_combo_data[row['kode_id']] = row['navn']
 
+
     def get_selected_type_id(self) -> str:
         return self.selected_type_id
     
@@ -110,26 +114,33 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         self.selected_type_id = self.comboBox.itemData(index)
         self.load_hovedtypegruppe_list_widget()
 
-    def load_hovedtypegruppe_list_widget(self):    
-            # Path to the hovedtypegrupper CSV file
-            csv_root = Path(__file__).parent / 'csv' / 'attribute_tables'
-            htgr_file_path = csv_root / 'hovedtypegrupper_attribute_table.csv'
-            self.selectHovetypegrupperWidget.clear()  # Clear the second combo box
-            # Read the CSV file and add items to the combo box
-            with open(htgr_file_path, newline='', encoding='utf-8') as htgrfile:
-                reader = csv.DictReader(htgrfile)
-                for row in reader:
-                    if row['typer_fkey'] == str(self.comboBox.currentIndex()): #Filtering the rows based on the selected item in the "Type combo box".
-                        item = QListWidgetItem(row['navn']) #Creating a new list item for each matching row.
-                        item.setData(Qt.UserRole, row['kode_id']) #Setting the display text and additional data for the list item.
-                        item.setFlags(item.flags() | Qt.ItemIsUserCheckable)  # Making the list item checkable and setting its initial check state.
-                        item.setCheckState(Qt.Unchecked)  # Set initial state to unchecked
-                        self.selectHovetypegrupperWidget.addItem(item) #Adding the list item to the QListWidget.
-                        print(row)
-                
-    
+
+    def load_hovedtypegruppe_list_widget(self):
+        # Path to the hovedtypegrupper CSV file
+        csv_root = Path(__file__).parent / 'csv' / 'attribute_tables'
+        htgr_file_path = csv_root / 'hovedtypegrupper_attribute_table.csv'
+        self.selectHovetypegrupperWidget.clear()  # Clear the second combo box
+        # Read the CSV file and add items to the combo box
+        with open(htgr_file_path, newline='', encoding='utf-8') as htgrfile:
+            reader = csv.DictReader(htgrfile)
+            for row in reader:
+                # Filtering the rows based on the selected item in the "Type combo box".
+                if row['typer_fkey'] == str(self.comboBox.currentIndex()):
+                    # Creating a new list item for each matching row.
+                    item = QListWidgetItem(row['navn'])
+                    # Setting the display text and additional data for the list item.
+                    item.setData(Qt.UserRole, row['kode_id'])
+                    # Making the list item checkable and setting its initial check state.
+                    item.setFlags(item.flags() | Qt.ItemIsUserCheckable)
+                    # Set initial state to unchecked
+                    item.setCheckState(Qt.Unchecked)
+                    # Adding the list item to the QListWidget.
+                    self.selectHovetypegrupperWidget.addItem(item)
+                    print(row)
+            print(self.selectHovetypegrupperWidget)
+
     # DEBUG
-    # print the selected items from the listWidget                    
+    # print the selected items from the listWidget
     def get_selected_htgr_items(self):
         selected_items = []
         for index in range(self.selectHovetypegrupperWidget.count()):
@@ -137,9 +148,10 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             if item.checkState() == Qt.Checked:
                 selected_items.append({
                     'display_text': item.text(),
-                    'kode_id': item.data(Qt.UserRole)  # Retrieve associated data
+                    # Retrieve associated data
+                    'kode_id': item.data(Qt.UserRole)
                 })
-        
+
         # Print selected items to the console
         # print("Selected items:")
         # for item in selected_items:
@@ -147,59 +159,80 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         return selected_items
     
     
-
     def load_mapping_scale_combo_box(self):
         self.selectMappingScale.addItems(["M005", "M020", "M050"])
         
-    def select_output_file(self):
+
+    def file_location_selected(self):
+        '''
+        Path handling executed when users pick a file location in
+        the file picker widget.
+        '''
 
         file_suffix = ".gpkg"
 
-        file_name = QFileDialog.getSaveFileName(
-            self.dlg,
-            "Select output file ",
-            "",
-            f'*{file_suffix}'
+        selected_path = Path(self.file_widget.filePath()).resolve()
+
+        # Check if the directory exists
+        if (not selected_path.parent.exists()):
+            raise ValueError(
+                f"""
+                '{selected_path} is not a valid path for a new .gpkg file!
+                """
+            )
+
+        # Append .gpkg suffix if necessary
+        if selected_path.suffix != file_suffix:
+            selected_path = selected_path.with_suffix(file_suffix)
+
+        self.geopackage_path = selected_path
+        print(selected_path)
+
+    def set_ui_default_values(self):
+        '''Defines default values for UI'''
+        
+        # Set 'typer' combo box default
+        self.comboBox.setCurrentIndex(
+            self.comboBox.findText("Natursystem", Qt.MatchFixedString)
         )
 
-        if not file_name.endswith(file_suffix):
-            file_name += file_suffix
+        # Setting default values for QListWidget
+        items_to_select = ["Fastmarkssystemer"]  # The items you want to be selected by default
+        for item_to_select in items_to_select:
+            items = self.selectHovetypegrupperWidget.findItems(item_to_select, Qt.MatchExactly)
+            for item in items:
+                item.setCheckState(Qt.Checked)  # This sets the item as selected
 
-        self.dlg.lineEdit.setText(file_name)
+    def create_geopackage(self) -> None:
+        '''
+        Creates a new .gpkg file based on user selections via 'create_gpkg.py'.
+        '''
 
-    def create_polygon(self):
-
-        # Draw map canvas
-        # self.add_base_map()
-
-        # Get the filename from the QLineEdit widget.
-        file_name = self.filenameLineEdit.text()
-
-        if file_name:  # Simple check to make sure it's not empty.
-            # Logic for creating the polygon goes here.
-            # You can now use the `file_name` as needed to store the new feature.
-            print("The 'Create new polygon' button was clicked.")
-            print(f"File name entered: {file_name}")
-
+        # TODO: remove comments when done testing
+        if self.geopackage_path is None:
+            pass
+            #QMessageBox.information(None, "No path entered!", "Enter a valid .gpkg file path!")
+            #return
             selected_mapping_scale = self.selectMappingScale.currentText()
 
-            cgpkg.main(selected_mapping_scale)
-
-        else:
-            # Inform the user to enter a file name or handle as needed.
-            print("Please enter a file name.")
+        cgpkg.main(
+            gpkg_path=self.geopackage_path,
+            selected_mapping_scale  
+        )
 
     def load_project(self) -> None:
         '''Loads project settings'''
-        selected_mapping_scale = self.selectMappingScale.currentText()
+        selected_mapping_scale = self.selectMappingScale.currentText() #pass chosen mapping scale
         
         ps.main(
             self.get_selected_htgr_items(),
             self.get_selected_type_id(), 
             selected_mapping_scale
+            self.get_selected_type_id(),
+            gpkg_path=self.geopackage_path,
         )
 
-    def closeEvent(self, event):
+    def closeEvent(self, event) -> None:
         self.closingPlugin.emit()
         event.accept()
 

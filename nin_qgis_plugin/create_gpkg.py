@@ -18,8 +18,7 @@ from qgis.core import (
 from qgis.PyQt.QtCore import QVariant
 
 ATTRIBUTE_TABLES_PATH = Path(__file__).parent / 'csv' / 'attribute_tables'
-FIELD_DEFINITIONS_CSV_PATH = Path(
-    __file__).parent / 'csv' / 'layer_fields_meta'
+FIELD_DEFINITIONS_CSV_PATH = Path(__file__).parent / 'csv' / 'layer_fields_meta'
 
 
 def get_qvariant(qvariant: str) -> Any:
@@ -289,13 +288,13 @@ def set_style(layer: str, lname: str) -> None:
     # lyr.saveStyleToDatabase(name,'style '+lname,True,'')
     pass
 
-
 def main(selected_mapping_scale: str) -> None:
     '''Creates new NiN-conforming gpkg based on definitions in csv file.
         Passing variable from mapping scale selection in the UI
     '''
 
     # Define name and path of new geopackage
+    # NEXT IS OVERWRITING gpkg_path FOR TESTING, REMOVE IN THE END
     gpkg_name = "nin_survey.gpkg"
     gpkg_path = Path(__file__).parent / gpkg_name
     if gpkg_path.is_file():  # If gpkg-file already exists, raise Error
@@ -303,7 +302,8 @@ def main(selected_mapping_scale: str) -> None:
         # raise ValueError(f"{gpkg_path} already exists! Use a different name to avoid data loss.")
 
     # Define paths to attribute csvs
-    nin_polygons_meta_csv_path = FIELD_DEFINITIONS_CSV_PATH / 'nin_polygons_meta.csv'
+    nin_polygons_meta_csv_path = FIELD_DEFINITIONS_CSV_PATH \
+        / 'nin_polygons_meta.csv'
 
     # Define CRS string (EPSG:25833 -> ETRS89 / UTM zone 33N)
     crs = "epsg:25833"
@@ -388,7 +388,3 @@ def main(selected_mapping_scale: str) -> None:
         )
 
         del table_layer
-
-
-if __name__ == "__main__":
-    main()
