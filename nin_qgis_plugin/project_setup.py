@@ -137,8 +137,7 @@ def main(
     selected_items: list,
     selected_type_id: str,
     selected_mapping_scale="M005",
-    gpkg_path: Union[str, Path],
-) -> None:
+    gpkg_path: Union[str, Path],) -> None:
     '''Adapt QGIS project settings.'''
 
     if not selected_items:

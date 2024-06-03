@@ -216,9 +216,9 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             selected_mapping_scale = self.selectMappingScale.currentText()
 
         cgpkg.main(
+            selected_mapping_scale, 
             gpkg_path=self.geopackage_path,
-            selected_mapping_scale  
-        )
+            )
 
     def load_project(self) -> None:
         '''Loads project settings'''
@@ -227,8 +227,7 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         ps.main(
             self.get_selected_htgr_items(),
             self.get_selected_type_id(), 
-            selected_mapping_scale
-            self.get_selected_type_id(),
+            selected_mapping_scale,
             gpkg_path=self.geopackage_path,
         )
 
