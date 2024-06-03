@@ -1,0 +1,4 @@
+name,type,length,precision
+fid,Int,4,0
+grunntype_fkey,String,0,0
+variabel,String,0,0

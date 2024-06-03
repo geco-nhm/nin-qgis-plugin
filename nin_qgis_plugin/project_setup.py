@@ -1,7 +1,7 @@
 '''Adapt project setting for NiN-mapping'''
 
 from pathlib import Path
-from typing import Union, Literal
+from typing import Union, Literal, List
 
 from qgis.core import (
     QgsDataProvider, QgsVectorLayer, QgsProject,
@@ -14,8 +14,12 @@ from PyQt5.QtWidgets import (
 )
 
 
-def load_gpkg_layers(gpkg_path: Union[str, Path]) -> QgsVectorLayer:
-    '''Loads all .gpkg layers into current QGIS project'''
+def load_gpkg_layers(gpkg_path: Union[str, Path]) -> List[QgsVectorLayer]:
+    '''
+    Loads all .gpkg layers into current QGIS project.
+
+    Returns list of QgsVectorLayers contained in geopackage.
+    '''
 
     layer = QgsVectorLayer(
         str(gpkg_path),
@@ -69,7 +73,7 @@ def field_to_value_relation(
         'Key': foreign_key_field_name,
         'Layer': forgein_attribute_table_layer.id(),  # Foreign key layer by ID
         'NofColumns': 1,
-        'OrderByValue': False,
+        'OrderByValue': True,
         'UseCompleter': False,
         'Value': foreign_field_to_display,
     }
@@ -138,7 +142,7 @@ def main(
     selected_type_id: str,
     gpkg_path: Union[str, Path],
     selected_mapping_scale="M005",
-    ) -> None:
+) -> None:
     '''Adapt QGIS project settings.'''
 
     if not selected_items:
@@ -150,9 +154,7 @@ def main(
         return
 
     # passing the selected "Type" from the UI
-    if selected_type_id:
-        selected_type_id = "'" + selected_type_id + "'"
-    else:
+    if not selected_type_id:
         QMessageBox.information(
             None,
             "No type selected!",
@@ -179,21 +181,13 @@ def main(
     # Load all layers from geopackage
     _ = load_gpkg_layers(gpkg_path)
 
-    # Set field to value relations in widget
-    # TODO: Also depends on user choices!
-    user_selection_mapping_scale = selected_mapping_scale # passing the mapping scale from the UI
-
-    selected_type_id = "'" + selected_type_id + "'" # passing the selected "Type" from the UI
-
-    for item in selected_items:
-        print(
-            f"Display Text: {item['display_text']}, Kode ID: {item['kode_id']}"
-        )
-
     if selected_items:
         selected_kode_ids = [f"'{item['kode_id']}'" for item in selected_items]
         # passing the selected "Hovedtypegrupper" from the UI
-        additional_filter = f'"kode_id" IN ({", ".join(map(str, selected_kode_ids))})'
+        additional_filter = \
+            f'"kode_id" IN ({", ".join(map(str, selected_kode_ids))})'
+            
+    #selected_type_id = "'" + selected_type_id + "'"
 
     relations_to_set = (
         {
@@ -202,7 +196,7 @@ def main(
             "primary_key_field_name": "type",
             "foreign_key_field_name": "fid",
             "foreign_field_to_display": "navn",
-            "filter_expression": f'''"kode_id" = {selected_type_id}''',
+            "filter_expression": f""""kode_id" = '{selected_type_id}'""",
         },
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
@@ -210,7 +204,7 @@ def main(
             "primary_key_field_name": "hovedtypegruppe",
             "foreign_key_field_name": "fid",
             "foreign_field_to_display": "navn",
-            "filter_expression": f'''"typer_fkey" = current_value('type') AND {additional_filter}''' if additional_filter else f'''"typer_fkey" = current_value('type')''',
+            "filter_expression": f'''"typer_fkey" = current_value('type') AND {additional_filter}''' if additional_filter else '''"typer_fkey" = current_value('type')''',
         },
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
@@ -222,11 +216,19 @@ def main(
         },
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
-            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName(user_selection_mapping_scale)[0],
+            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName(selected_mapping_scale)[0],
             "primary_key_field_name": "grunntype_or_klenhet",
             "foreign_key_field_name": "fid",
             "foreign_field_to_display": "navn",
             "filter_expression": '''"hovedtyper_fkey" = current_value('hovedtype')''',
+        },
+        {
+            "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
+            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName(f"var_{selected_mapping_scale}")[0],
+            "primary_key_field_name": "variabler",
+            "foreign_key_field_name": "fid",
+            "foreign_field_to_display": "variabel",
+            "filter_expression": '''"grunntype_fkey" = current_value('grunntype_or_klenhet')''',
         },
     )
 

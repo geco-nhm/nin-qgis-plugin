@@ -40,7 +40,8 @@ from PyQt5.QtWidgets import (
 )
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
-    os.path.dirname(__file__), 'nin_qgis_plugin_dockwidget_base.ui'))
+    os.path.dirname(__file__), 'nin_qgis_plugin_dockwidget_base.ui'
+))
 
 
 class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
@@ -62,28 +63,34 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         self.changeProjectSettingsButton.clicked.connect(self.load_project)
 
         # Access the combo box for Selecting Type and Selecting Hovedtypegruppe
-        self.comboBox = self.findChild(QComboBox, 'SelectType')  
-        self.selectHovetypegrupperWidget = self.findChild(QListWidget, 'SelectHovedtypegrupper') 
-        self.selectMappingScale = self.findChild(QComboBox, 'SelectMappingScale')  
+        self.comboBox = self.findChild(QComboBox, 'SelectType')
+        self.selectHovetypegrupperWidget = self.findChild(
+            QListWidget, 'SelectHovedtypegrupper'
+        )
+        self.selectMappingScale = self.findChild(
+            QComboBox, 'SelectMappingScale'
+        )
 
         # Load the first combo box
         self.load_type_combo_box()
 
         # Connect the first combo box selection change to a handler
-        self.comboBox.currentIndexChanged.connect(self.on_type_combo_box_changed)
-        
+        self.comboBox.currentIndexChanged.connect(
+            self.on_type_combo_box_changed
+        )
 
         # Initialize selected type variable
         self.selected_type_id = None
-        
+
         # Populate the mapping scale combo box
         self.load_mapping_scale_combo_box()
 
         # Initialize .gpkg path variable
         self.geopackage_path = None
-        
+
         # Set UI default values
         self.set_ui_default_values()
+
 
     def load_type_combo_box(self):
         # Path to the typer CSV file
@@ -106,14 +113,12 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
                 self.comboBox.addItem(row['navn'], row['kode_id'])
                 self.type_combo_data[row['kode_id']] = row['navn']
 
-
     def get_selected_type_id(self) -> str:
         return self.selected_type_id
-    
+
     def on_type_combo_box_changed(self, index):
         self.selected_type_id = self.comboBox.itemData(index)
         self.load_hovedtypegruppe_list_widget()
-
 
     def load_hovedtypegruppe_list_widget(self):
         # Path to the hovedtypegrupper CSV file
@@ -157,11 +162,11 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         # for item in selected_items:
         #     print(f"Display Text: {item['display_text']}, Kode ID: {item['kode_id']}")
         return selected_items
-    
-    
+
     def load_mapping_scale_combo_box(self):
-        self.selectMappingScale.addItems(["M005", "M020", "M050"])
-        
+        self.selectMappingScale.addItems(
+            ["grunntyper", "M005", "M020", "M050"]
+        )
 
     def file_location_selected(self):
         '''
@@ -186,22 +191,26 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             selected_path = selected_path.with_suffix(file_suffix)
 
         self.geopackage_path = selected_path
-        print(selected_path)
+
 
     def set_ui_default_values(self):
         '''Defines default values for UI'''
-        
+
         # Set 'typer' combo box default
         self.comboBox.setCurrentIndex(
-            self.comboBox.findText("Natursystem", Qt.MatchFixedString)
+            self.comboBox.findText("C-PE-NA Natursystem", Qt.MatchFixedString)
         )
 
         # Setting default values for QListWidget
-        items_to_select = ["Fastmarkssystemer"]  # The items you want to be selected by default
+        # The items you want to be selected by default
+        items_to_select = ["NA-T Fastmarkssystemer"]
         for item_to_select in items_to_select:
-            items = self.selectHovetypegrupperWidget.findItems(item_to_select, Qt.MatchExactly)
+            items = self.selectHovetypegrupperWidget.findItems(
+                item_to_select, Qt.MatchExactly
+            )
             for item in items:
-                item.setCheckState(Qt.Checked)  # This sets the item as selected
+                # This sets the item as selected
+                item.setCheckState(Qt.Checked)
 
     def create_geopackage(self) -> None:
         '''
@@ -211,26 +220,24 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         # TODO: remove comments when done testing
         if self.geopackage_path is None:
             pass
-            #QMessageBox.information(None, "No path entered!", "Enter a valid .gpkg file path!")
-            #return
-        
-        selected_mapping_scale = self.selectMappingScale.currentText()
+            # QMessageBox.information(None, "No path entered!", "Enter a valid .gpkg file path!")
+            # return
 
         cgpkg.main(
-            selected_mapping_scale, 
+            selected_mapping_scale=self.selectMappingScale.currentText(),
             gpkg_path=self.geopackage_path,
-            )
+        )
 
     def load_project(self) -> None:
         '''Loads project settings'''
-        selected_mapping_scale = self.selectMappingScale.currentText() #pass chosen mapping scale
-        
+
         ps.main(
             self.get_selected_htgr_items(),
             self.get_selected_type_id(),
             gpkg_path=self.geopackage_path,
-            selected_mapping_scale=selected_mapping_scale,
+            selected_mapping_scale=self.selectMappingScale.currentText(),
         )
+
 
     def closeEvent(self, event) -> None:
         self.closingPlugin.emit()

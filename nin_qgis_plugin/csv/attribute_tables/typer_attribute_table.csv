@@ -1,11 +1,11 @@
 fid,langkode,kode_id,navn
-0,NIN-3.0-T-A-LV-BM,A-LV-BM,Bremassiv
-1,NIN-3.0-T-A-LV-EL,A-LV-EL,Elveløp
-2,NIN-3.0-T-A-LV-FL,A-LV-FL,Landformer i fast fjell og løsmasser
-3,NIN-3.0-T-A-LV-IB,A-LV-IB,Innsjøbasseng
-4,NIN-3.0-T-A-LV-TM,A-LV-TM,Torvmarksmassiv
-5,NIN-3.0-T-A-MV-0,A-MV-0,Marine vannmasser
-6,NIN-3.0-T-C-LI-0,C-LI-0,Livsmedium
-7,NIN-3.0-T-C-PE-LA,C-PE-LA,Landskapstype
-8,NIN-3.0-T-C-PE-NA,C-PE-NA,Natursystem
-9,NIN-3.0-T-C-SE-NK,C-SE-NK,Naturkompleks
+0,NIN-3.0-T-A-LV-BM,A-LV-BM,A-LV-BM Bremassiv
+1,NIN-3.0-T-A-LV-EL,A-LV-EL,A-LV-EL Elveløp
+2,NIN-3.0-T-A-LV-FL,A-LV-FL,A-LV-FL Landformer i fast fjell og løsmasser
+3,NIN-3.0-T-A-LV-IB,A-LV-IB,A-LV-IB Innsjøbasseng
+4,NIN-3.0-T-A-LV-TM,A-LV-TM,A-LV-TM Torvmarksmassiv
+5,NIN-3.0-T-A-MV-0,A-MV-0,A-MV-0 Marine vannmasser
+6,NIN-3.0-T-C-LI-0,C-LI-0,C-LI-0 Livsmedium
+7,NIN-3.0-T-C-PE-LA,C-PE-LA,C-PE-LA Landskapstype
+8,NIN-3.0-T-C-PE-NA,C-PE-NA,C-PE-NA Natursystem
+9,NIN-3.0-T-C-SE-NK,C-SE-NK,C-SE-NK Naturkompleks
