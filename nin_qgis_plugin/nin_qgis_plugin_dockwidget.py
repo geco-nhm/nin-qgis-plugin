@@ -226,9 +226,9 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         
         ps.main(
             self.get_selected_htgr_items(),
-            self.get_selected_type_id(), 
-            selected_mapping_scale,
+            self.get_selected_type_id(),
             gpkg_path=self.geopackage_path,
+            selected_mapping_scale=selected_mapping_scale,
         )
 
     def closeEvent(self, event) -> None:
