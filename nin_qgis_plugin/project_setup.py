@@ -137,7 +137,8 @@ def main(
     selected_items: list,
     selected_type_id: str,
     gpkg_path: Union[str, Path],
-) -> None:
+    selected_mapping_scale="M005",
+    ) -> None:
     '''Adapt QGIS project settings.'''
 
     if not selected_items:
@@ -180,7 +181,9 @@ def main(
 
     # Set field to value relations in widget
     # TODO: Also depends on user choices!
-    user_selection_mapping_scale = "M005"
+    user_selection_mapping_scale = selected_mapping_scale # passing the mapping scale from the UI
+
+    selected_type_id = "'" + selected_type_id + "'" # passing the selected "Type" from the UI
 
     for item in selected_items:
         print(
