@@ -164,14 +164,9 @@ class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         return selected_items
 
     def load_mapping_scale_combo_box(self):
-        mappingScales = [
-            ("1:500 - grunntyper", "grunntyper"), 
-            ("1:5 000", "M005"), 
-            ("1:20 000", "M020"), 
-            ("1:50 000", "M050")
-        ]
-        for label, value in mappingScales:
-            self.selectMappingScale.addItem(label, value)
+        self.selectMappingScale.addItems(
+            ["grunntyper", "M005", "M020", "M050"]
+        )
 
     def file_location_selected(self):
         '''
