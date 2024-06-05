@@ -227,8 +227,8 @@ def main(
             "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName(f"var_{selected_mapping_scale}")[0],
             "primary_key_field_name": "variabler",
             "foreign_key_field_name": "fid",
-            "foreign_field_to_display": "variabel",
-            "filter_expression": '''"grunntype_fkey" = current_value('grunntype_or_klenhet')''',
+            "foreign_field_to_display": "display_str",
+            "filter_expression": '''"grunntype_or_kle_fkey" = current_value('grunntype_or_klenhet')''',
         },
     )
 
