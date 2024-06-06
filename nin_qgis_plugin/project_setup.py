@@ -57,6 +57,7 @@ def field_to_value_relation(
     foreign_key_field_name: str,  # E.g.: 'fid'
     foreign_field_to_display: str,  # E.g.: 'navn'
     filter_expression: str,  # E.g.: '''"typer_fkey" = current_value('type')'''
+    allow_multi_selection: bool = False,
 ) -> bool:
     '''
     Configures the QGIS widget to display only relevant subtypes in
@@ -72,7 +73,7 @@ def field_to_value_relation(
     # foreign_fields = forgein_attribute_table_layer.fields()
 
     config = {
-        'AllowMulti': False,
+        'AllowMulti': allow_multi_selection,
         'AllowNull': True,
         'FilterExpression': filter_expression,  # QgsExpression()?
         'Key': foreign_key_field_name,
@@ -279,4 +280,5 @@ def main(
             foreign_key_field_name=rel["foreign_key_field_name"],
             foreign_field_to_display=rel["foreign_field_to_display"],
             filter_expression=rel["filter_expression"],
+            allow_multi_selection=rel["allow_multi"],
         )

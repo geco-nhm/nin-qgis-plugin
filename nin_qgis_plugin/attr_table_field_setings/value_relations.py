@@ -25,6 +25,7 @@ def get_value_relations(
             "foreign_key_field_name": "fid",
             "foreign_field_to_display": "navn",
             "filter_expression": f""""kode_id" = '{selected_type_id}'""",
+            "allow_multi": False,
         },
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
@@ -33,6 +34,7 @@ def get_value_relations(
             "foreign_key_field_name": "fid",
             "foreign_field_to_display": "navn",
             "filter_expression": f'''"typer_fkey" = current_value('type') AND {additional_filter}''' if additional_filter else '''"typer_fkey" = current_value('type')''',
+            "allow_multi": False,
         },
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
@@ -41,6 +43,7 @@ def get_value_relations(
             "foreign_key_field_name": "fid",
             "foreign_field_to_display": "navn",
             "filter_expression": '''"hovedtypegrupper_fkey" = current_value('hovedtypegruppe')''',
+            "allow_multi": False,
         },
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
@@ -49,6 +52,7 @@ def get_value_relations(
             "foreign_key_field_name": "fid",
             "foreign_field_to_display": "navn",
             "filter_expression": '''"hovedtyper_fkey" = current_value('hovedtype')''',
+            "allow_multi": False,
         },
         {
             "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
@@ -57,6 +61,16 @@ def get_value_relations(
             "foreign_key_field_name": "fid",
             "foreign_field_to_display": "display_str",
             "filter_expression": '''"grunntype_or_kle_fkey" = current_value('grunntype_or_klenhet')''',
+            "allow_multi": True,
+        },
+        {
+            "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
+            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName(selected_mapping_scale)[0],
+            "primary_key_field_name": "kode_id_label",
+            "foreign_key_field_name": "fid",
+            "foreign_field_to_display": "kode_id",
+            "filter_expression": "",
+            "allow_multi": False,
         },
     )
 
