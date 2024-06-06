@@ -21,6 +21,9 @@
  *                                                                         *
  ***************************************************************************/
 """
+
+from pathlib import Path
+
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
@@ -30,8 +33,8 @@ from PyQt5.QtCore import QVariant
 # Initialize Qt resources from file resources.py
 from .resources import *
 
-# Import the code for the DockWidget
-from .nin_qgis_plugin_dockwidget import NinMapperDockWidget
+# Import the code for the dialog
+from .nin_qgis_plugin_dialog import NinMapperDialogWidget
 import os.path
 
 
@@ -78,7 +81,7 @@ class NinMapper:
         # print "** INITIALIZING NinMapper"
 
         self.pluginIsActive = False
-        self.dockwidget = None
+        self.dialog = None
 
     # noinspection PyMethodMayBeStatic
 
@@ -163,7 +166,8 @@ class NinMapper:
         if add_to_menu:
             self.iface.addPluginToMenu(
                 self.menu,
-                action)
+                action
+            )
 
         self.actions.append(action)
 
@@ -172,34 +176,34 @@ class NinMapper:
     def initGui(self):
         """Create the menu entries and toolbar icons inside the QGIS GUI."""
 
-        icon_path = ':/plugins/nin_qgis_plugin/icon.png'
+        icon_path = Path(__file__).parent / 'icon.png'
         self.add_action(
-            icon_path,
+            str(icon_path),
             text=self.tr('Open NiN mapper'),
             callback=self.run,
             parent=self.iface.mainWindow()
         )
 
         # Create an action to start the drawing tool
-        self.action = QAction("Draw Polygon", self.iface.mainWindow())
+        # self.action = QAction("Draw Polygon", self.iface.mainWindow())
         # Add the action to a toolbar, menu, etc. as desired
         # ...
 
     # --------------------------------------------------------------------------
 
     def onClosePlugin(self):
-        """Cleanup necessary items here when plugin dockwidget is closed"""
+        """Cleanup necessary items here when plugin dialog is closed"""
 
         # print "** CLOSING NinMapper"
 
         # disconnects
-        self.dockwidget.closingPlugin.disconnect(self.onClosePlugin)
+        self.dialog.closingPlugin.disconnect(self.onClosePlugin)
 
-        # remove this statement if dockwidget is to remain
+        # remove this statement if dialog is to remain
         # for reuse if plugin is reopened
         # Commented next statement since it causes QGIS crashe
         # when closing the docked window:
-        # self.dockwidget = None
+        # self.dialog = None
 
         self.pluginIsActive = False
 
@@ -226,17 +230,15 @@ class NinMapper:
 
             # print "** STARTING NinMapper"
 
-            # dockwidget may not exist if:
+            # dialog may not exist if:
             #    first run of plugin
             #    removed on close (see self.onClosePlugin method)
-            if self.dockwidget == None:
-                # Create the dockwidget (after translation) and keep reference
-                self.dockwidget = NinMapperDockWidget(self.canvas)
+            if self.dialog == None:
+                # Create the dialog (after translation) and keep reference
+                self.dialog = NinMapperDialogWidget(self.canvas)
 
-            # connect to provide cleanup on closing of dockwidget
-            self.dockwidget.closingPlugin.connect(self.onClosePlugin)
+            # connect to provide cleanup on closing of dialog
+            self.dialog.closingPlugin.connect(self.onClosePlugin)
 
-            # show the dockwidget
-            # TODO: fix to allow choice of dock location
-            self.iface.addDockWidget(Qt.TopDockWidgetArea, self.dockwidget)
-            self.dockwidget.show()
+            # show the dialog
+            self.dialog.show()

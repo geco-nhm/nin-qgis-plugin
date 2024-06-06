@@ -40,18 +40,18 @@ from PyQt5.QtWidgets import (
 )
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
-    os.path.dirname(__file__), 'nin_qgis_plugin_dockwidget_base.ui'
+    os.path.dirname(__file__), 'nin_qgis_plugin_dialog_base.ui'
 ))
 
 
-class NinMapperDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
+class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
     closingPlugin = pyqtSignal()
 
     def __init__(self, canvas, parent=None):
         """Constructor."""
 
-        super(NinMapperDockWidget, self).__init__(parent)
+        super(NinMapperDialogWidget, self).__init__(parent)
         self.canvas = canvas
 
         self.setupUi(self)
