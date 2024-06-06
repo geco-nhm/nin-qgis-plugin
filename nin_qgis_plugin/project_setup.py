@@ -21,6 +21,8 @@ from qgis.core import (
     QgsPalLayerSettings,
     QgsTextFormat,
     QgsVectorLayerSimpleLabeling,
+    QgsDefaultValue,
+    edit
 )
 
 from .attr_table_field_setings.value_relations import get_value_relations
