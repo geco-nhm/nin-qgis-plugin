@@ -6,15 +6,15 @@ import random
 import pandas as pd
 import os
 from qgis.core import (
-    QgsDataProvider, 
-    QgsVectorLayer, 
+    QgsDataProvider,
+    QgsVectorLayer,
     QgsProject,
-    QgsEditorWidgetSetup, 
+    QgsEditorWidgetSetup,
     QgsCoordinateReferenceSystem,
-    QgsRelation, 
-    QgsCategorizedSymbolRenderer, 
-    QgsRendererCategory, 
-    QgsSymbol, 
+    QgsRelation,
+    QgsCategorizedSymbolRenderer,
+    QgsRendererCategory,
+    QgsSymbol,
     QgsApplication,
     QgsProject,
     QgsVectorFileWriter,
@@ -233,6 +233,7 @@ def set_project_crs(crs: Union[int, str]) -> None:
     else:
         raise ValueError(f"Invalid crs given: {crs}")
 
+
 def main(
     selected_items: list,
     selected_type_id: str,
@@ -302,15 +303,22 @@ def main(
 
     # Here we set the random color categorized symbology for each 'kode_id' of the mapping units and label also with 'kode_id'
     # Load the attribute table
-    attribute_table_path = f'csv/attribute_tables/{selected_mapping_scale}_attribute_table.csv'
-    attribute_table = pd.read_csv(attribute_table_path)
+    attribute_table_path = Path(__file__).parent / 'csv' / \
+        'attribute_tables' / f"{selected_mapping_scale}_attribute_table.csv"
+    print(attribute_table_path)
+    attribute_table = pd.read_csv(
+        attribute_table_path,
+        index_col=False,
+        encoding="utf-8",
+    )
 
     # Function to generate random color
     def random_color():
         return [random.randint(0, 255) for _ in range(3)]
 
     # Load the layer
-    layer = QgsProject.instance().mapLayersByName('nin_polygons')[0] #QgsVectorLayer(f"{gpkg_path}|layername={layer_name}", layer_name, "ogr")
+    # QgsVectorLayer(f"{gpkg_path}|layername={layer_name}", layer_name, "ogr")
+    layer = QgsProject.instance().mapLayersByName('nin_polygons')[0]
     if not layer.isValid():
         print(f"Failed to load layer nin_polygons")
     else:
@@ -348,4 +356,3 @@ def main(
         # Add the layer to the project
         project = QgsProject.instance()
         project.addMapLayer(layer)
-
