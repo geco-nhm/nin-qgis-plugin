@@ -2,16 +2,32 @@
 
 from pathlib import Path
 from typing import Union, Literal, List
+import random
+import pandas as pd
+import os
+from qgis.core import (
+    QgsDataProvider, 
+    QgsVectorLayer, 
+    QgsProject,
+    QgsEditorWidgetSetup, 
+    QgsCoordinateReferenceSystem,
+    QgsRelation, 
+    QgsCategorizedSymbolRenderer, 
+    QgsRendererCategory, 
+    QgsSymbol, 
+    QgsApplication,
+    QgsProject,
+    QgsVectorFileWriter,
+    QgsPalLayerSettings,
+    QgsTextFormat,
+    QgsVectorLayerSimpleLabeling,
+)
 
 from .attr_table_field_setings.value_relations import get_value_relations
 from .attr_table_field_setings.default_values import get_default_values
 
-from qgis.core import (
-    QgsDataProvider, QgsVectorLayer, QgsProject,
-    QgsEditorWidgetSetup, QgsCoordinateReferenceSystem,
-    QgsRelation, QgsDefaultValue, edit
-)
 
+from PyQt5.QtGui import QColor, QFont
 from PyQt5.QtWidgets import (
     QMessageBox,
 )
@@ -214,7 +230,6 @@ def set_project_crs(crs: Union[int, str]) -> None:
     else:
         raise ValueError(f"Invalid crs given: {crs}")
 
-
 def main(
     selected_items: list,
     selected_type_id: str,
@@ -280,3 +295,53 @@ def main(
             foreign_field_to_display=rel["foreign_field_to_display"],
             filter_expression=rel["filter_expression"],
         )
+
+    # Here we set the random color categorized symbology for each 'kode_id' of the mapping units and label also with 'kode_id'
+    # Load the attribute table
+    attribute_table_path = f'csv/attribute_tables/{selected_mapping_scale}_attribute_table.csv'
+    attribute_table = pd.read_csv(attribute_table_path)
+
+    # Function to generate random color
+    def random_color():
+        return [random.randint(0, 255) for _ in range(3)]
+
+    # Load the layer
+    layer = QgsProject.instance().mapLayersByName('nin_polygons')[0] #QgsVectorLayer(f"{gpkg_path}|layername={layer_name}", layer_name, "ogr")
+    if not layer.isValid():
+        print(f"Failed to load layer nin_polygons")
+    else:
+        print(f"Layer nin_polygons loaded successfully")
+
+        # Prepare categorized symbology
+        categories = []
+        unique_values = attribute_table['kode_id'].unique()
+
+        for value in unique_values:
+            symbol = QgsSymbol.defaultSymbol(layer.geometryType())
+            color = random_color()
+            symbol.setColor(QColor(color[0], color[1], color[2]))
+            category = QgsRendererCategory(value, symbol, str(value))
+            categories.append(category)
+
+        renderer = QgsCategorizedSymbolRenderer('kode_id', categories)
+        layer.setRenderer(renderer)
+
+        # Set up labeling
+        label_settings = QgsPalLayerSettings()
+        label_settings.fieldName = 'kode_id'
+        label_settings.placement = QgsPalLayerSettings.OverPoint
+        text_format = QgsTextFormat()
+        text_format.setFont(QFont("Arial", 12))
+        text_format.setSize(12)
+        text_format.setColor(QColor(0, 0, 0))  # Black color for text
+
+        label_settings.setFormat(text_format)
+        labeling = QgsVectorLayerSimpleLabeling(label_settings)
+        layer.setLabelsEnabled(True)
+        layer.setLabeling(labeling)
+        layer.triggerRepaint()
+
+        # Add the layer to the project
+        project = QgsProject.instance()
+        project.addMapLayer(layer)
+
