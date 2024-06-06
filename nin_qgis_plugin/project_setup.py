@@ -3,15 +3,20 @@
 from pathlib import Path
 from typing import Union, Literal, List
 
+from .attr_table_field_setings.value_relations import get_value_relations
+from .attr_table_field_setings.default_values import get_default_values
+
 from qgis.core import (
     QgsDataProvider, QgsVectorLayer, QgsProject,
     QgsEditorWidgetSetup, QgsCoordinateReferenceSystem,
-    QgsRelation
+    QgsRelation, QgsDefaultValue, edit
 )
 
 from PyQt5.QtWidgets import (
     QMessageBox,
 )
+
+QGS_PROJECT = QgsProject.instance()
 
 
 def load_gpkg_layers(gpkg_path: Union[str, Path]) -> List[QgsVectorLayer]:
@@ -134,7 +139,80 @@ def set_relation(
         )
 
     # add this realtion to the project
-    QgsProject.instance().relationManager().addRelation(rel)
+    QGS_PROJECT.relationManager().addRelation(rel)
+
+
+def set_layer_field_default_values(
+    layer_name: str,
+    field_name: str,
+    default_value_expression: str,
+    make_field_uneditable: bool = True,
+) -> None:
+    '''
+    Adds QGIS field logic to populate field values automatically when creating
+    new features.
+    '''
+
+    # Get layer from project
+    layer = QGS_PROJECT.mapLayersByName(layer_name)[0]
+
+    # Find the index of the field
+    field_index = layer.fields().indexOf(field_name)
+
+    # Create a QgsDefaultValue object with the expression and set it as the default value for the field
+    with edit(layer):
+
+        if default_value_expression:
+            layer.setDefaultValueDefinition(
+                field_index,
+                QgsDefaultValue(default_value_expression, True),
+            )
+
+        if make_field_uneditable:
+            form_config = layer.editFormConfig()
+            form_config.setReadOnly(field_index, True)
+            layer.setEditFormConfig(form_config)
+
+
+def field_to_datetime(layer_name, fieldname) -> None:
+    '''
+    Adjusts datetime save and display options in 'regdato' field.
+
+    From: https://gisunchained.wordpress.com/2019/09/30/configure-editing-form-widgets-using-pyqgis/
+    '''
+    config = {
+        'allow_null': True,
+        'calendar_popup': True,
+        'display_format': 'yyyy-MM-dd HH:mm:ss',
+        'field_format': 'yyyy-MM-dd HH:mm:ss',
+        'field_iso_format': False,
+    }
+
+    layer = QGS_PROJECT.mapLayersByName(layer_name)[0]
+
+    fields = layer.fields()
+    field_idx = fields.indexOf(fieldname)
+    if field_idx >= 0:
+        widget_setup = QgsEditorWidgetSetup('DateTime', config)
+        layer.setEditorWidgetSetup(field_idx, widget_setup)
+
+
+def set_project_crs(crs: Union[int, str]) -> None:
+    '''Sets the project CRS'''
+
+    # Create QgsCoordinateReferenceSystem instance based on data type
+    if isinstance(crs, int):
+        proj_crs = QgsCoordinateReferenceSystem.fromEpsgId(crs)
+    elif isinstance(crs, str):
+        proj_crs = QgsCoordinateReferenceSystem(crs)
+    else:
+        raise ValueError(f"'crs' must be string or int! Was: {type(crs)}.")
+
+    # Set to project
+    if proj_crs.isValid():
+        QGS_PROJECT.setCrs(proj_crs)
+    else:
+        raise ValueError(f"Invalid crs given: {crs}")
 
 
 def main(
@@ -162,78 +240,38 @@ def main(
         )
         return
 
-    # Get the project instance
-    project = QgsProject.instance()
-
     # Define name and path of existing geopackage
     # TODO: Remove after testing!
     gpkg_name = "nin_survey.gpkg"
     gpkg_path = Path(__file__).parent / gpkg_name
 
-    # Declare a SpatialReference
-    # PostGIS SRID 25833 is allocated for ETRS89 UTM-zone 33N
-    crs = QgsCoordinateReferenceSystem.fromEpsgId(25833)
-    if crs.isValid():
-        project.setCrs(crs)
-    else:
-        print("Invalid CRS!")
-
     # Load all layers from geopackage
-    _ = load_gpkg_layers(gpkg_path)
+    _ = load_gpkg_layers(gpkg_path=gpkg_path)
 
-    if selected_items:
-        selected_kode_ids = [f"'{item['kode_id']}'" for item in selected_items]
-        # passing the selected "Hovedtypegrupper" from the UI
-        additional_filter = \
-            f'"kode_id" IN ({", ".join(map(str, selected_kode_ids))})'
-            
-    #selected_type_id = "'" + selected_type_id + "'"
+    # Set default values for type + hovedtype UI choices
+    set_project_crs(crs="EPSG:25833")
 
-    relations_to_set = (
-        {
-            "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
-            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName('typer')[0],
-            "primary_key_field_name": "type",
-            "foreign_key_field_name": "fid",
-            "foreign_field_to_display": "navn",
-            "filter_expression": f""""kode_id" = '{selected_type_id}'""",
-        },
-        {
-            "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
-            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName('hovedtypegrupper')[0],
-            "primary_key_field_name": "hovedtypegruppe",
-            "foreign_key_field_name": "fid",
-            "foreign_field_to_display": "navn",
-            "filter_expression": f'''"typer_fkey" = current_value('type') AND {additional_filter}''' if additional_filter else '''"typer_fkey" = current_value('type')''',
-        },
-        {
-            "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
-            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName('hovedtyper')[0],
-            "primary_key_field_name": "hovedtype",
-            "foreign_key_field_name": "fid",
-            "foreign_field_to_display": "navn",
-            "filter_expression": '''"hovedtypegrupper_fkey" = current_value('hovedtypegruppe')''',
-        },
-        {
-            "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
-            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName(selected_mapping_scale)[0],
-            "primary_key_field_name": "grunntype_or_klenhet",
-            "foreign_key_field_name": "fid",
-            "foreign_field_to_display": "navn",
-            "filter_expression": '''"hovedtyper_fkey" = current_value('hovedtype')''',
-        },
-        {
-            "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
-            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName(f"var_{selected_mapping_scale}")[0],
-            "primary_key_field_name": "variabler",
-            "foreign_key_field_name": "fid",
-            "foreign_field_to_display": "display_str",
-            "filter_expression": '''"grunntype_or_kle_fkey" = current_value('grunntype_or_klenhet')''',
-        },
-    )
+    # Adjust datetime format of regdato
+    field_to_datetime('nin_polygons', 'regdato')
 
-    for rel in relations_to_set:
+    # Set default values defined in 'default_values.py'
+    for default_value in get_default_values(
+        selected_type_id=selected_type_id,
+        selected_hovedtypegrupper=selected_items,
+    ):
+        set_layer_field_default_values(
+            layer_name=default_value["layer_name"],
+            field_name=default_value["field_name"],
+            default_value_expression=default_value["default_value_expression"],
+            make_field_uneditable=default_value["make_field_uneditable"],
+        )
 
+    # Set value relations defined in 'value_relations.py'
+    for rel in get_value_relations(
+        selected_type_id=selected_type_id,
+        selected_mapping_scale=selected_mapping_scale,
+        selected_items=selected_items,
+    ):
         field_to_value_relation(
             primary_attribute_table_layer=rel["primary_attribute_table_layer"],
             forgein_attribute_table_layer=rel["forgein_attribute_table_layer"],

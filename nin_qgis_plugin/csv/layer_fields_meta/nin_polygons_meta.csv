@@ -1,7 +1,7 @@
 name,type,length,precision
 fid,Int,4,0
 area,Double,0,4
-regdato,Date,0,0
+regdato,DateTime,0,0
 type,String,0,0
 hovedtypegruppe,String,0,0
 hovedtype,String,0,0
