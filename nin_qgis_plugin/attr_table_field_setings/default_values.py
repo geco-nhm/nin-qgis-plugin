@@ -65,6 +65,12 @@ def get_default_values(
             "default_value_expression": f"{type_fid}",
             "make_field_uneditable": True,
         },
+        {
+            "layer_name": "nin_polygons",
+            "field_name": "kode_id_label",
+            "default_value_expression": '''"grunntype_or_klenhet"''',
+            "make_field_uneditable": True,
+        },
     ]
 
     # If only one hovedtypegruppe selected, also set as default
