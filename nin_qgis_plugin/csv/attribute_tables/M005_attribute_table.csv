@@ -645,3 +645,95 @@ fid,hovedtyper_fkey,langkode,kode_id,navn
 643,414,NiN-3.0-T-C-PE-NA-MB-IA01-M005-03,IA01-M005-03,IA01-M005-03 Kryokonitt-preget breoverflate
 644,414,NiN-3.0-T-C-PE-NA-MB-IA01-M005-02,IA01-M005-02,IA01-M005-02 Jevn breoverflate
 645,414,NiN-3.0-T-C-PE-NA-MB-IA01-M005-01,IA01-M005-01,IA01-M005-01 Varig snø
+646,286,NIN-3.0-T-C-PE-NA-VM-FM05-02,FM05-M005-02,FM05-M005-02 Sterkt endrede kalkrike elvevannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+647,286,NIN-3.0-T-C-PE-NA-VM-FM05-01,FM05-M005-01,FM05-M005-01 Sterkt endrede kalkfattige elvevannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+648,287,NIN-3.0-T-C-PE-NA-VM-FM04-01,FM04-M005-01,FM04-M005-01 Sterkt forsurede elvevannmassesystemer
+649,288,NIN-3.0-T-C-PE-NA-VM-FM03-02,FM03-M005-02,FM03-M005-02 Sterkt endrede kalkrike innsjø-vannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+650,288,NIN-3.0-T-C-PE-NA-VM-FM03-01,FM03-M005-01,FM03-M005-01 Sterkt endrede kalkfattige innsjø-vannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+651,289,NIN-3.0-T-C-PE-NA-VM-FM02-04,FM02-M005-04,FM02-M005-04 Kronisk forsurede innsjø-vannmassesystemer
+652,289,NIN-3.0-T-C-PE-NA-VM-FM02-03,FM02-M005-03,FM02-M005-03 Kronisk eutrofierte innsjø-vannmassesystemer
+653,289,NIN-3.0-T-C-PE-NA-VM-FM02-02,FM02-M005-02,FM02-M005-02 Kronisk saltpåvirkede innsjø-vannmassesystemer
+654,289,NIN-3.0-T-C-PE-NA-VM-FM02-01,FM02-M005-01,FM02-M005-01 Kronisk kjemisk påvirkede innsjø-vannmassesystemer
+655,290,NIN-3.0-T-C-PE-NA-VM-FM01-08,FM01-M005-08,FM01-M005-08 Kalkrike lagdelte nye innsjø-vannmassesystemer med fisk
+656,290,NIN-3.0-T-C-PE-NA-VM-FM01-07,FM01-M005-07,FM01-M005-07 Kalkrike grunne nye innsjø-vannmassesystemer med fisk
+657,290,NIN-3.0-T-C-PE-NA-VM-FM01-06,FM01-M005-06,FM01-M005-06 Kalkfattige lagdelte nye innsjø-vannmassesystemer med fisk
+658,290,NIN-3.0-T-C-PE-NA-VM-FM01-05,FM01-M005-05,FM01-M005-05 Kalkfattige grunne nye innsjø-vannmassesystemer med fisk
+659,290,NIN-3.0-T-C-PE-NA-VM-FM01-04,FM01-M005-04,FM01-M005-04 Kalkrike lagdelte nye innsjø-vannmassesystemer uten fisk
+660,290,NIN-3.0-T-C-PE-NA-VM-FM01-03,FM01-M005-03,FM01-M005-03 Kalkrike grunne nye innsjø-vannmassesystemer uten fisk
+661,290,NIN-3.0-T-C-PE-NA-VM-FM01-02,FM01-M005-02,FM01-M005-02 Kalkfattige lagdelte nye innsjø-vannmassesystemer uten fisk
+662,290,NIN-3.0-T-C-PE-NA-VM-FM01-01,FM01-M005-01,FM01-M005-01 Kalkfattige grunne nye innsjø-vannmassesystemer uten fisk
+663,291,NIN-3.0-T-C-PE-NA-VM-FC05-02,FC05-M005-02,FC05-M005-02 Limniske vannmassesystemer på havis-overflate
+664,291,NIN-3.0-T-C-PE-NA-VM-FC05-01,FC05-M005-01,FC05-M005-01 Limniske vannmassesystemer på breoverflate
+665,292,NIN-3.0-T-C-PE-NA-VM-FC04-06,FC04-M005-06,FC04-M005-06 Oksygenfrie innsjø-vannmassesystemer betinget av humusrikt vann
+666,292,NIN-3.0-T-C-PE-NA-VM-FC04-05,FC04-M005-05,FC04-M005-05 Oksygenfrie innsjø-vannmassesystemer betinget av kalkrikt vann
+667,292,NIN-3.0-T-C-PE-NA-VM-FC04-04,FC04-M005-04,FC04-M005-04 Oksygenfrie innsjø-vannmassesystemer betinget av jernholdig vann
+668,292,NIN-3.0-T-C-PE-NA-VM-FC04-03,FC04-M005-03,FC04-M005-03 Oksygenfrie innsjø-vannmassesystemer betinget av saltholdig kildevann
+669,292,NIN-3.0-T-C-PE-NA-VM-FC04-02,FC04-M005-02,FC04-M005-02 Oksygenfrie innsjø-vannmassesystemer betinget av gammelt havvann
+670,292,NIN-3.0-T-C-PE-NA-VM-FC04-01,FC04-M005-01,FC04-M005-01 Innsjø-vannmassesystemer med periodisk oksygenmangel
+671,293,NIN-3.0-T-C-PE-NA-VM-FC03-02,FC03-M005-02,FC03-M005-02 Svært sterkt og disruptivt naturlig gjødslingspregede limniske vannmassesystemer
+672,293,NIN-3.0-T-C-PE-NA-VM-FC03-01,FC03-M005-01,FC03-M005-01 Markert naturlig gjødslingspregede limniske vannmassesystemer
+673,294,NIN-3.0-T-C-PE-NA-VM-FC02-01,FC02-M005-01,FC02-M005-01 Grottesjø-vannmassesystemer
+674,295,NIN-3.0-T-C-PE-NA-VM-FC01-03,FC01-M005-03,FC01-M005-03 Svært turbide bresjø-vannmassesystemer
+675,295,NIN-3.0-T-C-PE-NA-VM-FC01-02,FC01-M005-02,FC01-M005-02 Kalkrike turbide bresjø-vannmassesystemer
+676,295,NIN-3.0-T-C-PE-NA-VM-FC01-01,FC01-M005-01,FC01-M005-01 Kalkfattige turbide bresjø-vannmassesystemer
+677,296,NIN-3.0-T-C-PE-NA-VM-FB03-02,FB03-M005-02,FB03-M005-02 Elvevannmassesystemer med fisk
+678,296,NIN-3.0-T-C-PE-NA-VM-FB03-01,FB03-M005-01,FB03-M005-01 Elvevannmassesystemer uten fisk
+679,297,NIN-3.0-T-C-PE-NA-VM-FB02-18,FB02-M005-18,FB02-M005-18 Svært kalkrike grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+680,297,NIN-3.0-T-C-PE-NA-VM-FB02-17,FB02-M005-17,FB02-M005-17 Moderat kalkrike grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+681,297,NIN-3.0-T-C-PE-NA-VM-FB02-16,FB02-M005-16,FB02-M005-16 Noe kalkfattige og humøse grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+682,297,NIN-3.0-T-C-PE-NA-VM-FB02-15,FB02-M005-15,FB02-M005-15 Noe kalkfattige og klare grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+683,297,NIN-3.0-T-C-PE-NA-VM-FB02-14,FB02-M005-14,FB02-M005-14 Svært kalkfattige og humøse grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+684,297,NIN-3.0-T-C-PE-NA-VM-FB02-13,FB02-M005-13,FB02-M005-13 Svært kalkfattige og klare grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+685,297,NIN-3.0-T-C-PE-NA-VM-FB02-12,FB02-M005-12,FB02-M005-12 Svært kalkrike grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+686,297,NIN-3.0-T-C-PE-NA-VM-FB02-11,FB02-M005-11,FB02-M005-11 Moderat kalkrike grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+687,297,NIN-3.0-T-C-PE-NA-VM-FB02-10,FB02-M005-10,FB02-M005-10 Noe kalkfattige og humøse grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+688,297,NIN-3.0-T-C-PE-NA-VM-FB02-09,FB02-M005-09,FB02-M005-09 Noe kalkfattige og klare grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+689,297,NIN-3.0-T-C-PE-NA-VM-FB02-08,FB02-M005-08,FB02-M005-08 Svært kalkfattige og humøse grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+690,297,NIN-3.0-T-C-PE-NA-VM-FB02-07,FB02-M005-07,FB02-M005-07 Svært kalkfattige og klare grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+691,297,NIN-3.0-T-C-PE-NA-VM-FB02-06,FB02-M005-06,FB02-M005-06 Svært kalkrike grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+692,297,NIN-3.0-T-C-PE-NA-VM-FB02-05,FB02-M005-05,FB02-M005-05 Moderat kalkrike grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+693,297,NIN-3.0-T-C-PE-NA-VM-FB02-04,FB02-M005-04,FB02-M005-04 Noe kalkfattige og humøse grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+694,297,NIN-3.0-T-C-PE-NA-VM-FB02-03,FB02-M005-03,FB02-M005-03 Noe kalkfattige og klare grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+695,297,NIN-3.0-T-C-PE-NA-VM-FB02-02,FB02-M005-02,FB02-M005-02 Svært kalkfattige og humøse grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+696,297,NIN-3.0-T-C-PE-NA-VM-FB02-01,FB02-M005-01,FB02-M005-01 Svært kalkfattige og klare grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+697,298,NIN-3.0-T-C-PE-NA-VM-FB01-18,FB01-M005-18,FB01-M005-18 Svært kalkrike lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+698,298,NIN-3.0-T-C-PE-NA-VM-FB01-17,FB01-M005-17,FB01-M005-17 Moderat kalkrike lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+699,298,NIN-3.0-T-C-PE-NA-VM-FB01-16,FB01-M005-16,FB01-M005-16 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+700,298,NIN-3.0-T-C-PE-NA-VM-FB01-15,FB01-M005-15,FB01-M005-15 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+701,298,NIN-3.0-T-C-PE-NA-VM-FB01-14,FB01-M005-14,FB01-M005-14 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+702,298,NIN-3.0-T-C-PE-NA-VM-FB01-13,FB01-M005-13,FB01-M005-13 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+703,298,NIN-3.0-T-C-PE-NA-VM-FB01-12,FB01-M005-12,FB01-M005-12 Svært kalkrike lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+704,298,NIN-3.0-T-C-PE-NA-VM-FB01-11,FB01-M005-11,FB01-M005-11 Moderat kalkrike lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+705,298,NIN-3.0-T-C-PE-NA-VM-FB01-10,FB01-M005-10,FB01-M005-10 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+706,298,NIN-3.0-T-C-PE-NA-VM-FB01-09,FB01-M005-09,FB01-M005-09 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+707,298,NIN-3.0-T-C-PE-NA-VM-FB01-08,FB01-M005-08,FB01-M005-08 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+708,298,NIN-3.0-T-C-PE-NA-VM-FB01-07,FB01-M005-07,FB01-M005-07 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+709,298,NIN-3.0-T-C-PE-NA-VM-FB01-06,FB01-M005-06,FB01-M005-06 Svært kalkrike lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+710,298,NIN-3.0-T-C-PE-NA-VM-FB01-05,FB01-M005-05,FB01-M005-05 Moderat kalkrike lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+711,298,NIN-3.0-T-C-PE-NA-VM-FB01-04,FB01-M005-04,FB01-M005-04 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+712,298,NIN-3.0-T-C-PE-NA-VM-FB01-03,FB01-M005-03,FB01-M005-03 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+713,298,NIN-3.0-T-C-PE-NA-VM-FB01-02,FB01-M005-02,FB01-M005-02 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+714,298,NIN-3.0-T-C-PE-NA-VM-FB01-01,FB01-M005-01,FB01-M005-01 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+715,299,NIN-3.0-T-C-PE-NA-VM-FA02-17,FA02-M005-17,FA02-M005-17 Små og grunne humøse innsjø-vannmassesystemer uten fisk
+716,299,NIN-3.0-T-C-PE-NA-VM-FA02-16,FA02-M005-16,FA02-M005-16 Svært kalkrike og humøse små grunne innsjø-vannmassesystemer uten fisk
+717,299,NIN-3.0-T-C-PE-NA-VM-FA02-15,FA02-M005-15,FA02-M005-15 Svært kalkrike og humøse store grunne innsjø-vannmassesystemer uten fisk
+718,299,NIN-3.0-T-C-PE-NA-VM-FA02-14,FA02-M005-14,FA02-M005-14 Svært kalkrike og klare små grunne innsjø-vannmassesystemer uten fisk
+719,299,NIN-3.0-T-C-PE-NA-VM-FA02-13,FA02-M005-13,FA02-M005-13 Svært kalkrike og klare store grunne innsjø-vannmassesystemer uten fisk
+720,299,NIN-3.0-T-C-PE-NA-VM-FA02-12,FA02-M005-12,FA02-M005-12 Moderat kalkrike og humøse små grunne innsjø-vannmassesystemer uten fisk
+721,299,NIN-3.0-T-C-PE-NA-VM-FA02-11,FA02-M005-11,FA02-M005-11 Moderat kalkrike og humøse store grunne innsjø-vannmassesystemer uten fisk
+722,299,NIN-3.0-T-C-PE-NA-VM-FA02-10,FA02-M005-10,FA02-M005-10 Moderat kalkrike og klare små grunne innsjø-vannmassesystemer uten fisk
+723,299,NIN-3.0-T-C-PE-NA-VM-FA02-09,FA02-M005-09,FA02-M005-09 Moderat kalkrike og klare store grunne innsjø-vannmassesystemer uten fisk
+724,299,NIN-3.0-T-C-PE-NA-VM-FA02-08,FA02-M005-08,FA02-M005-08 Noe kalkfattige og humøse små grunne innsjø-vannmassesystemer uten fisk
+725,299,NIN-3.0-T-C-PE-NA-VM-FA02-07,FA02-M005-07,FA02-M005-07 Noe kalkfattige og humøse store grunne innsjø-vannmassesystemer uten fisk
+726,299,NIN-3.0-T-C-PE-NA-VM-FA02-06,FA02-M005-06,FA02-M005-06 Noe kalkfattige og klare små grunne innsjø-vannmassesystemer uten fisk
+727,299,NIN-3.0-T-C-PE-NA-VM-FA02-05,FA02-M005-05,FA02-M005-05 Noe kalkfattige og klare store grunne innsjø-vannmassesystemer uten fisk
+728,299,NIN-3.0-T-C-PE-NA-VM-FA02-04,FA02-M005-04,FA02-M005-04 Svært kalkfattige og humøse små grunne innsjø-vannmassesystemer uten fisk
+729,299,NIN-3.0-T-C-PE-NA-VM-FA02-03,FA02-M005-03,FA02-M005-03 Svært kalkfattige og humøse store grunne innsjø-vannmassesystemer uten fisk
+730,299,NIN-3.0-T-C-PE-NA-VM-FA02-02,FA02-M005-02,FA02-M005-02 Svært kalkfattige og klare små grunne innsjø-vannmassesystemer uten fisk
+731,299,NIN-3.0-T-C-PE-NA-VM-FA02-01,FA02-M005-01,FA02-M005-01 Svært kalkfattige og klare store grunne innsjø-vannmassesystemer uten fisk
+732,300,NIN-3.0-T-C-PE-NA-VM-FA01-06,FA01-M005-06,FA01-M005-06 Svært kalkrike lagdelte innsjø-vannmassesystemer uten fisk
+733,300,NIN-3.0-T-C-PE-NA-VM-FA01-05,FA01-M005-05,FA01-M005-05 Moderat kalkrike lagdelte innsjø-vannmassesystemer uten fisk
+734,300,NIN-3.0-T-C-PE-NA-VM-FA01-04,FA01-M005-04,FA01-M005-04 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer uten fisk
+735,300,NIN-3.0-T-C-PE-NA-VM-FA01-03,FA01-M005-03,FA01-M005-03 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer uten fisk
+736,300,NIN-3.0-T-C-PE-NA-VM-FA01-02,FA01-M005-02,FA01-M005-02 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer uten fisk
+737,300,NIN-3.0-T-C-PE-NA-VM-FA01-01,FA01-M005-01,FA01-M005-01 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer uten fisk
