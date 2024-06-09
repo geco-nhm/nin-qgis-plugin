@@ -275,7 +275,7 @@ class ProjectSetup:
 
         # Function to generate random color
         def random_color():
-            return [random.randint(0, 255) for _ in range(3)]
+            return [random.randint(0, 255) for _ in range(3)] + [128]  # Adding 128 as the alpha value for semi-transparency
 
         # Load the layer
         layer = QGS_PROJECT.mapLayersByName(self.nin_polygons_layer_name)[0]
@@ -290,7 +290,7 @@ class ProjectSetup:
             for value in unique_values:
                 symbol = QgsSymbol.defaultSymbol(layer.geometryType())
                 color = random_color()
-                symbol.setColor(QColor(color[0], color[1], color[2]))
+                symbol.setColor(QColor(color[0], color[1], color[2], color[3]))  # Use the RGB + Alpha values
                 category = QgsRendererCategory(value, symbol, str(value))
                 categories.append(category)
 
