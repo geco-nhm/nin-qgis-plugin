@@ -5,9 +5,11 @@ from typing import Union, Literal, List
 import random
 import pandas as pd
 import os
+
 from qgis.core import (
     QgsDataProvider,
     QgsVectorLayer,
+    QgsRasterLayer,
     QgsProject,
     QgsEditorWidgetSetup,
     QgsCoordinateReferenceSystem,
@@ -15,298 +17,368 @@ from qgis.core import (
     QgsCategorizedSymbolRenderer,
     QgsRendererCategory,
     QgsSymbol,
-    QgsApplication,
     QgsProject,
-    QgsVectorFileWriter,
     QgsPalLayerSettings,
     QgsTextFormat,
     QgsVectorLayerSimpleLabeling,
     QgsDefaultValue,
+    QgsLayerTreeLayer,
     edit
+)
+from PyQt5.QtGui import QColor, QFont
+from PyQt5.QtWidgets import (
+    QMessageBox,
 )
 
 from .attr_table_field_setings.value_relations import get_value_relations
 from .attr_table_field_setings.default_values import get_default_values
 
 
-from PyQt5.QtGui import QColor, QFont
-from PyQt5.QtWidgets import (
-    QMessageBox,
-)
-
 QGS_PROJECT = QgsProject.instance()
+PROJECT_CRS = "EPSG:25833"
 
 
-def load_gpkg_layers(gpkg_path: Union[str, Path]) -> List[QgsVectorLayer]:
+class ProjectSetup:
     '''
-    Loads all .gpkg layers into current QGIS project.
-
-    Returns list of QgsVectorLayers contained in geopackage.
-    '''
-
-    layer = QgsVectorLayer(
-        str(gpkg_path),
-        "test",
-        "ogr"
-    )
-
-    sub_layers = layer.dataProvider().subLayers()
-    sub_vlayers = []
-
-    for sub_layer in sub_layers:
-
-        name = sub_layer.split(QgsDataProvider.SUBLAYER_SEPARATOR)[1]
-        uri = f"{gpkg_path}|layername={name}"
-
-        # Create layer
-        sub_vlayer = QgsVectorLayer(uri, name, 'ogr')
-        sub_vlayers.append(sub_vlayer)
-
-        # Add layer to map
-        QgsProject.instance().addMapLayer(sub_vlayer)
-
-    return sub_vlayers
-
-
-def field_to_value_relation(
-    primary_attribute_table_layer: QgsVectorLayer,  # E.g.: nin_polygons_layer
-    forgein_attribute_table_layer: QgsVectorLayer,  # E.g.: hovedtyper_layer
-    primary_key_field_name: str,  # E.g.: 'hovedtype'
-    foreign_key_field_name: str,  # E.g.: 'fid'
-    foreign_field_to_display: str,  # E.g.: 'navn'
-    filter_expression: str,  # E.g.: '''"typer_fkey" = current_value('type')'''
-    allow_multi_selection: bool = False,
-) -> bool:
-    '''
-    Configures the QGIS widget to display only relevant subtypes in
-    the hierarchichal NiN relationships when assigning polygon attributes
-    (type -> hovedtypegruppe -> hovedtype -> etc.).
-
-    https://gisunchained.wordpress.com/2019/09/30/configure-editing-form-widgets-using-pyqgis/
-
-    params:
-    filter_expression: QGIS filter expression as a string. Field names in double quotes, strings in single quotes.
+    Helper class to adjust the QGIS project options.
     '''
 
-    # foreign_fields = forgein_attribute_table_layer.fields()
+    def __init__(
+        self,
+        gpkg_path: Union[str, Path],
+        selected_type_id: str,
+        selected_hovedtypegrupper: List[str],
+        selected_mapping_scale: str,
+        canvas,
+        nin_polygons_layer_name: str = "nin_polygons",
+    ) -> None:
+        '''Constructor with shared variables'''
 
-    config = {
-        'AllowMulti': allow_multi_selection,
-        'AllowNull': True,
-        'FilterExpression': filter_expression,  # QgsExpression()?
-        'Key': foreign_key_field_name,
-        'Layer': forgein_attribute_table_layer.id(),  # Foreign key layer by ID
-        'NofColumns': 1,
-        'OrderByValue': True,
-        'UseCompleter': False,
-        'Value': foreign_field_to_display,
-    }
+        self.gpkg_path = gpkg_path
+        self.selected_type_id = selected_type_id
+        self.selected_hovedtypegrupper = selected_hovedtypegrupper
+        self.selected_mapping_scale = selected_mapping_scale
+        self.canvas = canvas
+        self.nin_polygons_layer_name = nin_polygons_layer_name
 
-    try:
-        primary_fields = primary_attribute_table_layer.fields()
-        field_idx = primary_fields.indexOf(primary_key_field_name)
-        widget_setup = QgsEditorWidgetSetup('ValueRelation', config)
+    def load_gpkg_layers(self) -> List[QgsVectorLayer]:
+        '''
+        Loads all .gpkg layers into current QGIS project.
 
-        primary_attribute_table_layer.setEditorWidgetSetup(
-            field_idx,
-            widget_setup
+        Returns list of QgsVectorLayers contained in geopackage.
+        '''
+
+        layer = QgsVectorLayer(
+            str(self.gpkg_path),
+            "test",
+            "ogr"
         )
 
-        return True
+        sub_layers = layer.dataProvider().subLayers()
+        sub_vlayers = []
 
-    except Exception as exception:
-        raise exception
+        for sub_layer in sub_layers:
 
+            name = sub_layer.split(QgsDataProvider.SUBLAYER_SEPARATOR)[1]
+            uri = f"{self.gpkg_path}|layername={name}"
 
-def set_relation(
-    parent_layer: QgsVectorLayer,
-    child_layer: QgsVectorLayer,
-    relation_name: str,
-    child_fkey_field_name: str,
-    parent_pkey_field_name: str,
-    relation_id: str,
-    relation_strength: Literal["comp", "asso"],
-) -> QgsVectorLayer:
-    '''
-    Defines field relationships in layers.
+            # Create layer
+            sub_vlayer = QgsVectorLayer(uri, name, 'ogr')
+            sub_vlayers.append(sub_vlayer)
 
-    Template from Anne's code.
-    '''
+            # Add layer to map
+            QgsProject.instance().addMapLayer(sub_vlayer)
 
-    rel = QgsRelation()
+        return sub_vlayers
 
-    rel.setName(relation_name)  # name of relation
-    rel.setReferencedLayer(parent_layer.id())  # parent layer
-    rel.setReferencingLayer(child_layer.id())  # child layer
-    rel.addFieldPair(
-        # first element are the field names of the foreign key
-        referencingField=child_fkey_field_name,
-        referencedField=parent_pkey_field_name,
-    )
-    # id of relation
-    rel.setId(relation_id)
+    def field_to_value_relation(
+        self,
+        primary_attribute_table_layer: QgsVectorLayer,  # E.g.: nin_polygons_layer
+        forgein_attribute_table_layer: QgsVectorLayer,  # E.g.: hovedtyper_layer
+        primary_key_field_name: str,  # E.g.: 'hovedtype'
+        foreign_key_field_name: str,  # E.g.: 'fid'
+        foreign_field_to_display: str,  # E.g.: 'navn'
+        filter_expression: str,  # E.g.: '''"typer_fkey" = current_value('type')'''
+        allow_multi_selection: bool = False,
+    ) -> bool:
+        '''
+        Configures the QGIS widget to display only relevant subtypes in
+        the hierarchichal NiN relationships when assigning polygon attributes
+        (type -> hovedtypegruppe -> hovedtype -> etc.).
 
-    # strength of relation
-    if relation_strength == "comp":
-        rel.setStrength(QgsRelation.Composition)
-    elif relation_strength == "asso":
-        rel.setStrength(QgsRelation.Association)
-    else:
-        raise ValueError(
-            f"relation_strength='{relation_strength}' not supported! "
-            + "Must be 'comp' or 'asso'."
-        )
+        https://gisunchained.wordpress.com/2019/09/30/configure-editing-form-widgets-using-pyqgis/
 
-    # add this realtion to the project
-    QGS_PROJECT.relationManager().addRelation(rel)
+        params:
+        filter_expression: QGIS filter expression as a string. Field names in double quotes, strings in single quotes.
+        '''
 
+        # foreign_fields = forgein_attribute_table_layer.fields()
 
-def set_layer_field_default_values(
-    layer_name: str,
-    field_name: str,
-    default_value_expression: str,
-    make_field_uneditable: bool = True,
-) -> None:
-    '''
-    Adds QGIS field logic to populate field values automatically when creating
-    new features.
-    '''
+        config = {
+            'AllowMulti': allow_multi_selection,
+            'AllowNull': True,
+            'FilterExpression': filter_expression,  # QgsExpression()?
+            'Key': foreign_key_field_name,
+            'Layer': forgein_attribute_table_layer.id(),  # Foreign key layer by ID
+            'NofColumns': 1,
+            'OrderByValue': True,
+            'UseCompleter': False,
+            'Value': foreign_field_to_display,
+        }
 
-    # Get layer from project
-    layer = QGS_PROJECT.mapLayersByName(layer_name)[0]
+        try:
+            primary_fields = primary_attribute_table_layer.fields()
+            field_idx = primary_fields.indexOf(primary_key_field_name)
+            widget_setup = QgsEditorWidgetSetup('ValueRelation', config)
 
-    # Find the index of the field
-    field_index = layer.fields().indexOf(field_name)
-
-    # Create a QgsDefaultValue object with the expression and set it as the default value for the field
-    with edit(layer):
-
-        if default_value_expression:
-            layer.setDefaultValueDefinition(
-                field_index,
-                QgsDefaultValue(default_value_expression, True),
+            primary_attribute_table_layer.setEditorWidgetSetup(
+                field_idx,
+                widget_setup
             )
 
-        if make_field_uneditable:
-            form_config = layer.editFormConfig()
-            form_config.setReadOnly(field_index, True)
-            layer.setEditFormConfig(form_config)
+            return True
 
+        except Exception as exception:
+            raise exception
 
-def field_to_datetime(layer_name, fieldname) -> None:
-    '''
-    Adjusts datetime save and display options in 'regdato' field.
+    def set_relation(
+        self,
+        parent_layer: QgsVectorLayer,
+        child_layer: QgsVectorLayer,
+        relation_name: str,
+        child_fkey_field_name: str,
+        parent_pkey_field_name: str,
+        relation_id: str,
+        relation_strength: Literal["comp", "asso"],
+    ) -> QgsVectorLayer:
+        '''
+        Defines field relationships in layers.
 
-    From: https://gisunchained.wordpress.com/2019/09/30/configure-editing-form-widgets-using-pyqgis/
-    '''
-    config = {
-        'allow_null': True,
-        'calendar_popup': True,
-        'display_format': 'yyyy-MM-dd HH:mm:ss',
-        'field_format': 'yyyy-MM-dd HH:mm:ss',
-        'field_iso_format': False,
-    }
+        Template from Anne's code.
+        '''
 
-    layer = QGS_PROJECT.mapLayersByName(layer_name)[0]
+        rel = QgsRelation()
 
-    fields = layer.fields()
-    field_idx = fields.indexOf(fieldname)
-    if field_idx >= 0:
-        widget_setup = QgsEditorWidgetSetup('DateTime', config)
-        layer.setEditorWidgetSetup(field_idx, widget_setup)
+        rel.setName(relation_name)  # name of relation
+        rel.setReferencedLayer(parent_layer.id())  # parent layer
+        rel.setReferencingLayer(child_layer.id())  # child layer
+        rel.addFieldPair(
+            # first element are the field names of the foreign key
+            referencingField=child_fkey_field_name,
+            referencedField=parent_pkey_field_name,
+        )
+        # id of relation
+        rel.setId(relation_id)
 
+        # strength of relation
+        if relation_strength == "comp":
+            rel.setStrength(QgsRelation.Composition)
+        elif relation_strength == "asso":
+            rel.setStrength(QgsRelation.Association)
+        else:
+            raise ValueError(
+                f"relation_strength='{relation_strength}' not supported! "
+                + "Must be 'comp' or 'asso'."
+            )
 
-def set_project_crs(crs: Union[int, str]) -> None:
-    '''Sets the project CRS'''
+        # add this realtion to the project
+        QGS_PROJECT.relationManager().addRelation(rel)
 
-    # Create QgsCoordinateReferenceSystem instance based on data type
-    if isinstance(crs, int):
-        proj_crs = QgsCoordinateReferenceSystem.fromEpsgId(crs)
-    elif isinstance(crs, str):
-        proj_crs = QgsCoordinateReferenceSystem(crs)
-    else:
-        raise ValueError(f"'crs' must be string or int! Was: {type(crs)}.")
+    def set_layer_field_default_values(
+        self,
+        layer_name: str,
+        field_name: str,
+        default_value_expression: str,
+        make_field_uneditable: bool = True,
+    ) -> None:
+        '''
+        Adds QGIS field logic to populate field values automatically when creating
+        new features.
+        '''
 
-    # Set to project
-    if proj_crs.isValid():
-        QGS_PROJECT.setCrs(proj_crs)
-    else:
-        raise ValueError(f"Invalid crs given: {crs}")
+        # Get layer from project
+        layer = QGS_PROJECT.mapLayersByName(layer_name)[0]
 
+        # Find the index of the field
+        field_index = layer.fields().indexOf(field_name)
 
-def set_nin_polygons_styling(selected_mapping_scale: str):
-    '''
-    Defines the symbology of the nin_polygons layer.
-    '''
+        # Create a QgsDefaultValue object with the expression and set it as the default value for the field
+        with edit(layer):
 
-    # Here we set the random color categorized symbology for each 'kode_id' of the mapping units and label also with 'kode_id'
-    # Load the attribute table
-    attribute_table_path = Path(__file__).parent / 'csv' / \
-        'attribute_tables' / f"{selected_mapping_scale}_attribute_table.csv"
-    attribute_table = pd.read_csv(
-        attribute_table_path,
-        index_col=False,
-        encoding="utf-8",
-    )
+            if default_value_expression:
+                layer.setDefaultValueDefinition(
+                    field_index,
+                    QgsDefaultValue(default_value_expression, True),
+                )
 
-    # Function to generate random color
-    def random_color():
-        return [random.randint(0, 255) for _ in range(3)]
+            if make_field_uneditable:
+                form_config = layer.editFormConfig()
+                form_config.setReadOnly(field_index, True)
+                layer.setEditFormConfig(form_config)
 
-    # Load the layer
-    # QgsVectorLayer(f"{gpkg_path}|layername={layer_name}", layer_name, "ogr")
-    layer = QGS_PROJECT.mapLayersByName('nin_polygons')[0]
+    def field_to_datetime(self, layer_name: str, field_name: str) -> None:
+        '''
+        Adjusts save and display options in desired DateTime field.
 
-    if not layer.isValid():
-        print("Failed to load layer nin_polygons")
-    else:
-        # Prepare categorized symbology
-        categories = []
-        unique_values = attribute_table['kode_id'].unique()
+        From: https://gisunchained.wordpress.com/2019/09/30/configure-editing-form-widgets-using-pyqgis/
+        '''
+        config = {
+            'allow_null': True,
+            'calendar_popup': True,
+            'display_format': 'yyyy-MM-dd HH:mm:ss',
+            'field_format': 'yyyy-MM-dd HH:mm:ss',
+            'field_iso_format': False,
+        }
 
-        for value in unique_values:
-            symbol = QgsSymbol.defaultSymbol(layer.geometryType())
-            color = random_color()
-            symbol.setColor(QColor(color[0], color[1], color[2]))
-            category = QgsRendererCategory(value, symbol, str(value))
-            categories.append(category)
+        layer = QGS_PROJECT.mapLayersByName(layer_name)[0]
 
-        print(categories)
+        fields = layer.fields()
+        field_idx = fields.indexOf(field_name)
+        if field_idx >= 0:
+            widget_setup = QgsEditorWidgetSetup('DateTime', config)
+            layer.setEditorWidgetSetup(field_idx, widget_setup)
 
-        renderer = QgsCategorizedSymbolRenderer(
-            'represent_value("kode_id_label")', categories
+    def set_project_crs(self, crs: Union[int, str]) -> None:
+        '''Sets the project CRS'''
+
+        # Create QgsCoordinateReferenceSystem instance based on data type
+        if isinstance(crs, int):
+            proj_crs = QgsCoordinateReferenceSystem.fromEpsgId(crs)
+        elif isinstance(crs, str):
+            proj_crs = QgsCoordinateReferenceSystem(crs)
+        else:
+            raise ValueError(f"'crs' must be string or int! Was: {type(crs)}.")
+
+        # Set to project
+        if proj_crs.isValid():
+            QGS_PROJECT.setCrs(proj_crs)
+        else:
+            raise ValueError(f"Invalid crs given: {crs}")
+
+    def set_nin_polygons_styling(self) -> None:
+        '''
+        Defines the symbology of the nin_polygons layer.
+        '''
+
+        # Here we set the random color categorized symbology for each 'kode_id' of
+        # the mapping units and label also with 'kode_id'
+        # Load the attribute table
+        attribute_table_path = Path(__file__).parent / 'csv' / \
+            'attribute_tables' / \
+            f"{self.selected_mapping_scale}_attribute_table.csv"
+
+        attribute_table = pd.read_csv(
+            attribute_table_path,
+            index_col=False,
+            encoding="utf-8",
         )
 
-        layer.setRenderer(renderer)
+        # Function to generate random color
+        def random_color():
+            return [random.randint(0, 255) for _ in range(3)]
 
-        # Set up labeling
-        label_settings = QgsPalLayerSettings()
-        # This feels so wrong... setting expression as field name...
-        label_settings.fieldName = 'represent_value("kode_id_label")'
-        # ...and say its an expression ¯\_(ツ)_/¯
-        label_settings.isExpression = True
-        label_settings.placement = QgsPalLayerSettings.OverPoint
+        # Load the layer
+        layer = QGS_PROJECT.mapLayersByName(self.nin_polygons_layer_name)[0]
 
-        text_format = QgsTextFormat()
-        text_format.setFont(QFont("Arial", 12))
-        text_format.setSize(12)
-        text_format.setColor(QColor(0, 0, 0))  # Black color for text
+        if not layer.isValid():
+            print(f"Failed to load layer {self.nin_polygons_layer_name}")
+        else:
+            # Prepare categorized symbology
+            categories = []
+            unique_values = attribute_table['kode_id'].unique()
 
-        label_settings.setFormat(text_format)
-        labeling = QgsVectorLayerSimpleLabeling(label_settings)
-        layer.setLabeling(labeling)
-        layer.setLabelsEnabled(True)
-        # Refresh layer
-        layer.triggerRepaint()
+            for value in unique_values:
+                symbol = QgsSymbol.defaultSymbol(layer.geometryType())
+                color = random_color()
+                symbol.setColor(QColor(color[0], color[1], color[2]))
+                category = QgsRendererCategory(value, symbol, str(value))
+                categories.append(category)
 
-        # Add the layer to the project
-        QGS_PROJECT.addMapLayer(layer)
+            renderer = QgsCategorizedSymbolRenderer(
+                'represent_value("kode_id_label")',
+                categories
+            )
+
+            layer.setRenderer(renderer)
+
+            # Set up labeling
+            label_settings = QgsPalLayerSettings()
+
+            label_settings.placement = QgsPalLayerSettings.OverPoint
+            text_format = QgsTextFormat()
+            text_format.setFont(QFont("Arial", 12))
+            text_format.setSize(12)
+            text_format.setColor(QColor(0, 0, 0))  # Black color for text
+            label_settings.setFormat(text_format)
+
+            # This feels so wrong... setting expression as field name...
+            label_settings.fieldName = 'represent_value("kode_id_label")'
+            # ...and say its an expression ¯\_(ツ)_/¯
+            label_settings.isExpression = True
+            labeling = QgsVectorLayerSimpleLabeling(label_settings)
+            layer.setLabeling(labeling)
+            layer.setLabelsEnabled(True)
+
+            # Refresh layer
+            layer.triggerRepaint()
+
+            # Add the layer to the project
+            QGS_PROJECT.addMapLayer(layer)
+
+    def add_wms_layer(
+        self,
+        wms_service_url: str,
+        wms_layer_names: str,
+        wms_style: str,
+        wms_crs: str,
+        wms_layer_name: str,
+        zoom_to_extent=True,
+    ) -> None:
+        '''
+        Adds WMS layers from a specified URL to the project instance.
+        '''
+
+        # Format the WMS URI
+        wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&format=image/png&url={wms_service_url}"
+
+        # Create a new raster layer using the WMS URI
+        wms_layer = QgsRasterLayer(
+            wms_uri,
+            f'{wms_layer_name}',
+            'wms',
+        )
+
+        # Check if the layer is valid
+        if not wms_layer.isValid():
+            print("WMS layer failed to load!")
+        else:
+            # Add the layer to the QGIS project
+            # Add the WMS layer to the project (it will be added to the top)
+            # The second parameter set to False prevents auto-add
+            QGS_PROJECT.addMapLayer(wms_layer, False)
+
+            # Get the root (top-level) node of the layer tree
+            root = QGS_PROJECT.layerTreeRoot()
+
+            # Create a new layer tree node for the added WMS layer
+            wms_layer_node = QgsLayerTreeLayer(wms_layer)
+
+            # Insert the new layer's node at the bottom of the layer tree
+            # Index 0 inserts at the bottom
+            root.insertChildNode(-1, wms_layer_node)
+
+            if zoom_to_extent:
+                self.canvas.setExtent(wms_layer.extent())
+
+            self.canvas.refresh()
 
 
 def main(
     selected_items: list,
     selected_type_id: str,
     gpkg_path: Union[str, Path],
+    canvas,
+    wms_settings: dict,
     selected_mapping_scale="M005",
 ) -> None:
     '''Adapt QGIS project settings.'''
@@ -333,21 +405,33 @@ def main(
     gpkg_name = "nin_survey.gpkg"
     gpkg_path = Path(__file__).parent / gpkg_name
 
+    project_setup = ProjectSetup(
+        gpkg_path=gpkg_path,
+        selected_type_id=selected_type_id,
+        selected_hovedtypegrupper=selected_items,
+        selected_mapping_scale=selected_mapping_scale,
+        canvas=canvas,
+        nin_polygons_layer_name="nin_polygons",
+    )
+
     # Load all layers from geopackage
-    _ = load_gpkg_layers(gpkg_path=gpkg_path)
+    _ = project_setup.load_gpkg_layers()
 
     # Set default values for type + hovedtype UI choices
-    set_project_crs(crs="EPSG:25833")
+    project_setup.set_project_crs(crs=PROJECT_CRS)
 
     # Adjust datetime format of regdato
-    field_to_datetime('nin_polygons', 'regdato')
+    project_setup.field_to_datetime(
+        layer_name='nin_polygons',
+        field_name='regdato'
+    )
 
     # Set default values defined in 'default_values.py'
     for default_value in get_default_values(
         selected_type_id=selected_type_id,
         selected_hovedtypegrupper=selected_items,
     ):
-        set_layer_field_default_values(
+        project_setup.set_layer_field_default_values(
             layer_name=default_value["layer_name"],
             field_name=default_value["field_name"],
             default_value_expression=default_value["default_value_expression"],
@@ -360,7 +444,7 @@ def main(
         selected_mapping_scale=selected_mapping_scale,
         selected_items=selected_items,
     ):
-        field_to_value_relation(
+        project_setup.field_to_value_relation(
             primary_attribute_table_layer=rel["primary_attribute_table_layer"],
             forgein_attribute_table_layer=rel["forgein_attribute_table_layer"],
             primary_key_field_name=rel["primary_key_field_name"],
@@ -371,4 +455,15 @@ def main(
         )
 
     # Adjust styling
-    set_nin_polygons_styling(selected_mapping_scale=selected_mapping_scale)
+    project_setup.set_nin_polygons_styling()
+
+    # Add Norway topography WMS raster layer
+    if wms_settings['checkBoxNorgeTopo']:
+        project_setup.add_wms_layer(
+            wms_service_url="https://openwms.statkart.no/skwms1/wms.topo?",
+            wms_layer_names='topo',
+            wms_style='default',
+            wms_crs=PROJECT_CRS,
+            wms_layer_name="Topografisk norgeskart",
+            zoom_to_extent=True,
+        )
