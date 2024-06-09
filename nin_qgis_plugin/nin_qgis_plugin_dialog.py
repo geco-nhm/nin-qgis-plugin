@@ -37,6 +37,7 @@ from PyQt5.QtCore import Qt  # Import Qt from PyQt5.QtCore
 from PyQt5.QtWidgets import (
     QMessageBox, QComboBox, QListWidget,
     QListWidgetItem, QPushButton,
+    QGroupBox, QCheckBox,
 )
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
@@ -71,6 +72,15 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             QComboBox, 'SelectMappingScale'
         )
 
+        # WMS checkbox
+        self.wms_box_group = self.findChild(QGroupBox, 'groupBoxWMS')
+
+        wms_check_box_names = ['checkBoxNorgeTopo']
+        self.wms_settings = {
+            box: self.wms_box_group.findChild(QCheckBox, box).isChecked()
+            for box in wms_check_box_names
+        }
+
         # Load the first combo box
         self.load_type_combo_box()
 
@@ -90,7 +100,6 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
         # Set UI default values
         self.set_ui_default_values()
-
 
     def load_type_combo_box(self):
         # Path to the typer CSV file
@@ -192,7 +201,6 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
         self.geopackage_path = selected_path
 
-
     def set_ui_default_values(self):
         '''Defines default values for UI'''
 
@@ -235,50 +243,11 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             self.get_selected_htgr_items(),
             self.get_selected_type_id(),
             gpkg_path=self.geopackage_path,
+            canvas=self.canvas,
+            wms_settings=self.wms_settings,
             selected_mapping_scale=self.selectMappingScale.currentText(),
         )
-
 
     def closeEvent(self, event) -> None:
         self.closingPlugin.emit()
         event.accept()
-
-    def add_base_map(self):
-
-        wmts_base_url = "https://opencache.statkart.no/gatekeeper/gk/gk.open_wmts?"
-        layer_name = "norgeskart_bakgrunn"
-        epsg = 3857
-
-        wmts_layer = QgsRasterLayer(
-            f'type=xyz&url={wmts_base_url}layer={layer_name}&style=default&tilematrixset=EPSG:{epsg}&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image/png&TileMatrix=EPSG:{epsg}:{{z}}&TileCol={{x}}&TileRow={{y}}',
-            'Norway Background Map',
-            'wms'
-        )
-
-        if not wmts_layer.isValid():
-            print("Failed to load the background map layer!")
-        else:
-            # Add the layer to QGIS
-            QgsProject.instance().addMapLayer(wmts_layer, False)
-            # Create a new layer tree group
-            group = QgsProject.instance().layerTreeRoot().insertGroup(0, 'Base Maps')
-            group.addLayer(wmts_layer)
-
-            # Define bounds for Norway
-            # norway_extent = QgsRectangle(4.0, 57.9, 31.1, 71.2)  # Approximate bounds for Norway in lon,lat
-            # self.canvas.setExtent(norway_extent)
-            # self.canvas.refresh()
-
-            # Define the approximate bounding box for the Oslo area
-            # You may need to adjust these coordinates based on the desired zoom and location
-            # Coordinates around Oslo
-            oslo_extent = QgsRectangle(10.645, 59.842, 10.916, 59.975)
-
-            # Set the canvas to the Oslo extent
-            self.canvas.setExtent(oslo_extent)
-
-            # Set an appropriate zoom level if needed (optional)
-            # Set the canvas zoom scale (the value may need adjustment)
-            self.canvas.zoomScale(1)
-
-            self.canvas.refreshAllLayers()
