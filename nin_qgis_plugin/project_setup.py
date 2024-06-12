@@ -294,6 +294,13 @@ class ProjectSetup:
                 category = QgsRendererCategory(value, symbol, str(value))
                 categories.append(category)
 
+            # Add a default category for all other strings
+            default_symbol = QgsSymbol.defaultSymbol(layer.geometryType())
+            default_symbol.setColor(QColor(255, 0, 0, 128))  # Red color with semi-transparency
+            default_category = QgsRendererCategory(None, default_symbol, "Other")
+            categories.append(default_category)
+
+
             renderer = QgsCategorizedSymbolRenderer(
                 'represent_value("kode_id_label")',
                 categories
