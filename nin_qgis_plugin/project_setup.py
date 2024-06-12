@@ -319,7 +319,7 @@ class ProjectSetup:
             label_settings.setFormat(text_format)
 
             # This feels so wrong... setting expression as field name...
-            label_settings.fieldName = 'represent_value("kode_id_label")'
+            label_settings.fieldName = """regexp_replace( represent_value("kode_id_label"), '-[^-]+-', '-')"""            
             # ...and say its an expression ¯\_(ツ)_/¯
             label_settings.isExpression = True
             labeling = QgsVectorLayerSimpleLabeling(label_settings)
