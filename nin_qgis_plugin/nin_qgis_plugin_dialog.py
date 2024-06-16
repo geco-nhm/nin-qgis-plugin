@@ -75,7 +75,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         # WMS checkbox
         self.wms_box_group = self.findChild(QGroupBox, 'groupBoxWMS')
 
-        wms_check_box_names = ['checkBoxNorgeTopo']
+        wms_check_box_names = ['checkBoxNorgeTopo','checkBoxNorgeTopoGraa','checkBoxNiB']
         self.wms_settings = {
             box: self.wms_box_group.findChild(QCheckBox, box).isChecked()
             for box in wms_check_box_names
