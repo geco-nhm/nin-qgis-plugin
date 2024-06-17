@@ -32,7 +32,7 @@ from PyQt5.QtWidgets import (
     QMessageBox,
 )
 
-# Import functions from other py-files in the attr_table_field_setings-folder 
+# Import functions from other py-files in the attr_table_field_setings-folder
 from .attr_table_field_setings.value_relations import get_value_relations
 from .attr_table_field_setings.default_values import get_default_values
 
@@ -278,7 +278,8 @@ class ProjectSetup:
 
         # Function to generate random color
         def random_color():
-            return [random.randint(0, 255) for _ in range(3)] + [128]  # Adding 128 as the alpha value for semi-transparency
+            # Adding 128 as the alpha value for semi-transparency
+            return [random.randint(0, 255) for _ in range(3)] + [128]
 
         # Load the layer
         layer = QGS_PROJECT.mapLayersByName(self.nin_polygons_layer_name)[0]
@@ -293,16 +294,18 @@ class ProjectSetup:
             for value in unique_values:
                 symbol = QgsSymbol.defaultSymbol(layer.geometryType())
                 color = random_color()
-                symbol.setColor(QColor(color[0], color[1], color[2], color[3]))  # Use the RGB + Alpha values
+                # Use the RGB + Alpha values
+                symbol.setColor(QColor(color[0], color[1], color[2], color[3]))
                 category = QgsRendererCategory(value, symbol, str(value))
                 categories.append(category)
 
             # Add a default category for all other strings
             default_symbol = QgsSymbol.defaultSymbol(layer.geometryType())
-            default_symbol.setColor(QColor(255, 0, 0, 128))  # Red color with semi-transparency
-            default_category = QgsRendererCategory(None, default_symbol, "Other")
+            # Red color with semi-transparency
+            default_symbol.setColor(QColor(255, 0, 0, 128))
+            default_category = QgsRendererCategory(
+                None, default_symbol, "Other")
             categories.append(default_category)
-
 
             renderer = QgsCategorizedSymbolRenderer(
                 'represent_value("kode_id_label")',
@@ -322,7 +325,7 @@ class ProjectSetup:
             label_settings.setFormat(text_format)
 
             # This feels so wrong... setting expression as field name...
-            label_settings.fieldName = """regexp_replace( represent_value("kode_id_label"), '-[^-]+-', '-')"""            
+            label_settings.fieldName = """regexp_replace( represent_value("kode_id_label"), '-[^-]+-', '-')"""
             # ...and say its an expression ¯\_(ツ)_/¯
             label_settings.isExpression = True
             labeling = QgsVectorLayerSimpleLabeling(label_settings)
@@ -341,7 +344,7 @@ class ProjectSetup:
         wms_layer_names: str,
         wms_style: str,
         wms_crs: str,
-        wms_layer_name: str,
+        new_qgis_layer_name: str,
         zoom_to_extent=True,
     ) -> None:
         '''
@@ -354,13 +357,16 @@ class ProjectSetup:
         # Create a new raster layer using the WMS URI
         wms_layer = QgsRasterLayer(
             wms_uri,
-            f'{wms_layer_name}',
+            f'{new_qgis_layer_name}',
             'wms',
         )
 
         # Check if the layer is valid
         if not wms_layer.isValid():
-            print("WMS layer failed to load!")
+            print(
+                f"WMS layer '{new_qgis_layer_name}' failed to load! "
+                + "Make sure the provided URI information is correct!"
+            )
         else:
             # Add the layer to the QGIS project
             # Add the WMS layer to the project (it will be added to the top)
@@ -474,7 +480,7 @@ def main(
             wms_layer_names='topo',
             wms_style='default',
             wms_crs=PROJECT_CRS,
-            wms_layer_name="Topografisk norgeskart",
+            new_qgis_layer_name="Topografisk norgeskart",
             zoom_to_extent=True,
         )
 
@@ -485,7 +491,7 @@ def main(
             wms_layer_names='topograatone',
             wms_style='default',
             wms_crs=PROJECT_CRS,
-            wms_layer_name="Topografisk norgeskart gråtone",
+            new_qgis_layer_name="Topografisk norgeskart gråtone",
             zoom_to_extent=True,
         )
 
@@ -496,7 +502,7 @@ def main(
             wms_layer_names='ortofoto',
             wms_style='default',
             wms_crs=PROJECT_CRS,
-            wms_layer_name="Norge i bilder",
+            new_qgis_layer_name="Norge i bilder",
             zoom_to_extent=True,
         )
 
@@ -504,10 +510,14 @@ def main(
     # https://qgis.org/pyqgis/master/gui/Qgis.html#qgis.gui.Qgis.SnappingType
     # https://www.qgis.com/api/classQgsSnappingConfig_1_1IndividualLayerSettings.html#details
     # Set the snapping tolerance on polygon (5 meters) on vertex and segments and avvoid overlapp
-    pollyr = QgsProject.instance().mapLayersByName('nin_polygons')[0] # Set the polygon layer
-    snapping_config = QgsSnappingConfig()                             # Create a new snapping config object
-    snapping_config.setEnabled(True)                                  # Enable snapping
-    snapping_config.setMode(QgsSnappingConfig.AdvancedConfiguration)  # Set to AdvancedConfiguration
+    pollyr = QgsProject.instance().mapLayersByName(
+        'nin_polygons')[0]  # Set the polygon layer
+    # Create a new snapping config object
+    snapping_config = QgsSnappingConfig()
+    # Enable snapping
+    snapping_config.setEnabled(True)
+    # Set to AdvancedConfiguration
+    snapping_config.setMode(QgsSnappingConfig.AdvancedConfiguration)
     # Create the individual layer settings
     snap_settings = QgsSnappingConfig.IndividualLayerSettings(
         True,  # Enable snapping
@@ -517,7 +527,8 @@ def main(
     )
     # Apply the individual settings to the layer
     snapping_config.setIndividualLayerSettings(pollyr, snap_settings)
-    QgsProject.instance().setSnappingConfig(snapping_config)          # Activate the snapping settings
+    QgsProject.instance().setSnappingConfig(
+        snapping_config)          # Activate the snapping settings
 
     # Enable topological editing
     # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setTopologicalEditing
@@ -526,4 +537,3 @@ def main(
     # Enable avoid intersections
     # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setAvoidIntersectionsLayers
     QgsProject.instance().setAvoidIntersectionsLayers([pollyr])
-
