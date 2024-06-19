@@ -495,14 +495,14 @@ def main(
             zoom_to_extent=True,
         )
 
-    # Add "Norway in images" WMS raster layer
+    # Add "Norway in images" WMTS raster layer NOT WORKING!?!
     if wms_settings['checkBoxNiB']:
         project_setup.add_wms_layer(
-            wms_service_url="https://openwms.statkart.no/skwms1/wms.nib?",
-            wms_layer_names='ortofoto',
+            wms_service_url="http://opencache.statkart.no/gatekeeper/gk/gk.open_nib_utm33_wmts_v2?",
+            wms_layer_names='Nibcache_UTM33_EUREF89_v2',
             wms_style='default',
             wms_crs=PROJECT_CRS,
-            new_qgis_layer_name="Norge i bilder",
+            new_qgis_layer_name="Nibcache_UTM33_EUREF89_v2",
             zoom_to_extent=True,
         )
 
