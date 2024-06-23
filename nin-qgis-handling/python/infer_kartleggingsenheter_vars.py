@@ -15,11 +15,10 @@ from helpers import sort_mixed_list
 with open(
     file=Path(__file__).parents[1] / 'config.toml',
     mode="rb",
-    encoding="utf-8",
 ) as config_file:
     config = tomllib.load(config_file)
 
-CSV_ROOT_PATH = Path(config['csv_save_paths']['attribute_tables'])
+CSV_ROOT_PATH = Path(config['csv_save_paths']['attribute_tables']).resolve()
 
 INCLUDED_KARTLEGGINGSENEHTER = [
     'M005',

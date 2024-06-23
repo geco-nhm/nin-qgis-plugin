@@ -45,6 +45,16 @@
                 "dtype": "String",
                 "length": 0,
                 "precision": 0
+            },
+            "grunntype_or_klenhet_2": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "grunntype_or_klenhet_3": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
             }
         }
     },

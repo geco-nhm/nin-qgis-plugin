@@ -72,6 +72,24 @@ def get_value_relations(
             "filter_expression": "",
             "allow_multi": False,
         },
+        {
+            "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
+            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName(selected_mapping_scale)[0],
+            "primary_key_field_name": "grunntype_or_klenhet_2",
+            "foreign_key_field_name": "fid",
+            "foreign_field_to_display": "navn",
+            "filter_expression": '''"hovedtyper_fkey" = current_value('hovedtype')''',
+            "allow_multi": False,
+        },
+        {
+            "primary_attribute_table_layer": QgsProject.instance().mapLayersByName('nin_polygons')[0],
+            "forgein_attribute_table_layer": QgsProject.instance().mapLayersByName(selected_mapping_scale)[0],
+            "primary_key_field_name": "grunntype_or_klenhet_3",
+            "foreign_key_field_name": "fid",
+            "foreign_field_to_display": "navn",
+            "filter_expression": '''"hovedtyper_fkey" = current_value('hovedtype')''',
+            "allow_multi": False,
+        },
     )
 
     return VALUE_RELATIONS
