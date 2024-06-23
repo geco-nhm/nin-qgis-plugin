@@ -1,0 +1,8 @@
+NinKode API version information, retrieved when the NiN QGIS plugin csv tables were created.
+Note: this file is manually created by running
+'./nin-qgis-handling/python/generate_api_version_info.py'.
+
+----
+
+nin-kode-api (https://github.com/Artsdatabanken/nin-kode-api.git) latest commit: c3b46a514054a5b9dc38dfd22fcd5345e9afd2c9
+date: 2024/06/23, 15:43:16
