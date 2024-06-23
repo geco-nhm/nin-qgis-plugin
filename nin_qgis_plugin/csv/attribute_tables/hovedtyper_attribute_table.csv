@@ -276,102 +276,102 @@ fid,hovedtypegrupper_fkey,langkode,kode_id,navn
 274,57,NIN-3.0-T-C-PE-NA-VM-A-SC02,NA-SC02,NA-SC02 Eufotiske fjordvannmassesystemer
 275,57,NIN-3.0-T-C-PE-NA-VM-A-SC01,NA-SC01,NA-SC01 Afotiske havvannmassesystemer
 276,57,NIN-3.0-T-C-PE-NA-VM-A-SA01,NA-SA01,NA-SA01 Eufotiske havvannmassesystemer
-277,58,NIN-3.0-T-C-PE-NA-MB-A-OM02,NA-OM02,NA-OM02 Elvebunn preget av kronisk fysikalsk-kjemisk påvirkning
-278,58,NIN-3.0-T-C-PE-NA-MB-A-OM01,NA-OM01,NA-OM01 Elvebunn preget av kronisk fysisk forstyrrelse
-279,58,NIN-3.0-T-C-PE-NA-MB-A-OG01,NA-OG01,NA-OG01 Ny elvebunn
-280,58,NIN-3.0-T-C-PE-NA-MB-A-OC03,NA-OC03,NA-OC03 Dy- og gytjebunn i elv
-281,58,NIN-3.0-T-C-PE-NA-MB-A-OC02,NA-OC02,NA-OC02 Varm ferskvannskildebunn
-282,58,NIN-3.0-T-C-PE-NA-MB-A-OC01,NA-OC01,NA-OC01 Ferskvannskildebunn
-283,58,NIN-3.0-T-C-PE-NA-MB-A-OB01,NA-OB01,NA-OB01 Elve-undervannseng
-284,58,NIN-3.0-T-C-PE-NA-MB-A-OA02,NA-OA02,NA-OA02 Elvesedimentbunn
-285,58,NIN-3.0-T-C-PE-NA-MB-A-OA01,NA-OA01,NA-OA01 Fast elvebunn
-286,59,NIN-3.0-T-C-PE-NA-VM-A-FM05,NA-FM05,NA-FM05 Elvevannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
-287,59,NIN-3.0-T-C-PE-NA-VM-A-FM04,NA-FM04,NA-FM04 Elvevannmassesystemer preget av kronisk fysikalsk-kjemisk påvirkning
-288,59,NIN-3.0-T-C-PE-NA-VM-A-FM03,NA-FM03,NA-FM03 Innsjø-vannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
-289,59,NIN-3.0-T-C-PE-NA-VM-A-FM02,NA-FM02,NA-FM02 Innsjø-vannmassesystemer preget av kronisk fysikalsk-kjemisk påvirkning
-290,59,NIN-3.0-T-C-PE-NA-VM-A-FM01,NA-FM01,NA-FM01 Nye innsjø-vannmassesystemer
-291,59,NIN-3.0-T-C-PE-NA-VM-A-FC05,NA-FC05,NA-FC05 Limniske vannmassesystemer på isoverflate
-292,59,NIN-3.0-T-C-PE-NA-VM-A-FC04,NA-FC04,NA-FC04 Innsjø-vannmassesystemer preget av oksygenmangel
-293,59,NIN-3.0-T-C-PE-NA-VM-A-FC03,NA-FC03,NA-FC03 Limniske vannmassesystemer preget av naturlig gjødsling
-294,59,NIN-3.0-T-C-PE-NA-VM-A-FC02,NA-FC02,NA-FC02 Grottesjø-vannmassesystemer
-295,59,NIN-3.0-T-C-PE-NA-VM-A-FC01,NA-FC01,NA-FC01 Bresjø-vannmassesystemer
-296,59,NIN-3.0-T-C-PE-NA-VM-A-FB03,NA-FB03,NA-FB03 Elvevannmassesystemer
-297,59,NIN-3.0-T-C-PE-NA-VM-A-FB02,NA-FB02,NA-FB02 Ikke lagdelte innsjø-vannmassesystemer
-298,59,NIN-3.0-T-C-PE-NA-VM-A-FB01,NA-FB01,"NA-FB01 Lagdelte, fullsirkulerende innsjø-vannmassesystemer"
-299,59,NIN-3.0-T-C-PE-NA-VM-A-FA02,NA-FA02,"NA-FA02 Ikke lagdelte, fullsirkulerende, naturlig fisketomme innsjø-vannmassesystemer"
-300,59,NIN-3.0-T-C-PE-NA-VM-A-FA01,NA-FA01,"NA-FA01 Lagdelte, fullsirkulerende, naturlig fisketomme innsjø-vannmassesystemer"
-301,60,NIN-3.0-T-C-PE-NA-MB-A-VO01,NA-VO01,NA-VO01 Sterkt tråkkpreget våtmark
-302,60,NIN-3.0-T-C-PE-NA-MB-A-VM06,NA-VM06,NA-VM06 Ny grunn våtmark på menneskebetinget forsumpet fastmark
-303,60,NIN-3.0-T-C-PE-NA-MB-A-VM05,NA-VM05,NA-VM05 Ny grunn våtmark på tidligere ferskvannsbunn
-304,60,NIN-3.0-T-C-PE-NA-MB-A-VM04,NA-VM04,"NA-VM04 Sterkt endret, ikke torvproduserende våtmark"
-305,60,NIN-3.0-T-C-PE-NA-MB-A-VM03,NA-VM03,NA-VM03 Ny torvmark på menneskebetinget forsumpet fastmark
-306,60,NIN-3.0-T-C-PE-NA-MB-A-VM02,NA-VM02,NA-VM02 Ny torvmark på tidligere ferskvannsbunn
-307,60,NIN-3.0-T-C-PE-NA-MB-A-VM01,NA-VM01,NA-VM01 Sterkt endret torvmark
-308,60,NIN-3.0-T-C-PE-NA-MB-A-VK02,NA-VK02,NA-VK02 Semi-naturlig våteng
-309,60,NIN-3.0-T-C-PE-NA-MB-A-VK01,NA-VK01,NA-VK01 Slåttemyr
-310,60,NIN-3.0-T-C-PE-NA-MB-A-VI01,NA-VI01,NA-VI01 Klart endret våtmarksskogsmark
-311,60,NIN-3.0-T-C-PE-NA-MB-A-VG02,NA-VG02,NA-VG02 Ny naturgitt grunn våtmark
-312,60,NIN-3.0-T-C-PE-NA-MB-A-VG01,NA-VG01,NA-VG01 Ny naturgitt torvmark
-313,60,NIN-3.0-T-C-PE-NA-MB-A-VF02,NA-VF02,NA-VF02 Strandsumpskogsmark
-314,60,NIN-3.0-T-C-PE-NA-MB-A-VF01,NA-VF01,NA-VF01 Nedbørsmyr-skogsmark
-315,60,NIN-3.0-T-C-PE-NA-MB-A-VE01,NA-VE01,NA-VE01 Oppfrysingsvåtmark
-316,60,NIN-3.0-T-C-PE-NA-MB-A-VC05,NA-VC05,NA-VC05 Permafrost-våtmark
-317,60,NIN-3.0-T-C-PE-NA-MB-A-VC04,NA-VC04,NA-VC04 Våt- og kildesnøleie
-318,60,NIN-3.0-T-C-PE-NA-MB-A-VC03,NA-VC03,NA-VC03 Grunnkilde
-319,60,NIN-3.0-T-C-PE-NA-MB-A-VC02,NA-VC02,NA-VC02 Torvmarkskilde
-320,60,NIN-3.0-T-C-PE-NA-MB-A-VC01,NA-VC01,NA-VC01 Åpen nedbørsmyr
-321,60,NIN-3.0-T-C-PE-NA-MB-A-VB01,NA-VB01,NA-VB01 Myr- og sumpskogsmark
-322,60,NIN-3.0-T-C-PE-NA-MB-A-VA01,NA-VA01,NA-VA01 Åpen jordvannsmyr
-323,61,NIN-3.0-T-C-PE-NA-MB-A-TO04,NA-TO04,NA-TO04 Upløyd jordbruksmark med intensivt hevdpreg
-324,61,NIN-3.0-T-C-PE-NA-MB-A-TO03,NA-TO03,NA-TO03 Oppdyrket varig eng
-325,61,NIN-3.0-T-C-PE-NA-MB-A-TO02,NA-TO02,NA-TO02 Oppdyrket mark med semi-naturlig engpreg
-326,61,NIN-3.0-T-C-PE-NA-MB-A-TO01,NA-TO01,NA-TO01 Åker
-327,61,NIN-3.0-T-C-PE-NA-MB-A-TN03,NA-TN03,"NA-TN03 Vegkanter, plener, parker og liknende uten semi-naturlig hevdpreg"
-328,61,NIN-3.0-T-C-PE-NA-MB-A-TN02,NA-TN02,"NA-TN02 Blomsterenger, usprøytete vegkanter og liknende med semi-naturlig hevdpreg"
-329,61,NIN-3.0-T-C-PE-NA-MB-A-TN01,NA-TN01,NA-TN01 Blomsterbed og annen hyppig bearbeidet mark
-330,61,NIN-3.0-T-C-PE-NA-MB-A-TM06,NA-TM06,NA-TM06 Sterkt endret skogsmark
-331,61,NIN-3.0-T-C-PE-NA-MB-A-TE07,NA-TE07,NA-TE07 Ferskvannsdriftvoll
-332,61,NIN-3.0-T-C-PE-NA-MB-A-TM05,NA-TM05,NA-TM05 Ny løs fastmark på drenert våtmark
-333,61,NIN-3.0-T-C-PE-NA-MB-A-TM04,NA-TM04,NA-TM04 Ny løs fastmark på tørrlagt ferskvannsbunn
-334,61,NIN-3.0-T-C-PE-NA-MB-A-TM03,NA-TM03,NA-TM03 Løs sterkt endret fastmark
-335,61,NIN-3.0-T-C-PE-NA-MB-A-TM02,NA-TM02,NA-TM02 Ny hard fastmark på tørrlagt ferskvannsbunn
-336,61,NIN-3.0-T-C-PE-NA-MB-A-TM01,NA-TM01,NA-TM01 Hard sterkt endret fastmark
-337,61,NIN-3.0-T-C-PE-NA-MB-A-TL01,NA-TL01,NA-TL01 Ny eng med semi-naturlig preg
-338,61,NIN-3.0-T-C-PE-NA-MB-A-TK03,NA-TK03,NA-TK03 Kystlynghei
-339,61,NIN-3.0-T-C-PE-NA-MB-A-TK02,NA-TK02,NA-TK02 Semi-naturlig strandeng
-340,61,NIN-3.0-T-C-PE-NA-MB-A-TK01,NA-TK01,NA-TK01 Semi-naturlig eng
-341,61,NIN-3.0-T-C-PE-NA-MB-A-TI01,NA-TI01,NA-TI01 Klart endret skogsmark
-342,61,NIN-3.0-T-C-PE-NA-MB-A-TH01,NA-TH01,NA-TH01 Avskoget hei og eng
-343,61,NIN-3.0-T-C-PE-NA-MB-A-TG01,NA-TG01,NA-TG01 Nakne løsmasser
-344,61,NIN-3.0-T-C-PE-NA-MB-A-TF02,NA-TF02,NA-TF02 Flomskogsmark
-345,61,NIN-3.0-T-C-PE-NA-MB-A-TF01,NA-TF01,NA-TF01 Sand- og dyneskogsmark
-346,61,NIN-3.0-T-C-PE-NA-MB-A-TE09,NA-TE09,NA-TE09 Isinnfrysingsmark
-347,61,NIN-3.0-T-C-PE-NA-MB-A-TE08,NA-TE08,NA-TE08 Flommarkseng
-348,61,NIN-3.0-T-C-PE-NA-MB-A-TE06,NA-TE06,NA-TE06 Marin driftvoll
-349,61,NIN-3.0-T-C-PE-NA-MB-A-TE05,NA-TE05,NA-TE05 Oppfrysingsmark
-350,61,NIN-3.0-T-C-PE-NA-MB-A-TE04,NA-TE04,NA-TE04 Langvarig oversvømt flommark
-351,61,NIN-3.0-T-C-PE-NA-MB-A-TE03,NA-TE03,NA-TE03 Åpen flomfastmark
-352,61,NIN-3.0-T-C-PE-NA-MB-A-TE02,NA-TE02,NA-TE02 Aktiv skredmark
-353,61,NIN-3.0-T-C-PE-NA-MB-A-TE01,NA-TE01,NA-TE01 Sanddynemark
-354,61,NIN-3.0-T-C-PE-NA-MB-A-TD06,NA-TD06,NA-TD06 Rabbe
-355,61,NIN-3.0-T-C-PE-NA-MB-A-TD05,NA-TD05,NA-TD05 Naturlig beitebetinget eng
-356,61,NIN-3.0-T-C-PE-NA-MB-A-TD04,NA-TD04,NA-TD04 Fosse-eng
-357,61,NIN-3.0-T-C-PE-NA-MB-A-TD03,NA-TD03,NA-TD03 Rasmarkeng
-358,61,NIN-3.0-T-C-PE-NA-MB-A-TD02,NA-TD02,NA-TD02 Flomskredmark
-359,61,NIN-3.0-T-C-PE-NA-MB-A-TD01,NA-TD01,NA-TD01 Rasmark
-360,61,NIN-3.0-T-C-PE-NA-MB-A-TC08,NA-TC08,NA-TC08 Snøleie
-361,61,NIN-3.0-T-C-PE-NA-MB-A-TC07,NA-TC07,NA-TC07 Fugletopp
-362,61,NIN-3.0-T-C-PE-NA-MB-A-TC06,NA-TC06,NA-TC06 Fuglefjell-eng
-363,61,NIN-3.0-T-C-PE-NA-MB-A-TC05,NA-TC05,NA-TC05 Strandeng
-364,61,NIN-3.0-T-C-PE-NA-MB-A-TC04,NA-TC04,NA-TC04 Saltanrikningsmark
-365,61,NIN-3.0-T-C-PE-NA-MB-A-TC03,NA-TC03,NA-TC03 Løsmasse-strand
-366,61,NIN-3.0-T-C-PE-NA-MB-A-TC02,NA-TC02,NA-TC02 Grotte og overheng
-367,61,NIN-3.0-T-C-PE-NA-MB-A-TC01,NA-TC01,NA-TC01 Strandberg
-368,61,NIN-3.0-T-C-PE-NA-MB-A-TB01,NA-TB01,NA-TB01 Fastmarksskogsmark
-369,61,NIN-3.0-T-C-PE-NA-MB-A-TA04,NA-TA04,NA-TA04 Arktisk-alpin grasmark
-370,61,NIN-3.0-T-C-PE-NA-MB-A-TA03,NA-TA03,NA-TA03 Arktisk-alpin hei og leside
-371,61,NIN-3.0-T-C-PE-NA-MB-A-TA02,NA-TA02,NA-TA02 Åpen grunnlendt mark
-372,61,NIN-3.0-T-C-PE-NA-MB-A-TA01,NA-TA01,NA-TA01 Nakent berg
+277,58,NIN-3.0-T-C-PE-NA-VM-A-FM05,NA-FM05,NA-FM05 Elvevannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+278,58,NIN-3.0-T-C-PE-NA-VM-A-FM04,NA-FM04,NA-FM04 Elvevannmassesystemer preget av kronisk fysikalsk-kjemisk påvirkning
+279,58,NIN-3.0-T-C-PE-NA-VM-A-FM03,NA-FM03,NA-FM03 Innsjø-vannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+280,58,NIN-3.0-T-C-PE-NA-VM-A-FM02,NA-FM02,NA-FM02 Innsjø-vannmassesystemer preget av kronisk fysikalsk-kjemisk påvirkning
+281,58,NIN-3.0-T-C-PE-NA-VM-A-FM01,NA-FM01,NA-FM01 Nye innsjø-vannmassesystemer
+282,58,NIN-3.0-T-C-PE-NA-VM-A-FC05,NA-FC05,NA-FC05 Limniske vannmassesystemer på isoverflate
+283,58,NIN-3.0-T-C-PE-NA-VM-A-FC04,NA-FC04,NA-FC04 Innsjø-vannmassesystemer preget av oksygenmangel
+284,58,NIN-3.0-T-C-PE-NA-VM-A-FC03,NA-FC03,NA-FC03 Limniske vannmassesystemer preget av naturlig gjødsling
+285,58,NIN-3.0-T-C-PE-NA-VM-A-FC02,NA-FC02,NA-FC02 Grottesjø-vannmassesystemer
+286,58,NIN-3.0-T-C-PE-NA-VM-A-FC01,NA-FC01,NA-FC01 Bresjø-vannmassesystemer
+287,58,NIN-3.0-T-C-PE-NA-VM-A-FB03,NA-FB03,NA-FB03 Elvevannmassesystemer
+288,58,NIN-3.0-T-C-PE-NA-VM-A-FB02,NA-FB02,NA-FB02 Ikke lagdelte innsjø-vannmassesystemer
+289,58,NIN-3.0-T-C-PE-NA-VM-A-FB01,NA-FB01,"NA-FB01 Lagdelte, fullsirkulerende innsjø-vannmassesystemer"
+290,58,NIN-3.0-T-C-PE-NA-VM-A-FA02,NA-FA02,"NA-FA02 Ikke lagdelte, fullsirkulerende, naturlig fisketomme innsjø-vannmassesystemer"
+291,58,NIN-3.0-T-C-PE-NA-VM-A-FA01,NA-FA01,"NA-FA01 Lagdelte, fullsirkulerende, naturlig fisketomme innsjø-vannmassesystemer"
+292,59,NIN-3.0-T-C-PE-NA-MB-A-VC03,NA-VC03,NA-VC03 Grunnkilde
+293,59,NIN-3.0-T-C-PE-NA-MB-A-VC02,NA-VC02,NA-VC02 Torvmarkskilde
+294,59,NIN-3.0-T-C-PE-NA-MB-A-VC01,NA-VC01,NA-VC01 Åpen nedbørsmyr
+295,59,NIN-3.0-T-C-PE-NA-MB-A-VB01,NA-VB01,NA-VB01 Myr- og sumpskogsmark
+296,59,NIN-3.0-T-C-PE-NA-MB-A-VA01,NA-VA01,NA-VA01 Åpen jordvannsmyr
+297,59,NIN-3.0-T-C-PE-NA-MB-A-VO01,NA-VO01,NA-VO01 Sterkt tråkkpreget våtmark
+298,59,NIN-3.0-T-C-PE-NA-MB-A-VM06,NA-VM06,NA-VM06 Ny grunn våtmark på menneskebetinget forsumpet fastmark
+299,59,NIN-3.0-T-C-PE-NA-MB-A-VF02,NA-VF02,NA-VF02 Strandsumpskogsmark
+300,59,NIN-3.0-T-C-PE-NA-MB-A-VF01,NA-VF01,NA-VF01 Nedbørsmyr-skogsmark
+301,59,NIN-3.0-T-C-PE-NA-MB-A-VE01,NA-VE01,NA-VE01 Oppfrysingsvåtmark
+302,59,NIN-3.0-T-C-PE-NA-MB-A-VC05,NA-VC05,NA-VC05 Permafrost-våtmark
+303,59,NIN-3.0-T-C-PE-NA-MB-A-VC04,NA-VC04,NA-VC04 Våt- og kildesnøleie
+304,59,NIN-3.0-T-C-PE-NA-MB-A-VM05,NA-VM05,NA-VM05 Ny grunn våtmark på tidligere ferskvannsbunn
+305,59,NIN-3.0-T-C-PE-NA-MB-A-VM04,NA-VM04,"NA-VM04 Sterkt endret, ikke torvproduserende våtmark"
+306,59,NIN-3.0-T-C-PE-NA-MB-A-VM03,NA-VM03,NA-VM03 Ny torvmark på menneskebetinget forsumpet fastmark
+307,59,NIN-3.0-T-C-PE-NA-MB-A-VM02,NA-VM02,NA-VM02 Ny torvmark på tidligere ferskvannsbunn
+308,59,NIN-3.0-T-C-PE-NA-MB-A-VM01,NA-VM01,NA-VM01 Sterkt endret torvmark
+309,59,NIN-3.0-T-C-PE-NA-MB-A-VK02,NA-VK02,NA-VK02 Semi-naturlig våteng
+310,59,NIN-3.0-T-C-PE-NA-MB-A-VK01,NA-VK01,NA-VK01 Slåttemyr
+311,59,NIN-3.0-T-C-PE-NA-MB-A-VI01,NA-VI01,NA-VI01 Klart endret våtmarksskogsmark
+312,59,NIN-3.0-T-C-PE-NA-MB-A-VG02,NA-VG02,NA-VG02 Ny naturgitt grunn våtmark
+313,59,NIN-3.0-T-C-PE-NA-MB-A-VG01,NA-VG01,NA-VG01 Ny naturgitt torvmark
+314,60,NIN-3.0-T-C-PE-NA-MB-A-TO04,NA-TO04,NA-TO04 Upløyd jordbruksmark med intensivt hevdpreg
+315,60,NIN-3.0-T-C-PE-NA-MB-A-TO03,NA-TO03,NA-TO03 Oppdyrket varig eng
+316,60,NIN-3.0-T-C-PE-NA-MB-A-TO02,NA-TO02,NA-TO02 Oppdyrket mark med semi-naturlig engpreg
+317,60,NIN-3.0-T-C-PE-NA-MB-A-TO01,NA-TO01,NA-TO01 Åker
+318,60,NIN-3.0-T-C-PE-NA-MB-A-TN03,NA-TN03,"NA-TN03 Vegkanter, plener, parker og liknende uten semi-naturlig hevdpreg"
+319,60,NIN-3.0-T-C-PE-NA-MB-A-TN02,NA-TN02,"NA-TN02 Blomsterenger, usprøytete vegkanter og liknende med semi-naturlig hevdpreg"
+320,60,NIN-3.0-T-C-PE-NA-MB-A-TN01,NA-TN01,NA-TN01 Blomsterbed og annen hyppig bearbeidet mark
+321,60,NIN-3.0-T-C-PE-NA-MB-A-TM02,NA-TM02,NA-TM02 Ny hard fastmark på tørrlagt ferskvannsbunn
+322,60,NIN-3.0-T-C-PE-NA-MB-A-TM06,NA-TM06,NA-TM06 Sterkt endret skogsmark
+323,60,NIN-3.0-T-C-PE-NA-MB-A-TM05,NA-TM05,NA-TM05 Ny løs fastmark på drenert våtmark
+324,60,NIN-3.0-T-C-PE-NA-MB-A-TM04,NA-TM04,NA-TM04 Ny løs fastmark på tørrlagt ferskvannsbunn
+325,60,NIN-3.0-T-C-PE-NA-MB-A-TM03,NA-TM03,NA-TM03 Løs sterkt endret fastmark
+326,60,NIN-3.0-T-C-PE-NA-MB-A-TM01,NA-TM01,NA-TM01 Hard sterkt endret fastmark
+327,60,NIN-3.0-T-C-PE-NA-MB-A-TL01,NA-TL01,NA-TL01 Ny eng med semi-naturlig preg
+328,60,NIN-3.0-T-C-PE-NA-MB-A-TE06,NA-TE06,NA-TE06 Marin driftvoll
+329,60,NIN-3.0-T-C-PE-NA-MB-A-TK03,NA-TK03,NA-TK03 Kystlynghei
+330,60,NIN-3.0-T-C-PE-NA-MB-A-TK02,NA-TK02,NA-TK02 Semi-naturlig strandeng
+331,60,NIN-3.0-T-C-PE-NA-MB-A-TK01,NA-TK01,NA-TK01 Semi-naturlig eng
+332,60,NIN-3.0-T-C-PE-NA-MB-A-TI01,NA-TI01,NA-TI01 Klart endret skogsmark
+333,60,NIN-3.0-T-C-PE-NA-MB-A-TH01,NA-TH01,NA-TH01 Avskoget hei og eng
+334,60,NIN-3.0-T-C-PE-NA-MB-A-TG01,NA-TG01,NA-TG01 Nakne løsmasser
+335,60,NIN-3.0-T-C-PE-NA-MB-A-TF02,NA-TF02,NA-TF02 Flomskogsmark
+336,60,NIN-3.0-T-C-PE-NA-MB-A-TF01,NA-TF01,NA-TF01 Sand- og dyneskogsmark
+337,60,NIN-3.0-T-C-PE-NA-MB-A-TE09,NA-TE09,NA-TE09 Isinnfrysingsmark
+338,60,NIN-3.0-T-C-PE-NA-MB-A-TE08,NA-TE08,NA-TE08 Flommarkseng
+339,60,NIN-3.0-T-C-PE-NA-MB-A-TE07,NA-TE07,NA-TE07 Ferskvannsdriftvoll
+340,60,NIN-3.0-T-C-PE-NA-MB-A-TE05,NA-TE05,NA-TE05 Oppfrysingsmark
+341,60,NIN-3.0-T-C-PE-NA-MB-A-TE04,NA-TE04,NA-TE04 Langvarig oversvømt flommark
+342,60,NIN-3.0-T-C-PE-NA-MB-A-TE03,NA-TE03,NA-TE03 Åpen flomfastmark
+343,60,NIN-3.0-T-C-PE-NA-MB-A-TE02,NA-TE02,NA-TE02 Aktiv skredmark
+344,60,NIN-3.0-T-C-PE-NA-MB-A-TE01,NA-TE01,NA-TE01 Sanddynemark
+345,60,NIN-3.0-T-C-PE-NA-MB-A-TD06,NA-TD06,NA-TD06 Rabbe
+346,60,NIN-3.0-T-C-PE-NA-MB-A-TD05,NA-TD05,NA-TD05 Naturlig beitebetinget eng
+347,60,NIN-3.0-T-C-PE-NA-MB-A-TD04,NA-TD04,NA-TD04 Fosse-eng
+348,60,NIN-3.0-T-C-PE-NA-MB-A-TD03,NA-TD03,NA-TD03 Rasmarkeng
+349,60,NIN-3.0-T-C-PE-NA-MB-A-TD02,NA-TD02,NA-TD02 Flomskredmark
+350,60,NIN-3.0-T-C-PE-NA-MB-A-TD01,NA-TD01,NA-TD01 Rasmark
+351,60,NIN-3.0-T-C-PE-NA-MB-A-TC08,NA-TC08,NA-TC08 Snøleie
+352,60,NIN-3.0-T-C-PE-NA-MB-A-TC07,NA-TC07,NA-TC07 Fugletopp
+353,60,NIN-3.0-T-C-PE-NA-MB-A-TC06,NA-TC06,NA-TC06 Fuglefjell-eng
+354,60,NIN-3.0-T-C-PE-NA-MB-A-TC05,NA-TC05,NA-TC05 Strandeng
+355,60,NIN-3.0-T-C-PE-NA-MB-A-TC04,NA-TC04,NA-TC04 Saltanrikningsmark
+356,60,NIN-3.0-T-C-PE-NA-MB-A-TC03,NA-TC03,NA-TC03 Løsmasse-strand
+357,60,NIN-3.0-T-C-PE-NA-MB-A-TC02,NA-TC02,NA-TC02 Grotte og overheng
+358,60,NIN-3.0-T-C-PE-NA-MB-A-TC01,NA-TC01,NA-TC01 Strandberg
+359,60,NIN-3.0-T-C-PE-NA-MB-A-TB01,NA-TB01,NA-TB01 Fastmarksskogsmark
+360,60,NIN-3.0-T-C-PE-NA-MB-A-TA04,NA-TA04,NA-TA04 Arktisk-alpin grasmark
+361,60,NIN-3.0-T-C-PE-NA-MB-A-TA03,NA-TA03,NA-TA03 Arktisk-alpin hei og leside
+362,60,NIN-3.0-T-C-PE-NA-MB-A-TA02,NA-TA02,NA-TA02 Åpen grunnlendt mark
+363,60,NIN-3.0-T-C-PE-NA-MB-A-TA01,NA-TA01,NA-TA01 Nakent berg
+364,61,NIN-3.0-T-C-PE-NA-MB-A-OM02,NA-OM02,NA-OM02 Elvebunn preget av kronisk fysikalsk-kjemisk påvirkning
+365,61,NIN-3.0-T-C-PE-NA-MB-A-OM01,NA-OM01,NA-OM01 Elvebunn preget av kronisk fysisk forstyrrelse
+366,61,NIN-3.0-T-C-PE-NA-MB-A-OG01,NA-OG01,NA-OG01 Ny elvebunn
+367,61,NIN-3.0-T-C-PE-NA-MB-A-OC03,NA-OC03,NA-OC03 Dy- og gytjebunn i elv
+368,61,NIN-3.0-T-C-PE-NA-MB-A-OC02,NA-OC02,NA-OC02 Varm ferskvannskildebunn
+369,61,NIN-3.0-T-C-PE-NA-MB-A-OC01,NA-OC01,NA-OC01 Ferskvannskildebunn
+370,61,NIN-3.0-T-C-PE-NA-MB-A-OB01,NA-OB01,NA-OB01 Elve-undervannseng
+371,61,NIN-3.0-T-C-PE-NA-MB-A-OA02,NA-OA02,NA-OA02 Elvesedimentbunn
+372,61,NIN-3.0-T-C-PE-NA-MB-A-OA01,NA-OA01,NA-OA01 Fast elvebunn
 373,62,NIN-3.0-T-C-PE-NA-MB-A-MM02,NA-MM02,NA-MM02 Sterkt endret marin bunn preget av kronisk kjemisk påvirkning
 374,62,NIN-3.0-T-C-PE-NA-MB-A-MM01,NA-MM01,NA-MM01 Sterkt endret eller ny marin bunn
 375,62,NIN-3.0-T-C-PE-NA-MB-A-MJ01,NA-MJ01,NA-MJ01 Taretrålingsbunn

@@ -65,6 +65,13 @@ python3 infer_kartleggingsenheter_vars.py
 ```
 * Creates csv files aggregating the variable information of the lowest NiN mapping units (grunntyper) to the associated coarser mapping units ('kartleggingsenheter'). OBS: under heavy development and will likely change in the future.
 
+---
+
+```
+python3 generate_api_version_info.py
+```
+* Creates the file `nin_api_version_info.txt`. Must be generated manually after updating all tables (for now).
+
 ## Help
 
 Any advise for common problems or issues.

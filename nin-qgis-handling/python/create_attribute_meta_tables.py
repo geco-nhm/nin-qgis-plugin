@@ -8,11 +8,10 @@ import pandas as pd
 with open(
     file=Path(__file__).parents[1] / 'config.toml',
     mode="rb",
-    encoding="utf-8",
 ) as config_file:
     config = tomllib.load(config_file)
 
-CSV_SAVE_PATH = Path(config['csv_save_paths']['layer_fields_meta'])
+CSV_SAVE_PATH = Path(config['csv_save_paths']['layer_fields_meta']).resolve()
 ATTRIBUTE_META_PATH = Path(__file__).parents[1] / 'attribute_meta.json'
 
 

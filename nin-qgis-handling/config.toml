@@ -10,5 +10,6 @@ kode_for_grunntype = "typer/kodeforGrunntype/"
 variabler_alle_koder = "variabler/allekoder/"
 
 [csv_save_paths]
-attribute_tables = "../nin_qgis_plugin/csv/attribute_tables"
-layer_fields_meta = "../nin_qgis_plugin/csv/layer_fields_meta"
+# OBS: relative to python scripts
+attribute_tables = "../../nin_qgis_plugin/csv/attribute_tables"
+layer_fields_meta = "../../nin_qgis_plugin/csv/layer_fields_meta"

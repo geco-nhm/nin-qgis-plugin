@@ -9,7 +9,6 @@ import pandas as pd
 with open(
     file=Path(__file__).parents[1] / 'config.toml',
     mode="rb",
-    encoding="utf-8",
 ) as config_file:
     config = tomllib.load(config_file)
 
@@ -19,7 +18,7 @@ ALLEKODER_URL = f'{NIN_API_BASE_URL}{config['api_urls']['typer_alle_koder']}'
 KODEFORHOVEDTYPE_URL = f'{NIN_API_BASE_URL}{config['api_urls']['kode_for_hovedtype']}'
 
 # Output csv files save path
-CSV_SAVE_PATH = Path(config['csv_save_paths']['attribute_tables'])
+CSV_SAVE_PATH = Path(config['csv_save_paths']['attribute_tables']).resolve()
 
 # Print results for testing?
 VERBOSE = False

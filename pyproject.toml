@@ -11,6 +11,7 @@ python = "^3.12"
 pandas = "^2.2.2"
 requests = "^2.32.3"
 pb-tool = "^3.1.0"
+tqdm = "^4.66.4"
 
 
 [build-system]
