@@ -25,6 +25,7 @@ from qgis.core import (
     QgsLayerTreeLayer,
     QgsSnappingConfig,  # for snapping settings
     QgsTolerance,       # for snapping tolerance type (pixel or project units)
+    Qgis,               # for AvoidIntersectionsMode
     edit
 )
 from PyQt5.QtGui import QColor, QFont
@@ -495,7 +496,7 @@ def main(
             zoom_to_extent=True,
         )
 
-    # Add "Norway in images" WMTS raster layer NOT WORKING!?!
+    # Add "Norway in images" WMTS raster layer
     if wms_settings['checkBoxNiB']:
         project_setup.add_wms_layer(
             wms_service_url="http://opencache.statkart.no/gatekeeper/gk/gk.open_nib_utm33_wmts_v2?",
@@ -523,7 +524,9 @@ def main(
         True,  # Enable snapping
         QgsSnappingConfig.VertexFlag | QgsSnappingConfig.SegmentFlag,  # Snapping type flags
         5,  # Tolerance
-        QgsTolerance.ProjectUnits  # Tolerance type
+        QgsTolerance.ProjectUnits,  # Tolerance type
+        0,  # minScale
+        0   # maxScale
     )
     # Apply the individual settings to the layer
     snapping_config.setIndividualLayerSettings(pollyr, snap_settings)
@@ -533,6 +536,12 @@ def main(
     # Enable topological editing
     # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setTopologicalEditing
     QgsProject.instance().setTopologicalEditing(True)
+
+    # Set the snapping mode to "Follow Advanced Configuration" (=2) to avoid overlap on the polygon-layer
+    # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setAvoidIntersectionsMode
+    QgsProject.instance().setAvoidIntersectionsMode(
+        Qgis.AvoidIntersectionsMode(2)
+    )
 
     # Enable avoid intersections
     # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setAvoidIntersectionsLayers
