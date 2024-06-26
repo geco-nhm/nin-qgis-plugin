@@ -1,0 +1,430 @@
+{
+    "nin_polygons": {
+        "fields": {
+            "fid": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "area": {
+                "dtype": "Double",
+                "length": 0,
+                "precision": 4
+            },
+            "regdato": {
+                "dtype": "DateTime",
+                "length": 0,
+                "precision": 0
+            },
+            "type": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "hovedtypegruppe": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "hovedtype": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "grunntype_or_klenhet": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "variabler": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kode_id_label": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "grunntype_or_klenhet_2": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "grunntype_or_klenhet_3": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }
+        }
+    },
+    "typer": {
+        "fields": {
+            "fid": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "langkode": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kode_id": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "navn": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }
+        }
+    },
+    "hovedtyper": {
+        "fields": {
+            "fid": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "hovedtypegrupper_fkey": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "langkode": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kode_id": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "navn": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }
+        }
+    },
+    "hovedtypegrupper": {
+        "fields": {
+            "fid": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "typer_fkey": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "langkode": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kode_id": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "navn": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }
+        }
+    },
+    "grunntyper": {
+        "fields": {
+            "fid": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "hovedtyper_fkey": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "langkode": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kode_id": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }, 
+            "navn": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kartleggingsenhet_m005_fkey": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kartleggingsenhet_m020_fkey": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kartleggingsenhet_m050_fkey": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }
+        }
+    },
+    "M005": {
+        "fields": {
+            "fid": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "hovedtyper_fkey": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "langkode": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kode_id": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "navn": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }
+        }
+    },
+    "M020": {
+        "fields": {
+            "fid": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "hovedtyper_fkey": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "langkode": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kode_id": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "navn": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }
+        }
+    },
+    "M050": {
+        "fields": {
+            "fid": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "hovedtyper_fkey": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "langkode": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kode_id": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "navn": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }
+        }
+    },
+    "var_grunntyper": {
+        "fields": {
+            "fid": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "grunntype_or_kle_fkey": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "var_name": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "var_kode_id": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "maaleskala": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "values": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "display_str": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }
+        }
+    },
+    "var_M005": {
+        "fields": {
+            "fid": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "grunntype_or_kle_fkey": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "var_name": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "var_kode_id": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "maaleskala": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "values": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "display_str": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }
+        }
+    },
+    "var_M020": {
+        "fields": {
+            "fid": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "grunntype_or_kle_fkey": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "var_name": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "var_kode_id": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "maaleskala": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "values": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "display_str": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }
+        }
+    },
+    "var_M050": {
+        "fields": {
+            "fid": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "grunntype_or_kle_fkey": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "var_name": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "var_kode_id": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "maaleskala": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "values": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "display_str": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }
+        }
+    }
+}
