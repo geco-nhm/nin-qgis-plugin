@@ -1,0 +1,15 @@
+# API URLs and paths used across python scripts
+
+title = "nin-qgis-handler config"
+
+[api_urls]
+base = "https://nin-kode-api.artsdatabanken.no/v3.0/"
+typer_alle_koder = "typer/allekoder/"
+kode_for_hovedtype = "typer/kodeForHovedtype/"
+kode_for_grunntype = "typer/kodeforGrunntype/"
+variabler_alle_koder = "variabler/allekoder/"
+
+[csv_save_paths]
+# OBS: relative to python scripts
+attribute_tables = "../../nin_qgis_plugin/csv/attribute_tables"
+layer_fields_meta = "../../nin_qgis_plugin/csv/layer_fields_meta"
