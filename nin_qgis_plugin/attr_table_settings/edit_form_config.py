@@ -7,6 +7,7 @@ for editor widgets.
 from qgis.core import (
     QgsVectorLayer, QgsAttributeEditorField, Qgis
 )
+
 # from qgis.PyQt5.QtWidgets import (
 # QTabWidget, QVBoxLayout, QLineEdit, QLabel, QWidget, QComboBox
 # )
@@ -20,8 +21,17 @@ def adjust_layer_edit_form(layer: QgsVectorLayer) -> QgsVectorLayer:
 
     # Retrieve existing edit form configuration
     edit_form_config = layer.editFormConfig()
-    # Change to 'TabLayout', aka Drag and drop layout
-    edit_form_config.setLayout(1)
+    
+    # OBS! We need to check Qgis version here, because prior
+    # to 3.32 it was handled differently
+    qgis_version = Qgis.version().split(".")
+    if int(qgis_version[1]) < 32:
+        edit_form_config.setLayout(1)
+    else:
+        # Change to 'TabLayout', aka Drag and drop layout
+        edit_form_config.setLayout(
+            Qgis.AttributeFormLayout(1)
+        )
 
     # edit_form_config.addTab(....) # -> QgsAttributeEditorElement
     # QgsAttributeEditorElement(type: Qgis.AttributeEditorType, name: Optional[str], parent: Optional[QgsAttributeEditorElement] = None)
