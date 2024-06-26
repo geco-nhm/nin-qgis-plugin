@@ -21,6 +21,11 @@
                 "length": 0,
                 "precision": 0
             },
+            "andel_kle_1": {
+                "dtype": "Double",
+                "length": 0,
+                "precision": 0
+            },
             "hovedtypegruppe": {
                 "dtype": "String",
                 "length": 0,
@@ -46,7 +51,47 @@
                 "length": 0,
                 "precision": 0
             },
+            "sammensatt": {
+                "dtype": "Bool",
+                "length": 0,
+                "precision": 0
+            },
+            "mosaikk": {
+                "dtype": "Bool",
+                "length": 0,
+                "precision": 0
+            },
+            "andel_kle_2": {
+                "dtype": "Double",
+                "length": 0,
+                "precision": 0
+            },
+            "hovedtypegruppe_2": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "hovedtype_2": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
             "grunntype_or_klenhet_2": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "andel_kle_3": {
+                "dtype": "Double",
+                "length": 0,
+                "precision": 0
+            },
+            "hovedtypegruppe_3": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "hovedtype_3": {
                 "dtype": "String",
                 "length": 0,
                 "precision": 0
