@@ -56,7 +56,7 @@ def get_default_values(
         {
             "layer_name": "nin_polygons",
             "field_name": "area",
-            "default_value_expression": "$area",
+            "default_value_expression": "round($area,1)",
             "make_field_uneditable": True,
         },
         {

@@ -92,11 +92,11 @@ def adjust_layer_edit_form(layer: QgsVectorLayer) -> QgsVectorLayer:
             'fields': [
                 'area',
                 'type',
-                'andel_kle_1',
                 'hovedtypegruppe',
                 'hovedtype',
                 'grunntype_or_klenhet',
                 'variabler',
+                'andel_kle_1',
                 'sammensatt',
                 'mosaikk',
                 'kode_id_label',
@@ -105,19 +105,19 @@ def adjust_layer_edit_form(layer: QgsVectorLayer) -> QgsVectorLayer:
         'tab_2': {
             'tab': tab_2,
             'fields': [
-                'andel_kle_2',
                 'hovedtypegruppe_2',
                 'hovedtype_2',
                 'grunntype_or_klenhet_2',
+                'andel_kle_2',
             ],
         },
         'tab_3': {
             'tab': tab_3,
             'fields': [
-                'andel_kle_3',
                 'hovedtypegruppe_3',
                 'hovedtype_3',
                 'grunntype_or_klenhet_3',
+                'andel_kle_3',
             ],
         },
     }
