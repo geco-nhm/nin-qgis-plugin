@@ -396,8 +396,12 @@ class ProjectSetup:
         # Adjust grunntype/kle name based on selected scale
         if self.selected_mapping_scale == 'grunntyper':
             aliases['grunntype_or_klenhet'] = 'Grunntype'
+            aliases['grunntype_or_klenhet_2'] = 'Grunntype 2'
+            aliases['grunntype_or_klenhet_3'] = 'Grunntype 3'
         else:
             aliases['grunntype_or_klenhet'] = 'Kartleggingsenhet'
+            aliases['grunntype_or_klenhet_2'] = 'Kartleggingsenhet 2'
+            aliases['grunntype_or_klenhet_3'] = 'Kartleggingsenhet 3'
 
         # Get layer
         layer = self.get_nin_polygons_layer()
