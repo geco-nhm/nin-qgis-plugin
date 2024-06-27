@@ -1,76 +1,33 @@
 # Natur i Norge (NiN) QGIS plugin
-## Creates a QGIS project and geopackage file to map NiN polygons in the field
+This plugin is designed to create a QGIS project for mapping nature using the NiN system in the field. 
 
 ## Description
+The user is presented with several options for customizing the QGIS project. 
 
-An in-depth paragraph about your project and overview of use.
+- option to sub-set the NiN system by choosing the relevant [Type system](https://naturinorge.artsdatabanken.no/) and [Major Type Group/s](https://naturinorge.artsdatabanken.no/Natursystem) for the current mapping project. 
+- mapping scale
+- filepath to save the project to
+- select background maps
+
+This creates a QGIS project file and a geopackage file with the selected Type system and the underlying selected Major Type Groups. Mapping units are adjusted based on the selected mapping scale. 
 
 ## Getting Started
 
-### Dependencies for development
+1. open QGIS
+2. download and install **'nin-qgis-plugin'** in QGIS > Plugins > Manage and Install Plugins > searching for "Natur i Norge" 
+3. pick the relevant subsystem, scale and background maps for mapping
+4. click "create project" 
 
-* Python 3.12+ (recommended: use a [mamba](https://mamba.readthedocs.io/en/latest/)/[Anaconda](https://www.anaconda.com/download) virtual environment, see installation)
-* [Poetry](https://python-poetry.org/) (tested with version 1.8.2)
+## exporting the project to Qfield
+5. After project and geopackage were generated, users can transfer the project to [Qfield](https://docs.qfield.org/get-started/tutorials/get-started-qfs/) 
 
-### Installation
+### mapping procedure
+6. select layer 'nin_polygons'
+7. toggle layer editing 
+8. add poygon feature
+9. fill out the attributes about the NiN type
 
-* Clone from `https://github.com/geco-nhm/nin-qgis-plugin.git`
-
-In project directory:
-
-* Recommended: Create virtual Python environment with mamba/conda.
-```
-mamba env create --file=environment.yml
-mamba activate nin-qgis-env
-```
-* Install Python dependencies with poetry:
-```
-poetry install
-```
-
-### Create relational NiN csv tables
-
-The QGIS plugin relies on relational CSV tables that define the hierarchical relationships
-between NiN major types, minor types, etc. These tables are created from requests to the
-[NinKode API](https://nin-kode-api.artsdatabanken.no/swagger/index.html). The following
-section briefly describes the different tables, created by different python scripts. To
-update the tables, change into the directory (`cd <project_root>/nin-qgis-handling/python`)
-and make sure the virtual environment is activated and you have all dependecies installed.
-
-Save paths and API URLs are defined in `nin-qgis-handling/config.toml`.
-
-```
-python3 create_attribute_meta_tables.py
-```
-* Creates csv files that define the field names and datatypes specified in `nin-qgis-handling/attribute_meta.json` for non-geometry features (i.e., attribute tables) in the output geopackage.
-
----
-
-```
-python3 create_type_tables_from_api.py
-```
-* Creates csv files for NiN major types, minor types, etc. OBS: variable information is generated separately (see below).
-
----
-
-```
-python3 create_variable_tables_from_api.py
-```
-* Creates csv files to link the lowest NiN mapping units (grunntyper) to their associated NiN variables. OBS: the same information for aggregated mapping units ('kartleggingsenheter') is generated separately (see below).
-
----
-
-```
-python3 infer_kartleggingsenheter_vars.py
-```
-* Creates csv files aggregating the variable information of the lowest NiN mapping units (grunntyper) to the associated coarser mapping units ('kartleggingsenheter'). OBS: under heavy development and will likely change in the future.
-
----
-
-```
-python3 generate_api_version_info.py
-```
-* Creates the file `nin_api_version_info.txt`. Must be generated manually after updating all tables (for now).
+### 
 
 ## Help
 
