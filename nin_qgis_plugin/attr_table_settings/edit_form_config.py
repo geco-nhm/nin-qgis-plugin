@@ -1,11 +1,16 @@
 """
-Programmatically specifies a "drag and drop" layer editor
-widget. Necessary because QField does not support .ui files
-for editor widgets.
+Programmatically designs a "drag and drop" form layout.
+Necessary because QField does not support .ui files
+for editing forms.
 """
 
 from qgis.core import (
-    QgsVectorLayer, QgsAttributeEditorField, Qgis
+    QgsVectorLayer,
+    QgsAttributeEditorField,
+    QgsExpression,
+    QgsOptionalExpression,
+    QgsAttributeEditorContainer,
+    Qgis,
 )
 
 # from qgis.PyQt5.QtWidgets import (
@@ -21,63 +26,117 @@ def adjust_layer_edit_form(layer: QgsVectorLayer) -> QgsVectorLayer:
 
     # Retrieve existing edit form configuration
     edit_form_config = layer.editFormConfig()
-    
+
     # OBS! We need to check Qgis version here, because prior
     # to 3.32 it was handled differently
     qgis_version = Qgis.version().split(".")
-    if int(qgis_version[1]) < 32:
-        edit_form_config.setLayout(1)
+
+    if int(qgis_version[0]) >= 3:
+        if int(qgis_version[1]) < 32:
+            edit_form_config.setLayout(1)
+        else:
+            # Change to 'TabLayout', aka Drag and drop layout
+            edit_form_config.setLayout(
+                Qgis.AttributeFormLayout(1)
+            )
     else:
-        # Change to 'TabLayout', aka Drag and drop layout
-        edit_form_config.setLayout(
-            Qgis.AttributeFormLayout(1)
+        raise NotImplementedError(
+            f"Your Qgis version '{Qgis.version()}' is not supported, please download latest."
         )
+
+    # Retrieve root container and clear default layout
+    root_container = edit_form_config.invisibleRootContainer()
+    root_container.clear()
+
+    # Add the tabs
+    tab_1 = QgsAttributeEditorContainer(
+        name="Type 1",
+        parent=root_container,
+    )
+    tab_2 = QgsAttributeEditorContainer(
+        name="Type 2",
+        parent=root_container,
+    )
+    tab_3 = QgsAttributeEditorContainer(
+        name="Type 3",
+        parent=root_container,
+    )
+
+    # Define visibility
+    tab_2.setVisibilityExpression(
+        QgsOptionalExpression(
+            QgsExpression('''"andel_kle_1" < 100.0''')
+        ),
+    )
+    tab_3.setVisibilityExpression(
+        QgsOptionalExpression(
+            QgsExpression('''("andel_kle_1" + "andel_kle_2") < 100.0''')
+        ),
+    )
+
+    edit_form_config.addTab(tab_1)
+    edit_form_config.addTab(tab_2)
+    edit_form_config.addTab(tab_3)
 
     # edit_form_config.addTab(....) # -> QgsAttributeEditorElement
     # QgsAttributeEditorElement(type: Qgis.AttributeEditorType, name: Optional[str], parent: Optional[QgsAttributeEditorElement] = None)
     # AttributeEditorType(0) -> AeTypeContainer
 
-    root_container = edit_form_config.invisibleRootContainer()
-    root_container.clear()
-
     # Containers for different tabs
     # main_tab_container = Qgis.AttributeEditorType(0)
 
-    # Add all that should be shown
-    fields_to_include = [
-        'area',
-        'type',
-        'andel_kle_1',
-        'hovedtypegruppe',
-        'hovedtype',
-        'grunntype_or_klenhet',
-        'variabler',
-        'sammensatt',
-        'mosaikk',
-        'andel_kle_2',
-        'hovedtypegruppe_2',
-        'hovedtype_2',
-        'grunntype_or_klenhet_2',
-        'andel_kle_3',
-        'hovedtypegruppe_3',
-        'hovedtype_3',
-        'grunntype_or_klenhet_3',
-    ]
+    # Add all fields that should be shown in main tab
+    fields_to_include = {
+        'tab_1': {
+            'tab': tab_1,
+            'fields': [
+                'area',
+                'type',
+                'andel_kle_1',
+                'hovedtypegruppe',
+                'hovedtype',
+                'grunntype_or_klenhet',
+                'variabler',
+                'sammensatt',
+                'mosaikk',
+                'kode_id_label',
+            ],
+        },
+        'tab_2': {
+            'tab': tab_2,
+            'fields': [
+                'andel_kle_2',
+                'hovedtypegruppe_2',
+                'hovedtype_2',
+                'grunntype_or_klenhet_2',
+            ],
+        },
+        'tab_3': {
+            'tab': tab_3,
+            'fields': [
+                'andel_kle_3',
+                'hovedtypegruppe_3',
+                'hovedtype_3',
+                'grunntype_or_klenhet_3',
+            ],
+        },
+    }
 
-    for field in fields_to_include:
+    for _, tab_fields in fields_to_include.items():
 
-        editor_field = QgsAttributeEditorField(
-            name=field,
-            idx=fields.indexFromName(field),
-            parent=root_container,
-        )
-        root_container.addChildElement(editor_field)
+        cur_tab = tab_fields['tab']
+
+        for field in tab_fields['fields']:
+            editor_field = QgsAttributeEditorField(
+                name=field,
+                idx=fields.indexFromName(field),
+                parent=cur_tab,
+            )
+            cur_tab.addChildElement(editor_field)
+            # root_container.addChildElement(editor_field)
 
     # Set as layers new form config
     layer.setEditFormConfig(edit_form_config)
-
-    # To get Entries on the Tab boxes, you need to create QgsAttributeEditorField
-    # items with the Tab Boxes as Parent Containers.
 
     return layer
 

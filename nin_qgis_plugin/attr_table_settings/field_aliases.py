@@ -17,7 +17,7 @@ def get_field_aliases() -> dict:
         # USES CONDITION IN 'project_setup.py' INSTEAD!
         # grunntype_or_klenhet': 'Grunntype/Kartleggingsenhet'
         'variabler': 'Variabler',
-        'kode_id_label': 'Label',
+        'kode_id_label': 'Label preview',
     }
 
     return field_aliases
