@@ -11,7 +11,7 @@ In project directory:
 
 * Recommended: Create virtual Python environment with mamba/conda.
 ```
-mamba env create --file=environment.yml
+mamba env create --file=environment.yaml
 mamba activate nin-qgis-env
 ```
 * Install Python dependencies with poetry:
