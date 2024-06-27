@@ -4,7 +4,6 @@ from pathlib import Path
 from typing import Union, Literal, List
 import random
 import pandas as pd
-import os
 
 from qgis.core import (
     QgsDataProvider,
@@ -33,9 +32,10 @@ from PyQt5.QtWidgets import (
     QMessageBox,
 )
 
-# Import functions from other py-files in the attr_table_field_setings-folder
-from .attr_table_field_setings.value_relations import get_value_relations
-from .attr_table_field_setings.default_values import get_default_values
+from .attr_table_settings.value_relations import get_value_relations
+from .attr_table_settings.default_values import get_default_values
+from .attr_table_settings.field_aliases import get_field_aliases
+from .attr_table_settings.edit_form_config import adjust_layer_edit_form
 
 
 QGS_PROJECT = QgsProject.instance()
@@ -65,6 +65,9 @@ class ProjectSetup:
         self.canvas = canvas
         self.nin_polygons_layer_name = nin_polygons_layer_name
 
+    def get_nin_polygons_layer(self):
+        return QGS_PROJECT.mapLayersByName(self.nin_polygons_layer_name)[0]
+
     def load_gpkg_layers(self) -> List[QgsVectorLayer]:
         '''
         Loads all .gpkg layers into current QGIS project.
@@ -91,7 +94,7 @@ class ProjectSetup:
             sub_vlayers.append(sub_vlayer)
 
             # Add layer to map
-            QgsProject.instance().addMapLayer(sub_vlayer)
+            QGS_PROJECT.addMapLayer(sub_vlayer)
 
         return sub_vlayers
 
@@ -201,12 +204,13 @@ class ProjectSetup:
         '''
 
         # Get layer from project
-        layer = QGS_PROJECT.mapLayersByName(layer_name)[0]
+        layer = self.get_nin_polygons_layer()
 
         # Find the index of the field
         field_index = layer.fields().indexOf(field_name)
 
-        # Create a QgsDefaultValue object with the expression and set it as the default value for the field
+        # Create a QgsDefaultValue object with the expression and
+        # set it as the default value for the field
         with edit(layer):
 
             if default_value_expression:
@@ -234,7 +238,7 @@ class ProjectSetup:
             'field_iso_format': False,
         }
 
-        layer = QGS_PROJECT.mapLayersByName(layer_name)[0]
+        layer = self.get_nin_polygons_layer()
 
         fields = layer.fields()
         field_idx = fields.indexOf(field_name)
@@ -283,7 +287,7 @@ class ProjectSetup:
             return [random.randint(0, 255) for _ in range(3)] + [128]
 
         # Load the layer
-        layer = QGS_PROJECT.mapLayersByName(self.nin_polygons_layer_name)[0]
+        layer = self.get_nin_polygons_layer()
 
         if not layer.isValid():
             print(f"Failed to load layer {self.nin_polygons_layer_name}")
@@ -389,6 +393,34 @@ class ProjectSetup:
 
             self.canvas.refresh()
 
+    def set_field_aliases(self, aliases: dict) -> None:
+        '''
+        Sets human-readable aliases for the field names in
+        the nin_polygons layer.
+        '''
+
+        # Adjust grunntype/kle name based on selected scale
+        if self.selected_mapping_scale == 'grunntyper':
+            aliases['grunntype_or_klenhet'] = 'Grunntype'
+            aliases['grunntype_or_klenhet_2'] = 'Grunntype 2'
+            aliases['grunntype_or_klenhet_3'] = 'Grunntype 3'
+        else:
+            aliases['grunntype_or_klenhet'] = 'Kartleggingsenhet'
+            aliases['grunntype_or_klenhet_2'] = 'Kartleggingsenhet 2'
+            aliases['grunntype_or_klenhet_3'] = 'Kartleggingsenhet 3'
+
+        # Get layer
+        layer = self.get_nin_polygons_layer()
+
+        # Get layer fields
+        fields = layer.fields()
+
+        for key, value in aliases.items():
+            layer.setFieldAlias(
+                index=fields.indexFromName(key),
+                aliasString=value
+            )
+
 
 def main(
     selected_items: list,
@@ -399,23 +431,6 @@ def main(
     selected_mapping_scale="M005",
 ) -> None:
     '''Adapt QGIS project settings.'''
-
-    if not selected_items:
-        QMessageBox.information(
-            None,
-            "No hovedtypegrupper selected!",
-            "Please select the 'hovedtypegrupper' you want to map."
-        )
-        return
-
-    # passing the selected "Type" from the UI
-    if not selected_type_id:
-        QMessageBox.information(
-            None,
-            "No type selected!",
-            "Please select the 'type' you want to map."
-        )
-        return
 
     # Define name and path of existing geopackage
     # TODO: Remove after testing!
@@ -473,6 +488,16 @@ def main(
 
     # Adjust styling
     project_setup.set_nin_polygons_styling()
+
+    # Set field aliases
+    project_setup.set_field_aliases(
+        aliases=get_field_aliases()
+    )
+
+    # TEST: Adjust nin polygon edit form
+    adjust_layer_edit_form(
+        layer=project_setup.get_nin_polygons_layer()
+    )
 
     # Add Norway topography WMS raster layer
     if wms_settings['checkBoxNorgeTopo']:

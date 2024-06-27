@@ -242,9 +242,27 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             for box in self.wms_check_box_names
         }
 
+        if not self.get_selected_htgr_items():
+            QMessageBox.information(
+                None,
+                "No hovedtypegrupper selected!",
+                "Please select the 'hovedtypegrupper' you want to map."
+            )
+            return
+
+        # passing the selected "Type" from the UI
+        if not self.get_selected_type_id():
+            QMessageBox.information(
+                None,
+                "No type selected!",
+                "Please select the 'type' you want to map."
+            )
+            return
+
+        # Run project_setup.py
         ps.main(
-            self.get_selected_htgr_items(),
-            self.get_selected_type_id(),
+            selected_items=self.get_selected_htgr_items(),
+            selected_type_id=self.get_selected_type_id(),
             gpkg_path=self.geopackage_path,
             canvas=self.canvas,
             wms_settings=wms_settings,
