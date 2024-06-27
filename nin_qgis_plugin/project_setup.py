@@ -22,6 +22,9 @@ from qgis.core import (
     QgsVectorLayerSimpleLabeling,
     QgsDefaultValue,
     QgsLayerTreeLayer,
+    QgsSnappingConfig,  # for snapping settings
+    QgsTolerance,       # for snapping tolerance type (pixel or project units)
+    Qgis,               # for AvoidIntersectionsMode
     edit
 )
 from PyQt5.QtGui import QColor, QFont
@@ -346,7 +349,7 @@ class ProjectSetup:
         wms_layer_names: str,
         wms_style: str,
         wms_crs: str,
-        wms_layer_name: str,
+        new_qgis_layer_name: str,
         zoom_to_extent=True,
     ) -> None:
         '''
@@ -359,13 +362,16 @@ class ProjectSetup:
         # Create a new raster layer using the WMS URI
         wms_layer = QgsRasterLayer(
             wms_uri,
-            f'{wms_layer_name}',
+            f'{new_qgis_layer_name}',
             'wms',
         )
 
         # Check if the layer is valid
         if not wms_layer.isValid():
-            print("WMS layer failed to load!")
+            print(
+                f"WMS layer '{new_qgis_layer_name}' failed to load! "
+                + "Make sure the provided URI information is correct!"
+            )
         else:
             # Add the layer to the QGIS project
             # Add the WMS layer to the project (it will be added to the top)
@@ -500,6 +506,68 @@ def main(
             wms_layer_names='topo',
             wms_style='default',
             wms_crs=PROJECT_CRS,
-            wms_layer_name="Topografisk norgeskart",
+            new_qgis_layer_name="Topografisk norgeskart",
             zoom_to_extent=True,
         )
+
+    # Add Norway topography grayscale WMS raster layer
+    if wms_settings['checkBoxNorgeTopoGraa']:
+        project_setup.add_wms_layer(
+            wms_service_url="https://openwms.statkart.no/skwms1/wms.topograatone?",
+            wms_layer_names='topograatone',
+            wms_style='default',
+            wms_crs=PROJECT_CRS,
+            new_qgis_layer_name="Topografisk norgeskart gråtone",
+            zoom_to_extent=True,
+        )
+
+    # Add "Norway in images" WMTS raster layer
+    if wms_settings['checkBoxNiB']:
+        project_setup.add_wms_layer(
+            wms_service_url="http://opencache.statkart.no/gatekeeper/gk/gk.open_nib_utm33_wmts_v2?",
+            wms_layer_names='Nibcache_UTM33_EUREF89_v2',
+            wms_style='default',
+            wms_crs=PROJECT_CRS,
+            new_qgis_layer_name="Nibcache_UTM33_EUREF89_v2",
+            zoom_to_extent=True,
+        )
+
+    # https://qgis.org/pyqgis/master/core/QgsSnappingConfig.html
+    # https://qgis.org/pyqgis/master/gui/Qgis.html#qgis.gui.Qgis.SnappingType
+    # https://www.qgis.com/api/classQgsSnappingConfig_1_1IndividualLayerSettings.html#details
+    # Set the snapping tolerance on polygon (5 meters) on vertex and segments and avvoid overlapp
+    pollyr = QgsProject.instance().mapLayersByName(
+        'nin_polygons')[0]  # Set the polygon layer
+    # Create a new snapping config object
+    snapping_config = QgsSnappingConfig()
+    # Enable snapping
+    snapping_config.setEnabled(True)
+    # Set to AdvancedConfiguration
+    snapping_config.setMode(QgsSnappingConfig.AdvancedConfiguration)
+    # Create the individual layer settings
+    snap_settings = QgsSnappingConfig.IndividualLayerSettings(
+        True,  # Enable snapping
+        QgsSnappingConfig.VertexFlag | QgsSnappingConfig.SegmentFlag,  # Snapping type flags
+        5,  # Tolerance
+        QgsTolerance.ProjectUnits,  # Tolerance type
+        0,  # minScale
+        0   # maxScale
+    )
+    # Apply the individual settings to the layer
+    snapping_config.setIndividualLayerSettings(pollyr, snap_settings)
+    QgsProject.instance().setSnappingConfig(
+        snapping_config)          # Activate the snapping settings
+
+    # Enable topological editing
+    # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setTopologicalEditing
+    QgsProject.instance().setTopologicalEditing(True)
+
+    # Set the snapping mode to "Follow Advanced Configuration" (=2) to avoid overlap on the polygon-layer
+    # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setAvoidIntersectionsMode
+    QgsProject.instance().setAvoidIntersectionsMode(
+        Qgis.AvoidIntersectionsMode(2)
+    )
+
+    # Enable avoid intersections
+    # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setAvoidIntersectionsLayers
+    QgsProject.instance().setAvoidIntersectionsLayers([pollyr])

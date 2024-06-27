@@ -72,14 +72,13 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             QComboBox, 'SelectMappingScale'
         )
 
-        # WMS checkbox
+        # WMS checkbox handling
         self.wms_box_group = self.findChild(QGroupBox, 'groupBoxWMS')
-
-        wms_check_box_names = ['checkBoxNorgeTopo']
-        self.wms_settings = {
-            box: self.wms_box_group.findChild(QCheckBox, box).isChecked()
-            for box in wms_check_box_names
-        }
+        self.wms_check_box_names = [
+            'checkBoxNorgeTopo',
+            'checkBoxNorgeTopoGraa',
+            'checkBoxNiB',
+        ]
 
         # Load the first combo box
         self.load_type_combo_box()
@@ -150,8 +149,6 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
                     item.setCheckState(Qt.Unchecked)
                     # Adding the list item to the QListWidget.
                     self.selectHovetypegrupperWidget.addItem(item)
-                    print(row)
-            print(self.selectHovetypegrupperWidget)
 
     # DEBUG
     # print the selected items from the listWidget
@@ -238,6 +235,12 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
     def load_project(self) -> None:
         '''Loads project settings'''
+        
+        # Retrieve user selection in WMS checkboxes
+        wms_settings = {
+            box: self.wms_box_group.findChild(QCheckBox, box).isChecked()
+            for box in self.wms_check_box_names
+        }
 
         if not self.get_selected_htgr_items():
             QMessageBox.information(
@@ -262,7 +265,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             selected_type_id=self.get_selected_type_id(),
             gpkg_path=self.geopackage_path,
             canvas=self.canvas,
-            wms_settings=self.wms_settings,
+            wms_settings=wms_settings,
             selected_mapping_scale=self.selectMappingScale.currentText(),
         )
 
