@@ -9,6 +9,7 @@ hovedtype,String,0,0
 grunntype_or_klenhet,String,0,0
 variabler,String,0,0
 kode_id_label,String,0,0
+photo,String,0,0
 sammensatt,Bool,0,0
 mosaikk,Bool,0,0
 andel_kle_2,Double,0,0
