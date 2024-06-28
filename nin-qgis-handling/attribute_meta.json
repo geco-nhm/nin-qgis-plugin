@@ -51,6 +51,11 @@
                 "length": 0,
                 "precision": 0
             },
+            "photo": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
             "sammensatt": {
                 "dtype": "Bool",
                 "length": 0,
