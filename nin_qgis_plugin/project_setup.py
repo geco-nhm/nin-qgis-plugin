@@ -248,20 +248,23 @@ class ProjectSetup:
     
     def set_photo_widget(self, layer):
         '''
+        Adjusts the photo widget in registration scheme
+
         https://gis.stackexchange.com/questions/346363/how-to-set-widget-type-to-attachment
         '''
         FIELD = "photo"
 
         photo_widget_setup = QgsEditorWidgetSetup(
-            'ExternalResource', 
+            'ExternalResource', #https://qgis.org/pyqgis/3.28/gui/QgsExternalResourceWidget.html
             {
                 'FileWidget': True,
-                'DocumentViewer': 0,
-                'RelativeStorage': 0,
+                'DocumentViewer': 1,
+                'RelativeStorage': 1, #https://qgis.org/pyqgis/3.28/gui/QgsFileWidget.html#qgis.gui.QgsFileWidget
+                'DefaultRoot': '@project_path',
                 'StorageMode': 0,
-                'DocumentViewerHeight': 0,
+                'DocumentViewerHeight': 300,
+                'DocumentViewerWidth': 300,
                 'FileWidgetButton': True,
-                'DocumentViewerWidth': 0,
                 'FileWidgetFilter': ''
             })
         index = layer.fields().indexFromName(FIELD)
