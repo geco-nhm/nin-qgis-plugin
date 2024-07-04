@@ -100,6 +100,7 @@ def adjust_layer_edit_form(layer: QgsVectorLayer) -> QgsVectorLayer:
                 'sammensatt',
                 'mosaikk',
                 'kode_id_label',
+                'photo',
             ],
         },
         'tab_2': {
