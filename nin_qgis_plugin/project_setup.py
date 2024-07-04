@@ -353,9 +353,15 @@ class ProjectSetup:
             text_format.setColor(QColor(0, 0, 0))  # Black color for text
             label_settings.setFormat(text_format)
 
-            # This feels so wrong... setting expression as field name...
-            label_settings.fieldName = """regexp_replace( represent_value("kode_id_label"), '-[^-]+-', '-')"""
-            # ...and say its an expression ¯\_(ツ)_/¯
+            #... setting expression as label... if not specified with kode_id_label then labeled with "ikke kartlagt"
+            # otherwise the represented value in kode_id_label is shortened to omit the mapping scale (string in the middle between dashes)
+            label_settings.fieldName = """
+                CASE
+                    WHEN "kode_id_label" IS NULL THEN 'ikke kartlagt'
+                    ELSE regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-')
+                END
+            """
+            
             label_settings.isExpression = True
             labeling = QgsVectorLayerSimpleLabeling(label_settings)
             layer.setLabeling(labeling)
