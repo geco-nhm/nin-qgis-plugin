@@ -245,6 +245,30 @@ class ProjectSetup:
         if field_idx >= 0:
             widget_setup = QgsEditorWidgetSetup('DateTime', config)
             layer.setEditorWidgetSetup(field_idx, widget_setup)
+    
+    def set_photo_widget(self, layer):
+        '''
+        Adjusts the photo widget in registration scheme
+
+        https://gis.stackexchange.com/questions/346363/how-to-set-widget-type-to-attachment
+        '''
+        FIELD = "photo"
+
+        photo_widget_setup = QgsEditorWidgetSetup(
+            'ExternalResource', #https://qgis.org/pyqgis/3.28/gui/QgsExternalResourceWidget.html
+            {
+                'FileWidget': True,
+                'DocumentViewer': 1,
+                'RelativeStorage': 1, #https://qgis.org/pyqgis/3.28/gui/QgsFileWidget.html#qgis.gui.QgsFileWidget
+                'DefaultRoot': '@project_path',
+                'StorageMode': 0,
+                'DocumentViewerHeight': 300,
+                'DocumentViewerWidth': 300,
+                'FileWidgetButton': True,
+                'FileWidgetFilter': ''
+            })
+        index = layer.fields().indexFromName(FIELD)
+        layer.setEditorWidgetSetup(index, photo_widget_setup)
 
     def set_project_crs(self, crs: Union[int, str]) -> None:
         '''Sets the project CRS'''
@@ -438,7 +462,7 @@ def main(
     gpkg_path = Path(__file__).parent / gpkg_name
 
     project_setup = ProjectSetup(
-        gpkg_path=gpkg_path,
+        gpkg_path=gpkg_path, 
         selected_type_id=selected_type_id,
         selected_hovedtypegrupper=selected_items,
         selected_mapping_scale=selected_mapping_scale,
@@ -456,6 +480,10 @@ def main(
     project_setup.field_to_datetime(
         layer_name='nin_polygons',
         field_name='regdato'
+    )
+
+    project_setup.set_photo_widget(
+        layer=project_setup.get_nin_polygons_layer(),
     )
 
     # Set default values defined in 'default_values.py'
