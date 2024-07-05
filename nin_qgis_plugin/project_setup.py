@@ -289,7 +289,7 @@ class ProjectSetup:
 
     def set_nin_polygons_styling(self) -> None:
         '''
-        Defines the symbology of the nin_polygons layer.
+        Defines the symbology and labels of the nin_polygons layer.
         '''
 
         # Here we set the random color categorized symbology for each 'kode_id' of
@@ -450,6 +450,51 @@ class ProjectSetup:
                 index=fields.indexFromName(key),
                 aliasString=value
             )
+    def set_snap_ovelap(self):
+        '''
+        Sets the snapping tolerance to 5 meters snapping mode to "Follow Advanced Configuration". 
+        Sets enable avoid intersections for the polygon layer
+        '''
+        # https://qgis.org/pyqgis/master/core/QgsSnappingConfig.html
+        # https://qgis.org/pyqgis/master/gui/Qgis.html#qgis.gui.Qgis.SnappingType
+        # https://www.qgis.com/api/classQgsSnappingConfig_1_1IndividualLayerSettings.html#details
+        # Set the snapping tolerance on polygon (5 meters) on vertex and segments and avoid overlap
+        pollyr = QgsProject.instance().mapLayersByName(
+            'nin_polygons')[0]  # Set the polygon layer
+        # Create a new snapping config object
+        snapping_config = QgsSnappingConfig()
+        # Enable snapping
+        snapping_config.setEnabled(True)
+        # Set to AdvancedConfiguration
+        snapping_config.setMode(QgsSnappingConfig.AdvancedConfiguration)
+        # Create the individual layer settings
+        snap_settings = QgsSnappingConfig.IndividualLayerSettings(
+            True,  # Enable snapping
+            QgsSnappingConfig.VertexFlag | QgsSnappingConfig.SegmentFlag,  # Snapping type flags
+            5,  # Tolerance
+            QgsTolerance.ProjectUnits,  # Tolerance type
+            0,  # minScale
+            0   # maxScale
+        )
+        # Apply the individual settings to the layer
+        snapping_config.setIndividualLayerSettings(pollyr, snap_settings)
+        QgsProject.instance().setSnappingConfig(
+            snapping_config)          # Activate the snapping settings
+
+        # Enable topological editing
+        # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setTopologicalEditing
+        QgsProject.instance().setTopologicalEditing(True)
+
+        # Set the snapping mode to "Follow Advanced Configuration" (=2) to avoid overlap on the polygon-layer
+        # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setAvoidIntersectionsMode
+        QgsProject.instance().setAvoidIntersectionsMode(
+            Qgis.AvoidIntersectionsMode(2)
+        )
+
+        # Enable avoid intersections
+        # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setAvoidIntersectionsLayers
+        QgsProject.instance().setAvoidIntersectionsLayers([pollyr])
+
 
 
 def main(
@@ -566,42 +611,6 @@ def main(
             zoom_to_extent=True,
         )
 
-    # https://qgis.org/pyqgis/master/core/QgsSnappingConfig.html
-    # https://qgis.org/pyqgis/master/gui/Qgis.html#qgis.gui.Qgis.SnappingType
-    # https://www.qgis.com/api/classQgsSnappingConfig_1_1IndividualLayerSettings.html#details
-    # Set the snapping tolerance on polygon (5 meters) on vertex and segments and avvoid overlapp
-    pollyr = QgsProject.instance().mapLayersByName(
-        'nin_polygons')[0]  # Set the polygon layer
-    # Create a new snapping config object
-    snapping_config = QgsSnappingConfig()
-    # Enable snapping
-    snapping_config.setEnabled(True)
-    # Set to AdvancedConfiguration
-    snapping_config.setMode(QgsSnappingConfig.AdvancedConfiguration)
-    # Create the individual layer settings
-    snap_settings = QgsSnappingConfig.IndividualLayerSettings(
-        True,  # Enable snapping
-        QgsSnappingConfig.VertexFlag | QgsSnappingConfig.SegmentFlag,  # Snapping type flags
-        5,  # Tolerance
-        QgsTolerance.ProjectUnits,  # Tolerance type
-        0,  # minScale
-        0   # maxScale
-    )
-    # Apply the individual settings to the layer
-    snapping_config.setIndividualLayerSettings(pollyr, snap_settings)
-    QgsProject.instance().setSnappingConfig(
-        snapping_config)          # Activate the snapping settings
+    # Adjust project snapping and overlap options
+    project_setup.set_snap_ovelap()
 
-    # Enable topological editing
-    # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setTopologicalEditing
-    QgsProject.instance().setTopologicalEditing(True)
-
-    # Set the snapping mode to "Follow Advanced Configuration" (=2) to avoid overlap on the polygon-layer
-    # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setAvoidIntersectionsMode
-    QgsProject.instance().setAvoidIntersectionsMode(
-        Qgis.AvoidIntersectionsMode(2)
-    )
-
-    # Enable avoid intersections
-    # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setAvoidIntersectionsLayers
-    QgsProject.instance().setAvoidIntersectionsLayers([pollyr])
