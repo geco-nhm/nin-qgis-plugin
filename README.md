@@ -15,8 +15,18 @@ This creates a QGIS project file and a geopackage file with the selected Type sy
 
 1. open QGIS
 2. download and install **'nin-qgis-plugin'** in QGIS > Plugins > Manage and Install Plugins > searching for "Natur i Norge" 
-3. pick the relevant subsystem, scale and background maps for mapping
-4. click "create project" 
+3. pick the relevant NiN Type system, mapping scale, file location and background maps for the QGIS project
+4. click "Load Geopackage and adapt project" 
+
+### this creates all the necessary files for mapping in QGIS and adapts the QGIS environment with the following:
+- all layers from the geopackage are loaded containing necessary tables with the NiN type-system
+- hierarchical relations are set (major types dependencies on major type groups)
+- CRS is set to ETRS89 UTM33 ("EPSG:25833")
+- topological editing is turned on
+- avoid overlap on the *nin_polygons* layer is enabled
+- snapping is set to 5px on vertex and segment
+- *nin_polygons* layer is set up with unique random color symbology and labeled by the minor type- depending on the selected Major type groups
+
 
 ## exporting the project to Qfield
 5. After project and geopackage were generated, users can transfer the project to [Qfield](https://docs.qfield.org/get-started/tutorials/get-started-qfs/) 
