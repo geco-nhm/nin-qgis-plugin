@@ -293,10 +293,6 @@ def main(selected_mapping_scale: str, gpkg_path: Union[str, Path]) -> None:
         Passing variable from mapping scale selection in the UI
     '''
 
-    # Define name and path of new geopackage
-    # NEXT IS OVERWRITING gpkg_path FOR TESTING, REMOVE IN THE END
-    gpkg_name = "nin_survey.gpkg"
-    gpkg_path = Path(__file__).parent / gpkg_name
     if gpkg_path.is_file():  # If gpkg-file already exists, raise Error
         os.remove(gpkg_path)
         # raise ValueError(f"{gpkg_path} already exists! Use a different name to avoid data loss.")
