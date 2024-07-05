@@ -96,6 +96,10 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
         # Initialize .gpkg path variable
         self.geopackage_path = None
+        self.file_widget = self.findChild(
+            QgsFileWidget,
+            'gpkgFilePicker'
+        )
 
         # Set UI default values
         self.set_ui_default_values()
@@ -227,6 +231,9 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             pass
             # QMessageBox.information(None, "No path entered!", "Enter a valid .gpkg file path!")
             # return
+
+        # Set gpkg file path from UI
+        self.file_location_selected()
 
         cgpkg.main(
             selected_mapping_scale=self.selectMappingScale.currentText(),
