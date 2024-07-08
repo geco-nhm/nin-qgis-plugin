@@ -613,4 +613,14 @@ def main(
 
     # Adjust project snapping and overlap options
     project_setup.set_snap_ovelap()
+   
+    # Save the geopackage style back to the geopackage
+    # project_setup.saving_gpkg(styled_layer=project_setup.get_nin_polygons_layer())
+
+    #print(gpkg_path)
+
+    # Save the project
+    project_path = str(Path(gpkg_path).parent / "NiN_kartlegging.qgz")
+    QGS_PROJECT.setFileName(project_path)
+    QGS_PROJECT.write()
 
