@@ -25,8 +25,11 @@ from qgis.core import (
     QgsSnappingConfig,  # for snapping settings
     QgsTolerance,       # for snapping tolerance type (pixel or project units)
     Qgis,               # for AvoidIntersectionsMode
+    QgsReadWriteContext, # saving back to gpkg
+    QgsVectorFileWriter,  # saving back to gpkg
     edit
 )
+from qgis.PyQt.QtXml import QDomDocument  # saving back to gpkg
 from PyQt5.QtGui import QColor, QFont
 from PyQt5.QtWidgets import (
     QMessageBox,
@@ -450,7 +453,7 @@ class ProjectSetup:
                 index=fields.indexFromName(key),
                 aliasString=value
             )
-    def set_snap_ovelap(self):
+    def set_snapp_ovelap(self):
         '''
         Sets the snapping tolerance to 5 meters snapping mode to "Follow Advanced Configuration". 
         Sets enable avoid intersections for the polygon layer
@@ -459,8 +462,9 @@ class ProjectSetup:
         # https://qgis.org/pyqgis/master/gui/Qgis.html#qgis.gui.Qgis.SnappingType
         # https://www.qgis.com/api/classQgsSnappingConfig_1_1IndividualLayerSettings.html#details
         # Set the snapping tolerance on polygon (5 meters) on vertex and segments and avoid overlap
-        pollyr = QgsProject.instance().mapLayersByName(
-            'nin_polygons')[0]  # Set the polygon layer
+        
+        # Get layer from project
+        layer = self.get_nin_polygons_layer() #QgsProject.instance().mapLayersByName('nin_polygons')[0]  # Set the polygon layer
         # Create a new snapping config object
         snapping_config = QgsSnappingConfig()
         # Enable snapping
@@ -477,7 +481,7 @@ class ProjectSetup:
             0   # maxScale
         )
         # Apply the individual settings to the layer
-        snapping_config.setIndividualLayerSettings(pollyr, snap_settings)
+        snapping_config.setIndividualLayerSettings(layer, snap_settings)
         QgsProject.instance().setSnappingConfig(
             snapping_config)          # Activate the snapping settings
 
@@ -493,7 +497,42 @@ class ProjectSetup:
 
         # Enable avoid intersections
         # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setAvoidIntersectionsLayers
-        QgsProject.instance().setAvoidIntersectionsLayers([pollyr])
+        QgsProject.instance().setAvoidIntersectionsLayers([layer])
+
+    def saving_gpkg(self, styled_layer) -> None:
+        '''
+        Changes to the style are saved back to the GPKG
+        '''
+        # Get layer from project
+        # styled_layer = self.get_nin_polygons_layer()
+        # Retrieve the data source URI of the layer
+        layer_source = styled_layer.dataProvider().dataSourceUri()
+
+        # Extract the GeoPackage file path from the layer source
+        gpkg_path = layer_source.split("|")[0]
+        # Context for transformations
+        context = QgsProject.instance().transformContext()
+        name = styled_layer.name()
+
+        # Options for saving the layer
+        options = QgsVectorFileWriter.SaveVectorOptions()
+        options.layerName = name
+        options.fileEncoding = styled_layer.dataProvider().encoding()
+        options.driverName = "GPKG"
+
+        # Save the vector layer back to the GeoPackage
+        QgsVectorFileWriter.writeAsVectorFormatV3(styled_layer, gpkg_path, context, options)
+
+        # Export and import the style to ensure it is saved
+        doc = QDomDocument()
+        #readWriteContext = QgsReadWriteContext()
+        styled_layer.exportNamedStyle(doc)
+
+        # Load the layer from the GeoPackage to apply the style
+        gpkg_layer = QgsVectorLayer(f"{gpkg_path}|layername={name}", name, "ogr")
+        gpkg_layer.importNamedStyle(doc)
+        gpkg_layer.saveStyleToDatabase(name, "", True, "")
+
 
 
 
@@ -506,11 +545,6 @@ def main(
     selected_mapping_scale="M005",
 ) -> None:
     '''Adapt QGIS project settings.'''
-
-    # Define name and path of existing geopackage
-    # TODO: Remove after testing!
-    gpkg_name = "nin_survey.gpkg"
-    gpkg_path = Path(__file__).parent / gpkg_name
 
     project_setup = ProjectSetup(
         gpkg_path=gpkg_path, 
@@ -612,5 +646,10 @@ def main(
         )
 
     # Adjust project snapping and overlap options
-    project_setup.set_snap_ovelap()
+    project_setup.set_snapp_ovelap()
+
+    # Save the geopackage style back to the geopackage
+    project_setup.saving_gpkg(styled_layer=project_setup.get_nin_polygons_layer())
+
+    #QGS_PROJECT.write(nin_qgis_plugin_dialog.file_location_selected())
 
