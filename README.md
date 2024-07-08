@@ -52,3 +52,5 @@ Contributors names and contact info
 @ [Lasse Keetz](https://github.com/orgs/geco-nhm/people/lasseke)
 @ [Peter Horvath](https://github.com/orgs/geco-nhm/people/peterhor)
 @ [Anne B. Nilsen](https://github.com/orgs/geco-nhm/people/9ls1)
+
+this plugin was developed with financial support from [NINA](https://www.nina.no/)
