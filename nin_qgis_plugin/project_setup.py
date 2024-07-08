@@ -16,7 +16,6 @@ from qgis.core import (
     QgsCategorizedSymbolRenderer,
     QgsRendererCategory,
     QgsSymbol,
-    QgsProject,
     QgsPalLayerSettings,
     QgsTextFormat,
     QgsVectorLayerSimpleLabeling,
@@ -66,6 +65,10 @@ class ProjectSetup:
         self.nin_polygons_layer_name = nin_polygons_layer_name
 
     def get_nin_polygons_layer(self):
+        '''
+        Returns the nin_polygons layer with layer name defined
+        in 'self.nin_polygons_layer_name'
+        '''
         return QGS_PROJECT.mapLayersByName(self.nin_polygons_layer_name)[0]
 
     def load_gpkg_layers(self) -> List[QgsVectorLayer]:
@@ -193,7 +196,6 @@ class ProjectSetup:
 
     def set_layer_field_default_values(
         self,
-        layer_name: str,
         field_name: str,
         default_value_expression: str,
         make_field_uneditable: bool = True,
@@ -224,7 +226,10 @@ class ProjectSetup:
                 form_config.setReadOnly(field_index, True)
                 layer.setEditFormConfig(form_config)
 
-    def field_to_datetime(self, layer_name: str, field_name: str) -> None:
+    def field_to_datetime(
+        self,
+        field_name: str
+    ) -> None:
         '''
         Adjusts save and display options in desired DateTime field.
 
@@ -245,7 +250,7 @@ class ProjectSetup:
         if field_idx >= 0:
             widget_setup = QgsEditorWidgetSetup('DateTime', config)
             layer.setEditorWidgetSetup(field_idx, widget_setup)
-    
+
     def set_photo_widget(self, layer):
         '''
         Adjusts the photo widget in registration scheme
@@ -255,11 +260,12 @@ class ProjectSetup:
         FIELD = "photo"
 
         photo_widget_setup = QgsEditorWidgetSetup(
-            'ExternalResource', #https://qgis.org/pyqgis/3.28/gui/QgsExternalResourceWidget.html
+            'ExternalResource',  # https://qgis.org/pyqgis/3.28/gui/QgsExternalResourceWidget.html
             {
                 'FileWidget': True,
                 'DocumentViewer': 1,
-                'RelativeStorage': 1, #https://qgis.org/pyqgis/3.28/gui/QgsFileWidget.html#qgis.gui.QgsFileWidget
+                # https://qgis.org/pyqgis/3.28/gui/QgsFileWidget.html#qgis.gui.QgsFileWidget
+                'RelativeStorage': 1,
                 'DefaultRoot': '@project_path',
                 'StorageMode': 0,
                 'DocumentViewerHeight': 300,
@@ -353,7 +359,7 @@ class ProjectSetup:
             text_format.setColor(QColor(0, 0, 0))  # Black color for text
             label_settings.setFormat(text_format)
 
-            #... setting expression as label... if not specified with kode_id_label then labeled with "ikke kartlagt"
+            # ... setting expression as label... if not specified with kode_id_label then labeled with "ikke kartlagt"
             # otherwise the represented value in kode_id_label is shortened to omit the mapping scale (string in the middle between dashes)
             label_settings.fieldName = """
                 CASE
@@ -361,7 +367,7 @@ class ProjectSetup:
                     ELSE regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-')
                 END
             """
-            
+
             label_settings.isExpression = True
             labeling = QgsVectorLayerSimpleLabeling(label_settings)
             layer.setLabeling(labeling)
@@ -415,7 +421,7 @@ class ProjectSetup:
             wms_layer_node = QgsLayerTreeLayer(wms_layer)
 
             # Insert the new layer's node at the bottom of the layer tree
-            # Index 0 inserts at the bottom
+            # Index -1 inserts at the bottom
             root.insertChildNode(-1, wms_layer_node)
 
             if zoom_to_extent:
@@ -450,6 +456,7 @@ class ProjectSetup:
                 index=fields.indexFromName(key),
                 aliasString=value
             )
+
     def set_snap_ovelap(self):
         '''
         Sets the snapping tolerance to 5 meters snapping mode to "Follow Advanced Configuration". 
@@ -459,8 +466,8 @@ class ProjectSetup:
         # https://qgis.org/pyqgis/master/gui/Qgis.html#qgis.gui.Qgis.SnappingType
         # https://www.qgis.com/api/classQgsSnappingConfig_1_1IndividualLayerSettings.html#details
         # Set the snapping tolerance on polygon (5 meters) on vertex and segments and avoid overlap
-        pollyr = QgsProject.instance().mapLayersByName(
-            'nin_polygons')[0]  # Set the polygon layer
+        pollyr = self.get_nin_polygons_layer()
+        
         # Create a new snapping config object
         snapping_config = QgsSnappingConfig()
         # Enable snapping
@@ -470,31 +477,32 @@ class ProjectSetup:
         # Create the individual layer settings
         snap_settings = QgsSnappingConfig.IndividualLayerSettings(
             True,  # Enable snapping
-            QgsSnappingConfig.VertexFlag | QgsSnappingConfig.SegmentFlag,  # Snapping type flags
-            5,  # Tolerance
+            Qgis.SnappingTypes(Qgis.SnappingType.Vertex | Qgis.SnappingType.Segment),
+            # QgsSnappingConfig.SnappingType.VertexAndSegment --> throws a bug in qgis 3.28, see https://github.com/qgis/QGIS/issues/52373
+            5.0,  # Tolerance
             QgsTolerance.ProjectUnits,  # Tolerance type
-            0,  # minScale
-            0   # maxScale
+            0.0,  # minScale
+            0.0,   # maxScale
         )
         # Apply the individual settings to the layer
         snapping_config.setIndividualLayerSettings(pollyr, snap_settings)
-        QgsProject.instance().setSnappingConfig(
-            snapping_config)          # Activate the snapping settings
+        QGS_PROJECT.setSnappingConfig(
+            snapping_config
+        )  # Activate the snapping settings
 
         # Enable topological editing
         # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setTopologicalEditing
-        QgsProject.instance().setTopologicalEditing(True)
+        QGS_PROJECT.setTopologicalEditing(True)
 
         # Set the snapping mode to "Follow Advanced Configuration" (=2) to avoid overlap on the polygon-layer
         # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setAvoidIntersectionsMode
-        QgsProject.instance().setAvoidIntersectionsMode(
+        QGS_PROJECT.setAvoidIntersectionsMode(
             Qgis.AvoidIntersectionsMode(2)
         )
 
         # Enable avoid intersections
         # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setAvoidIntersectionsLayers
-        QgsProject.instance().setAvoidIntersectionsLayers([pollyr])
-
+        QGS_PROJECT.setAvoidIntersectionsLayers([pollyr])
 
 
 def main(
@@ -513,7 +521,7 @@ def main(
     gpkg_path = Path(__file__).parent / gpkg_name
 
     project_setup = ProjectSetup(
-        gpkg_path=gpkg_path, 
+        gpkg_path=gpkg_path,
         selected_type_id=selected_type_id,
         selected_hovedtypegrupper=selected_items,
         selected_mapping_scale=selected_mapping_scale,
@@ -528,10 +536,7 @@ def main(
     project_setup.set_project_crs(crs=PROJECT_CRS)
 
     # Adjust datetime format of regdato
-    project_setup.field_to_datetime(
-        layer_name='nin_polygons',
-        field_name='regdato'
-    )
+    project_setup.field_to_datetime(field_name='regdato')
 
     project_setup.set_photo_widget(
         layer=project_setup.get_nin_polygons_layer(),
@@ -543,7 +548,6 @@ def main(
         selected_hovedtypegrupper=selected_items,
     ):
         project_setup.set_layer_field_default_values(
-            layer_name=default_value["layer_name"],
             field_name=default_value["field_name"],
             default_value_expression=default_value["default_value_expression"],
             make_field_uneditable=default_value["make_field_uneditable"],
@@ -613,14 +617,13 @@ def main(
 
     # Adjust project snapping and overlap options
     project_setup.set_snap_ovelap()
-   
+
     # Save the geopackage style back to the geopackage
     # project_setup.saving_gpkg(styled_layer=project_setup.get_nin_polygons_layer())
 
-    #print(gpkg_path)
+    # print(gpkg_path)
 
     # Save the project
     project_path = str(Path(gpkg_path).parent / "NiN_kartlegging.qgz")
     QGS_PROJECT.setFileName(project_path)
     QGS_PROJECT.write()
-

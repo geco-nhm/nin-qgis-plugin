@@ -23,24 +23,42 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="LabSelectType">
-      <property name="text">
-       <string>Select Type</string>
+    <item row="7" column="0">
+     <widget class="QgsFileWidget" name="gpkgFilePicker">
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="useLink">
+       <bool>false</bool>
+      </property>
+      <property name="fullUrl">
+       <bool>false</bool>
+      </property>
+      <property name="dialogTitle">
+       <string>Select geopackage save location...</string>
+      </property>
+      <property name="filter">
+       <string>GPKG (*.gpkg)</string>
+      </property>
+      <property name="storageMode">
+       <enum>QgsFileWidget::SaveFile</enum>
+      </property>
+      <property name="options">
+       <set>QFileDialog::ReadOnly</set>
       </property>
      </widget>
     </item>
     <item row="12" column="0">
-     <widget class="QPushButton" name="createPolygonButton">
+     <widget class="QPushButton" name="changeProjectSettingsButton">
       <property name="text">
-       <string>Create new geopackage!</string>
+       <string>Create geopackage and prepare project!</string>
       </property>
      </widget>
     </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="LabSelectFileLocation">
+    <item row="8" column="0">
+     <widget class="QLabel" name="label">
       <property name="text">
-       <string>Select geopackage file location...</string>
+       <string>Select WMS layers to load</string>
       </property>
      </widget>
     </item>
@@ -51,10 +69,30 @@
       </property>
      </widget>
     </item>
+    <item row="5" column="0">
+     <widget class="QComboBox" name="SelectMappingScale"/>
+    </item>
     <item row="3" column="0">
      <widget class="QListWidget" name="SelectHovedtypegrupper">
       <property name="resizeMode">
        <enum>QListView::Adjust</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QComboBox" name="SelectType"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="LabSelectHovedtypegruppe">
+      <property name="text">
+       <string>Select Hovedtypegruppe</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="LabSelectType">
+      <property name="text">
+       <string>Select Type</string>
       </property>
      </widget>
     </item>
@@ -125,57 +163,12 @@
       </widget>
      </widget>
     </item>
-    <item row="7" column="0">
-     <widget class="QgsFileWidget" name="gpkgFilePicker">
-      <property name="acceptDrops">
-       <bool>false</bool>
-      </property>
-      <property name="useLink">
-       <bool>false</bool>
-      </property>
-      <property name="fullUrl">
-       <bool>false</bool>
-      </property>
-      <property name="dialogTitle">
-       <string>Select geopackage save location...</string>
-      </property>
-      <property name="filter">
-       <string>GPKG (*.gpkg)</string>
-      </property>
-      <property name="storageMode">
-       <enum>QgsFileWidget::SaveFile</enum>
-      </property>
-      <property name="options">
-       <set>QFileDialog::ReadOnly</set>
-      </property>
-     </widget>
-    </item>
-    <item row="13" column="0">
-     <widget class="QPushButton" name="changeProjectSettingsButton">
+    <item row="6" column="0">
+     <widget class="QLabel" name="LabSelectFileLocation">
       <property name="text">
-       <string>Load geopackage and adapt project!</string>
+       <string>Select geopackage file location...</string>
       </property>
      </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="LabSelectHovedtypegruppe">
-      <property name="text">
-       <string>Select Hovedtypegruppe</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QComboBox" name="SelectType"/>
-    </item>
-    <item row="8" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Select WMS layers to load</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QComboBox" name="SelectMappingScale"/>
     </item>
    </layout>
   </widget>

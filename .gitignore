@@ -1,3 +1,4 @@
 *.gpkg*
 /nin_qgis_plugin/zip_build
 __pycache__/
+*.qgz*
