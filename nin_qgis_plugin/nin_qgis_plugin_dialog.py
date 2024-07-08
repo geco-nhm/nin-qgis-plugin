@@ -58,9 +58,6 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         self.setupUi(self)
 
         # Connect the button action to the create_geopackage method
-        self.createPolygonButton.clicked.connect(self.create_geopackage)
-
-        # Connect the button action to the create_geopackage method
         self.changeProjectSettingsButton.clicked.connect(self.load_project)
 
         # Access the combo box for Selecting Type and Selecting Hovedtypegruppe
@@ -105,10 +102,11 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         self.set_ui_default_values()
 
     def load_type_combo_box(self):
+
         # Path to the typer CSV file
         csv_root = Path(__file__).parent / 'csv' / \
             'attribute_tables'
-        type_file_path = csv_root / 'typer_attribute_table.csv'
+
         self.type_combo_data = {}  # To store data for the type combo box
 
         # Access the combo box
@@ -221,28 +219,11 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
                 # This sets the item as selected
                 item.setCheckState(Qt.Checked)
 
-    def create_geopackage(self) -> None:
-        '''
-        Creates a new .gpkg file based on user selections via 'create_gpkg.py'.
-        '''
-
-        # TODO: remove comments when done testing
-        if self.geopackage_path is None:
-            pass
-            # QMessageBox.information(None, "No path entered!", "Enter a valid .gpkg file path!")
-            # return
-
-        # Set gpkg file path from UI
-        self.file_location_selected()
-
-        cgpkg.main(
-            selected_mapping_scale=self.selectMappingScale.currentText(),
-            gpkg_path=self.geopackage_path,
-        )
-
     def load_project(self) -> None:
-        '''Loads project settings'''
-        
+        '''
+        Loads project settings
+        '''
+
         # Retrieve user selection in WMS checkboxes
         wms_settings = {
             box: self.wms_box_group.findChild(QCheckBox, box).isChecked()
@@ -265,6 +246,20 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
                 "Please select the 'type' you want to map."
             )
             return
+
+        # TODO: remove comments when done testing
+        if self.geopackage_path is None:
+            pass
+            # QMessageBox.information(None, "No path entered!", "Enter a valid .gpkg file path!")
+            # return
+
+        # Set gpkg file path from UI
+        self.file_location_selected()
+
+        cgpkg.main(
+            selected_mapping_scale=self.selectMappingScale.currentText(),
+            gpkg_path=self.geopackage_path,
+        )
 
         # Run project_setup.py
         ps.main(
