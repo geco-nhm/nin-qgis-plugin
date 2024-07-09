@@ -1,960 +1,1212 @@
 fid,grunntype_or_kle_fkey,var_name,var_kode_id,maaleskala,values,display_str
-0,1,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f","Kalkinnhold LM-KA: KA-SO(c,d,e,f)"
-1,0,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-2,3,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f","Kalkinnhold LM-KA: KA-SO(c,d,e,f)"
-3,2,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-4,4,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-5,4,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j,k)"
-6,4,Myrflatepreg,LM-MF,MF-SO,"a,b,c,d","Myrflatepreg LM-MF: MF-SO(a,b,c,d)"
-7,4,Vindutsatthet,LM-VI,VI-SO,"0,a,b","Vindutsatthet LM-VI: VI-SO(0,a,b)"
-8,5,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f)"
-9,5,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
-10,7,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
-11,7,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h","Kalkinnhold LM-KA: KA-SO(e,f,g,h)"
-12,6,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
-13,6,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-14,11,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j,k)"
-15,11,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
-16,11,Marin salinitet,LM-SA,SA-SO,"0,a","Marin salinitet LM-SA: SA-SO(0,a)"
-17,11,Myrflatepreg,LM-MF,MF-SO,"a,b,c,d","Myrflatepreg LM-MF: MF-SO(a,b,c,d)"
-18,11,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
-19,8,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j,k)"
-20,8,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
-21,8,Marin salinitet,LM-SA,SA-SO,"0,a","Marin salinitet LM-SA: SA-SO(0,a)"
-22,8,Myrflatepreg,LM-MF,MF-SO,"a,b,c,d","Myrflatepreg LM-MF: MF-SO(a,b,c,d)"
-23,8,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-24,10,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j)"
-25,10,Marin salinitet,LM-SA,SA-SO,"0,a","Marin salinitet LM-SA: SA-SO(0,a)"
-26,10,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
-27,10,Myrflatepreg,LM-MF,MF-SO,"a,b,c,d","Myrflatepreg LM-MF: MF-SO(a,b,c,d)"
-28,10,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-29,9,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h)"
-30,9,Myrflatepreg,LM-MF,MF-SO,"a,b","Myrflatepreg LM-MF: MF-SO(a,b)"
-31,9,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
-32,9,Marin salinitet,LM-SA,SA-SO,"b,c,d","Marin salinitet LM-SA: SA-SO(b,c,d)"
-33,9,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h","Kalkinnhold LM-KA: KA-SO(e,f,g,h)"
-34,16,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-35,16,Vanntilførsel,LM-VT,VT-SI,A,Vanntilførsel LM-VT: VT-SI(A)
-36,15,Kalkinnhold,LM-KA,KA-SO,"g,h","Kalkinnhold LM-KA: KA-SO(g,h)"
-37,15,Vanntilførsel,LM-VT,VT-SI,A,Vanntilførsel LM-VT: VT-SI(A)
-38,14,Vanntilførsel,LM-VT,VT-SI,D,Vanntilførsel LM-VT: VT-SI(D)
-39,14,Kalkinnhold,LM-KA,KA-SO,"g,h","Kalkinnhold LM-KA: KA-SO(g,h)"
-40,18,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f","Kalkinnhold LM-KA: KA-SO(c,d,e,f)"
-41,19,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-42,20,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j)"
-43,20,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
-44,24,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"a,b","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(a,b)"
-45,24,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f","Kalkinnhold LM-KA: KA-SO(c,d,e,f)"
-46,24,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
-47,23,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
-48,23,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"a,b","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(a,b)"
-49,23,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-50,22,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"c,d,e,f","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(c,d,e,f)"
-51,22,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f","Kalkinnhold LM-KA: KA-SO(c,d,e,f)"
-52,22,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c,d,e","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c,d,e)"
-53,21,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"c,d,e,f","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(c,d,e,f)"
-54,21,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c,d,e","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c,d,e)"
-55,21,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-56,26,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,A,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(A)
-57,33,Vanntilførsel,LM-VT,VT-SI,0,Vanntilførsel LM-VT: VT-SI(0)
-58,33,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,A,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(A)
-59,33,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f)"
-60,32,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-61,32,Vanntilførsel,LM-VT,VT-SI,0,Vanntilførsel LM-VT: VT-SI(0)
-62,32,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,A,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(A)
-63,31,Vanntilførsel,LM-VT,VT-SI,E,Vanntilførsel LM-VT: VT-SI(E)
-64,31,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,A,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(A)
-65,30,Vanntilførsel,LM-VT,VT-SI,0,Vanntilførsel LM-VT: VT-SI(0)
-66,30,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-67,30,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,B,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(B)
-68,29,Vanntilførsel,LM-VT,VT-SI,E,Vanntilførsel LM-VT: VT-SI(E)
-69,29,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,B,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(B)
-70,35,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
-71,34,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-72,37,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
-73,36,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-74,41,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
-75,41,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,A,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(A)
-76,40,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,G,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(G)
-77,40,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
-78,38,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,A,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(A)
-79,38,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-80,39,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-81,39,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,G,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(G)
-82,43,Vanntilførsel,LM-VT,VT-SI,0,Vanntilførsel LM-VT: VT-SI(0)
-83,42,Vanntilførsel,LM-VT,VT-SI,"A,B","Vanntilførsel LM-VT: VT-SI(A,B)"
-84,45,Vanntilførsel,LM-VT,VT-SI,0,Vanntilførsel LM-VT: VT-SI(0)
-85,44,Vanntilførsel,LM-VT,VT-SI,"A,B","Vanntilførsel LM-VT: VT-SI(A,B)"
-86,46,Markbearbeidingsintensitet,LM-HM,HM-SO,"0,a,b","Markbearbeidingsintensitet LM-HM: HM-SO(0,a,b)"
-87,46,Høstingsintensitet,LM-HH,HH-SO,"c,y","Høstingsintensitet LM-HH: HH-SO(c,y)"
-88,47,Høstingsintensitet,LM-HH,HH-SO,"c,y","Høstingsintensitet LM-HH: HH-SO(c,y)"
-89,47,Gjødslingsintensitet,LM-HG,HG-SO,"0,a,b,c","Gjødslingsintensitet LM-HG: HG-SO(0,a,b,c)"
-90,53,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,C,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(C)
-91,54,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,D,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(D)
-92,57,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,"M,N","Fysisk menneskepåvirket fastmark LM-MT: MT-SI(M,N)"
-93,59,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,K,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(K)
-94,58,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,L,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(L)
-95,60,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,E,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(E)
-96,60,Dominerende kornstørrelse,LM-DK,DK-SI,0,Dominerende kornstørrelse LM-DK: DK-SI(0)
-97,64,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D)"
-98,64,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,E,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(E)
-99,63,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,H,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(H)
-100,63,Dominerende kornstørrelse,LM-DK,DK-SI,"0,A,B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(0,A,B,C,D)"
-101,62,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,I,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(I)
-102,62,Dominerende kornstørrelse,LM-DK,DK-SI,"0,A,B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(0,A,B,C,D)"
-103,61,Dominerende kornstørrelse,LM-DK,DK-SI,"0,A,B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(0,A,B,C,D)"
-104,61,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,J,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(J)
-105,67,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,A,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(A)
-106,67,Grottebetinget skjerming,LM-GS,GS-SO,"0,a","Grottebetinget skjerming LM-GS: GS-SO(0,a)"
-107,65,Grottebetinget skjerming,LM-GS,GS-SO,"b,c,d,y","Grottebetinget skjerming LM-GS: GS-SO(b,c,d,y)"
-108,65,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,A,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(A)
-109,66,Grottebetinget skjerming,LM-GS,GS-SO,"0,a","Grottebetinget skjerming LM-GS: GS-SO(0,a)"
-110,66,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,B,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(B)
-111,70,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
-112,70,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-113,69,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-114,69,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
-115,68,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
-116,68,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-117,71,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f,g,h","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f,g,h)"
-118,71,Marin salinitet,LM-SA,SA-SO,"b,c,d,e,f,g,h","Marin salinitet LM-SA: SA-SO(b,c,d,e,f,g,h)"
-119,74,Uttørkingsfare,LM-UF,UF-SO,"b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(b,c,d,e,f,g)"
-120,74,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-121,73,Uttørkingsfare,LM-UF,UF-SO,"b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(b,c,d,e,f,g)"
-122,73,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-123,72,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g","Uttørkingsfare LM-UF: UF-SO(d,e,f,g)"
-124,72,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-125,75,Tørrleggingsvarighet,LM-TV,TV-SO,"f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(f,g,h,i,j,k)"
-126,75,Substrattype,LM-ST,ST-SI,"0,A","Substrattype LM-ST: ST-SI(0,A)"
-127,76,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f,g)"
-128,76,Markbearbeidingsintensitet,LM-HM,HM-SO,"0,a,b","Markbearbeidingsintensitet LM-HM: HM-SO(0,a,b)"
-129,76,Sandstabilisering,LM-SS,SS-SO,"j,k,y","Sandstabilisering LM-SS: SS-SO(j,k,y)"
-130,76,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-131,76,Åpning av tresjiktet,LM-HA,HA-SO,"b,c","Åpning av tresjiktet LM-HA: HA-SO(b,c)"
-132,82,Sandstabilisering,LM-SS,SS-SO,"j,k,y","Sandstabilisering LM-SS: SS-SO(j,k,y)"
-133,82,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-134,82,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f,g)"
-135,82,Markbearbeidingsintensitet,LM-HM,HM-SO,"0,a,b","Markbearbeidingsintensitet LM-HM: HM-SO(0,a,b)"
-136,82,Åpning av tresjiktet,LM-HA,HA-SO,"b,c","Åpning av tresjiktet LM-HA: HA-SO(b,c)"
-137,81,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f,g)"
-138,81,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-139,81,Sandstabilisering,LM-SS,SS-SO,"j,k,y","Sandstabilisering LM-SS: SS-SO(j,k,y)"
-140,81,Markbearbeidingsintensitet,LM-HM,HM-SO,"0,a,b","Markbearbeidingsintensitet LM-HM: HM-SO(0,a,b)"
-141,81,Åpning av tresjiktet,LM-HA,HA-SO,"b,c","Åpning av tresjiktet LM-HA: HA-SO(b,c)"
-142,80,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f,g)"
-143,80,Sandstabilisering,LM-SS,SS-SO,"j,k,y","Sandstabilisering LM-SS: SS-SO(j,k,y)"
-144,80,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-145,80,Markbearbeidingsintensitet,LM-HM,HM-SO,"0,a,b","Markbearbeidingsintensitet LM-HM: HM-SO(0,a,b)"
-146,80,Åpning av tresjiktet,LM-HA,HA-SO,y,Åpning av tresjiktet LM-HA: HA-SO(y)
-147,79,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f,g)"
-148,79,Sandstabilisering,LM-SS,SS-SO,"j,k,y","Sandstabilisering LM-SS: SS-SO(j,k,y)"
-149,79,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-150,79,Markbearbeidingsintensitet,LM-HM,HM-SO,"0,a,b","Markbearbeidingsintensitet LM-HM: HM-SO(0,a,b)"
-151,79,Åpning av tresjiktet,LM-HA,HA-SO,y,Åpning av tresjiktet LM-HA: HA-SO(y)
-152,78,Sandstabilisering,LM-SS,SS-SO,"j,k,y","Sandstabilisering LM-SS: SS-SO(j,k,y)"
-153,78,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f,g)"
-154,78,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-155,78,Markbearbeidingsintensitet,LM-HM,HM-SO,"0,a,b","Markbearbeidingsintensitet LM-HM: HM-SO(0,a,b)"
-156,78,Åpning av tresjiktet,LM-HA,HA-SO,y,Åpning av tresjiktet LM-HA: HA-SO(y)
-157,77,Kalkinnhold,LM-KA,KA-SO,"f,g,h,i","Kalkinnhold LM-KA: KA-SO(f,g,h,i)"
-158,77,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g","Uttørkingsfare LM-UF: UF-SO(d,e,f,g)"
-159,77,Sandstabilisering,LM-SS,SS-SO,"g,h,i","Sandstabilisering LM-SS: SS-SO(g,h,i)"
-160,77,Markbearbeidingsintensitet,LM-HM,HM-SO,0,Markbearbeidingsintensitet LM-HM: HM-SO(0)
-161,77,Åpning av tresjiktet,LM-HA,HA-SO,y,Åpning av tresjiktet LM-HA: HA-SO(y)
-162,86,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
-163,85,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-164,84,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
-165,83,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-166,92,Uttørkingsfare,LM-UF,UF-SO,"b,c","Uttørkingsfare LM-UF: UF-SO(b,c)"
-167,92,Vannmetning,LM-VM,VM-SO,"0,a","Vannmetning LM-VM: VM-SO(0,a)"
-168,92,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-169,87,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
-170,87,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-171,87,Uttørkingsfare,LM-UF,UF-SO,"b,c","Uttørkingsfare LM-UF: UF-SO(b,c)"
-172,91,Uttørkingsfare,LM-UF,UF-SO,"b,c","Uttørkingsfare LM-UF: UF-SO(b,c)"
-173,91,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-174,91,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
-175,90,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-176,90,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
-177,90,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g,h","Uttørkingsfare LM-UF: UF-SO(d,e,f,g,h)"
-178,89,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-179,89,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
-180,89,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g,h","Uttørkingsfare LM-UF: UF-SO(d,e,f,g,h)"
-181,88,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-182,88,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
-183,88,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g,h","Uttørkingsfare LM-UF: UF-SO(d,e,f,g,h)"
-184,111,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-185,111,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-186,111,Løsmassetype,LM-LT,LT-SI,A,Løsmassetype LM-LT: LT-SI(A)
-187,111,Dominerende kornstørrelse,LM-DK,DK-SI,D,Dominerende kornstørrelse LM-DK: DK-SI(D)
-188,111,Økologisk differensiering,AD-ØD,ØD-SI,0,Økologisk differensiering AD-ØD: ØD-SI(0)
-189,110,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-190,110,Kalkinnhold,LM-KA,KA-SO,"a,b,c","Kalkinnhold LM-KA: KA-SO(a,b,c)"
-191,110,Løsmassetype,LM-LT,LT-SI,A,Løsmassetype LM-LT: LT-SI(A)
-192,110,Dominerende kornstørrelse,LM-DK,DK-SI,D,Dominerende kornstørrelse LM-DK: DK-SI(D)
-193,110,Økologisk differensiering,AD-ØD,ØD-SI,B,Økologisk differensiering AD-ØD: ØD-SI(B)
-194,109,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-195,109,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-196,109,Løsmassetype,LM-LT,LT-SI,A,Løsmassetype LM-LT: LT-SI(A)
-197,109,Dominerende kornstørrelse,LM-DK,DK-SI,D,Dominerende kornstørrelse LM-DK: DK-SI(D)
-198,109,Økologisk differensiering,AD-ØD,ØD-SI,B,Økologisk differensiering AD-ØD: ØD-SI(B)
-199,108,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-200,108,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-201,108,Løsmassetype,LM-LT,LT-SI,A,Løsmassetype LM-LT: LT-SI(A)
-202,108,Dominerende kornstørrelse,LM-DK,DK-SI,D,Dominerende kornstørrelse LM-DK: DK-SI(D)
-203,108,Økologisk differensiering,AD-ØD,ØD-SI,"A,B,C","Økologisk differensiering AD-ØD: ØD-SI(A,B,C)"
-204,107,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-205,107,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-206,107,Løsmassetype,LM-LT,LT-SI,A,Løsmassetype LM-LT: LT-SI(A)
-207,107,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
-208,107,Økologisk differensiering,AD-ØD,ØD-SI,0,Økologisk differensiering AD-ØD: ØD-SI(0)
-209,106,Løsmassetype,LM-LT,LT-SI,A,Løsmassetype LM-LT: LT-SI(A)
-210,106,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-211,106,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f)"
-212,106,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
-213,106,Økologisk differensiering,AD-ØD,ØD-SI,"A,C","Økologisk differensiering AD-ØD: ØD-SI(A,C)"
-214,105,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
-215,105,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-216,105,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-217,105,Løsmassetype,LM-LT,LT-SI,A,Løsmassetype LM-LT: LT-SI(A)
-218,105,Økologisk differensiering,AD-ØD,ØD-SI,"A,C","Økologisk differensiering AD-ØD: ØD-SI(A,C)"
-219,104,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-220,104,Løsmassetype,LM-LT,LT-SI,B,Løsmassetype LM-LT: LT-SI(B)
-221,104,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-222,104,Dominerende kornstørrelse,LM-DK,DK-SI,"D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(D,E,F)"
-223,104,Økologisk differensiering,AD-ØD,ØD-SI,"0,A,B,C,D","Økologisk differensiering AD-ØD: ØD-SI(0,A,B,C,D)"
-224,103,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-225,103,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-226,103,Løsmassetype,LM-LT,LT-SI,C,Løsmassetype LM-LT: LT-SI(C)
-227,103,Dominerende kornstørrelse,LM-DK,DK-SI,"D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(D,E,F)"
-228,103,Økologisk differensiering,AD-ØD,ØD-SI,0,Økologisk differensiering AD-ØD: ØD-SI(0)
-229,102,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-230,102,Løsmassetype,LM-LT,LT-SI,C,Løsmassetype LM-LT: LT-SI(C)
-231,102,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-232,102,Dominerende kornstørrelse,LM-DK,DK-SI,"D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(D,E,F)"
-233,102,Økologisk differensiering,AD-ØD,ØD-SI,"A,B","Økologisk differensiering AD-ØD: ØD-SI(A,B)"
-234,101,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-235,101,Løsmassetype,LM-LT,LT-SI,C,Løsmassetype LM-LT: LT-SI(C)
-236,101,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-237,101,Dominerende kornstørrelse,LM-DK,DK-SI,"D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(D,E,F)"
-238,101,Økologisk differensiering,AD-ØD,ØD-SI,D,Økologisk differensiering AD-ØD: ØD-SI(D)
-239,93,Løsmassetype,LM-LT,LT-SI,D,Løsmassetype LM-LT: LT-SI(D)
-240,93,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-241,93,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-242,93,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D,E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D,E,F,G)"
-243,93,Økologisk differensiering,AD-ØD,ØD-SI,"0,A,B,C,D","Økologisk differensiering AD-ØD: ØD-SI(0,A,B,C,D)"
-244,100,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-245,100,Løsmassetype,LM-LT,LT-SI,E,Løsmassetype LM-LT: LT-SI(E)
-246,100,Kalkinnhold,LM-KA,KA-SO,"d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(d,e,f,g,h,i)"
-247,100,Dominerende kornstørrelse,LM-DK,DK-SI,"D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(D,E,F)"
-248,100,Økologisk differensiering,AD-ØD,ØD-SI,0,Økologisk differensiering AD-ØD: ØD-SI(0)
-249,99,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-250,99,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
-251,99,Løsmassetype,LM-LT,LT-SI,F,Løsmassetype LM-LT: LT-SI(F)
-252,99,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h","Kalkinnhold LM-KA: KA-SO(e,f,g,h)"
-253,99,Økologisk differensiering,AD-ØD,ØD-SI,"0,D","Økologisk differensiering AD-ØD: ØD-SI(0,D)"
-254,98,Permafrost,LM-PF,PF-SI,0,Permafrost LM-PF: PF-SI(0)
-255,98,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f,g,h,i)"
-256,98,Løsmassetype,LM-LT,LT-SI,F,Løsmassetype LM-LT: LT-SI(F)
-257,98,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-258,98,Økologisk differensiering,AD-ØD,ØD-SI,"0,D","Økologisk differensiering AD-ØD: ØD-SI(0,D)"
-259,97,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f,g,h,i)"
-260,97,Permafrost,LM-PF,PF-SI,0,Permafrost LM-PF: PF-SI(0)
-261,97,Løsmassetype,LM-LT,LT-SI,F,Løsmassetype LM-LT: LT-SI(F)
-262,97,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
-263,97,Økologisk differensiering,AD-ØD,ØD-SI,"0,D","Økologisk differensiering AD-ØD: ØD-SI(0,D)"
-264,96,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f,g,h,i)"
-265,96,Permafrost,LM-PF,PF-SI,0,Permafrost LM-PF: PF-SI(0)
-266,96,Løsmassetype,LM-LT,LT-SI,F,Løsmassetype LM-LT: LT-SI(F)
-267,96,Dominerende kornstørrelse,LM-DK,DK-SI,0,Dominerende kornstørrelse LM-DK: DK-SI(0)
-268,96,Økologisk differensiering,AD-ØD,ØD-SI,"0,C,D","Økologisk differensiering AD-ØD: ØD-SI(0,C,D)"
-269,95,Løsmassetype,LM-LT,LT-SI,F,Løsmassetype LM-LT: LT-SI(F)
-270,95,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f,g,h,i)"
-271,95,Permafrost,LM-PF,PF-SI,A,Permafrost LM-PF: PF-SI(A)
-272,95,Dominerende kornstørrelse,LM-DK,DK-SI,0,Dominerende kornstørrelse LM-DK: DK-SI(0)
-273,95,Økologisk differensiering,AD-ØD,ØD-SI,0,Økologisk differensiering AD-ØD: ØD-SI(0)
-274,94,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
-275,94,Løsmassetype,LM-LT,LT-SI,G,Løsmassetype LM-LT: LT-SI(G)
-276,94,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(c,d,e,f,g,h,i)"
-277,94,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(E,F,G)"
-278,94,Økologisk differensiering,AD-ØD,ØD-SI,"0,A,B,C","Økologisk differensiering AD-ØD: ØD-SI(0,A,B,C)"
-279,112,Marin salinitet,LM-SA,SA-SO,"0,a","Marin salinitet LM-SA: SA-SO(0,a)"
-280,113,Marin salinitet,LM-SA,SA-SO,"b,c,d","Marin salinitet LM-SA: SA-SO(b,c,d)"
-281,115,Sandstabilisering,LM-SS,SS-SO,k,Sandstabilisering LM-SS: SS-SO(k)
-282,114,Sandstabilisering,LM-SS,SS-SO,j,Sandstabilisering LM-SS: SS-SO(j)
-283,118,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-284,116,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-285,117,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-286,120,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-287,119,Kalkinnhold,LM-KA,KA-SO,"g,h","Kalkinnhold LM-KA: KA-SO(g,h)"
-288,124,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-289,124,Oppfrysing,LM-OF,OF-SO,"b,c","Oppfrysing LM-OF: OF-SO(b,c)"
-290,124,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D,E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(C,D,E,F,G)"
-291,123,Kalkinnhold,LM-KA,KA-SO,"d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(d,e,f,g,h,i)"
-292,123,Oppfrysing,LM-OF,OF-SO,"b,c,d,y","Oppfrysing LM-OF: OF-SO(b,c,d,y)"
-293,123,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D,E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D,E,F,G)"
-294,122,Oppfrysing,LM-OF,OF-SO,"b,c","Oppfrysing LM-OF: OF-SO(b,c)"
-295,122,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-296,122,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D,E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D,E,F,G)"
-297,125,Tørrleggingsvarighet,LM-TV,TV-SO,"d,e,f,g,h","Tørrleggingsvarighet LM-TV: TV-SO(d,e,f,g,h)"
-298,128,Kalkinnhold,LM-KA,KA-SO,"d,e,f,g,h","Kalkinnhold LM-KA: KA-SO(d,e,f,g,h)"
-299,128,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D)"
-300,127,Kalkinnhold,LM-KA,KA-SO,"d,e,f,g,h","Kalkinnhold LM-KA: KA-SO(d,e,f,g,h)"
-301,127,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(E,F,G)"
-302,126,Kalkinnhold,LM-KA,KA-SO,"g,h","Kalkinnhold LM-KA: KA-SO(g,h)"
-303,126,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
-304,131,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
-305,130,Dominerende kornstørrelse,LM-DK,DK-SI,C,Dominerende kornstørrelse LM-DK: DK-SI(C)
-306,129,Dominerende kornstørrelse,LM-DK,DK-SI,D,Dominerende kornstørrelse LM-DK: DK-SI(D)
-307,132,Marin salinitet,LM-SA,SA-SO,"a,b,c,d,e,f,g","Marin salinitet LM-SA: SA-SO(a,b,c,d,e,f,g)"
-308,132,Sandstabilisering,LM-SS,SS-SO,"b,c,d","Sandstabilisering LM-SS: SS-SO(b,c,d)"
-309,135,Marin salinitet,LM-SA,SA-SO,"a,b,c,d,e,f,g","Marin salinitet LM-SA: SA-SO(a,b,c,d,e,f,g)"
-310,135,Sandstabilisering,LM-SS,SS-SO,"e,f,g,h","Sandstabilisering LM-SS: SS-SO(e,f,g,h)"
-311,134,Sandstabilisering,LM-SS,SS-SO,"b,c,d","Sandstabilisering LM-SS: SS-SO(b,c,d)"
-312,134,Marin salinitet,LM-SA,SA-SO,0,Marin salinitet LM-SA: SA-SO(0)
-313,133,Sandstabilisering,LM-SS,SS-SO,"e,f,g,h","Sandstabilisering LM-SS: SS-SO(e,f,g,h)"
-314,133,Marin salinitet,LM-SA,SA-SO,0,Marin salinitet LM-SA: SA-SO(0)
-315,139,Vindutsatthet,LM-VI,VI-SO,"b,c,y","Vindutsatthet LM-VI: VI-SO(b,c,y)"
-316,139,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-317,138,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-318,138,Vindutsatthet,LM-VI,VI-SO,"b,c","Vindutsatthet LM-VI: VI-SO(b,c)"
-319,137,Vindutsatthet,LM-VI,VI-SO,"b,c","Vindutsatthet LM-VI: VI-SO(b,c)"
-320,137,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-321,136,Vindutsatthet,LM-VI,VI-SO,"b,c","Vindutsatthet LM-VI: VI-SO(b,c)"
-322,136,Kalkinnhold,LM-KA,KA-SO,j,Kalkinnhold LM-KA: KA-SO(j)
-323,140,Kalkinnhold,LM-KA,KA-SO,"e,f","Kalkinnhold LM-KA: KA-SO(e,f)"
-324,141,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-325,145,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-326,145,Vannsprutintensitet,LM-VS,VS-SO,"b,c","Vannsprutintensitet LM-VS: VS-SO(b,c)"
-327,144,Kalkinnhold,LM-KA,KA-SO,"g,h","Kalkinnhold LM-KA: KA-SO(g,h)"
-328,144,Vannsprutintensitet,LM-VS,VS-SO,"b,c","Vannsprutintensitet LM-VS: VS-SO(b,c)"
-329,143,Vannsprutintensitet,LM-VS,VS-SO,d,Vannsprutintensitet LM-VS: VS-SO(d)
-330,143,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-331,142,Vannsprutintensitet,LM-VS,VS-SO,d,Vannsprutintensitet LM-VS: VS-SO(d)
-332,142,Kalkinnhold,LM-KA,KA-SO,"g,h","Kalkinnhold LM-KA: KA-SO(g,h)"
-333,146,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
-334,146,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-335,148,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-336,148,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
-337,147,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-338,147,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
-339,149,Flomskredutsatthet,LM-FU,FU-SO,"b,c,d,y","Flomskredutsatthet LM-FU: FU-SO(b,c,d,y)"
-340,158,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c,d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c,d,e,f,g)"
-341,158,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-342,158,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-343,157,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c,d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c,d,e,f,g)"
-344,157,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-345,157,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-346,156,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c,d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c,d,e,f,g)"
-347,156,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-348,156,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-349,150,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c,d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c,d,e,f,g)"
-350,150,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-351,150,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(E,F,G)"
-352,154,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(E,F,G)"
-353,154,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-354,154,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c,d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c,d,e,f,g)"
-355,153,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c,d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c,d,e,f,g)"
-356,153,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-357,153,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(E,F,G)"
-358,152,Uttørkingseksponering,LM-UE,UE-SO,"d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(d,e,f,g)"
-359,152,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-360,152,Dominerende kornstørrelse,LM-DK,DK-SI,G,Dominerende kornstørrelse LM-DK: DK-SI(G)
-361,151,Uttørkingseksponering,LM-UE,UE-SO,"d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(d,e,f,g)"
-362,151,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-363,151,Dominerende kornstørrelse,LM-DK,DK-SI,G,Dominerende kornstørrelse LM-DK: DK-SI(G)
-364,155,Uttørkingseksponering,LM-UE,UE-SO,"d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(d,e,f,g)"
-365,155,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-366,155,Dominerende kornstørrelse,LM-DK,DK-SI,G,Dominerende kornstørrelse LM-DK: DK-SI(G)
-367,163,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"a,b,c,d","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(a,b,c,d)"
-368,163,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
-369,163,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-370,162,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-371,162,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"a,b,c,d","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(a,b,c,d)"
-372,162,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
-373,161,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"a,b,c,d","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(a,b,c,d)"
-374,161,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
-375,161,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-376,159,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"e,f","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(e,f)"
-377,159,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
-378,159,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
-379,160,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"e,f","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(e,f)"
-380,160,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-381,160,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
-382,165,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
-383,165,Naturlig gjødsling,LM-NG,NG-SO,"b,c,d,y","Naturlig gjødsling LM-NG: NG-SO(b,c,d,y)"
-384,166,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j,k)"
-385,166,Marin salinitet,LM-SA,SA-SO,"f,g,h","Marin salinitet LM-SA: SA-SO(f,g,h)"
-386,166,Substrattype,LM-ST,ST-SI,"0,A","Substrattype LM-ST: ST-SI(0,A)"
-387,167,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h)"
-388,167,Marin salinitet,LM-SA,SA-SO,"b,c,d,e","Marin salinitet LM-SA: SA-SO(b,c,d,e)"
-389,167,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-390,168,Saltanriking av mark i fjærebeltet,LM-SF,SF-SO,"b,y","Saltanriking av mark i fjærebeltet LM-SF: SF-SO(b,y)"
-391,173,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h)"
-392,173,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b)"
-393,173,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-394,173,Dominerende kornstørrelse,LM-DK,DK-SI,A,Dominerende kornstørrelse LM-DK: DK-SI(A)
-395,172,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h)"
-396,172,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-397,172,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b)"
-398,172,Dominerende kornstørrelse,LM-DK,DK-SI,B,Dominerende kornstørrelse LM-DK: DK-SI(B)
-399,171,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j,k)"
-400,171,Substrattype,LM-ST,ST-SI,"0,A,B","Substrattype LM-ST: ST-SI(0,A,B)"
-401,171,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b)"
-402,171,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-403,170,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j,k)"
-404,170,Substrattype,LM-ST,ST-SI,"0,A,B","Substrattype LM-ST: ST-SI(0,A,B)"
-405,170,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b,y","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b,y)"
-406,170,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D,E,F)"
-407,169,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j,k)"
-408,169,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b)"
-409,169,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-410,169,Dominerende kornstørrelse,LM-DK,DK-SI,G,Dominerende kornstørrelse LM-DK: DK-SI(G)
-411,179,Kalkinnhold,LM-KA,KA-SO,"a,b,c","Kalkinnhold LM-KA: KA-SO(a,b,c)"
-412,179,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c)"
-413,179,Grottebetinget skjerming,LM-GS,GS-SO,a,Grottebetinget skjerming LM-GS: GS-SO(a)
-414,178,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c)"
-415,178,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-416,178,Grottebetinget skjerming,LM-GS,GS-SO,a,Grottebetinget skjerming LM-GS: GS-SO(a)
-417,177,Grottebetinget skjerming,LM-GS,GS-SO,"a,b,c,d","Grottebetinget skjerming LM-GS: GS-SO(a,b,c,d)"
-418,177,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c)"
-419,177,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-420,176,Kalkinnhold,LM-KA,KA-SO,"a,b,c","Kalkinnhold LM-KA: KA-SO(a,b,c)"
-421,176,Uttørkingseksponering,LM-UE,UE-SO,"d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(d,e,f,g)"
-422,176,Grottebetinget skjerming,LM-GS,GS-SO,a,Grottebetinget skjerming LM-GS: GS-SO(a)
-423,175,Uttørkingseksponering,LM-UE,UE-SO,"d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(d,e,f,g)"
-424,175,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-425,175,Grottebetinget skjerming,LM-GS,GS-SO,a,Grottebetinget skjerming LM-GS: GS-SO(a)
-426,174,Uttørkingseksponering,LM-UE,UE-SO,"d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(d,e,f,g)"
-427,174,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-428,174,Grottebetinget skjerming,LM-GS,GS-SO,a,Grottebetinget skjerming LM-GS: GS-SO(a)
-429,180,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b,c,d,e,f,g,h,y","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b,c,d,e,f,g,h,y)"
-430,180,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
-431,180,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b,y","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b,y)"
-432,180,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
-433,181,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b,c,d,e","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b,c,d,e)"
-434,181,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-435,181,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b)"
-436,181,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d)"
-437,182,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
-438,182,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f)"
-439,182,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-440,187,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f)"
-441,187,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
-442,187,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-443,186,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f)"
-444,186,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
-445,186,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-446,185,Vannmetning,LM-VM,VM-SO,"0,a","Vannmetning LM-VM: VM-SO(0,a)"
-447,185,Uttørkingsfare,LM-UF,UF-SO,"e,f,g,h","Uttørkingsfare LM-UF: UF-SO(e,f,g,h)"
-448,185,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-449,184,Vannmetning,LM-VM,VM-SO,"0,a","Vannmetning LM-VM: VM-SO(0,a)"
-450,184,Uttørkingsfare,LM-UF,UF-SO,"e,f,g,h","Uttørkingsfare LM-UF: UF-SO(e,f,g,h)"
-451,184,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-452,183,Uttørkingsfare,LM-UF,UF-SO,"e,f,g,h","Uttørkingsfare LM-UF: UF-SO(e,f,g,h)"
-453,183,Vannmetning,LM-VM,VM-SO,"0,a","Vannmetning LM-VM: VM-SO(0,a)"
-454,183,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-455,190,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-456,189,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-457,188,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-458,197,Vannmetning,LM-VM,VM-SO,"0,a","Vannmetning LM-VM: VM-SO(0,a)"
-459,197,Uttørkingsfare,LM-UF,UF-SO,"b,c","Uttørkingsfare LM-UF: UF-SO(b,c)"
-460,197,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-461,196,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-462,196,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
-463,196,Uttørkingsfare,LM-UF,UF-SO,"b,c","Uttørkingsfare LM-UF: UF-SO(b,c)"
-464,193,Uttørkingsfare,LM-UF,UF-SO,"b,c","Uttørkingsfare LM-UF: UF-SO(b,c)"
-465,193,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
-466,193,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-467,192,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-468,192,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
-469,192,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g","Uttørkingsfare LM-UF: UF-SO(d,e,f,g)"
-470,191,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
-471,191,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-472,191,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g","Uttørkingsfare LM-UF: UF-SO(d,e,f,g)"
-473,195,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
-474,195,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-475,195,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g","Uttørkingsfare LM-UF: UF-SO(d,e,f,g)"
-476,194,Vannmetning,LM-VM,VM-SO,"0,a","Vannmetning LM-VM: VM-SO(0,a)"
-477,194,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g","Uttørkingsfare LM-UF: UF-SO(d,e,f,g)"
-478,194,Kalkinnhold,LM-KA,KA-SO,j,Kalkinnhold LM-KA: KA-SO(j)
-479,199,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
-480,198,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
-481,200,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
-482,203,Vindutsatthet,LM-VI,VI-SO,"0,a,b,c,y","Vindutsatthet LM-VI: VI-SO(0,a,b,c,y)"
-483,203,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"0,a,b,c,d,e,f","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(0,a,b,c,d,e,f)"
-484,203,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h)"
-485,202,Vindutsatthet,LM-VI,VI-SO,"0,a","Vindutsatthet LM-VI: VI-SO(0,a)"
-486,202,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,0,Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(0)
-487,202,Kalkinnhold,LM-KA,KA-SO,"e,f,i","Kalkinnhold LM-KA: KA-SO(e,f,i)"
-488,201,Vindutsatthet,LM-VI,VI-SO,"0,a","Vindutsatthet LM-VI: VI-SO(0,a)"
-489,201,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,0,Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(0)
-490,201,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
-491,204,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,"A,B","Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(A,B)"
-492,205,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,F,Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(F)
-493,208,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-494,208,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
-495,207,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-496,207,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
-497,206,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-498,206,Turbiditet,LM-TU,TU-SO,"c,y","Turbiditet LM-TU: TU-SO(c,y)"
-499,211,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
-500,210,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
-501,214,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,0,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(0)
-502,214,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D)"
-503,214,Jordvarmeinnflytelse,LM-JV,JV-SO,"a,b,c","Jordvarmeinnflytelse LM-JV: JV-SO(a,b,c)"
-504,213,Jordvarmeinnflytelse,LM-JV,JV-SO,"a,b,c","Jordvarmeinnflytelse LM-JV: JV-SO(a,b,c)"
-505,213,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,0,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(0)
-506,213,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(E,F,G)"
-507,212,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D,E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D,E,F,G)"
-508,212,Jordvarmeinnflytelse,LM-JV,JV-SO,a,Jordvarmeinnflytelse LM-JV: JV-SO(a)
-509,212,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,F,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(F)
-510,216,Kildevannspåvirkning,LM-KI,KI-SO,"d,e","Kildevannspåvirkning LM-KI: KI-SO(d,e)"
-511,215,Kildevannspåvirkning,LM-KI,KI-SO,y,Kildevannspåvirkning LM-KI: KI-SO(y)
-512,218,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
-513,217,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
-514,225,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
-515,225,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-516,225,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
-517,225,Dominerende kornstørrelse,LM-DK,DK-SI,"B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(B,C,D)"
-518,231,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
-519,231,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-520,231,Kalkinnhold,LM-KA,KA-SO,a,Kalkinnhold LM-KA: KA-SO(a)
-521,231,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
-522,230,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
-523,230,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-524,230,Kalkinnhold,LM-KA,KA-SO,b,Kalkinnhold LM-KA: KA-SO(b)
-525,230,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
-526,224,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-527,224,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(c,d,e,f,g,h,i)"
-528,224,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
-529,224,Dominerende kornstørrelse,LM-DK,DK-SI,"B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(B,C,D)"
-530,223,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-531,223,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
-532,223,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
-533,223,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
-534,229,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-535,229,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
-536,229,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
-537,229,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
-538,228,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-539,228,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
-540,228,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-541,228,Dominerende kornstørrelse,LM-DK,DK-SI,"B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(B,C,D)"
-542,227,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
-543,227,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-544,227,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
-545,227,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
-546,226,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-547,226,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
-548,226,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
-549,226,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
-550,221,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-551,221,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
-552,221,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
-553,221,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
-554,220,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
-555,220,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
-556,220,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-557,220,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(C,D,E,F)"
-558,219,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-559,219,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(c,d,e,f,g,h,i)"
-560,219,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
-561,219,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(C,D,E,F)"
-562,222,Turbiditet,LM-TU,TU-SO,"c,y","Turbiditet LM-TU: TU-SO(c,y)"
-563,222,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h)"
-564,222,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
-565,222,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D,E,F,G,H","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D,E,F,G,H)"
-566,237,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-567,237,Kalkinnhold,LM-KA,KA-SO,a,Kalkinnhold LM-KA: KA-SO(a)
-568,237,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
-569,239,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-570,239,Kalkinnhold,LM-KA,KA-SO,b,Kalkinnhold LM-KA: KA-SO(b)
-571,239,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
-572,238,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-573,238,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
-574,238,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
-575,236,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
-576,236,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
-577,236,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-578,235,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-579,235,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
-580,235,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
-581,234,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
-582,234,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-583,234,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
-584,233,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(c,d,e,f,g,h,i)"
-585,233,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-586,233,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
-587,232,Kalkinnhold,LM-KA,KA-SO,"a,b,c,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,e,f,g,h,i)"
-588,232,Turbiditet,LM-TU,TU-SO,"c,y","Turbiditet LM-TU: TU-SO(c,y)"
-589,232,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
-590,241,Substrattype,LM-ST,ST-SI,I,Substrattype LM-ST: ST-SI(I)
-591,240,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-592,246,Substrattype,LM-ST,ST-SI,I,Substrattype LM-ST: ST-SI(I)
-593,246,Finmaterialinnhold,LM-FI,FI-SO,0,Finmaterialinnhold LM-FI: FI-SO(0)
-594,246,Dybderelatert lyssvekking,LM-DL,DL-SO,0,Dybderelatert lyssvekking LM-DL: DL-SO(0)
-595,245,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
-596,245,Substrattype,LM-ST,ST-SI,I,Substrattype LM-ST: ST-SI(I)
-597,245,Finmaterialinnhold,LM-FI,FI-SO,0,Finmaterialinnhold LM-FI: FI-SO(0)
-598,244,Substrattype,LM-ST,ST-SI,I,Substrattype LM-ST: ST-SI(I)
-599,244,Finmaterialinnhold,LM-FI,FI-SO,0,Finmaterialinnhold LM-FI: FI-SO(0)
-600,244,Dybderelatert lyssvekking,LM-DL,DL-SO,y,Dybderelatert lyssvekking LM-DL: DL-SO(y)
-601,242,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c,d,y","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c,d,y)"
-602,242,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c,d,e,y","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c,d,e,y)"
-603,242,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-604,243,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-605,243,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c,d,e,y","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c,d,e,y)"
-606,243,Substrattype,LM-ST,ST-SI,F,Substrattype LM-ST: ST-SI(F)
-607,249,Marin salinitet,LM-SA,SA-SO,"d,e","Marin salinitet LM-SA: SA-SO(d,e)"
-608,248,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
-609,252,Marin salinitet,LM-SA,SA-SO,"f,g,h","Marin salinitet LM-SA: SA-SO(f,g,h)"
-610,251,Marin salinitet,LM-SA,SA-SO,"b,c,d,e","Marin salinitet LM-SA: SA-SO(b,c,d,e)"
-611,256,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
-612,256,Oksygenmangel,LM-OM,OM-SO,b,Oksygenmangel LM-OM: OM-SO(b)
-613,255,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
-614,255,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
-615,254,Oksygenmangel,LM-OM,OM-SO,b,Oksygenmangel LM-OM: OM-SO(b)
-616,254,Dybderelatert lyssvekking,LM-DL,DL-SO,y,Dybderelatert lyssvekking LM-DL: DL-SO(y)
-617,253,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
-618,253,Dybderelatert lyssvekking,LM-DL,DL-SO,y,Dybderelatert lyssvekking LM-DL: DL-SO(y)
-619,259,Jordvarmeinnflytelse,LM-JV,JV-SO,"a,b","Jordvarmeinnflytelse LM-JV: JV-SO(a,b)"
-620,258,Jordvarmeinnflytelse,LM-JV,JV-SO,"c,d","Jordvarmeinnflytelse LM-JV: JV-SO(c,d)"
-621,257,Jordvarmeinnflytelse,LM-JV,JV-SO,"e,y","Jordvarmeinnflytelse LM-JV: JV-SO(e,y)"
-622,264,Havkilde-type,LM-KT,KT-SI,A,Havkilde-type LM-KT: KT-SI(A)
-623,264,Hav-vannmasser,LM-HV,HV-SI,B,Hav-vannmasser LM-HV: HV-SI(B)
-624,263,Hav-vannmasser,LM-HV,HV-SI,B,Hav-vannmasser LM-HV: HV-SI(B)
-625,263,Havkilde-type,LM-KT,KT-SI,B,Havkilde-type LM-KT: KT-SI(B)
-626,262,Havkilde-type,LM-KT,KT-SI,A,Havkilde-type LM-KT: KT-SI(A)
-627,262,Hav-vannmasser,LM-HV,HV-SI,C,Hav-vannmasser LM-HV: HV-SI(C)
-628,261,Havkilde-type,LM-KT,KT-SI,B,Havkilde-type LM-KT: KT-SI(B)
-629,261,Hav-vannmasser,LM-HV,HV-SI,C,Hav-vannmasser LM-HV: HV-SI(C)
-630,260,Havkilde-type,LM-KT,KT-SI,A,Havkilde-type LM-KT: KT-SI(A)
-631,260,Hav-vannmasser,LM-HV,HV-SI,D,Hav-vannmasser LM-HV: HV-SI(D)
-632,266,Dybderelatert lyssvekking,LM-DL,DL-SO,0,Dybderelatert lyssvekking LM-DL: DL-SO(0)
-633,265,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e,y","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e,y)"
-634,272,Bioklimatiske seksjoner,RM-SE,SE-SO,"0,a","Bioklimatiske seksjoner RM-SE: SE-SO(0,a)"
-635,272,Substrattype,LM-ST,ST-SI,"0,F","Substrattype LM-ST: ST-SI(0,F)"
-636,272,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
-637,272,Marin salinitet,LM-SA,SA-SO,"d,e","Marin salinitet LM-SA: SA-SO(d,e)"
-638,272,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c,d,y","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c,d,y)"
-639,271,Marin salinitet,LM-SA,SA-SO,"b,c,d,e","Marin salinitet LM-SA: SA-SO(b,c,d,e)"
-640,271,Bioklimatiske seksjoner,RM-SE,SE-SO,"0,a","Bioklimatiske seksjoner RM-SE: SE-SO(0,a)"
-641,271,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
-642,271,Substrattype,LM-ST,ST-SI,"0,F","Substrattype LM-ST: ST-SI(0,F)"
-643,271,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-644,270,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-645,270,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
-646,270,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c)"
-647,270,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
-648,270,Bioklimatiske seksjoner,RM-SE,SE-SO,"0,a","Bioklimatiske seksjoner RM-SE: SE-SO(0,a)"
-649,269,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-650,269,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
-651,269,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
-652,269,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-653,268,Substrattype,LM-ST,ST-SI,F,Substrattype LM-ST: ST-SI(F)
-654,268,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
-655,268,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
-656,268,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-657,267,Marin salinitet,LM-SA,SA-SO,"b,c,d,e","Marin salinitet LM-SA: SA-SO(b,c,d,e)"
-658,267,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c)"
-659,267,Bioklimatiske seksjoner,RM-SE,SE-SO,"b,y","Bioklimatiske seksjoner RM-SE: SE-SO(b,y)"
-660,267,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-661,267,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
-662,275,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h)"
-663,275,Tørrleggingsfare,LM-TF,TF-SO,0,Tørrleggingsfare LM-TF: TF-SO(0)
-664,274,Tørrleggingsvarighet,LM-TV,TV-SO,"i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(i,j,k)"
-665,274,Tørrleggingsfare,LM-TF,TF-SO,0,Tørrleggingsfare LM-TF: TF-SO(0)
-666,273,Tørrleggingsvarighet,LM-TV,TV-SO,"i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(i,j,k)"
-667,273,Tørrleggingsfare,LM-TF,TF-SO,"a,b","Tørrleggingsfare LM-TF: TF-SO(a,b)"
-668,276,Marin salinitet,LM-SA,SA-SO,"d,e","Marin salinitet LM-SA: SA-SO(d,e)"
-669,276,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(a,b)"
-670,276,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
-671,276,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
-672,279,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f)"
-673,279,Marin salinitet,LM-SA,SA-SO,"d,e","Marin salinitet LM-SA: SA-SO(d,e)"
-674,279,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
-675,279,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
-676,278,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(a,b)"
-677,278,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
-678,278,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d)"
-679,278,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
-680,277,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f)"
-681,277,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
-682,277,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d)"
-683,277,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
-684,281,Marin salinitet,LM-SA,SA-SO,"d,e","Marin salinitet LM-SA: SA-SO(d,e)"
-685,280,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
-686,283,Hav-vannmasser,LM-HV,HV-SI,A,Hav-vannmasser LM-HV: HV-SI(A)
-687,282,Hav-vannmasser,LM-HV,HV-SI,B,Hav-vannmasser LM-HV: HV-SI(B)
-688,284,Tørrleggingsvarighet,LM-TV,TV-SO,"0,a,b","Tørrleggingsvarighet LM-TV: TV-SO(0,a,b)"
-689,287,Tørrleggingsvarighet,LM-TV,TV-SO,"a,b","Tørrleggingsvarighet LM-TV: TV-SO(a,b)"
-690,287,Marin salinitet,LM-SA,SA-SO,"f,g,h","Marin salinitet LM-SA: SA-SO(f,g,h)"
-691,285,Marin salinitet,LM-SA,SA-SO,"d,e","Marin salinitet LM-SA: SA-SO(d,e)"
-692,285,Tørrleggingsvarighet,LM-TV,TV-SO,"0,a,b","Tørrleggingsvarighet LM-TV: TV-SO(0,a,b)"
-693,286,Tørrleggingsvarighet,LM-TV,TV-SO,"0,a,b","Tørrleggingsvarighet LM-TV: TV-SO(0,a,b)"
-694,286,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
-695,299,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
-696,299,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-697,299,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-698,299,Hav-vannmasser,LM-HV,HV-SI,A,Hav-vannmasser LM-HV: HV-SI(A)
-699,299,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c)"
-700,298,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-701,298,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-702,298,Hav-vannmasser,LM-HV,HV-SI,A,Hav-vannmasser LM-HV: HV-SI(A)
-703,298,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
-704,298,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
-705,297,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-706,297,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-707,297,Hav-vannmasser,LM-HV,HV-SI,B,Hav-vannmasser LM-HV: HV-SI(B)
-708,297,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c)"
-709,297,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
-710,296,Hav-vannmasser,LM-HV,HV-SI,B,Hav-vannmasser LM-HV: HV-SI(B)
-711,296,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-712,296,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-713,296,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
-714,296,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
-715,295,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c)"
-716,295,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-717,295,Hav-vannmasser,LM-HV,HV-SI,C,Hav-vannmasser LM-HV: HV-SI(C)
-718,295,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-719,295,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
-720,294,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-721,294,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-722,294,Hav-vannmasser,LM-HV,HV-SI,C,Hav-vannmasser LM-HV: HV-SI(C)
-723,294,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
-724,294,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
-725,293,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c)"
-726,293,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-727,293,Hav-vannmasser,LM-HV,HV-SI,D,Hav-vannmasser LM-HV: HV-SI(D)
-728,293,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-729,293,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
-730,292,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-731,292,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
-732,292,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-733,292,Hav-vannmasser,LM-HV,HV-SI,D,Hav-vannmasser LM-HV: HV-SI(D)
-734,292,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
-735,291,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-736,291,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c)"
-737,291,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
-738,291,Hav-vannmasser,LM-HV,HV-SI,E,Hav-vannmasser LM-HV: HV-SI(E)
-739,291,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-740,290,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-741,290,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-742,290,Hav-vannmasser,LM-HV,HV-SI,E,Hav-vannmasser LM-HV: HV-SI(E)
-743,290,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
-744,290,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
-745,289,Hav-vannmasser,LM-HV,HV-SI,"A,B,C,D,E","Hav-vannmasser LM-HV: HV-SI(A,B,C,D,E)"
-746,289,Substrattype,LM-ST,ST-SI,H,Substrattype LM-ST: ST-SI(H)
-747,289,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-748,289,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
-749,289,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
-750,288,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
-751,288,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-752,288,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-753,288,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,"a,b","Abyssal næringstilførselsreduksjon LM-AN: AN-SO(a,b)"
-754,288,Hav-vannmasser,LM-HV,HV-SI,D,Hav-vannmasser LM-HV: HV-SI(D)
-755,304,Substrattype,LM-ST,ST-SI,"0,A,B","Substrattype LM-ST: ST-SI(0,A,B)"
-756,304,Finmaterialinnhold,LM-FI,FI-SO,"0,a","Finmaterialinnhold LM-FI: FI-SO(0,a)"
-757,304,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
-758,304,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-759,303,Dominerende kornstørrelse,LM-DK,DK-SI,E,Dominerende kornstørrelse LM-DK: DK-SI(E)
-760,303,Finmaterialinnhold,LM-FI,FI-SO,"0,a","Finmaterialinnhold LM-FI: FI-SO(0,a)"
-761,303,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
-762,302,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
-763,302,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-764,302,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-765,302,Finmaterialinnhold,LM-FI,FI-SO,"b,c","Finmaterialinnhold LM-FI: FI-SO(b,c)"
-766,301,Substrattype,LM-ST,ST-SI,"0,D,E,F","Substrattype LM-ST: ST-SI(0,D,E,F)"
-767,301,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-768,301,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
-769,301,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
-770,300,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-771,300,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
-772,300,Substrattype,LM-ST,ST-SI,H,Substrattype LM-ST: ST-SI(H)
-773,310,Tørrleggingsvarighet,LM-TV,TV-SO,"a,b,c,d,e,f","Tørrleggingsvarighet LM-TV: TV-SO(a,b,c,d,e,f)"
-774,310,Substrattype,LM-ST,ST-SI,"0,A,B","Substrattype LM-ST: ST-SI(0,A,B)"
-775,310,Finmaterialinnhold,LM-FI,FI-SO,"0,a","Finmaterialinnhold LM-FI: FI-SO(0,a)"
-776,310,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-777,305,Tørrleggingsvarighet,LM-TV,TV-SO,"a,b,c,d,e,f","Tørrleggingsvarighet LM-TV: TV-SO(a,b,c,d,e,f)"
-778,305,Finmaterialinnhold,LM-FI,FI-SO,"0,a","Finmaterialinnhold LM-FI: FI-SO(0,a)"
-779,305,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-780,305,Dominerende kornstørrelse,LM-DK,DK-SI,E,Dominerende kornstørrelse LM-DK: DK-SI(E)
-781,308,Tørrleggingsvarighet,LM-TV,TV-SO,a,Tørrleggingsvarighet LM-TV: TV-SO(a)
-782,308,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-783,308,Finmaterialinnhold,LM-FI,FI-SO,"b,c","Finmaterialinnhold LM-FI: FI-SO(b,c)"
-784,308,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-785,307,Tørrleggingsvarighet,LM-TV,TV-SO,"a,b,c","Tørrleggingsvarighet LM-TV: TV-SO(a,b,c)"
-786,307,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
-787,307,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
-788,307,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-789,306,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
-790,306,Tørrleggingsvarighet,LM-TV,TV-SO,"b,c,d,e,f","Tørrleggingsvarighet LM-TV: TV-SO(b,c,d,e,f)"
-791,306,Finmaterialinnhold,LM-FI,FI-SO,"b,c","Finmaterialinnhold LM-FI: FI-SO(b,c)"
-792,309,Tørrleggingsvarighet,LM-TV,TV-SO,"a,b","Tørrleggingsvarighet LM-TV: TV-SO(a,b)"
-793,309,Substrattype,LM-ST,ST-SI,H,Substrattype LM-ST: ST-SI(H)
-794,309,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
-795,309,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
-796,320,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b)"
-797,320,Hav-vannmasser,LM-HV,HV-SI,A,Hav-vannmasser LM-HV: HV-SI(A)
-798,316,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f)"
-799,316,Hav-vannmasser,LM-HV,HV-SI,A,Hav-vannmasser LM-HV: HV-SI(A)
-800,315,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b)"
-801,315,Hav-vannmasser,LM-HV,HV-SI,B,Hav-vannmasser LM-HV: HV-SI(B)
-802,311,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e)"
-803,311,Hav-vannmasser,LM-HV,HV-SI,B,Hav-vannmasser LM-HV: HV-SI(B)
-804,314,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b)"
-805,314,Hav-vannmasser,LM-HV,HV-SI,C,Hav-vannmasser LM-HV: HV-SI(C)
-806,313,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e)"
-807,313,Hav-vannmasser,LM-HV,HV-SI,C,Hav-vannmasser LM-HV: HV-SI(C)
-808,312,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b)"
-809,312,Hav-vannmasser,LM-HV,HV-SI,D,Hav-vannmasser LM-HV: HV-SI(D)
-810,319,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e)"
-811,319,Hav-vannmasser,LM-HV,HV-SI,D,Hav-vannmasser LM-HV: HV-SI(D)
-812,318,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b)"
-813,318,Hav-vannmasser,LM-HV,HV-SI,E,Hav-vannmasser LM-HV: HV-SI(E)
-814,317,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e)"
-815,317,Hav-vannmasser,LM-HV,HV-SI,E,Hav-vannmasser LM-HV: HV-SI(E)
-816,328,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b)"
-817,328,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
-818,328,Bunnujevnhet,LM-BU,BU-SO,"0,a,b,c","Bunnujevnhet LM-BU: BU-SO(0,a,b,c)"
-819,328,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
-820,327,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f)"
-821,327,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
-822,327,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
-823,327,Bunnujevnhet,LM-BU,BU-SO,"0,a,b,c","Bunnujevnhet LM-BU: BU-SO(0,a,b,c)"
-824,326,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"g,h","Vannforstyrrelsesintensitet LM-VF: VF-SO(g,h)"
-825,326,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d)"
-826,326,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
-827,326,Bunnujevnhet,LM-BU,BU-SO,"0,a,b,c","Bunnujevnhet LM-BU: BU-SO(0,a,b,c)"
-828,325,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b)"
-829,325,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
-830,325,Dybderelatert lyssvekking,LM-DL,DL-SO,e,Dybderelatert lyssvekking LM-DL: DL-SO(e)
-831,325,Bunnujevnhet,LM-BU,BU-SO,"0,a,b,c","Bunnujevnhet LM-BU: BU-SO(0,a,b,c)"
-832,321,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f)"
-833,321,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
-834,321,Dybderelatert lyssvekking,LM-DL,DL-SO,e,Dybderelatert lyssvekking LM-DL: DL-SO(e)
-835,321,Bunnujevnhet,LM-BU,BU-SO,"0,a,b,c","Bunnujevnhet LM-BU: BU-SO(0,a,b,c)"
-836,324,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f)"
-837,324,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
-838,324,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
-839,324,Bunnujevnhet,LM-BU,BU-SO,y,Bunnujevnhet LM-BU: BU-SO(y)
-840,323,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f)"
-841,323,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
-842,323,Dybderelatert lyssvekking,LM-DL,DL-SO,e,Dybderelatert lyssvekking LM-DL: DL-SO(e)
-843,323,Bunnujevnhet,LM-BU,BU-SO,y,Bunnujevnhet LM-BU: BU-SO(y)
-844,322,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"g,h","Vannforstyrrelsesintensitet LM-VF: VF-SO(g,h)"
-845,322,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
-846,322,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
-847,322,Bunnujevnhet,LM-BU,BU-SO,y,Bunnujevnhet LM-BU: BU-SO(y)
-848,330,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b,c,d","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b,c,d)"
-849,330,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b,y","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b,y)"
-850,329,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"e,f,g,h","Vannforstyrrelsesintensitet LM-VF: VF-SO(e,f,g,h)"
-851,329,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b)"
-852,334,Substrattype,LM-ST,ST-SI,"0,F,I","Substrattype LM-ST: ST-SI(0,F,I)"
-853,334,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,"A,B","Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(A,B)"
-854,333,Substrattype,LM-ST,ST-SI,"0,F","Substrattype LM-ST: ST-SI(0,F)"
-855,333,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,"C,D,E","Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(C,D,E)"
-856,331,Substrattype,LM-ST,ST-SI,"0,F,I","Substrattype LM-ST: ST-SI(0,F,I)"
-857,331,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,"D,E,F","Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(D,E,F)"
-858,332,Substrattype,LM-ST,ST-SI,I,Substrattype LM-ST: ST-SI(I)
-859,332,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,F,Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(F)
-860,337,Tørrleggingsvarighet,LM-TV,TV-SO,0,Tørrleggingsvarighet LM-TV: TV-SO(0)
-861,337,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
-862,336,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
-863,336,Tørrleggingsvarighet,LM-TV,TV-SO,0,Tørrleggingsvarighet LM-TV: TV-SO(0)
-864,335,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-865,335,Tørrleggingsvarighet,LM-TV,TV-SO,"a,b","Tørrleggingsvarighet LM-TV: TV-SO(a,b)"
-866,338,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-867,338,Substrattype,LM-ST,ST-SI,"0,F","Substrattype LM-ST: ST-SI(0,F)"
-868,340,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
-869,339,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
-870,343,Fysisk menneskepåvirkete bunnsubstrater,LM-MY,MY-SI,"A,B","Fysisk menneskepåvirkete bunnsubstrater LM-MY: MY-SI(A,B)"
-871,343,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-872,342,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
-873,342,Fysisk menneskepåvirkete bunnsubstrater,LM-MY,MY-SI,C,Fysisk menneskepåvirkete bunnsubstrater LM-MY: MY-SI(C)
-874,341,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
-875,341,Fysisk menneskepåvirkete bunnsubstrater,LM-MY,MY-SI,C,Fysisk menneskepåvirkete bunnsubstrater LM-MY: MY-SI(C)
-876,345,Substrattype,LM-ST,ST-SI,"0,F,I","Substrattype LM-ST: ST-SI(0,F,I)"
-877,347,Naturlig gjødsling,LM-NG,NG-SO,"b,c","Naturlig gjødsling LM-NG: NG-SO(b,c)"
-878,346,Naturlig gjødsling,LM-NG,NG-SO,"d,y","Naturlig gjødsling LM-NG: NG-SO(d,y)"
-879,349,Snø- og istype,LM-SN,SN-SI,"B,C","Snø- og istype LM-SN: SN-SI(B,C)"
-880,348,Snø- og istype,LM-SN,SN-SI,D,Snø- og istype LM-SN: SN-SI(D)
-881,356,Oksygenmangel,LM-OM,OM-SO,b,Oksygenmangel LM-OM: OM-SO(b)
-882,356,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,0,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(0)
-883,355,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
-884,355,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,A,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(A)
-885,354,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
-886,354,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,B,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(B)
-887,353,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
-888,353,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,C,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(C)
-889,352,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,D,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(D)
-890,352,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
-891,351,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
-892,351,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,E,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(E)
-893,350,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
-894,350,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,F,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(F)
-895,358,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
-896,357,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
-897,359,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
-898,362,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
-899,361,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
-900,360,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
-901,365,Vanntilførsel,LM-VT,VT-SI,0,Vanntilførsel LM-VT: VT-SI(0)
-902,365,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
-903,364,Vanntilførsel,LM-VT,VT-SI,0,Vanntilførsel LM-VT: VT-SI(0)
-904,364,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
-905,363,Vanntilførsel,LM-VT,VT-SI,C,Vanntilførsel LM-VT: VT-SI(C)
-906,368,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
-907,367,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
-908,366,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
-909,371,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
-910,370,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
-911,369,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
-912,372,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
-913,374,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
-914,373,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
-915,378,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
-916,378,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-917,378,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c,d,e)"
-918,378,Dominerende kornstørrelse,LM-DK,DK-SI,"B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(B,C,D)"
-919,377,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
-920,377,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-921,377,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c,d,e)"
-922,377,Dominerende kornstørrelse,LM-DK,DK-SI,"B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(B,C,D)"
-923,382,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-924,382,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
-925,382,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c)"
-926,382,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
-927,381,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-928,381,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
-929,381,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c,d,e)"
-930,381,Dominerende kornstørrelse,LM-DK,DK-SI,"B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(B,C,D)"
-931,380,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-932,380,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c,d,e)"
-933,380,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
-934,380,Dominerende kornstørrelse,LM-DK,DK-SI,"B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(B,C,D)"
-935,379,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-936,379,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
-937,379,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c)"
-938,379,Dominerende kornstørrelse,LM-DK,DK-SI,A,Dominerende kornstørrelse LM-DK: DK-SI(A)
-939,376,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-940,376,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
-941,376,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c)"
-942,376,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
-943,375,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-944,375,Turbiditet,LM-TU,TU-SO,"c,y","Turbiditet LM-TU: TU-SO(c,y)"
-945,375,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c,d,e)"
-946,375,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C)"
-947,385,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-948,385,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
-949,384,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-950,384,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
-951,383,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-952,383,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
-953,387,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
-954,387,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
-955,386,Turbiditet,LM-TU,TU-SO,"c,y","Turbiditet LM-TU: TU-SO(c,y)"
-956,386,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
-957,388,Snø- og istype,LM-SN,SN-SI,"A,B,C","Snø- og istype LM-SN: SN-SI(A,B,C)"
-958,389,Snø- og istype,LM-SN,SN-SI,D,Snø- og istype LM-SN: SN-SI(D)
+0,391,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+1,390,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+2,394,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+3,393,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+4,398,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,"A,B","Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(A,B)"
+5,397,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,C,Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(C)
+6,396,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,"D,E","Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(D,E)"
+7,395,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,F,Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(F)
+8,406,Fiskesamfunnskompleksitet,SA-FS,FS-SI,0,Fiskesamfunnskompleksitet SA-FS: FS-SI(0)
+9,406,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+10,406,Hydrodynamisk regime,LM-HY,HY-SI,A,Hydrodynamisk regime LM-HY: HY-SI(A)
+11,405,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+12,405,Fiskesamfunnskompleksitet,SA-FS,FS-SI,0,Fiskesamfunnskompleksitet SA-FS: FS-SI(0)
+13,405,Hydrodynamisk regime,LM-HY,HY-SI,B,Hydrodynamisk regime LM-HY: HY-SI(B)
+14,404,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h","Kalkinnhold LM-KA: KA-SO(e,f,g,h)"
+15,404,Fiskesamfunnskompleksitet,SA-FS,FS-SI,0,Fiskesamfunnskompleksitet SA-FS: FS-SI(0)
+16,404,Hydrodynamisk regime,LM-HY,HY-SI,A,Hydrodynamisk regime LM-HY: HY-SI(A)
+17,403,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h","Kalkinnhold LM-KA: KA-SO(e,f,g,h)"
+18,403,Fiskesamfunnskompleksitet,SA-FS,FS-SI,0,Fiskesamfunnskompleksitet SA-FS: FS-SI(0)
+19,403,Hydrodynamisk regime,LM-HY,HY-SI,B,Hydrodynamisk regime LM-HY: HY-SI(B)
+20,402,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+21,402,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"A,B,C","Fiskesamfunnskompleksitet SA-FS: FS-SI(A,B,C)"
+22,402,Hydrodynamisk regime,LM-HY,HY-SI,A,Hydrodynamisk regime LM-HY: HY-SI(A)
+23,401,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"A,B,C","Fiskesamfunnskompleksitet SA-FS: FS-SI(A,B,C)"
+24,401,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+25,401,Hydrodynamisk regime,LM-HY,HY-SI,B,Hydrodynamisk regime LM-HY: HY-SI(B)
+26,400,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"A,B,C","Fiskesamfunnskompleksitet SA-FS: FS-SI(A,B,C)"
+27,400,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h","Kalkinnhold LM-KA: KA-SO(e,f,g,h)"
+28,400,Hydrodynamisk regime,LM-HY,HY-SI,A,Hydrodynamisk regime LM-HY: HY-SI(A)
+29,399,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"A,B,C","Fiskesamfunnskompleksitet SA-FS: FS-SI(A,B,C)"
+30,399,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h","Kalkinnhold LM-KA: KA-SO(e,f,g,h)"
+31,399,Hydrodynamisk regime,LM-HY,HY-SI,B,Hydrodynamisk regime LM-HY: HY-SI(B)
+32,408,Snø- og istype,LM-SN,SN-SI,"B,C","Snø- og istype LM-SN: SN-SI(B,C)"
+33,407,Snø- og istype,LM-SN,SN-SI,D,Snø- og istype LM-SN: SN-SI(D)
+34,414,Oksygenmangel,LM-OM,OM-SO,b,Oksygenmangel LM-OM: OM-SO(b)
+35,414,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,0,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(0)
+36,413,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
+37,413,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,A,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(A)
+38,412,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
+39,412,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,B,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(B)
+40,411,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
+41,411,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,C,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(C)
+42,410,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
+43,410,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,D,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(D)
+44,409,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
+45,409,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,E,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(E)
+46,416,Naturlig gjødsling,LM-NG,NG-SO,"b,c","Naturlig gjødsling LM-NG: NG-SO(b,c)"
+47,415,Naturlig gjødsling,LM-NG,NG-SO,"d,y","Naturlig gjødsling LM-NG: NG-SO(d,y)"
+48,420,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+49,420,Turbiditet,LM-TU,TU-SO,"b,c","Turbiditet LM-TU: TU-SO(b,c)"
+50,419,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h","Kalkinnhold LM-KA: KA-SO(e,f,g,h)"
+51,419,Turbiditet,LM-TU,TU-SO,"b,c","Turbiditet LM-TU: TU-SO(b,c)"
+52,418,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h)"
+53,418,Turbiditet,LM-TU,TU-SO,y,Turbiditet LM-TU: TU-SO(y)
+54,422,Fiskesamfunnskompleksitet,SA-FS,FS-SI,0,Fiskesamfunnskompleksitet SA-FS: FS-SI(0)
+55,421,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"A,B,C","Fiskesamfunnskompleksitet SA-FS: FS-SI(A,B,C)"
+56,440,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+57,440,Fiskesamfunnskompleksitet,SA-FS,FS-SI,A,Fiskesamfunnskompleksitet SA-FS: FS-SI(A)
+58,440,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+59,439,Fiskesamfunnskompleksitet,SA-FS,FS-SI,A,Fiskesamfunnskompleksitet SA-FS: FS-SI(A)
+60,439,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+61,439,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+62,438,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+63,438,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+64,438,Fiskesamfunnskompleksitet,SA-FS,FS-SI,A,Fiskesamfunnskompleksitet SA-FS: FS-SI(A)
+65,437,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+66,437,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+67,437,Fiskesamfunnskompleksitet,SA-FS,FS-SI,A,Fiskesamfunnskompleksitet SA-FS: FS-SI(A)
+68,436,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+69,436,Fiskesamfunnskompleksitet,SA-FS,FS-SI,A,Fiskesamfunnskompleksitet SA-FS: FS-SI(A)
+70,436,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+71,435,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+72,435,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+73,435,Fiskesamfunnskompleksitet,SA-FS,FS-SI,A,Fiskesamfunnskompleksitet SA-FS: FS-SI(A)
+74,434,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+75,434,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+76,434,Fiskesamfunnskompleksitet,SA-FS,FS-SI,B,Fiskesamfunnskompleksitet SA-FS: FS-SI(B)
+77,433,Fiskesamfunnskompleksitet,SA-FS,FS-SI,B,Fiskesamfunnskompleksitet SA-FS: FS-SI(B)
+78,433,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+79,433,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+80,432,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+81,432,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+82,432,Fiskesamfunnskompleksitet,SA-FS,FS-SI,B,Fiskesamfunnskompleksitet SA-FS: FS-SI(B)
+83,431,Fiskesamfunnskompleksitet,SA-FS,FS-SI,B,Fiskesamfunnskompleksitet SA-FS: FS-SI(B)
+84,431,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+85,431,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+86,430,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+87,430,Fiskesamfunnskompleksitet,SA-FS,FS-SI,B,Fiskesamfunnskompleksitet SA-FS: FS-SI(B)
+88,430,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+89,429,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+90,429,Fiskesamfunnskompleksitet,SA-FS,FS-SI,B,Fiskesamfunnskompleksitet SA-FS: FS-SI(B)
+91,429,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+92,428,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"C,D","Fiskesamfunnskompleksitet SA-FS: FS-SI(C,D)"
+93,428,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+94,428,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+95,427,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"C,D","Fiskesamfunnskompleksitet SA-FS: FS-SI(C,D)"
+96,427,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+97,427,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+98,426,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+99,426,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"C,D","Fiskesamfunnskompleksitet SA-FS: FS-SI(C,D)"
+100,426,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+101,425,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"C,D","Fiskesamfunnskompleksitet SA-FS: FS-SI(C,D)"
+102,425,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+103,425,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+104,424,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+105,424,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"C,D","Fiskesamfunnskompleksitet SA-FS: FS-SI(C,D)"
+106,424,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+107,423,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"C,D","Fiskesamfunnskompleksitet SA-FS: FS-SI(C,D)"
+108,423,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+109,423,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+110,458,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+111,458,Fiskesamfunnskompleksitet,SA-FS,FS-SI,A,Fiskesamfunnskompleksitet SA-FS: FS-SI(A)
+112,458,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+113,457,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+114,457,Fiskesamfunnskompleksitet,SA-FS,FS-SI,A,Fiskesamfunnskompleksitet SA-FS: FS-SI(A)
+115,457,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+116,456,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+117,456,Fiskesamfunnskompleksitet,SA-FS,FS-SI,A,Fiskesamfunnskompleksitet SA-FS: FS-SI(A)
+118,456,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+119,455,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+120,455,Fiskesamfunnskompleksitet,SA-FS,FS-SI,A,Fiskesamfunnskompleksitet SA-FS: FS-SI(A)
+121,455,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+122,454,Fiskesamfunnskompleksitet,SA-FS,FS-SI,A,Fiskesamfunnskompleksitet SA-FS: FS-SI(A)
+123,454,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+124,454,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+125,453,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+126,453,Fiskesamfunnskompleksitet,SA-FS,FS-SI,A,Fiskesamfunnskompleksitet SA-FS: FS-SI(A)
+127,453,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+128,452,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+129,452,Fiskesamfunnskompleksitet,SA-FS,FS-SI,B,Fiskesamfunnskompleksitet SA-FS: FS-SI(B)
+130,452,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+131,451,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+132,451,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+133,451,Fiskesamfunnskompleksitet,SA-FS,FS-SI,B,Fiskesamfunnskompleksitet SA-FS: FS-SI(B)
+134,450,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+135,450,Fiskesamfunnskompleksitet,SA-FS,FS-SI,B,Fiskesamfunnskompleksitet SA-FS: FS-SI(B)
+136,450,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+137,449,Fiskesamfunnskompleksitet,SA-FS,FS-SI,B,Fiskesamfunnskompleksitet SA-FS: FS-SI(B)
+138,449,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+139,449,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+140,448,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+141,448,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+142,448,Fiskesamfunnskompleksitet,SA-FS,FS-SI,B,Fiskesamfunnskompleksitet SA-FS: FS-SI(B)
+143,447,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+144,447,Fiskesamfunnskompleksitet,SA-FS,FS-SI,B,Fiskesamfunnskompleksitet SA-FS: FS-SI(B)
+145,447,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+146,446,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+147,446,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+148,446,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"C,D","Fiskesamfunnskompleksitet SA-FS: FS-SI(C,D)"
+149,445,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"C,D","Fiskesamfunnskompleksitet SA-FS: FS-SI(C,D)"
+150,445,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+151,445,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+152,444,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+153,444,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+154,444,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"C,D","Fiskesamfunnskompleksitet SA-FS: FS-SI(C,D)"
+155,443,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"C,D","Fiskesamfunnskompleksitet SA-FS: FS-SI(C,D)"
+156,443,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+157,443,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+158,442,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+159,442,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+160,442,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"C,D","Fiskesamfunnskompleksitet SA-FS: FS-SI(C,D)"
+161,441,Fiskesamfunnskompleksitet,SA-FS,FS-SI,"C,D","Fiskesamfunnskompleksitet SA-FS: FS-SI(C,D)"
+162,441,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+163,441,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+164,475,Vanntilførsel,LM-VT,VT-SI,"0,A","Vanntilførsel LM-VT: VT-SI(0,A)"
+165,475,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+166,475,Vannforekomststørrelse,LM-SM,SM-SO,"e,f","Vannforekomststørrelse LM-SM: SM-SO(e,f)"
+167,475,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+168,474,Vannforekomststørrelse,LM-SM,SM-SO,"g,h,i","Vannforekomststørrelse LM-SM: SM-SO(g,h,i)"
+169,474,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+170,474,Vanntilførsel,LM-VT,VT-SI,"0,A","Vanntilførsel LM-VT: VT-SI(0,A)"
+171,474,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+172,473,Vannforekomststørrelse,LM-SM,SM-SO,"e,f","Vannforekomststørrelse LM-SM: SM-SO(e,f)"
+173,473,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+174,473,Vanntilførsel,LM-VT,VT-SI,"0,A","Vanntilførsel LM-VT: VT-SI(0,A)"
+175,473,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+176,472,Vannforekomststørrelse,LM-SM,SM-SO,"g,h,i","Vannforekomststørrelse LM-SM: SM-SO(g,h,i)"
+177,472,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+178,472,Vanntilførsel,LM-VT,VT-SI,"0,A","Vanntilførsel LM-VT: VT-SI(0,A)"
+179,472,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+180,471,Vannforekomststørrelse,LM-SM,SM-SO,"e,f","Vannforekomststørrelse LM-SM: SM-SO(e,f)"
+181,471,Vanntilførsel,LM-VT,VT-SI,"0,A","Vanntilførsel LM-VT: VT-SI(0,A)"
+182,471,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+183,471,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+184,470,Vannforekomststørrelse,LM-SM,SM-SO,"g,h,i","Vannforekomststørrelse LM-SM: SM-SO(g,h,i)"
+185,470,Vanntilførsel,LM-VT,VT-SI,"0,A,B","Vanntilførsel LM-VT: VT-SI(0,A,B)"
+186,470,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+187,470,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+188,469,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+189,469,Vanntilførsel,LM-VT,VT-SI,"0,A,B","Vanntilførsel LM-VT: VT-SI(0,A,B)"
+190,469,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+191,469,Vannforekomststørrelse,LM-SM,SM-SO,"e,f","Vannforekomststørrelse LM-SM: SM-SO(e,f)"
+192,468,Vanntilførsel,LM-VT,VT-SI,"0,A,B","Vanntilførsel LM-VT: VT-SI(0,A,B)"
+193,468,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+194,468,Vannforekomststørrelse,LM-SM,SM-SO,"g,h,i","Vannforekomststørrelse LM-SM: SM-SO(g,h,i)"
+195,468,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+196,467,Vannforekomststørrelse,LM-SM,SM-SO,"e,f","Vannforekomststørrelse LM-SM: SM-SO(e,f)"
+197,467,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+198,467,Vanntilførsel,LM-VT,VT-SI,"0,A,B","Vanntilførsel LM-VT: VT-SI(0,A,B)"
+199,467,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+200,466,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+201,466,Vanntilførsel,LM-VT,VT-SI,"0,A,B","Vanntilførsel LM-VT: VT-SI(0,A,B)"
+202,466,Vannforekomststørrelse,LM-SM,SM-SO,"g,h,i","Vannforekomststørrelse LM-SM: SM-SO(g,h,i)"
+203,466,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+204,465,Vanntilførsel,LM-VT,VT-SI,"0,A,B","Vanntilførsel LM-VT: VT-SI(0,A,B)"
+205,465,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+206,465,Vannforekomststørrelse,LM-SM,SM-SO,"e,f","Vannforekomststørrelse LM-SM: SM-SO(e,f)"
+207,465,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+208,464,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+209,464,Vannforekomststørrelse,LM-SM,SM-SO,"g,h,i","Vannforekomststørrelse LM-SM: SM-SO(g,h,i)"
+210,464,Vanntilførsel,LM-VT,VT-SI,"0,A,B","Vanntilførsel LM-VT: VT-SI(0,A,B)"
+211,464,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+212,463,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+213,463,Vanntilførsel,LM-VT,VT-SI,"0,A,B","Vanntilførsel LM-VT: VT-SI(0,A,B)"
+214,463,Vannforekomststørrelse,LM-SM,SM-SO,"e,f","Vannforekomststørrelse LM-SM: SM-SO(e,f)"
+215,463,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+216,462,Vannforekomststørrelse,LM-SM,SM-SO,"g,h,i","Vannforekomststørrelse LM-SM: SM-SO(g,h,i)"
+217,462,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+218,462,Vanntilførsel,LM-VT,VT-SI,"0,A,B","Vanntilførsel LM-VT: VT-SI(0,A,B)"
+219,462,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+220,461,Vanntilførsel,LM-VT,VT-SI,"0,A,B","Vanntilførsel LM-VT: VT-SI(0,A,B)"
+221,461,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+222,461,Vannforekomststørrelse,LM-SM,SM-SO,"e,f","Vannforekomststørrelse LM-SM: SM-SO(e,f)"
+223,461,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+224,460,Vanntilførsel,LM-VT,VT-SI,"0,A,B","Vanntilførsel LM-VT: VT-SI(0,A,B)"
+225,460,Vannforekomststørrelse,LM-SM,SM-SO,"g,h,i","Vannforekomststørrelse LM-SM: SM-SO(g,h,i)"
+226,460,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+227,460,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+228,459,Vannforekomststørrelse,LM-SM,SM-SO,"g,h,i","Vannforekomststørrelse LM-SM: SM-SO(g,h,i)"
+229,459,Vanntilførsel,LM-VT,VT-SI,C,Vanntilførsel LM-VT: VT-SI(C)
+230,459,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+231,481,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+232,481,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+233,480,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+234,480,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+235,479,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+236,479,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+237,478,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+238,478,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+239,477,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+240,477,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+241,476,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+242,476,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+243,1,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f","Kalkinnhold LM-KA: KA-SO(c,d,e,f)"
+244,0,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+245,3,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f","Kalkinnhold LM-KA: KA-SO(c,d,e,f)"
+246,2,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+247,4,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j,k)"
+248,4,Vindutsatthet,LM-VI,VI-SO,"0,a,b","Vindutsatthet LM-VI: VI-SO(0,a,b)"
+249,4,Myrflatepreg,LM-MF,MF-SO,"a,b,c,d","Myrflatepreg LM-MF: MF-SO(a,b,c,d)"
+250,4,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+251,5,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f)"
+252,5,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
+253,7,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
+254,7,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h","Kalkinnhold LM-KA: KA-SO(e,f,g,h)"
+255,6,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+256,6,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
+257,11,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j,k)"
+258,11,Myrflatepreg,LM-MF,MF-SO,"a,b,c,d","Myrflatepreg LM-MF: MF-SO(a,b,c,d)"
+259,11,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
+260,11,Marin salinitet,LM-SA,SA-SO,"0,a","Marin salinitet LM-SA: SA-SO(0,a)"
+261,11,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+262,8,Marin salinitet,LM-SA,SA-SO,"0,a","Marin salinitet LM-SA: SA-SO(0,a)"
+263,8,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j,k)"
+264,8,Myrflatepreg,LM-MF,MF-SO,"a,b,c,d","Myrflatepreg LM-MF: MF-SO(a,b,c,d)"
+265,8,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
+266,8,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+267,10,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j)"
+268,10,Marin salinitet,LM-SA,SA-SO,"0,a","Marin salinitet LM-SA: SA-SO(0,a)"
+269,10,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
+270,10,Myrflatepreg,LM-MF,MF-SO,"a,b,c,d","Myrflatepreg LM-MF: MF-SO(a,b,c,d)"
+271,10,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+272,9,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h)"
+273,9,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
+274,9,Marin salinitet,LM-SA,SA-SO,"b,c,d","Marin salinitet LM-SA: SA-SO(b,c,d)"
+275,9,Myrflatepreg,LM-MF,MF-SO,"a,b","Myrflatepreg LM-MF: MF-SO(a,b)"
+276,9,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h","Kalkinnhold LM-KA: KA-SO(e,f,g,h)"
+277,16,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+278,16,Vanntilførsel,LM-VT,VT-SI,A,Vanntilførsel LM-VT: VT-SI(A)
+279,15,Vanntilførsel,LM-VT,VT-SI,A,Vanntilførsel LM-VT: VT-SI(A)
+280,15,Kalkinnhold,LM-KA,KA-SO,"g,h","Kalkinnhold LM-KA: KA-SO(g,h)"
+281,14,Vanntilførsel,LM-VT,VT-SI,D,Vanntilførsel LM-VT: VT-SI(D)
+282,14,Kalkinnhold,LM-KA,KA-SO,"g,h","Kalkinnhold LM-KA: KA-SO(g,h)"
+283,18,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f","Kalkinnhold LM-KA: KA-SO(c,d,e,f)"
+284,19,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+285,20,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j)"
+286,20,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
+287,24,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"a,b","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(a,b)"
+288,24,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
+289,24,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f","Kalkinnhold LM-KA: KA-SO(c,d,e,f)"
+290,23,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"a,b","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(a,b)"
+291,23,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+292,23,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
+293,22,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"c,d,e,f","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(c,d,e,f)"
+294,22,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f","Kalkinnhold LM-KA: KA-SO(c,d,e,f)"
+295,22,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c,d,e","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c,d,e)"
+296,21,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"c,d,e,f","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(c,d,e,f)"
+297,21,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+298,21,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c,d,e","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c,d,e)"
+299,26,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,A,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(A)
+300,33,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f)"
+301,33,Vanntilførsel,LM-VT,VT-SI,0,Vanntilførsel LM-VT: VT-SI(0)
+302,33,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,A,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(A)
+303,32,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+304,32,Vanntilførsel,LM-VT,VT-SI,0,Vanntilførsel LM-VT: VT-SI(0)
+305,32,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,A,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(A)
+306,31,Vanntilførsel,LM-VT,VT-SI,E,Vanntilførsel LM-VT: VT-SI(E)
+307,31,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,A,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(A)
+308,30,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+309,30,Vanntilførsel,LM-VT,VT-SI,0,Vanntilførsel LM-VT: VT-SI(0)
+310,30,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,B,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(B)
+311,29,Vanntilførsel,LM-VT,VT-SI,E,Vanntilførsel LM-VT: VT-SI(E)
+312,29,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,B,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(B)
+313,35,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
+314,34,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+315,37,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
+316,36,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+317,41,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
+318,41,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,A,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(A)
+319,40,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
+320,40,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,G,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(G)
+321,38,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+322,38,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,A,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(A)
+323,39,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+324,39,Fysisk menneskepåvirket våtmark,LM-MV,MV-SI,G,Fysisk menneskepåvirket våtmark LM-MV: MV-SI(G)
+325,43,Vanntilførsel,LM-VT,VT-SI,0,Vanntilførsel LM-VT: VT-SI(0)
+326,42,Vanntilførsel,LM-VT,VT-SI,"A,B","Vanntilførsel LM-VT: VT-SI(A,B)"
+327,45,Vanntilførsel,LM-VT,VT-SI,0,Vanntilførsel LM-VT: VT-SI(0)
+328,44,Vanntilførsel,LM-VT,VT-SI,"A,B","Vanntilførsel LM-VT: VT-SI(A,B)"
+329,46,Markbearbeidingsintensitet,LM-HM,HM-SO,"0,a,b","Markbearbeidingsintensitet LM-HM: HM-SO(0,a,b)"
+330,46,Høstingsintensitet,LM-HH,HH-SO,"c,y","Høstingsintensitet LM-HH: HH-SO(c,y)"
+331,47,Høstingsintensitet,LM-HH,HH-SO,"c,y","Høstingsintensitet LM-HH: HH-SO(c,y)"
+332,47,Gjødslingsintensitet,LM-HG,HG-SO,"0,a,b,c","Gjødslingsintensitet LM-HG: HG-SO(0,a,b,c)"
+333,53,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,C,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(C)
+334,54,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,D,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(D)
+335,57,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,"M,N","Fysisk menneskepåvirket fastmark LM-MT: MT-SI(M,N)"
+336,59,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,K,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(K)
+337,58,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,L,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(L)
+338,60,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,E,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(E)
+339,60,Dominerende kornstørrelse,LM-DK,DK-SI,0,Dominerende kornstørrelse LM-DK: DK-SI(0)
+340,64,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,E,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(E)
+341,64,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D)"
+342,63,Dominerende kornstørrelse,LM-DK,DK-SI,"0,A,B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(0,A,B,C,D)"
+343,63,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,H,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(H)
+344,62,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,I,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(I)
+345,62,Dominerende kornstørrelse,LM-DK,DK-SI,"0,A,B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(0,A,B,C,D)"
+346,61,Dominerende kornstørrelse,LM-DK,DK-SI,"0,A,B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(0,A,B,C,D)"
+347,61,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,J,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(J)
+348,67,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,A,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(A)
+349,67,Grottebetinget skjerming,LM-GS,GS-SO,"0,a","Grottebetinget skjerming LM-GS: GS-SO(0,a)"
+350,65,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,A,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(A)
+351,65,Grottebetinget skjerming,LM-GS,GS-SO,"b,c,d,y","Grottebetinget skjerming LM-GS: GS-SO(b,c,d,y)"
+352,66,Fysisk menneskepåvirket fastmark,LM-MT,MT-SI,B,Fysisk menneskepåvirket fastmark LM-MT: MT-SI(B)
+353,66,Grottebetinget skjerming,LM-GS,GS-SO,"0,a","Grottebetinget skjerming LM-GS: GS-SO(0,a)"
+354,70,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
+355,70,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+356,69,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
+357,69,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+358,68,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+359,68,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
+360,71,Marin salinitet,LM-SA,SA-SO,"b,c,d,e,f,g,h","Marin salinitet LM-SA: SA-SO(b,c,d,e,f,g,h)"
+361,71,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f,g,h","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f,g,h)"
+362,74,Uttørkingsfare,LM-UF,UF-SO,"b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(b,c,d,e,f,g)"
+363,74,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+364,73,Uttørkingsfare,LM-UF,UF-SO,"b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(b,c,d,e,f,g)"
+365,73,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+366,72,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g","Uttørkingsfare LM-UF: UF-SO(d,e,f,g)"
+367,72,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+368,75,Tørrleggingsvarighet,LM-TV,TV-SO,"f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(f,g,h,i,j,k)"
+369,75,Substrattype,LM-ST,ST-SI,"0,A","Substrattype LM-ST: ST-SI(0,A)"
+370,76,Sandstabilisering,LM-SS,SS-SO,"j,k,y","Sandstabilisering LM-SS: SS-SO(j,k,y)"
+371,76,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f,g)"
+372,76,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+373,76,Markbearbeidingsintensitet,LM-HM,HM-SO,"0,a,b","Markbearbeidingsintensitet LM-HM: HM-SO(0,a,b)"
+374,76,Åpning av tresjiktet,LM-HA,HA-SO,"b,c","Åpning av tresjiktet LM-HA: HA-SO(b,c)"
+375,82,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f,g)"
+376,82,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+377,82,Sandstabilisering,LM-SS,SS-SO,"j,k,y","Sandstabilisering LM-SS: SS-SO(j,k,y)"
+378,82,Markbearbeidingsintensitet,LM-HM,HM-SO,"0,a,b","Markbearbeidingsintensitet LM-HM: HM-SO(0,a,b)"
+379,82,Åpning av tresjiktet,LM-HA,HA-SO,"b,c","Åpning av tresjiktet LM-HA: HA-SO(b,c)"
+380,81,Sandstabilisering,LM-SS,SS-SO,"j,k,y","Sandstabilisering LM-SS: SS-SO(j,k,y)"
+381,81,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+382,81,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f,g)"
+383,81,Markbearbeidingsintensitet,LM-HM,HM-SO,"0,a,b","Markbearbeidingsintensitet LM-HM: HM-SO(0,a,b)"
+384,81,Åpning av tresjiktet,LM-HA,HA-SO,"b,c","Åpning av tresjiktet LM-HA: HA-SO(b,c)"
+385,80,Sandstabilisering,LM-SS,SS-SO,"j,k,y","Sandstabilisering LM-SS: SS-SO(j,k,y)"
+386,80,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f,g)"
+387,80,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+388,80,Markbearbeidingsintensitet,LM-HM,HM-SO,"0,a,b","Markbearbeidingsintensitet LM-HM: HM-SO(0,a,b)"
+389,80,Åpning av tresjiktet,LM-HA,HA-SO,y,Åpning av tresjiktet LM-HA: HA-SO(y)
+390,79,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f,g)"
+391,79,Sandstabilisering,LM-SS,SS-SO,"j,k,y","Sandstabilisering LM-SS: SS-SO(j,k,y)"
+392,79,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+393,79,Markbearbeidingsintensitet,LM-HM,HM-SO,"0,a,b","Markbearbeidingsintensitet LM-HM: HM-SO(0,a,b)"
+394,79,Åpning av tresjiktet,LM-HA,HA-SO,y,Åpning av tresjiktet LM-HA: HA-SO(y)
+395,78,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f,g","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f,g)"
+396,78,Sandstabilisering,LM-SS,SS-SO,"j,k,y","Sandstabilisering LM-SS: SS-SO(j,k,y)"
+397,78,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+398,78,Markbearbeidingsintensitet,LM-HM,HM-SO,"0,a,b","Markbearbeidingsintensitet LM-HM: HM-SO(0,a,b)"
+399,78,Åpning av tresjiktet,LM-HA,HA-SO,y,Åpning av tresjiktet LM-HA: HA-SO(y)
+400,77,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g","Uttørkingsfare LM-UF: UF-SO(d,e,f,g)"
+401,77,Sandstabilisering,LM-SS,SS-SO,"g,h,i","Sandstabilisering LM-SS: SS-SO(g,h,i)"
+402,77,Kalkinnhold,LM-KA,KA-SO,"f,g,h,i","Kalkinnhold LM-KA: KA-SO(f,g,h,i)"
+403,77,Markbearbeidingsintensitet,LM-HM,HM-SO,0,Markbearbeidingsintensitet LM-HM: HM-SO(0)
+404,77,Åpning av tresjiktet,LM-HA,HA-SO,y,Åpning av tresjiktet LM-HA: HA-SO(y)
+405,86,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
+406,85,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+407,84,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
+408,83,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+409,92,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+410,92,Vannmetning,LM-VM,VM-SO,"0,a","Vannmetning LM-VM: VM-SO(0,a)"
+411,92,Uttørkingsfare,LM-UF,UF-SO,"b,c","Uttørkingsfare LM-UF: UF-SO(b,c)"
+412,87,Uttørkingsfare,LM-UF,UF-SO,"b,c","Uttørkingsfare LM-UF: UF-SO(b,c)"
+413,87,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+414,87,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
+415,91,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
+416,91,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+417,91,Uttørkingsfare,LM-UF,UF-SO,"b,c","Uttørkingsfare LM-UF: UF-SO(b,c)"
+418,90,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g,h","Uttørkingsfare LM-UF: UF-SO(d,e,f,g,h)"
+419,90,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+420,90,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
+421,89,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
+422,89,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g,h","Uttørkingsfare LM-UF: UF-SO(d,e,f,g,h)"
+423,89,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+424,88,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g,h","Uttørkingsfare LM-UF: UF-SO(d,e,f,g,h)"
+425,88,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
+426,88,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+427,111,Løsmassetype,LM-LT,LT-SI,A,Løsmassetype LM-LT: LT-SI(A)
+428,111,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+429,111,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+430,111,Dominerende kornstørrelse,LM-DK,DK-SI,D,Dominerende kornstørrelse LM-DK: DK-SI(D)
+431,111,Økologisk differensiering,AD-ØD,ØD-SI,0,Økologisk differensiering AD-ØD: ØD-SI(0)
+432,110,Kalkinnhold,LM-KA,KA-SO,"a,b,c","Kalkinnhold LM-KA: KA-SO(a,b,c)"
+433,110,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+434,110,Løsmassetype,LM-LT,LT-SI,A,Løsmassetype LM-LT: LT-SI(A)
+435,110,Dominerende kornstørrelse,LM-DK,DK-SI,D,Dominerende kornstørrelse LM-DK: DK-SI(D)
+436,110,Økologisk differensiering,AD-ØD,ØD-SI,B,Økologisk differensiering AD-ØD: ØD-SI(B)
+437,109,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+438,109,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+439,109,Løsmassetype,LM-LT,LT-SI,A,Løsmassetype LM-LT: LT-SI(A)
+440,109,Dominerende kornstørrelse,LM-DK,DK-SI,D,Dominerende kornstørrelse LM-DK: DK-SI(D)
+441,109,Økologisk differensiering,AD-ØD,ØD-SI,B,Økologisk differensiering AD-ØD: ØD-SI(B)
+442,108,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+443,108,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+444,108,Løsmassetype,LM-LT,LT-SI,A,Løsmassetype LM-LT: LT-SI(A)
+445,108,Dominerende kornstørrelse,LM-DK,DK-SI,D,Dominerende kornstørrelse LM-DK: DK-SI(D)
+446,108,Økologisk differensiering,AD-ØD,ØD-SI,"A,B,C","Økologisk differensiering AD-ØD: ØD-SI(A,B,C)"
+447,107,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+448,107,Løsmassetype,LM-LT,LT-SI,A,Løsmassetype LM-LT: LT-SI(A)
+449,107,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+450,107,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
+451,107,Økologisk differensiering,AD-ØD,ØD-SI,0,Økologisk differensiering AD-ØD: ØD-SI(0)
+452,106,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f)"
+453,106,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+454,106,Løsmassetype,LM-LT,LT-SI,A,Løsmassetype LM-LT: LT-SI(A)
+455,106,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
+456,106,Økologisk differensiering,AD-ØD,ØD-SI,"A,C","Økologisk differensiering AD-ØD: ØD-SI(A,C)"
+457,105,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+458,105,Løsmassetype,LM-LT,LT-SI,A,Løsmassetype LM-LT: LT-SI(A)
+459,105,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+460,105,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
+461,105,Økologisk differensiering,AD-ØD,ØD-SI,"A,C","Økologisk differensiering AD-ØD: ØD-SI(A,C)"
+462,104,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+463,104,Løsmassetype,LM-LT,LT-SI,B,Løsmassetype LM-LT: LT-SI(B)
+464,104,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+465,104,Dominerende kornstørrelse,LM-DK,DK-SI,"D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(D,E,F)"
+466,104,Økologisk differensiering,AD-ØD,ØD-SI,"0,A,B,C,D","Økologisk differensiering AD-ØD: ØD-SI(0,A,B,C,D)"
+467,103,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+468,103,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+469,103,Løsmassetype,LM-LT,LT-SI,C,Løsmassetype LM-LT: LT-SI(C)
+470,103,Dominerende kornstørrelse,LM-DK,DK-SI,"D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(D,E,F)"
+471,103,Økologisk differensiering,AD-ØD,ØD-SI,0,Økologisk differensiering AD-ØD: ØD-SI(0)
+472,102,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+473,102,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+474,102,Løsmassetype,LM-LT,LT-SI,C,Løsmassetype LM-LT: LT-SI(C)
+475,102,Dominerende kornstørrelse,LM-DK,DK-SI,"D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(D,E,F)"
+476,102,Økologisk differensiering,AD-ØD,ØD-SI,"A,B","Økologisk differensiering AD-ØD: ØD-SI(A,B)"
+477,101,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+478,101,Løsmassetype,LM-LT,LT-SI,C,Løsmassetype LM-LT: LT-SI(C)
+479,101,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+480,101,Dominerende kornstørrelse,LM-DK,DK-SI,"D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(D,E,F)"
+481,101,Økologisk differensiering,AD-ØD,ØD-SI,D,Økologisk differensiering AD-ØD: ØD-SI(D)
+482,93,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+483,93,Løsmassetype,LM-LT,LT-SI,D,Løsmassetype LM-LT: LT-SI(D)
+484,93,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+485,93,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D,E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D,E,F,G)"
+486,93,Økologisk differensiering,AD-ØD,ØD-SI,"0,A,B,C,D","Økologisk differensiering AD-ØD: ØD-SI(0,A,B,C,D)"
+487,100,Løsmassetype,LM-LT,LT-SI,E,Løsmassetype LM-LT: LT-SI(E)
+488,100,Kalkinnhold,LM-KA,KA-SO,"d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(d,e,f,g,h,i)"
+489,100,Dominerende kornstørrelse,LM-DK,DK-SI,"D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(D,E,F)"
+490,100,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+491,100,Økologisk differensiering,AD-ØD,ØD-SI,0,Økologisk differensiering AD-ØD: ØD-SI(0)
+492,99,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+493,99,Løsmassetype,LM-LT,LT-SI,F,Løsmassetype LM-LT: LT-SI(F)
+494,99,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h","Kalkinnhold LM-KA: KA-SO(e,f,g,h)"
+495,99,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
+496,99,Økologisk differensiering,AD-ØD,ØD-SI,"0,D","Økologisk differensiering AD-ØD: ØD-SI(0,D)"
+497,98,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f,g,h,i)"
+498,98,Løsmassetype,LM-LT,LT-SI,F,Løsmassetype LM-LT: LT-SI(F)
+499,98,Permafrost,LM-PF,PF-SI,0,Permafrost LM-PF: PF-SI(0)
+500,98,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+501,98,Økologisk differensiering,AD-ØD,ØD-SI,"0,D","Økologisk differensiering AD-ØD: ØD-SI(0,D)"
+502,97,Permafrost,LM-PF,PF-SI,0,Permafrost LM-PF: PF-SI(0)
+503,97,Løsmassetype,LM-LT,LT-SI,F,Løsmassetype LM-LT: LT-SI(F)
+504,97,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f,g,h,i)"
+505,97,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
+506,97,Økologisk differensiering,AD-ØD,ØD-SI,"0,D","Økologisk differensiering AD-ØD: ØD-SI(0,D)"
+507,96,Økologisk differensiering,AD-ØD,ØD-SI,"0,C,D","Økologisk differensiering AD-ØD: ØD-SI(0,C,D)"
+508,96,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f,g,h,i)"
+509,96,Dominerende kornstørrelse,LM-DK,DK-SI,0,Dominerende kornstørrelse LM-DK: DK-SI(0)
+510,96,Permafrost,LM-PF,PF-SI,0,Permafrost LM-PF: PF-SI(0)
+511,96,Løsmassetype,LM-LT,LT-SI,F,Løsmassetype LM-LT: LT-SI(F)
+512,95,Permafrost,LM-PF,PF-SI,A,Permafrost LM-PF: PF-SI(A)
+513,95,Løsmassetype,LM-LT,LT-SI,F,Løsmassetype LM-LT: LT-SI(F)
+514,95,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f,g,h,i)"
+515,95,Dominerende kornstørrelse,LM-DK,DK-SI,0,Dominerende kornstørrelse LM-DK: DK-SI(0)
+516,95,Økologisk differensiering,AD-ØD,ØD-SI,0,Økologisk differensiering AD-ØD: ØD-SI(0)
+517,94,Permafrost,LM-PF,PF-SI,"0,A","Permafrost LM-PF: PF-SI(0,A)"
+518,94,Løsmassetype,LM-LT,LT-SI,G,Løsmassetype LM-LT: LT-SI(G)
+519,94,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(c,d,e,f,g,h,i)"
+520,94,Økologisk differensiering,AD-ØD,ØD-SI,"0,A,B,C","Økologisk differensiering AD-ØD: ØD-SI(0,A,B,C)"
+521,94,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(E,F,G)"
+522,112,Marin salinitet,LM-SA,SA-SO,"0,a","Marin salinitet LM-SA: SA-SO(0,a)"
+523,113,Marin salinitet,LM-SA,SA-SO,"b,c,d","Marin salinitet LM-SA: SA-SO(b,c,d)"
+524,115,Sandstabilisering,LM-SS,SS-SO,k,Sandstabilisering LM-SS: SS-SO(k)
+525,114,Sandstabilisering,LM-SS,SS-SO,j,Sandstabilisering LM-SS: SS-SO(j)
+526,118,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+527,116,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+528,117,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+529,120,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+530,119,Kalkinnhold,LM-KA,KA-SO,"g,h","Kalkinnhold LM-KA: KA-SO(g,h)"
+531,124,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+532,124,Oppfrysing,LM-OF,OF-SO,"b,c","Oppfrysing LM-OF: OF-SO(b,c)"
+533,124,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D,E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(C,D,E,F,G)"
+534,123,Kalkinnhold,LM-KA,KA-SO,"d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(d,e,f,g,h,i)"
+535,123,Oppfrysing,LM-OF,OF-SO,"b,c,d,y","Oppfrysing LM-OF: OF-SO(b,c,d,y)"
+536,123,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D,E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D,E,F,G)"
+537,122,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+538,122,Oppfrysing,LM-OF,OF-SO,"b,c","Oppfrysing LM-OF: OF-SO(b,c)"
+539,122,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D,E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D,E,F,G)"
+540,125,Tørrleggingsvarighet,LM-TV,TV-SO,"d,e,f,g,h","Tørrleggingsvarighet LM-TV: TV-SO(d,e,f,g,h)"
+541,128,Kalkinnhold,LM-KA,KA-SO,"d,e,f,g,h","Kalkinnhold LM-KA: KA-SO(d,e,f,g,h)"
+542,128,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D)"
+543,127,Kalkinnhold,LM-KA,KA-SO,"d,e,f,g,h","Kalkinnhold LM-KA: KA-SO(d,e,f,g,h)"
+544,127,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(E,F,G)"
+545,126,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
+546,126,Kalkinnhold,LM-KA,KA-SO,"g,h","Kalkinnhold LM-KA: KA-SO(g,h)"
+547,131,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
+548,130,Dominerende kornstørrelse,LM-DK,DK-SI,C,Dominerende kornstørrelse LM-DK: DK-SI(C)
+549,129,Dominerende kornstørrelse,LM-DK,DK-SI,D,Dominerende kornstørrelse LM-DK: DK-SI(D)
+550,132,Marin salinitet,LM-SA,SA-SO,"a,b,c,d,e,f,g","Marin salinitet LM-SA: SA-SO(a,b,c,d,e,f,g)"
+551,132,Sandstabilisering,LM-SS,SS-SO,"b,c,d","Sandstabilisering LM-SS: SS-SO(b,c,d)"
+552,135,Sandstabilisering,LM-SS,SS-SO,"e,f,g,h","Sandstabilisering LM-SS: SS-SO(e,f,g,h)"
+553,135,Marin salinitet,LM-SA,SA-SO,"a,b,c,d,e,f,g","Marin salinitet LM-SA: SA-SO(a,b,c,d,e,f,g)"
+554,134,Sandstabilisering,LM-SS,SS-SO,"b,c,d","Sandstabilisering LM-SS: SS-SO(b,c,d)"
+555,134,Marin salinitet,LM-SA,SA-SO,0,Marin salinitet LM-SA: SA-SO(0)
+556,133,Sandstabilisering,LM-SS,SS-SO,"e,f,g,h","Sandstabilisering LM-SS: SS-SO(e,f,g,h)"
+557,133,Marin salinitet,LM-SA,SA-SO,0,Marin salinitet LM-SA: SA-SO(0)
+558,139,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+559,139,Vindutsatthet,LM-VI,VI-SO,"b,c,y","Vindutsatthet LM-VI: VI-SO(b,c,y)"
+560,138,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+561,138,Vindutsatthet,LM-VI,VI-SO,"b,c","Vindutsatthet LM-VI: VI-SO(b,c)"
+562,137,Vindutsatthet,LM-VI,VI-SO,"b,c","Vindutsatthet LM-VI: VI-SO(b,c)"
+563,137,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+564,136,Vindutsatthet,LM-VI,VI-SO,"b,c","Vindutsatthet LM-VI: VI-SO(b,c)"
+565,136,Kalkinnhold,LM-KA,KA-SO,j,Kalkinnhold LM-KA: KA-SO(j)
+566,140,Kalkinnhold,LM-KA,KA-SO,"e,f","Kalkinnhold LM-KA: KA-SO(e,f)"
+567,141,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+568,145,Vannsprutintensitet,LM-VS,VS-SO,"b,c","Vannsprutintensitet LM-VS: VS-SO(b,c)"
+569,145,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+570,144,Kalkinnhold,LM-KA,KA-SO,"g,h","Kalkinnhold LM-KA: KA-SO(g,h)"
+571,144,Vannsprutintensitet,LM-VS,VS-SO,"b,c","Vannsprutintensitet LM-VS: VS-SO(b,c)"
+572,143,Vannsprutintensitet,LM-VS,VS-SO,d,Vannsprutintensitet LM-VS: VS-SO(d)
+573,143,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+574,142,Kalkinnhold,LM-KA,KA-SO,"g,h","Kalkinnhold LM-KA: KA-SO(g,h)"
+575,142,Vannsprutintensitet,LM-VS,VS-SO,d,Vannsprutintensitet LM-VS: VS-SO(d)
+576,146,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
+577,146,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+578,148,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+579,148,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
+580,147,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
+581,147,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+582,149,Flomskredutsatthet,LM-FU,FU-SO,"b,c,d,y","Flomskredutsatthet LM-FU: FU-SO(b,c,d,y)"
+583,158,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c,d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c,d,e,f,g)"
+584,158,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+585,158,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+586,157,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c,d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c,d,e,f,g)"
+587,157,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+588,157,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+589,156,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c,d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c,d,e,f,g)"
+590,156,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+591,156,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+592,150,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c,d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c,d,e,f,g)"
+593,150,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+594,150,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(E,F,G)"
+595,154,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c,d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c,d,e,f,g)"
+596,154,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+597,154,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(E,F,G)"
+598,153,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c,d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c,d,e,f,g)"
+599,153,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+600,153,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(E,F,G)"
+601,152,Uttørkingseksponering,LM-UE,UE-SO,"d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(d,e,f,g)"
+602,152,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+603,152,Dominerende kornstørrelse,LM-DK,DK-SI,G,Dominerende kornstørrelse LM-DK: DK-SI(G)
+604,151,Uttørkingseksponering,LM-UE,UE-SO,"d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(d,e,f,g)"
+605,151,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+606,151,Dominerende kornstørrelse,LM-DK,DK-SI,G,Dominerende kornstørrelse LM-DK: DK-SI(G)
+607,155,Dominerende kornstørrelse,LM-DK,DK-SI,G,Dominerende kornstørrelse LM-DK: DK-SI(G)
+608,155,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+609,155,Uttørkingseksponering,LM-UE,UE-SO,"d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(d,e,f,g)"
+610,163,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"a,b,c,d","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(a,b,c,d)"
+611,163,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
+612,163,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+613,162,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"a,b,c,d","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(a,b,c,d)"
+614,162,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+615,162,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
+616,161,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
+617,161,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"a,b,c,d","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(a,b,c,d)"
+618,161,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+619,159,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
+620,159,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"e,f","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(e,f)"
+621,159,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
+622,160,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+623,160,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"e,f","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(e,f)"
+624,160,Kildevannspåvirkning,LM-KI,KI-SO,"0,a","Kildevannspåvirkning LM-KI: KI-SO(0,a)"
+625,165,Kildevannspåvirkning,LM-KI,KI-SO,"0,a,b,c","Kildevannspåvirkning LM-KI: KI-SO(0,a,b,c)"
+626,165,Naturlig gjødsling,LM-NG,NG-SO,"b,c,d,y","Naturlig gjødsling LM-NG: NG-SO(b,c,d,y)"
+627,166,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j,k)"
+628,166,Substrattype,LM-ST,ST-SI,"0,A","Substrattype LM-ST: ST-SI(0,A)"
+629,166,Marin salinitet,LM-SA,SA-SO,"f,g,h","Marin salinitet LM-SA: SA-SO(f,g,h)"
+630,167,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h)"
+631,167,Marin salinitet,LM-SA,SA-SO,"b,c,d,e","Marin salinitet LM-SA: SA-SO(b,c,d,e)"
+632,167,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+633,168,Saltanriking av mark i fjærebeltet,LM-SF,SF-SO,"b,y","Saltanriking av mark i fjærebeltet LM-SF: SF-SO(b,y)"
+634,173,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h)"
+635,173,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+636,173,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b)"
+637,173,Dominerende kornstørrelse,LM-DK,DK-SI,A,Dominerende kornstørrelse LM-DK: DK-SI(A)
+638,172,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h)"
+639,172,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+640,172,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b)"
+641,172,Dominerende kornstørrelse,LM-DK,DK-SI,B,Dominerende kornstørrelse LM-DK: DK-SI(B)
+642,171,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j,k)"
+643,171,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b)"
+644,171,Substrattype,LM-ST,ST-SI,"0,A,B","Substrattype LM-ST: ST-SI(0,A,B)"
+645,171,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+646,170,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j,k)"
+647,170,Substrattype,LM-ST,ST-SI,"0,A,B","Substrattype LM-ST: ST-SI(0,A,B)"
+648,170,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b,y","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b,y)"
+649,170,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D,E,F)"
+650,169,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b)"
+651,169,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h,i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h,i,j,k)"
+652,169,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+653,169,Dominerende kornstørrelse,LM-DK,DK-SI,G,Dominerende kornstørrelse LM-DK: DK-SI(G)
+654,179,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c)"
+655,179,Kalkinnhold,LM-KA,KA-SO,"a,b,c","Kalkinnhold LM-KA: KA-SO(a,b,c)"
+656,179,Grottebetinget skjerming,LM-GS,GS-SO,a,Grottebetinget skjerming LM-GS: GS-SO(a)
+657,178,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c)"
+658,178,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+659,178,Grottebetinget skjerming,LM-GS,GS-SO,a,Grottebetinget skjerming LM-GS: GS-SO(a)
+660,177,Uttørkingseksponering,LM-UE,UE-SO,"0,a,b,c","Uttørkingseksponering LM-UE: UE-SO(0,a,b,c)"
+661,177,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+662,177,Grottebetinget skjerming,LM-GS,GS-SO,"a,b,c,d","Grottebetinget skjerming LM-GS: GS-SO(a,b,c,d)"
+663,176,Uttørkingseksponering,LM-UE,UE-SO,"d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(d,e,f,g)"
+664,176,Kalkinnhold,LM-KA,KA-SO,"a,b,c","Kalkinnhold LM-KA: KA-SO(a,b,c)"
+665,176,Grottebetinget skjerming,LM-GS,GS-SO,a,Grottebetinget skjerming LM-GS: GS-SO(a)
+666,175,Uttørkingseksponering,LM-UE,UE-SO,"d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(d,e,f,g)"
+667,175,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+668,175,Grottebetinget skjerming,LM-GS,GS-SO,a,Grottebetinget skjerming LM-GS: GS-SO(a)
+669,174,Uttørkingseksponering,LM-UE,UE-SO,"d,e,f,g","Uttørkingseksponering LM-UE: UE-SO(d,e,f,g)"
+670,174,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+671,174,Grottebetinget skjerming,LM-GS,GS-SO,a,Grottebetinget skjerming LM-GS: GS-SO(a)
+672,180,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b,c,d,e,f,g,h,y","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b,c,d,e,f,g,h,y)"
+673,180,Kalkinnhold,LM-KA,KA-SO,"b,c,d,e,f","Kalkinnhold LM-KA: KA-SO(b,c,d,e,f)"
+674,180,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b,y","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b,y)"
+675,180,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
+676,181,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+677,181,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b)"
+678,181,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b,c,d,e","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b,c,d,e)"
+679,181,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d)"
+680,182,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
+681,182,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f)"
+682,182,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+683,187,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
+684,187,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f)"
+685,187,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+686,186,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
+687,186,Uttørkingsfare,LM-UF,UF-SO,"a,b,c,d,e,f","Uttørkingsfare LM-UF: UF-SO(a,b,c,d,e,f)"
+688,186,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+689,185,Uttørkingsfare,LM-UF,UF-SO,"e,f,g,h","Uttørkingsfare LM-UF: UF-SO(e,f,g,h)"
+690,185,Vannmetning,LM-VM,VM-SO,"0,a","Vannmetning LM-VM: VM-SO(0,a)"
+691,185,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+692,184,Uttørkingsfare,LM-UF,UF-SO,"e,f,g,h","Uttørkingsfare LM-UF: UF-SO(e,f,g,h)"
+693,184,Vannmetning,LM-VM,VM-SO,"0,a","Vannmetning LM-VM: VM-SO(0,a)"
+694,184,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+695,183,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+696,183,Uttørkingsfare,LM-UF,UF-SO,"e,f,g,h","Uttørkingsfare LM-UF: UF-SO(e,f,g,h)"
+697,183,Vannmetning,LM-VM,VM-SO,"0,a","Vannmetning LM-VM: VM-SO(0,a)"
+698,190,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+699,189,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+700,188,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+701,197,Uttørkingsfare,LM-UF,UF-SO,"b,c","Uttørkingsfare LM-UF: UF-SO(b,c)"
+702,197,Vannmetning,LM-VM,VM-SO,"0,a","Vannmetning LM-VM: VM-SO(0,a)"
+703,197,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+704,196,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
+705,196,Uttørkingsfare,LM-UF,UF-SO,"b,c","Uttørkingsfare LM-UF: UF-SO(b,c)"
+706,196,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+707,193,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+708,193,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
+709,193,Uttørkingsfare,LM-UF,UF-SO,"b,c","Uttørkingsfare LM-UF: UF-SO(b,c)"
+710,192,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
+711,192,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g","Uttørkingsfare LM-UF: UF-SO(d,e,f,g)"
+712,192,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+713,191,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
+714,191,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g","Uttørkingsfare LM-UF: UF-SO(d,e,f,g)"
+715,191,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+716,195,Vannmetning,LM-VM,VM-SO,"0,a,b,c","Vannmetning LM-VM: VM-SO(0,a,b,c)"
+717,195,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+718,195,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g","Uttørkingsfare LM-UF: UF-SO(d,e,f,g)"
+719,194,Vannmetning,LM-VM,VM-SO,"0,a","Vannmetning LM-VM: VM-SO(0,a)"
+720,194,Uttørkingsfare,LM-UF,UF-SO,"d,e,f,g","Uttørkingsfare LM-UF: UF-SO(d,e,f,g)"
+721,194,Kalkinnhold,LM-KA,KA-SO,j,Kalkinnhold LM-KA: KA-SO(j)
+722,199,Kalkinnhold,LM-KA,KA-SO,"b,c","Kalkinnhold LM-KA: KA-SO(b,c)"
+723,198,Kalkinnhold,LM-KA,KA-SO,"d,e,f","Kalkinnhold LM-KA: KA-SO(d,e,f)"
+724,200,Kalkinnhold,LM-KA,KA-SO,"g,h,i","Kalkinnhold LM-KA: KA-SO(g,h,i)"
+725,203,Vindutsatthet,LM-VI,VI-SO,"0,a,b,c,y","Vindutsatthet LM-VI: VI-SO(0,a,b,c,y)"
+726,203,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,"0,a,b,c,d,e,f","Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(0,a,b,c,d,e,f)"
+727,203,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h)"
+728,202,Vindutsatthet,LM-VI,VI-SO,"0,a","Vindutsatthet LM-VI: VI-SO(0,a)"
+729,202,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,0,Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(0)
+730,202,Kalkinnhold,LM-KA,KA-SO,"e,f,i","Kalkinnhold LM-KA: KA-SO(e,f,i)"
+731,201,Vindutsatthet,LM-VI,VI-SO,"0,a","Vindutsatthet LM-VI: VI-SO(0,a)"
+732,201,Snødekkebetinget vekstsesongreduksjon,LM-SV,SV-SO,0,Snødekkebetinget vekstsesongreduksjon LM-SV: SV-SO(0)
+733,201,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+734,204,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,"A,B","Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(A,B)"
+735,204,Substrattype,LM-ST,ST-SI,"0,F,I","Substrattype LM-ST: ST-SI(0,F,I)"
+736,205,Substrattype,LM-ST,ST-SI,I,Substrattype LM-ST: ST-SI(I)
+737,205,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,F,Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(F)
+738,208,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+739,208,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+740,207,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+741,207,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+742,206,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+743,206,Turbiditet,LM-TU,TU-SO,"c,y","Turbiditet LM-TU: TU-SO(c,y)"
+744,211,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+745,210,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+746,214,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D)"
+747,214,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,0,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(0)
+748,214,Jordvarmeinnflytelse,LM-JV,JV-SO,"a,b,c","Jordvarmeinnflytelse LM-JV: JV-SO(a,b,c)"
+749,213,Jordvarmeinnflytelse,LM-JV,JV-SO,"a,b,c","Jordvarmeinnflytelse LM-JV: JV-SO(a,b,c)"
+750,213,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(E,F,G)"
+751,213,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,0,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(0)
+752,212,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D,E,F,G","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D,E,F,G)"
+753,212,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,F,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(F)
+754,212,Jordvarmeinnflytelse,LM-JV,JV-SO,a,Jordvarmeinnflytelse LM-JV: JV-SO(a)
+755,216,Kildevannspåvirkning,LM-KI,KI-SO,"d,e","Kildevannspåvirkning LM-KI: KI-SO(d,e)"
+756,215,Kildevannspåvirkning,LM-KI,KI-SO,y,Kildevannspåvirkning LM-KI: KI-SO(y)
+757,218,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+758,217,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+759,225,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+760,225,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+761,225,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+762,225,Dominerende kornstørrelse,LM-DK,DK-SI,"B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(B,C,D)"
+763,231,Kalkinnhold,LM-KA,KA-SO,a,Kalkinnhold LM-KA: KA-SO(a)
+764,231,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+765,231,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+766,231,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
+767,230,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+768,230,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+769,230,Kalkinnhold,LM-KA,KA-SO,b,Kalkinnhold LM-KA: KA-SO(b)
+770,230,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
+771,224,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(c,d,e,f,g,h,i)"
+772,224,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+773,224,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+774,224,Dominerende kornstørrelse,LM-DK,DK-SI,"B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(B,C,D)"
+775,223,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+776,223,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+777,223,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+778,223,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
+779,229,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+780,229,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+781,229,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+782,229,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
+783,228,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+784,228,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+785,228,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+786,228,Dominerende kornstørrelse,LM-DK,DK-SI,"B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(B,C,D)"
+787,227,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+788,227,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+789,227,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+790,227,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
+791,226,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+792,226,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+793,226,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+794,226,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
+795,221,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+796,221,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+797,221,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+798,221,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
+799,220,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+800,220,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+801,220,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+802,220,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(C,D,E,F)"
+803,219,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+804,219,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(c,d,e,f,g,h,i)"
+805,219,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+806,219,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D,E,F","Dominerende kornstørrelse LM-DK: DK-SI(C,D,E,F)"
+807,222,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h)"
+808,222,Humusinnhold,LM-HU,HU-SO,"0,a,b,c,y","Humusinnhold LM-HU: HU-SO(0,a,b,c,y)"
+809,222,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C,D,E,F,G,H","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C,D,E,F,G,H)"
+810,222,Turbiditet,LM-TU,TU-SO,"c,y","Turbiditet LM-TU: TU-SO(c,y)"
+811,237,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+812,237,Kalkinnhold,LM-KA,KA-SO,a,Kalkinnhold LM-KA: KA-SO(a)
+813,237,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+814,239,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+815,239,Kalkinnhold,LM-KA,KA-SO,b,Kalkinnhold LM-KA: KA-SO(b)
+816,239,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+817,238,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+818,238,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+819,238,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+820,236,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+821,236,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+822,236,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+823,235,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+824,235,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+825,235,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+826,234,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+827,234,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+828,234,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+829,233,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+830,233,Kalkinnhold,LM-KA,KA-SO,"c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(c,d,e,f,g,h,i)"
+831,233,Humusinnhold,LM-HU,HU-SO,"b,c,y","Humusinnhold LM-HU: HU-SO(b,c,y)"
+832,232,Kalkinnhold,LM-KA,KA-SO,"a,b,c,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,e,f,g,h,i)"
+833,232,Humusinnhold,LM-HU,HU-SO,"0,a","Humusinnhold LM-HU: HU-SO(0,a)"
+834,232,Turbiditet,LM-TU,TU-SO,"c,y","Turbiditet LM-TU: TU-SO(c,y)"
+835,241,Substrattype,LM-ST,ST-SI,I,Substrattype LM-ST: ST-SI(I)
+836,240,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+837,246,Finmaterialinnhold,LM-FI,FI-SO,0,Finmaterialinnhold LM-FI: FI-SO(0)
+838,246,Substrattype,LM-ST,ST-SI,I,Substrattype LM-ST: ST-SI(I)
+839,246,Dybderelatert lyssvekking,LM-DL,DL-SO,0,Dybderelatert lyssvekking LM-DL: DL-SO(0)
+840,245,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
+841,245,Finmaterialinnhold,LM-FI,FI-SO,0,Finmaterialinnhold LM-FI: FI-SO(0)
+842,245,Substrattype,LM-ST,ST-SI,I,Substrattype LM-ST: ST-SI(I)
+843,244,Substrattype,LM-ST,ST-SI,I,Substrattype LM-ST: ST-SI(I)
+844,244,Finmaterialinnhold,LM-FI,FI-SO,0,Finmaterialinnhold LM-FI: FI-SO(0)
+845,244,Dybderelatert lyssvekking,LM-DL,DL-SO,y,Dybderelatert lyssvekking LM-DL: DL-SO(y)
+846,242,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c,d,y","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c,d,y)"
+847,242,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c,d,e,y","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c,d,e,y)"
+848,242,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+849,243,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c,d,e,y","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c,d,e,y)"
+850,243,Substrattype,LM-ST,ST-SI,F,Substrattype LM-ST: ST-SI(F)
+851,243,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+852,249,Marin salinitet,LM-SA,SA-SO,"d,e","Marin salinitet LM-SA: SA-SO(d,e)"
+853,248,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
+854,252,Marin salinitet,LM-SA,SA-SO,"f,g,h","Marin salinitet LM-SA: SA-SO(f,g,h)"
+855,251,Marin salinitet,LM-SA,SA-SO,"b,c,d,e","Marin salinitet LM-SA: SA-SO(b,c,d,e)"
+856,256,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
+857,256,Oksygenmangel,LM-OM,OM-SO,b,Oksygenmangel LM-OM: OM-SO(b)
+858,255,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
+859,255,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
+860,254,Oksygenmangel,LM-OM,OM-SO,b,Oksygenmangel LM-OM: OM-SO(b)
+861,254,Dybderelatert lyssvekking,LM-DL,DL-SO,y,Dybderelatert lyssvekking LM-DL: DL-SO(y)
+862,253,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
+863,253,Dybderelatert lyssvekking,LM-DL,DL-SO,y,Dybderelatert lyssvekking LM-DL: DL-SO(y)
+864,259,Jordvarmeinnflytelse,LM-JV,JV-SO,"a,b","Jordvarmeinnflytelse LM-JV: JV-SO(a,b)"
+865,258,Jordvarmeinnflytelse,LM-JV,JV-SO,"c,d","Jordvarmeinnflytelse LM-JV: JV-SO(c,d)"
+866,257,Jordvarmeinnflytelse,LM-JV,JV-SO,"e,y","Jordvarmeinnflytelse LM-JV: JV-SO(e,y)"
+867,264,Havkilde-type,LM-KT,KT-SI,A,Havkilde-type LM-KT: KT-SI(A)
+868,264,Hav-vannmasser,LM-HV,HV-SI,B,Hav-vannmasser LM-HV: HV-SI(B)
+869,263,Havkilde-type,LM-KT,KT-SI,B,Havkilde-type LM-KT: KT-SI(B)
+870,263,Hav-vannmasser,LM-HV,HV-SI,B,Hav-vannmasser LM-HV: HV-SI(B)
+871,262,Havkilde-type,LM-KT,KT-SI,A,Havkilde-type LM-KT: KT-SI(A)
+872,262,Hav-vannmasser,LM-HV,HV-SI,C,Hav-vannmasser LM-HV: HV-SI(C)
+873,261,Havkilde-type,LM-KT,KT-SI,B,Havkilde-type LM-KT: KT-SI(B)
+874,261,Hav-vannmasser,LM-HV,HV-SI,C,Hav-vannmasser LM-HV: HV-SI(C)
+875,260,Havkilde-type,LM-KT,KT-SI,A,Havkilde-type LM-KT: KT-SI(A)
+876,260,Hav-vannmasser,LM-HV,HV-SI,D,Hav-vannmasser LM-HV: HV-SI(D)
+877,266,Dybderelatert lyssvekking,LM-DL,DL-SO,0,Dybderelatert lyssvekking LM-DL: DL-SO(0)
+878,265,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e,y","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e,y)"
+879,272,Marin salinitet,LM-SA,SA-SO,"d,e","Marin salinitet LM-SA: SA-SO(d,e)"
+880,272,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+881,272,Substrattype,LM-ST,ST-SI,"0,F","Substrattype LM-ST: ST-SI(0,F)"
+882,272,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c,d,y","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c,d,y)"
+883,272,Sedimentbasert forstyrrelse,LM-SE,SE-SO,"0,a","Sedimentbasert forstyrrelse LM-SE: SE-SO(0,a)"
+884,271,Marin salinitet,LM-SA,SA-SO,"b,c,d,e","Marin salinitet LM-SA: SA-SO(b,c,d,e)"
+885,271,Substrattype,LM-ST,ST-SI,"0,F","Substrattype LM-ST: ST-SI(0,F)"
+886,271,Sedimentbasert forstyrrelse,LM-SE,SE-SO,"0,a","Sedimentbasert forstyrrelse LM-SE: SE-SO(0,a)"
+887,271,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+888,271,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+889,270,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+890,270,Sedimentbasert forstyrrelse,LM-SE,SE-SO,"0,a","Sedimentbasert forstyrrelse LM-SE: SE-SO(0,a)"
+891,270,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+892,270,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
+893,270,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c)"
+894,269,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
+895,269,Sedimentbasert forstyrrelse,LM-SE,SE-SO,"0,a","Sedimentbasert forstyrrelse LM-SE: SE-SO(0,a)"
+896,269,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+897,269,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+898,269,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+899,268,Sedimentbasert forstyrrelse,LM-SE,SE-SO,"0,a","Sedimentbasert forstyrrelse LM-SE: SE-SO(0,a)"
+900,268,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
+901,268,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+902,268,Substrattype,LM-ST,ST-SI,F,Substrattype LM-ST: ST-SI(F)
+903,268,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+904,267,Sedimentbasert forstyrrelse,LM-SE,SE-SO,"b,y","Sedimentbasert forstyrrelse LM-SE: SE-SO(b,y)"
+905,267,Marin salinitet,LM-SA,SA-SO,"b,c,d,e","Marin salinitet LM-SA: SA-SO(b,c,d,e)"
+906,267,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+907,267,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c)"
+908,267,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+909,275,Tørrleggingsvarighet,LM-TV,TV-SO,"c,d,e,f,g,h","Tørrleggingsvarighet LM-TV: TV-SO(c,d,e,f,g,h)"
+910,275,Tørrleggingsfare,LM-TF,TF-SO,0,Tørrleggingsfare LM-TF: TF-SO(0)
+911,274,Tørrleggingsvarighet,LM-TV,TV-SO,"i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(i,j,k)"
+912,274,Tørrleggingsfare,LM-TF,TF-SO,0,Tørrleggingsfare LM-TF: TF-SO(0)
+913,273,Tørrleggingsfare,LM-TF,TF-SO,"a,b","Tørrleggingsfare LM-TF: TF-SO(a,b)"
+914,273,Tørrleggingsvarighet,LM-TV,TV-SO,"i,j,k","Tørrleggingsvarighet LM-TV: TV-SO(i,j,k)"
+915,276,Marin salinitet,LM-SA,SA-SO,"d,e","Marin salinitet LM-SA: SA-SO(d,e)"
+916,276,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(a,b)"
+917,276,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
+918,276,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
+919,279,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f)"
+920,279,Marin salinitet,LM-SA,SA-SO,"d,e","Marin salinitet LM-SA: SA-SO(d,e)"
+921,279,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
+922,279,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
+923,278,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d)"
+924,278,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(a,b)"
+925,278,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
+926,278,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
+927,277,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f)"
+928,277,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d)"
+929,277,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
+930,277,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
+931,281,Marin salinitet,LM-SA,SA-SO,"d,e","Marin salinitet LM-SA: SA-SO(d,e)"
+932,280,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
+933,283,Hav-vannmasser,LM-HV,HV-SI,A,Hav-vannmasser LM-HV: HV-SI(A)
+934,282,Hav-vannmasser,LM-HV,HV-SI,B,Hav-vannmasser LM-HV: HV-SI(B)
+935,284,Tørrleggingsvarighet,LM-TV,TV-SO,"0,a,b","Tørrleggingsvarighet LM-TV: TV-SO(0,a,b)"
+936,287,Tørrleggingsvarighet,LM-TV,TV-SO,"a,b","Tørrleggingsvarighet LM-TV: TV-SO(a,b)"
+937,287,Marin salinitet,LM-SA,SA-SO,"f,g,h","Marin salinitet LM-SA: SA-SO(f,g,h)"
+938,285,Tørrleggingsvarighet,LM-TV,TV-SO,"0,a,b","Tørrleggingsvarighet LM-TV: TV-SO(0,a,b)"
+939,285,Marin salinitet,LM-SA,SA-SO,"d,e","Marin salinitet LM-SA: SA-SO(d,e)"
+940,286,Marin salinitet,LM-SA,SA-SO,"b,c","Marin salinitet LM-SA: SA-SO(b,c)"
+941,286,Tørrleggingsvarighet,LM-TV,TV-SO,"0,a,b","Tørrleggingsvarighet LM-TV: TV-SO(0,a,b)"
+942,299,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+943,299,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c)"
+944,299,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
+945,299,Hav-vannmasser,LM-HV,HV-SI,A,Hav-vannmasser LM-HV: HV-SI(A)
+946,299,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+947,298,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+948,298,Hav-vannmasser,LM-HV,HV-SI,A,Hav-vannmasser LM-HV: HV-SI(A)
+949,298,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
+950,298,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+951,298,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
+952,297,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c)"
+953,297,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+954,297,Hav-vannmasser,LM-HV,HV-SI,B,Hav-vannmasser LM-HV: HV-SI(B)
+955,297,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+956,297,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
+957,296,Hav-vannmasser,LM-HV,HV-SI,B,Hav-vannmasser LM-HV: HV-SI(B)
+958,296,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+959,296,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+960,296,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
+961,296,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
+962,295,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+963,295,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+964,295,Hav-vannmasser,LM-HV,HV-SI,C,Hav-vannmasser LM-HV: HV-SI(C)
+965,295,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c)"
+966,295,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
+967,294,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+968,294,Hav-vannmasser,LM-HV,HV-SI,C,Hav-vannmasser LM-HV: HV-SI(C)
+969,294,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
+970,294,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+971,294,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
+972,293,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+973,293,Hav-vannmasser,LM-HV,HV-SI,D,Hav-vannmasser LM-HV: HV-SI(D)
+974,293,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c)"
+975,293,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+976,293,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
+977,292,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+978,292,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
+979,292,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+980,292,Hav-vannmasser,LM-HV,HV-SI,D,Hav-vannmasser LM-HV: HV-SI(D)
+981,292,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
+982,291,Finmaterialinnhold,LM-FI,FI-SO,"0,a,b,c","Finmaterialinnhold LM-FI: FI-SO(0,a,b,c)"
+983,291,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+984,291,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
+985,291,Hav-vannmasser,LM-HV,HV-SI,E,Hav-vannmasser LM-HV: HV-SI(E)
+986,291,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+987,290,Hav-vannmasser,LM-HV,HV-SI,E,Hav-vannmasser LM-HV: HV-SI(E)
+988,290,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+989,290,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+990,290,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
+991,290,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
+992,289,Substrattype,LM-ST,ST-SI,H,Substrattype LM-ST: ST-SI(H)
+993,289,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+994,289,Hav-vannmasser,LM-HV,HV-SI,"A,B,C,D,E","Hav-vannmasser LM-HV: HV-SI(A,B,C,D,E)"
+995,289,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
+996,289,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,0,Abyssal næringstilførselsreduksjon LM-AN: AN-SO(0)
+997,288,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+998,288,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+999,288,Hav-vannmasser,LM-HV,HV-SI,D,Hav-vannmasser LM-HV: HV-SI(D)
+1000,288,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
+1001,288,Abyssal næringstilførselsreduksjon,LM-AN,AN-SO,"a,b","Abyssal næringstilførselsreduksjon LM-AN: AN-SO(a,b)"
+1002,304,Substrattype,LM-ST,ST-SI,"0,A,B","Substrattype LM-ST: ST-SI(0,A,B)"
+1003,304,Finmaterialinnhold,LM-FI,FI-SO,"0,a","Finmaterialinnhold LM-FI: FI-SO(0,a)"
+1004,304,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
+1005,304,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+1006,303,Finmaterialinnhold,LM-FI,FI-SO,"0,a","Finmaterialinnhold LM-FI: FI-SO(0,a)"
+1007,303,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
+1008,303,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+1009,303,Dominerende kornstørrelse,LM-DK,DK-SI,E,Dominerende kornstørrelse LM-DK: DK-SI(E)
+1010,302,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+1011,302,Finmaterialinnhold,LM-FI,FI-SO,"b,c","Finmaterialinnhold LM-FI: FI-SO(b,c)"
+1012,302,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+1013,302,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
+1014,301,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
+1015,301,Substrattype,LM-ST,ST-SI,"0,D,E,F","Substrattype LM-ST: ST-SI(0,D,E,F)"
+1016,301,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+1017,301,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
+1018,300,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+1019,300,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
+1020,300,Substrattype,LM-ST,ST-SI,H,Substrattype LM-ST: ST-SI(H)
+1021,310,Substrattype,LM-ST,ST-SI,"0,A,B","Substrattype LM-ST: ST-SI(0,A,B)"
+1022,310,Finmaterialinnhold,LM-FI,FI-SO,"0,a","Finmaterialinnhold LM-FI: FI-SO(0,a)"
+1023,310,Tørrleggingsvarighet,LM-TV,TV-SO,"a,b,c,d,e,f","Tørrleggingsvarighet LM-TV: TV-SO(a,b,c,d,e,f)"
+1024,310,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+1025,305,Tørrleggingsvarighet,LM-TV,TV-SO,"a,b,c,d,e,f","Tørrleggingsvarighet LM-TV: TV-SO(a,b,c,d,e,f)"
+1026,305,Finmaterialinnhold,LM-FI,FI-SO,"0,a","Finmaterialinnhold LM-FI: FI-SO(0,a)"
+1027,305,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+1028,305,Dominerende kornstørrelse,LM-DK,DK-SI,E,Dominerende kornstørrelse LM-DK: DK-SI(E)
+1029,308,Tørrleggingsvarighet,LM-TV,TV-SO,a,Tørrleggingsvarighet LM-TV: TV-SO(a)
+1030,308,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+1031,308,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+1032,308,Finmaterialinnhold,LM-FI,FI-SO,"b,c","Finmaterialinnhold LM-FI: FI-SO(b,c)"
+1033,307,Tørrleggingsvarighet,LM-TV,TV-SO,"a,b,c","Tørrleggingsvarighet LM-TV: TV-SO(a,b,c)"
+1034,307,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+1035,307,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
+1036,307,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+1037,306,Tørrleggingsvarighet,LM-TV,TV-SO,"b,c,d,e,f","Tørrleggingsvarighet LM-TV: TV-SO(b,c,d,e,f)"
+1038,306,Finmaterialinnhold,LM-FI,FI-SO,"b,c","Finmaterialinnhold LM-FI: FI-SO(b,c)"
+1039,306,Dominerende kornstørrelse,LM-DK,DK-SI,"C,D","Dominerende kornstørrelse LM-DK: DK-SI(C,D)"
+1040,306,Substrattype,LM-ST,ST-SI,0,Substrattype LM-ST: ST-SI(0)
+1041,309,Tørrleggingsvarighet,LM-TV,TV-SO,"a,b","Tørrleggingsvarighet LM-TV: TV-SO(a,b)"
+1042,309,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B","Dominerende kornstørrelse LM-DK: DK-SI(A,B)"
+1043,309,Substrattype,LM-ST,ST-SI,H,Substrattype LM-ST: ST-SI(H)
+1044,309,Finmaterialinnhold,LM-FI,FI-SO,"d,y","Finmaterialinnhold LM-FI: FI-SO(d,y)"
+1045,320,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b)"
+1046,320,Hav-vannmasser,LM-HV,HV-SI,A,Hav-vannmasser LM-HV: HV-SI(A)
+1047,316,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f)"
+1048,316,Hav-vannmasser,LM-HV,HV-SI,A,Hav-vannmasser LM-HV: HV-SI(A)
+1049,315,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b)"
+1050,315,Hav-vannmasser,LM-HV,HV-SI,B,Hav-vannmasser LM-HV: HV-SI(B)
+1051,311,Hav-vannmasser,LM-HV,HV-SI,B,Hav-vannmasser LM-HV: HV-SI(B)
+1052,311,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e)"
+1053,314,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b)"
+1054,314,Hav-vannmasser,LM-HV,HV-SI,C,Hav-vannmasser LM-HV: HV-SI(C)
+1055,313,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e)"
+1056,313,Hav-vannmasser,LM-HV,HV-SI,C,Hav-vannmasser LM-HV: HV-SI(C)
+1057,312,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b)"
+1058,312,Hav-vannmasser,LM-HV,HV-SI,D,Hav-vannmasser LM-HV: HV-SI(D)
+1059,319,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e)"
+1060,319,Hav-vannmasser,LM-HV,HV-SI,D,Hav-vannmasser LM-HV: HV-SI(D)
+1061,318,Hav-vannmasser,LM-HV,HV-SI,E,Hav-vannmasser LM-HV: HV-SI(E)
+1062,318,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b)"
+1063,317,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e)"
+1064,317,Hav-vannmasser,LM-HV,HV-SI,E,Hav-vannmasser LM-HV: HV-SI(E)
+1065,328,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b)"
+1066,328,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
+1067,328,Bunnujevnhet,LM-BU,BU-SO,"0,a,b,c","Bunnujevnhet LM-BU: BU-SO(0,a,b,c)"
+1068,328,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
+1069,327,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f)"
+1070,327,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
+1071,327,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
+1072,327,Bunnujevnhet,LM-BU,BU-SO,"0,a,b,c","Bunnujevnhet LM-BU: BU-SO(0,a,b,c)"
+1073,326,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"g,h","Vannforstyrrelsesintensitet LM-VF: VF-SO(g,h)"
+1074,326,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d)"
+1075,326,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
+1076,326,Bunnujevnhet,LM-BU,BU-SO,"0,a,b,c","Bunnujevnhet LM-BU: BU-SO(0,a,b,c)"
+1077,325,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b)"
+1078,325,Bunnujevnhet,LM-BU,BU-SO,"0,a,b,c","Bunnujevnhet LM-BU: BU-SO(0,a,b,c)"
+1079,325,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
+1080,325,Dybderelatert lyssvekking,LM-DL,DL-SO,e,Dybderelatert lyssvekking LM-DL: DL-SO(e)
+1081,321,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f)"
+1082,321,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
+1083,321,Dybderelatert lyssvekking,LM-DL,DL-SO,e,Dybderelatert lyssvekking LM-DL: DL-SO(e)
+1084,321,Bunnujevnhet,LM-BU,BU-SO,"0,a,b,c","Bunnujevnhet LM-BU: BU-SO(0,a,b,c)"
+1085,324,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f)"
+1086,324,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
+1087,324,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d)"
+1088,324,Bunnujevnhet,LM-BU,BU-SO,y,Bunnujevnhet LM-BU: BU-SO(y)
+1089,323,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"c,d,e,f","Vannforstyrrelsesintensitet LM-VF: VF-SO(c,d,e,f)"
+1090,323,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
+1091,323,Dybderelatert lyssvekking,LM-DL,DL-SO,e,Dybderelatert lyssvekking LM-DL: DL-SO(e)
+1092,323,Bunnujevnhet,LM-BU,BU-SO,y,Bunnujevnhet LM-BU: BU-SO(y)
+1093,322,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"g,h","Vannforstyrrelsesintensitet LM-VF: VF-SO(g,h)"
+1094,322,Helningsrelatert forstyrrelsesintensitet,LM-HF,HF-SO,"0,a,b,c,d,z","Helningsrelatert forstyrrelsesintensitet LM-HF: HF-SO(0,a,b,c,d,z)"
+1095,322,Dybderelatert lyssvekking,LM-DL,DL-SO,"a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(a,b,c,d,e)"
+1096,322,Bunnujevnhet,LM-BU,BU-SO,y,Bunnujevnhet LM-BU: BU-SO(y)
+1097,330,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b,y","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b,y)"
+1098,330,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"0,a,b,c,d","Vannforstyrrelsesintensitet LM-VF: VF-SO(0,a,b,c,d)"
+1099,329,Vannforstyrrelsesintensitet,LM-VF,VF-SO,"e,f,g,h","Vannforstyrrelsesintensitet LM-VF: VF-SO(e,f,g,h)"
+1100,329,Isbetinget forstyrrelsesintensitet,LM-IF,IF-SO,"0,a,b","Isbetinget forstyrrelsesintensitet LM-IF: IF-SO(0,a,b)"
+1101,334,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,"A,B","Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(A,B)"
+1102,334,Substrattype,LM-ST,ST-SI,"0,F,I","Substrattype LM-ST: ST-SI(0,F,I)"
+1103,333,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,"C,D,E","Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(C,D,E)"
+1104,333,Substrattype,LM-ST,ST-SI,"0,F","Substrattype LM-ST: ST-SI(0,F)"
+1105,331,Substrattype,LM-ST,ST-SI,"0,F,I","Substrattype LM-ST: ST-SI(0,F,I)"
+1106,331,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,"D,E,F","Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(D,E,F)"
+1107,332,Substrattype,LM-ST,ST-SI,I,Substrattype LM-ST: ST-SI(I)
+1108,332,Fysikalsk-kjemisk menneskepåvirkning av vann-natur,LM-MK,MK-SI,F,Fysikalsk-kjemisk menneskepåvirkning av vann-natur LM-MK: MK-SI(F)
+1109,337,Tørrleggingsvarighet,LM-TV,TV-SO,0,Tørrleggingsvarighet LM-TV: TV-SO(0)
+1110,337,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+1111,337,Substrattype,LM-ST,ST-SI,I,Substrattype LM-ST: ST-SI(I)
+1112,336,Tørrleggingsvarighet,LM-TV,TV-SO,0,Tørrleggingsvarighet LM-TV: TV-SO(0)
+1113,336,Substrattype,LM-ST,ST-SI,"0,F,I","Substrattype LM-ST: ST-SI(0,F,I)"
+1114,336,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+1115,335,Tørrleggingsvarighet,LM-TV,TV-SO,"a,b","Tørrleggingsvarighet LM-TV: TV-SO(a,b)"
+1116,335,Substrattype,LM-ST,ST-SI,"0,F,I","Substrattype LM-ST: ST-SI(0,F,I)"
+1117,335,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+1118,338,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+1119,338,Substrattype,LM-ST,ST-SI,"0,F","Substrattype LM-ST: ST-SI(0,F)"
+1120,340,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+1121,339,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+1122,343,Fysisk menneskepåvirkete bunnsubstrater,LM-MY,MY-SI,"A,B","Fysisk menneskepåvirkete bunnsubstrater LM-MY: MY-SI(A,B)"
+1123,343,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+1124,342,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+1125,342,Fysisk menneskepåvirkete bunnsubstrater,LM-MY,MY-SI,C,Fysisk menneskepåvirkete bunnsubstrater LM-MY: MY-SI(C)
+1126,341,Fysisk menneskepåvirkete bunnsubstrater,LM-MY,MY-SI,C,Fysisk menneskepåvirkete bunnsubstrater LM-MY: MY-SI(C)
+1127,341,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+1128,345,Substrattype,LM-ST,ST-SI,"0,F,I","Substrattype LM-ST: ST-SI(0,F,I)"
+1129,347,Naturlig gjødsling,LM-NG,NG-SO,"b,c","Naturlig gjødsling LM-NG: NG-SO(b,c)"
+1130,346,Naturlig gjødsling,LM-NG,NG-SO,"d,y","Naturlig gjødsling LM-NG: NG-SO(d,y)"
+1131,349,Snø- og istype,LM-SN,SN-SI,"B,C","Snø- og istype LM-SN: SN-SI(B,C)"
+1132,348,Snø- og istype,LM-SN,SN-SI,D,Snø- og istype LM-SN: SN-SI(D)
+1133,356,Oksygenmangel,LM-OM,OM-SO,b,Oksygenmangel LM-OM: OM-SO(b)
+1134,356,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,0,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(0)
+1135,355,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
+1136,355,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,A,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(A)
+1137,354,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
+1138,354,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,B,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(B)
+1139,353,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,C,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(C)
+1140,353,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
+1141,352,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
+1142,352,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,D,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(D)
+1143,351,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
+1144,351,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,E,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(E)
+1145,350,Oksygenmangel,LM-OM,OM-SO,y,Oksygenmangel LM-OM: OM-SO(y)
+1146,350,Ferskvann med avvikende kjemisk sammensetning,LM-FK,FK-SI,F,Ferskvann med avvikende kjemisk sammensetning LM-FK: FK-SI(F)
+1147,358,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+1148,357,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+1149,359,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+1150,362,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+1151,361,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+1152,360,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+1153,365,Vanntilførsel,LM-VT,VT-SI,0,Vanntilførsel LM-VT: VT-SI(0)
+1154,365,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+1155,364,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+1156,364,Vanntilførsel,LM-VT,VT-SI,0,Vanntilførsel LM-VT: VT-SI(0)
+1157,363,Vanntilførsel,LM-VT,VT-SI,C,Vanntilførsel LM-VT: VT-SI(C)
+1158,368,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+1159,367,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+1160,366,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+1161,371,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+1162,370,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+1163,369,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+1164,372,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+1165,374,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+1166,373,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+1167,378,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+1168,378,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+1169,378,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c,d,e)"
+1170,378,Dominerende kornstørrelse,LM-DK,DK-SI,"B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(B,C,D)"
+1171,377,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+1172,377,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+1173,377,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c,d,e)"
+1174,377,Dominerende kornstørrelse,LM-DK,DK-SI,"B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(B,C,D)"
+1175,382,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+1176,382,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d","Kalkinnhold LM-KA: KA-SO(a,b,c,d)"
+1177,382,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c)"
+1178,382,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
+1179,381,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+1180,381,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+1181,381,Dominerende kornstørrelse,LM-DK,DK-SI,"B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(B,C,D)"
+1182,381,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c,d,e)"
+1183,380,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+1184,380,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c,d,e)"
+1185,380,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+1186,380,Dominerende kornstørrelse,LM-DK,DK-SI,"B,C,D","Dominerende kornstørrelse LM-DK: DK-SI(B,C,D)"
+1187,379,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+1188,379,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+1189,379,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c)"
+1190,379,Dominerende kornstørrelse,LM-DK,DK-SI,A,Dominerende kornstørrelse LM-DK: DK-SI(A)
+1191,376,Kalkinnhold,LM-KA,KA-SO,"e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(e,f,g,h,i)"
+1192,376,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+1193,376,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c)"
+1194,376,Dominerende kornstørrelse,LM-DK,DK-SI,"E,F","Dominerende kornstørrelse LM-DK: DK-SI(E,F)"
+1195,375,Turbiditet,LM-TU,TU-SO,"c,y","Turbiditet LM-TU: TU-SO(c,y)"
+1196,375,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+1197,375,Dybderelatert lyssvekking,LM-DL,DL-SO,"0,a,b,c,d,e","Dybderelatert lyssvekking LM-DL: DL-SO(0,a,b,c,d,e)"
+1198,375,Dominerende kornstørrelse,LM-DK,DK-SI,"A,B,C","Dominerende kornstørrelse LM-DK: DK-SI(A,B,C)"
+1199,385,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+1200,385,Kalkinnhold,LM-KA,KA-SO,"a,b","Kalkinnhold LM-KA: KA-SO(a,b)"
+1201,384,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+1202,384,Kalkinnhold,LM-KA,KA-SO,"c,d","Kalkinnhold LM-KA: KA-SO(c,d)"
+1203,383,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+1204,383,Kalkinnhold,LM-KA,KA-SO,"e,f,g","Kalkinnhold LM-KA: KA-SO(e,f,g)"
+1205,387,Turbiditet,LM-TU,TU-SO,"0,a,b","Turbiditet LM-TU: TU-SO(0,a,b)"
+1206,387,Kalkinnhold,LM-KA,KA-SO,"h,i","Kalkinnhold LM-KA: KA-SO(h,i)"
+1207,386,Turbiditet,LM-TU,TU-SO,"c,y","Turbiditet LM-TU: TU-SO(c,y)"
+1208,386,Kalkinnhold,LM-KA,KA-SO,"a,b,c,d,e,f,g,h,i","Kalkinnhold LM-KA: KA-SO(a,b,c,d,e,f,g,h,i)"
+1209,388,Snø- og istype,LM-SN,SN-SI,"A,B,C","Snø- og istype LM-SN: SN-SI(A,B,C)"
+1210,389,Snø- og istype,LM-SN,SN-SI,D,Snø- og istype LM-SN: SN-SI(D)
