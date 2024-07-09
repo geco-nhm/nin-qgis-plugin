@@ -36,13 +36,21 @@ python3 create_attribute_meta_tables.py
 python3 create_type_tables_from_api.py
 ```
 * Creates csv files for NiN major types, minor types, etc. OBS: variable information is generated separately (see below).
+---
+
+```
+python3 add_limniske_vannmasse_to_kle.py
+```
+* This is a quick fix to add nature types belonging into the hovedtypegruppe 'NA-F Limniske vannmassesystemer' to the attribute tables of coarser mapping units. They will always be mapped as "grunntyper".
 
 ---
 
 ```
+pip install requests # sending HTTP requests 
+pip install tqdm # progress bar
 python3 create_variable_tables_from_api.py
 ```
-* Creates csv files to link the lowest NiN mapping units (grunntyper) to their associated NiN variables. OBS: the same information for aggregated mapping units ('kartleggingsenheter') is generated separately (see below).
+* Creates csv files to link the lowest NiN mapping units (grunntyper) to their associated NiN variables. OBS: the same information for aggregated mapping units ('kartleggingsenheter') is generated separately (see below). Dependent on library requests and tqdm.
 
 ---
 

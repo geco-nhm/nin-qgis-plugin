@@ -12,7 +12,7 @@ import pandas as pd
 with open(
     file=Path(__file__).parents[1] / 'config.toml',
     mode="rb",
-    encoding="utf-8",
+    #encoding="utf-8",
 ) as config_file:
     config = tomllib.load(config_file)
 
@@ -89,8 +89,7 @@ def main() -> None:
 
     for dfs_to_save in (["grunntyper"] + kartleggingsenheter):
         dfs[dfs_to_save].convert_dtypes().to_csv(
-            CSV_ROOT_PATH / 'limniske_quickfix' /
-            f'{dfs_to_save}_attribute_table.csv',
+            CSV_ROOT_PATH / f'{dfs_to_save}_attribute_table.csv',
             index=False,
             encoding="utf-8",
         )
