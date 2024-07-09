@@ -92,7 +92,7 @@ def get_default_values(
         {
             "layer_name": "nin_polygons",
             "field_name": "andel_kle_3",
-            "default_value_expression": '''abs("andel_kle_1" - "andel_kle_2")''',
+            "default_value_expression": '''100.0 - ("andel_kle_1" + "andel_kle_2")''',
             "make_field_uneditable": False,
         },
     ]

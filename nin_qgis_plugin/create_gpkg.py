@@ -8,12 +8,12 @@ import pandas as pd
 import numpy as np
 
 from qgis.core import (
-    QgsApplication, QgsFields,
+    QgsFields,
     QgsField, QgsWkbTypes, QgsVectorFileWriter,
-    QgsProject, QgsCoordinateReferenceSystem,
+    QgsCoordinateReferenceSystem,
     QgsCoordinateTransformContext, QgsVectorLayer,
-    QgsFeatureRequest, QgsDataProvider, QgsFeature,
-    QgsRelation, edit
+    QgsFeatureRequest, QgsFeature,
+    edit
 )
 from qgis.PyQt.QtCore import QVariant
 
@@ -288,7 +288,10 @@ def set_style(layer: str, lname: str) -> None:
     # lyr.saveStyleToDatabase(name,'style '+lname,True,'')
     pass
 
-def main(selected_mapping_scale: str, gpkg_path: Union[str, Path]) -> None:
+def main(
+    selected_mapping_scale: str,
+    gpkg_path: Union[str, Path],
+) -> None:
     '''Creates new NiN-conforming gpkg based on definitions in csv file.
         Passing variable from mapping scale selection in the UI
     '''
@@ -351,6 +354,8 @@ def main(selected_mapping_scale: str, gpkg_path: Union[str, Path]) -> None:
 
     # Remove vector layers from memory
     del nin_polygons_layer, helper_point_layer
+    
+    print(selected_mapping_scale, " THIS IS IN CREATE GPKG")
 
     # Create attribute tables! MAKE SURE .CSV FILES EXIST AND ARE NAMED CORRECTLY
     table_names = (
