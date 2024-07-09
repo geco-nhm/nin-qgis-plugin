@@ -63,10 +63,12 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         # Access the combo box for Selecting Type and Selecting Hovedtypegruppe
         self.comboBox = self.findChild(QComboBox, 'SelectType')
         self.selectHovetypegrupperWidget = self.findChild(
-            QListWidget, 'SelectHovedtypegrupper'
+            QListWidget,
+            'SelectHovedtypegrupper'
         )
         self.selectMappingScale = self.findChild(
-            QComboBox, 'SelectMappingScale'
+            QComboBox,
+            'SelectMappingScale'
         )
 
         # WMS checkbox handling
@@ -97,6 +99,8 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             QgsFileWidget,
             'gpkgFilePicker'
         )
+        # Set to None to force user to make a selection
+        self.file_widget.setFilePath(None)
 
         # Set UI default values
         self.set_ui_default_values()
@@ -124,6 +128,9 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
                 self.type_combo_data[row['kode_id']] = row['navn']
 
     def get_selected_type_id(self) -> str:
+        '''
+        Returns the "typer" fids selected in the UI.
+        '''
         return self.selected_type_id
 
     def on_type_combo_box_changed(self, index):
@@ -248,14 +255,17 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             return
 
         # TODO: remove comments when done testing
-        if self.geopackage_path is None:
-            pass
-            # QMessageBox.information(None, "No path entered!", "Enter a valid .gpkg file path!")
-            # return
+        if self.file_widget.filePath():
+            self.file_location_selected()
+        else:
+            QMessageBox.information(
+                None,
+                "No path entered!",
+                "Enter a valid .gpkg file path!"
+            )
+            return
 
-        # Set gpkg file path from UI
-        self.file_location_selected()
-
+        # Run create_gpkg.py
         cgpkg.main(
             selected_mapping_scale=self.selectMappingScale.currentText(),
             gpkg_path=self.geopackage_path,

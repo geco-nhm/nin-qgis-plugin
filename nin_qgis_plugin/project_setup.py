@@ -517,8 +517,8 @@ def main(
 
     # Define name and path of existing geopackage
     # TODO: Remove after testing!
-    gpkg_name = "nin_survey.gpkg"
-    gpkg_path = Path(__file__).parent / gpkg_name
+    #gpkg_name = "nin_survey.gpkg"
+    #gpkg_path = Path(__file__).parent / gpkg_name
 
     project_setup = ProjectSetup(
         gpkg_path=gpkg_path,
