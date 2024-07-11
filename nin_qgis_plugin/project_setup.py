@@ -486,7 +486,7 @@ class ProjectSetup:
             True,  # Enable snapping
             Qgis.SnappingTypes(Qgis.SnappingType.Vertex | Qgis.SnappingType.Segment),
             # QgsSnappingConfig.SnappingType.VertexAndSegment --> throws a bug in qgis 3.28, see https://github.com/qgis/QGIS/issues/52373
-            5.0,  # Tolerance
+            1.0,  # Tolerance
             QgsTolerance.ProjectUnits,  # Tolerance type
             0.0,  # minScale
             0.0,   # maxScale
