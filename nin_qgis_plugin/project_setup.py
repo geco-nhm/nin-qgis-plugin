@@ -352,7 +352,7 @@ class ProjectSetup:
             # Set up labeling
             label_settings = QgsPalLayerSettings()
 
-            label_settings.placement = LabelPlacement.OverPoint
+            label_settings.placement = Qgis.LabelPlacement.OverPoint
             text_format = QgsTextFormat()
             text_format.setFont(QFont("Arial", 12))
             text_format.setSize(12)
