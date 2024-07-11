@@ -240,17 +240,18 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         if not self.get_selected_htgr_items():
             QMessageBox.information(
                 None,
-                "No hovedtypegrupper selected!",
-                "Please select the 'hovedtypegrupper' you want to map."
+                "Ingen hovedtypegruppe(r) valgt",
+                "Velg hovedtypegruppe(r) som skal kartlegges"
             )
             return
 
         # passing the selected "Type" from the UI
+        # per 11.07.24: type kan ikke settes til NULL (tom)
         if not self.get_selected_type_id():
             QMessageBox.information(
                 None,
-                "No type selected!",
-                "Please select the 'type' you want to map."
+                "Ingen type valgt",
+                "Velg type som skal kartlegges"
             )
             return
 
@@ -260,8 +261,8 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         else:
             QMessageBox.information(
                 None,
-                "No path entered!",
-                "Enter a valid .gpkg file path!"
+                "Ingen filsti angitt",
+                "Angi lovlig .gpkg-filsti"
             )
             return
 
