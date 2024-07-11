@@ -351,8 +351,10 @@ class ProjectSetup:
 
             # Set up labeling
             label_settings = QgsPalLayerSettings()
+            # https://gis.stackexchange.com/questions/469969/using-label-placement-via-pyqgis
+            # https://qgis.org/pyqgis/master/gui/Qgis.html#qgis.gui.Qgis.LabelPlacement
+            label_settings.placement = Qgis.LabelPlacement.OverPoint
 
-            label_settings.placement = QgsPalLayerSettings.OverPoint
             text_format = QgsTextFormat()
             text_format.setFont(QFont("Arial", 12))
             text_format.setSize(12)
@@ -386,6 +388,7 @@ class ProjectSetup:
         wms_style: str,
         wms_crs: str,
         new_qgis_layer_name: str,
+        wmts: str,
         zoom_to_extent=True,
     ) -> None:
         '''
@@ -393,7 +396,11 @@ class ProjectSetup:
         '''
 
         # Format the WMS URI
-        wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&format=image/png&url={wms_service_url}"
+        # wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&format=image/png&url={wms_service_url}"
+        if wmts == '1':
+            wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&tileMatrixSet=default028mm&format=image/png&url={wms_service_url}"
+        else:
+            wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&format=image/png&url={wms_service_url}"
 
         # Create a new raster layer using the WMS URI
         wms_layer = QgsRasterLayer(
@@ -590,6 +597,7 @@ def main(
             wms_style='default',
             wms_crs=PROJECT_CRS,
             new_qgis_layer_name="Topografisk norgeskart",
+            wmts='0',
             zoom_to_extent=True,
         )
 
@@ -601,6 +609,7 @@ def main(
             wms_style='default',
             wms_crs=PROJECT_CRS,
             new_qgis_layer_name="Topografisk norgeskart gråtone",
+            wmts='0',
             zoom_to_extent=True,
         )
 
@@ -612,6 +621,7 @@ def main(
             wms_style='default',
             wms_crs=PROJECT_CRS,
             new_qgis_layer_name="Nibcache_UTM33_EUREF89_v2",
+            wmts='1',
             zoom_to_extent=True,
         )
 

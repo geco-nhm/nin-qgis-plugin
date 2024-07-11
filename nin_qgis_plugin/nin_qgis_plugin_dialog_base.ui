@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>581</width>
-    <height>492</height>
+    <height>493</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Natur i Norge mapping</string>
+   <string>&quot;Natur i Norge&quot;-kartlegging</string>
   </property>
   <widget class="QWidget" name="dialogWidgetContents">
    <property name="geometry">
@@ -51,21 +51,21 @@
     <item row="12" column="0">
      <widget class="QPushButton" name="changeProjectSettingsButton">
       <property name="text">
-       <string>Create geopackage and prepare project!</string>
+       <string>Lag geopackage-fil og forbered prosjekt</string>
       </property>
      </widget>
     </item>
     <item row="8" column="0">
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>Select WMS layers to load</string>
+       <string>Velg ev. WMS/WMTS-lag</string>
       </property>
      </widget>
     </item>
     <item row="4" column="0">
      <widget class="QLabel" name="LabSelectMappingScale">
       <property name="text">
-       <string>Select Mapping Scale (1:5 000, 1:20 000 or 1:50 000)</string>
+       <string>Velg kartleggingsmålestokk (1:5 000, 1:20 000 eller 1:50 000)</string>
       </property>
      </widget>
     </item>
@@ -85,14 +85,14 @@
     <item row="2" column="0">
      <widget class="QLabel" name="LabSelectHovedtypegruppe">
       <property name="text">
-       <string>Select Hovedtypegruppe</string>
+       <string>Velg hovedtypegruppe</string>
       </property>
      </widget>
     </item>
     <item row="0" column="0">
      <widget class="QLabel" name="LabSelectType">
       <property name="text">
-       <string>Select Type</string>
+       <string>Velg type</string>
       </property>
      </widget>
     </item>
@@ -104,7 +104,7 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>73</height>
+        <height>70</height>
        </size>
       </property>
       <property name="title">
@@ -120,7 +120,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Topografisk norgeskart farge</string>
+        <string>Topografisk norgeskart farge (WMS)</string>
        </property>
        <property name="checked">
         <bool>false</bool>
@@ -142,7 +142,7 @@
         </size>
        </property>
        <property name="text">
-        <string>Topografisk norgeskart gråtone</string>
+        <string>Topografisk norgeskart gråtone (WMS)</string>
        </property>
        <property name="checked">
         <bool>false</bool>
@@ -158,7 +158,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Norge i bilder</string>
+        <string>Norge i bilder (WMTS)</string>
        </property>
       </widget>
      </widget>
@@ -166,7 +166,7 @@
     <item row="6" column="0">
      <widget class="QLabel" name="LabSelectFileLocation">
       <property name="text">
-       <string>Select geopackage file location...</string>
+       <string>Velg hvor geopackage-fila skal lagres (mappa)</string>
       </property>
      </widget>
     </item>
