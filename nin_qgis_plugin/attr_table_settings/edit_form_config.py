@@ -97,8 +97,6 @@ def adjust_layer_edit_form(layer: QgsVectorLayer) -> QgsVectorLayer:
                 'grunntype_or_klenhet',
                 'variabler',
                 'andel_kle_1',
-                'sammensatt',
-                'mosaikk',
                 'kode_id_label',
                 'photo',
             ],
@@ -106,6 +104,8 @@ def adjust_layer_edit_form(layer: QgsVectorLayer) -> QgsVectorLayer:
         'tab_2': {
             'tab': tab_2,
             'fields': [
+                'sammensatt',
+                'mosaikk',
                 'hovedtypegruppe_2',
                 'hovedtype_2',
                 'grunntype_or_klenhet_2',
@@ -135,34 +135,8 @@ def adjust_layer_edit_form(layer: QgsVectorLayer) -> QgsVectorLayer:
             )
             cur_tab.addChildElement(editor_field)
             # root_container.addChildElement(editor_field)
-
+    
     # Set as layers new form config
     layer.setEditFormConfig(edit_form_config)
 
     return layer
-
-    '''
-    # Tab 1
-    tab1 = QWidget()
-    tab1_layout = QVBoxLayout()
-    # Assuming 'my_field_1' is the name of the field
-    box1 = QComboBox()
-    box1.insertItem(0, "Test")
-    box1.insertItem(1, "Bla")
-    tab1_layout.addWidget(QLabel('Field 1:'))
-    tab1_layout.addWidget(box1)
-    tab1.setLayout(tab1_layout)
-    edit_form_config.addTab(tab1, "First Tab")
-
-    # Tab 2
-    tab2 = QWidget()
-    tab2_layout = QVBoxLayout()
-    # Assuming 'my_field_1' is the name of the field
-    box2 = QComboBox()
-    box2.insertItem(0, "Test")
-    box2.insertItem(1, "Bla")
-    tab2_layout.addWidget(QLabel('Field 2:'))
-    tab2_layout.addWidget(box2)
-    tab2.setLayout(tab2_layout)
-    edit_form_config.addTab(tab2, "Second Tab")
-    '''

@@ -95,6 +95,18 @@ def get_default_values(
             "default_value_expression": '''100.0 - ("andel_kle_1" + "andel_kle_2")''',
             "make_field_uneditable": False,
         },
+        {
+            "layer_name": "nin_polygons",
+            "field_name": "sammensatt",
+            "default_value_expression": '''if("andel_kle_1" = 100, False, if("andel_kle_1" < 100, if("mosaikk" = True, False, True), True))''',
+            "make_field_uneditable": False,
+        },
+        {
+            "layer_name": "nin_polygons",
+            "field_name": "mosaikk",
+            "default_value_expression": '''if("andel_kle_1" = 100, False, if("andel_kle_1" < 100, if("sammensatt" = True, False, True), True))''',
+            "make_field_uneditable": False,
+        },
     ]
 
     # If only one hovedtypegruppe selected, also set as default

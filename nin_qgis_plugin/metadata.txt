@@ -3,15 +3,14 @@
 # This file should be included when you package your plugin.# Mandatory items:
 
 [general]
-name="Natur i Norge"-kartlegger
+name=Natur i Norge kartlegging
 qgisMinimumVersion=3.34.8
 description=Natur i Norge (NiN) mapping tool.
 version=0.1
 author=Lasse Keetz, Peter Horvath, Anne B. Nilsen
 email=peter.horvath@nhm.uio.no
 
-about=Denne plugin er designet for å lage et QGIS-prosjekt for kartlegging av naturen ved bruk av NiN3.0-systemet i felt.
-This plugin is designed to create a QGIS project for mapping nature using the NiN3.0 system in the field. 
+about=Denne plugin er designet for å lage et QGIS-prosjekt for kartlegging av naturen ved bruk av NiN3.0-systemet i felt.This plugin is designed to create a QGIS project for mapping nature using the NiN3.0 system in the field. 
 
 tracker=https://github.com/geco-nhm/nin-qgis-plugin/issues
 repository=https://github.com/geco-nhm/nin-qgis-plugin.git
