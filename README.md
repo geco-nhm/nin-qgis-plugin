@@ -3,7 +3,6 @@ This plugin is designed to create a QGIS project for mapping nature using the Ni
 
 ## Description
 The user is presented with several options for customizing the QGIS project. 
-
 - option to sub-set the NiN system by choosing the relevant [Type system](https://naturinorge.artsdatabanken.no/) and [Major Type Group/s](https://naturinorge.artsdatabanken.no/Natursystem) for the current mapping project. 
 - mapping scale
 - filepath to save the project to
@@ -43,16 +42,13 @@ This creates a QGIS project file and a geopackage file with the selected Type sy
 12. take a picture of the NiN type (available on devices with integrated camera)
 13. approve the polygon registration with "OK" 
 
-
-
-### 
+Mapping guidelines can be found on Norwegian Biodiversity Information Centres (Artsdatabankens) [website](https://artsdatabanken.no/Pages/345451)
 
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+- help sites for [QGIS](https://docs.qgis.org/3.34/en/docs/training_manual/index.html)
+- help sites for [Qfield](https://docs.qfield.org/get-started/tutorials/get-started-qfs/)
+- help sites for [NiN](https://naturinorge.artsdatabanken.no/)
 
 ## Authors
 
