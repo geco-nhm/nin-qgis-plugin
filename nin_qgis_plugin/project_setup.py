@@ -27,9 +27,6 @@ from qgis.core import (
     edit
 )
 from PyQt5.QtGui import QColor, QFont
-from PyQt5.QtWidgets import (
-    QMessageBox,
-)
 
 from .attr_table_settings.value_relations import get_value_relations
 from .attr_table_settings.default_values import get_default_values
@@ -55,7 +52,9 @@ class ProjectSetup:
         canvas,
         nin_polygons_layer_name: str = "nin_polygons",
     ) -> None:
-        '''Constructor with shared variables'''
+        '''
+        Constructor defining instance variables.
+        '''
 
         self.gpkg_path = gpkg_path
         self.selected_type_id = selected_type_id
@@ -67,7 +66,7 @@ class ProjectSetup:
     def get_nin_polygons_layer(self):
         '''
         Returns the nin_polygons layer with layer name defined
-        in 'self.nin_polygons_layer_name'
+        in 'self.nin_polygons_layer_name'.
         '''
         return QGS_PROJECT.mapLayersByName(self.nin_polygons_layer_name)[0]
 
@@ -122,8 +121,6 @@ class ProjectSetup:
         filter_expression: QGIS filter expression as a string. Field names in double quotes, strings in single quotes.
         '''
 
-        # foreign_fields = forgein_attribute_table_layer.fields()
-
         config = {
             'AllowMulti': allow_multi_selection,
             'AllowNull': True,
@@ -150,49 +147,6 @@ class ProjectSetup:
 
         except Exception as exception:
             raise exception
-
-    def set_relation(
-        self,
-        parent_layer: QgsVectorLayer,
-        child_layer: QgsVectorLayer,
-        relation_name: str,
-        child_fkey_field_name: str,
-        parent_pkey_field_name: str,
-        relation_id: str,
-        relation_strength: Literal["comp", "asso"],
-    ) -> QgsVectorLayer:
-        '''
-        Defines field relationships in layers.
-
-        Template from Anne's code.
-        '''
-
-        rel = QgsRelation()
-
-        rel.setName(relation_name)  # name of relation
-        rel.setReferencedLayer(parent_layer.id())  # parent layer
-        rel.setReferencingLayer(child_layer.id())  # child layer
-        rel.addFieldPair(
-            # first element are the field names of the foreign key
-            referencingField=child_fkey_field_name,
-            referencedField=parent_pkey_field_name,
-        )
-        # id of relation
-        rel.setId(relation_id)
-
-        # strength of relation
-        if relation_strength == "comp":
-            rel.setStrength(QgsRelation.Composition)
-        elif relation_strength == "asso":
-            rel.setStrength(QgsRelation.Association)
-        else:
-            raise ValueError(
-                f"relation_strength='{relation_strength}' not supported! "
-                + "Must be 'comp' or 'asso'."
-            )
-
-        # add this realtion to the project
-        QGS_PROJECT.relationManager().addRelation(rel)
 
     def set_layer_field_default_values(
         self,
@@ -231,7 +185,7 @@ class ProjectSetup:
         field_name: str
     ) -> None:
         '''
-        Adjusts save and display options in desired DateTime field.
+        Adjusts save and display options for the specified DateTime field.
 
         From: https://gisunchained.wordpress.com/2019/09/30/configure-editing-form-widgets-using-pyqgis/
         '''
@@ -474,7 +428,7 @@ class ProjectSetup:
         # https://www.qgis.com/api/classQgsSnappingConfig_1_1IndividualLayerSettings.html#details
         # Set the snapping tolerance on polygon (5 meters) on vertex and segments and avoid overlap
         pollyr = self.get_nin_polygons_layer()
-        
+
         # Create a new snapping config object
         snapping_config = QgsSnappingConfig()
         # Enable snapping
@@ -484,7 +438,8 @@ class ProjectSetup:
         # Create the individual layer settings
         snap_settings = QgsSnappingConfig.IndividualLayerSettings(
             True,  # Enable snapping
-            Qgis.SnappingTypes(Qgis.SnappingType.Vertex | Qgis.SnappingType.Segment),
+            Qgis.SnappingTypes(Qgis.SnappingType.Vertex |
+                               Qgis.SnappingType.Segment),
             # QgsSnappingConfig.SnappingType.VertexAndSegment --> throws a bug in qgis 3.28, see https://github.com/qgis/QGIS/issues/52373
             1.0,  # Tolerance
             QgsTolerance.ProjectUnits,  # Tolerance type
@@ -522,11 +477,7 @@ def main(
 ) -> None:
     '''Adapt QGIS project settings.'''
 
-    # Define name and path of existing geopackage
-    # TODO: Remove after testing!
-    #gpkg_name = "nin_survey.gpkg"
-    #gpkg_path = Path(__file__).parent / gpkg_name
-
+    # Pass user selection to create ProjectSetup() instance
     project_setup = ProjectSetup(
         gpkg_path=gpkg_path,
         selected_type_id=selected_type_id,
@@ -627,11 +578,6 @@ def main(
 
     # Adjust project snapping and overlap options
     project_setup.set_snap_ovelap()
-
-    # Save the geopackage style back to the geopackage
-    # project_setup.saving_gpkg(styled_layer=project_setup.get_nin_polygons_layer())
-
-    # print(gpkg_path)
 
     # Save the project
     project_path = str(Path(gpkg_path).parent / "NiN_kartlegging.qgz")

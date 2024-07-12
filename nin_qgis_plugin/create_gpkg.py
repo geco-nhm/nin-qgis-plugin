@@ -8,17 +8,16 @@ import pandas as pd
 import numpy as np
 
 from qgis.core import (
-    QgsFields,
-    QgsField, QgsWkbTypes, QgsVectorFileWriter,
-    QgsCoordinateReferenceSystem,
+    QgsField, QgsVectorFileWriter,
     QgsCoordinateTransformContext, QgsVectorLayer,
-    QgsFeatureRequest, QgsFeature,
-    edit
+    QgsFeature, edit
 )
 from qgis.PyQt.QtCore import QVariant
 
-ATTRIBUTE_TABLES_PATH = Path(__file__).parent / 'csv' / 'attribute_tables'
-FIELD_DEFINITIONS_CSV_PATH = Path(__file__).parent / 'csv' / 'layer_fields_meta'
+ATTRIBUTE_TABLES_PATH = Path(__file__).parent / 'csv' / \
+    'attribute_tables'
+FIELD_DEFINITIONS_CSV_PATH = Path(__file__).parent / \
+    'csv' / 'layer_fields_meta'
 
 
 def get_qvariant(qvariant: str) -> Any:
@@ -40,35 +39,6 @@ def get_qvariant(qvariant: str) -> Any:
     if qvariant == 'Bool':
         return QVariant.Bool
     raise ValueError("Qvariant Type not supported!")
-
-
-def create_empty_gpkg(
-    gpkg_save_path: Union[str, Path],
-    crs: str,
-) -> None:
-    '''
-    Creates an empty geopackage (.gpkg file) with a specified geometry and crs.
-
-    TODO: legacy code, can be fully replaced with write_layer_to_gpkg_file()!
-    '''
-
-    # Set QgsVectorFileWriter options
-    options = QgsVectorFileWriter.SaveVectorOptions()
-    options.driverName = "GPKG"
-    options.fileEncoding = "UTF-8"
-
-    # Create an empty GeoPackage
-    _writer = QgsVectorFileWriter.create(
-        str(gpkg_save_path),
-        QgsFields(),  # No fields yet
-        QgsWkbTypes.NoGeometry,  # No geometry for the empty gpkg
-        QgsCoordinateReferenceSystem(crs),  # Specify the CRS
-        QgsCoordinateTransformContext(),
-        options,
-    )  # Format
-
-    # Release the file writer to flush changes to disk
-    del _writer
 
 
 def create_empty_layer(
@@ -102,7 +72,7 @@ def write_layer_to_gpkg_file(
     extend_existing: bool = True,
 ) -> None:
     '''
-    Creates or extends a geopackage file with a specified layer.
+    Creates or extends a geopackage file with a provided layer.
 
     https://gis.stackexchange.com/questions/417916/creating-empty-layers-in-a-geopackage-using-pyqgis
     '''
@@ -118,7 +88,8 @@ def write_layer_to_gpkg_file(
     if extend_existing:
         options.actionOnExistingFile = QgsVectorFileWriter.CreateOrOverwriteLayer
 
-    print(f"Writing layer to '{gpkg_out_path}'")
+    # Printing for debugging
+    #  print(f"Writing layer to '{gpkg_out_path}'")
 
     QgsVectorFileWriter.writeAsVectorFormatV3(
         layer=layer,
@@ -128,35 +99,17 @@ def write_layer_to_gpkg_file(
     )
 
 
-def copy_layer(gpkg_path: str, layer_name: str) -> QgsVectorLayer:
-    '''
-    Duplicates a layer loaded in memory.
-
-    https://gis.stackexchange.com/questions/205947/duplicating-layer-in-memory-using-pyqgis
-    '''
-
-    previous_layer = QgsVectorLayer(
-        str(gpkg_path),
-        layer_name,
-        "ogr"
-    )  # Open existing gpkg-file fuglepunkter with the one layer fuglepunkter
-    previous_layer.selectAll()  # select all features in fuglepunkter layer
-    new_layer = previous_layer.materialize(
-        QgsFeatureRequest().setFilterFids(
-            previous_layer.selectedFeatureIds()
-        )
-    )  # create a new layer from selected features
-    previous_layer.removeSelection()  # remove selection in the original layer
-
-    return new_layer
-
-
 def add_layer_attributes_from_file(
     attribute_csv_file_path: str,
     layer: QgsVectorLayer,
 ) -> QgsVectorLayer:
     '''
-    Adds attributes defined in csv file to a QgsVectorLayer.
+    Adds new fields with meta info defined in csv file
+    to an empty QgsVectorLayer.
+
+    attribute_csv_file_path: path to .csv file containing field meta
+    information (see files for required format).
+    layer: QgsVectorLayer where fields will be added.
 
     https://gis.stackexchange.com/questions/262549/pyqgis-adding-fields-to-a-feature-layer
     '''
@@ -204,7 +157,12 @@ def add_attribute_values_from_csv(
     csv_path: Union[str, Path],
 ) -> QgsVectorLayer:
     '''
-    Hallo.
+    Reads attributes defined in a .csv table and adds them
+    to a geometry-less vector layer (to store as attribute
+    table in the geopackage).
+
+    layer: empty QgsVectorLayer that has the same field names as column names in .csv table.
+    csv_path: path to the corresponding .csv file.
 
     https://gis.stackexchange.com/questions/330269/adding-values-to-field-using-pyqgis
     '''
@@ -231,10 +189,8 @@ def add_attribute_values_from_csv(
                 field_idx = layer.fields().lookupField(col_name)
                 new_value = attribute_df.loc[idx, col_name]
 
-                # TODO: this is hacking around the fact that layer.changeAttributeValue()
-                # cannot deal with numpy data types from pandas. Need a more sustainable
-                # solution!
-                
+                # OBS! This is hacking around the fact that layer.changeAttributeValue()
+                # cannot deal with numpy data types from pandas. Use with caution.
                 if pd.isnull(new_value):
                     new_value = None
                 elif isinstance(new_value, np.int64):
@@ -249,56 +205,18 @@ def add_attribute_values_from_csv(
     return layer
 
 
-def create_table_from_csv(
-    csv_path: str,
-    gpkg_path: str,
-    layer_name: str,
-) -> None:
-    '''
-    Creates a vector format Table from a csv.
-
-    https://gis.stackexchange.com/questions/364211/importing-csv-table-to-geopackage-with-pyqgis-using-csv-file-name
-    '''
-
-    table = QgsVectorLayer(csv_path, "csv", 'delimitedtext')
-    opt = QgsVectorFileWriter.SaveVectorOptions()
-    opt.EditionCapability = QgsVectorFileWriter.CanAddNewLayer
-    opt.layerName = layer_name
-    opt.actionOnExistingFile = QgsVectorFileWriter.CreateOrOverwriteLayer
-    tw = QgsVectorFileWriter.writeAsVectorFormatV3(
-        table,
-        gpkg_path,
-        QgsCoordinateTransformContext(),
-        opt
-    )
-
-    del tw
-
-
-def set_style(layer: str, lname: str) -> None:
-    '''
-    Sets styles defined in a .qml file. TODO.
-
-    https://gis.stackexchange.com/questions/276743/saving-styles-for-all-layers-using-pyqgis-sld-qml-databases
-    '''
-
-    # lyr = QgsVectorLayer(layer,lname,"ogr")
-    # name = lyr.name()
-    # lyr.loadNamedStyle('S:/.../qml/'+lname+'.qml')
-    # lyr.saveStyleToDatabase(name,'style '+lname,True,'')
-    pass
-
 def main(
     selected_mapping_scale: str,
     gpkg_path: Union[str, Path],
 ) -> None:
-    '''Creates new NiN-conforming gpkg based on definitions in csv file.
-        Passing variable from mapping scale selection in the UI
+    '''
+    Creates new geopackage (.gpkg) based on definitions in csv file.
+    Passing variable from mapping scale selection in the UI.
     '''
 
-    if gpkg_path.is_file():  # If gpkg-file already exists, raise Error
+    # If gpkg-file already exists, remove it (previously confirmed by user)
+    if gpkg_path.is_file():
         os.remove(gpkg_path)
-        # raise ValueError(f"{gpkg_path} already exists! Use a different name to avoid data loss.")
 
     # Define paths to attribute csvs
     nin_polygons_meta_csv_path = FIELD_DEFINITIONS_CSV_PATH \
@@ -308,9 +226,9 @@ def main(
     crs = "epsg:25833"
 
     # Create NiN multipolygon layer
-    print(
-        f"Creating NiN multipolygon layer with attributes defined in {nin_polygons_meta_csv_path}."
-    )
+    # print(
+    #    f"Creating NiN multipolygon layer with attributes defined in {nin_polygons_meta_csv_path}."
+    # )
     nin_polygons_layer = create_empty_layer(
         layer_name='nin_polygons',
         geometry='multipolygon',
@@ -331,9 +249,9 @@ def main(
         extend_existing=False,  # Create new .gpkg here!
     )
 
-    print("Written nin polygon layer to .gpkg file.")
+    # print("Written nin polygon layer to .gpkg file.")
 
-    # Add helper point layer for testing
+    # Add helper point layer
     helper_point_layer = create_empty_layer(
         layer_name='nin_helper_points',
         geometry='multipoint',
@@ -354,8 +272,6 @@ def main(
 
     # Remove vector layers from memory
     del nin_polygons_layer, helper_point_layer
-    
-    print(selected_mapping_scale, " THIS IS IN CREATE GPKG")
 
     # Create attribute tables! MAKE SURE .CSV FILES EXIST AND ARE NAMED CORRECTLY
     table_names = (
@@ -376,7 +292,8 @@ def main(
         )
         # Add fields to attribute table
         table_layer = add_layer_attributes_from_file(
-            attribute_csv_file_path=FIELD_DEFINITIONS_CSV_PATH / f'{name}_meta.csv',
+            attribute_csv_file_path=FIELD_DEFINITIONS_CSV_PATH /
+            f'{name}_meta.csv',
             layer=table_layer,
         )
         # Populate attribute table
@@ -392,3 +309,7 @@ def main(
         )
 
         del table_layer
+
+    print(
+        f"Created new .gpkg file in '{gpkg_path}'."
+    )
