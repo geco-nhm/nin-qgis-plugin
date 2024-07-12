@@ -30,14 +30,12 @@ from . import project_setup as ps
 
 from qgis.PyQt import QtWidgets, uic
 from qgis.PyQt.QtCore import pyqtSignal
-from qgis.core import QgsRectangle, QgsRasterLayer, QgsProject
 from qgis.gui import QgsFileWidget
 # from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import Qt  # Import Qt from PyQt5.QtCore
 from PyQt5.QtWidgets import (
     QMessageBox, QComboBox, QListWidget,
-    QListWidgetItem, QPushButton,
-    QGroupBox, QCheckBox,
+    QListWidgetItem, QGroupBox, QCheckBox,
 )
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
@@ -129,7 +127,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
     def get_selected_type_id(self) -> str:
         '''
-        Returns the "typer" fids selected in the UI.
+        Returns the "typer" fid's selected in the UI.
         '''
         return self.selected_type_id
 
@@ -172,10 +170,6 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
                     'kode_id': item.data(Qt.UserRole)
                 })
 
-        # Print selected items to the console
-        # print("Selected items:")
-        # for item in selected_items:
-        #     print(f"Display Text: {item['display_text']}, Kode ID: {item['kode_id']}")
         return selected_items
 
     def load_mapping_scale_combo_box(self):
