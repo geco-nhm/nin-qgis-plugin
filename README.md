@@ -54,3 +54,5 @@ Contributors names and contact info
 @ [Anne B. Nilsen](https://github.com/orgs/geco-nhm/people/9ls1)
 
 this plugin was developed with financial support from [NINA](https://www.nina.no/)
+
+the icon used for this plugin was downloaded from <a href="https://www.flaticon.com/free-icons/enviroment" title="enviroment icons">Flaticon - Enviroment icons created by Eucalyp</a>
