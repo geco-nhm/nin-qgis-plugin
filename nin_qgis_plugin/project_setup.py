@@ -318,10 +318,11 @@ class ProjectSetup:
             # ... setting expression as label... if not specified with kode_id_label then labeled with "ikke kartlagt"
             # otherwise the represented value in kode_id_label is shortened to omit the mapping scale (string in the middle between dashes)
             label_settings.fieldName = """
-                CASE
-                    WHEN "kode_id_label" IS NULL THEN 'ikke kartlagt'
-                    ELSE regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-')
-                END
+                case
+                    when "grunntype_or_klenhet_2" is null and "kode_id_label"is null then 'ikke kartlagt'
+                    when "grunntype_or_klenhet_2" is null then regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-')
+                    else regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-') || ' / '|| regexp_replace(represent_value("grunntype_or_klenhet_2"), '^([^-]+)-[^-]+-([^-\\ ]+).+$',  '\\1-\\2')
+                end
             """
 
             label_settings.isExpression = True
