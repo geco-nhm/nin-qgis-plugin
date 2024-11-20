@@ -153,10 +153,12 @@ class ProjectSetup:
         field_name: str,
         default_value_expression: str,
         make_field_uneditable: bool = True,
+        apply_on_update: bool = False,
     ) -> None:
+        #print(f"apply_on_update for {field_name}: {apply_on_update}")
         '''
         Adds QGIS field logic to populate field values automatically when creating
-        new features.
+        new features. Optionally toggles "Apply default value on update."
         '''
 
         # Get layer from project
@@ -170,15 +172,26 @@ class ProjectSetup:
         with edit(layer):
 
             if default_value_expression:
-                layer.setDefaultValueDefinition(
-                    field_index,
-                    QgsDefaultValue(default_value_expression, True),
-                )
+                default_value_def = QgsDefaultValue(default_value_expression, True)
+                default_value_def.setApplyOnUpdate(apply_on_update)  # Directly set applyOnUpdate
+                layer.setDefaultValueDefinition(field_index, default_value_def)
 
             if make_field_uneditable:
                 form_config = layer.editFormConfig()
                 form_config.setReadOnly(field_index, True)
                 layer.setEditFormConfig(form_config)
+            
+            # Apply the "apply on update" setting
+            widget_setup = layer.editorWidgetSetup(field_index)
+            config = widget_setup.config()
+            #print(f"Previous config for {field_name}: {config}")
+
+            config["applyOnUpdate"] = apply_on_update
+            new_widget_setup = QgsEditorWidgetSetup(widget_setup.type(), config)
+            layer.setEditorWidgetSetup(field_index, new_widget_setup)
+
+            # Log the updated configuration
+            print(f"Updated config for {field_name}: {config}")
 
     def field_to_datetime(
         self,
@@ -297,7 +310,7 @@ class ProjectSetup:
             categories.append(default_category)
 
             renderer = QgsCategorizedSymbolRenderer(
-                'represent_value("grunntype_or_klenhet")',
+                'represent_value("kode_id_label")',
                 categories
             )
 
@@ -512,6 +525,7 @@ def main(
             field_name=default_value["field_name"],
             default_value_expression=default_value["default_value_expression"],
             make_field_uneditable=default_value["make_field_uneditable"],
+            apply_on_update=default_value.get("apply_on_update", False),
         )
 
     # Set value relations defined in 'value_relations.py'
