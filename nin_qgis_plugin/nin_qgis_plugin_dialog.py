@@ -225,6 +225,18 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         Loads project settings
         '''
 
+        # Retrieve user selection from CRS radiobutton
+        # Iterate through all the children of type QRadioButton and check which one is checked
+        for radiobutton in self.findChildren(QtWidgets.QRadioButton):
+            if radiobutton.isChecked():
+                print(f"Checked RadioButton: {radiobutton.text()}")
+                # QMessageBox.information(
+                               # None,
+                               # "Koordinatsystem valgt",
+                               # radiobutton.text()
+                           # )
+            return
+ 
         # Retrieve user selection in WMS checkboxes
         wms_settings = {
             box: self.wms_box_group.findChild(QCheckBox, box).isChecked()

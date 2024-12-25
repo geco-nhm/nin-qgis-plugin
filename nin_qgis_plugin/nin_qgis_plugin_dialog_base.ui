@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>581</width>
-    <height>493</height>
+    <height>490</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="7" column="0">
+    <item row="11" column="0">
      <widget class="QgsFileWidget" name="gpkgFilePicker">
       <property name="acceptDrops">
        <bool>false</bool>
@@ -48,20 +48,6 @@
       </property>
      </widget>
     </item>
-    <item row="12" column="0">
-     <widget class="QPushButton" name="changeProjectSettingsButton">
-      <property name="text">
-       <string>Lag geopackage-fil og forbered prosjekt</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Velg ev. WMS/WMTS-lag</string>
-      </property>
-     </widget>
-    </item>
     <item row="4" column="0">
      <widget class="QLabel" name="LabSelectMappingScale">
       <property name="text">
@@ -69,18 +55,37 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
-     <widget class="QComboBox" name="SelectMappingScale"/>
-    </item>
-    <item row="3" column="0">
-     <widget class="QListWidget" name="SelectHovedtypegrupper">
-      <property name="resizeMode">
-       <enum>QListView::Adjust</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QComboBox" name="SelectType"/>
+    <item row="7" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayoutCRS">
+      <item>
+       <widget class="QRadioButton" name="radioBtn25832">
+        <property name="text">
+         <string>UTM 32 (25832)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="radioBtn25835">
+        <property name="text">
+         <string>UTM 35 (25835)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="radioBtn25833">
+        <property name="text">
+         <string>UTM 33 (25833)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="radioBtn4258">
+        <property name="text">
+         <string>EUREF89 (4258)</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="LabSelectHovedtypegruppe">
@@ -96,7 +101,14 @@
       </property>
      </widget>
     </item>
-    <item row="11" column="0">
+    <item row="6" column="0">
+     <widget class="QLabel" name="LabSelectCRS">
+      <property name="text">
+       <string>Velg koordinatsystem (EPSG-kode)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="15" column="0">
      <widget class="QGroupBox" name="groupBoxWMS">
       <property name="enabled">
        <bool>true</bool>
@@ -163,10 +175,37 @@
       </widget>
      </widget>
     </item>
-    <item row="6" column="0">
+    <item row="5" column="0">
+     <widget class="QComboBox" name="SelectMappingScale"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QComboBox" name="SelectType"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QListWidget" name="SelectHovedtypegrupper">
+      <property name="resizeMode">
+       <enum>QListView::Adjust</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="0">
      <widget class="QLabel" name="LabSelectFileLocation">
       <property name="text">
        <string>Velg hvor geopackage-fila skal lagres (mappa)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="12" column="0">
+     <widget class="QLabel" name="LabSelectWMS">
+      <property name="text">
+       <string>Velg ev. WMS/WMTS-lag</string>
+      </property>
+     </widget>
+    </item>
+    <item row="16" column="0">
+     <widget class="QPushButton" name="changeProjectSettingsButton">
+      <property name="text">
+       <string>Lag geopackage-fil og forbered prosjekt</string>
       </property>
      </widget>
     </item>
