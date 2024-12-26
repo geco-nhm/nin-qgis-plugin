@@ -44,7 +44,8 @@ def get_qvariant(qvariant: str) -> Any:
 def create_empty_layer(
     layer_name: str,
     geometry: Union[str, None],
-    crs: Union[str, None] = 'epsg:25833',
+    # crs: Union[str, None] = 'epsg:25833',
+    crs: str,
     data_provider: str = 'memory',
 ) -> QgsVectorLayer:
     '''
@@ -208,6 +209,7 @@ def add_attribute_values_from_csv(
 def main(
     selected_mapping_scale: str,
     gpkg_path: Union[str, Path],
+    proj_crs: str,
 ) -> None:
     '''
     Creates new geopackage (.gpkg) based on definitions in csv file.
@@ -223,7 +225,8 @@ def main(
         / 'nin_polygons_meta.csv'
 
     # Define CRS string (EPSG:25833 -> ETRS89 / UTM zone 33N)
-    crs = "epsg:25833"
+    # crs = "epsg:25833"
+    crs = proj_crs
 
     # Create NiN multipolygon layer
     # print(

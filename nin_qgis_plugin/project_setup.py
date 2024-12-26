@@ -35,7 +35,7 @@ from .attr_table_settings.edit_form_config import adjust_layer_edit_form
 
 
 QGS_PROJECT = QgsProject.instance()
-PROJECT_CRS = "EPSG:25833"
+# PROJECT_CRS = "EPSG:25833"
 
 
 class ProjectSetup:
@@ -50,6 +50,7 @@ class ProjectSetup:
         selected_hovedtypegrupper: List[str],
         selected_mapping_scale: str,
         canvas,
+        proj_crs: str,
         nin_polygons_layer_name: str = "nin_polygons",
     ) -> None:
         '''
@@ -61,6 +62,7 @@ class ProjectSetup:
         self.selected_hovedtypegrupper = selected_hovedtypegrupper
         self.selected_mapping_scale = selected_mapping_scale
         self.canvas = canvas
+        self.proj_crs = proj_crs
         self.nin_polygons_layer_name = nin_polygons_layer_name
 
     def get_nin_polygons_layer(self):
@@ -488,6 +490,7 @@ def main(
     selected_type_id: str,
     gpkg_path: Union[str, Path],
     canvas,
+    proj_crs: str,
     wms_settings: dict,
     selected_mapping_scale="M005",
 ) -> None:
@@ -500,6 +503,7 @@ def main(
         selected_hovedtypegrupper=selected_items,
         selected_mapping_scale=selected_mapping_scale,
         canvas=canvas,
+        proj_crs=proj_crs,
         nin_polygons_layer_name="nin_polygons",
     )
 
@@ -507,7 +511,8 @@ def main(
     _ = project_setup.load_gpkg_layers()
 
     # Set default values for type + hovedtype UI choices
-    project_setup.set_project_crs(crs=PROJECT_CRS)
+    # project_setup.set_project_crs(crs=PROJECT_CRS)
+    project_setup.set_project_crs(crs=proj_crs)
 
     # Adjust datetime format of regdato
     project_setup.field_to_datetime(field_name='regdato')
