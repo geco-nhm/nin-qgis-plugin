@@ -65,16 +65,16 @@
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioBtn25835">
+       <widget class="QRadioButton" name="radioBtn25833">
         <property name="text">
-         <string>UTM 35 (25835)</string>
+         <string>UTM 33 (25833)</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioBtn25833">
+       <widget class="QRadioButton" name="radioBtn25835">
         <property name="text">
-         <string>UTM 33 (25833)</string>
+         <string>UTM 35 (25835)</string>
         </property>
        </widget>
       </item>
