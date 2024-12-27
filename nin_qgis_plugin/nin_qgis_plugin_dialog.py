@@ -225,6 +225,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         '''
         Loads project settings
         '''
+        crs = ''  #Iniate
         # Alt. 1 Retrieve CRS from radiobutton
         # for i in range(self.horizontalLayoutCRS.count()):
              # widget = self.horizontalLayoutCRS.itemAt(i).widget()
@@ -237,13 +238,14 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
                         # widget.text()
                     # )
                  # return
-        crs = ''
+
         # Alt. 2 Retrieve CRS from radiobutton (If The radiobutton text is 'UTM 32 (25832)', then match.group(1) = 25832 i.e. the EPSG-code)
         for radiobutton in self.findChildren(QRadioButton):          # Iterate through all the children of type QRadioButton and check which one is checked
             if radiobutton.isChecked():
                 match = re.search(r'\((\d+)\)', radiobutton.text())  # Use regular expression to find the number within parentheses
                 crs = "EPSG:" + match.group(1)                      # match.group(1) extract the number from the ()
 
+        # CRS must be chosen
         if crs == '':
             QMessageBox.information(
                 None,
