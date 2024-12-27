@@ -79,6 +79,15 @@ class ProjectSetup:
         Returns list of QgsVectorLayers contained in geopackage.
         '''
 
+        # Accessing layers' tree root
+        root = QgsProject.instance().layerTreeRoot()
+        
+        # Add layer groups
+        groupNameList = ['Tabeller']  # May add several group names in the []
+        for groupName in groupNameList:
+            group = root.addGroup(groupName)
+            group.setExpanded(False)   # Collapse the layer group
+
         layer = QgsVectorLayer(
             str(self.gpkg_path),
             "test",
@@ -87,7 +96,7 @@ class ProjectSetup:
 
         sub_layers = layer.dataProvider().subLayers()
         sub_vlayers = []
-
+        p = 0
         for sub_layer in sub_layers:
 
             name = sub_layer.split(QgsDataProvider.SUBLAYER_SEPARATOR)[1]
@@ -96,9 +105,16 @@ class ProjectSetup:
             # Create layer
             sub_vlayer = QgsVectorLayer(uri, name, 'ogr')
             sub_vlayers.append(sub_vlayer)
-
+            
             # Add layer to map
-            QGS_PROJECT.addMapLayer(sub_vlayer)
+            mygroup = root.findGroup("Tabeller")            # Add the layer to the "Tabeller"-group
+            root.findGroup("Tabeller").setItemVisibilityChecked(False)  # Uncheck the Tabeller-group
+            if name not in ('nin_polygons','nin_helper_points'):        # Only adding table-layers to the group
+                QGS_PROJECT.addMapLayer(sub_vlayer, False)  # Add layer to map (False: don't show layer on top in TOC, but insert the layer at given position p)
+                mygroup.insertLayer(p, sub_vlayer)          # place the layer in pth posistion from top of TOC
+            else:
+                QGS_PROJECT.addMapLayer(sub_vlayer, True)   # Add layer to map
+            p = p + 1
 
         return sub_vlayers
 
