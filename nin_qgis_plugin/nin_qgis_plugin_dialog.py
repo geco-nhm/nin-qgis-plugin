@@ -175,7 +175,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
     def load_mapping_scale_combo_box(self):
         self.selectMappingScale.addItems(
-            ["grunntyper", "M005", "M020", "M050"]
+            ["grunntyper", "M005", "M020", "M050"]  # grunntyper becomes default
         )
 
     def file_location_selected(self):
@@ -294,7 +294,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         fpath = Path(fpath_str)                 # filepath as data
         basename = fpath.stem
         path = fpath.parent
-        new_fname = basename + "_" + self.selectMappingScale.currentText() + ".gpkg"  # Creates a new filename incl. mapping scale and file suffix
+        new_fname = basename + "_" + self.selectMappingScale.currentText() + ".gpkg"  # Creates a new filename incl. mapping scale and file suffix (grunntyper is default currentText)
         new_path = path / new_fname             # filepath and filename
         self.geopackage_path = new_path         # Sets the new geopackagefile-path (name and desitination of the gpkg-file to be saved)
         # Print variables to the python-console during testing
