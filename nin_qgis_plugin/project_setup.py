@@ -109,7 +109,7 @@ class ProjectSetup:
             # Add layer to map
             mygroup = root.findGroup("Tabeller")            # Add the layer to the "Tabeller"-group
             root.findGroup("Tabeller").setItemVisibilityChecked(False)  # Uncheck the Tabeller-group
-            if name not in ('nin_polygons','nin_helper_points'):        # Only adding table-layers to the group
+            if name not in ('nin_polygons','nin_helper_points'):        # Only adding table-layers to this group
                 QGS_PROJECT.addMapLayer(sub_vlayer, False)  # Add layer to map (False: don't show layer on top in TOC, but insert the layer at given position p)
                 mygroup.insertLayer(p, sub_vlayer)          # place the layer in pth posistion from top of TOC
             else:
