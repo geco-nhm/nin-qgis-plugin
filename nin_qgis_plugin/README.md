@@ -18,7 +18,7 @@ This creates a QGIS project file and a geopackage file with the selected Type sy
 3. pick the relevant NiN Type system, mapping scale, coordinate system, file location and background maps for the QGIS project
 4. click "Lag geopackage-fil og forbered prosjekt" (eng. "Load Geopackage and adapt project")
 
-#### this creates all the necessary files for mapping in QGIS and adapts the QGIS environment with the following:
+#### This creates all the necessary files for mapping in QGIS and adapts the QGIS environment with the following:
 - all layers from the geopackage are loaded containing necessary tables with the NiN type-system
 - hierarchical relations are set (major types dependencies on major type groups)
 - topological editing is turned on
@@ -26,7 +26,7 @@ This creates a QGIS project file and a geopackage file with the selected Type sy
 - snapping is set to 5px on vertex and segment
 - *nin_polygons* layer is set up with unique random color symbology and labeled by the minor type- depending on the selected Major type groups
 
-## in case further adaptation of the project is neccessary:
+## In case further adaptation of the project is neccessary
 - users can add additional raster/vector layers using standard procedures in QGIS
   
 ## Exporting the project to Qfield
