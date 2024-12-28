@@ -20,7 +20,6 @@ This creates a QGIS project file and a geopackage file with the selected Type sy
 #### this creates all the necessary files for mapping in QGIS and adapts the QGIS environment with the following:
 - all layers from the geopackage are loaded containing necessary tables with the NiN type-system
 - hierarchical relations are set (major types dependencies on major type groups)
-- CRS is set to ETRS89 UTM33 ("EPSG:25833")
 - topological editing is turned on
 - avoid overlap on the *nin_polygons* layer is enabled
 - snapping is set to 5px on vertex and segment
