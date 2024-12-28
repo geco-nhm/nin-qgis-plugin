@@ -26,7 +26,7 @@ This creates a QGIS project file and a geopackage file with the selected Type sy
 - snapping is set to 5px on vertex and segment
 - *nin_polygons* layer is set up with unique random color symbology and labeled by the minor type- depending on the selected Major type groups
 
-## In case further adaptation of the project is neccessary
+#### In case further adaptation of the project is neccessary
 - users can add additional raster/vector layers using standard procedures in QGIS
   
 ## Exporting the project to Qfield
