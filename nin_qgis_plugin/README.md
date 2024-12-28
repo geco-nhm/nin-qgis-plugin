@@ -6,6 +6,7 @@ The user is presented with several options for customizing the QGIS project.
 - option to sub-set the NiN system by choosing the relevant [Type system](https://naturinorge.artsdatabanken.no/) and [Major Type Group/s](https://naturinorge.artsdatabanken.no/Natursystem) for the current mapping project. 
 - mapping scale
 - filepath to save the project to
+- coordinate system for datasets (geopackage file) and project
 - select background maps
 
 This creates a QGIS project file and a geopackage file with the selected Type system and the underlying selected Major Type Groups. Mapping units are adjusted based on the selected mapping scale. 
@@ -26,7 +27,7 @@ This creates a QGIS project file and a geopackage file with the selected Type sy
 - *nin_polygons* layer is set up with unique random color symbology and labeled by the minor type- depending on the selected Major type groups
 
 ## in case further adaptation of the project is neccessary:
-- users can add additional raster/vector layers using standart procedures in QGIS
+- users can add additional raster/vector layers using standard procedures in QGIS
   
 ## Exporting the project to Qfield
 5. After project and geopackage were generated, users can transfer the project to [Qfield](https://docs.qfield.org/get-started/tutorials/get-started-qfs/) and hereby to a mobile device / tablet or a field computer
