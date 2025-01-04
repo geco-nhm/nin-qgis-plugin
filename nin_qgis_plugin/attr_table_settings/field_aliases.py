@@ -9,7 +9,7 @@ def get_field_aliases() -> dict:
 
     field_aliases = {
         'fid': 'ID',
-        'area': 'Areal (m^2)',
+        'area': 'Areal (m²)',
         'regdato': 'Dato',
         'type': 'Type',
         'hovedtypegruppe': 'Hovedtypegruppe',
