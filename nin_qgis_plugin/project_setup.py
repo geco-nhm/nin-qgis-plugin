@@ -11,6 +11,7 @@ from qgis.core import (
     QgsRasterLayer,
     QgsProject,
     QgsEditorWidgetSetup,
+    QgsFieldConstraints,
     QgsCoordinateReferenceSystem,
     QgsRelation,
     QgsCategorizedSymbolRenderer,
@@ -210,6 +211,34 @@ class ProjectSetup:
 
             # Log the updated configuration
             print(f"Updated config for {field_name}: {config}")
+
+    # Function to set the constraints expression for a specified field in a vector layer
+    def set_constraints_expression(self, layer, field_name, expression, proj_crs):
+        # Get the field index
+        field_index = layer.fields().indexFromName(field_name)
+        
+        if field_index == -1:
+            print(f"Field '{field_name}' not found in the layer.")
+            return
+
+        # Get the field
+        field = layer.fields().field(field_index)
+
+        # https://api.qgis.org/api/classQgsVectorLayer.html
+        # ConstraintStrengthSoft = User is warned if constraint is violated but feature can still be accepted. 
+        layer.setFieldConstraint(field_index, QgsFieldConstraints.ConstraintExpression, QgsFieldConstraints.ConstraintStrengthSoft)
+        layer.setConstraintExpression(field_index, expression)
+
+        # If decimal degrees, the CRS is transformed to UTM33 N before computing planimetric area
+        # If that's the case, the field "area"'s default value must be changed
+        if proj_crs=='EPSG:4258':
+            default_value = QgsDefaultValue()
+            default_value.setExpression("round(area(Transform($geometry,'"+proj_crs+"','EPSG:25833')),1)")
+            layer.setDefaultValueDefinition(field_index, default_value)
+
+        # Update the field in the layer
+        layer.updateFields()        
+        print(f"Constraints expression for field '{field_name}' set to '{expression}'.")
 
     def field_to_datetime(
         self,
@@ -511,7 +540,7 @@ def main(
     canvas,
     proj_crs: str,
     wms_settings: dict,
-    selected_mapping_scale="M005",
+    selected_mapping_scale="M005",  # ??? Hardkoda? Hva med grunntyper?
 ) -> None:
     '''Adapt QGIS project settings.'''
 
@@ -539,6 +568,19 @@ def main(
     project_setup.set_photo_widget(
         layer=project_setup.get_nin_polygons_layer(),
     )
+
+    # Set MMU depending on the chosen mapping scale
+    layer_name = "nin_polygons"
+    field_name = "area"
+    if selected_mapping_scale=="grunntyper":
+        expression = "area($geometry)>=250"   # Secure MMU
+    elif selected_mapping_scale=="M005":
+        expression = "area($geometry)>=500"   # Secure MMU
+    elif selected_mapping_scale=="M020":
+        expression = "area($geometry)>=2000"  # Secure MMU
+    else:
+        expression = "area($geometry)>=5000"  # Secure MMU
+
 
     # Set default values defined in 'default_values.py'
     for default_value in get_default_values(
@@ -580,6 +622,13 @@ def main(
     adjust_layer_edit_form(
         layer=project_setup.get_nin_polygons_layer()
     )
+
+    # Get the layer by name
+    layer = QgsProject.instance().mapLayersByName(layer_name)[0]
+    
+    # Set the conatraints expression for the specified field
+    project_setup.set_constraints_expression(layer, field_name, expression, proj_crs)
+
 
     # Add Norway topography WMS raster layer
     if wms_settings['checkBoxNorgeTopo']:
