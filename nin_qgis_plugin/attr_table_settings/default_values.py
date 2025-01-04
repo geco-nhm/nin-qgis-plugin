@@ -58,7 +58,7 @@ def get_default_values(
         {
             "layer_name": "nin_polygons",
             "field_name": "area",
-            "default_value_expression": "round($area,1)",
+            "default_value_expression": "round(area($geometry),1)", # always planimetric
             "make_field_uneditable": True,
             "apply_on_update": False,
         },
