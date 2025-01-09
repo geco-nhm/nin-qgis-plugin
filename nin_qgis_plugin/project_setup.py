@@ -573,13 +573,13 @@ def main(
     layer_name = "nin_polygons"
     field_name = "area"
     if selected_mapping_scale=="grunntyper":
-        expression = "area($geometry)>=250"   # Secure MMU
+        expression = "area($geometry)>=1"   # Secure MMU
     elif selected_mapping_scale=="M005":
         expression = "area($geometry)>=500"   # Secure MMU
     elif selected_mapping_scale=="M020":
-        expression = "area($geometry)>=2000"  # Secure MMU
+        expression = "area($geometry)>=2500"  # Secure MMU
     else:
-        expression = "area($geometry)>=5000"  # Secure MMU
+        expression = "area($geometry)>=10000"  # Secure MMU
 
 
     # Set default values defined in 'default_values.py'
