@@ -11,6 +11,7 @@ from qgis.core import (
     QgsRasterLayer,
     QgsProject,
     QgsEditorWidgetSetup,
+    QgsFieldConstraints,
     QgsCoordinateReferenceSystem,
     QgsRelation,
     QgsCategorizedSymbolRenderer,
@@ -35,7 +36,7 @@ from .attr_table_settings.edit_form_config import adjust_layer_edit_form
 
 
 QGS_PROJECT = QgsProject.instance()
-PROJECT_CRS = "EPSG:25833"
+# PROJECT_CRS = "EPSG:25833"
 
 
 class ProjectSetup:
@@ -50,6 +51,7 @@ class ProjectSetup:
         selected_hovedtypegrupper: List[str],
         selected_mapping_scale: str,
         canvas,
+        proj_crs: str,
         nin_polygons_layer_name: str = "nin_polygons",
     ) -> None:
         '''
@@ -61,6 +63,7 @@ class ProjectSetup:
         self.selected_hovedtypegrupper = selected_hovedtypegrupper
         self.selected_mapping_scale = selected_mapping_scale
         self.canvas = canvas
+        self.proj_crs = proj_crs
         self.nin_polygons_layer_name = nin_polygons_layer_name
 
     def get_nin_polygons_layer(self):
@@ -77,6 +80,15 @@ class ProjectSetup:
         Returns list of QgsVectorLayers contained in geopackage.
         '''
 
+        # Accessing layers' tree root
+        root = QgsProject.instance().layerTreeRoot()
+        
+        # Add layer groups
+        groupNameList = ['Tabeller']  # May add several group names in the []
+        for groupName in groupNameList:
+            group = root.addGroup(groupName)
+            group.setExpanded(False)   # Collapse the layer group
+
         layer = QgsVectorLayer(
             str(self.gpkg_path),
             "test",
@@ -85,7 +97,7 @@ class ProjectSetup:
 
         sub_layers = layer.dataProvider().subLayers()
         sub_vlayers = []
-
+        p = 0
         for sub_layer in sub_layers:
 
             name = sub_layer.split(QgsDataProvider.SUBLAYER_SEPARATOR)[1]
@@ -94,9 +106,16 @@ class ProjectSetup:
             # Create layer
             sub_vlayer = QgsVectorLayer(uri, name, 'ogr')
             sub_vlayers.append(sub_vlayer)
-
+            
             # Add layer to map
-            QGS_PROJECT.addMapLayer(sub_vlayer)
+            mygroup = root.findGroup("Tabeller")            # Add the layer to the "Tabeller"-group
+            root.findGroup("Tabeller").setItemVisibilityChecked(False)  # Uncheck the Tabeller-group
+            if name not in ('nin_polygons','nin_helper_points'):        # Only adding table-layers to this group
+                QGS_PROJECT.addMapLayer(sub_vlayer, False)  # Add layer to map (False: don't show layer on top in TOC, but insert the layer at given position p)
+                mygroup.insertLayer(p, sub_vlayer)          # place the layer in pth posistion from top of TOC
+            else:
+                QGS_PROJECT.addMapLayer(sub_vlayer, True)   # Add layer to map
+            p = p + 1
 
         return sub_vlayers
 
@@ -192,6 +211,34 @@ class ProjectSetup:
 
             # Log the updated configuration
             print(f"Updated config for {field_name}: {config}")
+
+    # Function to set the constraints expression for a specified field in a vector layer
+    def set_constraints_expression(self, layer, field_name, expression, proj_crs):
+        # Get the field index
+        field_index = layer.fields().indexFromName(field_name)
+        
+        if field_index == -1:
+            print(f"Field '{field_name}' not found in the layer.")
+            return
+
+        # Get the field
+        field = layer.fields().field(field_index)
+
+        # https://api.qgis.org/api/classQgsVectorLayer.html
+        # ConstraintStrengthSoft = User is warned if constraint is violated but feature can still be accepted. 
+        layer.setFieldConstraint(field_index, QgsFieldConstraints.ConstraintExpression, QgsFieldConstraints.ConstraintStrengthSoft)
+        layer.setConstraintExpression(field_index, expression)
+
+        # If decimal degrees, the CRS is transformed to UTM33 N before computing planimetric area
+        # If that's the case, the field "area"'s default value must be changed
+        if proj_crs=='EPSG:4258':
+            default_value = QgsDefaultValue()
+            default_value.setExpression("round(area(Transform($geometry,'"+proj_crs+"','EPSG:25833')),1)")
+            layer.setDefaultValueDefinition(field_index, default_value)
+
+        # Update the field in the layer
+        layer.updateFields()        
+        print(f"Constraints expression for field '{field_name}' set to '{expression}'.")
 
     def field_to_datetime(
         self,
@@ -351,6 +398,9 @@ class ProjectSetup:
             # Add the layer to the project
             QGS_PROJECT.addMapLayer(layer)
 
+        # Layer is "nin_polygons" hard coded in def_init
+        layer.saveStyleToDatabase(layer.name(),"Default style for {}".format(layer.name()),True,"")
+
     def add_wms_layer(
         self,
         wms_service_url: str,
@@ -488,8 +538,9 @@ def main(
     selected_type_id: str,
     gpkg_path: Union[str, Path],
     canvas,
+    proj_crs: str,
     wms_settings: dict,
-    selected_mapping_scale="M005",
+    selected_mapping_scale="M005",  # ??? Hardkoda? Hva med grunntyper?
 ) -> None:
     '''Adapt QGIS project settings.'''
 
@@ -500,6 +551,7 @@ def main(
         selected_hovedtypegrupper=selected_items,
         selected_mapping_scale=selected_mapping_scale,
         canvas=canvas,
+        proj_crs=proj_crs,
         nin_polygons_layer_name="nin_polygons",
     )
 
@@ -507,7 +559,8 @@ def main(
     _ = project_setup.load_gpkg_layers()
 
     # Set default values for type + hovedtype UI choices
-    project_setup.set_project_crs(crs=PROJECT_CRS)
+    # project_setup.set_project_crs(crs=PROJECT_CRS)
+    project_setup.set_project_crs(crs=proj_crs)
 
     # Adjust datetime format of regdato
     project_setup.field_to_datetime(field_name='regdato')
@@ -515,6 +568,19 @@ def main(
     project_setup.set_photo_widget(
         layer=project_setup.get_nin_polygons_layer(),
     )
+
+    # Set MMU depending on the chosen mapping scale
+    layer_name = "nin_polygons"
+    field_name = "area"
+    if selected_mapping_scale=="grunntyper":
+        expression = "area($geometry)>=1"   # Secure MMU
+    elif selected_mapping_scale=="M005":
+        expression = "area($geometry)>=500"   # Secure MMU
+    elif selected_mapping_scale=="M020":
+        expression = "area($geometry)>=2500"  # Secure MMU
+    else:
+        expression = "area($geometry)>=10000"  # Secure MMU
+
 
     # Set default values defined in 'default_values.py'
     for default_value in get_default_values(
@@ -557,13 +623,20 @@ def main(
         layer=project_setup.get_nin_polygons_layer()
     )
 
+    # Get the layer by name
+    layer = QgsProject.instance().mapLayersByName(layer_name)[0]
+    
+    # Set the conatraints expression for the specified field
+    project_setup.set_constraints_expression(layer, field_name, expression, proj_crs)
+
+
     # Add Norway topography WMS raster layer
     if wms_settings['checkBoxNorgeTopo']:
         project_setup.add_wms_layer(
             wms_service_url="https://openwms.statkart.no/skwms1/wms.topo?",
             wms_layer_names='topo',
             wms_style='default',
-            wms_crs=PROJECT_CRS,
+            wms_crs=proj_crs,
             new_qgis_layer_name="Topografisk norgeskart",
             wmts='0',
             zoom_to_extent=True,
@@ -575,7 +648,7 @@ def main(
             wms_service_url="https://openwms.statkart.no/skwms1/wms.topograatone?",
             wms_layer_names='topograatone',
             wms_style='default',
-            wms_crs=PROJECT_CRS,
+            wms_crs=proj_crs,
             new_qgis_layer_name="Topografisk norgeskart gråtone",
             wmts='0',
             zoom_to_extent=True,
@@ -587,7 +660,7 @@ def main(
             wms_service_url="http://opencache.statkart.no/gatekeeper/gk/gk.open_nib_utm33_wmts_v2?",
             wms_layer_names='Nibcache_UTM33_EUREF89_v2',
             wms_style='default',
-            wms_crs=PROJECT_CRS,
+            wms_crs=proj_crs,
             new_qgis_layer_name="Nibcache_UTM33_EUREF89_v2",
             wmts='1',
             zoom_to_extent=True,
