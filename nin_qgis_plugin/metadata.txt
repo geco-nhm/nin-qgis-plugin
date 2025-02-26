@@ -6,7 +6,7 @@
 name=Natur i Norge kartlegging
 qgisMinimumVersion=3.34.8
 description=Natur i Norge (NiN) mapping tool.
-version=0.1
+version=0.2
 author=Lasse Keetz, Peter Horvath, Anne B. Nilsen
 email=peter.horvath@nhm.uio.no
 
