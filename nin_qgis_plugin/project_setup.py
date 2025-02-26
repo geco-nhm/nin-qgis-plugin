@@ -633,7 +633,7 @@ def main(
     # Add Norway topography WMS raster layer
     if wms_settings['checkBoxNorgeTopo']:
         project_setup.add_wms_layer(
-            wms_service_url="https://openwms.statkart.no/skwms1/wms.topo?",
+            wms_service_url="https://wms.geonorge.no/skwms1/wms.topo?",
             wms_layer_names='topo',
             wms_style='default',
             wms_crs=proj_crs,
@@ -645,7 +645,7 @@ def main(
     # Add Norway topography grayscale WMS raster layer
     if wms_settings['checkBoxNorgeTopoGraa']:
         project_setup.add_wms_layer(
-            wms_service_url="https://openwms.statkart.no/skwms1/wms.topograatone?",
+            wms_service_url="https://wms.geonorge.no/skwms1/wms.topograatone?",
             wms_layer_names='topograatone',
             wms_style='default',
             wms_crs=proj_crs,
@@ -656,12 +656,13 @@ def main(
 
     # Add "Norway in images" WMTS raster layer
     if wms_settings['checkBoxNiB']:
+        crs_zone = proj_crs[-2:]
         project_setup.add_wms_layer(
-            wms_service_url="http://opencache.statkart.no/gatekeeper/gk/gk.open_nib_utm33_wmts_v2?",
-            wms_layer_names='Nibcache_UTM33_EUREF89_v2',
+            wms_service_url=f"http://opencache.statkart.no/gatekeeper/gk/gk.open_nib_utm{crs_zone}_wmts_v2?",
+            wms_layer_names=f'Nibcache_UTM{crs_zone}_EUREF89_v2',
             wms_style='default',
             wms_crs=proj_crs,
-            new_qgis_layer_name="Nibcache_UTM33_EUREF89_v2",
+            new_qgis_layer_name=f'Nibcache_UTM{crs_zone}_EUREF89_v2',
             wmts='1',
             zoom_to_extent=True,
         )
