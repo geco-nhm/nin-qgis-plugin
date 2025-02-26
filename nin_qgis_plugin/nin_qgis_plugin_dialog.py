@@ -24,6 +24,7 @@
 
 import os
 import csv
+import re  #search string
 from pathlib import Path
 from . import create_gpkg as cgpkg
 from . import project_setup as ps
@@ -35,7 +36,7 @@ from qgis.gui import QgsFileWidget
 from PyQt5.QtCore import Qt  # Import Qt from PyQt5.QtCore
 from PyQt5.QtWidgets import (
     QMessageBox, QComboBox, QListWidget,
-    QListWidgetItem, QGroupBox, QCheckBox,
+    QListWidgetItem, QGroupBox, QCheckBox, QRadioButton, QHBoxLayout
 )
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
@@ -174,7 +175,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
     def load_mapping_scale_combo_box(self):
         self.selectMappingScale.addItems(
-            ["grunntyper", "M005", "M020", "M050"]
+            ["grunntyper", "M005", "M020", "M050"]  # grunntyper becomes default
         )
 
     def file_location_selected(self):
@@ -185,8 +186,8 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
         file_suffix = ".gpkg"
 
-        selected_path = Path(self.file_widget.filePath()).resolve()
-
+        selected_path = Path(self.file_widget.filePath()).resolve()  # convert relative path to absolute
+        print(selected_path)
         # Check if the directory exists
         if (not selected_path.parent.exists()):
             raise ValueError(
@@ -194,10 +195,10 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
                 '{selected_path} is not a valid path for a new .gpkg file!
                 """
             )
-
-        # Append .gpkg suffix if necessary
-        if selected_path.suffix != file_suffix:
-            selected_path = selected_path.with_suffix(file_suffix)
+        # Obsolete: Fiel suffix is set after adding the mapping scale to the filename further down
+        # # Append .gpkg suffix if necessary. GPKG is set as filter in QtDesigner for the QgsFileWidget
+        # if selected_path.suffix != file_suffix:
+            # selected_path = selected_path.with_suffix(file_suffix)
 
         self.geopackage_path = selected_path
 
@@ -224,7 +225,35 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         '''
         Loads project settings
         '''
+        crs = ''  #Iniate
+        # Alt. 1 Retrieve CRS from radiobutton
+        # for i in range(self.horizontalLayoutCRS.count()):
+             # widget = self.horizontalLayoutCRS.itemAt(i).widget()
+             # if isinstance(widget, QRadioButton) and widget.isChecked():
+                 # # print(f"Checked RadioButton: {widget.text()}")
+                 # # break
+                 # QMessageBox.information(
+                        # None,
+                        # "Koordinatsystem valgt",
+                        # widget.text()
+                    # )
+                 # return
 
+        # Alt. 2 Retrieve CRS from radiobutton (If The radiobutton text is 'UTM 32 (25832)', then match.group(1) = 25832 i.e. the EPSG-code)
+        for radiobutton in self.findChildren(QRadioButton):          # Iterate through all the children of type QRadioButton and check which one is checked
+            if radiobutton.isChecked():
+                match = re.search(r'\((\d+)\)', radiobutton.text())  # Use regular expression to find the number within parentheses
+                crs = "EPSG:" + match.group(1)                      # match.group(1) extract the number from the ()
+
+        # CRS must be chosen
+        if crs == '':
+            QMessageBox.information(
+                None,
+                "Intet koordinatsystem valgt",
+                "Velg koordinatsystem"
+            )
+            return
+ 
         # Retrieve user selection in WMS checkboxes
         wms_settings = {
             box: self.wms_box_group.findChild(QCheckBox, box).isChecked()
@@ -260,10 +289,26 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             )
             return
 
+        # Including the mapping scale in the filename
+        fpath_str = self.file_widget.filePath() # filepath as string
+        fpath = Path(fpath_str)                 # filepath as data
+        basename = fpath.stem
+        path = fpath.parent
+        new_fname = basename + "_" + self.selectMappingScale.currentText() + ".gpkg"  # Creates a new filename incl. mapping scale and file suffix (grunntyper is default currentText)
+        new_path = path / new_fname             # filepath and filename
+        self.geopackage_path = new_path         # Sets the new geopackagefile-path (name and desitination of the gpkg-file to be saved)
+        # Print variables to the python-console during testing
+        # print(f"filstistreng: {fpath_str}")     # C:\adhoc\aa.gpkg
+        # print(f"filsti: {path}")                # C:\adhoc
+        # print(f"basenavn: {basename}")          # aa
+        # print(f"nytt filnavn: {new_fname}")     # aa_grunntyper.gpkg
+        # print(f"ny filsti: {new_path}")         # C:\adhoc\bb_grunntyper.gpkg
+
         # Run create_gpkg.py
         cgpkg.main(
             selected_mapping_scale=self.selectMappingScale.currentText(),
             gpkg_path=self.geopackage_path,
+            proj_crs=crs,
         )
 
         # Run project_setup.py
@@ -272,6 +317,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             selected_type_id=self.get_selected_type_id(),
             gpkg_path=self.geopackage_path,
             canvas=self.canvas,
+            proj_crs=crs,
             wms_settings=wms_settings,
             selected_mapping_scale=self.selectMappingScale.currentText(),
         )
