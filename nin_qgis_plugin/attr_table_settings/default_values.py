@@ -87,21 +87,46 @@ def get_default_values(
             "layer_name": "nin_polygons",
             "field_name": "andel_kle_1",
             "default_value_expression": "100.0",
+            "widget_type": "Range",
+            "widget_config": {
+                "Min": 50,
+                "Max": 100,
+                "Step": 10,
+                "Suffix": "%"
+            },
             "make_field_uneditable": False,
             "apply_on_update": False,
         },
         {
             "layer_name": "nin_polygons",
             "field_name": "andel_kle_2",
-            "default_value_expression": "if(\"andel_kle_1\" IS NOT NULL, 100.0 - \"andel_kle_1\", 100.0)",
+            "default_value_expression": "if(\"andel_kle_1\"=100, 0, 100-(\"andel_kle_1\" + \"andel_kle_3\"))",
+            "widget_type": "Range",
+            "widget_config": {
+                "Min": 0,
+                "Max": 100,
+                "Step": 10,
+                "Suffix": "%"
+            },
+            "constraints": "(\"andel_kle_1\" + \"andel_kle_2\" + \"andel_kle_3\") = 100 AND \"andel_kle_2\" <= \"andel_kle_1\"",
+            "constraint_description": "Sum grunntype 1, 2 og 3 må være 100 %",
             "make_field_uneditable": False,
             "apply_on_update": True,
         },
         {
             "layer_name": "nin_polygons",
             "field_name": "andel_kle_3",
-            "default_value_expression": "if(\"andel_kle_1\" + \"andel_kle_2\" <= 100, 100.0 - (\"andel_kle_1\" + \"andel_kle_2\"), 0.0)",
-            "make_field_uneditable": False,
+            "default_value_expression": "if((\"andel_kle_1\" + \"andel_kle_2\")=100, 0, 100 - (\"andel_kle_1\" + \"andel_kle_2\"))",
+            "widget_type": "Range",
+            "widget_config": {
+                "Min": 0,
+                "Max": 100,
+                "Step": 10,
+                "Suffix": "%"
+            },
+            "constraints": "(\"andel_kle_1\" + \"andel_kle_2\" + \"andel_kle_3\") = 100 AND \"andel_kle_3\" <= \"andel_kle_2\"",
+            "constraint_description": "Andel grunntype 3 må være <= andel grunntype 2",
+            "make_field_uneditable": False, #
             "apply_on_update": True,
         },
         {
