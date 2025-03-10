@@ -177,6 +177,8 @@ class ProjectSetup:
         widget_config: dict = None,
         constraints: dict = None,
         constraint_description: str = None,
+        not_null: bool = False,
+        enforce_not_null: bool = False,
     ) -> None:
         #print(f"apply_on_update for {field_name}: {apply_on_update}")
         '''
@@ -219,7 +221,18 @@ class ProjectSetup:
                     field_index,
                     QgsFieldConstraints.ConstraintExpression
                 )
-            
+            # Apply Not Null constraint if specified
+            if not_null:
+                layer.setFieldConstraint(
+                    field_index,
+                    QgsFieldConstraints.ConstraintNotNull
+                )
+           # Enforce Not Null constraint if specified
+            if enforce_not_null:
+                layer.setFieldConstraint(
+                    field_index,
+                    QgsFieldConstraints.ConstraintNotNull,
+                )
             # Apply the "apply on update" setting
             widget_setup = layer.editorWidgetSetup(field_index)
             config = widget_setup.config()
@@ -616,6 +629,8 @@ def main(
             widget_config=default_value.get("widget_config", None),
             constraints=default_value.get("constraints", None),
             constraint_description=default_value.get("constraint_description", None),
+            not_null=default_value.get("not_null", False),
+            enforce_not_null=default_value.get("enforce_not_null", False),
             
         )
 
