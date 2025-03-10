@@ -173,6 +173,10 @@ class ProjectSetup:
         default_value_expression: str,
         make_field_uneditable: bool = True,
         apply_on_update: bool = False,
+        widget_type: str = None,
+        widget_config: dict = None,
+        constraints: dict = None,
+        constraint_description: str = None,
     ) -> None:
         #print(f"apply_on_update for {field_name}: {apply_on_update}")
         '''
@@ -199,6 +203,22 @@ class ProjectSetup:
                 form_config = layer.editFormConfig()
                 form_config.setReadOnly(field_index, True)
                 layer.setEditFormConfig(form_config)
+
+            # Apply widget settings if defined
+            if widget_type:
+                widget_setup = QgsEditorWidgetSetup(widget_type, widget_config or {})
+                layer.setEditorWidgetSetup(field_index, widget_setup)
+            # Apply constraints if defined
+            if constraints:
+                layer.setConstraintExpression(
+                    field_index,
+                    constraints,
+                    constraint_description or ""
+                )
+                layer.setFieldConstraint(
+                    field_index,
+                    QgsFieldConstraints.ConstraintExpression
+                )
             
             # Apply the "apply on update" setting
             widget_setup = layer.editorWidgetSetup(field_index)
@@ -592,6 +612,11 @@ def main(
             default_value_expression=default_value["default_value_expression"],
             make_field_uneditable=default_value["make_field_uneditable"],
             apply_on_update=default_value.get("apply_on_update", False),
+            widget_type=default_value.get("widget_type", None),
+            widget_config=default_value.get("widget_config", None),
+            constraints=default_value.get("constraints", None),
+            constraint_description=default_value.get("constraint_description", None),
+            
         )
 
     # Set value relations defined in 'value_relations.py'
