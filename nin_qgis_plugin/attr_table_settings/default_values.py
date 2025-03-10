@@ -94,6 +94,9 @@ def get_default_values(
                 "Step": 10,
                 "Suffix": "%"
             },
+            "constraints": "(\"andel_kle_1\" + \"andel_kle_2\" + \"andel_kle_3\") = 100",
+            "not_null": True,
+            "enforce_not_null": True,
             "make_field_uneditable": False,
             "apply_on_update": False,
         },
