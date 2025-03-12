@@ -18,6 +18,9 @@ mamba activate nin-qgis-env
 ```
 poetry install
 ```
+### symbolic link github repo to QGIS plugins directory
+
+New-Item -ItemType SymbolicLink -Path "C:\Users\current_user\AppData\Roaming\QGIS\QGIS3\profiles\test\python\plugins\nin-qgis-plugin\nin-qgis-plugin" -Target "C:\Users\current_user\Documents\GitHub\nin-qgis-plugin"
 
 ### Create relational NiN csv tables
 
