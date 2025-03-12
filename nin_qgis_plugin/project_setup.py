@@ -411,14 +411,28 @@ class ProjectSetup:
             # ... setting expression as label... if not specified with kode_id_label then labeled with "ikke kartlagt"
             # otherwise the represented value in kode_id_label is shortened to omit the mapping scale (string in the middle between dashes)
             label_settings.fieldName =r"""
-            case
-            when "kode_id_label" is null and "grunntype_or_klenhet_2" is null then 'ikke kartlagt'
-            when "grunntype_or_klenhet_2" is null then 
-            regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-')
-            else 
-            regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-') || ' / '|| regexp_replace(represent_value("grunntype_or_klenhet_2"), '^([^-]+)-[^-]+-([^-\\ ]+).+$',  '\\1-\\2')
-            end
+            CASE
+                WHEN "type" IN (1,2,3,4,5) THEN 
+                    regexp_substr(represent_value("hovedtype"), '^[A-Z]+-[A-Z0-9]+') 
+                WHEN "kode_id_label" IS NULL AND "grunntype_or_klenhet_2" IS NULL THEN 
+                    'ikke kartlagt'
+                WHEN "grunntype_or_klenhet_2" IS NULL THEN 
+                    regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-')
+                ELSE 
+                    regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-') || ' / ' || regexp_replace(represent_value("grunntype_or_klenhet_2"), '^([A-Z0-9]+)-(?:[A-Z0-9]+-)?([A-Z0-9]+).*$', '\\1-\\2')
+            END
             """
+            # Regexp explanation:
+            # ^([A-Z0-9]+)-
+            # Captures the first part (e.g., TK01).
+            # (?:[A-Z0-9]+-)?
+            # Matches (but does not capture) an optional middle part (e.g., M005-).
+            # ([A-Z0-9]+)
+            # Captures the third part (e.g., 19).
+            # .*$
+            # Matches and removes everything after the third part (optional descriptive text).
+            # '\\1-\\2'
+            # Keeps only the first and third parts, removing the middle part and anything extra at the end.
 
             label_settings.isExpression = True
             labeling = QgsVectorLayerSimpleLabeling(label_settings)
