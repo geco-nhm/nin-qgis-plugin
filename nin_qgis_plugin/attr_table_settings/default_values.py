@@ -92,9 +92,11 @@ def get_default_values(
                 "Min": 50,
                 "Max": 100,
                 "Step": 10,
+                'AllowNull': False,
                 "Suffix": "%"
             },
             "constraints": "(\"andel_kle_1\" + \"andel_kle_2\" + \"andel_kle_3\") = 100",
+            "constraint_description": "grunntype 1 må være over 50% og sum grunntype 1, 2 og 3 må være 100 %",
             "not_null": True,
             "enforce_not_null": True,
             "make_field_uneditable": False,
