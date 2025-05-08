@@ -1,330 +1,425 @@
 fid,hovedtyper_fkey,langkode,kode_id,navn
-0,292,NiN-3.0-T-C-PE-NA-MB-VC03-M050-01,VC03-M050-01,VC03-M050-01 Grunnkilde
-1,293,NiN-3.0-T-C-PE-NA-MB-VC02-M050-01,VC02-M050-01,VC02-M050-01 Torvmarkskilde
-2,294,NiN-3.0-T-C-PE-NA-MB-VC01-M050-01,VC01-M050-01,VC01-M050-01 Åpen nedbørsmyr
-3,295,NiN-3.0-T-C-PE-NA-MB-VB01-M050-02,VB01-M050-02,VB01-M050-02 Klart kalkrik myr- og sumpskogsmark
-4,295,NiN-3.0-T-C-PE-NA-MB-VB01-M050-01,VB01-M050-01,VB01-M050-01 Svært kalkfattig til litt kalkrik myr- og sumpskogsmark
-5,296,NiN-3.0-T-C-PE-NA-MB-VA01-M050-01,VA01-M050-01,VA01-M050-01 Svært kalkfattig til litt kalkrik mykmatte til øvre tuenivå
-6,296,NiN-3.0-T-C-PE-NA-MB-VA01-M050-02,VA01-M050-02,VA01-M050-02 Temmelig til ekstremt kalkrikt mattenivå i myrkant til nedre tuenivå
-7,297,NiN-3.0-T-C-PE-NA-MB-VO01-M050-01,VO01-M050-01,VO01-M050-01 Sterkt tråkkpreget våtmark
-8,298,NiN-3.0-T-C-PE-NA-MB-VM06-M050-01,VM06-M050-01,VM06-M050-01 Ny grunn våtmark på menneskebetinget forsumpet fastmark
-9,299,NiN-3.0-T-C-PE-NA-MB-VF02-M050-01,VF02-M050-01,VF02-M050-01 Strandsumpskogsmark
-10,300,NiN-3.0-T-C-PE-NA-MB-VF01-M050-01,VF01-M050-01,VF01-M050-01 Nedbørsmyr-skogsmark
-11,301,NiN-3.0-T-C-PE-NA-MB-VE01-M050-01,VE01-M050-01,VE01-M050-01 Oppfrysingsvåtmark
-12,302,NiN-3.0-T-C-PE-NA-MB-VC05-M050-01,VC05-M050-01,VC05-M050-01 Permafrost-våtmark
-13,303,NiN-3.0-T-C-PE-NA-MB-VC04-M050-01,VC04-M050-01,VC04-M050-01 Våt- og kildesnøleie
-14,304,NiN-3.0-T-C-PE-NA-MB-VM05-M050-01,VM05-M050-01,VM05-M050-01 Ny grunn våtmark på tidligere ferskvannsbunn
-15,305,NiN-3.0-T-C-PE-NA-MB-VM04-M050-01,VM04-M050-01,VM04-M050-01 Sterkt endret ikke torvproduserende våtmark
-16,306,NiN-3.0-T-C-PE-NA-MB-VM03-M050-01,VM03-M050-01,VM03-M050-01 Ny torvmark på menneskebetinget forsumpet fastmark
-17,307,NiN-3.0-T-C-PE-NA-MB-VM02-M050-01,VM02-M050-01,VM02-M050-01 Ny torvmark på tidligere ferskvannsbunn
-18,308,NiN-3.0-T-C-PE-NA-MB-VM01-M050-01,VM01-M050-01,VM01-M050-01 Sterkt endret torvmark
-19,309,NiN-3.0-T-C-PE-NA-MB-VK02-M050-01,VK02-M050-01,VK02-M050-01 Semi-naturlig våteng
-20,310,NiN-3.0-T-C-PE-NA-MB-VK01-M050-01,VK01-M050-01,VK01-M050-01 Slåttemyr
-21,311,NiN-3.0-T-C-PE-NA-MB-VI01-M050-01,VI01-M050-01,VI01-M050-01 Klart endret våtmarksskogsmark
-22,312,NiN-3.0-T-C-PE-NA-MB-VG02-M050-01,VG02-M050-01,VG02-M050-01 Ny naturgitt grunn våtmark
-23,313,NiN-3.0-T-C-PE-NA-MB-VG01-M050-01,VG01-M050-01,VG01-M050-01 Ny naturgitt torvmark
-24,314,NiN-3.0-T-C-PE-NA-MB-TO04-M050-01,TO04-M050-01,TO04-M050-01 Upløyd jordbruksmark med intensivt hevdpreg
-25,315,NiN-3.0-T-C-PE-NA-MB-TO03-M050-01,TO03-M050-01,TO03-M050-01 Oppdyrket varig eng
-26,316,NiN-3.0-T-C-PE-NA-MB-TO02-M050-01,TO02-M050-01,TO02-M050-01 Oppdyrket mark med semi-naturlig engpreg
-27,317,NiN-3.0-T-C-PE-NA-MB-TO01-M050-01,TO01-M050-01,TO01-M050-01 Åker
-28,318,NiN-3.0-T-C-PE-NA-MB-TN03-M050-01,TN03-M050-01,"TN03-M050-01 Vegkanter, plener, parker og liknende uten semi-naturlig hevdpreg"
-29,319,NiN-3.0-T-C-PE-NA-MB-TN02-M050-01,TN02-M050-01,"TN02-M050-01 Blomsterenger, usprøytete vegkanter og liknende med semi-naturlig hevdpreg"
-30,320,NiN-3.0-T-C-PE-NA-MB-TN01-M050-01,TN01-M050-01,TN01-M050-01 Blomsterbed og annen hyppig bearbeidet mark
-31,321,NiN-3.0-T-C-PE-NA-MB-TM02-M050-01,TM02-M050-01,TM02-M050-01 Ny hard fastmark på tørrlagt innsjøbunn
-32,321,NiN-3.0-T-C-PE-NA-MB-TM02-M050-02,TM02-M050-02,TM02-M050-02 Ny hard fastmark på tørrlagt elvebunn
-33,322,NiN-3.0-T-C-PE-NA-MB-TM06-M050-01,TM06-M050-01,TM06-M050-01 Sterkt endret skogsmark
-34,322,NiN-3.0-T-C-PE-NA-MB-TM06-M050-02,TM06-M050-02,TM06-M050-02 Sterkt endret skogsmark i mellomsuksesjonsstadium
-35,323,NiN-3.0-T-C-PE-NA-MB-TM05-M050-01,TM05-M050-01,TM05-M050-01 Ny løs fastmark på drenert våtmark
-36,324,NiN-3.0-T-C-PE-NA-MB-TM04-M050-02,TM04-M050-02,TM04-M050-02 Ny løs fastmark på tørrlagt elvebunn
-37,324,NiN-3.0-T-C-PE-NA-MB-TM04-M050-01,TM04-M050-01,TM04-M050-01 Ny løs fastmark på tørrlagt innsjøbunn
-38,325,NiN-3.0-T-C-PE-NA-MB-TM03-M050-04,TM03-M050-04,"TM03-M050-04 Sterkt endret fastmark av løst, sterkt modifisert eller syntetisk substrat"
-39,325,NiN-3.0-T-C-PE-NA-MB-TM03-M050-02,TM03-M050-02,TM03-M050-02 Sterkt endret fastmark med dekke av leire til grus
-40,325,NiN-3.0-T-C-PE-NA-MB-TM03-M050-01,TM03-M050-01,TM03-M050-01 Sterkt endret fastmark med dekke av jord eller blandet sediment
-41,326,NiN-3.0-T-C-PE-NA-MB-TM01-M050-01,TM01-M050-01,TM01-M050-01 Hard sterkt endret fastmark
-42,327,NiN-3.0-T-C-PE-NA-MB-TL01-M050-02,TL01-M050-02,TL01-M050-02 Sterkt kalkrik ny eng med semi-naturlig preg
-43,327,NiN-3.0-T-C-PE-NA-MB-TL01-M050-01,TL01-M050-01,TL01-M050-01 Kalkfattig til litt kalkrik ny eng med semi-naturlig preg
-44,328,NiN-3.0-T-C-PE-NA-MB-TE06-M050-01,TE06-M050-01,TE06-M050-01 Marin driftvoll
-45,329,NiN-3.0-T-C-PE-NA-MB-TK03-M050-02,TK03-M050-02,TK03-M050-02 Sterkt kalkrik kystlynghei
-46,329,NiN-3.0-T-C-PE-NA-MB-TK03-M050-01,TK03-M050-01,TK03-M050-01 Kalkfattig til litt kalkrik bakli-hei  og kystlynghei
-47,330,NiN-3.0-T-C-PE-NA-MB-TK02-M050-01,TK02-M050-01,TK02-M050-01 Semi-naturlig strandeng
-48,331,NiN-3.0-T-C-PE-NA-MB-TK01-M050-02,TK01-M050-02,TK01-M050-02 Klart kalkrik åpen semi-naturlig eng
-49,331,NiN-3.0-T-C-PE-NA-MB-TK01-M050-01,TK01-M050-01,TK01-M050-01 Kalkfattig til svakt kalkrik åpen semi-naturlig eng
-50,332,NiN-3.0-T-C-PE-NA-MB-TI01-M050-01,TI01-M050-01,TI01-M050-01 Klart endret skogsmark
-51,333,NiN-3.0-T-C-PE-NA-MB-TH01-M050-02,TH01-M050-02,TH01-M050-02 Klart kalkrik avskoget hei og eng
-52,333,NiN-3.0-T-C-PE-NA-MB-TH01-M050-01,TH01-M050-01,TH01-M050-01 Kalkfattig til litt kalkrik avskoget hei og eng
-53,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-12,TG01-M050-12,TG01-M050-12 Flomskredmateriale
-54,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-11,TG01-M050-11,TG01-M050-11 Synkehull i permafrost
-55,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-10,TG01-M050-10,TG01-M050-10 Historisk jordskred
-56,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-09,TG01-M050-09,TG01-M050-09 Historisk steinskred
-57,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-08,TG01-M050-08,TG01-M050-08 Historisk skred av sand og grus
-58,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-07,TG01-M050-07,TG01-M050-07 Historisk silt- og leirskred
-59,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-06,TG01-M050-06,TG01-M050-06 Konsoliderte marine bresedimenter
-60,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-05,TG01-M050-05,TG01-M050-05 Breforland og snøavsmeltingsområde
-61,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-04,TG01-M050-04,"TG01-M050-04 Hevet grus-, stein- og blokkstrand"
-62,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-03,TG01-M050-03,TG01-M050-03 Moreneblokkmark
-63,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-02,TG01-M050-02,"TG01-M050-02 Fjellnatur-pregede sterkt kalkrike stedegne grus-løsmasser, stein og blokkmark"
-64,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-01,TG01-M050-01,"TG01-M050-01 Fjellnatur-pregede kalkfattige til svakt kalkrike stedegne grus-løsmasser, stein og blokkmark"
-65,335,NiN-3.0-T-C-PE-NA-MB-TF02-M050-02,TF02-M050-02,TF02-M050-02 Brakkvanns-flomskogsmark
-66,335,NiN-3.0-T-C-PE-NA-MB-TF02-M050-01,TF02-M050-01,TF02-M050-01 Ferskvanns-flomskogsmark
-67,336,NiN-3.0-T-C-PE-NA-MB-TF01-M050-01,TF01-M050-01,TF01-M050-01 Sand- og dyneskogsmark
-68,337,NiN-3.0-T-C-PE-NA-MB-TE09-M050-01,TE09-M050-01,TE09-M050-01 Kalkfattig isinnfrysingsmark
+0,293,NiN-3.0-T-C-PE-NA-MB-VM05-M050-01,VM05-M050-01,VM05-M050-01 Ny grunn våtmark på tidligere ferskvannsbunn
+1,294,NiN-3.0-T-C-PE-NA-MB-VM04-M050-01,VM04-M050-01,VM04-M050-01 Sterkt endret ikke torvproduserende våtmark
+2,295,NiN-3.0-T-C-PE-NA-MB-VM03-M050-01,VM03-M050-01,VM03-M050-01 Ny torvmark på menneskebetinget forsumpet fastmark
+3,296,NiN-3.0-T-C-PE-NA-MB-VM02-M050-01,VM02-M050-01,VM02-M050-01 Ny torvmark på tidligere ferskvannsbunn
+4,297,NiN-3.0-T-C-PE-NA-MB-VM01-M050-01,VM01-M050-01,VM01-M050-01 Sterkt endret torvmark
+5,298,NiN-3.0-T-C-PE-NA-MB-VC03-M050-01,VC03-M050-01,VC03-M050-01 Grunnkilde
+6,299,NiN-3.0-T-C-PE-NA-MB-VC02-M050-01,VC02-M050-01,VC02-M050-01 Torvmarkskilde
+7,300,NiN-3.0-T-C-PE-NA-MB-VC01-M050-01,VC01-M050-01,VC01-M050-01 Åpen nedbørsmyr
+8,301,NiN-3.0-T-C-PE-NA-MB-VB01-M050-02,VB01-M050-02,VB01-M050-02 Klart kalkrik myr- og sumpskogsmark
+9,301,NiN-3.0-T-C-PE-NA-MB-VB01-M050-01,VB01-M050-01,VB01-M050-01 Svært kalkfattig til litt kalkrik myr- og sumpskogsmark
+10,302,NiN-3.0-T-C-PE-NA-MB-VA01-M050-02,VA01-M050-02,VA01-M050-02 Temmelig til ekstremt kalkrikt mattenivå i myrkant til nedre tuenivå
+11,302,NiN-3.0-T-C-PE-NA-MB-VA01-M050-01,VA01-M050-01,VA01-M050-01 Svært kalkfattig til litt kalkrik mykmatte til øvre tuenivå
+12,303,NiN-3.0-T-C-PE-NA-MB-VO01-M050-01,VO01-M050-01,VO01-M050-01 Sterkt tråkkpreget våtmark
+13,304,NiN-3.0-T-C-PE-NA-MB-VM06-M050-01,VM06-M050-01,VM06-M050-01 Ny grunn våtmark på menneskebetinget forsumpet fastmark
+14,305,NiN-3.0-T-C-PE-NA-MB-VK02-M050-01,VK02-M050-01,VK02-M050-01 Semi-naturlig våteng
+15,306,NiN-3.0-T-C-PE-NA-MB-VK01-M050-01,VK01-M050-01,VK01-M050-01 Slåttemyr
+16,307,NiN-3.0-T-C-PE-NA-MB-VI01-M050-01,VI01-M050-01,VI01-M050-01 Klart endret våtmarksskogsmark
+17,308,NiN-3.0-T-C-PE-NA-MB-VG02-M050-01,VG02-M050-01,VG02-M050-01 Ny naturgitt grunn våtmark
+18,309,NiN-3.0-T-C-PE-NA-MB-VG01-M050-01,VG01-M050-01,VG01-M050-01 Ny naturgitt torvmark
+19,310,NiN-3.0-T-C-PE-NA-MB-VF02-M050-01,VF02-M050-01,VF02-M050-01 Strandsumpskogsmark
+20,311,NiN-3.0-T-C-PE-NA-MB-VF01-M050-01,VF01-M050-01,VF01-M050-01 Nedbørsmyr-skogsmark
+21,312,NiN-3.0-T-C-PE-NA-MB-VE01-M050-01,VE01-M050-01,VE01-M050-01 Oppfrysingsvåtmark
+22,313,NiN-3.0-T-C-PE-NA-MB-VC05-M050-01,VC05-M050-01,VC05-M050-01 Permafrost-våtmark
+23,314,NiN-3.0-T-C-PE-NA-MB-VC04-M050-01,VC04-M050-01,VC04-M050-01 Våt- og kildesnøleie
+24,315,NiN-3.0-T-C-PE-NA-MB-TO04-M050-01,TO04-M050-01,TO04-M050-01 Upløyd jordbruksmark med intensivt hevdpreg
+25,316,NiN-3.0-T-C-PE-NA-MB-TO03-M050-01,TO03-M050-01,TO03-M050-01 Oppdyrket varig eng
+26,317,NiN-3.0-T-C-PE-NA-MB-TO02-M050-01,TO02-M050-01,TO02-M050-01 Oppdyrket mark med semi-naturlig engpreg
+27,318,NiN-3.0-T-C-PE-NA-MB-TL01-M050-02,TL01-M050-02,TL01-M050-02 Sterkt kalkrik ny eng med semi-naturlig preg
+28,318,NiN-3.0-T-C-PE-NA-MB-TL01-M050-01,TL01-M050-01,TL01-M050-01 Kalkfattig til litt kalkrik ny eng med semi-naturlig preg
+29,319,NiN-3.0-T-C-PE-NA-MB-TO01-M050-01,TO01-M050-01,TO01-M050-01 Åker
+30,320,NiN-3.0-T-C-PE-NA-MB-TN03-M050-01,TN03-M050-01,"TN03-M050-01 Vegkanter, plener, parker og liknende uten semi-naturlig hevdpreg"
+31,321,NiN-3.0-T-C-PE-NA-MB-TM04-M050-02,TM04-M050-02,TM04-M050-02 Ny løs fastmark på tørrlagt elvebunn
+32,321,NiN-3.0-T-C-PE-NA-MB-TM04-M050-01,TM04-M050-01,TM04-M050-01 Ny løs fastmark på tørrlagt innsjøbunn
+33,322,NiN-3.0-T-C-PE-NA-MB-TN02-M050-01,TN02-M050-01,"TN02-M050-01 Blomsterenger, usprøytete vegkanter og liknende med semi-naturlig hevdpreg"
+34,323,NiN-3.0-T-C-PE-NA-MB-TN01-M050-01,TN01-M050-01,TN01-M050-01 Blomsterbed og annen hyppig bearbeidet mark
+35,324,NiN-3.0-T-C-PE-NA-MB-TM06-M050-02,TM06-M050-02,TM06-M050-02 Sterkt endret skogsmark i mellomsuksesjonsstadium
+36,324,NiN-3.0-T-C-PE-NA-MB-TM06-M050-01,TM06-M050-01,TM06-M050-01 Sterkt endret skogsmark
+37,325,NiN-3.0-T-C-PE-NA-MB-TM05-M050-01,TM05-M050-01,TM05-M050-01 Ny løs fastmark på drenert våtmark
+38,326,NiN-3.0-T-C-PE-NA-MB-TM03-M050-01,TM03-M050-01,TM03-M050-01 Sterkt endret fastmark med dekke av jord eller blandet sediment
+39,326,NiN-3.0-T-C-PE-NA-MB-TM03-M050-05,TM03-M050-05,"TM03-M050-05 Sterkt endret fastmark av løst, sterkt modifisert eller syntetisk substrat"
+40,326,NiN-3.0-T-C-PE-NA-MB-TM03-M050-04,TM03-M050-04,TM03-M050-04 Sterkt endret fastmark av organisk avfall
+41,326,NiN-3.0-T-C-PE-NA-MB-TM03-M050-03,TM03-M050-03,TM03-M050-03 Sterkt endret fastmark av substrat preget av kjemisk påvirkning
+42,326,NiN-3.0-T-C-PE-NA-MB-TM03-M050-02,TM03-M050-02,TM03-M050-02 Sterkt endret fastmark med dekke av leire til grus
+43,327,NiN-3.0-T-C-PE-NA-MB-TM02-M050-02,TM02-M050-02,TM02-M050-02 Ny hard fastmark på tørrlagt elvebunn
+44,327,NiN-3.0-T-C-PE-NA-MB-TM02-M050-01,TM02-M050-01,TM02-M050-01 Ny hard fastmark på tørrlagt innsjøbunn
+45,328,NiN-3.0-T-C-PE-NA-MB-TM01-M050-01,TM01-M050-01,TM01-M050-01 Hard sterkt endret fastmark
+46,329,NiN-3.0-T-C-PE-NA-MB-TK03-M050-02,TK03-M050-02,TK03-M050-02 Sterkt kalkrik kystlynghei
+47,329,NiN-3.0-T-C-PE-NA-MB-TK03-M050-01,TK03-M050-01,TK03-M050-01 Kalkfattig til litt kalkrik bakli-hei  og kystlynghei
+48,330,NiN-3.0-T-C-PE-NA-MB-TK02-M050-01,TK02-M050-01,TK02-M050-01 Semi-naturlig strandeng
+49,331,NiN-3.0-T-C-PE-NA-MB-TK01-M050-02,TK01-M050-02,TK01-M050-02 Klart kalkrik åpen semi-naturlig eng
+50,331,NiN-3.0-T-C-PE-NA-MB-TK01-M050-01,TK01-M050-01,TK01-M050-01 Kalkfattig til svakt kalkrik åpen semi-naturlig eng
+51,332,NiN-3.0-T-C-PE-NA-MB-TI01-M050-01,TI01-M050-01,TI01-M050-01 Klart endret skogsmark
+52,333,NiN-3.0-T-C-PE-NA-MB-TH01-M050-02,TH01-M050-02,TH01-M050-02 Klart kalkrik avskoget hei og eng
+53,333,NiN-3.0-T-C-PE-NA-MB-TH01-M050-01,TH01-M050-01,TH01-M050-01 Kalkfattig til litt kalkrik avskoget hei og eng
+54,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-09,TG01-M050-09,TG01-M050-09 Historisk steinskred
+55,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-08,TG01-M050-08,TG01-M050-08 Historisk skred av sand og grus
+56,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-07,TG01-M050-07,TG01-M050-07 Historisk silt- og leirskred
+57,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-06,TG01-M050-06,TG01-M050-06 Konsoliderte marine bresedimenter
+58,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-05,TG01-M050-05,TG01-M050-05 Breforland og snøavsmeltingsområde
+59,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-04,TG01-M050-04,"TG01-M050-04 Hevet grus-, stein- og blokkstrand"
+60,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-03,TG01-M050-03,TG01-M050-03 Moreneblokkmark
+61,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-02,TG01-M050-02,"TG01-M050-02 Fjellnatur-pregede sterkt kalkrike stedegne grus-løsmasser, stein og blokkmark"
+62,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-01,TG01-M050-01,"TG01-M050-01 Fjellnatur-pregede kalkfattige til svakt kalkrike stedegne grus-løsmasser, stein og blokkmark"
+63,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-12,TG01-M050-12,TG01-M050-12 Flomskredmateriale
+64,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-11,TG01-M050-11,TG01-M050-11 Synkehull i permafrost
+65,334,NiN-3.0-T-C-PE-NA-MB-TG01-M050-10,TG01-M050-10,TG01-M050-10 Historisk jordskred
+66,335,NiN-3.0-T-C-PE-NA-MB-TF02-M050-02,TF02-M050-02,TF02-M050-02 Brakkvanns-flomskogsmark
+67,335,NiN-3.0-T-C-PE-NA-MB-TF02-M050-01,TF02-M050-01,TF02-M050-01 Ferskvanns-flomskogsmark
+68,336,NiN-3.0-T-C-PE-NA-MB-TF01-M050-01,TF01-M050-01,TF01-M050-01 Sand- og dyneskogsmark
 69,337,NiN-3.0-T-C-PE-NA-MB-TE09-M050-03,TE09-M050-03,TE09-M050-03 Klart kalkrik isinnfrysingsmark
 70,337,NiN-3.0-T-C-PE-NA-MB-TE09-M050-02,TE09-M050-02,TE09-M050-02 Intermediær til litt kalkrik isinnfrysingsmark
-71,338,NiN-3.0-T-C-PE-NA-MB-TE08-M050-01,TE08-M050-01,TE08-M050-01 Flommarkseng
-72,339,NiN-3.0-T-C-PE-NA-MB-TE07-M050-01,TE07-M050-01,TE07-M050-01 Ferskvannsdriftvoll
-73,340,NiN-3.0-T-C-PE-NA-MB-TE05-M050-01,TE05-M050-01,TE05-M050-01 Kalkfattig til litt kalkrik oppfrysingsmark
-74,340,NiN-3.0-T-C-PE-NA-MB-TE05-M050-02,TE05-M050-02,TE05-M050-02 Sterkt kalkrik oppfrysingsmark
-75,341,NiN-3.0-T-C-PE-NA-MB-TE04-M050-01,TE04-M050-01,TE04-M050-01 Langvarig oversvømt flommark
-76,342,NiN-3.0-T-C-PE-NA-MB-TE03-M050-01,TE03-M050-01,TE03-M050-01 Åpen flomfastmark
-77,343,NiN-3.0-T-C-PE-NA-MB-TE02-M050-01,TE02-M050-01,TE02-M050-01 Leir- og siltskred
-78,343,NiN-3.0-T-C-PE-NA-MB-TE02-M050-03,TE02-M050-03,TE02-M050-03 Grusskred
-79,343,NiN-3.0-T-C-PE-NA-MB-TE02-M050-02,TE02-M050-02,TE02-M050-02 Sandskred
-80,344,NiN-3.0-T-C-PE-NA-MB-TE01-M050-02,TE01-M050-02,TE01-M050-02 Innlands-sanddynemark
-81,344,NiN-3.0-T-C-PE-NA-MB-TE01-M050-01,TE01-M050-01,TE01-M050-01 Kyst-sanddynemark
-82,345,NiN-3.0-T-C-PE-NA-MB-TD06-M050-01,TD06-M050-01,TD06-M050-01 Kalkfattig til litt kalkrik rabbe
-83,345,NiN-3.0-T-C-PE-NA-MB-TD06-M050-02,TD06-M050-02,TD06-M050-02 Klart kalkrik til saltanriket ekstremrik rabbe
-84,346,NiN-3.0-T-C-PE-NA-MB-TD05-M050-01,TD05-M050-01,TD05-M050-01 Naturlig beitebetinget eng
-85,347,NiN-3.0-T-C-PE-NA-MB-TD04-M050-01,TD04-M050-01,TD04-M050-01 Fosse-eng
-86,348,NiN-3.0-T-C-PE-NA-MB-TD03-M050-02,TD03-M050-02,TD03-M050-02 Klart kalkrik rasmarkeng og -hei
-87,348,NiN-3.0-T-C-PE-NA-MB-TD03-M050-01,TD03-M050-01,TD03-M050-01 Kalkfattig til litt kalkrik rasmarkeng og -hei
-88,349,NiN-3.0-T-C-PE-NA-MB-TD02-M050-01,TD02-M050-01,TD02-M050-01 Flomskredmark
-89,350,NiN-3.0-T-C-PE-NA-MB-TD01-M050-02,TD01-M050-02,TD01-M050-02 Sterkt kalkrik rasmark
-90,350,NiN-3.0-T-C-PE-NA-MB-TD01-M050-01,TD01-M050-01,TD01-M050-01 Kalkfattig til litt kalkrik rasmark
-91,351,NiN-3.0-T-C-PE-NA-MB-TC08-M050-02,TC08-M050-02,TC08-M050-02 Sterkt kalkrikt moderat til ekstremt snøleie
-92,351,NiN-3.0-T-C-PE-NA-MB-TC08-M050-01,TC08-M050-01,TC08-M050-01 Kalkfattig til litt kalkrikt moderat til ekstremt snøleie
-93,352,NiN-3.0-T-C-PE-NA-MB-TC07-M050-01,TC07-M050-01,TC07-M050-01 Fugletopp
-94,353,NiN-3.0-T-C-PE-NA-MB-TC06-M050-01,TC06-M050-01,TC06-M050-01 Fuglefjell-eng
-95,354,NiN-3.0-T-C-PE-NA-MB-TC05-M050-02,TC05-M050-02,TC05-M050-02 Brakkvanns-strandeng
-96,354,NiN-3.0-T-C-PE-NA-MB-TC05-M050-01,TC05-M050-01,TC05-M050-01 Strandeng
-97,355,NiN-3.0-T-C-PE-NA-MB-TC04-M050-01,TC04-M050-01,TC04-M050-01 Saltanrikningsmark
-98,356,NiN-3.0-T-C-PE-NA-MB-TC03-M050-03,TC03-M050-03,TC03-M050-03 Stein- og blokkstrand i geo- til supralittoral
-99,356,NiN-3.0-T-C-PE-NA-MB-TC03-M050-02,TC03-M050-02,"TC03-M050-02 Sand-, skjellsand-, grus-, og ruglebunn-strand i geo- til supralittoral"
-100,356,NiN-3.0-T-C-PE-NA-MB-TC03-M050-01,TC03-M050-01,TC03-M050-01 Leire- og siltstrand i geolittoral
-101,357,NiN-3.0-T-C-PE-NA-MB-TC02-M050-02,TC02-M050-02,TC02-M050-02 Sterkt kalkrik grotte og overheng
-102,357,NiN-3.0-T-C-PE-NA-MB-TC02-M050-01,TC02-M050-01,TC02-M050-01 Kalkfattig til litt kalkrik grotte og overheng
-103,358,NiN-3.0-T-C-PE-NA-MB-TC01-M050-01,TC01-M050-01,TC01-M050-01 Strandberg
-104,359,NiN-3.0-T-C-PE-NA-MB-TB01-M050-02,TB01-M050-02,TB01-M050-02 Kalkskog
-105,359,NiN-3.0-T-C-PE-NA-MB-TB01-M050-01,TB01-M050-01,TB01-M050-01 Kalkfattig til intermediær skog
-106,360,NiN-3.0-T-C-PE-NA-MB-TA04-M050-02,TA04-M050-02,TA04-M050-02 Klart kalkrik arktisk-alpin grasmark
-107,360,NiN-3.0-T-C-PE-NA-MB-TA04-M050-01,TA04-M050-01,TA04-M050-01 Kalkfattig til litt kalkrik arktisk-alpin grasmark
-108,361,NiN-3.0-T-C-PE-NA-MB-TA03-M050-02,TA03-M050-02,TA03-M050-02 Kalkrik til saltanriket arktisk-alpin hei og leside
-109,361,NiN-3.0-T-C-PE-NA-MB-TA03-M050-01,TA03-M050-01,TA03-M050-01 Kalkfattig til litt kalkrik arktisk-alpin hei og leside
-110,362,NiN-3.0-T-C-PE-NA-MB-TA02-M050-02,TA02-M050-02,TA02-M050-02 Temmelig til ekstremt kalkrik åpen grunnlendt mark
-111,362,NiN-3.0-T-C-PE-NA-MB-TA02-M050-01,TA02-M050-01,TA02-M050-01 Kalkfattig til litt kalkrik åpen grunnlendt mark
-112,363,NiN-3.0-T-C-PE-NA-MB-TA01-M050-02,TA01-M050-02,TA01-M050-02 Klart til ekstremt kalkrikt nakent berg
-113,363,NiN-3.0-T-C-PE-NA-MB-TA01-M050-01,TA01-M050-01,TA01-M050-01 Svært kalkfattig til noe kalkrikt nakent berg
-114,364,NiN-3.0-T-C-PE-NA-MB-OM02-M050-02,OM02-M050-02,OM02-M050-02 Kronisk forsuret elvebunn
-115,364,NiN-3.0-T-C-PE-NA-MB-OM02-M050-01,OM02-M050-01,OM02-M050-01 Kronisk kjemisk påvirket elvebunn
-116,365,NiN-3.0-T-C-PE-NA-MB-OM01-M050-01,OM01-M050-01,OM01-M050-01 Kalkfattig kronisk fysisk forstyrret elvebunn
-117,365,NiN-3.0-T-C-PE-NA-MB-OM01-M050-03,OM01-M050-03,OM01-M050-03 Turbid minstevannførings-strekning i elv
-118,365,NiN-3.0-T-C-PE-NA-MB-OM01-M050-02,OM01-M050-02,OM01-M050-02 Kalkrik kronisk fysisk forstyrret elvebunn
-119,366,NiN-3.0-T-C-PE-NA-MB-OG01-M050-01,OG01-M050-01,OG01-M050-01 Ny elvebunn
-120,367,NiN-3.0-T-C-PE-NA-MB-OC03-M050-02,OC03-M050-02,OC03-M050-02 Kalkrik dy- og gytjebunn i elv
-121,367,NiN-3.0-T-C-PE-NA-MB-OC03-M050-01,OC03-M050-01,OC03-M050-01 Kalkfattig dy- og gytjebunn i elv
-122,368,NiN-3.0-T-C-PE-NA-MB-OC02-M050-01,OC02-M050-01,OC02-M050-01 Varm ferskvannskildebunn
-123,369,NiN-3.0-T-C-PE-NA-MB-OC01-M050-02,OC01-M050-02,OC01-M050-02 Sterk ferskvannskildebunn
-124,369,NiN-3.0-T-C-PE-NA-MB-OC01-M050-01,OC01-M050-01,OC01-M050-01 Svak ferskvannskildebunn
-125,370,NiN-3.0-T-C-PE-NA-MB-OB01-M050-02,OB01-M050-02,OB01-M050-02 Kalkrik undervannseng i elv
-126,370,NiN-3.0-T-C-PE-NA-MB-OB01-M050-01,OB01-M050-01,OB01-M050-01 Kalkfattig undervannseng i elv
-127,371,NiN-3.0-T-C-PE-NA-MB-OA02-M050-05,OA02-M050-05,OA02-M050-05 Steinbunn i humøs elv
-128,371,NiN-3.0-T-C-PE-NA-MB-OA02-M050-04,OA02-M050-04,OA02-M050-04 Kalkrik steinbunn i klar elv
-129,371,NiN-3.0-T-C-PE-NA-MB-OA02-M050-03,OA02-M050-03,OA02-M050-03 Noe kalkfattig steinbunn i klar elv
-130,371,NiN-3.0-T-C-PE-NA-MB-OA02-M050-02,OA02-M050-02,OA02-M050-02 Svært kalkfattig steinbunn i klar elv
-131,371,NiN-3.0-T-C-PE-NA-MB-OA02-M050-01,OA02-M050-01,OA02-M050-01 Ekstremt kalkfattig steinbunn i klar elv
-132,371,NiN-3.0-T-C-PE-NA-MB-OA02-M050-08,OA02-M050-08,OA02-M050-08 Turbid elvesedimentbunn
-133,371,NiN-3.0-T-C-PE-NA-MB-OA02-M050-07,OA02-M050-07,OA02-M050-07 Kalkrik steinbunn i humøs elv
-134,371,NiN-3.0-T-C-PE-NA-MB-OA02-M050-06,OA02-M050-06,OA02-M050-06 Noe kalkfattig steinbunn i humøs elv
-135,372,NiN-3.0-T-C-PE-NA-MB-OA01-M050-05,OA01-M050-05,OA01-M050-05 Svært kalkrik fastbunn i klar elv
-136,372,NiN-3.0-T-C-PE-NA-MB-OA01-M050-04,OA01-M050-04,OA01-M050-04 Moderat kalkrik fastbunn i klar elv
-137,372,NiN-3.0-T-C-PE-NA-MB-OA01-M050-03,OA01-M050-03,OA01-M050-03 Noe kalkfattig fastbunn i klar elv
-138,372,NiN-3.0-T-C-PE-NA-MB-OA01-M050-02,OA01-M050-02,OA01-M050-02 Svært kalkfattig fastbunn i klar elv
-139,372,NiN-3.0-T-C-PE-NA-MB-OA01-M050-01,OA01-M050-01,OA01-M050-01 Ekstremt kalkfattig fastbunn i klar elv
-140,372,NiN-3.0-T-C-PE-NA-MB-OA01-M050-08,OA01-M050-08,OA01-M050-08 Turbid fast elvebunn
-141,372,NiN-3.0-T-C-PE-NA-MB-OA01-M050-07,OA01-M050-07,OA01-M050-07 Noe kalkfattig og kalkrik fastbunn i humøs elv
-142,372,NiN-3.0-T-C-PE-NA-MB-OA01-M050-06,OA01-M050-06,OA01-M050-06 Ekstremt og svært kalkfattig fastbunn i humøs elv
-143,373,NiN-3.0-T-C-PE-NA-MB-MM02-M050-02,MM02-M050-02,MM02-M050-02 Sterkt endret marin bunn av uorganisk substrat preget av kronisk kjemisk påvirkning
-144,373,NiN-3.0-T-C-PE-NA-MB-MM02-M050-01,MM02-M050-01,MM02-M050-01 Sterkt endret marin fastbunn preget av kronisk kjemisk påvirkning
-145,374,NiN-3.0-T-C-PE-NA-MB-MM01-M050-04,MM01-M050-04,MM01-M050-04 Sterkt endret eller ny marin bunn av dy og gytje
-146,374,NiN-3.0-T-C-PE-NA-MB-MM01-M050-03,MM01-M050-03,MM01-M050-03 Sterkt endret eller ny uorganisk marin bunn
-147,374,NiN-3.0-T-C-PE-NA-MB-MM01-M050-02,MM01-M050-02,MM01-M050-02 Sterkt endret eller ny marin fastbunn i afotisk sone
-148,374,NiN-3.0-T-C-PE-NA-MB-MM01-M050-01,MM01-M050-01,MM01-M050-01 Sterkt endret eller ny marin fastbunn i eufotisk sone
-149,375,NiN-3.0-T-C-PE-NA-MB-MJ01-M050-01,MJ01-M050-01,MJ01-M050-01 Taretrålingsbunn
-150,376,NiN-3.0-T-C-PE-NA-MB-MF01-M050-01,MF01-M050-01,MF01-M050-01 Brakkvanns-undervannseng
-151,377,NiN-3.0-T-C-PE-NA-MB-MC10-M050-01,MC10-M050-01,MC10-M050-01 Havis-underside
-152,378,NiN-3.0-T-C-PE-NA-MB-MC09-M050-01,MC09-M050-01,MC09-M050-01 Havisbunn
-153,379,NiN-3.0-T-C-PE-NA-MB-MC08-M050-01,MC08-M050-01,MC08-M050-01 Periodisk oksygenfri marin bunn
-154,379,NiN-3.0-T-C-PE-NA-MB-MC08-M050-02,MC08-M050-02,MC08-M050-02 Oksygenfri marin bunn
-155,380,NiN-3.0-T-C-PE-NA-MB-MC07-M050-02,MC07-M050-02,MC07-M050-02 Svært sterkt til disruptivt jordvarmepåvirket varm havkilde
-156,380,NiN-3.0-T-C-PE-NA-MB-MC07-M050-01,MC07-M050-01,MC07-M050-01 Litt til sterkt jordvarmepåvirket varm havkilde
-157,381,NiN-3.0-T-C-PE-NA-MB-MC06-M050-03,MC06-M050-03,MC06-M050-03 Kald havkilde i dyphavsvann
-158,381,NiN-3.0-T-C-PE-NA-MB-MC06-M050-02,MC06-M050-02,MC06-M050-02 Kald havkilde i intermediært vann
-159,381,NiN-3.0-T-C-PE-NA-MB-MC06-M050-01,MC06-M050-01,MC06-M050-01 Kald havkilde i atlantisk vann
-160,382,NiN-3.0-T-C-PE-NA-MB-MC05-M050-01,MC05-M050-01,MC05-M050-01 Marine grotter og overheng
-161,383,NiN-3.0-T-C-PE-NA-MB-MC04-M050-01,MC04-M050-01,MC04-M050-01 Brakkvanns-sedimentbunn
-162,384,NiN-3.0-T-C-PE-NA-MB-MC03-M050-01,MC03-M050-01,MC03-M050-01 Littoralbassengbunn
-163,385,NiN-3.0-T-C-PE-NA-MB-MC02-M050-01,MC02-M050-01,MC02-M050-01 Fast brakkvannsbunn
-164,386,NiN-3.0-T-C-PE-NA-MB-MC01-M050-01,MC01-M050-01,MC01-M050-01 Fast brakkvanns-fjærebeltebunn
-165,387,NiN-3.0-T-C-PE-NA-MB-MB03-M050-02,MB03-M050-02,MB03-M050-02 Havtilknyttet korallrev-bunn
-166,387,NiN-3.0-T-C-PE-NA-MB-MB03-M050-01,MB03-M050-01,MB03-M050-01 Kysttilknyttet korallrev-bunn
-167,388,NiN-3.0-T-C-PE-NA-MB-MB02-M050-01,MB02-M050-01,MB02-M050-01 Saltvanns-undervannseng
-168,389,NiN-3.0-T-C-PE-NA-MB-MB01-M050-01,MB01-M050-01,MB01-M050-01 Salt helofyttsump
-169,389,NiN-3.0-T-C-PE-NA-MB-MB01-M050-02,MB01-M050-02,MB01-M050-02 Brakk helofyttsump
-170,390,NiN-3.0-T-C-PE-NA-MB-MA06-M050-12,MA06-M050-12,MA06-M050-12 Overveiende uorganisk dyphavsvannssedimentbunn med abyssal næringstilførselsreduksjon
-171,390,NiN-3.0-T-C-PE-NA-MB-MA06-M050-11,MA06-M050-11,MA06-M050-11 Afotisk saltvannsbunn av konsolidert leire
-172,390,NiN-3.0-T-C-PE-NA-MB-MA06-M050-10,MA06-M050-10,MA06-M050-10 Afotisk finmaterialrik til -dominert dy- og gytjebunn i arktisk vann
-173,390,NiN-3.0-T-C-PE-NA-MB-MA06-M050-03,MA06-M050-03,MA06-M050-03 Afotisk finmaterialfattig til noe rik uorganisk sedimentbunn i atlantisk vann
-174,390,NiN-3.0-T-C-PE-NA-MB-MA06-M050-02,MA06-M050-02,MA06-M050-02 Afotisk finmaterialrik til -dominert dy- og gytjebunn i kystvann
-175,390,NiN-3.0-T-C-PE-NA-MB-MA06-M050-01,MA06-M050-01,MA06-M050-01 Afotisk finmaterialfattig til noe rik uorganisk sedimentbunn i kystvann
-176,390,NiN-3.0-T-C-PE-NA-MB-MA06-M050-09,MA06-M050-09,MA06-M050-09 Afotisk finmaterialfattig til noe rik uorganisk sedimentbunn i arktisk vann
-177,390,NiN-3.0-T-C-PE-NA-MB-MA06-M050-08,MA06-M050-08,MA06-M050-08 Finmaterialrik til -dominert dy- og gytjebunn i dyphavsvann
-178,390,NiN-3.0-T-C-PE-NA-MB-MA06-M050-07,MA06-M050-07,MA06-M050-07 Finmaterialfattig til noe rik uorganisk sedimentbunn i dyphavsvann
-179,390,NiN-3.0-T-C-PE-NA-MB-MA06-M050-06,MA06-M050-06,MA06-M050-06 Finmaterialrik til -dominert dy- og gytjebunn i intermediært vann
-180,390,NiN-3.0-T-C-PE-NA-MB-MA06-M050-05,MA06-M050-05,MA06-M050-05 Finmaterialfattig til noe rik uorganisk sedimentbunn i intermediært vann
-181,390,NiN-3.0-T-C-PE-NA-MB-MA06-M050-04,MA06-M050-04,MA06-M050-04 Afotisk finmaterialrik til -dominert dy- og gytjebunn i atlantisk vann
-182,391,NiN-3.0-T-C-PE-NA-MB-MA05-M050-02,MA05-M050-02,"MA05-M050-02 Eufotisk saltvanns-sedimentbunn av leire, silt dy- og gytje eller myrtorv"
-183,391,NiN-3.0-T-C-PE-NA-MB-MA05-M050-01,MA05-M050-01,"MA05-M050-01 Eufotisk saltvanns-sedimentbunn av sand- skjellsand, grus, stein eller rugl"
-184,392,NiN-3.0-T-C-PE-NA-MB-MA04-M050-02,MA04-M050-02,MA04-M050-02 Finmaterialrik til -dominert uorganisk fin fjærebeltebunn
-185,392,NiN-3.0-T-C-PE-NA-MB-MA04-M050-01,MA04-M050-01,MA04-M050-01 Finmaterialfattig til noe -rik uorganisk grov fjærebelte-sedimentbunn
-186,393,NiN-3.0-T-C-PE-NA-MB-MA03-M050-05,MA03-M050-05,MA03-M050-05 Afotisk fastbunn i arktisk vann
-187,393,NiN-3.0-T-C-PE-NA-MB-MA03-M050-04,MA03-M050-04,MA03-M050-04 Afotisk fastbunn i dyphavsvann
-188,393,NiN-3.0-T-C-PE-NA-MB-MA03-M050-03,MA03-M050-03,MA03-M050-03 Afotisk saltvanns-fastbunn i intermediært vann
-189,393,NiN-3.0-T-C-PE-NA-MB-MA03-M050-02,MA03-M050-02,MA03-M050-02 Afotisk fastbunn i atlantisk vann
-190,393,NiN-3.0-T-C-PE-NA-MB-MA03-M050-01,MA03-M050-01,MA03-M050-01 Afotisk fastbunn i kystvann
-191,394,NiN-3.0-T-C-PE-NA-MB-MA02-M050-02,MA02-M050-02,MA02-M050-02 Svært til ekstremt eksponert eufotisk fast saltvannsbunn
-192,394,NiN-3.0-T-C-PE-NA-MB-MA02-M050-01,MA02-M050-01,MA02-M050-01 Beskyttet til ganske eksponert eufotisk fast saltvannsbunn
-193,395,NiN-3.0-T-C-PE-NA-MB-MA01-M050-01,MA01-M050-01,MA01-M050-01 Fast saltvanns-fjærebeltebunn
-194,396,NiN-3.0-T-C-PE-NA-MB-LM05-M050-04,LM05-M050-04,LM05-M050-04 Kronisk forsuret fast innsjøbunn
-195,396,NiN-3.0-T-C-PE-NA-MB-LM05-M050-03,LM05-M050-03,LM05-M050-03 Kronisk forsuret eller eutrofiert innsjøbunn
-196,396,NiN-3.0-T-C-PE-NA-MB-LM05-M050-02,LM05-M050-02,LM05-M050-02 Kronisk saltpåvirket innsjøbunn
-197,396,NiN-3.0-T-C-PE-NA-MB-LM05-M050-01,LM05-M050-01,LM05-M050-01 Kronisk kjemisk påvirket innsjøbunn
-198,397,NiN-3.0-T-C-PE-NA-MB-LM04-M050-01,LM04-M050-01,LM04-M050-01 Kalkfattig kronisk fysisk forstyrret innsjøbunn
-199,397,NiN-3.0-T-C-PE-NA-MB-LM04-M050-02,LM04-M050-02,LM04-M050-02 Kalkrik kronisk fysisk forstyrret innsjøbunn
-200,398,NiN-3.0-T-C-PE-NA-MB-LM03-M050-01,LM03-M050-01,LM03-M050-01 Kalkfattig ny innsjøbunn fra våtmarkssystemer
-201,399,NiN-3.0-T-C-PE-NA-MB-LM02-M050-01,LM02-M050-01,LM02-M050-01 Kalkfattig ny innsjøbunn fra elvebunn
-202,399,NiN-3.0-T-C-PE-NA-MB-LM02-M050-02,LM02-M050-02,LM02-M050-02 Kalkrik ny innsjøbunn fra elvebunn
-203,400,NiN-3.0-T-C-PE-NA-MB-LM01-M050-01,LM01-M050-01,LM01-M050-01 Ny sterkt endret innsjøbunn
-204,401,NiN-3.0-T-C-PE-NA-MB-LJ01-M050-01,LJ01-M050-01,LJ01-M050-01 Klart endret innsjøbunn preget av næringsstoff-overbelastning
-205,402,NiN-3.0-T-C-PE-NA-MB-LG01-M050-01,LG01-M050-01,LG01-M050-01 Ny innsjøbunn
-206,403,NiN-3.0-T-C-PE-NA-MB-LC06-M050-01,LC06-M050-01,LC06-M050-01 Innsjø-sedimentbunn betinget av naturlig gjødsling
-207,404,NiN-3.0-T-C-PE-NA-MB-LC05-M050-02,LC05-M050-02,LC05-M050-02 Havis-overflate-innsjøbunn
-208,404,NiN-3.0-T-C-PE-NA-MB-LC05-M050-01,LC05-M050-01,LC05-M050-01 Breoverflate-innsjøbunn
-209,405,NiN-3.0-T-C-PE-NA-MB-LC04-M050-02,LC04-M050-02,LC04-M050-02 Anoksisk innsjøbunn
-210,405,NiN-3.0-T-C-PE-NA-MB-LC04-M050-01,LC04-M050-01,LC04-M050-01 Innsjøbunn med periodisk oksygenmangel
-211,406,NiN-3.0-T-C-PE-NA-MB-LC03-M050-01,LC03-M050-01,LC03-M050-01 Innsjøbunn av grovt organisk materiale
-212,407,NiN-3.0-T-C-PE-NA-MB-LC02-M050-02,LC02-M050-02,LC02-M050-02 Kalkrik innsjøbunn av dy og gytje
-213,407,NiN-3.0-T-C-PE-NA-MB-LC02-M050-01,LC02-M050-01,LC02-M050-01 Kalkfattig innsjøbunn av dy og gytje
-214,408,NiN-3.0-T-C-PE-NA-MB-LC01-M050-01,LC01-M050-01,LC01-M050-01 Myrtorv-innsjøbunn
-215,409,NiN-3.0-T-C-PE-NA-MB-LB02-M050-03,LB02-M050-03,LB02-M050-03 Svært kalkrik undervannseng i innsjø
-216,409,NiN-3.0-T-C-PE-NA-MB-LB02-M050-02,LB02-M050-02,LB02-M050-02 Moderat kalkrik undervannseng i innsjø
-217,409,NiN-3.0-T-C-PE-NA-MB-LB02-M050-01,LB02-M050-01,LB02-M050-01 Kalkfattig undervannseng i innsjø
-218,410,NiN-3.0-T-C-PE-NA-MB-LB01-M050-03,LB01-M050-03,LB01-M050-03 Svært kalkrik helofytt-ferskvannssump
-219,410,NiN-3.0-T-C-PE-NA-MB-LB01-M050-02,LB01-M050-02,LB01-M050-02 Moderat kalkrik helofytt-ferskvannssump
-220,410,NiN-3.0-T-C-PE-NA-MB-LB01-M050-01,LB01-M050-01,LB01-M050-01 Kalkfattig helofytt-ferskvannssump
-221,411,NiN-3.0-T-C-PE-NA-MB-LA03-M050-03,LA03-M050-03,LA03-M050-03 Kalkrik afotisk innsjøbunn
-222,411,NiN-3.0-T-C-PE-NA-MB-LA03-M050-02,LA03-M050-02,LA03-M050-02 Noe kalkfattig afotisk innsjøbunn
-223,411,NiN-3.0-T-C-PE-NA-MB-LA03-M050-01,LA03-M050-01,LA03-M050-01 Svært kalkfattig afotisk innsjøbunn
-224,412,NiN-3.0-T-C-PE-NA-MB-LA02-M050-05,LA02-M050-05,LA02-M050-05 Kalkrik innsjø-sedimentbunn av leire i strandkant og karplantebelte
-225,412,NiN-3.0-T-C-PE-NA-MB-LA02-M050-04,LA02-M050-04,LA02-M050-04 Svært kalkrik innsjø-sedimentbunn av silt til stein i strandkant og plantebeltet
-226,412,NiN-3.0-T-C-PE-NA-MB-LA02-M050-03,LA02-M050-03,LA02-M050-03 Moderat kalkrik innsjø-sedimentbunn av silt til stein i strandkant og plantebeltet
-227,412,NiN-3.0-T-C-PE-NA-MB-LA02-M050-02,LA02-M050-02,LA02-M050-02 Noe kalkfattig innsjø-sedimentbunn av silt til stein i strandkant og plantebeltet
-228,412,NiN-3.0-T-C-PE-NA-MB-LA02-M050-01,LA02-M050-01,LA02-M050-01 Svært kalkfattig innsjø-sedimentbunn av silt til stein i strandkant og plantebeltet
-229,412,NiN-3.0-T-C-PE-NA-MB-LA02-M050-07,LA02-M050-07,LA02-M050-07 Turbid innsjø-sedimentbunn
-230,413,NiN-3.0-T-C-PE-NA-MB-LA01-M050-05,LA01-M050-05,LA01-M050-05 Turbid eufotisk fast innsjøbunn
-231,413,NiN-3.0-T-C-PE-NA-MB-LA01-M050-04,LA01-M050-04,LA01-M050-04 Svært kalkrik fast strandkant-innsjøbunn
-232,413,NiN-3.0-T-C-PE-NA-MB-LA01-M050-03,LA01-M050-03,LA01-M050-03 Moderat kalkrik fast strandkant-innsjøbunn
-233,413,NiN-3.0-T-C-PE-NA-MB-LA01-M050-02,LA01-M050-02,LA01-M050-02 Noe kalkfattig fast strandkant-innsjøbunn
-234,413,NiN-3.0-T-C-PE-NA-MB-LA01-M050-01,LA01-M050-01,LA01-M050-01 Svært kalkfattig fast strandkant-innsjøbunn
-235,414,NiN-3.0-T-C-PE-NA-MB-IA01-M050-02,IA01-M050-02,IA01-M050-02 Polar havis-overside
-236,414,NiN-3.0-T-C-PE-NA-MB-IA01-M050-01,IA01-M050-01,IA01-M050-01 Varig snø og breoverflate
-237,277,NIN-3.0-T-C-PE-NA-VM-FM05-02,FM05-M050-02,FM05-M050-02 Sterkt endrede kalkrike elvevannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
-238,277,NIN-3.0-T-C-PE-NA-VM-FM05-01,FM05-M050-01,FM05-M050-01 Sterkt endrede kalkfattige elvevannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
-239,278,NIN-3.0-T-C-PE-NA-VM-FM04-01,FM04-M050-01,FM04-M050-01 Sterkt forsurede elvevannmassesystemer
-240,279,NIN-3.0-T-C-PE-NA-VM-FM03-02,FM03-M050-02,FM03-M050-02 Sterkt endrede kalkrike innsjø-vannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
-241,279,NIN-3.0-T-C-PE-NA-VM-FM03-01,FM03-M050-01,FM03-M050-01 Sterkt endrede kalkfattige innsjø-vannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
-242,280,NIN-3.0-T-C-PE-NA-VM-FM02-04,FM02-M050-04,FM02-M050-04 Kronisk forsurede innsjø-vannmassesystemer
-243,280,NIN-3.0-T-C-PE-NA-VM-FM02-03,FM02-M050-03,FM02-M050-03 Kronisk eutrofierte innsjø-vannmassesystemer
-244,280,NIN-3.0-T-C-PE-NA-VM-FM02-02,FM02-M050-02,FM02-M050-02 Kronisk saltpåvirkede innsjø-vannmassesystemer
-245,280,NIN-3.0-T-C-PE-NA-VM-FM02-01,FM02-M050-01,FM02-M050-01 Kronisk kjemisk påvirkede innsjø-vannmassesystemer
-246,281,NIN-3.0-T-C-PE-NA-VM-FM01-08,FM01-M050-08,FM01-M050-08 Kalkrike lagdelte nye innsjø-vannmassesystemer med fisk
-247,281,NIN-3.0-T-C-PE-NA-VM-FM01-07,FM01-M050-07,FM01-M050-07 Kalkrike grunne nye innsjø-vannmassesystemer med fisk
-248,281,NIN-3.0-T-C-PE-NA-VM-FM01-06,FM01-M050-06,FM01-M050-06 Kalkfattige lagdelte nye innsjø-vannmassesystemer med fisk
-249,281,NIN-3.0-T-C-PE-NA-VM-FM01-05,FM01-M050-05,FM01-M050-05 Kalkfattige grunne nye innsjø-vannmassesystemer med fisk
-250,281,NIN-3.0-T-C-PE-NA-VM-FM01-04,FM01-M050-04,FM01-M050-04 Kalkrike lagdelte nye innsjø-vannmassesystemer uten fisk
-251,281,NIN-3.0-T-C-PE-NA-VM-FM01-03,FM01-M050-03,FM01-M050-03 Kalkrike grunne nye innsjø-vannmassesystemer uten fisk
-252,281,NIN-3.0-T-C-PE-NA-VM-FM01-02,FM01-M050-02,FM01-M050-02 Kalkfattige lagdelte nye innsjø-vannmassesystemer uten fisk
-253,281,NIN-3.0-T-C-PE-NA-VM-FM01-01,FM01-M050-01,FM01-M050-01 Kalkfattige grunne nye innsjø-vannmassesystemer uten fisk
-254,282,NIN-3.0-T-C-PE-NA-VM-FC05-02,FC05-M050-02,FC05-M050-02 Limniske vannmassesystemer på havis-overflate
-255,282,NIN-3.0-T-C-PE-NA-VM-FC05-01,FC05-M050-01,FC05-M050-01 Limniske vannmassesystemer på breoverflate
-256,283,NIN-3.0-T-C-PE-NA-VM-FC04-06,FC04-M050-06,FC04-M050-06 Oksygenfrie innsjø-vannmassesystemer betinget av humusrikt vann
-257,283,NIN-3.0-T-C-PE-NA-VM-FC04-05,FC04-M050-05,FC04-M050-05 Oksygenfrie innsjø-vannmassesystemer betinget av kalkrikt vann
-258,283,NIN-3.0-T-C-PE-NA-VM-FC04-04,FC04-M050-04,FC04-M050-04 Oksygenfrie innsjø-vannmassesystemer betinget av jernholdig vann
-259,283,NIN-3.0-T-C-PE-NA-VM-FC04-03,FC04-M050-03,FC04-M050-03 Oksygenfrie innsjø-vannmassesystemer betinget av saltholdig kildevann
-260,283,NIN-3.0-T-C-PE-NA-VM-FC04-02,FC04-M050-02,FC04-M050-02 Oksygenfrie innsjø-vannmassesystemer betinget av gammelt havvann
-261,283,NIN-3.0-T-C-PE-NA-VM-FC04-01,FC04-M050-01,FC04-M050-01 Innsjø-vannmassesystemer med periodisk oksygenmangel
-262,284,NIN-3.0-T-C-PE-NA-VM-FC03-02,FC03-M050-02,FC03-M050-02 Svært sterkt og disruptivt naturlig gjødslingspregede limniske vannmassesystemer
-263,284,NIN-3.0-T-C-PE-NA-VM-FC03-01,FC03-M050-01,FC03-M050-01 Markert naturlig gjødslingspregede limniske vannmassesystemer
-264,285,NIN-3.0-T-C-PE-NA-VM-FC02-01,FC02-M050-01,FC02-M050-01 Grottesjø-vannmassesystemer
-265,286,NIN-3.0-T-C-PE-NA-VM-FC01-03,FC01-M050-03,FC01-M050-03 Svært turbide bresjø-vannmassesystemer
-266,286,NIN-3.0-T-C-PE-NA-VM-FC01-02,FC01-M050-02,FC01-M050-02 Kalkrike turbide bresjø-vannmassesystemer
-267,286,NIN-3.0-T-C-PE-NA-VM-FC01-01,FC01-M050-01,FC01-M050-01 Kalkfattige turbide bresjø-vannmassesystemer
-268,287,NIN-3.0-T-C-PE-NA-VM-FB03-02,FB03-M050-02,FB03-M050-02 Elvevannmassesystemer med fisk
-269,287,NIN-3.0-T-C-PE-NA-VM-FB03-01,FB03-M050-01,FB03-M050-01 Elvevannmassesystemer uten fisk
-270,288,NIN-3.0-T-C-PE-NA-VM-FB02-18,FB02-M050-18,FB02-M050-18 Svært kalkrike grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
-271,288,NIN-3.0-T-C-PE-NA-VM-FB02-17,FB02-M050-17,FB02-M050-17 Moderat kalkrike grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
-272,288,NIN-3.0-T-C-PE-NA-VM-FB02-16,FB02-M050-16,FB02-M050-16 Noe kalkfattige og humøse grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
-273,288,NIN-3.0-T-C-PE-NA-VM-FB02-15,FB02-M050-15,FB02-M050-15 Noe kalkfattige og klare grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
-274,288,NIN-3.0-T-C-PE-NA-VM-FB02-14,FB02-M050-14,FB02-M050-14 Svært kalkfattige og humøse grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
-275,288,NIN-3.0-T-C-PE-NA-VM-FB02-13,FB02-M050-13,FB02-M050-13 Svært kalkfattige og klare grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
-276,288,NIN-3.0-T-C-PE-NA-VM-FB02-12,FB02-M050-12,FB02-M050-12 Svært kalkrike grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
-277,288,NIN-3.0-T-C-PE-NA-VM-FB02-11,FB02-M050-11,FB02-M050-11 Moderat kalkrike grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
-278,288,NIN-3.0-T-C-PE-NA-VM-FB02-10,FB02-M050-10,FB02-M050-10 Noe kalkfattige og humøse grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
-279,288,NIN-3.0-T-C-PE-NA-VM-FB02-09,FB02-M050-09,FB02-M050-09 Noe kalkfattige og klare grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
-280,288,NIN-3.0-T-C-PE-NA-VM-FB02-08,FB02-M050-08,FB02-M050-08 Svært kalkfattige og humøse grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
-281,288,NIN-3.0-T-C-PE-NA-VM-FB02-07,FB02-M050-07,FB02-M050-07 Svært kalkfattige og klare grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
-282,288,NIN-3.0-T-C-PE-NA-VM-FB02-06,FB02-M050-06,FB02-M050-06 Svært kalkrike grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
-283,288,NIN-3.0-T-C-PE-NA-VM-FB02-05,FB02-M050-05,FB02-M050-05 Moderat kalkrike grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
-284,288,NIN-3.0-T-C-PE-NA-VM-FB02-04,FB02-M050-04,FB02-M050-04 Noe kalkfattige og humøse grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
-285,288,NIN-3.0-T-C-PE-NA-VM-FB02-03,FB02-M050-03,FB02-M050-03 Noe kalkfattige og klare grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
-286,288,NIN-3.0-T-C-PE-NA-VM-FB02-02,FB02-M050-02,FB02-M050-02 Svært kalkfattige og humøse grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
-287,288,NIN-3.0-T-C-PE-NA-VM-FB02-01,FB02-M050-01,FB02-M050-01 Svært kalkfattige og klare grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
-288,289,NIN-3.0-T-C-PE-NA-VM-FB01-18,FB01-M050-18,FB01-M050-18 Svært kalkrike lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
-289,289,NIN-3.0-T-C-PE-NA-VM-FB01-17,FB01-M050-17,FB01-M050-17 Moderat kalkrike lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
-290,289,NIN-3.0-T-C-PE-NA-VM-FB01-16,FB01-M050-16,FB01-M050-16 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
-291,289,NIN-3.0-T-C-PE-NA-VM-FB01-15,FB01-M050-15,FB01-M050-15 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
-292,289,NIN-3.0-T-C-PE-NA-VM-FB01-14,FB01-M050-14,FB01-M050-14 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
-293,289,NIN-3.0-T-C-PE-NA-VM-FB01-13,FB01-M050-13,FB01-M050-13 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
-294,289,NIN-3.0-T-C-PE-NA-VM-FB01-12,FB01-M050-12,FB01-M050-12 Svært kalkrike lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
-295,289,NIN-3.0-T-C-PE-NA-VM-FB01-11,FB01-M050-11,FB01-M050-11 Moderat kalkrike lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
-296,289,NIN-3.0-T-C-PE-NA-VM-FB01-10,FB01-M050-10,FB01-M050-10 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
-297,289,NIN-3.0-T-C-PE-NA-VM-FB01-09,FB01-M050-09,FB01-M050-09 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
-298,289,NIN-3.0-T-C-PE-NA-VM-FB01-08,FB01-M050-08,FB01-M050-08 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
-299,289,NIN-3.0-T-C-PE-NA-VM-FB01-07,FB01-M050-07,FB01-M050-07 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
-300,289,NIN-3.0-T-C-PE-NA-VM-FB01-06,FB01-M050-06,FB01-M050-06 Svært kalkrike lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
-301,289,NIN-3.0-T-C-PE-NA-VM-FB01-05,FB01-M050-05,FB01-M050-05 Moderat kalkrike lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
-302,289,NIN-3.0-T-C-PE-NA-VM-FB01-04,FB01-M050-04,FB01-M050-04 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
-303,289,NIN-3.0-T-C-PE-NA-VM-FB01-03,FB01-M050-03,FB01-M050-03 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
-304,289,NIN-3.0-T-C-PE-NA-VM-FB01-02,FB01-M050-02,FB01-M050-02 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
-305,289,NIN-3.0-T-C-PE-NA-VM-FB01-01,FB01-M050-01,FB01-M050-01 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
-306,290,NIN-3.0-T-C-PE-NA-VM-FA02-17,FA02-M050-17,FA02-M050-17 Små og grunne humøse innsjø-vannmassesystemer uten fisk
-307,290,NIN-3.0-T-C-PE-NA-VM-FA02-16,FA02-M050-16,FA02-M050-16 Svært kalkrike og humøse små grunne innsjø-vannmassesystemer uten fisk
-308,290,NIN-3.0-T-C-PE-NA-VM-FA02-15,FA02-M050-15,FA02-M050-15 Svært kalkrike og humøse store grunne innsjø-vannmassesystemer uten fisk
-309,290,NIN-3.0-T-C-PE-NA-VM-FA02-14,FA02-M050-14,FA02-M050-14 Svært kalkrike og klare små grunne innsjø-vannmassesystemer uten fisk
-310,290,NIN-3.0-T-C-PE-NA-VM-FA02-13,FA02-M050-13,FA02-M050-13 Svært kalkrike og klare store grunne innsjø-vannmassesystemer uten fisk
-311,290,NIN-3.0-T-C-PE-NA-VM-FA02-12,FA02-M050-12,FA02-M050-12 Moderat kalkrike og humøse små grunne innsjø-vannmassesystemer uten fisk
-312,290,NIN-3.0-T-C-PE-NA-VM-FA02-11,FA02-M050-11,FA02-M050-11 Moderat kalkrike og humøse store grunne innsjø-vannmassesystemer uten fisk
-313,290,NIN-3.0-T-C-PE-NA-VM-FA02-10,FA02-M050-10,FA02-M050-10 Moderat kalkrike og klare små grunne innsjø-vannmassesystemer uten fisk
-314,290,NIN-3.0-T-C-PE-NA-VM-FA02-09,FA02-M050-09,FA02-M050-09 Moderat kalkrike og klare store grunne innsjø-vannmassesystemer uten fisk
-315,290,NIN-3.0-T-C-PE-NA-VM-FA02-08,FA02-M050-08,FA02-M050-08 Noe kalkfattige og humøse små grunne innsjø-vannmassesystemer uten fisk
-316,290,NIN-3.0-T-C-PE-NA-VM-FA02-07,FA02-M050-07,FA02-M050-07 Noe kalkfattige og humøse store grunne innsjø-vannmassesystemer uten fisk
-317,290,NIN-3.0-T-C-PE-NA-VM-FA02-06,FA02-M050-06,FA02-M050-06 Noe kalkfattige og klare små grunne innsjø-vannmassesystemer uten fisk
-318,290,NIN-3.0-T-C-PE-NA-VM-FA02-05,FA02-M050-05,FA02-M050-05 Noe kalkfattige og klare store grunne innsjø-vannmassesystemer uten fisk
-319,290,NIN-3.0-T-C-PE-NA-VM-FA02-04,FA02-M050-04,FA02-M050-04 Svært kalkfattige og humøse små grunne innsjø-vannmassesystemer uten fisk
-320,290,NIN-3.0-T-C-PE-NA-VM-FA02-03,FA02-M050-03,FA02-M050-03 Svært kalkfattige og humøse store grunne innsjø-vannmassesystemer uten fisk
-321,290,NIN-3.0-T-C-PE-NA-VM-FA02-02,FA02-M050-02,FA02-M050-02 Svært kalkfattige og klare små grunne innsjø-vannmassesystemer uten fisk
-322,290,NIN-3.0-T-C-PE-NA-VM-FA02-01,FA02-M050-01,FA02-M050-01 Svært kalkfattige og klare store grunne innsjø-vannmassesystemer uten fisk
-323,291,NIN-3.0-T-C-PE-NA-VM-FA01-06,FA01-M050-06,FA01-M050-06 Svært kalkrike lagdelte innsjø-vannmassesystemer uten fisk
-324,291,NIN-3.0-T-C-PE-NA-VM-FA01-05,FA01-M050-05,FA01-M050-05 Moderat kalkrike lagdelte innsjø-vannmassesystemer uten fisk
-325,291,NIN-3.0-T-C-PE-NA-VM-FA01-04,FA01-M050-04,FA01-M050-04 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer uten fisk
-326,291,NIN-3.0-T-C-PE-NA-VM-FA01-03,FA01-M050-03,FA01-M050-03 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer uten fisk
-327,291,NIN-3.0-T-C-PE-NA-VM-FA01-02,FA01-M050-02,FA01-M050-02 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer uten fisk
-328,291,NIN-3.0-T-C-PE-NA-VM-FA01-01,FA01-M050-01,FA01-M050-01 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer uten fisk
+71,337,NiN-3.0-T-C-PE-NA-MB-TE09-M050-01,TE09-M050-01,TE09-M050-01 Kalkfattig isinnfrysingsmark
+72,338,NiN-3.0-T-C-PE-NA-MB-TE08-M050-01,TE08-M050-01,TE08-M050-01 Flommarkseng
+73,339,NiN-3.0-T-C-PE-NA-MB-TE07-M050-01,TE07-M050-01,TE07-M050-01 Ferskvannsdriftvoll
+74,340,NiN-3.0-T-C-PE-NA-MB-TE06-M050-01,TE06-M050-01,TE06-M050-01 Marin driftvoll
+75,341,NiN-3.0-T-C-PE-NA-MB-TE05-M050-02,TE05-M050-02,TE05-M050-02 Sterkt kalkrik oppfrysingsmark
+76,341,NiN-3.0-T-C-PE-NA-MB-TE05-M050-01,TE05-M050-01,TE05-M050-01 Kalkfattig til litt kalkrik oppfrysingsmark
+77,342,NiN-3.0-T-C-PE-NA-MB-TE04-M050-01,TE04-M050-01,TE04-M050-01 Langvarig oversvømt flommark
+78,343,NiN-3.0-T-C-PE-NA-MB-TE03-M050-01,TE03-M050-01,TE03-M050-01 Åpen flomfastmark
+79,344,NiN-3.0-T-C-PE-NA-MB-TE02-M050-03,TE02-M050-03,TE02-M050-03 Grusskred
+80,344,NiN-3.0-T-C-PE-NA-MB-TE02-M050-02,TE02-M050-02,TE02-M050-02 Sandskred
+81,344,NiN-3.0-T-C-PE-NA-MB-TE02-M050-01,TE02-M050-01,TE02-M050-01 Leir- og siltskred
+82,345,NiN-3.0-T-C-PE-NA-MB-TE01-M050-01,TE01-M050-01,TE01-M050-01 Kyst-sanddynemark
+83,345,NiN-3.0-T-C-PE-NA-MB-TE01-M050-02,TE01-M050-02,TE01-M050-02 Innlands-sanddynemark
+84,346,NiN-3.0-T-C-PE-NA-MB-TD06-M050-01,TD06-M050-01,TD06-M050-01 Kalkfattig til litt kalkrik rabbe
+85,346,NiN-3.0-T-C-PE-NA-MB-TD06-M050-02,TD06-M050-02,TD06-M050-02 Klart kalkrik til saltanriket ekstremrik rabbe
+86,347,NiN-3.0-T-C-PE-NA-MB-TD05-M050-01,TD05-M050-01,TD05-M050-01 Naturlig beitebetinget eng
+87,348,NiN-3.0-T-C-PE-NA-MB-TD04-M050-01,TD04-M050-01,TD04-M050-01 Fosse-eng
+88,349,NiN-3.0-T-C-PE-NA-MB-TD03-M050-02,TD03-M050-02,TD03-M050-02 Klart kalkrik rasmarkeng og -hei
+89,349,NiN-3.0-T-C-PE-NA-MB-TD03-M050-01,TD03-M050-01,TD03-M050-01 Kalkfattig til litt kalkrik rasmarkeng og -hei
+90,350,NiN-3.0-T-C-PE-NA-MB-TD02-M050-01,TD02-M050-01,TD02-M050-01 Flomskredmark
+91,351,NiN-3.0-T-C-PE-NA-MB-TD01-M050-02,TD01-M050-02,TD01-M050-02 Sterkt kalkrik rasmark
+92,351,NiN-3.0-T-C-PE-NA-MB-TD01-M050-01,TD01-M050-01,TD01-M050-01 Kalkfattig til litt kalkrik rasmark
+93,352,NiN-3.0-T-C-PE-NA-MB-TC08-M050-02,TC08-M050-02,TC08-M050-02 Sterkt kalkrikt moderat til ekstremt snøleie
+94,352,NiN-3.0-T-C-PE-NA-MB-TC08-M050-01,TC08-M050-01,TC08-M050-01 Kalkfattig til litt kalkrikt moderat til ekstremt snøleie
+95,353,NiN-3.0-T-C-PE-NA-MB-TC07-M050-01,TC07-M050-01,TC07-M050-01 Fugletopp
+96,354,NiN-3.0-T-C-PE-NA-MB-TC06-M050-01,TC06-M050-01,TC06-M050-01 Fuglefjell-eng
+97,355,NiN-3.0-T-C-PE-NA-MB-TC05-M050-02,TC05-M050-02,TC05-M050-02 Brakkvanns-strandeng
+98,355,NiN-3.0-T-C-PE-NA-MB-TC05-M050-01,TC05-M050-01,TC05-M050-01 Strandeng
+99,356,NiN-3.0-T-C-PE-NA-MB-TC04-M050-01,TC04-M050-01,TC04-M050-01 Saltanrikningsmark
+100,357,NiN-3.0-T-C-PE-NA-MB-TC03-M050-03,TC03-M050-03,TC03-M050-03 Stein- og blokkstrand i geo- til supralittoral
+101,357,NiN-3.0-T-C-PE-NA-MB-TC03-M050-02,TC03-M050-02,"TC03-M050-02 Sand-, skjellsand-, grus-, og ruglebunn-strand i geo- til supralittoral"
+102,357,NiN-3.0-T-C-PE-NA-MB-TC03-M050-01,TC03-M050-01,TC03-M050-01 Leire- og siltstrand i geolittoral
+103,358,NiN-3.0-T-C-PE-NA-MB-TC02-M050-02,TC02-M050-02,TC02-M050-02 Sterkt kalkrik grotte og overheng
+104,358,NiN-3.0-T-C-PE-NA-MB-TC02-M050-01,TC02-M050-01,TC02-M050-01 Kalkfattig til litt kalkrik grotte og overheng
+105,359,NiN-3.0-T-C-PE-NA-MB-TC01-M050-01,TC01-M050-01,TC01-M050-01 Strandberg
+106,360,NiN-3.0-T-C-PE-NA-MB-TB01-M050-02,TB01-M050-02,TB01-M050-02 Kalkskog
+107,360,NiN-3.0-T-C-PE-NA-MB-TB01-M050-01,TB01-M050-01,TB01-M050-01 Kalkfattig til intermediær skog
+108,361,NiN-3.0-T-C-PE-NA-MB-TA04-M050-02,TA04-M050-02,TA04-M050-02 Klart kalkrik arktisk-alpin grasmark
+109,361,NiN-3.0-T-C-PE-NA-MB-TA04-M050-01,TA04-M050-01,TA04-M050-01 Kalkfattig til litt kalkrik arktisk-alpin grasmark
+110,362,NiN-3.0-T-C-PE-NA-MB-TA03-M050-02,TA03-M050-02,TA03-M050-02 Kalkrik til saltanriket arktisk-alpin hei og leside
+111,362,NiN-3.0-T-C-PE-NA-MB-TA03-M050-01,TA03-M050-01,TA03-M050-01 Kalkfattig til litt kalkrik arktisk-alpin hei og leside
+112,363,NiN-3.0-T-C-PE-NA-MB-TA02-M050-01,TA02-M050-01,TA02-M050-01 Kalkfattig til litt kalkrik åpen grunnlendt mark
+113,363,NiN-3.0-T-C-PE-NA-MB-TA02-M050-02,TA02-M050-02,TA02-M050-02 Temmelig til ekstremt kalkrik åpen grunnlendt mark
+114,364,NiN-3.0-T-C-PE-NA-MB-TA01-M050-02,TA01-M050-02,TA01-M050-02 Kalkrikt nakent berg
+115,364,NiN-3.0-T-C-PE-NA-MB-TA01-M050-01,TA01-M050-01,TA01-M050-01 Svært kalkfattig til noe kalkrikt nakent berg
+116,365,NiN-3.0-T-C-PE-NA-MB-MM02-M050-02,MM02-M050-02,MM02-M050-02 Sterkt endret marin bunn av uorganisk substrat preget av kronisk kjemisk påvirkning
+117,365,NiN-3.0-T-C-PE-NA-MB-MM02-M050-01,MM02-M050-01,MM02-M050-01 Sterkt endret marin fastbunn preget av kronisk kjemisk påvirkning
+118,366,NiN-3.0-T-C-PE-NA-MB-MM01-M050-03,MM01-M050-03,MM01-M050-03 Sterkt endret eller ny uorganisk marin bunn
+119,366,NiN-3.0-T-C-PE-NA-MB-MM01-M050-02,MM01-M050-02,MM01-M050-02 Sterkt endret eller ny marin fastbunn i afotisk sone
+120,366,NiN-3.0-T-C-PE-NA-MB-MM01-M050-04,MM01-M050-04,MM01-M050-04 Sterkt endret eller ny marin bunn av dy og gytje
+121,366,NiN-3.0-T-C-PE-NA-MB-MM01-M050-01,MM01-M050-01,MM01-M050-01 Sterkt endret eller ny marin fastbunn i eufotisk sone
+122,367,NiN-3.0-T-C-PE-NA-MB-MJ01-M050-01,MJ01-M050-01,MJ01-M050-01 Taretrålingsbunn
+123,368,NiN-3.0-T-C-PE-NA-MB-MF01-M050-01,MF01-M050-01,MF01-M050-01 Brakkvanns-undervannseng
+124,369,NiN-3.0-T-C-PE-NA-MB-MC10-M050-01,MC10-M050-01,MC10-M050-01 Havis-underside
+125,370,NiN-3.0-T-C-PE-NA-MB-MC09-M050-01,MC09-M050-01,MC09-M050-01 Havisbunn
+126,371,NiN-3.0-T-C-PE-NA-MB-MC08-M050-01,MC08-M050-01,MC08-M050-01 Periodisk oksygenfri marin bunn
+127,371,NiN-3.0-T-C-PE-NA-MB-MC08-M050-02,MC08-M050-02,MC08-M050-02 Oksygenfri marin bunn
+128,372,NiN-3.0-T-C-PE-NA-MB-MC07-M050-02,MC07-M050-02,MC07-M050-02 Svært sterkt til disruptivt jordvarmepåvirket varm havkilde
+129,372,NiN-3.0-T-C-PE-NA-MB-MC07-M050-01,MC07-M050-01,MC07-M050-01 Litt til sterkt jordvarmepåvirket varm havkilde
+130,373,NiN-3.0-T-C-PE-NA-MB-MC06-M050-02,MC06-M050-02,MC06-M050-02 Kald havkilde i intermediært vann
+131,373,NiN-3.0-T-C-PE-NA-MB-MC06-M050-01,MC06-M050-01,MC06-M050-01 Kald havkilde i atlantisk vann
+132,373,NiN-3.0-T-C-PE-NA-MB-MC06-M050-03,MC06-M050-03,MC06-M050-03 Kald havkilde i dyphavsvann
+133,374,NiN-3.0-T-C-PE-NA-MB-MC05-M050-01,MC05-M050-01,MC05-M050-01 Marine grotter og overheng
+134,375,NiN-3.0-T-C-PE-NA-MB-MC04-M050-01,MC04-M050-01,MC04-M050-01 Brakkvanns-sedimentbunn
+135,376,NiN-3.0-T-C-PE-NA-MB-MC03-M050-01,MC03-M050-01,MC03-M050-01 Littoralbassengbunn
+136,377,NiN-3.0-T-C-PE-NA-MB-MC02-M050-01,MC02-M050-01,MC02-M050-01 Fast brakkvannsbunn
+137,378,NiN-3.0-T-C-PE-NA-MB-MC01-M050-01,MC01-M050-01,MC01-M050-01 Fast brakkvanns-fjærebeltebunn
+138,379,NiN-3.0-T-C-PE-NA-MB-MB03-M050-02,MB03-M050-02,MB03-M050-02 Havtilknyttet korallrev-bunn
+139,379,NiN-3.0-T-C-PE-NA-MB-MB03-M050-01,MB03-M050-01,MB03-M050-01 Kysttilknyttet korallrev-bunn
+140,380,NiN-3.0-T-C-PE-NA-MB-MB02-M050-01,MB02-M050-01,MB02-M050-01 Saltvanns-undervannseng
+141,381,NiN-3.0-T-C-PE-NA-MB-MB01-M050-02,MB01-M050-02,MB01-M050-02 Brakk helofyttsump
+142,381,NiN-3.0-T-C-PE-NA-MB-MB01-M050-01,MB01-M050-01,MB01-M050-01 Salt helofyttsump
+143,382,NiN-3.0-T-C-PE-NA-MB-MA06-M050-07,MA06-M050-07,MA06-M050-07 Finmaterialfattig til noe rik uorganisk sedimentbunn i dyphavsvann
+144,382,NiN-3.0-T-C-PE-NA-MB-MA06-M050-06,MA06-M050-06,MA06-M050-06 Finmaterialrik til -dominert dy- og gytjebunn i intermediært vann
+145,382,NiN-3.0-T-C-PE-NA-MB-MA06-M050-05,MA06-M050-05,MA06-M050-05 Finmaterialfattig til noe rik uorganisk sedimentbunn i intermediært vann
+146,382,NiN-3.0-T-C-PE-NA-MB-MA06-M050-04,MA06-M050-04,MA06-M050-04 Afotisk finmaterialrik til -dominert dy- og gytjebunn i atlantisk vann
+147,382,NiN-3.0-T-C-PE-NA-MB-MA06-M050-03,MA06-M050-03,MA06-M050-03 Afotisk finmaterialfattig til noe rik uorganisk sedimentbunn i atlantisk vann
+148,382,NiN-3.0-T-C-PE-NA-MB-MA06-M050-02,MA06-M050-02,MA06-M050-02 Afotisk finmaterialrik til -dominert dy- og gytjebunn i kystvann
+149,382,NiN-3.0-T-C-PE-NA-MB-MA06-M050-01,MA06-M050-01,MA06-M050-01 Afotisk finmaterialfattig til noe rik uorganisk sedimentbunn i kystvann
+150,382,NiN-3.0-T-C-PE-NA-MB-MA06-M050-09,MA06-M050-09,MA06-M050-09 Afotisk finmaterialfattig til noe rik uorganisk sedimentbunn i arktisk vann
+151,382,NiN-3.0-T-C-PE-NA-MB-MA06-M050-08,MA06-M050-08,MA06-M050-08 Finmaterialrik til -dominert dy- og gytjebunn i dyphavsvann
+152,382,NiN-3.0-T-C-PE-NA-MB-MA06-M050-12,MA06-M050-12,MA06-M050-12 Overveiende uorganisk dyphavsvannssedimentbunn med abyssal næringstilførselsreduksjon
+153,382,NiN-3.0-T-C-PE-NA-MB-MA06-M050-11,MA06-M050-11,MA06-M050-11 Afotisk saltvannsbunn av konsolidert leire
+154,382,NiN-3.0-T-C-PE-NA-MB-MA06-M050-10,MA06-M050-10,MA06-M050-10 Afotisk finmaterialrik til -dominert dy- og gytjebunn i arktisk vann
+155,383,NiN-3.0-T-C-PE-NA-MB-MA05-M050-02,MA05-M050-02,"MA05-M050-02 Eufotisk saltvanns-sedimentbunn av leire, silt dy- og gytje eller myrtorv"
+156,383,NiN-3.0-T-C-PE-NA-MB-MA05-M050-01,MA05-M050-01,"MA05-M050-01 Eufotisk saltvanns-sedimentbunn av sand- skjellsand, grus, stein eller rugl"
+157,384,NiN-3.0-T-C-PE-NA-MB-MA04-M050-02,MA04-M050-02,MA04-M050-02 Finmaterialrik til -dominert uorganisk fin fjærebeltebunn
+158,384,NiN-3.0-T-C-PE-NA-MB-MA04-M050-01,MA04-M050-01,MA04-M050-01 Finmaterialfattig til noe -rik uorganisk grov fjærebelte-sedimentbunn
+159,385,NiN-3.0-T-C-PE-NA-MB-MA03-M050-04,MA03-M050-04,MA03-M050-04 Afotisk fastbunn i dyphavsvann
+160,385,NiN-3.0-T-C-PE-NA-MB-MA03-M050-05,MA03-M050-05,MA03-M050-05 Afotisk fastbunn i arktisk vann
+161,385,NiN-3.0-T-C-PE-NA-MB-MA03-M050-03,MA03-M050-03,MA03-M050-03 Afotisk saltvanns-fastbunn i intermediært vann
+162,385,NiN-3.0-T-C-PE-NA-MB-MA03-M050-02,MA03-M050-02,MA03-M050-02 Afotisk fastbunn i atlantisk vann
+163,385,NiN-3.0-T-C-PE-NA-MB-MA03-M050-01,MA03-M050-01,MA03-M050-01 Afotisk fastbunn i kystvann
+164,386,NiN-3.0-T-C-PE-NA-MB-MA02-M050-02,MA02-M050-02,MA02-M050-02 Svært til ekstremt eksponert eufotisk fast saltvannsbunn
+165,386,NiN-3.0-T-C-PE-NA-MB-MA02-M050-01,MA02-M050-01,MA02-M050-01 Beskyttet til ganske eksponert eufotisk fast saltvannsbunn
+166,387,NiN-3.0-T-C-PE-NA-MB-MA01-M050-01,MA01-M050-01,MA01-M050-01 Fast saltvanns-fjærebeltebunn
+167,388,NiN-3.0-T-C-PE-NA-MB-OM02-M050-02,OM02-M050-02,OM02-M050-02 Kronisk forsuret elvebunn
+168,388,NiN-3.0-T-C-PE-NA-MB-OM02-M050-01,OM02-M050-01,OM02-M050-01 Kronisk kjemisk påvirket elvebunn
+169,389,NiN-3.0-T-C-PE-NA-MB-OM01-M050-03,OM01-M050-03,OM01-M050-03 Turbid minstevannførings-strekning i elv
+170,389,NiN-3.0-T-C-PE-NA-MB-OM01-M050-02,OM01-M050-02,OM01-M050-02 Kalkrik kronisk fysisk forstyrret elvebunn
+171,389,NiN-3.0-T-C-PE-NA-MB-OM01-M050-01,OM01-M050-01,OM01-M050-01 Kalkfattig kronisk fysisk forstyrret elvebunn
+172,390,NiN-3.0-T-C-PE-NA-MB-OG01-M050-01,OG01-M050-01,OG01-M050-01 Ny elvebunn
+173,391,NiN-3.0-T-C-PE-NA-MB-OC03-M050-02,OC03-M050-02,OC03-M050-02 Kalkrik dy- og gytjebunn i elv
+174,391,NiN-3.0-T-C-PE-NA-MB-OC03-M050-01,OC03-M050-01,OC03-M050-01 Kalkfattig dy- og gytjebunn i elv
+175,392,NiN-3.0-T-C-PE-NA-MB-OC02-M050-01,OC02-M050-01,OC02-M050-01 Varm ferskvannskildebunn
+176,393,NiN-3.0-T-C-PE-NA-MB-OC01-M050-01,OC01-M050-01,OC01-M050-01 Svak ferskvannskildebunn
+177,393,NiN-3.0-T-C-PE-NA-MB-OC01-M050-02,OC01-M050-02,OC01-M050-02 Sterk ferskvannskildebunn
+178,394,NiN-3.0-T-C-PE-NA-MB-OB01-M050-02,OB01-M050-02,OB01-M050-02 Kalkrik undervannseng i elv
+179,394,NiN-3.0-T-C-PE-NA-MB-OB01-M050-01,OB01-M050-01,OB01-M050-01 Kalkfattig undervannseng i elv
+180,395,NiN-3.0-T-C-PE-NA-MB-OA02-M050-06,OA02-M050-06,OA02-M050-06 Noe kalkfattig steinbunn i humøs elv
+181,395,NiN-3.0-T-C-PE-NA-MB-OA02-M050-01,OA02-M050-01,OA02-M050-01 Ekstremt kalkfattig steinbunn i klar elv
+182,395,NiN-3.0-T-C-PE-NA-MB-OA02-M050-08,OA02-M050-08,OA02-M050-08 Turbid elvesedimentbunn
+183,395,NiN-3.0-T-C-PE-NA-MB-OA02-M050-07,OA02-M050-07,OA02-M050-07 Kalkrik steinbunn i humøs elv
+184,395,NiN-3.0-T-C-PE-NA-MB-OA02-M050-05,OA02-M050-05,OA02-M050-05 Steinbunn i humøs elv
+185,395,NiN-3.0-T-C-PE-NA-MB-OA02-M050-04,OA02-M050-04,OA02-M050-04 Kalkrik steinbunn i klar elv
+186,395,NiN-3.0-T-C-PE-NA-MB-OA02-M050-03,OA02-M050-03,OA02-M050-03 Noe kalkfattig steinbunn i klar elv
+187,395,NiN-3.0-T-C-PE-NA-MB-OA02-M050-02,OA02-M050-02,OA02-M050-02 Svært kalkfattig steinbunn i klar elv
+188,396,NiN-3.0-T-C-PE-NA-MB-OA01-M050-01,OA01-M050-01,OA01-M050-01 Ekstremt kalkfattig fastbunn i klar elv
+189,396,NiN-3.0-T-C-PE-NA-MB-OA01-M050-08,OA01-M050-08,OA01-M050-08 Turbid fast elvebunn
+190,396,NiN-3.0-T-C-PE-NA-MB-OA01-M050-07,OA01-M050-07,OA01-M050-07 Noe kalkfattig og kalkrik fastbunn i humøs elv
+191,396,NiN-3.0-T-C-PE-NA-MB-OA01-M050-06,OA01-M050-06,OA01-M050-06 Ekstremt og svært kalkfattig fastbunn i humøs elv
+192,396,NiN-3.0-T-C-PE-NA-MB-OA01-M050-05,OA01-M050-05,OA01-M050-05 Svært kalkrik fastbunn i klar elv
+193,396,NiN-3.0-T-C-PE-NA-MB-OA01-M050-04,OA01-M050-04,OA01-M050-04 Moderat kalkrik fastbunn i klar elv
+194,396,NiN-3.0-T-C-PE-NA-MB-OA01-M050-03,OA01-M050-03,OA01-M050-03 Noe kalkfattig fastbunn i klar elv
+195,396,NiN-3.0-T-C-PE-NA-MB-OA01-M050-02,OA01-M050-02,OA01-M050-02 Svært kalkfattig fastbunn i klar elv
+196,397,NiN-3.0-T-C-PE-NA-MB-LM05-M050-04,LM05-M050-04,LM05-M050-04 Kronisk forsuret fast innsjøbunn
+197,397,NiN-3.0-T-C-PE-NA-MB-LM05-M050-03,LM05-M050-03,LM05-M050-03 Kronisk forsuret eller eutrofiert innsjøbunn
+198,397,NiN-3.0-T-C-PE-NA-MB-LM05-M050-02,LM05-M050-02,LM05-M050-02 Kronisk saltpåvirket innsjøbunn
+199,397,NiN-3.0-T-C-PE-NA-MB-LM05-M050-01,LM05-M050-01,LM05-M050-01 Kronisk kjemisk påvirket innsjøbunn
+200,398,NiN-3.0-T-C-PE-NA-MB-LM04-M050-02,LM04-M050-02,LM04-M050-02 Kalkrik kronisk fysisk forstyrret innsjøbunn
+201,398,NiN-3.0-T-C-PE-NA-MB-LM04-M050-01,LM04-M050-01,LM04-M050-01 Kalkfattig kronisk fysisk forstyrret innsjøbunn
+202,399,NiN-3.0-T-C-PE-NA-MB-LM03-M050-02,LM03-M050-02,LM03-M050-02 Kalkrik ny innsjøbunn fra våtmarkssystemer
+203,399,NiN-3.0-T-C-PE-NA-MB-LM03-M050-01,LM03-M050-01,LM03-M050-01 Kalkfattig ny innsjøbunn fra våtmarkssystemer
+204,400,NiN-3.0-T-C-PE-NA-MB-LM02-M050-02,LM02-M050-02,LM02-M050-02 Kalkrik ny innsjøbunn fra elvebunn
+205,400,NiN-3.0-T-C-PE-NA-MB-LM02-M050-01,LM02-M050-01,LM02-M050-01 Kalkfattig ny innsjøbunn fra elvebunn
+206,401,NiN-3.0-T-C-PE-NA-MB-LM01-M050-01,LM01-M050-01,LM01-M050-01 Ny sterkt endret innsjøbunn
+207,402,NiN-3.0-T-C-PE-NA-MB-LJ01-M050-01,LJ01-M050-01,LJ01-M050-01 Klart endret innsjøbunn preget av næringsstoff-overbelastning
+208,403,NiN-3.0-T-C-PE-NA-MB-LG01-M050-01,LG01-M050-01,LG01-M050-01 Ny innsjøbunn
+209,404,NiN-3.0-T-C-PE-NA-MB-LC06-M050-01,LC06-M050-01,LC06-M050-01 Innsjø-sedimentbunn betinget av naturlig gjødsling
+210,405,NiN-3.0-T-C-PE-NA-MB-LC05-M050-02,LC05-M050-02,LC05-M050-02 Havis-overflate-innsjøbunn
+211,405,NiN-3.0-T-C-PE-NA-MB-LC05-M050-01,LC05-M050-01,LC05-M050-01 Breoverflate-innsjøbunn
+212,406,NiN-3.0-T-C-PE-NA-MB-LC04-M050-02,LC04-M050-02,LC04-M050-02 Anoksisk innsjøbunn
+213,406,NiN-3.0-T-C-PE-NA-MB-LC04-M050-01,LC04-M050-01,LC04-M050-01 Innsjøbunn med periodisk oksygenmangel
+214,407,NiN-3.0-T-C-PE-NA-MB-LC03-M050-01,LC03-M050-01,LC03-M050-01 Innsjøbunn av grovt organisk materiale
+215,408,NiN-3.0-T-C-PE-NA-MB-LC02-M050-02,LC02-M050-02,LC02-M050-02 Kalkrik innsjøbunn av dy og gytje
+216,408,NiN-3.0-T-C-PE-NA-MB-LC02-M050-01,LC02-M050-01,LC02-M050-01 Kalkfattig innsjøbunn av dy og gytje
+217,409,NiN-3.0-T-C-PE-NA-MB-LC01-M050-01,LC01-M050-01,LC01-M050-01 Myrtorv-innsjøbunn
+218,410,NiN-3.0-T-C-PE-NA-MB-LB02-M050-03,LB02-M050-03,LB02-M050-03 Svært kalkrik undervannseng i innsjø
+219,410,NiN-3.0-T-C-PE-NA-MB-LB02-M050-02,LB02-M050-02,LB02-M050-02 Moderat kalkrik undervannseng i innsjø
+220,410,NiN-3.0-T-C-PE-NA-MB-LB02-M050-01,LB02-M050-01,LB02-M050-01 Kalkfattig undervannseng i innsjø
+221,411,NiN-3.0-T-C-PE-NA-MB-LB01-M050-01,LB01-M050-01,LB01-M050-01 Kalkfattig helofytt-ferskvannssump
+222,411,NiN-3.0-T-C-PE-NA-MB-LB01-M050-02,LB01-M050-02,LB01-M050-02 Moderat kalkrik helofytt-ferskvannssump
+223,411,NiN-3.0-T-C-PE-NA-MB-LB01-M050-03,LB01-M050-03,LB01-M050-03 Svært kalkrik helofytt-ferskvannssump
+224,412,NiN-3.0-T-C-PE-NA-MB-LA03-M050-03,LA03-M050-03,LA03-M050-03 Kalkrik afotisk innsjøbunn
+225,412,NiN-3.0-T-C-PE-NA-MB-LA03-M050-02,LA03-M050-02,LA03-M050-02 Noe kalkfattig afotisk innsjøbunn
+226,412,NiN-3.0-T-C-PE-NA-MB-LA03-M050-01,LA03-M050-01,LA03-M050-01 Svært kalkfattig afotisk innsjøbunn
+227,413,NiN-3.0-T-C-PE-NA-MB-LA02-M050-05,LA02-M050-05,LA02-M050-05 Kalkrik innsjø-sedimentbunn av leire i strandkant og karplantebelte
+228,413,NiN-3.0-T-C-PE-NA-MB-LA02-M050-04,LA02-M050-04,LA02-M050-04 Svært kalkrik innsjø-sedimentbunn av silt til stein i strandkant og plantebeltet
+229,413,NiN-3.0-T-C-PE-NA-MB-LA02-M050-03,LA02-M050-03,LA02-M050-03 Moderat kalkrik innsjø-sedimentbunn av silt til stein i strandkant og plantebeltet
+230,413,NiN-3.0-T-C-PE-NA-MB-LA02-M050-02,LA02-M050-02,LA02-M050-02 Noe kalkfattig innsjø-sedimentbunn av silt til stein i strandkant og plantebeltet
+231,413,NiN-3.0-T-C-PE-NA-MB-LA02-M050-01,LA02-M050-01,LA02-M050-01 Svært kalkfattig innsjø-sedimentbunn av silt til stein i strandkant og plantebeltet
+232,413,NiN-3.0-T-C-PE-NA-MB-LA02-M050-06,LA02-M050-06,LA02-M050-06 Turbid innsjø-sedimentbunn
+233,414,NiN-3.0-T-C-PE-NA-MB-LA01-M050-04,LA01-M050-04,LA01-M050-04 Svært kalkrik fast strandkant-innsjøbunn
+234,414,NiN-3.0-T-C-PE-NA-MB-LA01-M050-03,LA01-M050-03,LA01-M050-03 Moderat kalkrik fast strandkant-innsjøbunn
+235,414,NiN-3.0-T-C-PE-NA-MB-LA01-M050-05,LA01-M050-05,LA01-M050-05 Turbid eufotisk fast innsjøbunn
+236,414,NiN-3.0-T-C-PE-NA-MB-LA01-M050-02,LA01-M050-02,LA01-M050-02 Noe kalkfattig fast strandkant-innsjøbunn
+237,414,NiN-3.0-T-C-PE-NA-MB-LA01-M050-01,LA01-M050-01,LA01-M050-01 Svært kalkfattig fast strandkant-innsjøbunn
+238,415,NiN-3.0-T-C-PE-NA-MB-IA01-M050-02,IA01-M050-02,IA01-M050-02 Polar havis-overside
+239,415,NiN-3.0-T-C-PE-NA-MB-IA01-M050-01,IA01-M050-01,IA01-M050-01 Varig snø og breoverflate
+240,278,NIN-3.0-T-C-PE-NA-VM-FM05-02,FM05-M050-02,FM05-M050-02 Sterkt endrede kalkrike elvevannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+241,278,NIN-3.0-T-C-PE-NA-VM-FM05-01,FM05-M050-01,FM05-M050-01 Sterkt endrede kalkfattige elvevannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+242,279,NIN-3.0-T-C-PE-NA-VM-FM04-01,FM04-M050-01,FM04-M050-01 Sterkt forsurede elvevannmassesystemer
+243,280,NIN-3.0-T-C-PE-NA-VM-FM03-02,FM03-M050-02,FM03-M050-02 Sterkt endrede kalkrike innsjø-vannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+244,280,NIN-3.0-T-C-PE-NA-VM-FM03-01,FM03-M050-01,FM03-M050-01 Sterkt endrede kalkfattige innsjø-vannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+245,281,NIN-3.0-T-C-PE-NA-VM-FM02-04,FM02-M050-04,FM02-M050-04 Kronisk forsurede innsjø-vannmassesystemer
+246,281,NIN-3.0-T-C-PE-NA-VM-FM02-03,FM02-M050-03,FM02-M050-03 Kronisk eutrofierte innsjø-vannmassesystemer
+247,281,NIN-3.0-T-C-PE-NA-VM-FM02-02,FM02-M050-02,FM02-M050-02 Kronisk saltpåvirkede innsjø-vannmassesystemer
+248,281,NIN-3.0-T-C-PE-NA-VM-FM02-01,FM02-M050-01,FM02-M050-01 Kronisk kjemisk påvirkede innsjø-vannmassesystemer
+249,282,NIN-3.0-T-C-PE-NA-VM-FM01-08,FM01-M050-08,FM01-M050-08 Kalkrike lagdelte nye innsjø-vannmassesystemer med fisk
+250,282,NIN-3.0-T-C-PE-NA-VM-FM01-07,FM01-M050-07,FM01-M050-07 Kalkrike grunne nye innsjø-vannmassesystemer med fisk
+251,282,NIN-3.0-T-C-PE-NA-VM-FM01-06,FM01-M050-06,FM01-M050-06 Kalkfattige lagdelte nye innsjø-vannmassesystemer med fisk
+252,282,NIN-3.0-T-C-PE-NA-VM-FM01-05,FM01-M050-05,FM01-M050-05 Kalkfattige grunne nye innsjø-vannmassesystemer med fisk
+253,282,NIN-3.0-T-C-PE-NA-VM-FM01-04,FM01-M050-04,FM01-M050-04 Kalkrike lagdelte nye innsjø-vannmassesystemer uten fisk
+254,282,NIN-3.0-T-C-PE-NA-VM-FM01-03,FM01-M050-03,FM01-M050-03 Kalkrike grunne nye innsjø-vannmassesystemer uten fisk
+255,282,NIN-3.0-T-C-PE-NA-VM-FM01-02,FM01-M050-02,FM01-M050-02 Kalkfattige lagdelte nye innsjø-vannmassesystemer uten fisk
+256,282,NIN-3.0-T-C-PE-NA-VM-FM01-01,FM01-M050-01,FM01-M050-01 Kalkfattige grunne nye innsjø-vannmassesystemer uten fisk
+257,283,NIN-3.0-T-C-PE-NA-VM-FC05-02,FC05-M050-02,FC05-M050-02 Limniske vannmassesystemer på havis-overflate
+258,283,NIN-3.0-T-C-PE-NA-VM-FC05-01,FC05-M050-01,FC05-M050-01 Limniske vannmassesystemer på breoverflate
+259,284,NIN-3.0-T-C-PE-NA-VM-FC04-06,FC04-M050-06,FC04-M050-06 Oksygenfrie innsjø-vannmassesystemer betinget av humusrikt vann
+260,284,NIN-3.0-T-C-PE-NA-VM-FC04-05,FC04-M050-05,FC04-M050-05 Oksygenfrie innsjø-vannmassesystemer betinget av kalkrikt vann
+261,284,NIN-3.0-T-C-PE-NA-VM-FC04-04,FC04-M050-04,FC04-M050-04 Oksygenfrie innsjø-vannmassesystemer betinget av jernholdig vann
+262,284,NIN-3.0-T-C-PE-NA-VM-FC04-03,FC04-M050-03,FC04-M050-03 Oksygenfrie innsjø-vannmassesystemer betinget av saltholdig kildevann
+263,284,NIN-3.0-T-C-PE-NA-VM-FC04-02,FC04-M050-02,FC04-M050-02 Oksygenfrie innsjø-vannmassesystemer betinget av gammelt havvann
+264,284,NIN-3.0-T-C-PE-NA-VM-FC04-01,FC04-M050-01,FC04-M050-01 Innsjø-vannmassesystemer med periodisk oksygenmangel
+265,285,NIN-3.0-T-C-PE-NA-VM-FC03-02,FC03-M050-02,FC03-M050-02 Svært sterkt og disruptivt naturlig gjødslingspregede limniske vannmassesystemer
+266,285,NIN-3.0-T-C-PE-NA-VM-FC03-01,FC03-M050-01,FC03-M050-01 Markert naturlig gjødslingspregede limniske vannmassesystemer
+267,286,NIN-3.0-T-C-PE-NA-VM-FC02-01,FC02-M050-01,FC02-M050-01 Grottesjø-vannmassesystemer
+268,287,NIN-3.0-T-C-PE-NA-VM-FC01-03,FC01-M050-03,FC01-M050-03 Svært turbide bresjø-vannmassesystemer
+269,287,NIN-3.0-T-C-PE-NA-VM-FC01-02,FC01-M050-02,FC01-M050-02 Kalkrike turbide bresjø-vannmassesystemer
+270,287,NIN-3.0-T-C-PE-NA-VM-FC01-01,FC01-M050-01,FC01-M050-01 Kalkfattige turbide bresjø-vannmassesystemer
+271,288,NIN-3.0-T-C-PE-NA-VM-FB03-02,FB03-M050-02,FB03-M050-02 Elvevannmassesystemer med fisk
+272,288,NIN-3.0-T-C-PE-NA-VM-FB03-01,FB03-M050-01,FB03-M050-01 Elvevannmassesystemer uten fisk
+273,289,NIN-3.0-T-C-PE-NA-VM-FB02-18,FB02-M050-18,FB02-M050-18 Svært kalkrike grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+274,289,NIN-3.0-T-C-PE-NA-VM-FB02-17,FB02-M050-17,FB02-M050-17 Moderat kalkrike grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+275,289,NIN-3.0-T-C-PE-NA-VM-FB02-16,FB02-M050-16,FB02-M050-16 Noe kalkfattige og humøse grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+276,289,NIN-3.0-T-C-PE-NA-VM-FB02-15,FB02-M050-15,FB02-M050-15 Noe kalkfattige og klare grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+277,289,NIN-3.0-T-C-PE-NA-VM-FB02-14,FB02-M050-14,FB02-M050-14 Svært kalkfattige og humøse grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+278,289,NIN-3.0-T-C-PE-NA-VM-FB02-13,FB02-M050-13,FB02-M050-13 Svært kalkfattige og klare grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+279,289,NIN-3.0-T-C-PE-NA-VM-FB02-12,FB02-M050-12,FB02-M050-12 Svært kalkrike grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+280,289,NIN-3.0-T-C-PE-NA-VM-FB02-11,FB02-M050-11,FB02-M050-11 Moderat kalkrike grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+281,289,NIN-3.0-T-C-PE-NA-VM-FB02-10,FB02-M050-10,FB02-M050-10 Noe kalkfattige og humøse grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+282,289,NIN-3.0-T-C-PE-NA-VM-FB02-09,FB02-M050-09,FB02-M050-09 Noe kalkfattige og klare grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+283,289,NIN-3.0-T-C-PE-NA-VM-FB02-08,FB02-M050-08,FB02-M050-08 Svært kalkfattige og humøse grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+284,289,NIN-3.0-T-C-PE-NA-VM-FB02-07,FB02-M050-07,FB02-M050-07 Svært kalkfattige og klare grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+285,289,NIN-3.0-T-C-PE-NA-VM-FB02-06,FB02-M050-06,FB02-M050-06 Svært kalkrike grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+286,289,NIN-3.0-T-C-PE-NA-VM-FB02-05,FB02-M050-05,FB02-M050-05 Moderat kalkrike grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+287,289,NIN-3.0-T-C-PE-NA-VM-FB02-04,FB02-M050-04,FB02-M050-04 Noe kalkfattige og humøse grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+288,289,NIN-3.0-T-C-PE-NA-VM-FB02-03,FB02-M050-03,FB02-M050-03 Noe kalkfattige og klare grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+289,289,NIN-3.0-T-C-PE-NA-VM-FB02-02,FB02-M050-02,FB02-M050-02 Svært kalkfattige og humøse grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+290,289,NIN-3.0-T-C-PE-NA-VM-FB02-01,FB02-M050-01,FB02-M050-01 Svært kalkfattige og klare grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+291,290,NIN-3.0-T-C-PE-NA-VM-FB01-18,FB01-M050-18,FB01-M050-18 Svært kalkrike lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+292,290,NIN-3.0-T-C-PE-NA-VM-FB01-17,FB01-M050-17,FB01-M050-17 Moderat kalkrike lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+293,290,NIN-3.0-T-C-PE-NA-VM-FB01-16,FB01-M050-16,FB01-M050-16 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+294,290,NIN-3.0-T-C-PE-NA-VM-FB01-15,FB01-M050-15,FB01-M050-15 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+295,290,NIN-3.0-T-C-PE-NA-VM-FB01-14,FB01-M050-14,FB01-M050-14 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+296,290,NIN-3.0-T-C-PE-NA-VM-FB01-13,FB01-M050-13,FB01-M050-13 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+297,290,NIN-3.0-T-C-PE-NA-VM-FB01-12,FB01-M050-12,FB01-M050-12 Svært kalkrike lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+298,290,NIN-3.0-T-C-PE-NA-VM-FB01-11,FB01-M050-11,FB01-M050-11 Moderat kalkrike lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+299,290,NIN-3.0-T-C-PE-NA-VM-FB01-10,FB01-M050-10,FB01-M050-10 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+300,290,NIN-3.0-T-C-PE-NA-VM-FB01-09,FB01-M050-09,FB01-M050-09 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+301,290,NIN-3.0-T-C-PE-NA-VM-FB01-08,FB01-M050-08,FB01-M050-08 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+302,290,NIN-3.0-T-C-PE-NA-VM-FB01-07,FB01-M050-07,FB01-M050-07 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+303,290,NIN-3.0-T-C-PE-NA-VM-FB01-06,FB01-M050-06,FB01-M050-06 Svært kalkrike lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+304,290,NIN-3.0-T-C-PE-NA-VM-FB01-05,FB01-M050-05,FB01-M050-05 Moderat kalkrike lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+305,290,NIN-3.0-T-C-PE-NA-VM-FB01-04,FB01-M050-04,FB01-M050-04 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+306,290,NIN-3.0-T-C-PE-NA-VM-FB01-03,FB01-M050-03,FB01-M050-03 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+307,290,NIN-3.0-T-C-PE-NA-VM-FB01-02,FB01-M050-02,FB01-M050-02 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+308,290,NIN-3.0-T-C-PE-NA-VM-FB01-01,FB01-M050-01,FB01-M050-01 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+309,291,NIN-3.0-T-C-PE-NA-VM-FA02-17,FA02-M050-17,FA02-M050-17 Små og grunne humøse innsjø-vannmassesystemer uten fisk
+310,291,NIN-3.0-T-C-PE-NA-VM-FA02-16,FA02-M050-16,FA02-M050-16 Svært kalkrike og humøse små grunne innsjø-vannmassesystemer uten fisk
+311,291,NIN-3.0-T-C-PE-NA-VM-FA02-15,FA02-M050-15,FA02-M050-15 Svært kalkrike og humøse store grunne innsjø-vannmassesystemer uten fisk
+312,291,NIN-3.0-T-C-PE-NA-VM-FA02-14,FA02-M050-14,FA02-M050-14 Svært kalkrike og klare små grunne innsjø-vannmassesystemer uten fisk
+313,291,NIN-3.0-T-C-PE-NA-VM-FA02-13,FA02-M050-13,FA02-M050-13 Svært kalkrike og klare store grunne innsjø-vannmassesystemer uten fisk
+314,291,NIN-3.0-T-C-PE-NA-VM-FA02-12,FA02-M050-12,FA02-M050-12 Moderat kalkrike og humøse små grunne innsjø-vannmassesystemer uten fisk
+315,291,NIN-3.0-T-C-PE-NA-VM-FA02-11,FA02-M050-11,FA02-M050-11 Moderat kalkrike og humøse store grunne innsjø-vannmassesystemer uten fisk
+316,291,NIN-3.0-T-C-PE-NA-VM-FA02-10,FA02-M050-10,FA02-M050-10 Moderat kalkrike og klare små grunne innsjø-vannmassesystemer uten fisk
+317,291,NIN-3.0-T-C-PE-NA-VM-FA02-09,FA02-M050-09,FA02-M050-09 Moderat kalkrike og klare store grunne innsjø-vannmassesystemer uten fisk
+318,291,NIN-3.0-T-C-PE-NA-VM-FA02-08,FA02-M050-08,FA02-M050-08 Noe kalkfattige og humøse små grunne innsjø-vannmassesystemer uten fisk
+319,291,NIN-3.0-T-C-PE-NA-VM-FA02-07,FA02-M050-07,FA02-M050-07 Noe kalkfattige og humøse store grunne innsjø-vannmassesystemer uten fisk
+320,291,NIN-3.0-T-C-PE-NA-VM-FA02-06,FA02-M050-06,FA02-M050-06 Noe kalkfattige og klare små grunne innsjø-vannmassesystemer uten fisk
+321,291,NIN-3.0-T-C-PE-NA-VM-FA02-05,FA02-M050-05,FA02-M050-05 Noe kalkfattige og klare store grunne innsjø-vannmassesystemer uten fisk
+322,291,NIN-3.0-T-C-PE-NA-VM-FA02-04,FA02-M050-04,FA02-M050-04 Svært kalkfattige og humøse små grunne innsjø-vannmassesystemer uten fisk
+323,291,NIN-3.0-T-C-PE-NA-VM-FA02-03,FA02-M050-03,FA02-M050-03 Svært kalkfattige og humøse store grunne innsjø-vannmassesystemer uten fisk
+324,291,NIN-3.0-T-C-PE-NA-VM-FA02-02,FA02-M050-02,FA02-M050-02 Svært kalkfattige og klare små grunne innsjø-vannmassesystemer uten fisk
+325,291,NIN-3.0-T-C-PE-NA-VM-FA02-01,FA02-M050-01,FA02-M050-01 Svært kalkfattige og klare store grunne innsjø-vannmassesystemer uten fisk
+326,292,NIN-3.0-T-C-PE-NA-VM-FA01-06,FA01-M050-06,FA01-M050-06 Svært kalkrike lagdelte innsjø-vannmassesystemer uten fisk
+327,292,NIN-3.0-T-C-PE-NA-VM-FA01-05,FA01-M050-05,FA01-M050-05 Moderat kalkrike lagdelte innsjø-vannmassesystemer uten fisk
+328,292,NIN-3.0-T-C-PE-NA-VM-FA01-04,FA01-M050-04,FA01-M050-04 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer uten fisk
+329,292,NIN-3.0-T-C-PE-NA-VM-FA01-03,FA01-M050-03,FA01-M050-03 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer uten fisk
+330,292,NIN-3.0-T-C-PE-NA-VM-FA01-02,FA01-M050-02,FA01-M050-02 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer uten fisk
+331,292,NIN-3.0-T-C-PE-NA-VM-FA01-01,FA01-M050-01,FA01-M050-01 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer uten fisk
+332,278,NIN-3.0-T-C-PE-NA-VM-FM05-02,FM05-M050-02,FM05-M050-02 Sterkt endrede kalkrike elvevannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+333,278,NIN-3.0-T-C-PE-NA-VM-FM05-01,FM05-M050-01,FM05-M050-01 Sterkt endrede kalkfattige elvevannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+334,279,NIN-3.0-T-C-PE-NA-VM-FM04-01,FM04-M050-01,FM04-M050-01 Sterkt forsurede elvevannmassesystemer
+335,280,NIN-3.0-T-C-PE-NA-VM-FM03-02,FM03-M050-02,FM03-M050-02 Sterkt endrede kalkrike innsjø-vannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+336,280,NIN-3.0-T-C-PE-NA-VM-FM03-01,FM03-M050-01,FM03-M050-01 Sterkt endrede kalkfattige innsjø-vannmassesystemer preget av introduksjon eller bortfall av strukturerende organismer
+337,281,NIN-3.0-T-C-PE-NA-VM-FM02-04,FM02-M050-04,FM02-M050-04 Kronisk forsurede innsjø-vannmassesystemer
+338,281,NIN-3.0-T-C-PE-NA-VM-FM02-03,FM02-M050-03,FM02-M050-03 Kronisk eutrofierte innsjø-vannmassesystemer
+339,281,NIN-3.0-T-C-PE-NA-VM-FM02-02,FM02-M050-02,FM02-M050-02 Kronisk saltpåvirkede innsjø-vannmassesystemer
+340,281,NIN-3.0-T-C-PE-NA-VM-FM02-01,FM02-M050-01,FM02-M050-01 Kronisk kjemisk påvirkede innsjø-vannmassesystemer
+341,282,NIN-3.0-T-C-PE-NA-VM-FM01-08,FM01-M050-08,FM01-M050-08 Kalkrike lagdelte nye innsjø-vannmassesystemer med fisk
+342,282,NIN-3.0-T-C-PE-NA-VM-FM01-07,FM01-M050-07,FM01-M050-07 Kalkrike grunne nye innsjø-vannmassesystemer med fisk
+343,282,NIN-3.0-T-C-PE-NA-VM-FM01-06,FM01-M050-06,FM01-M050-06 Kalkfattige lagdelte nye innsjø-vannmassesystemer med fisk
+344,282,NIN-3.0-T-C-PE-NA-VM-FM01-05,FM01-M050-05,FM01-M050-05 Kalkfattige grunne nye innsjø-vannmassesystemer med fisk
+345,282,NIN-3.0-T-C-PE-NA-VM-FM01-04,FM01-M050-04,FM01-M050-04 Kalkrike lagdelte nye innsjø-vannmassesystemer uten fisk
+346,282,NIN-3.0-T-C-PE-NA-VM-FM01-03,FM01-M050-03,FM01-M050-03 Kalkrike grunne nye innsjø-vannmassesystemer uten fisk
+347,282,NIN-3.0-T-C-PE-NA-VM-FM01-02,FM01-M050-02,FM01-M050-02 Kalkfattige lagdelte nye innsjø-vannmassesystemer uten fisk
+348,282,NIN-3.0-T-C-PE-NA-VM-FM01-01,FM01-M050-01,FM01-M050-01 Kalkfattige grunne nye innsjø-vannmassesystemer uten fisk
+349,283,NIN-3.0-T-C-PE-NA-VM-FC05-02,FC05-M050-02,FC05-M050-02 Limniske vannmassesystemer på havis-overflate
+350,283,NIN-3.0-T-C-PE-NA-VM-FC05-01,FC05-M050-01,FC05-M050-01 Limniske vannmassesystemer på breoverflate
+351,284,NIN-3.0-T-C-PE-NA-VM-FC04-06,FC04-M050-06,FC04-M050-06 Oksygenfrie innsjø-vannmassesystemer betinget av humusrikt vann
+352,284,NIN-3.0-T-C-PE-NA-VM-FC04-05,FC04-M050-05,FC04-M050-05 Oksygenfrie innsjø-vannmassesystemer betinget av kalkrikt vann
+353,284,NIN-3.0-T-C-PE-NA-VM-FC04-04,FC04-M050-04,FC04-M050-04 Oksygenfrie innsjø-vannmassesystemer betinget av jernholdig vann
+354,284,NIN-3.0-T-C-PE-NA-VM-FC04-03,FC04-M050-03,FC04-M050-03 Oksygenfrie innsjø-vannmassesystemer betinget av saltholdig kildevann
+355,284,NIN-3.0-T-C-PE-NA-VM-FC04-02,FC04-M050-02,FC04-M050-02 Oksygenfrie innsjø-vannmassesystemer betinget av gammelt havvann
+356,284,NIN-3.0-T-C-PE-NA-VM-FC04-01,FC04-M050-01,FC04-M050-01 Innsjø-vannmassesystemer med periodisk oksygenmangel
+357,285,NIN-3.0-T-C-PE-NA-VM-FC03-02,FC03-M050-02,FC03-M050-02 Svært sterkt og disruptivt naturlig gjødslingspregede limniske vannmassesystemer
+358,285,NIN-3.0-T-C-PE-NA-VM-FC03-01,FC03-M050-01,FC03-M050-01 Markert naturlig gjødslingspregede limniske vannmassesystemer
+359,286,NIN-3.0-T-C-PE-NA-VM-FC02-01,FC02-M050-01,FC02-M050-01 Grottesjø-vannmassesystemer
+360,287,NIN-3.0-T-C-PE-NA-VM-FC01-03,FC01-M050-03,FC01-M050-03 Svært turbide bresjø-vannmassesystemer
+361,287,NIN-3.0-T-C-PE-NA-VM-FC01-02,FC01-M050-02,FC01-M050-02 Kalkrike turbide bresjø-vannmassesystemer
+362,287,NIN-3.0-T-C-PE-NA-VM-FC01-01,FC01-M050-01,FC01-M050-01 Kalkfattige turbide bresjø-vannmassesystemer
+363,288,NIN-3.0-T-C-PE-NA-VM-FB03-02,FB03-M050-02,FB03-M050-02 Elvevannmassesystemer med fisk
+364,288,NIN-3.0-T-C-PE-NA-VM-FB03-01,FB03-M050-01,FB03-M050-01 Elvevannmassesystemer uten fisk
+365,289,NIN-3.0-T-C-PE-NA-VM-FB02-18,FB02-M050-18,FB02-M050-18 Svært kalkrike grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+366,289,NIN-3.0-T-C-PE-NA-VM-FB02-17,FB02-M050-17,FB02-M050-17 Moderat kalkrike grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+367,289,NIN-3.0-T-C-PE-NA-VM-FB02-16,FB02-M050-16,FB02-M050-16 Noe kalkfattige og humøse grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+368,289,NIN-3.0-T-C-PE-NA-VM-FB02-15,FB02-M050-15,FB02-M050-15 Noe kalkfattige og klare grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+369,289,NIN-3.0-T-C-PE-NA-VM-FB02-14,FB02-M050-14,FB02-M050-14 Svært kalkfattige og humøse grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+370,289,NIN-3.0-T-C-PE-NA-VM-FB02-13,FB02-M050-13,FB02-M050-13 Svært kalkfattige og klare grunne innsjø-vannmassesystemer med komplekst fiskesamfunn
+371,289,NIN-3.0-T-C-PE-NA-VM-FB02-12,FB02-M050-12,FB02-M050-12 Svært kalkrike grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+372,289,NIN-3.0-T-C-PE-NA-VM-FB02-11,FB02-M050-11,FB02-M050-11 Moderat kalkrike grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+373,289,NIN-3.0-T-C-PE-NA-VM-FB02-10,FB02-M050-10,FB02-M050-10 Noe kalkfattige og humøse grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+374,289,NIN-3.0-T-C-PE-NA-VM-FB02-09,FB02-M050-09,FB02-M050-09 Noe kalkfattige og klare grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+375,289,NIN-3.0-T-C-PE-NA-VM-FB02-08,FB02-M050-08,FB02-M050-08 Svært kalkfattige og humøse grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+376,289,NIN-3.0-T-C-PE-NA-VM-FB02-07,FB02-M050-07,FB02-M050-07 Svært kalkfattige og klare grunne innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+377,289,NIN-3.0-T-C-PE-NA-VM-FB02-06,FB02-M050-06,FB02-M050-06 Svært kalkrike grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+378,289,NIN-3.0-T-C-PE-NA-VM-FB02-05,FB02-M050-05,FB02-M050-05 Moderat kalkrike grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+379,289,NIN-3.0-T-C-PE-NA-VM-FB02-04,FB02-M050-04,FB02-M050-04 Noe kalkfattige og humøse grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+380,289,NIN-3.0-T-C-PE-NA-VM-FB02-03,FB02-M050-03,FB02-M050-03 Noe kalkfattige og klare grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+381,289,NIN-3.0-T-C-PE-NA-VM-FB02-02,FB02-M050-02,FB02-M050-02 Svært kalkfattige og humøse grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+382,289,NIN-3.0-T-C-PE-NA-VM-FB02-01,FB02-M050-01,FB02-M050-01 Svært kalkfattige og klare grunne innsjø-vannmassesystemer med enkelt fiskesamfunn
+383,290,NIN-3.0-T-C-PE-NA-VM-FB01-18,FB01-M050-18,FB01-M050-18 Svært kalkrike lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+384,290,NIN-3.0-T-C-PE-NA-VM-FB01-17,FB01-M050-17,FB01-M050-17 Moderat kalkrike lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+385,290,NIN-3.0-T-C-PE-NA-VM-FB01-16,FB01-M050-16,FB01-M050-16 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+386,290,NIN-3.0-T-C-PE-NA-VM-FB01-15,FB01-M050-15,FB01-M050-15 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+387,290,NIN-3.0-T-C-PE-NA-VM-FB01-14,FB01-M050-14,FB01-M050-14 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+388,290,NIN-3.0-T-C-PE-NA-VM-FB01-13,FB01-M050-13,FB01-M050-13 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer med komplekst fiskesamfunn
+389,290,NIN-3.0-T-C-PE-NA-VM-FB01-12,FB01-M050-12,FB01-M050-12 Svært kalkrike lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+390,290,NIN-3.0-T-C-PE-NA-VM-FB01-11,FB01-M050-11,FB01-M050-11 Moderat kalkrike lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+391,290,NIN-3.0-T-C-PE-NA-VM-FB01-10,FB01-M050-10,FB01-M050-10 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+392,290,NIN-3.0-T-C-PE-NA-VM-FB01-09,FB01-M050-09,FB01-M050-09 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+393,290,NIN-3.0-T-C-PE-NA-VM-FB01-08,FB01-M050-08,FB01-M050-08 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+394,290,NIN-3.0-T-C-PE-NA-VM-FB01-07,FB01-M050-07,FB01-M050-07 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer med middels komplekst fiskesamfunn
+395,290,NIN-3.0-T-C-PE-NA-VM-FB01-06,FB01-M050-06,FB01-M050-06 Svært kalkrike lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+396,290,NIN-3.0-T-C-PE-NA-VM-FB01-05,FB01-M050-05,FB01-M050-05 Moderat kalkrike lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+397,290,NIN-3.0-T-C-PE-NA-VM-FB01-04,FB01-M050-04,FB01-M050-04 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+398,290,NIN-3.0-T-C-PE-NA-VM-FB01-03,FB01-M050-03,FB01-M050-03 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+399,290,NIN-3.0-T-C-PE-NA-VM-FB01-02,FB01-M050-02,FB01-M050-02 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+400,290,NIN-3.0-T-C-PE-NA-VM-FB01-01,FB01-M050-01,FB01-M050-01 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer med enkelt fiskesamfunn
+401,291,NIN-3.0-T-C-PE-NA-VM-FA02-17,FA02-M050-17,FA02-M050-17 Små og grunne humøse innsjø-vannmassesystemer uten fisk
+402,291,NIN-3.0-T-C-PE-NA-VM-FA02-16,FA02-M050-16,FA02-M050-16 Svært kalkrike og humøse små grunne innsjø-vannmassesystemer uten fisk
+403,291,NIN-3.0-T-C-PE-NA-VM-FA02-15,FA02-M050-15,FA02-M050-15 Svært kalkrike og humøse store grunne innsjø-vannmassesystemer uten fisk
+404,291,NIN-3.0-T-C-PE-NA-VM-FA02-14,FA02-M050-14,FA02-M050-14 Svært kalkrike og klare små grunne innsjø-vannmassesystemer uten fisk
+405,291,NIN-3.0-T-C-PE-NA-VM-FA02-13,FA02-M050-13,FA02-M050-13 Svært kalkrike og klare store grunne innsjø-vannmassesystemer uten fisk
+406,291,NIN-3.0-T-C-PE-NA-VM-FA02-12,FA02-M050-12,FA02-M050-12 Moderat kalkrike og humøse små grunne innsjø-vannmassesystemer uten fisk
+407,291,NIN-3.0-T-C-PE-NA-VM-FA02-11,FA02-M050-11,FA02-M050-11 Moderat kalkrike og humøse store grunne innsjø-vannmassesystemer uten fisk
+408,291,NIN-3.0-T-C-PE-NA-VM-FA02-10,FA02-M050-10,FA02-M050-10 Moderat kalkrike og klare små grunne innsjø-vannmassesystemer uten fisk
+409,291,NIN-3.0-T-C-PE-NA-VM-FA02-09,FA02-M050-09,FA02-M050-09 Moderat kalkrike og klare store grunne innsjø-vannmassesystemer uten fisk
+410,291,NIN-3.0-T-C-PE-NA-VM-FA02-08,FA02-M050-08,FA02-M050-08 Noe kalkfattige og humøse små grunne innsjø-vannmassesystemer uten fisk
+411,291,NIN-3.0-T-C-PE-NA-VM-FA02-07,FA02-M050-07,FA02-M050-07 Noe kalkfattige og humøse store grunne innsjø-vannmassesystemer uten fisk
+412,291,NIN-3.0-T-C-PE-NA-VM-FA02-06,FA02-M050-06,FA02-M050-06 Noe kalkfattige og klare små grunne innsjø-vannmassesystemer uten fisk
+413,291,NIN-3.0-T-C-PE-NA-VM-FA02-05,FA02-M050-05,FA02-M050-05 Noe kalkfattige og klare store grunne innsjø-vannmassesystemer uten fisk
+414,291,NIN-3.0-T-C-PE-NA-VM-FA02-04,FA02-M050-04,FA02-M050-04 Svært kalkfattige og humøse små grunne innsjø-vannmassesystemer uten fisk
+415,291,NIN-3.0-T-C-PE-NA-VM-FA02-03,FA02-M050-03,FA02-M050-03 Svært kalkfattige og humøse store grunne innsjø-vannmassesystemer uten fisk
+416,291,NIN-3.0-T-C-PE-NA-VM-FA02-02,FA02-M050-02,FA02-M050-02 Svært kalkfattige og klare små grunne innsjø-vannmassesystemer uten fisk
+417,291,NIN-3.0-T-C-PE-NA-VM-FA02-01,FA02-M050-01,FA02-M050-01 Svært kalkfattige og klare store grunne innsjø-vannmassesystemer uten fisk
+418,292,NIN-3.0-T-C-PE-NA-VM-FA01-06,FA01-M050-06,FA01-M050-06 Svært kalkrike lagdelte innsjø-vannmassesystemer uten fisk
+419,292,NIN-3.0-T-C-PE-NA-VM-FA01-05,FA01-M050-05,FA01-M050-05 Moderat kalkrike lagdelte innsjø-vannmassesystemer uten fisk
+420,292,NIN-3.0-T-C-PE-NA-VM-FA01-04,FA01-M050-04,FA01-M050-04 Noe kalkfattige og humøse lagdelte innsjø-vannmassesystemer uten fisk
+421,292,NIN-3.0-T-C-PE-NA-VM-FA01-03,FA01-M050-03,FA01-M050-03 Noe kalkfattige og klare lagdelte innsjø-vannmassesystemer uten fisk
+422,292,NIN-3.0-T-C-PE-NA-VM-FA01-02,FA01-M050-02,FA01-M050-02 Svært kalkfattige og humøse lagdelte innsjø-vannmassesystemer uten fisk
+423,292,NIN-3.0-T-C-PE-NA-VM-FA01-01,FA01-M050-01,FA01-M050-01 Svært kalkfattige og klare lagdelte innsjø-vannmassesystemer uten fisk
