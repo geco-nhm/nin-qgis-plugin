@@ -19,9 +19,11 @@ mamba activate nin-qgis-env
 poetry install
 ```
 ### symbolic link github repo to QGIS plugins directory
-
-New-Item -ItemType SymbolicLink -Path "C:\Users\current_user\AppData\Roaming\QGIS\QGIS3\profiles\test\python\plugins\nin-qgis-plugin\nin-qgis-plugin" -Target "C:\Users\current_user\Documents\GitHub\nin-qgis-plugin"
-
+open PowerShell in Windows with Admin rights
+specify path for the QGIS plugins folder to copy into, and path for the github repository. Notice that only the subfolder "nin_qgis_plugin" from the repo needs to be linked
+```
+New-Item -ItemType SymbolicLink -Path "C:\Users\current_user\AppData\Roaming\QGIS\QGIS3\profiles\test\python\plugins\nin-qgis-plugin" -Target "C:\Users\current_user\Documents\GitHub\nin-qgis-plugin\nin_qgis_plugin"
+```
 ### Create relational NiN csv tables
 
 The QGIS plugin relies on relational CSV tables that define the hierarchical relationships between NiN major types, minor types, etc. These tables are created from requests to the [NinKode API](https://nin-kode-api.artsdatabanken.no/swagger/index.html). The following section briefly describes the different tables, created by different python scripts. To update the tables, change into the directory (`cd <project_root>/nin-qgis-handling/python`) and make sure the virtual environment is activated and you have all dependecies installed.
