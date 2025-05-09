@@ -58,10 +58,10 @@ fid,typer_fkey,langkode,kode_id,navn
 56,7,NIN-3.0-T-C-PE-LA-0-LA-I,LA-I,LA-I Innlandslandskap
 57,8,NIN-3.0-T-C-PE-NA-VM-NA-S,NA-S,NA-S Marine vannmassesystemer
 58,8,NIN-3.0-T-C-PE-NA-VM-NA-F,NA-F,NA-F Limniske vannmassesystemer
-59,8,NIN-3.0-T-C-PE-NA-MB-NA-V,NA-V,NA-V Våtmarkssystemer
-60,8,NIN-3.0-T-C-PE-NA-MB-NA-T,NA-T,NA-T Fastmarkssystemer
-61,8,NIN-3.0-T-C-PE-NA-MB-NA-O,NA-O,NA-O Elvebunnsystemer
-62,8,NIN-3.0-T-C-PE-NA-MB-NA-M,NA-M,NA-M Marine bunnsystemer
+59,8,NIN-3.0-T-C-PE-NA-MB-NA-M,NA-M,NA-M Marine bunnsystemer
+60,8,NIN-3.0-T-C-PE-NA-MB-NA-V,NA-V,NA-V Våtmarkssystemer
+61,8,NIN-3.0-T-C-PE-NA-MB-NA-T,NA-T,NA-T Fastmarkssystemer
+62,8,NIN-3.0-T-C-PE-NA-MB-NA-O,NA-O,NA-O Elvebunnsystemer
 63,8,NIN-3.0-T-C-PE-NA-MB-NA-L,NA-L,NA-L Innsjøbunnsystemer
 64,8,NIN-3.0-T-C-PE-NA-MB-NA-I,NA-I,NA-I Snø- og issystemer
 65,9,NIN-3.0-T-C-SE-NK-0-NK-E,NK-E,NK-E Naturkompleks betinget av destabiliserende forstyrrelse
