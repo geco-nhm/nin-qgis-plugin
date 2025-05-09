@@ -1,0 +1,149 @@
+# Oppsett og tilrettelegging av QGIS for NiN naturtypekartlegging
+
+## Innhold
+
+-   [1 Oppsett og tilrettelegging](#oppsett-og-tilrettelegging)
+    -   [1.1 Installer Plugin](#installer-plugin)
+    -   [Opprett prosjekt](#opprett-prosjekt)
+    -   [Tilpass prosjekt](#tilpass-prosjekt)
+    -   [Eksportere prosjekt til QField](#eksportere-prosjekt-til-qfield)
+-   [2 Kartlegging](#kartlegging)
+-   [3 Feilsøking](#feilsøking)
+
+## 1 Oppsett og tilrettelegging {#oppsett-og-tilrettelegging}
+
+Åpne QGIS (versjon 3.34 eller nyere)
+
+### 1.1 Installer Plugin (avhengig av internett-tilkobling)
+
+#### 1.1.1 Gå til Plugins i menylinjen og klikk på Manage and Install Plugins...
+
+![](images/install_plugin_1.png)
+
+#### 1.1.2 Søk etter "Natur i Norge kartlegging" i søkefeltet
+
+#### 1.1.3 Klikk på "Natur i Norge kartlegging"
+
+#### 1.1.4 Klikk på Install Plugin
+
+![](images/install_plugin_2.png)
+
+Ikonet for "Natur i Norge"-kartlegging vil nå dukke opp i verktøymenyen.
+
+![](images/toolbar_1.png)
+
+![](images/nin_toolbar_icon.png)
+
+### 1.2 Opprett prosjekt {#opprett-prosjekt}
+
+#### 1.2.1 Klikk på ikonet for "Natur i Norge"-kartlegging
+
+![](images/nin_toolbar_icon.png)
+
+Det vil dukke opp et vindu med flere valgmuligheter.
+
+![](images/create_project_1.png)
+
+#### 1.2.2 Velg kategorier som skal være tilgjengelige under kartleggingen
+
+Et prosjekt kan kun inneholde ett typesystem, men det er mulig å velge flere hovedtypegrupper fra samme typesystem. Et prosjekt kan kun inneholde kategorier fra én kartleggingsmålestokk.
+
+##### 1.2.2.1 Klikk på nedtrekksmenyen for å velge typesystem
+
+![](images/select_type_system.png)
+
+##### 1.2.2.2 Huk av boks(er) for å velge hovedtypegruppe(r)
+
+![](images/select_major_type_group.png)
+
+##### 1.2.2.3 Klikk på nedtrekksmenyen for å velge kartleggingsmålestokk
+
+![](images/select_map_scale.png)
+
+#### 1.2.3 Huk av én av boksene for å velge koordinatsystem
+
+Projeksjon av tredimensjonale data på todimensjonale flater vil alltid medføre forvrengninger. Graden av forvrengning varierer mellom ulike områder, avhengig av hvilket koordinatsystem som benyttes. Derfor bør koordinatsystemet velges ut fra hvor kartleggingen skal foregå.
+
+![](images/select_crs.png)
+
+#### 1.2.4 Velg hvor prosjektet skal lagres
+
+##### 1.2.4.1 Klikk på ...
+
+![](images/select_file_path.png)
+
+##### 1.2.4.2 Navigér til mappen hvor du ønsker at prosjektet skal lagres
+
+![](images/select_folder.png)
+
+##### 1.2.4.3 Trykk på feltet File name:
+
+##### 1.2.4.4 Skriv inn filnavnet du ønsker at prosjektet skal ha
+
+##### 1.2.4.5 Klikk på Save
+
+![](images/save_file.png)
+
+Du vil nå se filplasseringen i feltet.
+
+![](images/write_file_path.png)
+
+#### 1.2.5 Velg ev. WMS/WMTS-lag
+
+Topografiske kart og flybilder er viktige hjelpemidler under kartlegging. Her kan du velge hvilke(t) kartlag som skal importeres til prosjektet.
+
+![](images/select_map_layers.png)
+
+#### 1.2.6 Klikk på Lag geopackage-fil og forbered prosjekt nederst i vinduet
+
+#### ![](images/create_project_2.png)
+
+Et prosjekt vil nå opprettes automatisk med det oppgitte filnavnet og filplasseringen. I tillegg vil det opprettes en gpkg-fil med kartlag og tabeller. Prosjektet med gpkg-filen kan igjen åpnes fra denne filplasseringen senere, med mindre gpkg-filen flyttes til et annet område. gpkg-filen inneholder følgende:
+
+![](images/layers_1.png)
+
+**Opprettede kartlag og tabeller:**\
+*nin_helper_points* -- punktkartlag for å hjelpe kartleggeren i felt\
+*nin_polygons* -- polygonkartlag for å registrere kartleggingsenheter i felt\
+*Tabeller* -- tabeller som inneholder typene og variablene som brukes i typesystemene
+
+**Importerte kartlag (avhengig av valgene i vinduet):**\
+*Topografisk norgeskart* -- landsdekkende kart med høydekoter og hovedøkosystemer som farger\
+*Topografisk norgeskart gråtone* -- landsdekkende kart med høydekoter og hovedøkosystemer i gråtoner\
+*Nibcache_UTM32_EUREF89_v2* -- landsdekkende sammenstilte flybilder
+
+#### 1.2.6 Lukk vinduet
+
+### 1.3 Tilpass prosjekt {#tilpass-prosjekt}
+
+1.3.1 Legg til egne kartlag
+
+1.3.2 Legg til raster
+
+1.3.3 Legg til vektor
+
+### 1.4 Eksportere prosjekt
+
+### 1.5 Importere prosjekt (QField)
+
+## 2 Kartlegging {#kartlegging}
+
+Åpne QField
+
+Åpne prosjekt
+
+Slå på GPS
+
+Begynn å kartlegge
+
+Registreringsskjemaet
+
+Digitalisering av polygoner
+
+Registrering av kartleggingsenheter
+
+## 3 Feilsøking {#feilsøking}
+
+Topologifeil
+
+## Eksportere prosjekt til QGIS
