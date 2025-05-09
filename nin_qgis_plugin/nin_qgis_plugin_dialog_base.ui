@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>581</width>
-    <height>490</height>
+    <height>542</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,6 +23,23 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
+    <item row="6" column="0">
+     <widget class="QLabel" name="LabSelectCRS">
+      <property name="text">
+       <string>Velg koordinatsystem (EPSG-kode)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QComboBox" name="SelectMappingScale"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QListWidget" name="SelectHovedtypegrupper">
+      <property name="resizeMode">
+       <enum>QListView::Adjust</enum>
+      </property>
+     </widget>
+    </item>
     <item row="11" column="0">
      <widget class="QgsFileWidget" name="gpkgFilePicker">
       <property name="acceptDrops">
@@ -48,10 +65,48 @@
       </property>
      </widget>
     </item>
+    <item row="1" column="0">
+     <widget class="QComboBox" name="SelectType"/>
+    </item>
+    <item row="10" column="0">
+     <widget class="QLabel" name="LabSelectFileLocation">
+      <property name="text">
+       <string>Velg hvor geopackage-fila skal lagres (mappa)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="LabSelectHovedtypegruppe">
+      <property name="text">
+       <string>Velg hovedtypegruppe</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="LabSelectType">
+      <property name="text">
+       <string>Velg type</string>
+      </property>
+     </widget>
+    </item>
+    <item row="12" column="0">
+     <widget class="QLabel" name="LabSelectWMS">
+      <property name="text">
+       <string>Velg ev. WMS/WMTS-lag</string>
+      </property>
+     </widget>
+    </item>
     <item row="4" column="0">
      <widget class="QLabel" name="LabSelectMappingScale">
       <property name="text">
        <string>Velg kartleggingsmålestokk (1:5 000, 1:20 000 eller 1:50 000)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="16" column="0">
+     <widget class="QPushButton" name="changeProjectSettingsButton">
+      <property name="text">
+       <string>Lag geopackage-fil og forbered prosjekt</string>
       </property>
      </widget>
     </item>
@@ -86,27 +141,6 @@
        </widget>
       </item>
      </layout>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="LabSelectHovedtypegruppe">
-      <property name="text">
-       <string>Velg hovedtypegruppe</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="LabSelectType">
-      <property name="text">
-       <string>Velg type</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="LabSelectCRS">
-      <property name="text">
-       <string>Velg koordinatsystem (EPSG-kode)</string>
-      </property>
-     </widget>
     </item>
     <item row="15" column="0">
      <widget class="QGroupBox" name="groupBoxWMS">
@@ -175,37 +209,26 @@
       </widget>
      </widget>
     </item>
-    <item row="5" column="0">
-     <widget class="QComboBox" name="SelectMappingScale"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QComboBox" name="SelectType"/>
-    </item>
-    <item row="3" column="0">
-     <widget class="QListWidget" name="SelectHovedtypegrupper">
-      <property name="resizeMode">
-       <enum>QListView::Adjust</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="0">
-     <widget class="QLabel" name="LabSelectFileLocation">
+   </layout>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>486</x>
+     <y>487</y>
+     <width>85</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="helpButton">
       <property name="text">
-       <string>Velg hvor geopackage-fila skal lagres (mappa)</string>
+       <string> info</string>
       </property>
-     </widget>
-    </item>
-    <item row="12" column="0">
-     <widget class="QLabel" name="LabSelectWMS">
-      <property name="text">
-       <string>Velg ev. WMS/WMTS-lag</string>
-      </property>
-     </widget>
-    </item>
-    <item row="16" column="0">
-     <widget class="QPushButton" name="changeProjectSettingsButton">
-      <property name="text">
-       <string>Lag geopackage-fil og forbered prosjekt</string>
+      <property name="icon">
+       <iconset>
+        <normaloff>help/info_button.webp</normaloff>help/info_button.webp</iconset>
       </property>
      </widget>
     </item>
