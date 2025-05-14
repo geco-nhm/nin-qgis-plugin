@@ -1,3 +1,7 @@
+---
+---
+---
+
 # Oppsett og tilrettelegging av QGIS for NiN naturtypekartlegging
 
 ## Innhold
@@ -18,23 +22,19 @@
 
 #### 1.1.1 Gå til Plugins i menylinjen og klikk på Manage and Install Plugins...
 
-![](images/install_plugin_1.png)
+#### ![](images/install_plugin_1.png){width="1306"}
 
-#### 1.1.2 Søk etter "Natur i Norge kartlegging" i søkefeltet
+Det vil dukke opp et vindu.
 
-#### 1.1.3 Klikk på "Natur i Norge kartlegging"
+#### 1.1.2 Installer "Natur i Norge kartlegging"
 
-#### 1.1.4 Klikk på Install Plugin
+A. Søk etter "Natur i Norge kartlegging" i søkefeltet\
+B. Klikk på "Natur i Norge kartlegging"\
+C. Klikk på Install Plugin
 
-![](images/install_plugin_2.png)
+![](images/install_plugin_2.png)Ikonet for "Natur i Norge"-kartlegging vil nå dukke opp i verktøymenyen. Lukk installeringsvinduet.
 
-Ikonet for "Natur i Norge"-kartlegging vil nå dukke opp i verktøymenyen.
-
-![](images/toolbar_1.png)
-
-![](images/nin_toolbar_icon.png)
-
-### 1.2 Opprett prosjekt {#opprett-prosjekt}
+### ![](images/toolbar_1.png)1.2 Opprett prosjekt {#opprett-prosjekt}
 
 #### 1.2.1 Klikk på ikonet for "Natur i Norge"-kartlegging
 
@@ -116,11 +116,13 @@ Et prosjekt vil nå opprettes automatisk med det oppgitte filnavnet og filplasse
 
 ### 1.3 Tilpass prosjekt {#tilpass-prosjekt}
 
-1.3.1 Legg til egne kartlag
+1.3.1 Legg til raster
 
-1.3.2 Legg til raster
+Legg til historisk flybilde eller høydemodell?
 
-1.3.3 Legg til vektor
+1.3.2 Legg til vektor
+
+Legg til område som skal kartlegges
 
 ### 1.4 Eksportere prosjekt
 
@@ -130,17 +132,68 @@ Et prosjekt vil nå opprettes automatisk med det oppgitte filnavnet og filplasse
 
 Åpne QField
 
+### 2.1 Åpne prosjekt
+
+Det finnes to måter man kan åpne prosjekter i QField.
+
+#### 2.1.1 Klikk på Open local file
+
+![](images/open_project_qfield.png)
+
+#### 2.1.2 Navigér til mappen hvor du har lagret prosjektet
+
+#### 2.1.3 Klikk på NiN_kartlegging under Projects for å åpne prosjektet
+
+![](images/open_project_qfield_2.png)
+
+Du vil nå se følgende på skjermen:
+
+A. Kartvinduet\
+B. Menyknapp\
+C. Kartmålestokk\
+D. Søkefunksjon\
+E. Zoomeknapper\
+F. Lokaliseringsknapp
+
+#### ![](images/map_area_qfield.png)
+
+2.2 Slå på GPS
+
+2.2.1 Klikk på lokaliseringsknappen for å slå på GPS
+
+2.2.2 Klikk på lokaliseringsknappen for å navigere til din nåværende posisjon
+
+#### 2.2 Synliggjøre kartlag
+
+2.2.1 Klikk på menyknappen
+
+2.2.2 Høyreklikk på kartlaget du ønsker å synliggjøre (f.eks. Topografisk norgeskart)
+
+![](images/layer_visibility.png)
+
+Det vil dukke opp et vindu med følgende muligheter:
+
+A. Huk av Show on map for å synliggjøre kartlaget.\
+B. Flytt ... langs ... for å endre gjennomsiktigheten til kartlaget. \
+C. Klikk på Zoom to layer for å fokusere på området kartlaget befinner seg.
+
+![](images/layer_visibility_2.png)
+
+Fokusér på området som skal kartlegges ved å klikke på et kartlag over kartleggingsområdet og klikk på Zoom to layer. Det er også mulig å navigere til området ved å bruke musepekeren og zoomeknappene. Synliggjør og endre gjernnomsiktigheten på kartlagene som ønsket. Dette kan gjøre det enklere å visualisere flere kartlag samtidig.
+
+Du er nå klar for kartlegging.
+
 Åpne prosjekt
 
 Slå på GPS
 
 Begynn å kartlegge
 
-Registreringsskjemaet
-
 Digitalisering av polygoner
 
 Registrering av kartleggingsenheter
+
+Registreringsskjemaet
 
 ## 3 Feilsøking {#feilsøking}
 
