@@ -50,15 +50,29 @@ Et prosjekt kan kun inneholde ett typesystem, men det er mulig å velge flere ho
 
 ##### 1.2.2.1 Klikk på nedtrekksmenyen for å velge typesystem
 
+![](images/select_type_system2.png)
+
+##### 1.2.2.1 Velg én av typesystemene fra nedtrekksmenyen
+
 ![](images/select_type_system.png)
 
 ##### 1.2.2.2 Huk av boks(er) for å velge hovedtypegruppe(r)
 
-![](images/select_major_type_group.png)
+##### ![](images/select_major_type_group.png)
 
 ##### 1.2.2.3 Klikk på nedtrekksmenyen for å velge kartleggingsmålestokk
 
+##### ![](images/select_map_scale2.png)
+
+##### 1.2.2.3 Velg én kartleggingsmålestokk
+
 ![](images/select_map_scale.png)
+
+**Kartleggingsmålestokker:**\
+*grunntyper* - 1:500\
+*M005* - 1:5000\
+*M020* - 1:20 000\
+*M050* - 1:50 000
 
 #### 1.2.3 Huk av én av boksene for å velge koordinatsystem
 
@@ -70,19 +84,19 @@ Projeksjon av tredimensjonale data på todimensjonale flater vil alltid medføre
 
 ##### 1.2.4.1 Klikk på ...
 
-![](images/select_file_path.png)
+![](images/select_file_path2.png)
+
+Det vil dukke opp et nytt vindu som lar deg navigere til mappen hvor du ønsker å lagre prosjektet.
 
 ##### 1.2.4.2 Navigér til mappen hvor du ønsker at prosjektet skal lagres
 
-![](images/select_folder.png)
+##### ![](images/select_folder.png)
 
-##### 1.2.4.3 Trykk på feltet File name:
+##### 1.2.4.2 Velg filnavn
 
-##### 1.2.4.4 Skriv inn filnavnet du ønsker at prosjektet skal ha
+A. Trykk på feltet File name: og skriv inn ønsket filnavn (f.eks. my_qgis_project) B. Klikk på Save
 
-##### 1.2.4.5 Klikk på Save
-
-![](images/save_file.png)
+##### ![](images/save_file.png)
 
 Du vil nå se filplasseringen i feltet.
 
@@ -92,13 +106,15 @@ Du vil nå se filplasseringen i feltet.
 
 Topografiske kart og flybilder er viktige hjelpemidler under kartlegging. Her kan du velge hvilke(t) kartlag som skal importeres til prosjektet.
 
+##### 1.2.5.1 Huk av boks(er) for å velge WMS/WMTS-lag
+
 ![](images/select_map_layers.png)
 
 #### 1.2.6 Klikk på Lag geopackage-fil og forbered prosjekt nederst i vinduet
 
 #### ![](images/create_project_2.png)
 
-Et prosjekt vil nå opprettes automatisk med det oppgitte filnavnet og filplasseringen. I tillegg vil det opprettes en gpkg-fil med kartlag og tabeller. Prosjektet med gpkg-filen kan igjen åpnes fra denne filplasseringen senere, med mindre gpkg-filen flyttes til et annet område. gpkg-filen inneholder følgende:
+Et prosjekt med filnavnet "NiN_kartlegging.qgz" vil nå opprettes automatisk med den oppgitte filplasseringen. I tillegg vil det opprettes en gpkg-fil med kartlag og tabeller. Prosjektet med gpkg-filen kan igjen åpnes fra denne filplasseringen senere. Kartlagene vil åpnes med prosjektet med mindre gpkg-filen flyttes til et annet område. gpkg-filen inneholder følgende:
 
 ![](images/layers_1.png)
 
@@ -116,17 +132,17 @@ Et prosjekt vil nå opprettes automatisk med det oppgitte filnavnet og filplasse
 
 ### 1.3 Tilpass prosjekt {#tilpass-prosjekt}
 
-1.3.1 Legg til raster
+#### 1.3.1 Legg til raster
 
-Legg til historisk flybilde eller høydemodell?
+Legg til høydemodell (tif)
 
-1.3.2 Legg til vektor
+#### 1.3.2 Legg til vektor
 
-Legg til område som skal kartlegges
+Legg til område som skal kartlegges (gpkg)
 
-### 1.4 Eksportere prosjekt
+### 1.4 Eksportere prosjekt (QGIS --\> USB?)
 
-### 1.5 Importere prosjekt (QField)
+### 1.5 Importere prosjekt (USB --\> QField?)
 
 ## 2 Kartlegging {#kartlegging}
 
@@ -134,13 +150,13 @@ Legg til område som skal kartlegges
 
 ### 2.1 Åpne prosjekt
 
-Det finnes to måter man kan åpne prosjekter i QField.
+Det finnes to måter man kan åpne prosjekter i QField. I denne veiledningen viser vi hvordan prosjektet kan åpnes via den lokale harddisken.
 
 #### 2.1.1 Klikk på Open local file
 
-![](images/open_project_qfield.png)
+#### ![](images/open_project_qfield.png)2.1.2 Navigér til mappen hvor du har lagret prosjektet
 
-#### 2.1.2 Navigér til mappen hvor du har lagret prosjektet
+Her vil du se prosjekter (under Projects) og datasett (under Datsets) som er lagret i mappen.
 
 #### 2.1.3 Klikk på NiN_kartlegging under Projects for å åpne prosjektet
 
@@ -148,55 +164,254 @@ Det finnes to måter man kan åpne prosjekter i QField.
 
 Du vil nå se følgende på skjermen:
 
-A. Kartvinduet\
-B. Menyknapp\
-C. Kartmålestokk\
-D. Søkefunksjon\
-E. Zoomeknapper\
-F. Lokaliseringsknapp
+**A. Kartvinduet**\
+Her kan du utforske kartlagene ved å navigere, zoome og redigere
+
+**B. Menyknapp**\
+Ved å trykke på denne kan du skru på redigering, synligjøre, endre på gjennomsiktighet, zomme til kartlag, velge kartlag som skal være aktive
 
 #### ![](images/map_area_qfield.png)
 
-2.2 Slå på GPS
+### 2.2 Synliggjøre kartlag
 
-2.2.1 Klikk på lokaliseringsknappen for å slå på GPS
+#### 2.2.1 Klikk på menyknappen (B i utsnittet ovenfor)
 
-2.2.2 Klikk på lokaliseringsknappen for å navigere til din nåværende posisjon
-
-#### 2.2 Synliggjøre kartlag
-
-2.2.1 Klikk på menyknappen
-
-2.2.2 Høyreklikk på kartlaget du ønsker å synliggjøre (f.eks. Topografisk norgeskart)
+#### 2.2.2 Klikk på øyesymbolet ved siden av kartlaget du ønsker å synliggjøre (f.eks. Nibcache_UTM32_EUREF89_v2)
 
 ![](images/layer_visibility.png)
 
-Det vil dukke opp et vindu med følgende muligheter:
+Kartlaget er nå synliggjort, indikert med at øyesymbolet ved siden av kartlaget er markert.
 
-A. Huk av Show on map for å synliggjøre kartlaget.\
-B. Flytt ... langs ... for å endre gjennomsiktigheten til kartlaget. \
-C. Klikk på Zoom to layer for å fokusere på området kartlaget befinner seg.
+![](images/layer_visibility_4.png)
 
-![](images/layer_visibility_2.png)
+Om kartlaget ikke dukker opp i kartvinduet kan det være fordi du ikke har navigert til området hvor kartlaget befinner seg. Dette kan du gjøre ved å bruke funksjonen for å zoome til kartlag.
 
-Fokusér på området som skal kartlegges ved å klikke på et kartlag over kartleggingsområdet og klikk på Zoom to layer. Det er også mulig å navigere til området ved å bruke musepekeren og zoomeknappene. Synliggjør og endre gjernnomsiktigheten på kartlagene som ønsket. Dette kan gjøre det enklere å visualisere flere kartlag samtidig.
+### 2.3 Zoome til kartlag
 
-Du er nå klar for kartlegging.
+#### 2.3.1 Høyreklikk på kartlaget du ønsker å zoome til
 
-Åpne prosjekt
+![](images/zoom_to_layer.png)
 
-Slå på GPS
+#### 2.3.2. Klikk på Zoom to layer for å fokusere på området kartlaget befinner seg.
 
-Begynn å kartlegge
+![](images/zoom_to_layer2.png)
 
-Digitalisering av polygoner
+Kartlaget skal nå kunne ses i kartvinduet. Du vil nå lære hvordan du kan zoome og navigere i kartvinduet.
 
-Registrering av kartleggingsenheter
+![](images/navigate.png)
 
-Registreringsskjemaet
+### 2.4 Zoom
+
+Det er mulig å navigere ved å bruke scrollefunksjonen på musa og zoomeknappene.
+
+#### 2.4.1 Zoom ved å bruke zoomeknappene. (+) brukes for å zoome inn og (-) brukes for å zoome ut
+
+![](images/zoom.png)
+
+#### 2.4.2 Zoom ved å bruke scrollefunksjonen med musa. Du zoomer inn ved å scrolle i retningen vekk fra deg og ut ved å scrolle i retningen inn mot deg
+
+### 2.5 Navigér
+
+#### 2.5.1 Klikk mens du drar musa i motsatt retning av den retningen du ønsker å flytte kartvinduet
+
+Du vil nå lære hvordan du kan redigere kartlag. Vi har zoomet inn på kartleggingsområdet for å vise dette.
+
+### 2.6 Redigere kartlag
+
+#### 2.6.1 Synliggjør kartlaget på samme måte som vist i del 2.2 Synliggjør kartlag
+
+##### 2.6.1.1 Klikk på menyknappen
+
+##### 2.6.1.2 Høyreklikk på kartlaget (f.eks. nin_polygons som brukes til kartlegging)
+
+![](images/polygon_visibility.png)
+
+##### 2.6.1.3 Huk av Show on map for å synliggjøre kartlaget.
+
+![](images/polygon_visibility2.png)Kartlaget har ingen registrerte polygoner og det vil derfor ikke skje noe i kartvinduet ennå.
+
+### 2.6.2 Slå på redigeringsmodus
+
+##### 2.6.2.1 Klikk på kartlaget du ønsker å redigere (f.eks. nin_polygons) slik at knappen lyser grønt
+
+![](images/activate_layer.png)
+
+##### 2.6.2.2 Klikk på symbolet med redigeringspennen for å slå på redigeringsmodus
+
+Symbolet vil nå lyse opp i grønt.
+
+![](images/digitisation_pen.png)
+
+##### 2.6.2.3 Klikk på tilbakepila for å gå tilbake til kartvinduet
+
+![](images/digitise.png)
+
+#### 2.6.3 Utfigurér ny polygon
+
+##### 2.6.3.1 Klikk i kartvinduet for å lage et hjørnepunkt for polygonen. Merk at du må unngå å flytte musepekeren samtidig som du klikker for å lage et hjørnepunkt.
+
+##### 2.6.3.2 Når du utfigurerer en polygon og du oppretter en hjørnekoordinat ved en feil har du muligheten til å angre ved å klikke på (-).
+
+![](images/digitise3.png)
+
+![](images/digitise4.png)
+
+##### 2.6.3.3 Klikk på (X) for å forkaste polygonen og avbryte utfigureringen
+
+![](images/digitise5.png)
+
+##### 2.6.3.4 Utfigurér polygonen ved å lage alle ønskede hjørnepunkter. Pass på å unngå topologifeil. Vanlige topologifeil er:
+
+##### 2.6.3.5 Klikk på den grønne haken når polygonen er utfigurert
+
+![](images/digitise2.png)
+
+Det vil nå dukke opp et registreringsskjema for å velge polygonens attributter.
+
+#### 2.6.4 Registrer polygon
+
+##### 2.6.4.1 Registreringsskjemaet
+
+I registreringsskjemaet kan du velge hovedtypegruppe, hovedtype, kartleggingsenhet og hvor mye av polygonen som utgjøres av den registrerte kartleggingsenheten. Du kan også legge til eller ta et foto. Registreringsskjemaet inneholder også informasjon om polygonens areal, typesystem, variabler, og polygonens påskrift som ikke kan redigeres.
+
+![](images/attribute_table.png)
+
+##### 2.6.4.2 Klikk på nedtrekksmenyen for å velge hovedtypegruppe
+
+![](images/select_major_type_group2.png)
+
+##### 2.6.4.3 Velg hovedtypegruppen som du vil registrere polygonen som
+
+![](images/select_major_type_group3.png)
+
+Her kan du velge mellom hovedtypegruppene som du valgte når du opprettet prosjektet.
+
+##### 2.6.4.4 Klikk på nedtrekksmenyen for å velge hovedtype
+
+![](images/select_major_type.png)
+
+##### 2.6.4.5 Velg hovedtypen som du ønsker å registrere polygonen som
+
+![](images/select_major_type2.png)
+
+##### 2.6.4.6 Klikk på nedtrekksmenyen for å velge kartleggingsenhet
+
+![](images/select_mapping_unit.png)
+
+##### 2.6.4.7 Velg kartleggingsengheten som du ønsker å registrere polygonen som
+
+##### ![](images/select_mapping_unit2.png)
+
+**Følgende informasjon vil nå vises i registreringsskjemaet:\
+**A. Kartleggingsenhetens plassering langs relevante lokale miljøgradienter\
+B. Påskriften som vil brukes til å merke polygonen
+
+![](images/variables.png)
+
+##### 2.6.4.8 Klikk i feltet for å skrive hvor mye av polygonen som dekkes av den valgte naturtypen.
+
+![](images/proportion.png)
+
+Bruk (+) og (-) ved siden av feltet for å endre andelen med 10 %. Merk at kartleggingsenheten som registreres må dekke minst 50 % av arealet.
+
+##### 2.6.4.9 Legg til bilde
+
+###### 2.6.4.9.1 Klikk på ... nedenfor photo
+
+![](images/select_photo2.png)
+
+###### 2.6.4.9.2 Naviger til mappen hvor du har lagret bildet
+
+###### 2.6.4.9.3 Klikk på bildefilen du vil legge ved
+
+###### 2.6.4.9.4 Klikk på Open
+
+![](images/select_photo.png)
+
+Dersom kartleggingsenheten dekker mindre enn 100 % av polygonens areal, må du registrere minst én ekstra kartleggingsenhet som dekker restarealet. Altså må kartleggingsenheten(e) dekke til sammen 100 % av arealet.
+
+##### 2.6.4.10 Registrer ekstra kartleggingsenhet(er)
+
+###### 2.6.4.10.1 Klikk på Type 2 for å registrere en ekstra kartleggingsenhet
+
+![](images/mosaic.png)
+
+###### 2.6.4.10.2 Klikk på False for å velge at polygonen skal representeres som en sammensatt polygon
+
+![](images/mosaic2.png)
+
+###### 2.6.4.10.3 Klikk på False for å velge at polygonen skal representeres som en mosaikkpolygon
+
+![](images/mosaic3.png)
+
+###### 2.6.4.10.4 Velg hovedtypegruppe, hovedtype, kartleggingsenhet og andel av polygonen som dekkes av kartleggingsenheten for kartleggingsenhet 2 som vist ovenfor
+
+![](images/mosaic4.png)
+
+Hvis det gjenstår 20 % eller mer areal etter at kartleggingsenhet 1 og kartleggingsenhet 2 er registrert må det legges til en tredje kartleggingsenhet på samme måte som for kartleggingsenhet 2. Merk igjen at alle de registrerte kartleggingsenhetene må dekke til sammen 100 %. Altså vil kartleggingsenheter som dekker mindre enn 20 % ikke bli registrert.
+
+##### 2.6.4.11 Klikk på den hvite haken for å registrere polygonen
+
+![](images/mosaic5.png)
+
+Polygonen vil nå være registrert i kartlaget.
+
+#### 2.6.5 Utfigurér og registrer nye polygoner
+
+For å forhindre overlappende polygoner vil nye polygoner som utfigureres automatisk klippes mot de eksisterende polygonene. Du kan derfor trygt opprette hjørnekoordinater innenfor en allerede eksisterende polygon. Det samme vil skje om du utfigurerer en polygon rundt en annen.
+
+![](images/neighbour_polygon.png)
+
+#### ![](images/neighbour_polygon2.png)2.6.6 Rediger utfigurering til eksisterende polygoner
+
+##### 2.6.6.1 Redigere hjørnekoordinater
+
+###### 2.6.6.1.1 Hold inne venstre museknapp for å markere en polygon du vil redigere
+
+Den markerte polygonen vil nå lyse gult.
+
+###### 2.6.6.1.2 Klikk på polygonens ID nedenfor nin_polygons
+
+![](images/edit_polygon.png)
+
+###### 2.6.6.1.3 Klikk på symbolet for å endre utfigurering
+
+![](images/edit_polygon2.png)
+
+###### 2.6.6.1.4 ....
+
+##### 2.6.6.2 Split tool
+
+##### 2.6.6.3 Reshape tool
+
+##### 2.6.6.4 Erase tool
+
+##### 2.6.6.5 Fill Ring tool
+
+#### 2.6.6 Rediger attributter til eksisterende polygoner
+
+#### 2.6.7 Fjerne/flytte/slette polygoner
+
+#### 2.6.8 Redigeringsinnstillinger
+
+##### 2.6.8.1 Snappefunksjonen
+
+For å unngå huller i kartet vil musepekeren automatisk trekkes eller snappes mot polygongrensene om du holder musepekeren i nærheten av en polygongrense. Dette vil vises ved at symbolet som forflytter seg med musepekeren trekker seg sammen. Det er mulig å slå av snappefunksjonen.
+
+###### 2.6.8.1.1 Klikk på redigeringsinnstillingsknappen
+
+###### 2.6.8.1.2 Klikk på snappesymbolet for å slå funksjonen av (At det lyser grønt betyr at funksjonen er slått på)
+
+#### 2.6.9 Slå på GPS og zoom til din posisjon
+
+#### 2.6.10 Endre gjennomsiktighet på kartlag
+
+Endre gjernnomsiktigheten på kartlagene som ønsket. Dette kan gjøre det enklere å visualisere flere kartlag samtidig.
+
+B. Dra ... langs ... for å endre gjennomsiktigheten til kartlaget.
 
 ## 3 Feilsøking {#feilsøking}
 
 Topologifeil
 
-## Eksportere prosjekt til QGIS
+## 4 Eksportere prosjekt til QGIS
