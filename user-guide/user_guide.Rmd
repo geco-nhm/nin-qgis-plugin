@@ -336,11 +336,11 @@ Dersom kartleggingsenheten dekker mindre enn 100 % av polygonens areal, må du r
 
 ![](images/mosaic.png)
 
-###### 2.6.4.10.2 Klikk på False for å velge at polygonen skal representeres som en sammensatt polygon
+###### 2.6.4.10.2 Klikk på False under sammensatt for å velge at polygonen skal representeres som en sammensatt polygon
 
 ![](images/mosaic2.png)
 
-###### 2.6.4.10.3 Klikk på False for å velge at polygonen skal representeres som en mosaikkpolygon
+###### 2.6.4.10.3 Klikk på False under mosaikk for å velge at polygonen skal representeres som en mosaikkpolygon
 
 ![](images/mosaic3.png)
 
@@ -378,19 +378,293 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/edit_polygon2.png)
 
-###### 2.6.6.1.4 ....
+###### 2.6.6.1.4 Klikk på ... for å velge endringsverktøy
 
-##### 2.6.6.2 Split tool
+![](images/edit_polygon3.png)
 
-##### 2.6.6.3 Reshape tool
+###### 2.6.6.1.5 Klikk på symbolet for verktøyet for å redigere hjørnekoordinater
 
-##### 2.6.6.4 Erase tool
+![](images/edit_polygon4.png)
 
-##### 2.6.6.5 Fill Ring tool
+###### 2.6.6.1.6 Klikk på en hjørnekoordinat for å endre dens posisjon
 
-#### 2.6.6 Rediger attributter til eksisterende polygoner
+![](images/edit_polygon5.png)
 
-#### 2.6.7 Fjerne/flytte/slette polygoner
+###### 2.6.6.1.7 Flytt musepekeren dit du vil flytte hjørnekoordinaten
+
+![](images/edit_polygon6.png)
+
+###### 2.6.6.1.8 Klikk igjen når du har flyttet musepekeren til den ønskede posisjonen
+
+![](images/edit_polygon7.png)
+
+###### 2.6.6.1.9 Klikk på en firkant midt mellom to hjørnekoordinater for å opprette en ny hjørnekoordinat
+
+![](images/edit_polygon14.png)
+
+###### 2.6.6.1.10 Flytt musepekeren dit du vil at hjørnekoordinaten skal opprettes
+
+![](images/edit_polygon9.png)
+
+###### 2.6.6.1.11 Klikk igjen når du har flyttet musepekeren dit du vil at hjørnekoordinaten skal opprettes
+
+![](images/edit_polygon10.png)
+
+###### 2.6.6.1.12 Klikk på (\<-) for å angre forrige oppretting eller endring av hjørnekoordinat. Klikk på (X) for trekke tilbake alle endringene.
+
+![](images/edit_polygon11.png)
+
+###### 2.6.6.1.13 Klikk på den grønne haken for å godta endringene
+
+![](images/edit_polygon12.png)
+
+###### 2.6.6.1.14 ....
+
+![](images/edit_polygon13.png)
+
+##### 2.6.6.2 Splitte polygon
+
+###### 2.6.6.2.1 Hold inne venstre museknapp for å markere en polygon du vil redigere
+
+Den markerte polygonen vil nå lyse gult.
+
+###### 2.6.6.2.2 Klikk på polygonens ID nedenfor nin_polygons
+
+![](images/edit_polygon.png)
+
+###### 2.6.6.2.3 Klikk på symbolet for å endre utfigurering
+
+![](images/edit_polygon2.png)
+
+###### 2.6.6.2.4 Klikk på ... for å velge endringsverktøy
+
+![](images/edit_polygon3.png)
+
+###### 2.6.6.1.5 Klikk på symbolet for verktøyet for å splitte polygoner
+
+![](images/split_polygon.png)
+
+###### 2.6.6.1.6 Splitt polygonen ved å opprette hjørnekoordinater gjennom polygonen. Det første og siste klikket må være på utsiden av polygonen du ønsker å splitte.
+
+![](images/split_polygon2.png)
+
+![](images/split_polygon3.png)\
+
+###### 2.6.6.1.6 Klikk på den grønne haken for å godta splittingen
+
+![](images/split_polygon4.png)
+
+![](images/split_polygon5.png)
+
+Polygonen vil nå være splittet.
+
+##### 2.6.6.3 Formforandringsverktøyet
+
+###### 2.6.6.3.1 Hold inne venstre museknapp for å markere en polygon du vil redigere
+
+Den markerte polygonen vil nå lyse gult.
+
+###### 2.6.6.3.2 Klikk på polygonens ID nedenfor nin_polygons
+
+![](images/edit_polygon.png)
+
+###### 2.6.6.3.3 Klikk på symbolet for å endre utfigurering
+
+![](images/edit_polygon2.png)
+
+###### 2.6.6.3.4 Klikk på ... for å velge endringsverktøy
+
+![](images/edit_shape2.png)
+
+###### 2.6.6.3.5 Klikk på symbolet for verktøyet for å redigere form
+
+![](images/edit_shape.png)
+
+###### 2.6.6.3.6 Fjerne deler av polygonen ved å opprette hjørnekoordinater gjennom polygonen. Det første og siste klikket må være på utsiden av polygonen du ønsker å fjerne deler av.
+
+![](images/edit_shape3.png)
+
+![](images/edit_shape4.png)
+
+###### 2.6.6.3.7 Klikk på den grønne haken for å godta splittingen
+
+![](images/edit_shape5.png)
+
+![](images/edit_shape6.png)
+
+Deler av polygonen vil nå være fjernet.
+
+##### 2.6.6.4 Utviskingsverktøy
+
+###### 2.6.6.4.1 Hold inne venstre museknapp for å markere en polygon du vil redigere
+
+Den markerte polygonen vil nå lyse gult.
+
+###### 2.6.6.4.2 Klikk på polygonens ID nedenfor nin_polygons
+
+![](images/erase.png)
+
+###### 2.6.6.4.3 Klikk på symbolet for å endre utfigurering
+
+![](images/erase2.png)
+
+###### 2.6.6.4.4 Klikk på ... for å velge endringsverktøy
+
+![](images/erase3.png)
+
+###### 2.6.6.4.5 Klikk på symbolet for viskeverktøyet
+
+![](images/erase4.png)
+
+###### 2.6.6.3.6 Klikk på symbolet nede i høyre hjørne for å endre tykkelsen på viskelæret
+
+![](images/erase5.png)
+
+###### 2.6.6.3.7 Klikk inni polygonen for å viske ut deler av polygonen
+
+![](images/erase6.png) ![](images/erase7.png)
+
+###### 2.6.6.3.8 Klikk på den grønne haken for å godta utviskingen
+
+![](images/erase8.png)
+
+Deler av polygonen vil nå være fjernet.
+
+##### 2.6.6.5 Ringfyllingsverktøyet
+
+###### 2.6.6.5.1 Hold inne venstre museknapp for å markere en polygon du vil redigere
+
+Den markerte polygonen vil nå lyse gult.
+
+###### 2.6.6.5.2 Klikk på polygonens ID nedenfor nin_polygons
+
+![](images/fill_ring.png)
+
+###### 2.6.6.5.3 Klikk på symbolet for å endre utfigurering
+
+![](images/fill_ring2.png)
+
+###### 2.6.6.5.4 Klikk på ... for å velge endringsverktøy
+
+![](images/fill_ring3.png)
+
+###### 2.6.6.5.5 Klikk på symbolet for verktøyet for å lage polygoner inni andre polygoner
+
+![](images/fill_ring4.png)
+
+###### 2.6.6.5.6 Lag en polygon på innsiden av en annen ved å opprette hjørnekoordinater inni polygonen.
+
+![](images/fill_ring5.png)
+
+![](images/fill_ring6.png)
+
+###### 2.6.6.5.7 Klikk på den grønne haken for å godta polygonen
+
+![](images/fill_ring7.png)
+
+###### 2.6.6.5.9 Klikk Yes i vinduet som dukker opp for å godta polygonen
+
+![](images/fill_ring8.png) \###### 2.6.6.5.9 Fyll ut registreringsskjema som vist i del ... Registreringsskjema for å opprette polygonen
+
+![](images/fill_ring9.png) ![](images/fill_ring10.png) Den nye polygonen vil dukke opp.
+
+##### 2.6.6.6 Klikk på Stop editing for å stoppe redigering
+
+![](images/stop_editing.png)
+
+#### 2.6.6 Rediger attributter for eksisterende polygoner
+
+###### 2.6.6.1 Hold inne venstre museknapp for å markere en polygon du vil redigere
+
+Den markerte polygonen vil nå lyse gult.
+
+###### 2.6.6.2 Klikk på polygonens ID nedenfor nin_polygons
+
+![](images/edit_attribute.png)
+
+###### 2.6.6.3 Klikk på symbolet for å endre attributter
+
+![](images/edit_attribute2.png) \###### 2.6.6.4 Endre attributter som vist i del ... Registreringsskjema og klikk på den hvite haken for å godta endringene
+
+![](images/edit_attribute3.png)
+
+###### 2.6.6.5 Klikk på tilbakepila for å gå ut av attributtendringsmodusen
+
+![](images/edit_attribute4.png)
+
+###### 2.6.6.3 Klikk på tilbakepila for å gå ut av redigeringsmodus
+
+![](images/edit_attribute5.png) ![](images/edit_attribute6.png)
+
+Polygonens attributter vil nå være endret.
+
+#### 2.6.7 Slette polygoner
+
+###### 2.6.7.1 Hold inne venstre museknapp for å markere en polygon du vil slette
+
+Den markerte polygonen vil nå lyse gult.
+
+###### 2.6.7.2 Klikk på ...
+
+![](images/delete_polygon2.png)
+
+###### 2.6.7.3 Klikk på Toggle Feature Selection for å velge polygonen som skal slettes
+
+![](images/delete_polygon3.png)
+
+###### 2.6.7.4 Klikk på ID til polygonen du vil slette
+
+![](images/delete_polygon4.png)
+
+###### 2.6.7.5 Klikk på ...
+
+![](images/delete_polygon5.png)
+
+###### 2.6.7.6 Klikk på Delete Selected Feature(s) for å slette polygonen
+
+![](images/delete_polygon6.png) \###### 2.6.7.7 Klikk på OK for å slette polygonen
+
+![](images/delete_polygon7.png) ![](images/delete_polygon8.png)
+
+Polygonen vil nå være slettet.
+
+#### 2.6.8 Sammensmelte polygoner
+
+###### 2.6.8.1 Hold inne venstre museknapp mens du holder musepekeren over grensen mellom polygonene du vil sammensmelte
+
+![](images/merge.png)
+
+De markerte polygonene vil nå lyse gult.
+
+###### 2.6.8.2 Klikk på ...
+
+![](images/merge2.png)
+
+###### 2.6.8.3 Klikk på Toggle Feature Selection for å velge polygonene som skal smeltes sammen
+
+![](images/merge3.png)
+
+###### 2.6.8.4 Klikk på ID til polygonene du vil smelte sammen
+
+![](images/merge4.png) ![](images/merge5.png)
+
+###### 2.6.8.5 Klikk på ...
+
+![](images/merge6.png)
+
+###### 2.6.8.6 Klikk på Merge Selected Features for å sammensmelte polygonene
+
+![](images/merge7.png) \###### 2.6.8.7 Klikk på OK for å smelte den minste polygonen sammen med den største
+
+![](images/merge8.png) Polygonene vil nå være smeltet sammen.
+
+###### 2.6.8.7 Klikk på (X) for å gå ut av ...
+
+![](images/merge9.png)
+
+###### 2.6.8.7 Klikk på (\<-) for å gå ut av ...
+
+![](images/merge10.png) ![](images/merge11.png)
 
 #### 2.6.8 Redigeringsinnstillinger
 
@@ -402,6 +676,12 @@ For å unngå huller i kartet vil musepekeren automatisk trekkes eller snappes m
 
 ###### 2.6.8.1.2 Klikk på snappesymbolet for å slå funksjonen av (At det lyser grønt betyr at funksjonen er slått på)
 
+##### 2.6.8.2 Topologisk redigering
+
+##### 2.6.8.3 Frihåndstegning
+
+##### 2.6.8.4 Vinkelrett redigering
+
 #### 2.6.9 Slå på GPS og zoom til din posisjon
 
 #### 2.6.10 Endre gjennomsiktighet på kartlag
@@ -410,8 +690,54 @@ Endre gjernnomsiktigheten på kartlagene som ønsket. Dette kan gjøre det enkle
 
 B. Dra ... langs ... for å endre gjennomsiktigheten til kartlaget.
 
+#### 2.6.11 Angre og redo
+
+#### 2.6.12 Registrere hjelpepunkter
+
+Process, move, duplicate, rotate, update attributes from feature, zoom to feature, auto-zoom to feature
+
+Lock/unlock coordinate cursor
+
+Show feature list
+
+Lock screen
+
+Expand legend
+
+Setup tracking
+
+Make polygons around other polygons
+
+Font size
+
+Turn off editing
+
+Return home
+
+QField Cloud
+
+About QField
+
+Search
+
+Turn off visibility for specific categories inside layers
+
 ## 3 Feilsøking {#feilsøking}
+
+I QGIS eller QField?
 
 Topologifeil
 
+Multipart polygons
+
+Duplicates
+
+Gaps
+
 ## 4 Eksportere prosjekt til QGIS
+
+Ekstra i QGIS?
+
+Lage figurer?
+
+Søke etter og fjerne topologifeil?
