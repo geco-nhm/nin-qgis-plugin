@@ -14,6 +14,14 @@
 -   [2 Kartlegging](#kartlegging)
 -   [3 Feilsøking](#feilsøking)
 
+## 0 Introduksjon
+
+### 0.1 Bakgrunn
+
+### 0.1 Manualens formål
+
+### 0.2 Forutsetninger
+
 ## 1 Oppsett og tilrettelegging {#oppsett-og-tilrettelegging}
 
 Åpne QGIS (versjon 3.34 eller nyere)
@@ -135,10 +143,13 @@ Et prosjekt med filnavnet "NiN_kartlegging.qgz" vil nå opprettes automatisk med
 #### 1.3.1 Legg til raster
 
 Legg til høydemodell (tif)
+Hvilke rasterlag er nyttige for kartlegging. Flybilder, nye og historiske. Modeller.
 
 #### 1.3.2 Legg til vektor
 
 Legg til område som skal kartlegges (gpkg)
+
+Hvilke vektorlag er nyttige for kartlegging. FKB, kartleggingsområde. Verneområder. Artsobservasjoner.
 
 ### 1.4 Eksportere prosjekt (QGIS --\> USB?)
 
@@ -146,19 +157,27 @@ Legg til område som skal kartlegges (gpkg)
 
 ## 2 Kartlegging {#kartlegging}
 
+### 2.1 Kartlegge i QGIS vs QField
+
+### 2.2 QField
+
+Berøringsskjerm med digitaliseringspenn vs datamus.
+
 Åpne QField
 
 ### 2.1 Åpne prosjekt
 
 Det finnes to måter man kan åpne prosjekter i QField. I denne veiledningen viser vi hvordan prosjektet kan åpnes via den lokale harddisken.
 
-#### 2.1.1 Klikk på Open local file
+#### 2.1.1 Åpne prosjekt på lokal disk
 
-#### ![](images/open_project_qfield.png)2.1.2 Navigér til mappen hvor du har lagret prosjektet
+##### 2.1.1.1 Klikk på Open local file
+
+##### ![](images/open_project_qfield.png)2.1.1.2 Navigér til mappen hvor du har lagret prosjektet
 
 Her vil du se prosjekter (under Projects) og datasett (under Datsets) som er lagret i mappen.
 
-#### 2.1.3 Klikk på NiN_kartlegging under Projects for å åpne prosjektet
+##### 2.1.1.3 Klikk på NiN_kartlegging under Projects for å åpne prosjektet
 
 ![](images/open_project_qfield_2.png)
 
@@ -171,6 +190,10 @@ Her kan du utforske kartlagene ved å navigere, zoome og redigere
 Ved å trykke på denne kan du skru på redigering, synligjøre, endre på gjennomsiktighet, zomme til kartlag, velge kartlag som skal være aktive
 
 #### ![](images/map_area_qfield.png)
+
+#### 2.1.2 Åpne prosjekt via QField Cloud
+
+#### 2.1.2.1 ...
 
 ### 2.2 Synliggjøre kartlag
 
@@ -238,7 +261,7 @@ Du vil nå lære hvordan du kan redigere kartlag. Vi har zoomet inn på kartlegg
 
 ##### 2.6.2.2 Klikk på symbolet med redigeringspennen for å slå på redigeringsmodus
 
-Symbolet vil nå lyse opp i grønt.
+Symbolet vil nå lyse opp i grønt. Hvis du vil avslutte redigeringsmodus kan du klikke på symbolet igjen.
 
 ![](images/digitisation_pen.png)
 
@@ -314,6 +337,10 @@ B. Påskriften som vil brukes til å merke polygonen
 
 Bruk (+) og (-) ved siden av feltet for å endre andelen med 10 %. Merk at kartleggingsenheten som registreres må dekke minst 50 % av arealet.
 
+##### 2.6.4.9 Ta bilde med enhetens kamera
+
+##### 2.6.4.9.1 Klikk på ...
+
 ##### 2.6.4.9 Legg til bilde
 
 ###### 2.6.4.9.1 Klikk på ... nedenfor photo
@@ -355,6 +382,44 @@ Hvis det gjenstår 20 % eller mer areal etter at kartleggingsenhet 1 og kartlegg
 ![](images/mosaic5.png)
 
 Polygonen vil nå være registrert i kartlaget.
+
+#### 2.6.5 Angre
+
+Vi vil nå vise hvordan man angrer forrige redigering. Vi utfigurerer en ny polygon for å demonstrere.
+
+![](images/undo.png) ![](images/undo1.png)
+
+#### 2.6.5.1 Klikk på menyknappen
+
+![](images/undo2.png) \#### 2.6.5.2 Klikk på ...
+
+![](images/undo3.png)
+
+#### 2.6.5.3 Klikk på Undo for å angre forrige redigering
+
+![](images/undo4.png)
+
+![](images/undo5.png)
+
+Forrige redigering vil nå være angret.
+
+#### 2.6.6 Gjøre om igjen
+
+#### 2.6.6.1 Klikk på menyknappen
+
+![](images/redo.png)
+
+#### 2.6.6.2 Klikk på ...
+
+![](images/redo2.png)
+
+#### 2.6.6.3 Klikk på Redo for å gjøre redigeringen om igjen
+
+![](images/redo3.png)
+
+![](images/redo4.png)
+
+Redigeringen vil nå bli gjort om igjen.
 
 #### 2.6.5 Utfigurér og registrer nye polygoner
 
@@ -670,57 +735,131 @@ De markerte polygonene vil nå lyse gult.
 
 ##### 2.6.8.1 Snappefunksjonen
 
+![](images/snapping.png)
+
 For å unngå huller i kartet vil musepekeren automatisk trekkes eller snappes mot polygongrensene om du holder musepekeren i nærheten av en polygongrense. Dette vil vises ved at symbolet som forflytter seg med musepekeren trekker seg sammen. Det er mulig å slå av snappefunksjonen.
 
 ###### 2.6.8.1.1 Klikk på redigeringsinnstillingsknappen
 
-###### 2.6.8.1.2 Klikk på snappesymbolet for å slå funksjonen av (At det lyser grønt betyr at funksjonen er slått på)
+![](images/snapping2.png)
+
+###### 2.6.8.1.2 Klikk på snappesymbolet for å slå funksjonen av (at det lyser grønt betyr at funksjonen er slått på)
+
+![](images/snapping3.png)
+
+![](images/snapping4.png) Dersom du nå prøver å holde musepekeren over en polygongrense vil du legge merke til at musepekeren ikke lenger snappes automatisk til polygonen.
 
 ##### 2.6.8.2 Topologisk redigering
 
+For å unngå overlapp mellom polygonene i kartet vil polygongrenser bli flyttet sammen om man endrer på hjørnekoordinater som er felles for flere polygoner.
+
+![](images/topological_editing.png)
+
+![](images/topological_editing2.png)
+
+![](images/topological_editing3.png)
+
+Denne funksjonen som kalles topologisk redigering kan slås av.
+
+###### 2.6.8.2.1 Klikk på redigeringsinnstillingsknappen
+
+![](images/topological_editing4.png) \###### 2.6.8.2.2 Klikk på symbolet for topologisk redigering for å slå funksjonen av (at det lyser grønt betyr at funksjonen er slått på)
+
+![](images/topological_editing5.png)
+
+![](images/topological_editing6.png)
+
+![](images/topological_editing7.png)
+
+![](images/topological_editing8.png)
+
+Dersom du nå prøver å flytte en hjørnekoordinat som er felles for to polygoner vil kun grensen til den ene polygonen flyttes. Legg merke til at kun polygongrensen til én av polygonene ble flyttet.
+
 ##### 2.6.8.3 Frihåndstegning
 
-##### 2.6.8.4 Vinkelrett redigering
+###### 2.6.8.3.1 Klikk på redigeringsinnstillingsknappen
+
+![](images/free_draw.png) \###### 2.6.8.3.2 Klikk på symbolet for frihpndstegning for å slå funksjonen på (at det lyser grønt betyr at funksjonen er slått på)
+
+![](images/free_draw2.png) \###### 2.6.8.3.3 Utfigurer polygoner ved å trykke på og holde inne venstre museknapp og deretter dra musepekeren over kartvinduet. Slipp museknappen når polygonen er ferdig utfigurert.
+
+![](images/free_draw3.png)
+
+![](images/free_draw4.png)
+
+##### 2.6.8.4 Vinkelrett ufigurering
+
+###### 2.6.8.4.1 Klikk på redigeringsinnstillingsknappen
+
+![](images/delineate_angles.png) \###### 2.6.8.4.2 Klikk på symbolet for vinkelrett utfigurering for å slå funksjonen på (at det lyser grønt betyr at funksjonen er slått på)
+
+![](images/delineate_angles2.png) \###### 2.6.8.4.3 Utfigurer polygoner som vanlig. Musepekeren vil automatisk snappes til nærmest 45 graders vinkel i forhold til forrige hjørnekoordinat og det vil dukke opp en stiplet linje som viser dette.
+
+![](images/delineate_angles3.png)
+
+![](images/delineate_angles4.png)
 
 #### 2.6.9 Slå på GPS og zoom til din posisjon
 
+##### 2.6.9.1 Klikk på navigeringssymbolet for å slå på GPS
+
+![](images/gps.png)
+
+##### 2.6.9.2 Klikk på navigeringssymbolet igjen for å zoome til din posisjon
+
+![](images/gps2.png)
+
 #### 2.6.10 Endre gjennomsiktighet på kartlag
 
-Endre gjernnomsiktigheten på kartlagene som ønsket. Dette kan gjøre det enklere å visualisere flere kartlag samtidig.
+Endre gjennomsiktigheten på kartlagene som ønsket. Dette kan gjøre det enklere å visualisere flere kartlag samtidig.
 
-B. Dra ... langs ... for å endre gjennomsiktigheten til kartlaget.
+##### 2.6.10.1 Klikk på menyknappen
 
-#### 2.6.11 Angre og redo
+![](images/visibility.png)
 
-#### 2.6.12 Registrere hjelpepunkter
+##### 2.6.10.2 Høyreklikk på kartlaget du vil endre gjennomsiktigheten til
 
-Process, move, duplicate, rotate, update attributes from feature, zoom to feature, auto-zoom to feature
+![](images/visibility2.png)
 
-Lock/unlock coordinate cursor
+##### 2.6.10.3 Klikk på skyve... og dra den til siden for å endre på gjennomsiktigheten til kartlaget
 
-Show feature list
+![](images/visibility3.png)
 
-Lock screen
+![](images/visibility4.png) ![](images/visibility5.png)
 
-Expand legend
+Gjennomsiktigheten på kartlaget vil nå være endret.
 
-Setup tracking
+#### 2.6.12 Registrere punkter
 
-Make polygons around other polygons
+Sørg for at redigeringsmodus er på (se del 2.6.2 Slå på redigeringsmodus) og at du redigerer i riktig kartlag.
 
-Font size
+![](images/points.png)
 
-Turn off editing
+#### 2.6.12.1 Klikk i kartvinduet der du vil registrere et punkt
 
-Return home
+![](images/points2.png)
+Det vil nå dukke opp et nytt vindu.
 
-QField Cloud
+#### 2.6.12.2 Klikk på den hvite haken i vinduet for å registrere punktet. I vinduet har du muligheten til å velge punktets attributter.
 
-About QField
+![](images/points3.png)
+![](images/points4.png)
 
-Search
+Et punkt vil nå være opprettet.
 
-Turn off visibility for specific categories inside layers
+#### 2.6.13 Gå tilbake til hovedmenyen
+
+##### 2.6.13.1 Klikk på menyknappen
+
+![](images/return_home.png)
+
+##### 2.6.14.2 Klikk på Return home
+
+![](images/return_home2.png)
+
+![](images/return_home3.png)
+
+Du vil nå se hovedmenyen.
 
 ## 3 Feilsøking {#feilsøking}
 
