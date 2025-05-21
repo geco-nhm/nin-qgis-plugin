@@ -1,0 +1,711 @@
+## 2 Kartlegging {#kartlegging}
+
+### 2.1 Kartlegge i QGIS vs QField
+
+### 2.3 Importere prosjekt
+
+USB og QField Cloud
+
+### 2.2 QField
+
+Berøringsskjerm med digitaliseringspenn vs datamus.
+
+Åpne QField
+
+### 2.1 Åpne prosjekt
+
+Det finnes to måter man kan åpne prosjekter i QField. I denne veiledningen viser vi hvordan prosjektet kan åpnes via den lokale harddisken.
+
+#### 2.1.1 Åpne prosjekt på lokal disk
+
+##### 2.1.1.1 Klikk på Open local file
+
+##### ![](images/open_project_qfield.png)2.1.1.2 Navigér til mappen hvor du har lagret prosjektet
+
+Her vil du se prosjekter (under Projects) og datasett (under Datsets) som er lagret i mappen.
+
+##### 2.1.1.3 Klikk på NiN_kartlegging under Projects for å åpne prosjektet
+
+![](images/open_project_qfield_2.png)
+
+Du vil nå se følgende på skjermen:
+
+**A. Kartvinduet**\
+Her kan du utforske kartlagene ved å navigere, zoome og redigere
+
+**B. Menyknapp**\
+Ved å trykke på denne kan du skru på redigering, synligjøre, endre på gjennomsiktighet, zomme til kartlag, velge kartlag som skal være aktive
+
+#### ![](images/map_area_qfield.png)
+
+#### 2.1.2 Åpne prosjekt via QField Cloud
+
+#### 2.1.2.1 ...
+
+### 2.2 Synliggjøre kartlag
+
+#### 2.2.1 Klikk på menyknappen (B i utsnittet ovenfor)
+
+#### 2.2.2 Klikk på øyesymbolet ved siden av kartlaget du ønsker å synliggjøre (f.eks. Nibcache_UTM32_EUREF89_v2)
+
+![](images/layer_visibility.png)
+
+Kartlaget er nå synliggjort, indikert med at øyesymbolet ved siden av kartlaget er markert.
+
+![](images/layer_visibility_4.png)
+
+Om kartlaget ikke dukker opp i kartvinduet kan det være fordi du ikke har navigert til området hvor kartlaget befinner seg. Dette kan du gjøre ved å bruke funksjonen for å zoome til kartlag.
+
+### 2.3 Zoome til kartlag
+
+#### 2.3.1 Høyreklikk på kartlaget du ønsker å zoome til
+
+![](images/zoom_to_layer.png)
+
+#### 2.3.2. Klikk på Zoom to layer for å fokusere på området kartlaget befinner seg.
+
+![](images/zoom_to_layer2.png)
+
+Kartlaget skal nå kunne ses i kartvinduet. Du vil nå lære hvordan du kan zoome og navigere i kartvinduet.
+
+![](images/navigate.png)
+
+### 2.4 Zoom
+
+Det er mulig å navigere ved å bruke scrollefunksjonen på musa og zoomeknappene.
+
+#### 2.4.1 Zoom ved å bruke zoomeknappene. (+) brukes for å zoome inn og (-) brukes for å zoome ut
+
+![](images/zoom.png)
+
+#### 2.4.2 Zoom ved å bruke scrollefunksjonen med musa. Du zoomer inn ved å scrolle i retningen vekk fra deg og ut ved å scrolle i retningen inn mot deg
+
+### 2.5 Navigér
+
+#### 2.5.1 Klikk mens du drar musa i motsatt retning av den retningen du ønsker å flytte kartvinduet
+
+Du vil nå lære hvordan du kan redigere kartlag. Vi har zoomet inn på kartleggingsområdet for å vise dette.
+
+### 2.6 Redigere kartlag
+
+#### 2.6.1 Synliggjør kartlaget på samme måte som vist i del 2.2 Synliggjør kartlag
+
+##### 2.6.1.1 Klikk på menyknappen
+
+##### 2.6.1.2 Høyreklikk på kartlaget (f.eks. nin_polygons som brukes til kartlegging)
+
+![](images/polygon_visibility.png)
+
+##### 2.6.1.3 Huk av Show on map for å synliggjøre kartlaget.
+
+![](images/polygon_visibility2.png)Kartlaget har ingen registrerte polygoner og det vil derfor ikke skje noe i kartvinduet ennå.
+
+### 2.6.2 Slå på redigeringsmodus
+
+##### 2.6.2.1 Klikk på kartlaget du ønsker å redigere (f.eks. nin_polygons) slik at knappen lyser grønt
+
+![](images/activate_layer.png)
+
+##### 2.6.2.2 Klikk på symbolet med redigeringspennen for å slå på redigeringsmodus
+
+Symbolet vil nå lyse opp i grønt. Hvis du vil avslutte redigeringsmodus kan du klikke på symbolet igjen.
+
+![](images/digitisation_pen.png)
+
+##### 2.6.2.3 Klikk på tilbakepila for å gå tilbake til kartvinduet
+
+![](images/digitise.png)
+
+#### 2.6.3 Utfigurér ny polygon
+
+##### 2.6.3.1 Klikk i kartvinduet for å lage et hjørnepunkt for polygonen. Merk at du må unngå å flytte musepekeren samtidig som du klikker for å lage et hjørnepunkt.
+
+##### 2.6.3.2 Når du utfigurerer en polygon og du oppretter en hjørnekoordinat ved en feil har du muligheten til å angre ved å klikke på (-).
+
+![](images/digitise3.png)
+
+![](images/digitise4.png)
+
+##### 2.6.3.3 Klikk på (X) for å forkaste polygonen og avbryte utfigureringen
+
+![](images/digitise5.png)
+
+##### 2.6.3.4 Utfigurér polygonen ved å lage alle ønskede hjørnepunkter. Pass på å unngå topologifeil. Vanlige topologifeil er:
+
+##### 2.6.3.5 Klikk på den grønne haken når polygonen er utfigurert
+
+![](images/digitise2.png)
+
+Det vil nå dukke opp et registreringsskjema for å velge polygonens attributter.
+
+#### 2.6.4 Registrer polygon
+
+##### 2.6.4.1 Registreringsskjemaet
+
+I registreringsskjemaet kan du velge hovedtypegruppe, hovedtype, kartleggingsenhet og hvor mye av polygonen som utgjøres av den registrerte kartleggingsenheten. Du kan også legge til eller ta et foto. Registreringsskjemaet inneholder også informasjon om polygonens areal, typesystem, variabler, og polygonens påskrift som ikke kan redigeres.
+
+![](images/attribute_table.png)
+
+##### 2.6.4.2 Klikk på nedtrekksmenyen for å velge hovedtypegruppe
+
+![](images/select_major_type_group2.png)
+
+##### 2.6.4.3 Velg hovedtypegruppen som du vil registrere polygonen som
+
+![](images/select_major_type_group3.png)
+
+Her kan du velge mellom hovedtypegruppene som du valgte når du opprettet prosjektet.
+
+##### 2.6.4.4 Klikk på nedtrekksmenyen for å velge hovedtype
+
+![](images/select_major_type.png)
+
+##### 2.6.4.5 Velg hovedtypen som du ønsker å registrere polygonen som
+
+![](images/select_major_type2.png)
+
+##### 2.6.4.6 Klikk på nedtrekksmenyen for å velge kartleggingsenhet
+
+![](images/select_mapping_unit.png)
+
+##### 2.6.4.7 Velg kartleggingsengheten som du ønsker å registrere polygonen som
+
+##### ![](images/select_mapping_unit2.png)
+
+**Følgende informasjon vil nå vises i registreringsskjemaet:\
+**A. Kartleggingsenhetens plassering langs relevante lokale miljøgradienter\
+B. Påskriften som vil brukes til å merke polygonen
+
+![](images/variables.png)
+
+##### 2.6.4.8 Klikk i feltet for å skrive hvor mye av polygonen som dekkes av den valgte naturtypen.
+
+![](images/proportion.png)
+
+Bruk (+) og (-) ved siden av feltet for å endre andelen med 10 %. Merk at kartleggingsenheten som registreres må dekke minst 50 % av arealet.
+
+##### 2.6.4.9 Ta bilde med enhetens kamera
+
+##### 2.6.4.9.1 Klikk på ...
+
+##### 2.6.4.9 Legg til bilde
+
+###### 2.6.4.9.1 Klikk på ... nedenfor photo
+
+![](images/select_photo2.png)
+
+###### 2.6.4.9.2 Naviger til mappen hvor du har lagret bildet
+
+###### 2.6.4.9.3 Klikk på bildefilen du vil legge ved
+
+###### 2.6.4.9.4 Klikk på Open
+
+![](images/select_photo.png)
+
+Dersom kartleggingsenheten dekker mindre enn 100 % av polygonens areal, må du registrere minst én ekstra kartleggingsenhet som dekker restarealet. Altså må kartleggingsenheten(e) dekke til sammen 100 % av arealet.
+
+##### 2.6.4.10 Registrer ekstra kartleggingsenhet(er)
+
+###### 2.6.4.10.1 Klikk på Type 2 for å registrere en ekstra kartleggingsenhet
+
+![](images/mosaic.png)
+
+###### 2.6.4.10.2 Klikk på False under sammensatt for å velge at polygonen skal representeres som en sammensatt polygon
+
+![](images/mosaic2.png)
+
+###### 2.6.4.10.3 Klikk på False under mosaikk for å velge at polygonen skal representeres som en mosaikkpolygon
+
+![](images/mosaic3.png)
+
+###### 2.6.4.10.4 Velg hovedtypegruppe, hovedtype, kartleggingsenhet og andel av polygonen som dekkes av kartleggingsenheten for kartleggingsenhet 2 som vist ovenfor
+
+![](images/mosaic4.png)
+
+Hvis det gjenstår 20 % eller mer areal etter at kartleggingsenhet 1 og kartleggingsenhet 2 er registrert må det legges til en tredje kartleggingsenhet på samme måte som for kartleggingsenhet 2. Merk igjen at alle de registrerte kartleggingsenhetene må dekke til sammen 100 %. Altså vil kartleggingsenheter som dekker mindre enn 20 % ikke bli registrert.
+
+##### 2.6.4.11 Klikk på den hvite haken for å registrere polygonen
+
+![](images/mosaic5.png)
+
+Polygonen vil nå være registrert i kartlaget.
+
+#### 2.6.5 Angre
+
+Vi vil nå vise hvordan man angrer forrige redigering. Vi utfigurerer en ny polygon for å demonstrere.
+
+![](images/undo.png) ![](images/undo1.png)
+
+#### 2.6.5.1 Klikk på menyknappen
+
+![](images/undo2.png) \#### 2.6.5.2 Klikk på ...
+
+![](images/undo3.png)
+
+#### 2.6.5.3 Klikk på Undo for å angre forrige redigering
+
+![](images/undo4.png)
+
+![](images/undo5.png)
+
+Forrige redigering vil nå være angret.
+
+#### 2.6.6 Gjøre om igjen
+
+#### 2.6.6.1 Klikk på menyknappen
+
+![](images/redo.png)
+
+#### 2.6.6.2 Klikk på ...
+
+![](images/redo2.png)
+
+#### 2.6.6.3 Klikk på Redo for å gjøre redigeringen om igjen
+
+![](images/redo3.png)
+
+![](images/redo4.png)
+
+Redigeringen vil nå bli gjort om igjen.
+
+#### 2.6.5 Utfigurér og registrer nye polygoner
+
+For å forhindre overlappende polygoner vil nye polygoner som utfigureres automatisk klippes mot de eksisterende polygonene. Du kan derfor trygt opprette hjørnekoordinater innenfor en allerede eksisterende polygon. Det samme vil skje om du utfigurerer en polygon rundt en annen.
+
+![](images/neighbour_polygon.png)
+
+#### ![](images/neighbour_polygon2.png)2.6.6 Rediger utfigurering til eksisterende polygoner
+
+##### 2.6.6.1 Redigere hjørnekoordinater
+
+###### 2.6.6.1.1 Hold inne venstre museknapp for å markere en polygon du vil redigere
+
+Den markerte polygonen vil nå lyse gult.
+
+###### 2.6.6.1.2 Klikk på polygonens ID nedenfor nin_polygons
+
+![](images/edit_polygon.png)
+
+###### 2.6.6.1.3 Klikk på symbolet for å endre utfigurering
+
+![](images/edit_polygon2.png)
+
+###### 2.6.6.1.4 Klikk på ... for å velge endringsverktøy
+
+![](images/edit_polygon3.png)
+
+###### 2.6.6.1.5 Klikk på symbolet for verktøyet for å redigere hjørnekoordinater
+
+![](images/edit_polygon4.png)
+
+###### 2.6.6.1.6 Klikk på en hjørnekoordinat for å endre dens posisjon
+
+![](images/edit_polygon5.png)
+
+###### 2.6.6.1.7 Flytt musepekeren dit du vil flytte hjørnekoordinaten
+
+![](images/edit_polygon6.png)
+
+###### 2.6.6.1.8 Klikk igjen når du har flyttet musepekeren til den ønskede posisjonen
+
+![](images/edit_polygon7.png)
+
+###### 2.6.6.1.9 Klikk på en firkant midt mellom to hjørnekoordinater for å opprette en ny hjørnekoordinat
+
+![](images/edit_polygon14.png)
+
+###### 2.6.6.1.10 Flytt musepekeren dit du vil at hjørnekoordinaten skal opprettes
+
+![](images/edit_polygon9.png)
+
+###### 2.6.6.1.11 Klikk igjen når du har flyttet musepekeren dit du vil at hjørnekoordinaten skal opprettes
+
+![](images/edit_polygon10.png)
+
+###### 2.6.6.1.12 Klikk på (\<-) for å angre forrige oppretting eller endring av hjørnekoordinat. Klikk på (X) for trekke tilbake alle endringene.
+
+![](images/edit_polygon11.png)
+
+###### 2.6.6.1.13 Klikk på den grønne haken for å godta endringene
+
+![](images/edit_polygon12.png)
+
+###### 2.6.6.1.14 ....
+
+![](images/edit_polygon13.png)
+
+##### 2.6.6.2 Splitte polygon
+
+###### 2.6.6.2.1 Hold inne venstre museknapp for å markere en polygon du vil redigere
+
+Den markerte polygonen vil nå lyse gult.
+
+###### 2.6.6.2.2 Klikk på polygonens ID nedenfor nin_polygons
+
+![](images/edit_polygon.png)
+
+###### 2.6.6.2.3 Klikk på symbolet for å endre utfigurering
+
+![](images/edit_polygon2.png)
+
+###### 2.6.6.2.4 Klikk på ... for å velge endringsverktøy
+
+![](images/edit_polygon3.png)
+
+###### 2.6.6.1.5 Klikk på symbolet for verktøyet for å splitte polygoner
+
+![](images/split_polygon.png)
+
+###### 2.6.6.1.6 Splitt polygonen ved å opprette hjørnekoordinater gjennom polygonen. Det første og siste klikket må være på utsiden av polygonen du ønsker å splitte.
+
+![](images/split_polygon2.png)
+
+![](images/split_polygon3.png)\
+
+###### 2.6.6.1.6 Klikk på den grønne haken for å godta splittingen
+
+![](images/split_polygon4.png)
+
+![](images/split_polygon5.png)
+
+Polygonen vil nå være splittet.
+
+##### 2.6.6.3 Formforandringsverktøyet
+
+###### 2.6.6.3.1 Hold inne venstre museknapp for å markere en polygon du vil redigere
+
+Den markerte polygonen vil nå lyse gult.
+
+###### 2.6.6.3.2 Klikk på polygonens ID nedenfor nin_polygons
+
+![](images/edit_polygon.png)
+
+###### 2.6.6.3.3 Klikk på symbolet for å endre utfigurering
+
+![](images/edit_polygon2.png)
+
+###### 2.6.6.3.4 Klikk på ... for å velge endringsverktøy
+
+![](images/edit_shape2.png)
+
+###### 2.6.6.3.5 Klikk på symbolet for verktøyet for å redigere form
+
+![](images/edit_shape.png)
+
+###### 2.6.6.3.6 Fjerne deler av polygonen ved å opprette hjørnekoordinater gjennom polygonen. Det første og siste klikket må være på utsiden av polygonen du ønsker å fjerne deler av.
+
+![](images/edit_shape3.png)
+
+![](images/edit_shape4.png)
+
+###### 2.6.6.3.7 Klikk på den grønne haken for å godta splittingen
+
+![](images/edit_shape5.png)
+
+![](images/edit_shape6.png)
+
+Deler av polygonen vil nå være fjernet.
+
+##### 2.6.6.4 Utviskingsverktøy
+
+###### 2.6.6.4.1 Hold inne venstre museknapp for å markere en polygon du vil redigere
+
+Den markerte polygonen vil nå lyse gult.
+
+###### 2.6.6.4.2 Klikk på polygonens ID nedenfor nin_polygons
+
+![](images/erase.png)
+
+###### 2.6.6.4.3 Klikk på symbolet for å endre utfigurering
+
+![](images/erase2.png)
+
+###### 2.6.6.4.4 Klikk på ... for å velge endringsverktøy
+
+![](images/erase3.png)
+
+###### 2.6.6.4.5 Klikk på symbolet for viskeverktøyet
+
+![](images/erase4.png)
+
+###### 2.6.6.3.6 Klikk på symbolet nede i høyre hjørne for å endre tykkelsen på viskelæret
+
+![](images/erase5.png)
+
+###### 2.6.6.3.7 Klikk inni polygonen for å viske ut deler av polygonen
+
+![](images/erase6.png) ![](images/erase7.png)
+
+###### 2.6.6.3.8 Klikk på den grønne haken for å godta utviskingen
+
+![](images/erase8.png)
+
+Deler av polygonen vil nå være fjernet.
+
+##### 2.6.6.5 Ringfyllingsverktøyet
+
+###### 2.6.6.5.1 Hold inne venstre museknapp for å markere en polygon du vil redigere
+
+Den markerte polygonen vil nå lyse gult.
+
+###### 2.6.6.5.2 Klikk på polygonens ID nedenfor nin_polygons
+
+![](images/fill_ring.png)
+
+###### 2.6.6.5.3 Klikk på symbolet for å endre utfigurering
+
+![](images/fill_ring2.png)
+
+###### 2.6.6.5.4 Klikk på ... for å velge endringsverktøy
+
+![](images/fill_ring3.png)
+
+###### 2.6.6.5.5 Klikk på symbolet for verktøyet for å lage polygoner inni andre polygoner
+
+![](images/fill_ring4.png)
+
+###### 2.6.6.5.6 Lag en polygon på innsiden av en annen ved å opprette hjørnekoordinater inni polygonen.
+
+![](images/fill_ring5.png)
+
+![](images/fill_ring6.png)
+
+###### 2.6.6.5.7 Klikk på den grønne haken for å godta polygonen
+
+![](images/fill_ring7.png)
+
+###### 2.6.6.5.9 Klikk Yes i vinduet som dukker opp for å godta polygonen
+
+![](images/fill_ring8.png) \###### 2.6.6.5.9 Fyll ut registreringsskjema som vist i del ... Registreringsskjema for å opprette polygonen
+
+![](images/fill_ring9.png) ![](images/fill_ring10.png) Den nye polygonen vil dukke opp.
+
+##### 2.6.6.6 Klikk på Stop editing for å stoppe redigering
+
+![](images/stop_editing.png)
+
+#### 2.6.6 Rediger attributter for eksisterende polygoner
+
+###### 2.6.6.1 Hold inne venstre museknapp for å markere en polygon du vil redigere
+
+Den markerte polygonen vil nå lyse gult.
+
+###### 2.6.6.2 Klikk på polygonens ID nedenfor nin_polygons
+
+![](images/edit_attribute.png)
+
+###### 2.6.6.3 Klikk på symbolet for å endre attributter
+
+![](images/edit_attribute2.png) \###### 2.6.6.4 Endre attributter som vist i del ... Registreringsskjema og klikk på den hvite haken for å godta endringene
+
+![](images/edit_attribute3.png)
+
+###### 2.6.6.5 Klikk på tilbakepila for å gå ut av attributtendringsmodusen
+
+![](images/edit_attribute4.png)
+
+###### 2.6.6.3 Klikk på tilbakepila for å gå ut av redigeringsmodus
+
+![](images/edit_attribute5.png) ![](images/edit_attribute6.png)
+
+Polygonens attributter vil nå være endret.
+
+#### 2.6.7 Slette polygoner
+
+###### 2.6.7.1 Hold inne venstre museknapp for å markere en polygon du vil slette
+
+Den markerte polygonen vil nå lyse gult.
+
+###### 2.6.7.2 Klikk på ...
+
+![](images/delete_polygon2.png)
+
+###### 2.6.7.3 Klikk på Toggle Feature Selection for å velge polygonen som skal slettes
+
+![](images/delete_polygon3.png)
+
+###### 2.6.7.4 Klikk på ID til polygonen du vil slette
+
+![](images/delete_polygon4.png)
+
+###### 2.6.7.5 Klikk på ...
+
+![](images/delete_polygon5.png)
+
+###### 2.6.7.6 Klikk på Delete Selected Feature(s) for å slette polygonen
+
+![](images/delete_polygon6.png) \###### 2.6.7.7 Klikk på OK for å slette polygonen
+
+![](images/delete_polygon7.png) ![](images/delete_polygon8.png)
+
+Polygonen vil nå være slettet.
+
+#### 2.6.8 Sammensmelte polygoner
+
+###### 2.6.8.1 Hold inne venstre museknapp mens du holder musepekeren over grensen mellom polygonene du vil sammensmelte
+
+![](images/merge.png)
+
+De markerte polygonene vil nå lyse gult.
+
+###### 2.6.8.2 Klikk på ...
+
+![](images/merge2.png)
+
+###### 2.6.8.3 Klikk på Toggle Feature Selection for å velge polygonene som skal smeltes sammen
+
+![](images/merge3.png)
+
+###### 2.6.8.4 Klikk på ID til polygonene du vil smelte sammen
+
+![](images/merge4.png) ![](images/merge5.png)
+
+###### 2.6.8.5 Klikk på ...
+
+![](images/merge6.png)
+
+###### 2.6.8.6 Klikk på Merge Selected Features for å sammensmelte polygonene
+
+![](images/merge7.png) \###### 2.6.8.7 Klikk på OK for å smelte den minste polygonen sammen med den største
+
+![](images/merge8.png) Polygonene vil nå være smeltet sammen.
+
+###### 2.6.8.7 Klikk på (X) for å gå ut av ...
+
+![](images/merge9.png)
+
+###### 2.6.8.7 Klikk på (\<-) for å gå ut av ...
+
+![](images/merge10.png) ![](images/merge11.png)
+
+#### 2.6.8 Redigeringsinnstillinger
+
+##### 2.6.8.1 Snappefunksjonen
+
+![](images/snapping.png)
+
+For å unngå huller i kartet vil musepekeren automatisk trekkes eller snappes mot polygongrensene om du holder musepekeren i nærheten av en polygongrense. Dette vil vises ved at symbolet som forflytter seg med musepekeren trekker seg sammen. Det er mulig å slå av snappefunksjonen.
+
+###### 2.6.8.1.1 Klikk på redigeringsinnstillingsknappen
+
+![](images/snapping2.png)
+
+###### 2.6.8.1.2 Klikk på snappesymbolet for å slå funksjonen av (at det lyser grønt betyr at funksjonen er slått på)
+
+![](images/snapping3.png)
+
+![](images/snapping4.png) Dersom du nå prøver å holde musepekeren over en polygongrense vil du legge merke til at musepekeren ikke lenger snappes automatisk til polygonen.
+
+##### 2.6.8.2 Topologisk redigering
+
+For å unngå overlapp mellom polygonene i kartet vil polygongrenser bli flyttet sammen om man endrer på hjørnekoordinater som er felles for flere polygoner.
+
+![](images/topological_editing.png)
+
+![](images/topological_editing2.png)
+
+![](images/topological_editing3.png)
+
+Denne funksjonen som kalles topologisk redigering kan slås av.
+
+###### 2.6.8.2.1 Klikk på redigeringsinnstillingsknappen
+
+![](images/topological_editing4.png) \###### 2.6.8.2.2 Klikk på symbolet for topologisk redigering for å slå funksjonen av (at det lyser grønt betyr at funksjonen er slått på)
+
+![](images/topological_editing5.png)
+
+![](images/topological_editing6.png)
+
+![](images/topological_editing7.png)
+
+![](images/topological_editing8.png)
+
+Dersom du nå prøver å flytte en hjørnekoordinat som er felles for to polygoner vil kun grensen til den ene polygonen flyttes. Legg merke til at kun polygongrensen til én av polygonene ble flyttet.
+
+##### 2.6.8.3 Frihåndstegning
+
+###### 2.6.8.3.1 Klikk på redigeringsinnstillingsknappen
+
+![](images/free_draw.png) \###### 2.6.8.3.2 Klikk på symbolet for frihpndstegning for å slå funksjonen på (at det lyser grønt betyr at funksjonen er slått på)
+
+![](images/free_draw2.png) \###### 2.6.8.3.3 Utfigurer polygoner ved å trykke på og holde inne venstre museknapp og deretter dra musepekeren over kartvinduet. Slipp museknappen når polygonen er ferdig utfigurert.
+
+![](images/free_draw3.png)
+
+![](images/free_draw4.png)
+
+##### 2.6.8.4 Vinkelrett ufigurering
+
+###### 2.6.8.4.1 Klikk på redigeringsinnstillingsknappen
+
+![](images/delineate_angles.png) \###### 2.6.8.4.2 Klikk på symbolet for vinkelrett utfigurering for å slå funksjonen på (at det lyser grønt betyr at funksjonen er slått på)
+
+![](images/delineate_angles2.png) \###### 2.6.8.4.3 Utfigurer polygoner som vanlig. Musepekeren vil automatisk snappes til nærmest 45 graders vinkel i forhold til forrige hjørnekoordinat og det vil dukke opp en stiplet linje som viser dette.
+
+![](images/delineate_angles3.png)
+
+![](images/delineate_angles4.png)
+
+#### 2.6.9 Slå på GPS og zoom til din posisjon
+
+##### 2.6.9.1 Klikk på navigeringssymbolet for å slå på GPS
+
+![](images/gps.png)
+
+##### 2.6.9.2 Klikk på navigeringssymbolet igjen for å zoome til din posisjon
+
+![](images/gps2.png)
+
+#### 2.6.10 Endre gjennomsiktighet på kartlag
+
+Endre gjennomsiktigheten på kartlagene som ønsket. Dette kan gjøre det enklere å visualisere flere kartlag samtidig.
+
+##### 2.6.10.1 Klikk på menyknappen
+
+![](images/visibility.png)
+
+##### 2.6.10.2 Høyreklikk på kartlaget du vil endre gjennomsiktigheten til
+
+![](images/visibility2.png)
+
+##### 2.6.10.3 Klikk på skyve... og dra den til siden for å endre på gjennomsiktigheten til kartlaget
+
+![](images/visibility3.png)
+
+![](images/visibility4.png) ![](images/visibility5.png)
+
+Gjennomsiktigheten på kartlaget vil nå være endret.
+
+#### 2.6.12 Registrere punkter
+
+Sørg for at redigeringsmodus er på (se del 2.6.2 Slå på redigeringsmodus) og at du redigerer i riktig kartlag.
+
+![](images/points.png)
+
+#### 2.6.12.1 Klikk i kartvinduet der du vil registrere et punkt
+
+![](images/points2.png) Det vil nå dukke opp et nytt vindu.
+
+#### 2.6.12.2 Klikk på den hvite haken i vinduet for å registrere punktet. I vinduet har du muligheten til å velge punktets attributter.
+
+![](images/points3.png) ![](images/points4.png)
+
+Et punkt vil nå være opprettet.
+
+#### 2.6.13 Gå tilbake til hovedmenyen
+
+##### 2.6.13.1 Klikk på menyknappen
+
+![](images/return_home.png)
+
+##### 2.6.14.2 Klikk på Return home
+
+![](images/return_home2.png)
+
+![](images/return_home3.png)
+
+Du vil nå se hovedmenyen.
+
+### 
+
+### [Neste kapittel](chapter_4_troubleshooting.Rmd)
