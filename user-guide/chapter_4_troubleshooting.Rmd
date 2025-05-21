@@ -1,0 +1,18 @@
+## 4 Kvalitetssikring {#kvalitetssikring}
+
+### 4.1 Kvalitetssikring
+
+Ekstra i QGIS?
+
+Lage figurer?
+
+Søke etter og fjerne topologifeil?
+
+Topologifeil
+
+Multipart polygons
+
+Duplicates
+
+Gaps
+
