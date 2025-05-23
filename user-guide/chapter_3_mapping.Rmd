@@ -2,31 +2,45 @@
 
 ### 2.1 Kartlegge i QGIS vs QField
 
-### 2.3 Importere prosjekt
+### 2.2 Berøringsskjerm med digitaliseringspenn vs datamus
 
-USB og QField Cloud
+### 2.1 Åpne prosjekt i QField
 
-### 2.2 QField
-
-Berøringsskjerm med digitaliseringspenn vs datamus.
-
-Åpne QField
-
-### 2.1 Åpne prosjekt
-
-Det finnes to måter man kan åpne prosjekter i QField. I denne veiledningen viser vi hvordan prosjektet kan åpnes via den lokale harddisken.
+Åpne QField. Det finnes to måter man kan åpne prosjekter i QField. I denne veiledningen viser vi hvordan prosjektet kan åpnes via den lokale harddisken.
 
 #### 2.1.1 Åpne prosjekt på lokal disk
 
 ##### 2.1.1.1 Klikk på Open local file
 
-##### ![](images/open_project_qfield.png)2.1.1.2 Navigér til mappen hvor du har lagret prosjektet
+##### 2.1.1.2 Naviger til mappen hvor du har lagret prosjektet (Imported projects/NiN_kartlegging)
+
+![](images/open_project_qfield.png)
 
 Her vil du se prosjekter (under Projects) og datasett (under Datsets) som er lagret i mappen.
 
 ##### 2.1.1.3 Klikk på NiN_kartlegging under Projects for å åpne prosjektet
 
-![](images/open_project_qfield_2.png)
+![](images/open_project.png)
+
+#### 2.1.2 Åpne prosjekt via QField Cloud
+
+#### 2.1.2.1 Klikk på QField Cloud Projects
+
+![](images/cloud22.png)
+
+#### 2.1.2.2 Fyll inn brukernavn og passord
+
+![](images/cloud4.png)
+
+#### 2.1.2.3 Klikk på Sign in
+
+![](images/cloud3.png)
+
+#### 2.1.2.4 Klikk på prosjektet
+
+![](images/cloud17.png)
+
+### 2.2 QField ...
 
 Du vil nå se følgende på skjermen:
 
@@ -36,11 +50,7 @@ Her kan du utforske kartlagene ved å navigere, zoome og redigere
 **B. Menyknapp**\
 Ved å trykke på denne kan du skru på redigering, synligjøre, endre på gjennomsiktighet, zomme til kartlag, velge kartlag som skal være aktive
 
-#### ![](images/map_area_qfield.png)
-
-#### 2.1.2 Åpne prosjekt via QField Cloud
-
-#### 2.1.2.1 ...
+![](images/map_area_qfield.png)
 
 ### 2.2 Synliggjøre kartlag
 
@@ -145,6 +155,16 @@ Det vil nå dukke opp et registreringsskjema for å velge polygonens attributter
 I registreringsskjemaet kan du velge hovedtypegruppe, hovedtype, kartleggingsenhet og hvor mye av polygonen som utgjøres av den registrerte kartleggingsenheten. Du kan også legge til eller ta et foto. Registreringsskjemaet inneholder også informasjon om polygonens areal, typesystem, variabler, og polygonens påskrift som ikke kan redigeres.
 
 ![](images/attribute_table.png)
+
+##### 2.6.4.2. Minsteareal
+
+Dersom polygonen har et mindre areal enn det som er anbefalt i kartleggingsveilederen for den valgte kartleggingsmålestokken vil det dukke opp en advarsel i feltet Areal. Det vil også dukke opp oransj tekst med påskriften "Expression constraint". Merk at dette bare er en advarsel, og at det likevel er mulig å utfigurere polygoner under minstearealet. Her er en oversikt over det anbefalte minstearealet for polygoner i de ulike kartleggingsmålestokkene:
+
+Det finnes også retningslinjer for anbefalt minstebredde for polygoner. Det vil ikke dukke opp noen advarsel om en utfigurert polygon er smalere enn dette. For å beregne tykkelsen på polygoner må man derfor bruke målestokken i kartvinduet eller andre hjelpemidler.
+
+![](images/attribute_table.png)
+
+![](images/minimum_mapping_unit.png)
 
 ##### 2.6.4.2 Klikk på nedtrekksmenyen for å velge hovedtypegruppe
 
@@ -496,7 +516,9 @@ Den markerte polygonen vil nå lyse gult.
 
 ###### 2.6.6.3 Klikk på symbolet for å endre attributter
 
-![](images/edit_attribute2.png) \###### 2.6.6.4 Endre attributter som vist i del ... Registreringsskjema og klikk på den hvite haken for å godta endringene
+![](images/edit_attribute2.png)
+
+###### 2.6.6.4 Endre attributter som vist i del ... Registreringsskjema og klikk på den hvite haken for å godta endringene
 
 ![](images/edit_attribute3.png)
 
@@ -534,7 +556,9 @@ Den markerte polygonen vil nå lyse gult.
 
 ###### 2.6.7.6 Klikk på Delete Selected Feature(s) for å slette polygonen
 
-![](images/delete_polygon6.png) \###### 2.6.7.7 Klikk på OK for å slette polygonen
+![](images/delete_polygon6.png)
+
+###### 2.6.7.7 Klikk på OK for å slette polygonen
 
 ![](images/delete_polygon7.png) ![](images/delete_polygon8.png)
 
@@ -566,7 +590,9 @@ De markerte polygonene vil nå lyse gult.
 
 ###### 2.6.8.6 Klikk på Merge Selected Features for å sammensmelte polygonene
 
-![](images/merge7.png) \###### 2.6.8.7 Klikk på OK for å smelte den minste polygonen sammen med den største
+![](images/merge7.png)
+
+###### 2.6.8.7 Klikk på OK for å smelte den minste polygonen sammen med den største
 
 ![](images/merge8.png) Polygonene vil nå være smeltet sammen.
 
@@ -610,7 +636,9 @@ Denne funksjonen som kalles topologisk redigering kan slås av.
 
 ###### 2.6.8.2.1 Klikk på redigeringsinnstillingsknappen
 
-![](images/topological_editing4.png) \###### 2.6.8.2.2 Klikk på symbolet for topologisk redigering for å slå funksjonen av (at det lyser grønt betyr at funksjonen er slått på)
+![](images/topological_editing4.png)
+
+###### 2.6.8.2.2 Klikk på symbolet for topologisk redigering for å slå funksjonen av (at det lyser grønt betyr at funksjonen er slått på)
 
 ![](images/topological_editing5.png)
 
@@ -626,9 +654,13 @@ Dersom du nå prøver å flytte en hjørnekoordinat som er felles for to polygon
 
 ###### 2.6.8.3.1 Klikk på redigeringsinnstillingsknappen
 
-![](images/free_draw.png) \###### 2.6.8.3.2 Klikk på symbolet for frihpndstegning for å slå funksjonen på (at det lyser grønt betyr at funksjonen er slått på)
+![](images/free_draw.png)
 
-![](images/free_draw2.png) \###### 2.6.8.3.3 Utfigurer polygoner ved å trykke på og holde inne venstre museknapp og deretter dra musepekeren over kartvinduet. Slipp museknappen når polygonen er ferdig utfigurert.
+###### 2.6.8.3.2 Klikk på symbolet for frihpndstegning for å slå funksjonen på (at det lyser grønt betyr at funksjonen er slått på)
+
+![](images/free_draw2.png)
+
+###### 2.6.8.3.3 Utfigurer polygoner ved å trykke på og holde inne venstre museknapp og deretter dra musepekeren over kartvinduet. Slipp museknappen når polygonen er ferdig utfigurert.
 
 ![](images/free_draw3.png)
 
@@ -638,9 +670,13 @@ Dersom du nå prøver å flytte en hjørnekoordinat som er felles for to polygon
 
 ###### 2.6.8.4.1 Klikk på redigeringsinnstillingsknappen
 
-![](images/delineate_angles.png) \###### 2.6.8.4.2 Klikk på symbolet for vinkelrett utfigurering for å slå funksjonen på (at det lyser grønt betyr at funksjonen er slått på)
+![](images/delineate_angles.png)
 
-![](images/delineate_angles2.png) \###### 2.6.8.4.3 Utfigurer polygoner som vanlig. Musepekeren vil automatisk snappes til nærmest 45 graders vinkel i forhold til forrige hjørnekoordinat og det vil dukke opp en stiplet linje som viser dette.
+###### 2.6.8.4.2 Klikk på symbolet for vinkelrett utfigurering for å slå funksjonen på (at det lyser grønt betyr at funksjonen er slått på)
+
+![](images/delineate_angles2.png)
+
+###### 2.6.8.4.3 Utfigurer polygoner som vanlig. Musepekeren vil automatisk snappes til nærmest 45 graders vinkel i forhold til forrige hjørnekoordinat og det vil dukke opp en stiplet linje som viser dette.
 
 ![](images/delineate_angles3.png)
 
@@ -654,7 +690,9 @@ Dersom du nå prøver å flytte en hjørnekoordinat som er felles for to polygon
 
 ##### 2.6.9.2 Klikk på navigeringssymbolet igjen for å zoome til din posisjon
 
-![](images/gps2.png)
+![](images/gps2.png) ![](images/gps3.jpg)
+
+Du vil nå se posisjonen din som et blått punkt.
 
 #### 2.6.10 Endre gjennomsiktighet på kartlag
 
@@ -705,7 +743,5 @@ Et punkt vil nå være opprettet.
 ![](images/return_home3.png)
 
 Du vil nå se hovedmenyen.
-
-### 
 
 ### [Neste kapittel](chapter_4_troubleshooting.Rmd)

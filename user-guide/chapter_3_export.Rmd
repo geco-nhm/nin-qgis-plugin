@@ -1,0 +1,127 @@
+### 3 Eksportere prosjekt
+
+For å eksportere prosjektet må programtillegget QFieldSync lastes ned. Prosjektet kan deretter eksporteres fra QGIS på en enhet til QField på en annen enhet ved hjelp av kabel eller via QField Cloud.
+
+#### 3.1 Eksporter prosjekt ved hjelp av kabel
+
+##### 3.1.3 Koble de to enhetene til hverandre med en kabel
+
+Du vil nå få en melding på enheten med QField.
+
+##### 3.1.3 Klikk på Allow 
+
+![](images/cable_export9.jpg)
+
+##### 3.1.1 Klikk på ikonet for Configure Current Project
+
+![](images/cable_export4.png)
+
+##### 3.1.2 Klikk på OK
+
+![](images/cable_export2.png)
+
+##### 3.1.2 Klikk på ikonet for Package for QField
+
+![](images/cable_export5.png)
+
+##### 3.1.3 Klikk på Create
+
+![](images/cable_export3.png)
+
+##### 3.1.3 Åpne filutforsker og naviger til .... Høyreklikk deretter på prosjektmappen og klikk på Copy
+
+![](images/cable_export6.png)
+
+##### 3.1.3 Åpne filutforsker og naviger til `This PC\Galaxy Tab Active4 Pro 5G\Internal storage\Android\data\ch.opengis.qfield\files\Imported Projects`. Høyreklikk deretter inni mappen of klikk på `Paste`
+
+![](images/cable_export7.png)
+
+![](images/cable_export8.png)
+
+Prosjektet er nå klar til å åpnes på enheten med QField.
+
+#### 3.2 Eksporter prosjektet gjennom QField Cloud
+
+Dersom du ønsker å eksportere via QField Cloud må du opprette en konto på QField Cloud.
+
+#### 3.2.1 Opprett konto for QField Cloud
+
+##### 3.2.1.1 Gå til <https://app.qfield.cloud/accounts/login/> for å opprette konto for QField Cloud
+
+##### 3.2.1.2 Klikk på Register for å registrere ny konto
+
+![](images/cloud18.png)
+
+##### 3.2.1.3 Fyll ut feltene for å opprette brukernavn, passord osv. Klikk til slutt på Register for å opprette konto
+
+![](images/cloud19.png)
+
+#### 3.2.2 Installer programtillegg i QGIS
+
+Åpne QGIS og sørg for at du har tilgang på internett. Dette er nødvendig for å laste ned programtillegget.
+
+#### 3.2.2.1 Gå til Plugins i menylinjen og klikk på `Manage and Install Plugins...`
+
+![](images/install_plugin_1.png){width="1306"}
+
+Det vil dukke opp et vindu.
+
+#### 3.2.2.2 Installer "QFieldSync"
+
+A. Søk etter "QFieldSync" i søkefeltet\
+B. Klikk på "QFieldSync"\
+C. Klikk på Install Plugin
+
+![](images/cloud5.png)
+
+Ikonene for QFieldSync vil nå dukke opp i verktøymenyen.
+
+![](images/cloud6.png)
+
+### 3.2.3 Legg inn prosjekt i QField Cloud
+
+#### 3.2.3.1 Klikk på ikonet for QField Cloud Project Overview
+
+![](images/cloud7.png)
+
+#### 3.2.3.2 Logg inn med QField Cloud
+
+A. Fyll inn brukernavn og passord B. Klikk på Sign In
+
+![](images/cloud8.png)
+
+#### 3.2.3.3 Klikk på ikonet Start New Project
+
+![](images/cloud20.png)
+
+#### 3.2.3.4 Opprett et masterautentiseringspassord
+
+A. Fyll inn midlertidig passord B. Klikk på Ok
+
+![](images/cloud10.png)
+
+#### 3.2.3.5 Velg innstillinger
+
+A. Huk av for Convert currently open project to cloud project B. Klikk på Next
+
+![](images/cloud21.png)
+
+#### 3.2.3.5 Velg prosjektnavn og filplassering
+
+A. Fyll inn prosjektnavn B. Beskriv prosjektet C. Angi ønsket filplassering
+
+![](images/cloud13.png)
+
+#### 3.2.3.5 Klikk på Create
+
+![](images/cloud14.png)
+
+#### 3.2.3.5 Klikk på OK
+
+![](images/cloud15.png)
+
+![](images/cloud16.png)
+
+Prosjektet vil nå være eksportert til QField Cloud og det kan nå åpnes på den nye enheten.
+
+### [Neste kapittel](chapter_3_mapping.Rmd)
