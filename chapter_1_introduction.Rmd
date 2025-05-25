@@ -1,0 +1,71 @@
+# Introduksjon
+
+## Bakgrunn
+
+I forbindelse med lanseringen av Natur i Norge (NiN) versjon 3.0 har ... utviklet et programtillegg (plugin) for QGIS. Hensikten er å forenkle, effektivisere og standardisere kartlegging etter NiN-systemet -- både i felt og i etterarbeidet.
+
+Kartlegging etter dagens standard stiller økte krav til bruk av digitale verktøy, særlig når det gjelder innsamling, strukturering og kvalitetssikring av data. NiN 3.0 introduserer dessuten flere endringer og presiseringer i hvordan naturtyper skal beskrives og dokumenteres. Det stiller høyere krav til at arbeidsflyten er både enhetlig og faglig korrekt.
+
+Programtillegget gjør det mulig å følge NiNs metodikk på en strukturert måte. Brukeren velger relevante spesifikasjoner -- som typesystem, målestokk og koordinatsystem -- og programtillegget oppretter automatisk et QGIS-prosjekt med nødvendige kartlag og innstillinger. Det legges også til rette for eksport til QField, slik at kartleggingen kan gjennomføres effektivt i felt.
+
+## Formål
+
+Denne veilederen er laget for fagpersoner som arbeider med naturkartlegging etter NiN-systemet, for eksempel i offentlig forvaltning, konsulentbransjen eller akademia. Veilederen forutsetter at brukeren har grunnleggende kompetanse i NiN-kartlegging og kartografi.
+
+Hensikten er å gi en praktisk innføring i bruken av QGIS-programtillegget "Natur i Norge"-kartlegging som benyttes til å forberede, gjennomføre og etterbehandle kartleggingsprosjekter i tråd med NiN-systemet. Arbeidsflyten inkluderer både bruk av QGIS og QField.
+
+## Forutsetninger
+
+Før du tar veilederen i bruk, må følgende være på plass:
+
+-   QGIS (versjon 3.34 eller nyere) må være installert på enheten
+-   QField må være installert på enheten som brukes til feltarbeid
+-   Brukeren må ha grunnleggende kjennskap til NiN-systemet og kartleggingsprosessen
+
+## Verktøy og enheter i bruk
+
+#### QGIS -- forarbeid og etterarbeid {.unnumbered}
+
+I denne veiledningen brukes QGIS på stasjonære datamaskiner eller bærbare PC-er uten berøringsskjerm til arbeid som vanligvis gjøres innendørs:
+
+-   Oppsett av kartleggingsprosjekt med NiN-plugin
+-   Tilpasning av datasett og lag
+-   Eksport av prosjekt til QField
+-   Import, kvalitetssikring og etterarbeid etter feltarbeid
+
+#### QField -- feltkartlegging {.unnumbered}
+
+I denne veiledningen brukes QField på mobile enheter med berøringsskjerm, som nettbrett eller mobiltelefoner. Det er en fordel at enheten har innebygd GPS for å sikre nøyaktig posisjonering. QField brukes her til:
+
+-   Registrering av polygoner og attributter
+-   Bruk av enhetens kamera for dokumentasjon
+-   Posisjonering med GPS
+
+#### Fleksibel arbeidsflyt {.unnumbered}
+
+Veilederen legger opp til en todelt arbeidsflyt med QGIS og QField, men det finnes flere muligheter:
+
+-   Hele arbeidsflyten kan gjennomføres kun i QGIS, hvis ønskelig
+-   Enheter med eller uten berøringsskjerm kan brukes i alle faser
+-   Brukeren velger løsningen som passer best ut fra tilgjengelig utstyr og arbeidsforhold
+
+## Hva inneholder veilederen?
+
+Veilederen gir deg innsikt i følgende:
+
+-   Installering og oppsett av NiN-programtillegget i QGIS
+-   Opprettelse og tilpasning av kartleggingsprosjekt
+-   Eksport til QField
+-   Registrering av naturtyper og tilhørende attributter
+-   Redigering av kartlag i QField
+-   Import og etterarbeid av data i QGIS
+-   Tips for effektiv og korrekt NiN-kartlegging
+
+## Nyttige lenker og ressurser
+
+-   [Last ned QGIS](https://qgis.org)
+-   [Last ned QField](https://qfield.org)
+-   [NiN-plugin (Natur i Norge)](https://github.com/Artsdatabanken/nin-innsyn)
+-   [Artsdatabanken -- Natur i Norge](https://www.artsdatabanken.no/Pages/135548)
+
+### [Neste kapittel](chapter_2_equipment.Rmd) {.unnumbered}
