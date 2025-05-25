@@ -1,0 +1,298 @@
+# Kvalitetssikring {#kvalitetssikring}
+
+Under kartlegging kan det oppstå topologifeil når polygonene utfigureres. Dette kan føre til følgefeil om man vil bruke kartet i analyser i etterkant av feltarbeidet. I bildet nedenfor er det vist et utvalg av topologifeil:
+
+A. Overlapp\
+B. Invalid geometri\
+C. Hull\
+D. Geometri med flere deler\
+E. Duplisert hjørnekoordinat
+
+![](images/quality3.png)
+
+## Aktiver Topology Checker
+
+### Gå til Plugins i menylinjen og klikk på Manage and Install Plugins...
+
+![](images/install_plugin_1.png)
+
+Det vil dukke opp et vindu.
+
+### Aktiver Topology Checker
+
+A. Søk etter Topology Checker i søkefeltet\
+B. Huk av Topology Checker
+
+![](images/topology_checker.png)
+
+![](images/topology_checker2.png)
+
+Programtillegget Topology Checker er nå tilgjengelig i QGIS.
+
+## Finn topologifeil
+
+### Gå til Vector i menylinjen og klikk på Topology Checker
+
+![](images/quality.png)
+
+![](images/quality2.png)
+
+Panelet for Topology Checker vil nå dukke opp.
+
+### Klikk på Topology Rule Settings
+
+![](images/quality4.png)
+
+### Velg kartlaget du vil opprette en regel for
+
+![](images/quality5.png)
+
+### Velg et av kartlagene
+
+![](images/quality6.png)
+
+### Velg hvilken regel du vil opprette
+
+![](images/quality7.png)
+
+### Velg én av alternativene (f.eks. must not have duplicates)
+
+![](images/quality8.png)
+
+### Klikk på (+) for å legge til regelen
+
+![](images/quality9.png)
+
+![](images/quality10.png)
+
+Du har nå opprettet en regel som sier at kartlaget ikke skal inneholde duplikater.
+
+### Opprett regler somm du ønsker å basere søket ditt på (på samme måte som ovenfor)
+
+![](images/quality11.png)
+
+Her har vi valgt å basere søket på disse reglene:
+
+Kartlaget skal ikke ha duplikater.\
+Kartlaget skal ikke ha hull.\
+Kartlaget skal ikke ha invalide geometrier.\
+Kartlaget skal ikke ha geometrier bestående av flere atskilte deler.\
+Kartlaget skal ikke ha overlappende polygoner.
+
+### Klikk på OK
+
+![](images/quality12.png)
+
+### Klikk på Validate All for å søke basert på de opprettede reglene
+
+![](images/quality13.png)
+
+![](images/quality14.png)
+
+Feilene som ble funnet og hvilken polygon de tilhørerer vil nå dukke opp i panelet.
+
+4.2.2 Klikk på én av feilene i panelet for å zoome inn mot feilen
+
+![](images/fix.png)
+
+![](images/fix2.png)
+
+## Behandle topologifeil
+
+### Behandle overlapp
+
+Vi anbefaler å behandle overlapp mellom polygoner manuelt med Vertex Tool.
+
+### Klikk på kartlaget som har overlappende polygoner
+
+![](images/fix3.png)
+
+### Klikk på Toggle Editing
+
+![](images/fix4.png)
+
+### Klikk på Vertex Tool
+
+![](images/fix5.png)
+
+### Endre på hjørnekoordinatene i de overlappende polygonene slik at de ikke overlapper lenger
+
+Dette gjør du ved å endre på gamle hjørnekoordinater eller ved å opprette nye. Gamle hjørnekoordinater vil markeres med en sirkel når du holder musepekeren over dem. Klikk på sirkelen om du vil opprette enn ny hjørnekoordinat. Klikk igjen når du holder musepekeren over den ønskede posisjonen til den nye hjørnekoordinaten.Halvveis mellom to hjørnekoordinater er det mulig å opprette en ny hjørnekoordinat. Det vil dukke opp et kors når du holder musepekeren over. Klikk på korset om du vil opprette enn ny hjørnekoordinat. Klikk igjen når du holder musepekeren over den ønskede posisjonen til den nye hjørnekoordinaten. Musepekeren vil automatisk snappes mot hjørnekoordinater og gjøre det enklere å unnngå hull eller nye overlapp i kartet under denne operasjonen.
+
+![](images/fix6.png)
+
+#### Klikk på en hjørnekoordinat i den andre polygonen. Musepekeren vil automatisk snappes til hjørnekoordinater.
+
+![](images/fix7.png)
+
+#### Opprett nye hjørnekoordinater nær polygongrensen
+
+![](images/fix8.png)
+
+#### Klikk på en hjørnekoordinat i den andre polygonen
+
+![](images/fix9.png)
+
+#### Klikk på Validate All når du har behandlet overlapp mellom polygonene
+
+![](images/fix10.png)
+
+![](images/fix11.png)
+
+Legg merke til at overlappen som ble behandlet er borte fra panelet Vi kan håndtere overlapp mellom andre polygoner på samme måte.
+
+### Behandle invalide geometrier
+
+#### Klikk på Toolbox
+
+![](images/geom.png)
+
+#### Åpne Fix geometries
+
+A. Skriv Fix Geometries i søkefeltet\
+B. Dobbelklikk på Fix geometries
+
+![](images/geom2.png)
+
+#### Klikk på ...
+
+![](images/geom6.png)
+
+#### Klikk på Save to File...
+
+![](images/geom7.png)
+
+#### Naviger til mappen du vil lagre det nye polygonlaget i
+
+#### Velg mappe og filnavn for polygonlaget som skal opprettes
+
+A. Skriv inn navn på det nye polygonlaget i File name:\
+B. Klikk på Save
+
+![](images/geom4.png)
+
+#### Klikk på Run
+
+Merk at kartlaget ikke har fått samme stil som det originale kartlaget. Overskriv stilen til det nye kartlaget ved å kopiere stilen til det opprinnelige kartlaget (se del 4.3.5 Endre stil ved kopiering og liming).
+
+![](images/geom5.png)
+
+![](images/geom8.png)
+
+Når du igjen klikker på Validate All vil du se at det ikke er flere invalide geometrier.
+
+### Behandle geometrier med flere atskilte deler
+
+#### Gå til Vector -\> Geometry Tools i menylinjen og klikk på Multipart to Singleparts...
+
+![](images/geom11.png)
+
+#### Klikk på ...
+
+![](images/geom12.png)
+
+#### Klikk på Save to File...
+
+![](images/geom13.png)
+
+#### Naviger til mappen du vil lagre det nye polgyonlaget i
+
+#### Velg mappe og filnavn for det nye polygonlaget som skal opprettes
+
+![](images/geom14.png)
+
+#### Klikk på Run
+
+![](images/geom15.png)
+
+Merk at kartlaget ikke har fått samme stil som det opprinnelige kartlaget. Overskriv stilen i det nye kartlaget ved å kopiere stilen til det opprinnelige kartlaget (se del 4.3.5 Endre stil ved kopiering og liming).
+
+![](images/geom16.png)
+
+Når du igjen klikker på Validate All vil du se at det ikke er flere geometrier med flere atskilte deler.
+
+### Behandle hull
+
+#### Klikk på kartlaget med hull
+
+![](images/geom22.png)
+
+#### Klikk på Toggle Editing
+
+![](images/geom23.png)
+
+#### Klikk på Add Polygon Feature
+
+![](images/geom24.png)
+
+#### Utfigurer en polygon rundt hullet ved å klikke der du vil opprette hjørnekoordinater. Venstreklikk når polygonen er utfigurert.
+
+![](images/geom25.png)
+
+Det vil dukke opp et registreringsskjema.
+
+#### Klikk på OK
+
+![](images/geom27.png)
+
+#### Gå til View -\> Panels i menylinjen og klikk på Advnaced Digitizing Panel
+
+![](images/geom28.png)
+
+![](images/geom29.png)
+
+Det vil dukke opp nye ikoner i verktøylinjen.
+
+#### Klikk på ikonet for Select Features by Area or Single Click
+
+![](images/geom30.png)
+
+#### Klikk på polygonen som ble utfigurert i hullet
+
+![](images/geom31.png)
+
+#### Hold inne Ctrl og klikk samtidig på en polygon du ønsker å smelte sammen med polygonen i hullet
+
+![](images/geom32.png)
+
+#### Klikk på ikonet for Merge Selected Features
+
+![](images/geom33.png)
+
+Det vil dukke opp et vindu med attributter for de valgte polygonene.
+
+#### Klikk på polygonen du ønsker å smelte sammen med polygonen i hullet
+
+![](images/geom34.png)
+
+#### Klikk på ikonet ved siden av Take attributes from selected feature
+
+![](images/geom35.png)
+
+#### Klikk på OK
+
+![](images/geom36.png)
+
+![](images/geom37.png)
+
+Når du igjen klikker på Validate All vil du se at det ikke er flere geometrier med flere atskilte deler.
+
+### Endre stil ved kopiering og liming
+
+Det vil ikke være mulig å bruke de samme registreringsskjemaene under utfigurering av nye polygoner uten å tilegne det nye polygonlaget den samme stilen som det opprinnelige kartlaget.
+
+#### Venstreklikk på det opprinnelige kartlaget
+
+#### Gå til Styles -\> Copy Styles og klikk på All Style Categories
+
+![](images/geom20.png)
+
+#### Venstreklikk på det nye kartlaget
+
+#### Gå til Styles -\> Paste Styles og klikk på All Style Categories
+
+![](images/geom21.png)
+
+![](images/style.png)
+
+Stilen vil nå bli den samme som i det opprinnelige kartlaget.

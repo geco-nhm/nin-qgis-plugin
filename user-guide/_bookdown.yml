@@ -1,0 +1,11 @@
+---
+title: "Veiledning i bruk av programtillegget NiN-kartlegging"
+author: "Navn"
+output:
+  bookdown::gitbook:
+    number_sections: true
+    toc: true
+    toc_depth: 2
+documentclass: book
+site: bookdown::bookdown_site
+---
