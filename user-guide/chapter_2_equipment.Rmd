@@ -1,0 +1,15 @@
+# Feltutstyr {#utstyr}
+
+Vi anbefaler å bruke en håndholdt enhet med berøringsskjerm, digitaliseringspenn og innebygd GPS for feltkartlegging. For å kunne kvalitetssikre kartleggingen vil det også være foredlaktig om enheten har innebygd kamera. Dersom du ikke vil eksportere prosjektet til enheten gjennom QField Cloud vil du også trenge en kabel. Det er mange enheter som oppfyller disse kriteriene. Vi bruker Samsung ... (se nedenfor), men det er også mulig å bruke andre typer nettbrett, mobiltelefoner, bærbare datamaskiner eller andre enheter. I veiledning forklarer vi hvordan kartleggingen gjennomføres ved bruk av berøringsskjerm, men dersom du bruker en enhet uten berøringsskjerm vil du kunne utføre de samme operasjonene med datamus. I så fall vil venstreklikk og høyreklikk med datamus tilsvare trykk og langtrykk med digitaliseringspennen.
+
+Enheten er utstyrt med berøringsskjerm, digitaliseringspenn, kamera, håndtak og bæresele.
+
+![](images/equipment5.jpeg)
+
+![](images/equipment.jpeg) ![](images/equipment4.jpeg)
+
+![](images/equipment3.jpeg)
+
+![](images/equipment6.jpeg) En kabel som er kompatibel med enheten kan brukes til å importere prosjektet.
+
+[Neste kapittel](chapter_3_setup.Rmd)

@@ -1,0 +1,200 @@
+# Oppsett og tilrettelegging {#oppsett-og-tilrettelegging}
+
+Åpne QGIS (versjon 3.34 eller nyere).
+
+## Installer programtillegg
+
+Sørg for at du har tilgang på internett. Dette er nødvendig for å laste ned programtillegget.
+
+### Gå til Plugins i menylinjen og klikk på Manage and Install Plugins...
+
+![](images/install_plugin_1.png)
+
+Det vil dukke opp et vindu.
+
+### Installer "Natur i Norge kartlegging"
+
+A. Søk etter "Natur i Norge kartlegging" i søkefeltet\
+B. Klikk på "Natur i Norge kartlegging"\
+C. Klikk på Install Plugin
+
+![](images/install_plugin_2.png)
+
+Ikonet for "Natur i Norge"-kartlegging vil nå dukke opp i verktøymenyen.
+
+![](images/toolbar_1.png)
+
+## Opprett prosjekt {#opprett-prosjekt}
+
+### Klikk på ikonet for "Natur i Norge"-kartlegging
+
+![](images/nin_toolbar_icon.png)
+
+Det vil dukke opp et vindu med flere valgmuligheter.
+
+![](images/create_project_1.png)
+
+### Velg kategorier som skal være tilgjengelige under kartleggingen
+
+Et prosjekt kan kun inneholde ett typesystem, men det er mulig å velge flere hovedtypegrupper fra samme typesystem. Et prosjekt kan kun inneholde kategorier fra én kartleggingsmålestokk.
+
+#### Klikk på nedtrekksmenyen for å velge typesystem
+
+![](images/select_type_system2.png)
+
+#### Velg én av typesystemene fra nedtrekksmenyen
+
+![](images/select_type_system.png)
+
+#### Huk av boks(er) for å velge hovedtypegruppe(r)
+
+![](images/select_major_type_group.png)
+
+#### Klikk på nedtrekksmenyen for å velge kartleggingsmålestokk
+
+![](images/select_map_scale2.png)
+
+#### Velg én kartleggingsmålestokk
+
+![](images/select_map_scale.png)
+
+**Kartleggingsmålestokker:**\
+*grunntyper* - 1:500\
+*M005* - 1:5000\
+*M020* - 1:20 000\
+*M050* - 1:50 000
+
+### Huk av én av boksene for å velge koordinatsystem
+
+Projeksjon av tredimensjonale data på todimensjonale flater vil alltid medføre forvrengninger. Graden av forvrengning varierer mellom ulike områder, avhengig av hvilket koordinatsystem som benyttes. Derfor bør koordinatsystemet velges ut fra hvor kartleggingen skal foregå.
+
+![](images/select_crs.png)
+
+### Velg hvor prosjektet skal lagres
+
+#### Klikk på ...
+
+![](images/select_file_path2.png)
+
+Det vil dukke opp et nytt vindu som lar deg navigere til mappen hvor du ønsker å lagre prosjektet.
+
+#### Navigér til mappen hvor du ønsker at prosjektet skal lagres
+
+#### ![](images/select_folder.png)
+
+#### Velg filnavn
+
+A. Trykk på feltet File name: og skriv inn ønsket filnavn (f.eks. my_qgis_project)\
+B. Klikk på Save
+
+![](images/save_file.png)
+
+Du vil nå se filplasseringen i feltet.
+
+![](images/write_file_path.png)
+
+### Velg ev. WMS/WMTS-lag
+
+Topografiske kart og flybilder er viktige hjelpemidler under kartlegging. Her kan du velge hvilke(t) kartlag som skal importeres til prosjektet.
+
+#### Huk av boks(er) for å velge WMS/WMTS-lag
+
+![](images/select_map_layers.png)
+
+### Klikk på Lag geopackage-fil og forbered prosjekt nederst i vinduet
+
+![](images/create_project_2.png)
+
+Et prosjekt med filnavnet "NiN_kartlegging.qgz" vil nå opprettes automatisk med den oppgitte filplasseringen. I tillegg vil det opprettes en gpkg-fil med kartlag og tabeller. Prosjektet med gpkg-filen kan igjen åpnes fra denne filplasseringen senere. Kartlagene vil åpnes med prosjektet med mindre gpkg-filen flyttes til et annet område. gpkg-filen inneholder følgende:
+
+![](images/layers_1.png)
+
+**Opprettede kartlag og tabeller:**\
+*nin_helper_points* -- punktkartlag for å hjelpe kartleggeren i felt\
+*nin_polygons* -- polygonkartlag for å registrere kartleggingsenheter i felt\
+*Tabeller* -- tabeller som inneholder typene og variablene som brukes i typesystemene
+
+**Importerte kartlag (avhengig av valgene i vinduet):**\
+*Topografisk norgeskart* -- landsdekkende kart med høydekoter og hovedøkosystemer som farger\
+*Topografisk norgeskart gråtone* -- landsdekkende kart med høydekoter og hovedøkosystemer i gråtoner\
+*Nibcache_UTM32_EUREF89_v2* -- landsdekkende sammenstilte flybilder
+
+## Tilpass prosjekt {#tilpass-prosjekt}
+
+### Legge til vektordata
+
+Vektordata består av objekter med en gitt geometri -- punkt, linje eller polygon -- der hvert objekt representerer én verdi eller egenskap.
+
+-   **Punkter** har en posisjon, men verken lengde eller areal. Et eksempel er artsobservasjoner, som kan være nyttige under naturtypekartlegging. Slike data kan lastes ned fra [Artsdatabanken](https://www.artsdatabanken.no).
+
+-   **Linjer** registreres med hjørnekoordinater, har lengde, men ikke areal. Et eksempel er høydekoter, som gir informasjon om terreng og topografi. Topografiske forhold påvirker fuktighet, vindeksponering og solinnstråling -- faktorer som er avgjørende for naturtypers utbredelse. Høydekoter kan lastes ned fra [Kartverket](https://www.kartverket.no).
+
+-   **Polygoner** har både lengde og areal. Et polygonkartlag over verneområder fra [Miljødirektoratet](https://www.miljodirektoratet.no) kan være nyttig, eller man kan lage egne polygonlag for å avgrense studieområdet.
+
+Last ned relevante vektordata som `.shp`-filer (shapefiler) og lagre dem samlet i en mappe før du importerer dem til QGIS.
+
+#### 1.3.1.1 Gå til Layer i menylinjen, deretter Add Layer, og klikk på Add Vector Layer...
+
+![](images/add_vector.png)
+
+Det vil nå dukke opp et vindu.
+
+#### Klikk på ...
+
+![](images/add_vector2.png)
+
+#### Naviger til mappen hvor vektorlaget er lagret
+
+#### ![](images/select_folder.png)
+
+#### Velg fil
+
+A. Klikk på filen\
+B. Klikk på Open
+
+![](images/add_vector3.png)
+
+#### Klikk på Add
+
+![](images/add_vector4.png)
+
+Filen vil nå være lagt inn i prosjektet.
+
+### Legge til rasterdata
+
+Rasterdata består av et rutenett der hver rute (celle) har én verdi. Formatet brukes ofte for bilder og modellerte kart, og egner seg godt til visualisering av bakgrunnsdata.
+
+-   **Flybilder** er viktige hjelpemidler i naturtypekartlegging. Dersom WMS-kartlaget som importeres via programtillegget har for lav oppløsning, kan det være nyttig å importere mer detaljerte flybilder manuelt. Historiske flyfoto kan også gi verdifull informasjon om tidligere landskapsbruk og endringer over tid. Slike bilder kan lastes ned fra [Norge i bilder](https://www.norgeibilder.no).
+
+-   **Høydemodeller** er nyttige for å forstå terreng og topografiske forhold. En digital terrengmodell viser bakkenivå, mens en overflatemodell inkluderer objekter som bygninger og vegetasjon. Disse kan være nyttige for å skille mellom naturlige og menneskeskapte strukturer. Data kan lastes ned fra [Høydedata.no](https://hoydedata.no).
+
+Last ned rasterdata som `.tif`-filer og lagre dem i en mappe før import i QGIS.
+
+#### Gå til Layer i menylinjen, deretter Add Layer, og klikk på Add Raster Layer...
+
+![](images/add_raster.png)
+
+Det vil nå dukke opp et vindu.
+
+#### Klikk på ...
+
+![](images/add_raster2.png)
+
+#### Naviger til mappen hvor rasterlaget er lagret
+
+![](images/select_folder.png)
+
+#### Velg fil
+
+A. Klikk på filen\
+B. Klikk på Open
+
+![](images/add_raster4.png)
+
+#### Klikk på Add
+
+![](images/add_raster5.png)
+
+Filen vil nå være lagt inn i prosjektet.
+
+[Neste kapittel](chapter_4_export.Rmd)
