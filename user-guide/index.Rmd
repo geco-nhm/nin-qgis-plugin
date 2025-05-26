@@ -4,19 +4,23 @@ documentclass: book
 site: bookdown::bookdown_site
 ---
 
-# Veiledning i bruk av programtillegget NiN-kartlegging {.unnumbered #forside}
+# Veiledning i bruk av programtillegget NiN-kartlegging {#forside .unnumbered}
 
 Velkommen til veilederen for NiN-kartlegging i QGIS og QField.
 
 ## Innhold {.unnumbered}
 
-- [1 Introduksjon](#introduksjon)  
-- [2 Feltutstyr](#feltutstyr)  
-- [3 Oppsett og tilrettelegging](#oppsett-og-tilrettelegging)  
-- [4 Eksportere prosjekt](#eksportere-prosjekt)  
-- [5 Kartlegging](#kartlegging)  
-- [6 Kvalitetssikring](#kvalitetssikring)
+-   [1 Introduksjon](#introduksjon)\
+-   [2 Feltutstyr](#feltutstyr)\
+-   [3 Oppsett og tilrettelegging](#oppsett-og-tilrettelegging)\
+-   [4 Eksportere prosjekt](#eksportere-prosjekt)\
+-   [5 Kartlegging](#kartlegging)\
+-   [6 Kvalitetssikring](#kvalitetssikring)
 
 ::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
-<div><a href="introduksjon.html">Gå til neste kapittel</a> →</div>
+<div>
+
+<a href="introduksjon.html">Gå til neste kapittel</a> →
+
+</div>
 :::
