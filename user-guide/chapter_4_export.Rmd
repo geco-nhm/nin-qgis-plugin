@@ -1,6 +1,6 @@
 # Eksportere prosjekt {#eksportere-prosjekt}
 
-For å eksportere prosjektet må programtillegget QFieldSync lastes ned. Prosjektet kan deretter eksporteres fra QGIS på en enhet til QField på en annen enhet ved hjelp av kabel eller via QField Cloud.
+For å eksportere prosjektet må programtillegget QFieldSync lastes ned. Prosjektet kan deretter eksporteres fra QGIS på én enhet til QField på en annen enhet ved hjelp av kabel eller via QFieldCloud.
 
 ## Eksporter prosjekt ved hjelp av kabel
 
@@ -42,7 +42,7 @@ Prosjektet er nå klar til å åpnes på enheten med QField.
 
 ## Importer prosjekt ved hjelp av kabel
 
-På samme måte er det mulig å importere prosjektet i QGIS. Først må du sørge for at enhetene er koblet sammen.
+På samme måte er det mulig å importere prosjektet i QGIS. Først må du sørge for at enhetene er koblet sammen via kabelen.
 
 ### Klikk på ikonet for `Synchronize Project`
 
@@ -59,25 +59,25 @@ B. Klikk på `Select folder`
 
 Skjermbilde
 
-### Klikk på` Synchronize`
+### Klikk på `Synchronize`
 
 ![](images/import3.png)
 
 Prosjektet vil nå importeres i QGIS.
 
-## Eksporter prosjektet gjennom QField Cloud
+## Eksporter prosjektet gjennom QFieldCloud
 
-Dersom du ønsker å eksportere via QField Cloud må du opprette en konto på QField Cloud.
+Dersom du ønsker å eksportere via QFieldCloud må du opprette en konto på QFieldCloud.
 
-## Opprett konto for QField Cloud
+## Opprett konto for QFieldCloud
 
-### Gå til <https://app.qfield.cloud/accounts/login/> for å opprette konto for QField Cloud
+### Gå til [innloggingssiden](https://app.qfield.cloud/accounts/login/) for å opprette konto for QFieldCloud
 
 ### Klikk på `Register` for å registrere ny konto
 
 ![](images/cloud18.png)
 
-### Fyll ut feltene for å opprette brukernavn, passord osv. Klikk til slutt på `Register` for å opprette konto
+### Fyll ut feltene for å opprette brukernavn, passord, osv. Klikk til slutt på `Register` for å opprette konto
 
 ![](images/cloud19.png)
 
@@ -87,14 +87,14 @@ Dersom du ønsker å eksportere via QField Cloud må du opprette en konto på QF
 
 ## Gå til `Plugins` i menylinjen og klikk på `Manage and Install Plugins...`
 
-![](images/install_plugin_1.png){width="1306"}
+![](images/install_plugin_1.png)
 
 Det vil dukke opp et vindu.
 
 ## Installer QFieldSync
 
 A. Søk etter "QFieldSync" i søkefeltet\
-B. Klikk på QFieldSync\
+B. Klikk på `QFieldSync`\
 C. Klikk på `Install Plugin`
 
 ![](images/cloud5.png)
@@ -103,41 +103,41 @@ Ikonene for QFieldSync vil nå dukke opp i verktøymenyen.
 
 ![](images/cloud6.png)
 
-## Legg inn prosjekt i QField Cloud
+## Legg inn prosjekt i QFieldCloud {#import-qfieldcloud}
 
-### Klikk på ikonet for `QField Cloud Project Overview`
+### Klikk på ikonet for `QFieldCloud Projects Overview`
 
 ![](images/cloud7.png)
 
-### Logg inn med QField Cloud
+### Logg inn med QFieldCloud
 
-A. Fyll inn brukernavn og passord 
+A. Fyll inn brukernavn og passord\
 B. Klikk på `Sign In`
 
 ![](images/cloud8.png)
 
-###  Klikk på ikonet `Start New Project`
+### Klikk på ikonet `Start New Project`
 
 ![](images/cloud20.png)
 
 ### Opprett et midlertidig passord
 
-A. Fyll inn midlertidig passord 
+A. Fyll inn midlertidig passord\
 B. Klikk på `Ok`
 
 ![](images/cloud10.png)
 
 ### Velg innstillinger
 
-A. Huk av for `Convert currently open project to cloud project`
+A. Huk av for `Convert currently open project to cloud project`\
 B. Klikk på `Next`
 
 ![](images/cloud21.png)
 
 ### Velg prosjektnavn og filplassering
 
-A. Fyll inn prosjektnavn 
-B. Beskriv prosjektet kort 
+A. Fyll inn prosjektnavn\
+B. Beskriv prosjektet kort\
 C. Angi ønsket filplassering
 
 ![](images/cloud13.png)
@@ -152,19 +152,19 @@ C. Angi ønsket filplassering
 
 ![](images/cloud16.png)
 
-Prosjektet vil nå være eksportert til QField Cloud og det kan nå åpnes på den nye enheten.
+Prosjektet vil nå være eksportert til QFieldCloud og det kan nå åpnes på den nye enheten.
 
-## Importer prosjektet gjennom QField Cloud
+## Importer prosjektet gjennom QFieldCloud
 
-Før du kan importere prosjektet i QGIS må du sørge for at endringene som er gjort i QField er lastet opp til QField Cloud (se del ...). Importering av prosjektet i QGIS er kun mulig med internett-tilgang.
+Før du kan importere prosjektet i QGIS må du sørge for at endringene som er gjort i QField er lastet opp til QFieldCloud (se \@ref(import-qfieldcloud) [Legg inn prosjekt i QFieldCloud](#import-qfieldcloud)). Importering av prosjektet i QGIS er kun mulig med internett-tilgang.
 
-### Klikk på ikonet for QField Cloud Project Overview
+### Klikk på ikonet for QFieldCloud Projects Overview
 
 ![](images/cloud7.png)
 
-### Logg inn med QField Cloud
+### Logg inn med QFieldCloud
 
-A. Fyll inn brukernavn og passord 
+A. Fyll inn brukernavn og passord\
 B. Klikk på `Sign In`
 
 ![](images/cloud8.png)
@@ -194,6 +194,15 @@ Det vil nå dukke opp et nytt vindu.
 Endringene vil nå synkroniseres og prosjektet vil åpnes i QGIS.
 
 ::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
-<div>← <a href="oppsett-og-tilrettelegging.html">Gå til forrige kapittel</a></div>
-<div><a href="kartlegging.html">Gå til neste kapittel</a> →</div>
+<div>
+
+← <a href="oppsett-og-tilrettelegging.html">Gå til forrige kapittel</a>
+
+</div>
+
+<div>
+
+<a href="kartlegging.html">Gå til neste kapittel</a> →
+
+</div>
 :::
