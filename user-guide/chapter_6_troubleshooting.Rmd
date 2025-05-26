@@ -20,7 +20,7 @@ Det vil dukke opp et vindu.
 
 ### Aktiver Topology Checker
 
-A. Søk etter Topology Checker i søkefeltet\
+A. Søk etter "Topology Checker" i søkefeltet\
 B. Huk av `Topology Checker`
 
 ![](images/topology_checker.png)
@@ -59,7 +59,7 @@ Panelet for Topology Checker vil nå dukke opp.
 
 ![](images/quality8.png)
 
-### Klikk på (+) for å legge til regelen
+### Klikk på **`+`** for å legge til regelen
 
 ![](images/quality9.png)
 
@@ -67,17 +67,17 @@ Panelet for Topology Checker vil nå dukke opp.
 
 Du har nå opprettet en regel som sier at kartlaget ikke skal inneholde duplikater.
 
-### Opprett regler somm du ønsker å basere søket ditt på (på samme måte som ovenfor)
+### Opprett regler som du ønsker å basere søket ditt på (på samme måte som ovenfor)
 
 ![](images/quality11.png)
 
-Her har vi valgt å basere søket på disse reglene:
+**Her har vi valgt å basere søket på at kartlaget ikke skal ha:**
 
-Kartlaget skal ikke ha duplikater.\
-Kartlaget skal ikke ha hull.\
-Kartlaget skal ikke ha invalide geometrier.\
-Kartlaget skal ikke ha geometrier bestående av flere atskilte deler.\
-Kartlaget skal ikke ha overlappende polygoner.
+-   Duplikater
+-   Hull
+-   Invalide geometrier
+-   Geometrier bestående av flere atskilte deler
+-   Overlappende polygoner
 
 ### Klikk på `OK`
 
@@ -117,11 +117,11 @@ Vi anbefaler å behandle overlapp mellom polygoner manuelt med Vertex Tool.
 
 ### Endre på hjørnekoordinatene i de overlappende polygonene slik at de ikke overlapper lenger
 
-Dette gjør du ved å endre på gamle hjørnekoordinater eller ved å opprette nye. Gamle hjørnekoordinater vil markeres med en sirkel når du holder musepekeren over dem. Klikk på sirkelen om du vil opprette enn ny hjørnekoordinat. Klikk igjen når du holder musepekeren over den ønskede posisjonen til den nye hjørnekoordinaten.Halvveis mellom to hjørnekoordinater er det mulig å opprette en ny hjørnekoordinat. Det vil dukke opp et kors når du holder musepekeren over. Klikk på korset om du vil opprette enn ny hjørnekoordinat. Klikk igjen når du holder musepekeren over den ønskede posisjonen til den nye hjørnekoordinaten. Musepekeren vil automatisk snappes mot hjørnekoordinater og gjøre det enklere å unnngå hull eller nye overlapp i kartet under denne operasjonen.
+Dette gjør du ved å endre på gamle hjørnekoordinater eller ved å opprette nye. Gamle hjørnekoordinater vil markeres med en sirkel når du holder musepekeren over dem. Klikk på sirkelen om du vil opprette enn ny hjørnekoordinat. Klikk igjen når du holder musepekeren over den ønskede posisjonen til den nye hjørnekoordinaten. Halvveis mellom to hjørnekoordinater er det mulig å opprette en ny hjørnekoordinat. Det vil dukke opp et kors når du holder musepekeren over. Klikk på korset om du vil opprette enn ny hjørnekoordinat. Klikk igjen når du holder musepekeren over den ønskede posisjonen til den nye hjørnekoordinaten. Musepekeren vil automatisk snappes mot hjørnekoordinater og gjøre det enklere å unnngå hull eller nye overlapp i kartet under denne operasjonen.
 
 ![](images/fix6.png)
 
-#### Klikk på en hjørnekoordinat i den andre polygonen. Musepekeren vil automatisk snappes til hjørnekoordinater.
+#### Klikk på en hjørnekoordinat i den andre polygonen. Musepekeren vil automatisk snappes til hjørnekoordinater
 
 ![](images/fix7.png)
 
@@ -149,7 +149,7 @@ Legg merke til at overlappen som ble behandlet er borte fra panelet Vi kan hånd
 
 #### Åpne Fix geometries
 
-A. Skriv Fix Geometries i søkefeltet\
+A. Skriv "Fix Geometries" i søkefeltet\
 B. Dobbelklikk på `Fix geometries`
 
 ![](images/geom2.png)
@@ -166,14 +166,14 @@ B. Dobbelklikk på `Fix geometries`
 
 #### Velg mappe og filnavn for polygonlaget som skal opprettes
 
-A. Skriv inn navn på det nye polygonlaget i File name:\
-B. Klikk på Save
+A. Skriv inn navn på det nye polygonlaget i `File name:`\
+B. Klikk på `Save`
 
 ![](images/geom4.png)
 
 #### Klikk på `Run`
 
-Merk at kartlaget ikke har fått samme stil som det originale kartlaget. Overskriv stilen til det nye kartlaget ved å kopiere stilen til det opprinnelige kartlaget (se del 4.3.5 Endre stil ved kopiering og liming).
+Merk at kartlaget ikke har fått samme stil som det opprinnelige kartlaget. Overskriv stilen i det nye kartlaget ved å kopiere stilen til det opprinnelige kartlaget (se \@ref(endre-stil) [Endre stil ved kopiering og liming](#endre-stil)).
 
 ![](images/geom5.png)
 
@@ -183,7 +183,7 @@ Når du igjen klikker på `Validate All` vil du se at det ikke er flere invalide
 
 ### Behandle geometrier med flere atskilte deler
 
-#### Gå til `Vector` -\> `Geometry Tools` i menylinjen og klikk på `Multipart to Singleparts...`
+#### Gå til `Vector` → `Geometry Tools` i menylinjen og klikk på `Multipart to Singleparts...`
 
 ![](images/geom11.png)
 
@@ -205,7 +205,7 @@ Når du igjen klikker på `Validate All` vil du se at det ikke er flere invalide
 
 ![](images/geom15.png)
 
-Merk at kartlaget ikke har fått samme stil som det opprinnelige kartlaget. Overskriv stilen i det nye kartlaget ved å kopiere stilen til det opprinnelige kartlaget (se del 4.3.5 Endre stil ved kopiering og liming).
+Merk at kartlaget ikke har fått samme stil som det opprinnelige kartlaget. Overskriv stilen i det nye kartlaget ved å kopiere stilen til det opprinnelige kartlaget (se \@ref(endre-stil) [Endre stil ved kopiering og liming](#endre-stil)).
 
 ![](images/geom16.png)
 
@@ -225,7 +225,7 @@ Når du igjen klikker på `Validate All` vil du se at det ikke er flere geometri
 
 ![](images/geom24.png)
 
-#### Utfigurer en polygon rundt hullet ved å klikke der du vil opprette hjørnekoordinater. Venstreklikk når polygonen er utfigurert.
+#### Utfigurer en polygon rundt hullet ved å klikke der du vil opprette hjørnekoordinater. Venstreklikk når polygonen er utfigurert
 
 ![](images/geom25.png)
 
@@ -235,7 +235,7 @@ Det vil dukke opp et registreringsskjema.
 
 ![](images/geom27.png)
 
-#### Gå til `View` -\> `Panels` i menylinjen og klikk på `Advanced Digitizing Panel`
+#### Gå til `View` → `Panels` i menylinjen og klikk på `Advanced Digitizing Panel`
 
 ![](images/geom28.png)
 
@@ -275,21 +275,21 @@ Det vil dukke opp et vindu med attributter for de valgte polygonene.
 
 ![](images/geom37.png)
 
-Når du igjen klikker på Validate All vil du se at det ikke er flere geometrier med flere atskilte deler.
+Når du igjen klikker på `Validate All` vil du se at det ikke er flere geometrier med flere atskilte deler.
 
-### Endre stil ved kopiering og liming
+### Endre stil ved kopiering og liming {#endre-stil}
 
 Det vil ikke være mulig å bruke de samme registreringsskjemaene under utfigurering av nye polygoner uten å tilegne det nye polygonlaget den samme stilen som det opprinnelige kartlaget.
 
 #### Venstreklikk på det opprinnelige kartlaget
 
-#### Gå til `Styles` -\> `Copy Styles` og klikk på `All Style Categories`
+#### Gå til `Styles` → `Copy Styles` og klikk på `All Style Categories`
 
 ![](images/geom20.png)
 
 #### Venstreklikk på det nye kartlaget
 
-#### Gå til `Styles` -\> `Paste Styles` og klikk på `All Style Categories`
+#### Gå til `Styles` → `Paste Styles` og klikk på `All Style Categories`
 
 ![](images/geom21.png)
 

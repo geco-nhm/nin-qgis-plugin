@@ -1,8 +1,6 @@
 # Kartlegging {#kartlegging}
 
-I denne delen viser vi hvordan man kan bruke QField til å kartlegge i prosjekter som er opprettet med programtillegget *"Natur i Norge"-kartlegging*. Det er også mulig å bruke QGIS for feltkartlegging. Dersom du trenger veiledningsmateriale for kartlegging i QGIS kan du bruke følgende linker:
-
-..
+I denne delen viser vi hvordan man kan bruke QField for kartlegging i prosjekter som er opprettet med programtillegget *"Natur i Norge"-kartlegging*. Det er også mulig å bruke QGIS for feltkartlegging. Dersom du trenger veiledningsmateriale for kartlegging i QGIS kan du klikke på [denne lenken](https://docs.qgis.org/3.40/en/docs/user_manual/index.html).
 
 ## Åpne prosjekt i QField
 
@@ -22,9 +20,9 @@ Her vil du se prosjekter (under `Projects`) og datasett (under `Datsets`) som er
 
 ![](images/open_project.png)
 
-### Åpne prosjekt via QField Cloud
+### Åpne prosjekt via QFieldCloud
 
-### Klikk på `QField Cloud Projects`
+### Klikk på `QFieldCloud projects`
 
 ![](images/cloud22.png)
 
@@ -54,7 +52,7 @@ Du vil nå se følgende på skjermen:
 Her kan du utforske kartlagene ved å navigere, zoome og redigere
 
 **B. Menyknapp**\
-Ved å trykke på denne kan du skru på redigering, synligjøre, endre på gjennomsiktighet, zomme til kartlag, velge kartlag som skal være aktive
+Ved å klikke på denne kan du skru på redigering, synligjøre, endre på gjennomsiktighet, zomme til kartlag, velge kartlag som skal være aktive
 
 ![](images/map_area_qfield.png)
 
@@ -74,7 +72,7 @@ Om kartlaget ikke dukker opp i kartvinduet kan det være fordi du ikke har navig
 
 ## Zoome til kartlag
 
-### Høyreklikk på kartlaget du ønsker å zoome til
+### Langklikk på kartlaget du ønsker å zoome til
 
 ![](images/zoom_to_layer.png)
 
@@ -88,17 +86,17 @@ Kartlaget skal nå kunne ses i kartvinduet. Du vil nå lære hvordan du kan zoom
 
 ## Zoom
 
-Det er mulig å navigere ved å bruke scrollefunksjonen på musa og zoomeknappene.
+Det er mulig å zoome ved å bruke to fingre på berøringsskjermen eller ved å bruke zoomeknappene i kartvinduet.
 
-### Zoom ved å bruke zoomeknappene. (+) brukes for å zoome inn og (-) brukes for å zoome ut
+### Zoom ved å bruke zoomeknappene. **`+`** brukes for å zoome inn og **`-`** brukes for å zoome ut
 
 ![](images/zoom.png)
 
-### Zoom ved å bruke scrollefunksjonen med musa. Du zoomer inn ved å scrolle i retningen vekk fra deg og ut ved å scrolle i retningen inn mot deg
+### Zoom ved å bruke to fingre på berøringsskjermen. Hold den ene fingeren på skjermen mens du skyver den andre inn mot eller vekk fra den første
 
 ## Naviger
 
-### Klikk mens du drar musa i motsatt retning av den retningen du ønsker å flytte kartvinduet
+### Klikk og skyv digitaliseringspennen i motsatt retning av den retningen du ønsker å flytte kartvinduet
 
 Du vil nå lære hvordan du kan redigere kartlag. Vi har zoomet inn på kartleggingsområdet for å vise dette.
 
@@ -108,7 +106,7 @@ Du vil nå lære hvordan du kan redigere kartlag. Vi har zoomet inn på kartlegg
 
 #### Klikk på menyknappen
 
-#### Høyreklikk på kartlaget (f.eks. nin_polygons som brukes til kartlegging)
+#### Langklikk på kartlaget (f.eks. nin_polygons som brukes til kartlegging)
 
 ![](images/polygon_visibility.png)
 
@@ -132,21 +130,21 @@ Symbolet vil nå lyse opp i grønt. Hvis du vil avslutte redigeringsmodus kan du
 
 ![](images/digitise.png)
 
-### Utfigurér ny polygon
+### Utfigurer ny polygon
 
-#### Klikk i kartvinduet for å lage et hjørnepunkt for polygonen. Merk at du må unngå å flytte musepekeren samtidig som du klikker for å lage et hjørnepunkt.
+#### Klikk i kartvinduet for å lage et hjørnepunkt for polygonen. For å lage et hjørnepunkt må du unngå å flytte digitaliseringspennen samtidig som du holder den inne
 
-#### Når du utfigurerer en polygon og du oppretter en hjørnekoordinat ved en feil har du muligheten til å angre ved å klikke på (-).
+#### Når du utfigurerer en polygon og du oppretter en hjørnekoordinat ved en feil har du muligheten til å angre ved å klikke på **`-`**
 
 ![](images/digitise3.png)
 
 ![](images/digitise4.png)
 
-#### Klikk på (X) for å forkaste polygonen og avbryte utfigureringen
+#### Klikk på **`X`** for å forkaste polygonen og avbryte utfigureringen
 
 ![](images/digitise5.png)
 
-#### Utfigurér polygonen ved å lage alle ønskede hjørnepunkter. Pass på å unngå topologifeil (se kapittel 6 Kvalitetssikring)
+#### Utfigurer polygonen ved å lage alle ønskede hjørnepunkter. Pass på å unngå topologifeil (se \@ref(kvalitetssikring) [Kvalitetssikring](#kvalitetssikring))
 
 #### Klikk på den grønne haken når polygonen er utfigurert
 
@@ -200,21 +198,21 @@ Her kan du velge mellom hovedtypegruppene som du valgte når du opprettet prosje
 
 ![](images/select_mapping_unit2.png)
 
-**Følgende informasjon vil nå vises i registreringsskjemaet:\
-**A. Kartleggingsenhetens plassering langs relevante lokale miljøgradienter\
+**Følgende informasjon vil nå vises i registreringsskjemaet:**\
+A. Kartleggingsenhetens plassering langs relevante lokale miljøgradienter\
 B. Påskriften som vil brukes til å merke polygonen
 
 ![](images/variables.png)
 
-Merk at tilsvarende informasjon gis av NiN-feltveilederen.
+Merk at tilsvarende informasjon oppgis i NiN-feltveilederen.
 
 ![](images/mapping_guidelines2.png)
 
-#### Klikk i feltet for å skrive hvor mye av polygonen som dekkes av den valgte naturtypen.
+#### Klikk i feltet for å registrere hvor mye av polygonen som dekkes av den valgte naturtypen
 
 ![](images/proportion.png)
 
-Bruk (+) og (-) ved siden av feltet for å endre andelen med 10 %. Merk at kartleggingsenheten som registreres må dekke minst 50 % av arealet.
+Bruk **`+`** og **`-`** ved siden av feltet for å endre andelen med 10 %. Merk at kartleggingsenheten som registreres må dekke minst 50 % av arealet.
 
 #### Ta bilde med enhetens kamera
 
@@ -320,11 +318,11 @@ For å forhindre overlappende polygoner vil nye polygoner som utfigureres automa
 
 #### Redigere hjørnekoordinater
 
-##### Hold inne venstre museknapp for å markere en polygon du vil redigere
+##### Langklikk på en polygon du vil redigere
 
 Den markerte polygonen vil nå lyse gult.
 
-##### Klikk på polygonens ID nedenfor nin_polygons
+##### Klikk på polygonens ID nedenfor `nin_polygons`
 
 ![](images/edit_polygon.png)
 
@@ -344,11 +342,11 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/edit_polygon5.png)
 
-##### Flytt musepekeren dit du vil flytte hjørnekoordinaten
+##### Flytt digitaliseringspennen dit du vil flytte hjørnekoordinaten
 
 ![](images/edit_polygon6.png)
 
-##### Klikk igjen når du har flyttet musepekeren til den ønskede posisjonen
+##### Klikk igjen når du har flyttet digitaliseringspennen til den ønskede posisjonen
 
 ![](images/edit_polygon7.png)
 
@@ -356,15 +354,18 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/edit_polygon14.png)
 
-##### Flytt musepekeren dit du vil at hjørnekoordinaten skal opprettes
+##### Flytt digitaliseringspennen dit du vil at hjørnekoordinaten skal opprettes
 
 ![](images/edit_polygon9.png)
 
-##### Klikk igjen når du har flyttet musepekeren dit du vil at hjørnekoordinaten skal opprettes
+##### Klikk igjen når du har flyttet digitaliseringspennen dit du vil at hjørnekoordinaten skal opprettes
 
 ![](images/edit_polygon10.png)
 
-##### Klikk på (\<-) for å angre forrige oppretting eller endring av hjørnekoordinat. Klikk på (X) for trekke tilbake alle endringene.
+##### Angre eller trekke tilbake endringer av hjørnekoordinater
+
+A. Klikk på **`←`** for å angre forrige oppretting eller endring av hjørnekoordinat\
+B. Klikk på **`X`** for trekke tilbake alle endringene
 
 ![](images/edit_polygon11.png)
 
@@ -378,11 +379,11 @@ Du vil nå se at polygongrensene har endret seg.
 
 #### Splitte polygon
 
-##### Hold inne venstre museknapp for å markere en polygon du vil redigere
+##### Langklikk på en polygon du vil redigere
 
 Den markerte polygonen vil nå lyse gult.
 
-##### Klikk på polygonens ID nedenfor nin_polygons
+##### Klikk på polygonens ID nedenfor `nin_polygons`
 
 ![](images/edit_polygon.png)
 
@@ -398,7 +399,7 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/split_polygon.png)
 
-##### Splitt polygonen ved å opprette hjørnekoordinater gjennom polygonen. Det første og siste klikket må være på utsiden av polygonen du ønsker å splitte.
+##### Splitt polygonen ved å opprette hjørnekoordinater gjennom polygonen. Det første og siste klikket må være på utsiden av polygonen du ønsker å splitte
 
 ![](images/split_polygon2.png)
 
@@ -414,11 +415,11 @@ Polygonen vil nå være splittet.
 
 #### Formforandringsverktøyet
 
-##### Hold inne venstre museknapp for å markere en polygon du vil redigere
+##### Langklikk en polygon du vil redigere
 
 Den markerte polygonen vil nå lyse gult.
 
-##### Klikk på polygonens ID nedenfor nin_polygons
+##### Klikk på polygonens ID nedenfor `nin_polygons`
 
 ![](images/edit_polygon.png)
 
@@ -434,7 +435,7 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/edit_shape.png)
 
-##### Fjerne deler av polygonen ved å opprette hjørnekoordinater gjennom polygonen. Det første og siste klikket må være på utsiden av polygonen du ønsker å fjerne deler av.
+##### Fjerne deler av polygonen ved å opprette hjørnekoordinater gjennom polygonen. Det første og siste klikket må være på utsiden av polygonen du ønsker å fjerne deler av
 
 ![](images/edit_shape3.png)
 
@@ -450,11 +451,11 @@ Deler av polygonen vil nå være fjernet.
 
 #### Utviskingsverktøy
 
-##### Hold inne venstre museknapp for å markere en polygon du vil redigere
+##### Langklikk på en polygon du vil redigere
 
 Den markerte polygonen vil nå lyse gult.
 
-##### Klikk på polygonens ID nedenfor nin_polygons
+##### Klikk på polygonens ID nedenfor `nin_polygons`
 
 ![](images/erase.png)
 
@@ -476,7 +477,7 @@ Den markerte polygonen vil nå lyse gult.
 
 ##### Klikk inni polygonen for å viske ut deler av polygonen
 
-![](images/erase6.png) 
+![](images/erase6.png)
 
 ![](images/erase7.png)
 
@@ -488,11 +489,11 @@ Deler av polygonen vil nå være fjernet.
 
 #### Ringfyllingsverktøyet
 
-##### Hold inne venstre museknapp for å markere en polygon du vil redigere
+##### Langklikk på en polygon du vil redigere
 
 Den markerte polygonen vil nå lyse gult.
 
-##### Klikk på polygonens ID nedenfor nin_polygons
+##### Klikk på polygonens ID nedenfor `nin_polygons`
 
 ![](images/fill_ring.png)
 
@@ -532,11 +533,11 @@ Den markerte polygonen vil nå lyse gult.
 
 ### Rediger attributter for eksisterende polygoner
 
-#### Hold inne venstre museknapp for å markere en polygon du vil redigere
+#### Langklikk på en polygon du vil redigere
 
 Den markerte polygonen vil nå lyse gult.
 
-#### Klikk på polygonens ID nedenfor nin_polygons
+#### Klikk på polygonens ID nedenfor `nin_polygons`
 
 ![](images/edit_attribute.png)
 
@@ -560,7 +561,7 @@ Polygonens attributter vil nå være endret.
 
 ### Slette polygoner
 
-#### Hold inne venstre museknapp for å markere en polygon du vil slette
+#### Langklikk på en polygon du vil slette
 
 Den markerte polygonen vil nå lyse gult.
 
@@ -592,7 +593,7 @@ Polygonen vil nå være slettet.
 
 ### Sammensmelte polygoner
 
-#### Hold inne venstre museknapp mens du holder musepekeren over grensen mellom polygonene du vil sammensmelte
+#### Langklikk på grensen mellom polygonene du vil sammensmelte
 
 ![](images/merge.png)
 
@@ -620,13 +621,15 @@ De markerte polygonene vil nå lyse gult.
 
 #### Klikk på `OK` for å smelte den minste polygonen sammen med den største
 
-![](images/merge8.png) Polygonene vil nå være smeltet sammen.
+![](images/merge8.png)
 
-#### Klikk på (X) for å gå ut av `...`
+Polygonene vil nå være smeltet sammen.
+
+#### Klikk på **`X`** for å gå ut av `...`
 
 ![](images/merge9.png)
 
-#### Klikk på (\<-) for å gå ut av listen med polygoner
+#### Klikk på **`&#8592;`** for å gå ut av listen med polygoner
 
 ![](images/merge10.png) ![](images/merge11.png)
 
@@ -636,7 +639,7 @@ De markerte polygonene vil nå lyse gult.
 
 ![](images/snapping.png)
 
-For å unngå huller i kartet vil musepekeren automatisk trekkes eller snappes mot polygongrensene om du holder musepekeren i nærheten av en polygongrense. Dette vil vises ved at symbolet som forflytter seg med musepekeren trekker seg sammen. Det er mulig å slå av snappefunksjonen.
+For å unngå hull i kartet vil symbolet som forflytter seg med digitaliseringspennen automatisk trekkes eller snappes mot polygongrensene om du holder digitaliseringspennen i nærheten av en polygongrense. Dette vil vises ved at symbolet som forflytter seg med digitaliseringspennen trekker seg sammen. Det er mulig å slå av snappefunksjonen.
 
 ##### Klikk på redigeringsinnstillingsknappen
 
@@ -646,9 +649,9 @@ For å unngå huller i kartet vil musepekeren automatisk trekkes eller snappes m
 
 ![](images/snapping3.png)
 
-![](images/snapping4.png) 
+![](images/snapping4.png)
 
-Dersom du nå prøver å holde musepekeren over en polygongrense vil du legge merke til at musepekeren ikke lenger snappes automatisk til polygonen.
+Dersom du nå prøver å holde digitaliseringspennen i nærheten av en polygongrense vil du legge merke til at symbolet som forflytter seg med den ikke lenger snappes automatisk til polygonen.
 
 #### Topologisk redigering
 
@@ -684,11 +687,11 @@ Dersom du nå prøver å flytte en hjørnekoordinat som er felles for to polygon
 
 ![](images/free_draw.png)
 
-##### Klikk på symbolet for frihpndstegning for å slå funksjonen på (at det lyser grønt betyr at funksjonen er slått på)
+##### Klikk på symbolet for frihåndstegning for å slå funksjonen på (at det lyser grønt betyr at funksjonen er slått på)
 
 ![](images/free_draw2.png)
 
-##### Utfigurer polygoner ved å trykke på og holde inne venstre museknapp og deretter dra musepekeren over kartvinduet. Slipp museknappen når polygonen er ferdig utfigurert.
+##### Utfigurer polygoner ved å trykke digitaliseringspennen mot berøringsskjermen mens du drar den over kartvinduet. Ta digitaliseringspennem vekk fra berøringsskjermen når polygonen er ferdig utfigurert
 
 ![](images/free_draw3.png)
 
@@ -704,7 +707,7 @@ Dersom du nå prøver å flytte en hjørnekoordinat som er felles for to polygon
 
 ![](images/delineate_angles2.png)
 
-##### Utfigurer polygoner som vanlig. Musepekeren vil automatisk snappes til nærmest 45 graders vinkel i forhold til forrige hjørnekoordinat og det vil dukke opp en stiplet linje som viser dette.
+##### Utfigurer polygoner som vanlig. Symbolet som forflytter seg med digitaliseringspennen vil automatisk snappes til nærmest 45 graders vinkel i forhold til forrige hjørnekoordinat og det vil dukke opp en stiplet linje som viser dette
 
 ![](images/delineate_angles3.png)
 
@@ -718,7 +721,7 @@ Dersom du nå prøver å flytte en hjørnekoordinat som er felles for to polygon
 
 #### Klikk på navigeringssymbolet igjen for å zoome til din posisjon
 
-![](images/gps2.png) 
+![](images/gps2.png)
 
 ![](images/gps3.jpg)
 
@@ -732,7 +735,7 @@ Endre gjennomsiktigheten på kartlagene som ønsket. Dette kan gjøre det enkler
 
 ![](images/visibility.png)
 
-#### Høyreklikk på kartlaget du vil endre gjennomsiktigheten til
+#### Langklikk på kartlaget du vil endre gjennomsiktigheten til
 
 ![](images/visibility2.png)
 
@@ -740,7 +743,7 @@ Endre gjennomsiktigheten på kartlagene som ønsket. Dette kan gjøre det enkler
 
 ![](images/visibility3.png)
 
-![](images/visibility4.png) 
+![](images/visibility4.png)
 
 ![](images/visibility5.png)
 
@@ -748,19 +751,19 @@ Gjennomsiktigheten på kartlaget vil nå være endret.
 
 ### Registrere punkter
 
-Sørg for at redigeringsmodus er på (se kapittel \@ref(redigeringsmodus)) og at du redigerer i riktig kartlag.
+Sørg for at redigeringsmodus er på (se \@ref(redigeringsmodus) [Slå på redigeringsmodus](#redigeringsmodus)) og at du redigerer i riktig kartlag.
 
 ![](images/points.png)
 
 #### Klikk i kartvinduet der du vil registrere et punkt
 
-![](images/points2.png) 
+![](images/points2.png)
 
 Det vil nå dukke opp et nytt vindu.
 
 #### Klikk på den hvite haken i vinduet for å registrere punktet. I vinduet har du muligheten til å velge punktets attributter
 
-![](images/points3.png) 
+![](images/points3.png)
 
 ![](images/points4.png)
 
@@ -780,13 +783,13 @@ Et punkt vil nå være opprettet.
 
 Du vil nå se hovedmenyen.
 
-## Synkronisere med QField Cloud 
+## Synkronisere med QFieldCloud
 
 ### Klikk på menyknappen
 
 ![](images/push.png)
 
-### Klikk på ikonet for QField Cloud
+### Klikk på ikonet for QFieldCloud
 
 ![](images/push2.png)
 
@@ -794,11 +797,18 @@ Du vil nå se hovedmenyen.
 
 ![](images/push3.png)
 
-A. Klikk på `Synchronize` for å både laste opp endringer til og laste ned endringer fra QField Cloud 
-B. Klikk på `Push changes` for å både laste opp endringer til QField Cloud 
-C. Klikk på `Revert local changes` for å avbryte endringene som er gjort
+A. Klikk på `Synchronize` for å både laste opp endringer til og laste ned endringer fra QFieldCloud  B. Klikk på `Push changes` for å både laste opp endringer til QFieldCloud  C. Klikk på `Revert local changes` for å avbryte endringene som er gjort
 
 ::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
-<div>← <a href="eksportere-prosjekt.html">Gå til forrige kapittel</a></div>
-<div><a href="kvalitetssikring.html">Gå til neste kapittel</a> →</div>
+<div>
+
+← <a href="eksportere-prosjekt.html">Gå til forrige kapittel</a>
+
+</div>
+
+<div>
+
+<a href="kvalitetssikring.html">Gå til neste kapittel</a> →
+
+</div>
 :::
