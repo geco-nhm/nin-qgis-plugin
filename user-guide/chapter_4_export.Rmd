@@ -1,4 +1,4 @@
-# Eksportere prosjekt
+# Eksportere prosjekt {#eksportere-prosjekt}
 
 For å eksportere prosjektet må programtillegget QFieldSync lastes ned. Prosjektet kan deretter eksporteres fra QGIS på en enhet til QField på en annen enhet ved hjelp av kabel eller via QField Cloud.
 
@@ -193,4 +193,7 @@ Det vil nå dukke opp et nytt vindu.
 
 Endringene vil nå synkroniseres og prosjektet vil åpnes i QGIS.
 
-[Neste kapittel](chapter_5_mapping.Rmd)
+::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
+<div>← <a href="oppsett-og-tilrettelegging.html">Gå til forrige kapittel</a></div>
+<div><a href="kartlegging.html">Gå til neste kapittel</a> →</div>
+:::
