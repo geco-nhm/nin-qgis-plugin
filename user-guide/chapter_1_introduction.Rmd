@@ -47,6 +47,7 @@ Veilederen legger opp til en todelt arbeidsflyt med QGIS og QField, men det finn
 
 -   Hele arbeidsflyten kan gjennomføres kun i QGIS, hvis ønskelig
 -   Enheter med eller uten berøringsskjerm kan brukes i alle faser
+-   Både Windows og iOS-systemer kan brukes 
 -   Brukeren velger løsningen som passer best ut fra tilgjengelig utstyr og arbeidsforhold
 
 ## Hva inneholder veilederen?
