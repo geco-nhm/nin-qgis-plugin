@@ -1,6 +1,8 @@
 # Kartlegging {#kartlegging}
 
-I denne delen viser vi hvordan man kan bruke QField til å kartlegge i prosjekter som er opprettet med programtillegget *"Natur i Norge"-kartlegging*. Det er også mulig å bruke QGIS for feltkartlegging. Dersoim du trenger veiledningsmateriale for kartlegging i QGIS kan du bruke følgende linker:
+I denne delen viser vi hvordan man kan bruke QField til å kartlegge i prosjekter som er opprettet med programtillegget *"Natur i Norge"-kartlegging*. Det er også mulig å bruke QGIS for feltkartlegging. Dersom du trenger veiledningsmateriale for kartlegging i QGIS kan du bruke følgende linker:
+
+..
 
 ## Åpne prosjekt i QField
 
@@ -8,21 +10,21 @@ I denne delen viser vi hvordan man kan bruke QField til å kartlegge i prosjekte
 
 ### Åpne prosjekt på lokal disk
 
-#### Klikk på Open local file
+#### Klikk på `Open local file`
 
 #### Naviger til mappen hvor du har lagret prosjektet (Imported projects/NiN_kartlegging)
 
 ![](images/open_project_qfield.png)
 
-Her vil du se prosjekter (under Projects) og datasett (under Datsets) som er lagret i mappen.
+Her vil du se prosjekter (under `Projects`) og datasett (under `Datsets`) som er lagret i mappen.
 
-#### Klikk på NiN_kartlegging under Projects for å åpne prosjektet
+#### Klikk på `NiN_kartlegging` under `Projects` for å åpne prosjektet
 
 ![](images/open_project.png)
 
 ### Åpne prosjekt via QField Cloud
 
-### Klikk på QField Cloud Projects
+### Klikk på `QField Cloud Projects`
 
 ![](images/cloud22.png)
 
@@ -30,7 +32,7 @@ Her vil du se prosjekter (under Projects) og datasett (under Datsets) som er lag
 
 ![](images/cloud4.png)
 
-### Klikk på Sign in
+### Klikk på `Sign in`
 
 ![](images/cloud3.png)
 
@@ -44,7 +46,7 @@ Vent til prosjektet er lastet opp. Du vil få en melding om at prosjektet er kla
 
 ![](images/open_project_qfield_3.png)
 
-## QField ...
+## Kartvinduet i QField
 
 Du vil nå se følgende på skjermen:
 
@@ -76,7 +78,7 @@ Om kartlaget ikke dukker opp i kartvinduet kan det være fordi du ikke har navig
 
 ![](images/zoom_to_layer.png)
 
-### Klikk på Zoom to layer for å fokusere på området kartlaget befinner seg.
+### Klikk på `Zoom to layer` for å fokusere på området kartlaget befinner seg
 
 ![](images/zoom_to_layer2.png)
 
@@ -110,11 +112,11 @@ Du vil nå lære hvordan du kan redigere kartlag. Vi har zoomet inn på kartlegg
 
 ![](images/polygon_visibility.png)
 
-#### Huk av Show on map for å synliggjøre kartlaget.
+#### Huk av `Show on map` for å synliggjøre kartlaget
 
 ![](images/polygon_visibility2.png)Kartlaget har ingen registrerte polygoner og det vil derfor ikke skje noe i kartvinduet ennå.
 
-## Slå på redigeringsmodus
+### Slå på redigeringsmodus
 
 #### Klikk på kartlaget du ønsker å redigere (f.eks. nin_polygons) slik at knappen lyser grønt
 
@@ -144,7 +146,7 @@ Symbolet vil nå lyse opp i grønt. Hvis du vil avslutte redigeringsmodus kan du
 
 ![](images/digitise5.png)
 
-#### Utfigurér polygonen ved å lage alle ønskede hjørnepunkter. Pass på å unngå topologifeil. Vanlige topologifeil er:
+#### Utfigurér polygonen ved å lage alle ønskede hjørnepunkter. Pass på å unngå topologifeil (se kapittel 6 Kvalitetssikring)
 
 #### Klikk på den grønne haken når polygonen er utfigurert
 
@@ -162,7 +164,7 @@ I registreringsskjemaet kan du velge hovedtypegruppe, hovedtype, kartleggingsenh
 
 #### Minsteareal og minstebredde
 
-Dersom polygonen har et mindre areal enn det som er anbefalt i kartleggingsveilederen for den valgte kartleggingsmålestokken vil det dukke opp en advarsel i feltet Areal. Det vil også dukke opp oransj tekst med påskriften "Expression constraint". Merk at dette bare er en advarsel, og at det likevel er mulig å utfigurere polygoner under minstearealet.
+Dersom polygonen har et mindre areal enn det som er anbefalt i kartleggingsveilederen for den valgte kartleggingsmålestokken vil det dukke opp en advarsel i feltet `Areal`. Det vil også dukke opp oransj tekst med påskriften `Expression constraint`. Merk at dette bare er en advarsel, og at det likevel er mulig å utfigurere polygoner under minstearealet.
 
 ![](images/attribute_table.png)
 
@@ -226,7 +228,7 @@ Bruk (+) og (-) ved siden av feltet for å endre andelen med 10 %. Merk at kartl
 
 #### Legg ved fil (f.eks. bilde)
 
-##### Klikk på ... nedenfor photo
+##### Klikk på `...` nedenfor photo
 
 ![](images/select_photo2.png)
 
@@ -234,7 +236,7 @@ Bruk (+) og (-) ved siden av feltet for å endre andelen med 10 %. Merk at kartl
 
 ##### Klikk på bildefilen du vil legge ved
 
-##### Klikk på Open
+##### Klikk på `Open`
 
 ![](images/select_photo.png)
 
@@ -242,15 +244,15 @@ Bruk (+) og (-) ved siden av feltet for å endre andelen med 10 %. Merk at kartl
 
 Dersom kartleggingsenheten dekker mindre enn 100 % av polygonens areal, må du registrere minst én ekstra kartleggingsenhet som dekker restarealet. Altså må kartleggingsenheten(e) dekke til sammen 100 % av arealet.
 
-##### Klikk på Type 2 for å registrere en ekstra kartleggingsenhet
+##### Klikk på `Type 2` for å registrere en ekstra kartleggingsenhet
 
 ![](images/mosaic.png)
 
-##### Klikk på False under sammensatt for å velge at polygonen skal representeres som en sammensatt polygon
+##### Klikk på `False` under sammensatt for å velge at polygonen skal representeres som en sammensatt polygon
 
 ![](images/mosaic2.png)
 
-##### Klikk på False under mosaikk for å velge at polygonen skal representeres som en mosaikkpolygon
+##### Klikk på `False` under mosaikk for å velge at polygonen skal representeres som en mosaikkpolygon
 
 ![](images/mosaic3.png)
 
@@ -260,7 +262,7 @@ Dersom kartleggingsenheten dekker mindre enn 100 % av polygonens areal, må du r
 
 Hvis det gjenstår 20 % eller mer areal etter at kartleggingsenhet 1 og kartleggingsenhet 2 er registrert må det legges til en tredje kartleggingsenhet på samme måte som for kartleggingsenhet 2. Merk igjen at alle de registrerte kartleggingsenhetene må dekke til sammen 100 %. Altså vil kartleggingsenheter som dekker mindre enn 20 % ikke bli registrert.
 
-#### Klikk på den hvite haken for å registrere polygonen
+##### Klikk på den hvite haken for å registrere polygonen
 
 ![](images/mosaic5.png)
 
@@ -272,13 +274,15 @@ Vi vil nå vise hvordan man angrer forrige redigering. Vi utfigurerer en ny poly
 
 ![](images/undo.png) ![](images/undo1.png)
 
-### Klikk på menyknappen
+#### Klikk på menyknappen
 
-![](images/undo2.png) \### 2.6.5.2 Klikk på ...
+![](images/undo2.png)
+
+#### Klikk på `...`
 
 ![](images/undo3.png)
 
-### Klikk på Undo for å angre forrige redigering
+#### Klikk på `Undo` for å angre forrige redigering
 
 ![](images/undo4.png)
 
@@ -288,15 +292,15 @@ Forrige redigering vil nå være angret.
 
 ### Gjøre om igjen
 
-### Klikk på menyknappen
+#### Klikk på menyknappen
 
 ![](images/redo.png)
 
-### Klikk på ...
+#### Klikk på `...`
 
 ![](images/redo2.png)
 
-### Klikk på Redo for å gjøre redigeringen om igjen
+#### Klikk på `Redo` for å gjøre redigeringen om igjen
 
 ![](images/redo3.png)
 
@@ -304,7 +308,7 @@ Forrige redigering vil nå være angret.
 
 Redigeringen vil nå bli gjort om igjen.
 
-### Utfigurér og registrer nye polygoner
+### Utfigurer og registrer nye polygoner
 
 For å forhindre overlappende polygoner vil nye polygoner som utfigureres automatisk klippes mot de eksisterende polygonene. Du kan derfor trygt opprette hjørnekoordinater innenfor en allerede eksisterende polygon. Det samme vil skje om du utfigurerer en polygon rundt en annen.
 
@@ -328,7 +332,7 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/edit_polygon2.png)
 
-##### Klikk på ... for å velge endringsverktøy
+##### Klikk på `...` for å velge endringsverktøy
 
 ![](images/edit_polygon3.png)
 
@@ -368,9 +372,9 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/edit_polygon12.png)
 
-##### ....
-
 ![](images/edit_polygon13.png)
+
+Du vil nå se at polygongrensene har endret seg.
 
 #### Splitte polygon
 
@@ -386,7 +390,7 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/edit_polygon2.png)
 
-##### Klikk på ... for å velge endringsverktøy
+##### Klikk på `...` for å velge endringsverktøy
 
 ![](images/edit_polygon3.png)
 
@@ -422,7 +426,7 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/edit_polygon2.png)
 
-##### Klikk på ... for å velge endringsverktøy
+##### Klikk på `...` for å velge endringsverktøy
 
 ![](images/edit_shape2.png)
 
@@ -458,7 +462,7 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/erase2.png)
 
-##### Klikk på ... for å velge endringsverktøy
+##### Klikk på `...` for å velge endringsverktøy
 
 ![](images/erase3.png)
 
@@ -472,7 +476,9 @@ Den markerte polygonen vil nå lyse gult.
 
 ##### Klikk inni polygonen for å viske ut deler av polygonen
 
-![](images/erase6.png) ![](images/erase7.png)
+![](images/erase6.png) 
+
+![](images/erase7.png)
 
 ##### Klikk på den grønne haken for å godta utviskingen
 
@@ -494,7 +500,7 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/fill_ring2.png)
 
-##### Klikk på ... for å velge endringsverktøy
+##### Klikk på `...` for å velge endringsverktøy
 
 ![](images/fill_ring3.png)
 
@@ -502,7 +508,7 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/fill_ring4.png)
 
-##### Lag en polygon på innsiden av en annen ved å opprette hjørnekoordinater inni polygonen.
+##### Lag en polygon på innsiden av en annen ved å opprette hjørnekoordinater inni polygonen
 
 ![](images/fill_ring5.png)
 
@@ -512,41 +518,41 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/fill_ring7.png)
 
-##### Klikk Yes i vinduet som dukker opp for å godta polygonen
+##### Klikk `Yes` i vinduet som dukker opp for å godta polygonen
 
 ![](images/fill_ring8.png)
 
-##### Fyll ut registreringsskjema som vist i del ... Registreringsskjema for å opprette polygonen
+##### Fyll ut registreringsskjema som vist i del `...` Registreringsskjema for å opprette polygonen
 
 ![](images/fill_ring9.png) ![](images/fill_ring10.png) Den nye polygonen vil dukke opp.
 
-#### Klikk på Stop editing for å stoppe redigering
+#### Klikk på `Stop editing` for å stoppe redigering
 
 ![](images/stop_editing.png)
 
 ### Rediger attributter for eksisterende polygoner
 
-##### Hold inne venstre museknapp for å markere en polygon du vil redigere
+#### Hold inne venstre museknapp for å markere en polygon du vil redigere
 
 Den markerte polygonen vil nå lyse gult.
 
-##### Klikk på polygonens ID nedenfor nin_polygons
+#### Klikk på polygonens ID nedenfor nin_polygons
 
 ![](images/edit_attribute.png)
 
-##### Klikk på symbolet for å endre attributter
+#### Klikk på symbolet for å endre attributter
 
 ![](images/edit_attribute2.png)
 
-##### Endre attributter som vist i del ... Registreringsskjema og klikk på den hvite haken for å godta endringene
+#### Endre attributter som vist i del `...` Registreringsskjema og klikk på den hvite haken for å godta endringene
 
 ![](images/edit_attribute3.png)
 
-##### Klikk på tilbakepila for å gå ut av attributtendringsmodusen
+#### Klikk på tilbakepila for å gå ut av attributtendringsmodusen
 
 ![](images/edit_attribute4.png)
 
-##### Klikk på tilbakepila for å gå ut av redigeringsmodus
+#### Klikk på tilbakepila for å gå ut av redigeringsmodus
 
 ![](images/edit_attribute5.png) ![](images/edit_attribute6.png)
 
@@ -554,31 +560,31 @@ Polygonens attributter vil nå være endret.
 
 ### Slette polygoner
 
-##### Hold inne venstre museknapp for å markere en polygon du vil slette
+#### Hold inne venstre museknapp for å markere en polygon du vil slette
 
 Den markerte polygonen vil nå lyse gult.
 
-##### Klikk på ...
+#### Klikk på `...`
 
 ![](images/delete_polygon2.png)
 
-##### Klikk på Toggle Feature Selection for å velge polygonen som skal slettes
+#### Klikk på `Toggle Feature Selection` for å velge polygonen som skal slettes
 
 ![](images/delete_polygon3.png)
 
-##### Klikk på ID til polygonen du vil slette
+#### Klikk på ID til polygonen du vil slette
 
 ![](images/delete_polygon4.png)
 
-##### Klikk på ...
+#### Klikk på `...`
 
 ![](images/delete_polygon5.png)
 
-##### Klikk på Delete Selected Feature(s) for å slette polygonen
+#### Klikk på `Delete Selected Feature(s)` for å slette polygonen
 
 ![](images/delete_polygon6.png)
 
-##### Klikk på OK for å slette polygonen
+#### Klikk på `OK` for å slette polygonen
 
 ![](images/delete_polygon7.png) ![](images/delete_polygon8.png)
 
@@ -586,41 +592,41 @@ Polygonen vil nå være slettet.
 
 ### Sammensmelte polygoner
 
-##### Hold inne venstre museknapp mens du holder musepekeren over grensen mellom polygonene du vil sammensmelte
+#### Hold inne venstre museknapp mens du holder musepekeren over grensen mellom polygonene du vil sammensmelte
 
 ![](images/merge.png)
 
 De markerte polygonene vil nå lyse gult.
 
-##### Klikk på ...
+#### Klikk på `...`
 
 ![](images/merge2.png)
 
-##### Klikk på Toggle Feature Selection for å velge polygonene som skal smeltes sammen
+#### Klikk på `Toggle Feature Selection` for å velge polygonene som skal smeltes sammen
 
 ![](images/merge3.png)
 
-##### Klikk på ID til polygonene du vil smelte sammen
+#### Klikk på ID til polygonene du vil smelte sammen
 
 ![](images/merge4.png) ![](images/merge5.png)
 
-##### Klikk på ...
+#### Klikk på `...`
 
 ![](images/merge6.png)
 
-##### Klikk på Merge Selected Features for å sammensmelte polygonene
+#### Klikk på `Merge Selected Features` for å sammensmelte polygonene
 
 ![](images/merge7.png)
 
-##### Klikk på OK for å smelte den minste polygonen sammen med den største
+#### Klikk på `OK` for å smelte den minste polygonen sammen med den største
 
 ![](images/merge8.png) Polygonene vil nå være smeltet sammen.
 
-##### Klikk på (X) for å gå ut av ...
+#### Klikk på (X) for å gå ut av `...`
 
 ![](images/merge9.png)
 
-##### Klikk på (\<-) for å gå ut av ...
+#### Klikk på (\<-) for å gå ut av listen med polygoner
 
 ![](images/merge10.png) ![](images/merge11.png)
 
@@ -640,7 +646,9 @@ For å unngå huller i kartet vil musepekeren automatisk trekkes eller snappes m
 
 ![](images/snapping3.png)
 
-![](images/snapping4.png) Dersom du nå prøver å holde musepekeren over en polygongrense vil du legge merke til at musepekeren ikke lenger snappes automatisk til polygonen.
+![](images/snapping4.png) 
+
+Dersom du nå prøver å holde musepekeren over en polygongrense vil du legge merke til at musepekeren ikke lenger snappes automatisk til polygonen.
 
 #### Topologisk redigering
 
@@ -710,7 +718,9 @@ Dersom du nå prøver å flytte en hjørnekoordinat som er felles for to polygon
 
 #### Klikk på navigeringssymbolet igjen for å zoome til din posisjon
 
-![](images/gps2.png) ![](images/gps3.jpg)
+![](images/gps2.png) 
+
+![](images/gps3.jpg)
 
 Du vil nå se posisjonen din som et blått punkt.
 
@@ -726,27 +736,31 @@ Endre gjennomsiktigheten på kartlagene som ønsket. Dette kan gjøre det enkler
 
 ![](images/visibility2.png)
 
-#### Klikk på skyve... og dra den til siden for å endre på gjennomsiktigheten til kartlaget
+#### Klikk på skyvebaren og dra den til siden for å endre på gjennomsiktigheten til kartlaget
 
 ![](images/visibility3.png)
 
-![](images/visibility4.png) ![](images/visibility5.png)
+![](images/visibility4.png) 
+
+![](images/visibility5.png)
 
 Gjennomsiktigheten på kartlaget vil nå være endret.
 
 ### Registrere punkter
 
-Sørg for at redigeringsmodus er på (se del 2.6.2 Slå på redigeringsmodus) og at du redigerer i riktig kartlag.
+Sørg for at redigeringsmodus er på (se kapittel 2.6.2 Slå på redigeringsmodus) og at du redigerer i riktig kartlag.
 
 ![](images/points.png)
 
-### Klikk i kartvinduet der du vil registrere et punkt
+#### Klikk i kartvinduet der du vil registrere et punkt
 
 ![](images/points2.png) Det vil nå dukke opp et nytt vindu.
 
-### Klikk på den hvite haken i vinduet for å registrere punktet. I vinduet har du muligheten til å velge punktets attributter.
+#### Klikk på den hvite haken i vinduet for å registrere punktet. I vinduet har du muligheten til å velge punktets attributter
 
-![](images/points3.png) ![](images/points4.png)
+![](images/points3.png) 
+
+![](images/points4.png)
 
 Et punkt vil nå være opprettet.
 

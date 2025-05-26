@@ -12,7 +12,7 @@ E. Duplisert hjørnekoordinat
 
 ## Aktiver Topology Checker
 
-### Gå til Plugins i menylinjen og klikk på Manage and Install Plugins...
+### Gå til `Plugins` i menylinjen og klikk på `Manage and Install Plugins...`
 
 ![](images/install_plugin_1.png)
 
@@ -21,7 +21,7 @@ Det vil dukke opp et vindu.
 ### Aktiver Topology Checker
 
 A. Søk etter Topology Checker i søkefeltet\
-B. Huk av Topology Checker
+B. Huk av `Topology Checker`
 
 ![](images/topology_checker.png)
 
@@ -31,7 +31,7 @@ Programtillegget Topology Checker er nå tilgjengelig i QGIS.
 
 ## Finn topologifeil
 
-### Gå til Vector i menylinjen og klikk på Topology Checker
+### Gå til `Vector` i menylinjen og klikk på `Topology Checker`
 
 ![](images/quality.png)
 
@@ -39,7 +39,7 @@ Programtillegget Topology Checker er nå tilgjengelig i QGIS.
 
 Panelet for Topology Checker vil nå dukke opp.
 
-### Klikk på Topology Rule Settings
+### Klikk på `Topology Rule Settings`
 
 ![](images/quality4.png)
 
@@ -47,7 +47,7 @@ Panelet for Topology Checker vil nå dukke opp.
 
 ![](images/quality5.png)
 
-### Velg et av kartlagene
+### Velg én av kartlagene
 
 ![](images/quality6.png)
 
@@ -79,11 +79,11 @@ Kartlaget skal ikke ha invalide geometrier.\
 Kartlaget skal ikke ha geometrier bestående av flere atskilte deler.\
 Kartlaget skal ikke ha overlappende polygoner.
 
-### Klikk på OK
+### Klikk på `OK`
 
 ![](images/quality12.png)
 
-### Klikk på Validate All for å søke basert på de opprettede reglene
+### Klikk på `Validate All` for å søke basert på de opprettede reglene
 
 ![](images/quality13.png)
 
@@ -91,7 +91,7 @@ Kartlaget skal ikke ha overlappende polygoner.
 
 Feilene som ble funnet og hvilken polygon de tilhørerer vil nå dukke opp i panelet.
 
-4.2.2 Klikk på én av feilene i panelet for å zoome inn mot feilen
+### Klikk på én av feilene i panelet for å zoome inn mot feilen
 
 ![](images/fix.png)
 
@@ -107,11 +107,11 @@ Vi anbefaler å behandle overlapp mellom polygoner manuelt med Vertex Tool.
 
 ![](images/fix3.png)
 
-### Klikk på Toggle Editing
+### Klikk på `Toggle Editing`
 
 ![](images/fix4.png)
 
-### Klikk på Vertex Tool
+### Klikk på `Vertex Tool`
 
 ![](images/fix5.png)
 
@@ -133,7 +133,7 @@ Dette gjør du ved å endre på gamle hjørnekoordinater eller ved å opprette n
 
 ![](images/fix9.png)
 
-#### Klikk på Validate All når du har behandlet overlapp mellom polygonene
+#### Klikk på `Validate All` når du har behandlet overlapp mellom polygonene
 
 ![](images/fix10.png)
 
@@ -143,22 +143,22 @@ Legg merke til at overlappen som ble behandlet er borte fra panelet Vi kan hånd
 
 ### Behandle invalide geometrier
 
-#### Klikk på Toolbox
+#### Klikk på `Toolbox`
 
 ![](images/geom.png)
 
 #### Åpne Fix geometries
 
 A. Skriv Fix Geometries i søkefeltet\
-B. Dobbelklikk på Fix geometries
+B. Dobbelklikk på `Fix geometries`
 
 ![](images/geom2.png)
 
-#### Klikk på ...
+#### Klikk på `...`
 
 ![](images/geom6.png)
 
-#### Klikk på Save to File...
+#### Klikk på `Save to File...`
 
 ![](images/geom7.png)
 
@@ -171,7 +171,7 @@ B. Klikk på Save
 
 ![](images/geom4.png)
 
-#### Klikk på Run
+#### Klikk på `Run`
 
 Merk at kartlaget ikke har fått samme stil som det originale kartlaget. Overskriv stilen til det nye kartlaget ved å kopiere stilen til det opprinnelige kartlaget (se del 4.3.5 Endre stil ved kopiering og liming).
 
@@ -179,19 +179,19 @@ Merk at kartlaget ikke har fått samme stil som det originale kartlaget. Overskr
 
 ![](images/geom8.png)
 
-Når du igjen klikker på Validate All vil du se at det ikke er flere invalide geometrier.
+Når du igjen klikker på `Validate All` vil du se at det ikke er flere invalide geometrier.
 
 ### Behandle geometrier med flere atskilte deler
 
-#### Gå til Vector -\> Geometry Tools i menylinjen og klikk på Multipart to Singleparts...
+#### Gå til `Vector` -\> `Geometry Tools` i menylinjen og klikk på `Multipart to Singleparts...`
 
 ![](images/geom11.png)
 
-#### Klikk på ...
+#### Klikk på `...`
 
 ![](images/geom12.png)
 
-#### Klikk på Save to File...
+#### Klikk på `Save to File...`
 
 ![](images/geom13.png)
 
@@ -201,7 +201,7 @@ Når du igjen klikker på Validate All vil du se at det ikke er flere invalide g
 
 ![](images/geom14.png)
 
-#### Klikk på Run
+#### Klikk på `Run`
 
 ![](images/geom15.png)
 
@@ -209,7 +209,7 @@ Merk at kartlaget ikke har fått samme stil som det opprinnelige kartlaget. Over
 
 ![](images/geom16.png)
 
-Når du igjen klikker på Validate All vil du se at det ikke er flere geometrier med flere atskilte deler.
+Når du igjen klikker på `Validate All` vil du se at det ikke er flere geometrier med flere atskilte deler.
 
 ### Behandle hull
 
@@ -217,11 +217,11 @@ Når du igjen klikker på Validate All vil du se at det ikke er flere geometrier
 
 ![](images/geom22.png)
 
-#### Klikk på Toggle Editing
+#### Klikk på `Toggle Editing`
 
 ![](images/geom23.png)
 
-#### Klikk på Add Polygon Feature
+#### Klikk på `Add Polygon Feature`
 
 ![](images/geom24.png)
 
@@ -231,11 +231,11 @@ Når du igjen klikker på Validate All vil du se at det ikke er flere geometrier
 
 Det vil dukke opp et registreringsskjema.
 
-#### Klikk på OK
+#### Klikk på `OK`
 
 ![](images/geom27.png)
 
-#### Gå til View -\> Panels i menylinjen og klikk på Advnaced Digitizing Panel
+#### Gå til `View` -\> `Panels` i menylinjen og klikk på `Advanced Digitizing Panel`
 
 ![](images/geom28.png)
 
@@ -243,7 +243,7 @@ Det vil dukke opp et registreringsskjema.
 
 Det vil dukke opp nye ikoner i verktøylinjen.
 
-#### Klikk på ikonet for Select Features by Area or Single Click
+#### Klikk på ikonet for `Select Features by Area or Single Click`
 
 ![](images/geom30.png)
 
@@ -251,11 +251,11 @@ Det vil dukke opp nye ikoner i verktøylinjen.
 
 ![](images/geom31.png)
 
-#### Hold inne Ctrl og klikk samtidig på en polygon du ønsker å smelte sammen med polygonen i hullet
+#### Hold inne `Ctrl` og klikk samtidig på en polygon du ønsker å smelte sammen med polygonen i hullet
 
 ![](images/geom32.png)
 
-#### Klikk på ikonet for Merge Selected Features
+#### Klikk på ikonet for `Merge Selected Features`
 
 ![](images/geom33.png)
 
@@ -265,11 +265,11 @@ Det vil dukke opp et vindu med attributter for de valgte polygonene.
 
 ![](images/geom34.png)
 
-#### Klikk på ikonet ved siden av Take attributes from selected feature
+#### Klikk på ikonet ved siden av `Take attributes from selected feature`
 
 ![](images/geom35.png)
 
-#### Klikk på OK
+#### Klikk på `OK`
 
 ![](images/geom36.png)
 
@@ -283,13 +283,13 @@ Det vil ikke være mulig å bruke de samme registreringsskjemaene under utfigure
 
 #### Venstreklikk på det opprinnelige kartlaget
 
-#### Gå til Styles -\> Copy Styles og klikk på All Style Categories
+#### Gå til `Styles` -\> `Copy Styles` og klikk på `All Style Categories`
 
 ![](images/geom20.png)
 
 #### Venstreklikk på det nye kartlaget
 
-#### Gå til Styles -\> Paste Styles og klikk på All Style Categories
+#### Gå til `Styles` -\> `Paste Styles` og klikk på `All Style Categories`
 
 ![](images/geom21.png)
 

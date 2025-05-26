@@ -6,7 +6,7 @@
 
 Sørg for at du har tilgang på internett. Dette er nødvendig for å laste ned programtillegget.
 
-### Gå til Plugins i menylinjen og klikk på Manage and Install Plugins...
+### Gå til `Plugins` i menylinjen og klikk på `Manage and Install Plugins...`
 
 ![](images/install_plugin_1.png)
 
@@ -16,7 +16,7 @@ Det vil dukke opp et vindu.
 
 A. Søk etter "Natur i Norge kartlegging" i søkefeltet\
 B. Klikk på "Natur i Norge kartlegging"\
-C. Klikk på Install Plugin
+C. Klikk på `Install Plugin`
 
 ![](images/install_plugin_2.png)
 
@@ -72,20 +72,20 @@ Projeksjon av tredimensjonale data på todimensjonale flater vil alltid medføre
 
 ### Velg hvor prosjektet skal lagres
 
-#### Klikk på ...
+#### Klikk på `...`
 
 ![](images/select_file_path2.png)
 
 Det vil dukke opp et nytt vindu som lar deg navigere til mappen hvor du ønsker å lagre prosjektet.
 
-#### Navigér til mappen hvor du ønsker at prosjektet skal lagres
+#### Naviger til mappen hvor du ønsker at prosjektet skal lagres
 
 #### ![](images/select_folder.png)
 
 #### Velg filnavn
 
-A. Trykk på feltet File name: og skriv inn ønsket filnavn (f.eks. my_qgis_project)\
-B. Klikk på Save
+A. Klikk på feltet `File name:` og skriv inn ønsket filnavn (f.eks. my_qgis_project)\
+B. Klikk på `Save`
 
 ![](images/save_file.png)
 
@@ -101,7 +101,7 @@ Topografiske kart og flybilder er viktige hjelpemidler under kartlegging. Her ka
 
 ![](images/select_map_layers.png)
 
-### Klikk på Lag geopackage-fil og forbered prosjekt nederst i vinduet
+### Klikk på `Lag geopackage-fil og forbered prosjekt` nederst i vinduet
 
 ![](images/create_project_2.png)
 
@@ -133,13 +133,13 @@ Vektordata består av objekter med en gitt geometri -- punkt, linje eller polygo
 
 Last ned relevante vektordata som `.shp`-filer (shapefiler) og lagre dem samlet i en mappe før du importerer dem til QGIS.
 
-#### 1.3.1.1 Gå til Layer i menylinjen, deretter Add Layer, og klikk på Add Vector Layer...
+#### 1.3.1.1 Gå til `Layer` -\> `Add Layer` i menylinjen og klikk på `Add Vector Layer...`
 
 ![](images/add_vector.png)
 
 Det vil nå dukke opp et vindu.
 
-#### Klikk på ...
+#### Klikk på `...`
 
 ![](images/add_vector2.png)
 
@@ -150,11 +150,11 @@ Det vil nå dukke opp et vindu.
 #### Velg fil
 
 A. Klikk på filen\
-B. Klikk på Open
+B. Klikk på `Open`
 
 ![](images/add_vector3.png)
 
-#### Klikk på Add
+#### Klikk på `Add`
 
 ![](images/add_vector4.png)
 
@@ -170,13 +170,13 @@ Rasterdata består av et rutenett der hver rute (celle) har én verdi. Formatet 
 
 Last ned rasterdata som `.tif`-filer og lagre dem i en mappe før import i QGIS.
 
-#### Gå til Layer i menylinjen, deretter Add Layer, og klikk på Add Raster Layer...
+#### Gå til `Layer` -\> `Add Layer` i menylinjen og klikk på `Add Raster Layer...`
 
 ![](images/add_raster.png)
 
 Det vil nå dukke opp et vindu.
 
-#### Klikk på ...
+#### Klikk på `...`
 
 ![](images/add_raster2.png)
 
@@ -187,11 +187,11 @@ Det vil nå dukke opp et vindu.
 #### Velg fil
 
 A. Klikk på filen\
-B. Klikk på Open
+B. Klikk på `Open`
 
 ![](images/add_raster4.png)
 
-#### Klikk på Add
+#### Klikk på `Add`
 
 ![](images/add_raster5.png)
 
