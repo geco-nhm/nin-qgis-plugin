@@ -1,4 +1,4 @@
-# Introduksjon
+# Introduksjon {#introduksjon}
 
 ## Bakgrunn
 
@@ -47,7 +47,7 @@ Veilederen legger opp til en todelt arbeidsflyt med QGIS og QField, men det finn
 
 -   Hele arbeidsflyten kan gjennomføres kun i QGIS, hvis ønskelig
 -   Enheter med eller uten berøringsskjerm kan brukes i alle faser
--   Både Windows og iOS-systemer kan brukes 
+-   Både Windows og iOS-systemer kan brukes
 -   Brukeren velger løsningen som passer best ut fra tilgjengelig utstyr og arbeidsforhold
 
 ## Hva inneholder veilederen?
@@ -66,7 +66,9 @@ Veilederen gir deg innsikt i følgende:
 
 -   [Last ned QGIS](https://qgis.org)
 -   [Last ned QField](https://qfield.org)
--   [NiN-plugin (Natur i Norge)](https://github.com/Artsdatabanken/nin-innsyn)
 -   [Artsdatabanken -- Natur i Norge](https://www.artsdatabanken.no/Pages/135548)
 
-### [Neste kapittel](chapter_2_equipment.Rmd) {.unnumbered}
+::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
+<div>← <a href="index.html">Gå til forsiden</a></div>
+<div><a href="feltutstyr.html">Gå til neste kapittel</a> →</div>
+:::

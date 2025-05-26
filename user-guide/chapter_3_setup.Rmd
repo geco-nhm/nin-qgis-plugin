@@ -197,4 +197,7 @@ B. Klikk på `Open`
 
 Filen vil nå være lagt inn i prosjektet.
 
-[Neste kapittel](chapter_4_export.Rmd)
+::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
+<div>← <a href="feltutstyr.html">Gå til forrige kapittel</a></div>
+<div><a href="eksportere-prosjekt.html">Gå til neste kapittel</a> →</div>
+:::

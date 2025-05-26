@@ -1,25 +1,22 @@
 ---
-title: "Veiledning i bruk av programtillegget NiN-kartlegging"
-author: "Navn"
 output: bookdown::gitbook
 documentclass: book
 site: bookdown::bookdown_site
 ---
 
-
-# Veiledning i bruk av programtillegget NiN-kartlegging
+# Veiledning i bruk av programtillegget NiN-kartlegging {.unnumbered #forside}
 
 Velkommen til veilederen for NiN-kartlegging i QGIS og QField.
 
-## Innhold
+## Innhold {.unnumbered}
 
-Kapitlene finner du i menyen til venstre, men her er en oversikt:
+- [1 Introduksjon](#introduksjon)  
+- [2 Feltutstyr](#feltutstyr)  
+- [3 Oppsett og tilrettelegging](#oppsett-og-tilrettelegging)  
+- [4 Eksportere prosjekt](#eksportere-prosjekt)  
+- [5 Kartlegging](#kartlegging)  
+- [6 Kvalitetssikring](#kvalitetssikring)
 
-1.  [Introduksjon](chapter_1_introduction.Rmd)\
-2.  [Feltutstyr](chapter_2_equipment.Rmd)\
-3.  [Oppsett og tilrettelegging](chapter_3_setup.Rmd)\
-4.  [Import og eksport](chapter_4_export.Rmd)\
-5.  [Feltkartlegging](chapter_5_mapping.Rmd)\
-6.  [Kvalitetskontroll](chapter_6_troubleshooting.Rmd)
-
-[Neste kapittel](chapter_1_introduction.Rmd)
+::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
+<div><a href="introduksjon.html">Gå til neste kapittel</a> →</div>
+:::

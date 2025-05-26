@@ -296,3 +296,8 @@ Det vil ikke være mulig å bruke de samme registreringsskjemaene under utfigure
 ![](images/style.png)
 
 Stilen vil nå bli den samme som i det opprinnelige kartlaget.
+
+::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
+<div>← <a href="kartlegging.html">Gå til forrige kapittel</a></div>
+<div><a href="index.html">Gå til forsiden</a> →</div>
+:::

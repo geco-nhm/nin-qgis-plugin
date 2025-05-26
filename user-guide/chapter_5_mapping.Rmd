@@ -116,7 +116,7 @@ Du vil nå lære hvordan du kan redigere kartlag. Vi har zoomet inn på kartlegg
 
 ![](images/polygon_visibility2.png)Kartlaget har ingen registrerte polygoner og det vil derfor ikke skje noe i kartvinduet ennå.
 
-### Slå på redigeringsmodus
+### Slå på redigeringsmodus {#redigeringsmodus}
 
 #### Klikk på kartlaget du ønsker å redigere (f.eks. nin_polygons) slik at knappen lyser grønt
 
@@ -748,13 +748,15 @@ Gjennomsiktigheten på kartlaget vil nå være endret.
 
 ### Registrere punkter
 
-Sørg for at redigeringsmodus er på (se kapittel 2.6.2 Slå på redigeringsmodus) og at du redigerer i riktig kartlag.
+Sørg for at redigeringsmodus er på (se kapittel \@ref(redigeringsmodus)) og at du redigerer i riktig kartlag.
 
 ![](images/points.png)
 
 #### Klikk i kartvinduet der du vil registrere et punkt
 
-![](images/points2.png) Det vil nå dukke opp et nytt vindu.
+![](images/points2.png) 
+
+Det vil nå dukke opp et nytt vindu.
 
 #### Klikk på den hvite haken i vinduet for å registrere punktet. I vinduet har du muligheten til å velge punktets attributter
 
@@ -770,7 +772,7 @@ Et punkt vil nå være opprettet.
 
 ![](images/return_home.png)
 
-#### Klikk på Return home
+#### Klikk på `Return home`
 
 ![](images/return_home2.png)
 
@@ -792,8 +794,11 @@ Du vil nå se hovedmenyen.
 
 ![](images/push3.png)
 
-A. Klikk på Synchronize for å både laste opp endringer til og laste ned endringer fra QField Cloud 
-B. Klikk på Push changes for å både laste opp endringer til QField Cloud 
-C. Klikk på Revert changes for å avbryte endringene som er gjort
+A. Klikk på `Synchronize` for å både laste opp endringer til og laste ned endringer fra QField Cloud 
+B. Klikk på `Push changes` for å både laste opp endringer til QField Cloud 
+C. Klikk på `Revert local changes` for å avbryte endringene som er gjort
 
-[Neste kapittel](chapter_4_troubleshooting.Rmd)
+::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
+<div>← <a href="eksportere-prosjekt.html">Gå til forrige kapittel</a></div>
+<div><a href="kvalitetssikring.html">Gå til neste kapittel</a> →</div>
+:::
