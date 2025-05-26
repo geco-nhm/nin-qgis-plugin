@@ -11,6 +11,8 @@ The user is presented with several options for customizing the QGIS project.
 
 This creates a QGIS project file and a geopackage file with the selected Type system and the underlying selected Major Type Groups. Mapping units are adjusted based on the selected mapping scale. 
 
+![](../user-guide/images/plugin_workflow.png)
+
 ## Getting Started
 
 1. open QGIS
