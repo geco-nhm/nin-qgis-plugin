@@ -66,8 +66,11 @@ Veilederen gir deg innsikt i følgende:
 ## Nyttige lenker og ressurser
 
 -   [Last ned QGIS](https://qgis.org)
+-   [Hjelpeside for QGIS](https://docs.qgis.org/3.34/en/docs/training_manual/index.html)
 -   [Last ned QField](https://qfield.org)
+-   [Hjelpeside for QField](https://docs.qfield.org/get-started/tutorials/get-started-qfs/)
 -   [Artsdatabanken -- Natur i Norge](https://naturinorge.artsdatabanken.no/)
+-   [Systemdokumentasjon og kartleggingsveiledere -- Natur i Norge](https://artsdatabanken.no/Pages/345456)
 
 ::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
 <div>
