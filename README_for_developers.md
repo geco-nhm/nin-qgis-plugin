@@ -49,6 +49,14 @@ To use the plugin in QGIS, create a symbolic link from the plugin folder to the 
 
 ```powershell
 New-Item -ItemType SymbolicLink `
+  -Path "<path_to_qgis>\QGIS3\profiles\default\python\plugins\nin-qgis-plugin" `
+  -Target "<path_to_nin_qgis_plugin>\nin_qgis_plugin"
+```
+
+For example, with a default QGIS installation path:
+
+```powershell
+New-Item -ItemType SymbolicLink `
   -Path "C:\Users\<user>\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\nin-qgis-plugin" `
   -Target "C:\Users\<user>\Documents\GitHub\nin-qgis-plugin\nin_qgis_plugin"
 ```
@@ -69,8 +77,10 @@ New-Item -ItemType SymbolicLink `
 python3 create_attribute_meta_tables.py
 ```
 
-* Creates CSV field definitions for each attribute table, based on `attribute_meta.json`.
-* Used to define field names, types, lengths, and precision in the GPKG layers.
+* Creates `csv` files with QGIS field definitions for each attribute table based on `attribute_meta.json`
+* `attribute_meta.json` defines field names, types, lengths, and precision in the GPKG layers.
+* Edit `attribute_meta.json` if you need to add or remove fields from attribute tables, or when you need to create new ones.
+* Resulting `csv` files stored in `<root>/nin_qgis_plugin_/csv/layer_fields_meta` by default (note: save path defined in `config.toml`).
 
 ---
 
@@ -80,7 +90,9 @@ python3 create_attribute_meta_tables.py
 python3 create_type_tables_from_api.py
 ```
 
-* Queries the NiN Kode API to build the type structure: `typer`, `hovedtypegrupper`, `hovedtyper`, `grunntyper`, and mapping unit tables (`M005`, `M020`, `M050`).
+* Queries the NiN Kode API to build QGIS attribute tables for: `typer`, `hovedtypegrupper`, `hovedtyper`, `grunntyper`, and mapping unit tables (`M005`, `M020`, `M050`).
+* Defines relations between hierarchical levels (e.g., which `hovedtype` a `grunntype` belongs to) by creating a column with IDs/keys.
+* Resulting attribute table `csv` files stored in `<root>/nin_qgis_plugin_/csv/attribute_tables` by default (note: save path defined in `config.toml`).
 * Excludes variable definitions (see below).
 
 ---
@@ -92,7 +104,7 @@ python3 add_limniske_vannmasse_to_kle.py
 ```
 
 * Adds `NA-F Limniske vannmassesystemer` entries as `grunntyper` to mapping units (`M005`, `M020`, `M050`).
-* Applies a hardcoded fix to maintain completeness.
+* Applies a hardcoded fix to maintain completeness. Use with caution.
 
 ---
 
@@ -103,7 +115,7 @@ pip install requests tqdm
 python3 create_variable_tables_from_api.py
 ```
 
-* Fetches and links NiN variables to their associated `grunntyper`.
+* Fetches NiN variables from the API and links them to their associated `grunntyper`.
 * Creates `all_variables.csv` and `var_grunntyper_attribute_table.csv`.
 * Depends on `requests` and `tqdm`.
 
@@ -132,11 +144,9 @@ python3 generate_api_version_info.py
 
 ---
 
-Let me know if you'd like this output as a `README.md`, or incorporated into an existing documentation framework.
-
-
 # Under the hood
-short description which changes are happening in which file
+
+Short description which changes are happening in which file.
 
 ---
 
