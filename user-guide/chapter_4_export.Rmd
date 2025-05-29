@@ -1,4 +1,4 @@
-# Eksportere prosjekt {#eksportere-prosjekt}
+# Eksportere og importeree prosjekt {#eksportere-prosjekt}
 
 For å eksportere prosjektet må programtillegget QFieldSync lastes ned. Prosjektet kan deretter eksporteres fra QGIS på én enhet til QField på en annen enhet ved hjelp av kabel eller via QFieldCloud.
 
@@ -42,7 +42,7 @@ Prosjektet er nå klar til å åpnes på enheten med QField.
 
 ## Importer prosjekt ved hjelp av kabel
 
-På samme måte er det mulig å importere prosjektet i QGIS. Først må du sørge for at enhetene er koblet sammen via kabelen.
+Man kan også importere prosjektet fra QField til QGIS. Først må du sørge for at enhetene er koblet sammen via kabelen.
 
 ### Klikk på ikonet for `Synchronize Project`
 
@@ -156,7 +156,7 @@ Prosjektet vil nå være eksportert til QFieldCloud og det kan nå åpnes på de
 
 ## Importer prosjektet gjennom QFieldCloud
 
-Før du kan importere prosjektet i QGIS må du sørge for at endringene som er gjort i QField er lastet opp til QFieldCloud (se \@ref(import-qfieldcloud) [Legg inn prosjekt i QFieldCloud](#import-qfieldcloud)). Importering av prosjektet i QGIS er kun mulig med internett-tilgang.
+Før du kan importere prosjektet i QGIS må du sørge for at endringene som er gjort i QField, er lastet opp til QFieldCloud (se \@ref(import-qfieldcloud) [Legg inn prosjekt i QFieldCloud](#import-qfieldcloud)). Import av prosjektet til QGIS er kun mulig med internett-tilgang.
 
 ### Klikk på ikonet for QFieldCloud Projects Overview
 
@@ -191,7 +191,7 @@ Det vil nå dukke opp et nytt vindu.
 
 ![](images/import_cloud9.png)
 
-Endringene vil nå synkroniseres og prosjektet vil åpnes i QGIS.
+Prosjektet vil nå bli lastet ned fra skya og bli åpnet i QGIS.
 
 ::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
 <div>
