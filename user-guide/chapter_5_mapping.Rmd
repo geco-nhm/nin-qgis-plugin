@@ -1,6 +1,6 @@
 # Kartlegging {#kartlegging}
 
-I denne delen viser vi hvordan man kan bruke QField for kartlegging i prosjekter som er opprettet med programtillegget *"Natur i Norge"-kartlegging*. Det er også mulig å bruke QGIS for feltkartlegging. Dersom du trenger veiledningsmateriale for kartlegging i QGIS kan du klikke på [denne lenken](https://docs.qgis.org/3.40/en/docs/user_manual/index.html).
+I denne delen viser vi hvordan man kan bruke QField for kartlegging i prosjekter som er opprettet med programtillegget "Natur i Norge"-kartlegging. Det er også mulig å bruke QGIS for feltkartlegging. Dersom du trenger veiledningsmateriale for kartlegging i QGIS, kan du klikke på [denne lenken](https://docs.qgis.org/3.40/en/docs/user_manual/index.html).
 
 ## Åpne prosjekt i QField
 
@@ -122,7 +122,7 @@ Du vil nå lære hvordan du kan redigere kartlag. Vi har zoomet inn på kartlegg
 
 #### Klikk på symbolet med redigeringspennen for å slå på redigeringsmodus
 
-Symbolet vil nå lyse opp i grønt. Hvis du vil avslutte redigeringsmodus kan du klikke på symbolet igjen.
+Symbolet vil nå lyse opp i grønt. Hvis du vil avslutte redigeringsmodus, kan du klikke på symbolet igjen.
 
 ![](images/digitisation_pen.png)
 
@@ -258,7 +258,7 @@ Dersom kartleggingsenheten dekker mindre enn 100 % av polygonens areal, må du r
 
 ![](images/mosaic4.png)
 
-Hvis det gjenstår 20 % eller mer areal etter at kartleggingsenhet 1 og kartleggingsenhet 2 er registrert må det legges til en tredje kartleggingsenhet på samme måte som for kartleggingsenhet 2. Merk igjen at alle de registrerte kartleggingsenhetene må dekke til sammen 100 %. Altså vil kartleggingsenheter som dekker mindre enn 20 % ikke bli registrert.
+Hvis det gjenstår 20 % eller mer areal etter at kartleggingsenhet 1 og kartleggingsenhet 2 er registrert, må det legges til en tredje kartleggingsenhet på samme måte som for kartleggingsenhet 2. Merk igjen at alle de registrerte kartleggingsenhetene må dekke til sammen 100 %. Altså vil kartleggingsenheter som dekker mindre enn 20 %, ikke bli registrert.
 
 ##### Klikk på den hvite haken for å registrere polygonen
 
@@ -308,7 +308,7 @@ Redigeringen vil nå bli gjort om igjen.
 
 ### Utfigurer og registrer nye polygoner
 
-For å forhindre overlappende polygoner vil nye polygoner som utfigureres automatisk klippes mot de eksisterende polygonene. Du kan derfor trygt opprette hjørnekoordinater innenfor en allerede eksisterende polygon. Det samme vil skje om du utfigurerer en polygon rundt en annen.
+For å forhindre overlappende polygoner vil nye polygoner som utfigureres, automatisk klippes mot de eksisterende polygonene. Du kan derfor trygt opprette hjørnekoordinater innenfor en allerede eksisterende polygon. Det samme vil skje om du utfigurerer en polygon rundt en annen.
 
 ![](images/neighbour_polygon.png)
 
@@ -783,11 +783,13 @@ Et punkt vil nå være opprettet.
 
 Du vil nå se hovedmenyen.
 
-## Synkronisere med QFieldCloud
+## Overføre registreringer/endringer til QFieldCloud
 
 ### Klikk på menyknappen
 
 ![](images/push.png)
+
+Da ser man at skya har fått et siffer på seg. Det betyr at prosjektet på enheten er ulik kopien av prosjektet som ligger i skya. I dette tilfellet er det gjeort en registrering/endring. Denne registreringen skal vi nå overføre til skya.
 
 ### Klikk på ikonet for QFieldCloud
 
@@ -797,7 +799,10 @@ Du vil nå se hovedmenyen.
 
 ![](images/push3.png)
 
-A. Klikk på `Synchronize` for å både laste opp endringer til og laste ned endringer fra QFieldCloud  B. Klikk på `Push changes` for å både laste opp endringer til QFieldCloud  C. Klikk på `Revert local changes` for å avbryte endringene som er gjort
+Klikk på 'Push changes' for å overføre registreringa til prosjektkopien som ligger i skya. Dermed oppdateres prosjektet i skya slik at prosjektet i skya (QFieldCloud) er lik prosjektet som ligger lagret lokalt på nettbrettet.\
+
+`Synchronize` vil laste den versjonen av prosjektet som til enhver tid ligger i skya (QFieldCloud) ned til nettbrettet og overskrive eksisterende prosjekt.\
+Klikk på `Revert local changes` for å avbryte endringene som er gjort
 
 ::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
 <div>
