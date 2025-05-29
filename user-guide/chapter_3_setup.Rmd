@@ -66,7 +66,7 @@ Et prosjekt kan kun inneholde ett typesystem, men det er mulig å velge flere ho
 
 ### Huk av én av boksene for å velge koordinatsystem
 
-Projeksjon av tredimensjonale data på todimensjonale flater vil alltid medføre forvrengninger. Graden av forvrengning varierer mellom ulike områder, avhengig av hvilket koordinatsystem som benyttes. Derfor bør koordinatsystemet velges ut fra hvor kartleggingen skal foregå.
+Man kan kartlegge i meter (UTM-sone) eller i geografiske koordinater (lengde- og breddegrad). Ønsker man UTM-koordinater, velger man sone (32, 33 eller 35) ut fra hvor kartleggingen skal foregå. Sone 32 inkluderer Sør-Norge t.o.m. Trøndelag. Sone 33 brukes for Nordland og Troms, mens sone 35 brukes for Finnmark.
 
 ![](images/select_crs.png)
 
@@ -105,7 +105,7 @@ Topografiske kart og flybilder er viktige hjelpemidler under kartlegging. Her ka
 
 ![](images/create_project_2.png)
 
-Et prosjekt med filnavnet `NiN_kartlegging.qgz` vil nå opprettes automatisk med den oppgitte filplasseringen. I tillegg vil det opprettes en `.gpkg-fil` med kartlag og tabeller. Prosjektet med `.gpkg-filen` kan igjen åpnes fra denne filplasseringen senere. Kartlagene vil åpnes med prosjektet med mindre `.gpkg-filen` flyttes til et annet område. `.gpkg-filen` inneholder følgende:
+Et prosjekt med filnavnet `NiN_kartlegging.qgz` blir nå opprettet automatisk i den oppgitte filplasseringen. I tillegg vil det opprettes en `.gpkg-fil` med kartlag og tabeller. Prosjektet med `.gpkg-filen` kan igjen åpnes fra denne filplasseringen senere. Kartlagene vil åpnes med prosjektet med mindre `.gpkg-filen` flyttes til et annet område. `.gpkg-filen` inneholder følgende:
 
 ![](images/layers_1.png)
 
@@ -117,7 +117,7 @@ Et prosjekt med filnavnet `NiN_kartlegging.qgz` vil nå opprettes automatisk med
 **Importerte kartlag (avhengig av valgene i vinduet):**\
 *Topografisk norgeskart* -- landsdekkende kart med høydekoter og hovedøkosystemer som farger\
 *Topografisk norgeskart gråtone* -- landsdekkende kart med høydekoter og hovedøkosystemer i gråtoner\
-*Nibcache_UTM32_EUREF89_v2* -- landsdekkende sammenstilte flybilder
+*Nibcache_UTM32_EUREF89_v2* -- landsdekkende sammenstilte nyeste flybilder
 
 ## Tilpass prosjekt {#tilpass-prosjekt}
 
@@ -125,13 +125,13 @@ Et prosjekt med filnavnet `NiN_kartlegging.qgz` vil nå opprettes automatisk med
 
 Vektordata består av objekter med en gitt geometri -- punkt, linje eller polygon -- der hvert objekt representerer én verdi eller egenskap.
 
--   **Punkter** har en posisjon, men verken lengde eller areal. Et eksempel er artsobservasjoner, som kan være nyttige under naturtypekartlegging. Slike data kan lastes ned fra [Artsdatabanken](https://www.artsdatabanken.no).
+-   **Punkter** har en posisjon, men verken lengde eller areal. Et eksempel er artsobservasjoner, som kan være nyttige under naturtypekartlegging.
 
--   **Linjer** registreres med hjørnekoordinater, har lengde, men ikke areal. Et eksempel er høydekoter, som gir informasjon om terreng og topografi. Topografiske forhold påvirker fuktighet, vindeksponering og solinnstråling -- faktorer som er avgjørende for naturtypers utbredelse. Høydekoter kan lastes ned fra [Kartverket](https://www.kartverket.no).
+-   **Linjer** registreres med hjørnekoordinater, har lengde, men ikke areal. Et eksempel er høydekoter, som gir informasjon om terrenget. Topografiske forhold påvirker fuktighet, vindeksponering og solinnstråling -- faktorer som er avgjørende for naturtypers utbredelse. Høydekurver fra N50 kan fritt lastes ned fra [geonorge](https://kartkatalog.geonorge.no/metadata/n50-kartdata/ea192681-d039-42ec-b1bc-f3ce04c189ac?search=n50). FKB-Høydekurve krever at man har brukernavn og passord.
 
--   **Polygoner** har både lengde og areal. Et polygonkartlag over verneområder fra [Miljødirektoratet](https://www.miljodirektoratet.no) kan være nyttig, eller man kan lage egne polygonlag for å avgrense studieområdet.
+-   **Polygoner** har både lengde og areal. Et polygonkartlag over verneområder fra kan være nyttig, eller man kan lage egne polygonlag for å avgrense studieområdet.
 
-Last ned relevante vektordata som `.shp`-filer (shapefiler) og lagre dem samlet i en mappe før du importerer dem til QGIS.
+Relevante vektordata kan lastes ned fra [geonorge] (https://www.geonorge.no) hvor man kan taste inn navnet på datasettet man søker, f.eks. artsobs og vern. Da får man opp ei liste med tilgjengelige datasett. Enkelte datasett vil kreve innlogging (at man har brukernavn og passord). F.eks. er Høydekurver fra N50 fritt tilgjengelig fra [geonorge](https://kartkatalog.geonorge.no/metadata/n50-kartdata/ea192681-d039-42ec-b1bc-f3ce04c189ac?search=n50), mens  FKB-Høydekurve krever innlogging. Lagre nedlasta data i ei mappe før du laster dem inn i QGIS.
 
 #### 1.3.1.1 Gå til `Layer` &#8594; `Add Layer` i menylinjen og klikk på `Add Vector Layer...`
 
@@ -164,11 +164,11 @@ Filen vil nå være lagt inn i prosjektet.
 
 Rasterdata består av et rutenett der hver rute (celle) har én verdi. Formatet brukes ofte for bilder og modellerte kart, og egner seg godt til visualisering av bakgrunnsdata.
 
--   **Flybilder** er viktige hjelpemidler i naturtypekartlegging. Dersom du har tilgang på flybilder av høyere kvalitet enn det som er tilgjengelig i WMS-kartlaget som importeres via programtillegget, kan disse importeres manuelt. Historiske flyfoto kan også gi verdifull informasjon om tidligere landskapsbruk og endringer over tid. Flybilder kan lastes ned fra [Norge i bilder](https://www.norgeibilder.no/).
+-   **Flybilder** er viktige hjelpemidler i naturtypekartlegging. Dersom du har tilgang på flybilder av høyere kvalitet enn det som er tilgjengelig i WMS-kartlaget som importeres via programtillegget, kan disse importeres manuelt. Historiske flyfoto kan også gi verdifull informasjon om tidligere landskapsbruk og endringer over tid. Flybilder kan lastes ned fra [Norge i bilder](https://www.norgeibilder.no/) om man har brukernavn og passord.
 
--   **Terrengmodeller** viser høyden på bakken over havet, og er nyttige for å analysere terreng og topografiske forhold. **Overflatemodeller** inkluderer i tillegg bygninger, trær og annen vegetasjon som stikker opp fra bakken. Begge typer modeller kan lastes ned fra [Høydedata.no](https://www.hoydedata.no/).
+-   **Terrengmodeller** viser høyden på bakken over havet og er nyttige for å analysere terreng og topografiske forhold. **Overflatemodeller** inkluderer i tillegg bygninger, trær og annen vegetasjon som stikker opp fra bakken. Begge typer modeller kan lastes ned fra [Høydedata.no](https://www.hoydedata.no/).
 
-Last ned rasterdata som `.tif`-filer og lagre dem i en mappe før import i QGIS.
+Last ned rasterdata som `.tif` eller '.GeoTIFF'-filer og lagre dem i en mappe før import i QGIS.
 
 #### Gå til `Layer` → `Add Layer` i menylinjen og klikk på `Add Raster Layer...`
 
