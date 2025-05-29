@@ -13,7 +13,7 @@ Velkommen til veilederen for NiN-kartlegging i QGIS og QField.
 -   [1 Introduksjon](#introduksjon)\
 -   [2 Feltutstyr](#feltutstyr)\
 -   [3 Oppsett og tilrettelegging](#oppsett-og-tilrettelegging)\
--   [4 Eksportere prosjekt](#eksportere-prosjekt)\
+-   [4 Eksportere og importere prosjekt](#eksportere-prosjekt)\
 -   [5 Kartlegging](#kartlegging)\
 -   [6 Kvalitetssikring](#kvalitetssikring)
 
