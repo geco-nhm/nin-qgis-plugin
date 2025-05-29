@@ -1,4 +1,4 @@
-# Eksportere og importeree prosjekt {#eksportere-prosjekt}
+# Eksportere og importere prosjekt {#eksportere-prosjekt}
 
 For å eksportere prosjektet må programtillegget QFieldSync lastes ned. Prosjektet kan deretter eksporteres fra QGIS på én enhet til QField på en annen enhet ved hjelp av kabel eller via QFieldCloud.
 
