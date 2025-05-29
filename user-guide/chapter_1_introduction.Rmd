@@ -6,11 +6,11 @@ I forbindelse med lanseringen av Natur i Norge (NiN) versjon 3.0 har vi utviklet
 
 Kartlegging etter dagens standard stiller økte krav til bruk av digitale verktøy, særlig når det gjelder innsamling, strukturering og kvalitetssikring av data. NiN 3.0 introduserer dessuten flere endringer og presiseringer i hvordan naturtyper skal beskrives og dokumenteres. Det stiller høyere krav til at arbeidsflyten er både enhetlig og faglig korrekt.
 
-Programtillegget gjør det mulig å følge NiNs metodikk på en strukturert måte. Brukeren velger relevante spesifikasjoner -- som typesystem, målestokk og koordinatsystem -- og programtillegget oppretter automatisk et QGIS-prosjekt med nødvendige kartlag og innstillinger. Det legges også til rette for eksport til QField, slik at kartleggingen kan gjennomføres effektivt i felt.
+Programtillegget gjør det mulig å følge NiNs metodikk på en strukturert måte. Brukeren velger relevante spesifikasjoner som typesystem, målestokk og koordinatsystem, og programtillegget oppretter automatisk et QGIS-prosjekt med nødvendige kartlag og innstillinger. Det legges også til rette for eksport til QField slik at kartleggingen kan gjennomføres effektivt i felt.
 
 ## Formålet med veilederen
 
-Denne veilederen er laget for fagpersoner som arbeider med kartlegging etter NiN-systemet, for eksempel i offentlig forvaltning, konsulentbransjen eller akademia. Veilederen forutsetter at brukeren har grunnleggende kompetanse i NiN-kartlegging og kartografi.
+Denne veilederen er laget for fagpersoner som arbeider med kartlegging etter NiN-systemet, for eksempel i offentlig forvaltning, konsulentbransjen eller akademia. Veilederen forutsetter at brukeren har grunnleggende kompetanse i NiN-kartlegging.
 
 Hensikten er å gi en praktisk innføring i bruken av programtillegget som benyttes til å forberede, gjennomføre og etterbehandle kartleggingsprosjekter i tråd med NiN-systemet. Arbeidsflyten inkluderer både bruk av QGIS og QField.
 
@@ -35,7 +35,7 @@ I denne veiledningen brukes QGIS på stasjonære datamaskiner eller bærbare PC-
 
 #### QField -- feltkartlegging {.unnumbered}
 
-I denne veiledningen brukes QField på mobile enheter med berøringsskjerm, som nettbrett eller mobiltelefoner. Det er en fordel at enheten har innebygd GPS for å sikre nøyaktig posisjonering. QField brukes her til feltarbeid og inkluderer:
+I denne veiledningen brukes QField på mobile enheter med berøringsskjerm, som nettbrett eller mobiltelefoner. Det er en fordel at enheten har innebygd GNSS-mottaker (aka GPS) for å sikre nøyaktig posisjonering. QField brukes her til feltarbeid og inkluderer:
 
 -   Import og eksport av prosjekt
 -   Registrering av polygoner og attributter
@@ -46,9 +46,9 @@ I denne veiledningen brukes QField på mobile enheter med berøringsskjerm, som 
 
 Veilederen legger opp til en todelt arbeidsflyt med QGIS og QField, men det finnes flere muligheter:
 
--   Hele arbeidsflyten kan gjennomføres kun i QGIS, hvis ønskelig
+-   Hele arbeidsflyten kan gjennomføres kun i QGIS hvis ønskelig
 -   Enheter med eller uten berøringsskjerm kan brukes i alle faser
--   Både Windows og iOS-systemer kan også brukes
+-   Både Windows og iOS kan brukes
 -   Brukeren velger løsningen som passer best ut fra tilgjengelig utstyr og arbeidsforhold
 
 ## Hva inneholder veilederen?
@@ -57,7 +57,7 @@ Veilederen gir deg innsikt i følgende:
 
 -   Installering og oppsett av programtillegget i QGIS
 -   Opprettelse og tilpasning av kartleggingsprosjekt
--   Eksport og import av prosjekt til QGIS og QField
+-   Eksport og import av prosjekt fra/til QGIS og QField
 -   Registrering av naturtyper og tilhørende attributter i felt
 -   Redigering av kartlag i QField
 -   Praktiske tips for NiN-kartlegging
@@ -66,9 +66,9 @@ Veilederen gir deg innsikt i følgende:
 ## Nyttige lenker og ressurser
 
 -   [Last ned QGIS](https://qgis.org)
--   [Hjelpeside for QGIS](https://docs.qgis.org/3.34/en/docs/training_manual/index.html)
--   [Last ned QField](https://qfield.org)
--   [Hjelpeside for QField](https://docs.qfield.org/get-started/tutorials/get-started-qfs/)
+-   [Hjelpeside for QGIS](https://docs.qgis.org/latest/en/docs/training_manual/index.html)
+-   [Last ned QField](https://docs.qfield.org/get-started/)
+-   [Hjelpeside for QField](https://docs.qfield.org/)
 -   [Artsdatabanken -- Natur i Norge](https://naturinorge.artsdatabanken.no/)
 -   [Systemdokumentasjon og kartleggingsveiledere -- Natur i Norge](https://artsdatabanken.no/Pages/345456)
 
