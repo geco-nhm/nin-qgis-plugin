@@ -106,7 +106,7 @@
 <li class="chapter" data-level="3.3.2" data-path="oppsett-og-tilrettelegging.html"><a href="oppsett-og-tilrettelegging.html#legge-til-rasterdata"><i class="fa fa-check"></i><b>3.3.2</b> Legge til rasterdata</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="eksportere-prosjekt.html"><a href="eksportere-prosjekt.html"><i class="fa fa-check"></i><b>4</b> Eksportere prosjekt</a>
+<li class="chapter" data-level="4" data-path="eksportere-prosjekt.html"><a href="eksportere-prosjekt.html"><i class="fa fa-check"></i><b>4</b> Eksportere og importere prosjekt</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="eksportere-prosjekt.html"><a href="eksportere-prosjekt.html#eksporter-prosjekt-ved-hjelp-av-kabel"><i class="fa fa-check"></i><b>4.1</b> Eksporter prosjekt ved hjelp av kabel</a>
 <ul>
@@ -200,7 +200,7 @@
 <li class="chapter" data-level="5.7.6" data-path="kartlegging.html"><a href="kartlegging.html#gjøre-om-igjen"><i class="fa fa-check"></i><b>5.7.6</b> Gjøre om igjen</a></li>
 <li class="chapter" data-level="5.7.7" data-path="kartlegging.html"><a href="kartlegging.html#utfigurer-og-registrer-nye-polygoner"><i class="fa fa-check"></i><b>5.7.7</b> Utfigurer og registrer nye polygoner</a></li>
 <li class="chapter" data-level="5.7.8" data-path="kartlegging.html"><a href="kartlegging.html#rediger-utfigurering-til-eksisterende-polygoner"><i class="fa fa-check"></i><b>5.7.8</b> Rediger utfigurering til eksisterende polygoner</a></li>
-<li class="chapter" data-level="5.7.9" data-path="kartlegging.html"><a href="kartlegging.html#rediger-attributter-for-eksisterende-polygoner"><i class="fa fa-check"></i><b>5.7.9</b> Rediger attributter for eksisterende polygoner</a></li>
+<li class="chapter" data-level="5.7.9" data-path="kartlegging.html"><a href="kartlegging.html#rediger-attributter"><i class="fa fa-check"></i><b>5.7.9</b> Rediger attributter for eksisterende polygoner</a></li>
 <li class="chapter" data-level="5.7.10" data-path="kartlegging.html"><a href="kartlegging.html#slette-polygoner"><i class="fa fa-check"></i><b>5.7.10</b> Slette polygoner</a></li>
 <li class="chapter" data-level="5.7.11" data-path="kartlegging.html"><a href="kartlegging.html#sammensmelte-polygoner"><i class="fa fa-check"></i><b>5.7.11</b> Sammensmelte polygoner</a></li>
 <li class="chapter" data-level="5.7.12" data-path="kartlegging.html"><a href="kartlegging.html#redigeringsinnstillinger"><i class="fa fa-check"></i><b>5.7.12</b> Redigeringsinnstillinger</a></li>
@@ -209,7 +209,7 @@
 <li class="chapter" data-level="5.7.15" data-path="kartlegging.html"><a href="kartlegging.html#registrere-punkter"><i class="fa fa-check"></i><b>5.7.15</b> Registrere punkter</a></li>
 <li class="chapter" data-level="5.7.16" data-path="kartlegging.html"><a href="kartlegging.html#gå-tilbake-til-hovedmenyen"><i class="fa fa-check"></i><b>5.7.16</b> Gå tilbake til hovedmenyen</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="kartlegging.html"><a href="kartlegging.html#synkronisere-med-qfieldcloud"><i class="fa fa-check"></i><b>5.8</b> Synkronisere med QFieldCloud</a>
+<li class="chapter" data-level="5.8" data-path="kartlegging.html"><a href="kartlegging.html#overføre-registreringerendringer-til-qfieldcloud"><i class="fa fa-check"></i><b>5.8</b> Overføre registreringer/endringer til QFieldCloud</a>
 <ul>
 <li class="chapter" data-level="5.8.1" data-path="kartlegging.html"><a href="kartlegging.html#klikk-på-menyknappen-5"><i class="fa fa-check"></i><b>5.8.1</b> Klikk på menyknappen</a></li>
 <li class="chapter" data-level="5.8.2" data-path="kartlegging.html"><a href="kartlegging.html#klikk-på-ikonet-for-qfieldcloud"><i class="fa fa-check"></i><b>5.8.2</b> Klikk på ikonet for QFieldCloud</a></li>
@@ -327,7 +327,7 @@ C. Klikk på <code>Install Plugin</code></p>
 </div>
 <div id="huk-av-én-av-boksene-for-å-velge-koordinatsystem" class="section level3 hasAnchor" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Huk av én av boksene for å velge koordinatsystem<a href="oppsett-og-tilrettelegging.html#huk-av-én-av-boksene-for-å-velge-koordinatsystem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Projeksjon av tredimensjonale data på todimensjonale flater vil alltid medføre forvrengninger. Graden av forvrengning varierer mellom ulike områder, avhengig av hvilket koordinatsystem som benyttes. Derfor bør koordinatsystemet velges ut fra hvor kartleggingen skal foregå.</p>
+<p>Man kan kartlegge i meter (UTM-sone) eller i geografiske koordinater (lengde- og breddegrad). Ønsker man UTM-koordinater, velger man sone (32, 33 eller 35) ut fra hvor kartleggingen skal foregå. Sone 32 inkluderer Sør-Norge t.o.m. Trøndelag. Sone 33 brukes for Nordland og Troms, mens sone 35 brukes for Finnmark.</p>
 <p><img src="images/select_crs.png" /></p>
 </div>
 <div id="velg-hvor-prosjektet-skal-lagres" class="section level3 hasAnchor" number="3.2.4">
@@ -363,7 +363,7 @@ B. Klikk på <code>Save</code></p>
 <div id="klikk-på-lag-geopackage-fil-og-forbered-prosjekt-nederst-i-vinduet" class="section level3 hasAnchor" number="3.2.6">
 <h3><span class="header-section-number">3.2.6</span> Klikk på <code>Lag geopackage-fil og forbered prosjekt</code> nederst i vinduet<a href="oppsett-og-tilrettelegging.html#klikk-på-lag-geopackage-fil-og-forbered-prosjekt-nederst-i-vinduet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="images/create_project_2.png" /></p>
-<p>Et prosjekt med filnavnet <code>NiN_kartlegging.qgz</code> vil nå opprettes automatisk med den oppgitte filplasseringen. I tillegg vil det opprettes en <code>.gpkg-fil</code> med kartlag og tabeller. Prosjektet med <code>.gpkg-filen</code> kan igjen åpnes fra denne filplasseringen senere. Kartlagene vil åpnes med prosjektet med mindre <code>.gpkg-filen</code> flyttes til et annet område. <code>.gpkg-filen</code> inneholder følgende:</p>
+<p>Et prosjekt med filnavnet <code>NiN_kartlegging.qgz</code> blir nå opprettet automatisk i den oppgitte filplasseringen. I tillegg vil det opprettes en <code>.gpkg-fil</code> med kartlag og tabeller. Prosjektet med <code>.gpkg-filen</code> kan igjen åpnes fra denne filplasseringen senere. Kartlagene vil åpnes med prosjektet med mindre <code>.gpkg-filen</code> flyttes til et annet område. <code>.gpkg-filen</code> inneholder følgende:</p>
 <p><img src="images/layers_1.png" /></p>
 <p><strong>Opprettede kartlag og tabeller:</strong><br />
 <em>nin_helper_points</em> – punktkartlag for å hjelpe kartleggeren i felt<br />
@@ -372,7 +372,7 @@ B. Klikk på <code>Save</code></p>
 <p><strong>Importerte kartlag (avhengig av valgene i vinduet):</strong><br />
 <em>Topografisk norgeskart</em> – landsdekkende kart med høydekoter og hovedøkosystemer som farger<br />
 <em>Topografisk norgeskart gråtone</em> – landsdekkende kart med høydekoter og hovedøkosystemer i gråtoner<br />
-<em>Nibcache_UTM32_EUREF89_v2</em> – landsdekkende sammenstilte flybilder</p>
+<em>Nibcache_UTM32_EUREF89_v2</em> – landsdekkende sammenstilte nyeste flybilder</p>
 </div>
 </div>
 <div id="tilpass-prosjekt" class="section level2 hasAnchor" number="3.3">
@@ -381,11 +381,11 @@ B. Klikk på <code>Save</code></p>
 <h3><span class="header-section-number">3.3.1</span> Legge til vektordata<a href="oppsett-og-tilrettelegging.html#legge-til-vektordata" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vektordata består av objekter med en gitt geometri – punkt, linje eller polygon – der hvert objekt representerer én verdi eller egenskap.</p>
 <ul>
-<li><p><strong>Punkter</strong> har en posisjon, men verken lengde eller areal. Et eksempel er artsobservasjoner, som kan være nyttige under naturtypekartlegging. Slike data kan lastes ned fra <a href="https://www.artsdatabanken.no">Artsdatabanken</a>.</p></li>
-<li><p><strong>Linjer</strong> registreres med hjørnekoordinater, har lengde, men ikke areal. Et eksempel er høydekoter, som gir informasjon om terreng og topografi. Topografiske forhold påvirker fuktighet, vindeksponering og solinnstråling – faktorer som er avgjørende for naturtypers utbredelse. Høydekoter kan lastes ned fra <a href="https://www.kartverket.no">Kartverket</a>.</p></li>
-<li><p><strong>Polygoner</strong> har både lengde og areal. Et polygonkartlag over verneområder fra <a href="https://www.miljodirektoratet.no">Miljødirektoratet</a> kan være nyttig, eller man kan lage egne polygonlag for å avgrense studieområdet.</p></li>
+<li><p><strong>Punkter</strong> har en posisjon, men verken lengde eller areal. Et eksempel er artsobservasjoner, som kan være nyttige under naturtypekartlegging. Dette kan lastes ned fra <a href="https://www.artsobservasjoner.no/">Artsdatabanken</a></p></li>
+<li><p><strong>Linjer</strong> registreres med hjørnekoordinater, har lengde, men ikke areal. Et eksempel er høydekoter, som gir informasjon om terrenget. Topografiske forhold påvirker fuktighet, vindeksponering og solinnstråling – faktorer som er avgjørende for naturtypers utbredelse. Høydekurver fra N50 kan fritt lastes ned fra <a href="https://kartkatalog.geonorge.no/metadata/n50-kartdata/ea192681-d039-42ec-b1bc-f3ce04c189ac?search=n50">geonorge</a>. FKB-Høydekurve krever at man har brukernavn og passord.</p></li>
+<li><p><strong>Polygoner</strong> har både lengde og areal. Et polygonkartlag over verneområder fra kan være nyttig, eller man kan lage egne polygonlag for å avgrense studieområdet.</p></li>
 </ul>
-<p>Last ned relevante vektordata som <code>.shp</code>-filer (shapefiler) og lagre dem samlet i en mappe før du importerer dem til QGIS.</p>
+<p>Relevante vektordata kan lastes ned fra [geonorge] (<a href="https://www.geonorge.no" class="uri">https://www.geonorge.no</a>) hvor man kan taste inn navnet på datasettet man søker, f.eks. artsobs og vern. Da får man opp ei liste med tilgjengelige datasett. Enkelte datasett vil kreve innlogging (at man har brukernavn og passord). F.eks. er Høydekurver fra N50 fritt tilgjengelig fra <a href="https://kartkatalog.geonorge.no/metadata/n50-kartdata/ea192681-d039-42ec-b1bc-f3ce04c189ac?search=n50">geonorge</a>, mens FKB-Høydekurve krever innlogging. Lagre nedlasta data i ei mappe før du laster dem inn i QGIS.</p>
 <div id="gå-til-layer-add-layer-i-menylinjen-og-klikk-på-add-vector-layer..." class="section level4 hasAnchor" number="3.3.1.1">
 <h4><span class="header-section-number">3.3.1.1</span> 1.3.1.1 Gå til <code>Layer</code> → <code>Add Layer</code> i menylinjen og klikk på <code>Add Vector Layer...</code><a href="oppsett-og-tilrettelegging.html#gå-til-layer-add-layer-i-menylinjen-og-klikk-på-add-vector-layer..." class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><img src="images/add_vector.png" /></p>
@@ -417,10 +417,10 @@ B. Klikk på <code>Open</code></p>
 <h3><span class="header-section-number">3.3.2</span> Legge til rasterdata<a href="oppsett-og-tilrettelegging.html#legge-til-rasterdata" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Rasterdata består av et rutenett der hver rute (celle) har én verdi. Formatet brukes ofte for bilder og modellerte kart, og egner seg godt til visualisering av bakgrunnsdata.</p>
 <ul>
-<li><p><strong>Flybilder</strong> er viktige hjelpemidler i naturtypekartlegging. Dersom du har tilgang på flybilder av høyere kvalitet enn det som er tilgjengelig i WMS-kartlaget som importeres via programtillegget, kan disse importeres manuelt. Historiske flyfoto kan også gi verdifull informasjon om tidligere landskapsbruk og endringer over tid. Flybilder kan lastes ned fra <a href="https://www.norgeibilder.no/">Norge i bilder</a>.</p></li>
-<li><p><strong>Terrengmodeller</strong> viser høyden på bakken over havet, og er nyttige for å analysere terreng og topografiske forhold. <strong>Overflatemodeller</strong> inkluderer i tillegg bygninger, trær og annen vegetasjon som stikker opp fra bakken. Begge typer modeller kan lastes ned fra <a href="https://www.hoydedata.no/">Høydedata.no</a>.</p></li>
+<li><p><strong>Flybilder</strong> er viktige hjelpemidler i naturtypekartlegging. Dersom du har tilgang på flybilder av høyere kvalitet enn det som er tilgjengelig i WMS-kartlaget som importeres via programtillegget, kan disse importeres manuelt. Historiske flyfoto kan også gi verdifull informasjon om tidligere landskapsbruk og endringer over tid. Flybilder kan lastes ned fra <a href="https://www.norgeibilder.no/">Norge i bilder</a> om man har brukernavn og passord.</p></li>
+<li><p><strong>Terrengmodeller</strong> viser høyden på bakken over havet og er nyttige for å analysere terreng og topografiske forhold. <strong>Overflatemodeller</strong> inkluderer i tillegg bygninger, trær og annen vegetasjon som stikker opp fra bakken. Begge typer modeller kan lastes ned fra <a href="https://www.hoydedata.no/">Høydedata.no</a>.</p></li>
 </ul>
-<p>Last ned rasterdata som <code>.tif</code>-filer og lagre dem i en mappe før import i QGIS.</p>
+<p>Last ned rasterdata som <code>.tif</code> eller ‘.GeoTIFF’-filer og lagre dem i en mappe før import i QGIS.</p>
 <div id="gå-til-layer-add-layer-i-menylinjen-og-klikk-på-add-raster-layer..." class="section level4 hasAnchor" number="3.3.2.1">
 <h4><span class="header-section-number">3.3.2.1</span> Gå til <code>Layer</code> → <code>Add Layer</code> i menylinjen og klikk på <code>Add Raster Layer...</code><a href="oppsett-og-tilrettelegging.html#gå-til-layer-add-layer-i-menylinjen-og-klikk-på-add-raster-layer..." class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><img src="images/add_raster.png" /></p>

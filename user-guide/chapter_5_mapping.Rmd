@@ -1,6 +1,6 @@
 # Kartlegging {#kartlegging}
 
-I denne delen viser vi hvordan man kan bruke QField for kartlegging i prosjekter som er opprettet med programtillegget "Natur i Norge"-kartlegging. Det er også mulig å bruke QGIS for feltkartlegging. Dersom du trenger veiledningsmateriale for kartlegging i QGIS, kan du klikke på [denne lenken](https://docs.qgis.org/3.40/en/docs/user_manual/index.html).
+I denne delen viser vi hvordan man kan bruke QField for kartlegging i prosjekter som er opprettet med programtillegget "Natur i Norge"-kartlegging. Det er også mulig å bruke QGIS for feltkartlegging. Dersom du trenger veiledningsmateriale for kartlegging i QGIS, kan du klikke på [denne lenken](https://docs.qgis.org/3.40/en/docs/user_manual/working_with_vector/index.html).
 
 ## Åpne prosjekt i QField
 
@@ -252,11 +252,15 @@ Dersom kartleggingsenheten dekker mindre enn 100 % av polygonens areal, må du r
 
 ##### Klikk på `False` under mosaikk for å velge at polygonen skal representeres som en mosaikkpolygon
 
-![](images/mosaic3.png)
+![](images/mosaic7.png)
+
+![](images/mosaic10.png)
+
+Velg enten sammensatt eller mosaikk for polygonen. Det kan du gjøre ved å klikke enda en gang på én av boksene.
 
 ##### Velg hovedtypegruppe, hovedtype, kartleggingsenhet og andel av polygonen som dekkes av kartleggingsenheten for kartleggingsenhet 2 som vist ovenfor
 
-![](images/mosaic4.png)
+![](images/mosaic9.png)
 
 Hvis det gjenstår 20 % eller mer areal etter at kartleggingsenhet 1 og kartleggingsenhet 2 er registrert, må det legges til en tredje kartleggingsenhet på samme måte som for kartleggingsenhet 2. Merk igjen at alle de registrerte kartleggingsenhetene må dekke til sammen 100 %. Altså vil kartleggingsenheter som dekker mindre enn 20 %, ikke bli registrert.
 
@@ -316,7 +320,7 @@ For å forhindre overlappende polygoner vil nye polygoner som utfigureres, autom
 
 ### Rediger utfigurering til eksisterende polygoner
 
-#### Redigere hjørnekoordinater
+#### Redigere hjørnekoordinater {#redigere-hjørnekoordinater}
 
 ##### Langklikk på en polygon du vil redigere
 
@@ -411,7 +415,7 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/split_polygon5.png)
 
-Polygonen vil nå være splittet.
+Polygonen vil nå være splittet. Begge polygonene vil tilegnes attributter fra kildepolygonen. (Se \@ref(rediger-attributter) [Rediger attributter for eksisterende polygoner](#rediger-attributter)) for veiledning i å redigere attributtene til en polygon.
 
 #### Formforandringsverktøyet
 
@@ -485,7 +489,7 @@ Den markerte polygonen vil nå lyse gult.
 
 ![](images/erase8.png)
 
-Deler av polygonen vil nå være fjernet.
+Deler av polygonen vil nå være fjernet. Hvis du ønsker at det nyopprette hullet skal ha en annen form (enn ellliptisk) kan du endre på hjørnekoordinater etter å ha brukt utviskingsverktøyet. (Se \@ref(redigere-hjørnekoordinater) [Redigere hjørnekoordinater](#redigere-hjørnekoordinater)) for veiledning i redigering av hjørnekoordinater.
 
 #### Ringfyllingsverktøyet
 
@@ -525,17 +529,21 @@ Den markerte polygonen vil nå lyse gult.
 
 ##### Fyll ut registreringsskjema som vist i del `...` Registreringsskjema for å opprette polygonen
 
-![](images/fill_ring9.png) ![](images/fill_ring10.png) Den nye polygonen vil dukke opp.
+![](images/fill_ring9.png)
+
+![](images/fill_ring10.png)
+
+Den nye polygonen vil dukke opp.
 
 #### Klikk på `Stop editing` for å stoppe redigering
 
 ![](images/stop_editing.png)
 
-### Rediger attributter for eksisterende polygoner
+### Rediger attributter for eksisterende polygoner {#rediger-attributter}
 
 #### Langklikk på en polygon du vil redigere
 
-Den markerte polygonen vil nå lyse gult.
+Den markerte polygonen vil nå lyse gult. Etter splitting av polygon vil den splittede polygonen få samme ID som kildepolygonene. Etter redigering derimot, vil den nyopprettede polygonen få en ny ID.
 
 #### Klikk på polygonens ID nedenfor `nin_polygons`
 
@@ -629,7 +637,7 @@ Polygonene vil nå være smeltet sammen.
 
 ![](images/merge9.png)
 
-#### Klikk på **`&#8592;`** for å gå ut av listen med polygoner
+#### Klikk på **`←`** for å gå ut av listen med polygoner
 
 ![](images/merge10.png) ![](images/merge11.png)
 
@@ -799,10 +807,11 @@ Da ser man at skya har fått et siffer på seg. Det betyr at prosjektet på enhe
 
 ![](images/push3.png)
 
-Klikk på 'Push changes' for å overføre registreringa til prosjektkopien som ligger i skya. Dermed oppdateres prosjektet i skya slik at prosjektet i skya (QFieldCloud) er lik prosjektet som ligger lagret lokalt på nettbrettet.\
+-   Klikk på `Push changes` for å overføre registreringa til prosjektkopien som ligger i skya. Dermed oppdateres prosjektet i skya slik at prosjektet i skya (QFieldCloud) er lik prosjektet som ligger lagret lokalt på nettbrettet.
 
-`Synchronize` vil laste den versjonen av prosjektet som til enhver tid ligger i skya (QFieldCloud) ned til nettbrettet og overskrive eksisterende prosjekt.\
-Klikk på `Revert local changes` for å avbryte endringene som er gjort
+-   `Synchronize` vil laste den versjonen av prosjektet som til enhver tid ligger i skya (QFieldCloud) ned til nettbrettet og overskrive eksisterende prosjekt.
+
+-   Klikk på `Revert local changes` for å avbryte endringene som er gjort
 
 ::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
 <div>
