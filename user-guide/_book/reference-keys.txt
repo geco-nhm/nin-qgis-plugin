@@ -204,7 +204,7 @@ klikk-på-den-grønne-haken-for-å-godta-polygonen
 klikk-yes-i-vinduet-som-dukker-opp-for-å-godta-polygonen
 fyll-ut-registreringsskjema-som-vist-i-del-...-registreringsskjema-for-å-opprette-polygonen
 klikk-på-stop-editing-for-å-stoppe-redigering
-rediger-attributter-for-eksisterende-polygoner
+rediger-attributter
 langklikk-på-en-polygon-du-vil-redigere-4
 klikk-på-polygonens-id-nedenfor-nin_polygons-5
 klikk-på-symbolet-for-å-endre-attributter
@@ -228,7 +228,7 @@ klikk-på-...-9
 klikk-på-merge-selected-features-for-å-sammensmelte-polygonene
 klikk-på-ok-for-å-smelte-den-minste-polygonen-sammen-med-den-største
 klikk-på-x-for-å-gå-ut-av-...
-klikk-på-8592-for-å-gå-ut-av-listen-med-polygoner
+klikk-på-for-å-gå-ut-av-listen-med-polygoner
 redigeringsinnstillinger
 snappefunksjonen
 klikk-på-redigeringsinnstillingsknappen
@@ -257,7 +257,7 @@ klikk-på-den-hvite-haken-i-vinduet-for-å-registrere-punktet.-i-vinduet-har-du-
 gå-tilbake-til-hovedmenyen
 klikk-på-menyknappen-4
 klikk-på-return-home
-synkronisere-med-qfieldcloud
+overføre-registreringerendringer-til-qfieldcloud
 klikk-på-menyknappen-5
 klikk-på-ikonet-for-qfieldcloud
 velg-handling

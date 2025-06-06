@@ -125,15 +125,15 @@ Et prosjekt med filnavnet `NiN_kartlegging.qgz` blir nå opprettet automatisk i 
 
 Vektordata består av objekter med en gitt geometri -- punkt, linje eller polygon -- der hvert objekt representerer én verdi eller egenskap.
 
--   **Punkter** har en posisjon, men verken lengde eller areal. Et eksempel er artsobservasjoner, som kan være nyttige under naturtypekartlegging.
+-   **Punkter** har en posisjon, men verken lengde eller areal. Et eksempel er artsobservasjoner, som kan være nyttige under naturtypekartlegging. Dette kan lastes ned fra [Artsdatabanken](https://www.artsobservasjoner.no/)
 
 -   **Linjer** registreres med hjørnekoordinater, har lengde, men ikke areal. Et eksempel er høydekoter, som gir informasjon om terrenget. Topografiske forhold påvirker fuktighet, vindeksponering og solinnstråling -- faktorer som er avgjørende for naturtypers utbredelse. Høydekurver fra N50 kan fritt lastes ned fra [geonorge](https://kartkatalog.geonorge.no/metadata/n50-kartdata/ea192681-d039-42ec-b1bc-f3ce04c189ac?search=n50). FKB-Høydekurve krever at man har brukernavn og passord.
 
 -   **Polygoner** har både lengde og areal. Et polygonkartlag over verneområder fra kan være nyttig, eller man kan lage egne polygonlag for å avgrense studieområdet.
 
-Relevante vektordata kan lastes ned fra [geonorge] (https://www.geonorge.no) hvor man kan taste inn navnet på datasettet man søker, f.eks. artsobs og vern. Da får man opp ei liste med tilgjengelige datasett. Enkelte datasett vil kreve innlogging (at man har brukernavn og passord). F.eks. er Høydekurver fra N50 fritt tilgjengelig fra [geonorge](https://kartkatalog.geonorge.no/metadata/n50-kartdata/ea192681-d039-42ec-b1bc-f3ce04c189ac?search=n50), mens  FKB-Høydekurve krever innlogging. Lagre nedlasta data i ei mappe før du laster dem inn i QGIS.
+Relevante vektordata kan lastes ned fra [geonorge] (<https://www.geonorge.no>) hvor man kan taste inn navnet på datasettet man søker, f.eks. artsobs og vern. Da får man opp ei liste med tilgjengelige datasett. Enkelte datasett vil kreve innlogging (at man har brukernavn og passord). F.eks. er Høydekurver fra N50 fritt tilgjengelig fra [geonorge](https://kartkatalog.geonorge.no/metadata/n50-kartdata/ea192681-d039-42ec-b1bc-f3ce04c189ac?search=n50), mens FKB-Høydekurve krever innlogging. Lagre nedlasta data i ei mappe før du laster dem inn i QGIS.
 
-#### 1.3.1.1 Gå til `Layer` &#8594; `Add Layer` i menylinjen og klikk på `Add Vector Layer...`
+#### 1.3.1.1 Gå til `Layer` → `Add Layer` i menylinjen og klikk på `Add Vector Layer...`
 
 ![](images/add_vector.png)
 
