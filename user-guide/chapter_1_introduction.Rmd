@@ -1,8 +1,12 @@
 # Introduksjon {#introduksjon}
 
+![](images/nin_toolbar_icon.png)
+
+[Gå til GitHub-siden for programtillegget](https://github.com/geco-nhm/nin-qgis-plugin)
+
 ## Bakgrunn
 
-I forbindelse med lanseringen av Natur i Norge (NiN) versjon 3.0 har vi utviklet programtillegget "Natur i Norge"-kartlegging for QGIS. Hensikten er å forenkle, effektivisere og standardisere kartlegging etter NiN-systemet -- både i forarbeid, feltarbeid og etterarbeid.
+I forbindelse med lanseringen av Natur i Norge (NiN) versjon 3.0 har vi utviklet programtillegget Natur i Norge kartlegging for QGIS. Hensikten er å forenkle, effektivisere og standardisere kartlegging etter NiN-systemet -- både i forarbeid, feltarbeid og etterarbeid.
 
 Kartlegging etter dagens standard stiller økte krav til bruk av digitale verktøy, særlig når det gjelder innsamling, strukturering og kvalitetssikring av data. NiN 3.0 introduserer dessuten flere endringer og presiseringer i hvordan naturtyper skal beskrives og dokumenteres. Det stiller høyere krav til at arbeidsflyten er både enhetlig og faglig korrekt.
 
@@ -22,7 +26,7 @@ Før du tar veilederen i bruk, må følgende være på plass:
 -   QField må være installert på enheten som brukes til feltarbeid
 -   Brukeren må ha grunnleggende kjennskap til NiN-systemet og kartleggingsprosessen
 
-## Verktøy og enheter i bruk
+## Arbeidsflyt
 
 #### QGIS -- forarbeid og etterarbeid {.unnumbered}
 
@@ -51,6 +55,8 @@ Veilederen legger opp til en todelt arbeidsflyt med QGIS og QField, men det finn
 -   Både Windows og iOS kan brukes
 -   Brukeren velger løsningen som passer best ut fra tilgjengelig utstyr og arbeidsforhold
 
+![](images/plugin_workflow.png)Arbeidsflyten som er beskrevet i veilederen består av nedlastinv av Natur i Norge kartlegging, oppsett, tilrettelegging, eksport og import av prosjekt, kartlegging i felt og etterarbeid. Arbeid som utføres i QGIS er markert med grønt, mens arbeid som utføres i QField er markert med blått.
+
 ## Hva inneholder veilederen?
 
 Veilederen gir deg innsikt i følgende:
@@ -67,6 +73,7 @@ Veilederen gir deg innsikt i følgende:
 
 -   [Last ned QGIS](https://qgis.org)
 -   [Hjelpeside for QGIS](https://docs.qgis.org/latest/en/docs/training_manual/index.html)
+-   [QGIS programtilleggskatalog](https://plugins.qgis.org/plugins/nin_qgis_plugin/)
 -   [Last ned QField](https://docs.qfield.org/get-started/)
 -   [Hjelpeside for QField](https://docs.qfield.org/)
 -   [Artsdatabanken -- Natur i Norge](https://naturinorge.artsdatabanken.no/)

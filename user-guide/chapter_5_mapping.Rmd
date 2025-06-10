@@ -1,6 +1,6 @@
 # Kartlegging {#kartlegging}
 
-I denne delen viser vi hvordan man kan bruke QField for kartlegging i prosjekter som er opprettet med programtillegget "Natur i Norge"-kartlegging. Det er også mulig å bruke QGIS for feltkartlegging. Dersom du trenger veiledningsmateriale for kartlegging i QGIS, kan du klikke på [denne lenken](https://docs.qgis.org/3.40/en/docs/user_manual/working_with_vector/index.html).
+I denne delen viser vi hvordan man kan bruke QField for kartlegging i prosjekter som er opprettet med programtillegget Natur i Norge kartlegging. Det er også mulig å bruke QGIS for feltkartlegging. Dersom du trenger veiledningsmateriale for kartlegging i QGIS, kan du klikke på [denne lenken](https://docs.qgis.org/3.40/en/docs/user_manual/working_with_vector/index.html).
 
 ## Åpne prosjekt i QField
 

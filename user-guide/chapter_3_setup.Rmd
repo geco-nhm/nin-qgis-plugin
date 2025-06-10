@@ -12,7 +12,7 @@ Sørg for at du har tilgang på internett. Dette er nødvendig for å laste ned 
 
 Det vil dukke opp et vindu.
 
-### Installer "Natur i Norge kartlegging"
+### Installer `Natur i Norge kartlegging`
 
 A. Søk etter "Natur i Norge kartlegging" i søkefeltet\
 B. Klikk på `Natur i Norge kartlegging`\
@@ -20,13 +20,13 @@ C. Klikk på `Install Plugin`
 
 ![](images/install_plugin_2.png)
 
-Ikonet for "Natur i Norge"-kartlegging vil nå dukke opp i verktøymenyen.
+Ikonet for `Natur i Norge kartlegging` vil nå dukke opp i verktøymenyen.
 
 ![](images/toolbar_1.png)
 
 ## Opprett prosjekt {#opprett-prosjekt}
 
-### Klikk på ikonet for "Natur i Norge"-kartlegging
+### Klikk på ikonet for `Natur i Norge kartlegging`
 
 ![](images/nin_toolbar_icon.png)
 

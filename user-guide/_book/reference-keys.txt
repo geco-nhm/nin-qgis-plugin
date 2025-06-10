@@ -2,7 +2,7 @@ introduksjon
 bakgrunn
 formålet-med-veilederen
 forutsetninger-for-bruk
-verktøy-og-enheter-i-bruk
+arbeidsflyt
 hva-inneholder-veilederen
 nyttige-lenker-og-ressurser
 feltutstyr

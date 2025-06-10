@@ -4,9 +4,9 @@ documentclass: book
 site: bookdown::bookdown_site
 ---
 
-# Veiledning i bruk av programtillegget NiN-kartlegging {#forside .unnumbered}
+# Veiledning i bruk av programtillegget Natur i Norge kartlegging {#forside .unnumbered}
 
-Velkommen til veilederen for NiN-kartlegging i QGIS og QField.
+Velkommen til veilederen for Natur i Norge kartlegging i QGIS og QField.
 
 ## Innhold {.unnumbered}
 
@@ -16,6 +16,8 @@ Velkommen til veilederen for NiN-kartlegging i QGIS og QField.
 -   [4 Eksportere og importere prosjekt](#eksportere-prosjekt)\
 -   [5 Kartlegging](#kartlegging)\
 -   [6 Kvalitetssikring](#kvalitetssikring)
+
+*Last updated: `r format(Sys.Date(), "%B %d, %Y")`*
 
 ::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
 <div>
