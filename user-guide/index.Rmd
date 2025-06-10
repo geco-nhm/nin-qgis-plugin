@@ -33,4 +33,5 @@ Velkommen til veilederen for Natur i Norge kartlegging i QGIS og QField.
 </div>
 :::
 
+
 *Last updated: `r format(Sys.Date(), "%B %d, %Y")`*
