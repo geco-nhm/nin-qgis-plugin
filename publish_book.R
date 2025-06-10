@@ -4,9 +4,6 @@ setwd("user-guide")
 # Render the book (HTML GitBook version)
 bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook")
 
-# Render the book as PDF
-#bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")
-
 # Back to the repo root
 setwd("..")
 
@@ -18,4 +15,5 @@ system('git commit -m "Update book"')
 system('git push')
 
 # Push _book/ to gh-pages
+system('git subtree push --prefix user-guide/_book origin gh-pages')
 system('git subtree push --prefix user-guide/_book origin gh-pages')
