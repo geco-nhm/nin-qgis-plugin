@@ -5,7 +5,7 @@ setwd("user-guide")
 bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook")
 
 # Render the book as PDF
-bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")
+#bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")
 
 # Back to the repo root
 setwd("..")
