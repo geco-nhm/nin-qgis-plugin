@@ -1,8 +1,11 @@
 # Set working directory to the book source
 setwd("user-guide")
 
-# Render the book
+# Render the book (HTML GitBook version)
 bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook")
+
+# Render the book as PDF
+bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")
 
 # Back to the repo root
 setwd("..")

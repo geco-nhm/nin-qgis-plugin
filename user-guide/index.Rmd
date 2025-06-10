@@ -1,8 +1,16 @@
 ---
-output: bookdown::gitbook
+output:
+  bookdown::gitbook: default
+  bookdown::pdf_book:
+    latex_engine: xelatex
+    keep_tex: true
+    number_sections: true
+    includes:
+      in_header: preamble.tex
 documentclass: book
 site: bookdown::bookdown_site
 ---
+
 
 # Veiledning i bruk av programtillegget Natur i Norge kartlegging {#forside .unnumbered}
 
