@@ -29,7 +29,7 @@ Programtillegget kan installeres via programtilleggsmenyen i QGIS:
 
 ## 2.1 Alternativ: Installer siste versjon via GitHub
 
-Ettersom utviklingen skjer løpende, lastes nye versjoner jevnlig opp til GitHub. Dersom du ønsker den nyeste versjonen før den er tilgjengelig i QGIS-programtilleggsbiblioteket, kan du:
+Ettersom utviklingen skjer løpende, lastes nye versjoner jevnlig opp til GitHub. Dersom du ønsker den nyeste versjonen før den er tilgjengelig i QGIS sitt programtilleggsbibliotek, kan du:
 
 -   Gå til <https://github.com/Artsdatabanken/nin-innsyn>
 -   Last ned `.zip`-filen
@@ -97,13 +97,13 @@ Når feltarbeidet er ferdig kan dataene synkroniseres tilbake til QGIS for vider
 1.  Velg laget `nin_polygons`
 2.  Slå på redigering
 3.  Legg til nytt polygon
-4.  Fyll ut NiN-informasjon i attributtskjemaet
+4.  Fyll ut NiN-attributter i registreringsskjemaet
 5.  Velg relevante variabler for valgt type
 6.  Hvis polygonen inneholder flere naturtyper:
-    -   Sett "Andel av naturtype" til mindre enn 100
-    -   Velg "sammensatt" eller "mosaikk"
+    -   Sett `Andel av naturtype` til mindre enn 100
+    -   Velg `sammensatt` eller `mosaikk`
 7.  Ta eventuelt bilde (hvis enheten har kamera)
-8.  Klikk OK for å lagre polygonet
+8.  Klikk `OK` for å lagre polygonet
 
 Kartleggingsveiledning finnes på [Artsdatabankens nettsider](https://www.artsdatabanken.no).
 
@@ -133,7 +133,11 @@ Utviklere og fagpersoner inviteres til å bidra gjennom:
 
 # 6 Forfattere
 
-Navn og kontakinfo: \@ [Lasse Keetz](https://github.com/orgs/geco-nhm/people/lasseke) \@ [Peter Horvath](https://github.com/orgs/geco-nhm/people/peterhor) \@ [Anne B. Nilsen](https://github.com/orgs/geco-nhm/people/9ls1)
+Navn og kontakinfo:
+
+[Lasse Keetz](https://github.com/orgs/geco-nhm/people/lasseke)\
+[Peter Horvath](https://github.com/orgs/geco-nhm/people/peterhor)\
+[Anne B. Nilsen](https://github.com/orgs/geco-nhm/people/9ls1)
 
 Programtillegget ble utviklet med finansiell støtte fra [NINA](https://www.nina.no/)
 
