@@ -2,7 +2,7 @@
 
 ![QGIS 3.34+ required](https://img.shields.io/badge/QGIS-3.34%252B-green?logo=qgis&logoColor=white)
 
-<a href="README.md" style="padding: 6px 12px; background-color: #007acc; color: white; border-radius: 4px; text-decoration: none;">🌐 Bytt til norsk</a>
+<a href="nin_qgis_plugin/README.md" style="padding: 6px 12px; background-color: #007acc; color: white; border-radius: 4px; text-decoration: none;">🌐 Bytt til norsk</a>
 
 ## 1.1 Background
 
