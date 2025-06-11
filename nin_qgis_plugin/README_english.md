@@ -8,11 +8,11 @@
 
 The Norwegian Biodiversity Information Centre (Artsdatabanken) launched version 3.0 of Nature in Norway (NiN) in 2024. To support this, a plugin has been developed for QGIS to facilitate field-based mapping according to NiN 3.0.
 
-The purpose of the plugin is to make NiN mapping more accessible and efficient -- for both professionals and users without specialized technical expertise.
+The purpose of the plugin is to make NiN mapping more accessible and efficient – for both professionals and users without specialized technical expertise.
 
 ## 1.2 About this guide
 
-This guide provides a practical introduction to using the plugin. It assumes the user has basic knowledge of NiN 3.0 mapping. The guide walks through the full workflow -- from setup in QGIS, to field-based mapping, and post-processing.
+This guide provides a practical introduction to using the plugin. It assumes the user has basic knowledge of NiN 3.0 mapping. The guide walks through the full workflow – from setup in QGIS, to field-based mapping, and post-processing.
 
 The plugin supports all NiN 3.0 type systems and adapted mapping scales, but currently does not include the variable system.
 
@@ -141,4 +141,4 @@ Names and contact info:
 
 The plugin was developed with financial support from [NINA](https://www.nina.no/)
 
-The plugin icon was downloaded from Flaticon - Environment icons created by Eucalyp
+The plugin icon was downloaded from <a href="https://www.flaticon.com/free-icons/enviroment" title="enviroment icons">Flaticon - Environment icons created by Eucalyp
