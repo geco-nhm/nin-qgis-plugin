@@ -1,6 +1,7 @@
 # 1 Introduksjon
 
-![QGIS 3.34+ required](https://img.shields.io/badge/QGIS-3.34%252B-green?logo=qgis&logoColor=white)
+![QGIS 3.34+ required](https://img.shields.io/badge/QGIS-3.34%2B-green?logo=qgis&logoColor=white)
+
 
 <a href="nin_qgis_plugin/README_english.md" style="padding: 6px 12px; background-color: #007acc; color: white; border-radius: 4px; text-decoration: none;">🌐 Switch to English</a>
 
