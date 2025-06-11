@@ -8,11 +8,11 @@
 
 Artsdatabanken lanserte Natur i Norge (NiN) versjon 3.0 i 2024. I den forbindelse er det utviklet et programtillegg (plugin) for QGIS som tilrettelegger for feltbasert kartlegging etter NiN 3.0.
 
-Formålet med programtillegget er å gjøre NiN-kartlegging mer tilgjengelig og effektiv -- både for fagpersoner og brukere uten spesialisert teknisk kompetanse.
+Formålet med programtillegget er å gjøre NiN-kartlegging mer tilgjengelig og effektiv – både for fagpersoner og brukere uten spesialisert teknisk kompetanse.
 
 ## Om veilederen
 
-Denne veilederen gir en praktisk innføring i bruk av programtillegget, og forutsetter at brukeren har grunnleggende kjennskap til kartlegging etter NiN 3.0. Veilederen viser hele arbeidsflyten -- fra oppsett i QGIS til bruk i felt og etterarbeid.
+Denne veilederen gir en praktisk innføring i bruk av programtillegget, og forutsetter at brukeren har grunnleggende kjennskap til kartlegging etter NiN 3.0. Veilederen viser hele arbeidsflyten – fra oppsett i QGIS til bruk i felt og etterarbeid.
 
 Programtillegget dekker alle typesystemer og tilpassede målestokker i NiN 3.0, men omfatter foreløpig ikke variabelsystemet.
 
