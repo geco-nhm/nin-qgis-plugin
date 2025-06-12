@@ -51,7 +51,11 @@ Veilederen legger opp til en todelt arbeidsflyt med QGIS og QField, men det finn
 -   Både Windows og iOS kan brukes
 -   Brukeren velger løsningen som passer best ut fra tilgjengelig utstyr og arbeidsforhold
 
-![](images/plugin_workflow.png)Arbeidsflyten som er beskrevet i veilederen består av nedlastinv av Natur i Norge kartlegging, oppsett, tilrettelegging, eksport og import av prosjekt, kartlegging i felt og etterarbeid. Arbeid som utføres i QGIS er markert med grønt, mens arbeid som utføres i QField er markert med blått.
+
+```{r index170, echo=FALSE}
+knitr::include_graphics("images/plugin_workflow.png")
+```
+Arbeidsflyten som er beskrevet i veilederen består av nedlastinv av Natur i Norge kartlegging, oppsett, tilrettelegging, eksport og import av prosjekt, kartlegging i felt og etterarbeid. Arbeid som utføres i QGIS er markert med grønt, mens arbeid som utføres i QField er markert med blått.
 
 ## Hva inneholder veilederen?
 
@@ -75,16 +79,11 @@ Veilederen gir deg innsikt i følgende:
 -   [Artsdatabanken -- Natur i Norge](https://naturinorge.artsdatabanken.no/)
 -   [Systemdokumentasjon og kartleggingsveiledere -- Natur i Norge](https://artsdatabanken.no/Pages/345456)
 
+`r if (knitr::is_html_output()) {
+'
 ::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
-<div>
-
-← <a href="index.html">Gå til forsiden</a>
-
-</div>
-
-<div>
-
-<a href="feltutstyr.html">Gå til neste kapittel</a> →
-
-</div>
+<div> ← <a href="index.html">Gå til forsiden</a> </div>
+<div> <a href="feltutstyr.html">Gå til neste kapittel</a> → </div>
 :::
+'
+} `

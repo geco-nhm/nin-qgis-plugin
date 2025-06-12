@@ -10,33 +10,65 @@ Du vil nå få en melding på enheten med QField.
 
 ### Klikk på `Allow`
 
-![](images/cable_export9.jpg)
+
+```{r index204, echo=FALSE}
+knitr::include_graphics("images/cable_export9.jpg")
+```
+
 
 ### Klikk på ikonet for `Configure Current Project`
 
-![](images/cable_export4.png)
+
+```{r index205, echo=FALSE, out.width='30pt', out.height='30pt'}
+knitr::include_graphics("images/cable_export4.png")
+```
+
 
 ### Klikk på `OK`
 
-![](images/cable_export2.png)
+
+```{r index206, echo=FALSE}
+knitr::include_graphics("images/cable_export2.png")
+```
+
 
 ### Klikk på ikonet for `Package for QField`
 
-![](images/cable_export5.png)
+
+```{r index207, echo=FALSE, out.width='30pt', out.height='30pt'}
+knitr::include_graphics("images/cable_export5.png")
+```
+
 
 ### Klikk på `Create`
 
-![](images/cable_export3.png)
+
+```{r index208, echo=FALSE}
+knitr::include_graphics("images/cable_export3.png")
+```
+
 
 ### Åpne filutforsker og naviger til `C:\Users\username\QField\export`. Høyreklikk deretter på prosjektmappen og klikk på `Copy`
 
-![](images/cable_export6.png)
+
+```{r index209, echo=FALSE}
+knitr::include_graphics("images/cable_export6.png")
+```
+
 
 ### Åpne filutforsker og naviger til `This PC\Galaxy Tab Active4 Pro 5G\Internal storage\Android\data\ch.opengis.qfield\files\Imported Projects`. Høyreklikk deretter inni mappen of klikk på `Paste`
 
-![](images/cable_export7.png)
 
-![](images/cable_export8.png)
+```{r index210, echo=FALSE}
+knitr::include_graphics("images/cable_export7.png")
+```
+
+
+
+```{r index211, echo=FALSE}
+knitr::include_graphics("images/cable_export8.png")
+```
+
 
 Prosjektet er nå klar til å åpnes på enheten med QField.
 
@@ -46,11 +78,19 @@ Man kan også importere prosjektet fra QField til QGIS. Først må du sørge for
 
 ### Klikk på ikonet for `Synchronize Project`
 
-![](images/import.png)
+
+```{r index212, echo=FALSE, out.width='30pt', out.height='30pt'}
+knitr::include_graphics("images/import.png")
+```
+
 
 ### Klikk på `...`
 
-![](images/import2.png)
+
+```{r index213, echo=FALSE}
+knitr::include_graphics("images/import2.png")
+```
+
 
 ### Naviger til `This PC\Galaxy Tab Active4 Pro 5G\Internal storage\Android\data\ch.opengis.qfield\files\Imported Projects`.
 
@@ -61,7 +101,11 @@ Skjermbilde
 
 ### Klikk på `Synchronize`
 
-![](images/import3.png)
+
+```{r index214, echo=FALSE}
+knitr::include_graphics("images/import3.png")
+```
+
 
 Prosjektet vil nå importeres i QGIS.
 
@@ -75,64 +119,104 @@ Dersom du ønsker å eksportere via QFieldCloud må du opprette en konto på QFi
 
 ### Klikk på `Register` for å registrere ny konto
 
-![](images/cloud18.png)
+
+```{r index215, echo=FALSE}
+knitr::include_graphics("images/cloud18.png")
+```
+
 
 ### Fyll ut feltene for å opprette brukernavn, passord, osv. Klikk til slutt på `Register` for å opprette konto
 
-![](images/cloud19.png)
 
-## Installer programtillegg i QGIS
+```{r index216, echo=FALSE}
+knitr::include_graphics("images/cloud19.png")
+```
+
+
+## Installer QFieldSync
 
 Åpne QGIS og sørg for at du har tilgang på internett. Dette er nødvendig for å laste ned programtillegget.
 
-## Gå til `Plugins` i menylinjen og klikk på `Manage and Install Plugins...`
+### Gå til `Plugins` i menylinjen og klikk på `Manage and Install Plugins...`
 
-![](images/install_plugin_1.png)
+
+```{r index217, echo=FALSE}
+knitr::include_graphics("images/install_plugin_1.png")
+```
+
 
 Det vil dukke opp et vindu.
 
-## Installer QFieldSync
+### Installer programtillegget
 
 A. Søk etter "QFieldSync" i søkefeltet\
 B. Klikk på `QFieldSync`\
 C. Klikk på `Install Plugin`
 
-![](images/cloud5.png)
+
+```{r index218, echo=FALSE}
+knitr::include_graphics("images/cloud5.png")
+```
+
 
 Ikonene for QFieldSync vil nå dukke opp i verktøymenyen.
 
-![](images/cloud6.png)
+
+```{r index219, echo=FALSE}
+knitr::include_graphics("images/cloud6.png")
+```
+
 
 ## Legg inn prosjekt i QFieldCloud {#import-qfieldcloud}
 
 ### Klikk på ikonet for `QFieldCloud Projects Overview`
 
-![](images/cloud7.png)
+
+```{r index220, echo=FALSE, out.width='30pt', out.height='30pt'}
+knitr::include_graphics("images/cloud7.png")
+```
+
 
 ### Logg inn med QFieldCloud
 
 A. Fyll inn brukernavn og passord\
 B. Klikk på `Sign In`
 
-![](images/cloud8.png)
+
+```{r index221, echo=FALSE}
+knitr::include_graphics("images/cloud8.png")
+```
+
 
 ### Klikk på ikonet `Start New Project`
 
-![](images/cloud20.png)
+
+```{r index222, echo=FALSE}
+knitr::include_graphics("images/cloud20.png")
+```
+
 
 ### Opprett et midlertidig passord
 
 A. Fyll inn midlertidig passord\
 B. Klikk på `Ok`
 
-![](images/cloud10.png)
+
+```{r index223, echo=FALSE}
+knitr::include_graphics("images/cloud10.png")
+```
+
 
 ### Velg innstillinger
 
 A. Huk av for `Convert currently open project to cloud project`\
 B. Klikk på `Next`
 
-![](images/cloud21.png)
+
+```{r index224, echo=FALSE}
+knitr::include_graphics("images/cloud21.png")
+```
+
 
 ### Velg prosjektnavn og filplassering
 
@@ -140,17 +224,33 @@ A. Fyll inn prosjektnavn\
 B. Beskriv prosjektet kort\
 C. Angi ønsket filplassering
 
-![](images/cloud13.png)
+
+```{r index225, echo=FALSE}
+knitr::include_graphics("images/cloud13.png")
+```
+
 
 ### Klikk på `Create`
 
-![](images/cloud14.png)
+
+```{r index226, echo=FALSE}
+knitr::include_graphics("images/cloud14.png")
+```
+
 
 ### Klikk på `OK`
 
-![](images/cloud15.png)
 
-![](images/cloud16.png)
+```{r index227, echo=FALSE}
+knitr::include_graphics("images/cloud15.png")
+```
+
+
+
+```{r index228, echo=FALSE}
+knitr::include_graphics("images/cloud16.png")
+```
+
 
 Prosjektet vil nå være eksportert til QFieldCloud og det kan nå åpnes på den nye enheten.
 
@@ -160,49 +260,72 @@ Før du kan importere prosjektet i QGIS må du sørge for at endringene som er g
 
 ### Klikk på ikonet for QFieldCloud Projects Overview
 
-![](images/cloud7.png)
+
+```{r index229, echo=FALSE, out.width='30pt', out.height='30pt'}
+knitr::include_graphics("images/cloud7.png")
+```
+
 
 ### Logg inn med QFieldCloud
 
 A. Fyll inn brukernavn og passord\
 B. Klikk på `Sign In`
 
-![](images/cloud8.png)
+
+```{r index230, echo=FALSE}
+knitr::include_graphics("images/cloud8.png")
+```
+
 
 ### Klikk på prosjektet (my_cloud_project)
 
-![](images/import_cloud.png)
+
+```{r index231, echo=FALSE}
+knitr::include_graphics("images/import_cloud.png")
+```
+
 
 ### Klikk på `Synchronize Selected Cloud Project`
 
-![](images/import_cloud2.png)
+
+```{r index232, echo=FALSE}
+knitr::include_graphics("images/import_cloud2.png")
+```
+
 
 Det vil nå dukke opp et nytt vindu.
 
 ### Klikk på `Prefer Cloud`
 
-![](images/import_cloud7.png)
+
+```{r index233, echo=FALSE}
+knitr::include_graphics("images/import_cloud7.png")
+```
+
 
 ### Klikk på `Perform Actions`
 
-![](images/import_cloud8.png)
+
+```{r index234, echo=FALSE}
+knitr::include_graphics("images/import_cloud8.png")
+```
+
 
 ### Klikk på `OK`
 
-![](images/import_cloud9.png)
+
+```{r index235, echo=FALSE}
+knitr::include_graphics("images/import_cloud9.png")
+```
+
 
 Prosjektet vil nå bli lastet ned fra skya og bli åpnet i QGIS.
 
+`r if (knitr::is_html_output()) {
+'
 ::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
-<div>
-
-← <a href="oppsett-og-tilrettelegging.html">Gå til forrige kapittel</a>
-
-</div>
-
-<div>
-
-<a href="kartlegging.html">Gå til neste kapittel</a> →
-
-</div>
+<div> ← <a href="oppsett-og-tilrettelegging.html">Gå til forrige kapittel</a> </div>
+<div> <a href="kartlegging.html">Gå til neste kapittel</a> → </div>
 :::
+'
+} `

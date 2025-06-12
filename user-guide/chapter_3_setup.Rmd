@@ -8,7 +8,11 @@ Sørg for at du har tilgang på internett. Dette er nødvendig for å laste ned 
 
 ### Gå til `Plugins` i menylinjen og klikk på `Manage and Install Plugins...`
 
-![](images/install_plugin_1.png)
+
+```{r index176, echo=FALSE}
+knitr::include_graphics("images/install_plugin_1.png")
+```
+
 
 Det vil dukke opp et vindu.
 
@@ -18,21 +22,37 @@ A. Søk etter "Natur i Norge kartlegging" i søkefeltet\
 B. Klikk på `Natur i Norge kartlegging`\
 C. Klikk på `Install Plugin`
 
-![](images/install_plugin_2.png)
+
+```{r index177, echo=FALSE}
+knitr::include_graphics("images/install_plugin_2.png")
+```
+
 
 Ikonet for `Natur i Norge kartlegging` vil nå dukke opp i verktøymenyen.
 
-![](images/toolbar_1.png)
+
+```{r index178, echo=FALSE}
+knitr::include_graphics("images/toolbar_1.png")
+```
+
 
 ## Opprett prosjekt {#opprett-prosjekt}
 
 ### Klikk på ikonet for `Natur i Norge kartlegging`
 
-![](images/nin_toolbar_icon.png)
+
+```{r index179, echo=FALSE, out.width='30pt', out.height='30pt'}
+knitr::include_graphics("images/nin_toolbar_icon.png")
+```
+
 
 Det vil dukke opp et vindu med flere valgmuligheter.
 
-![](images/create_project_1.png)
+
+```{r index180, echo=FALSE}
+knitr::include_graphics("images/create_project_1.png")
+```
+
 
 ### Velg kategorier som skal være tilgjengelige under kartleggingen
 
@@ -40,23 +60,43 @@ Et prosjekt kan kun inneholde ett typesystem, men det er mulig å velge flere ho
 
 #### Klikk på nedtrekksmenyen for å velge typesystem
 
-![](images/select_type_system2.png)
+
+```{r index181, echo=FALSE}
+knitr::include_graphics("images/select_type_system2.png")
+```
+
 
 #### Velg én av typesystemene fra nedtrekksmenyen
 
-![](images/select_type_system.png)
+
+```{r index182, echo=FALSE}
+knitr::include_graphics("images/select_type_system.png")
+```
+
 
 #### Huk av boks(er) for å velge hovedtypegruppe(r)
 
-![](images/select_major_type_group.png)
+
+```{r index183, echo=FALSE}
+knitr::include_graphics("images/select_major_type_group.png")
+```
+
 
 #### Klikk på nedtrekksmenyen for å velge kartleggingsmålestokk
 
-![](images/select_map_scale2.png)
+
+```{r index184, echo=FALSE}
+knitr::include_graphics("images/select_map_scale2.png")
+```
+
 
 #### Velg én kartleggingsmålestokk
 
-![](images/select_map_scale.png)
+
+```{r index185, echo=FALSE}
+knitr::include_graphics("images/select_map_scale.png")
+```
+
 
 **Kartleggingsmålestokker:**\
 *grunntyper* - 1:500\
@@ -68,30 +108,50 @@ Et prosjekt kan kun inneholde ett typesystem, men det er mulig å velge flere ho
 
 Man kan kartlegge i meter (UTM-sone) eller i geografiske koordinater (lengde- og breddegrad). Ønsker man UTM-koordinater, velger man sone (32, 33 eller 35) ut fra hvor kartleggingen skal foregå. Sone 32 inkluderer Sør-Norge t.o.m. Trøndelag. Sone 33 brukes for Nordland og Troms, mens sone 35 brukes for Finnmark.
 
-![](images/select_crs.png)
+
+```{r index186, echo=FALSE}
+knitr::include_graphics("images/select_crs.png")
+```
+
 
 ### Velg hvor prosjektet skal lagres
 
 #### Klikk på `...`
 
-![](images/select_file_path2.png)
+
+```{r index187, echo=FALSE}
+knitr::include_graphics("images/select_file_path2.png")
+```
+
 
 Det vil dukke opp et nytt vindu som lar deg navigere til mappen hvor du ønsker å lagre prosjektet.
 
 #### Naviger til mappen hvor du ønsker at prosjektet skal lagres
 
-#### ![](images/select_folder.png)
+
+```{r index188, echo=FALSE}
+knitr::include_graphics("images/select_folder.png")
+```
+
 
 #### Velg filnavn
 
 A. Klikk på feltet `File name:` og skriv inn ønsket filnavn (f.eks. my_qgis_project)\
 B. Klikk på `Save`
 
-![](images/save_file.png)
+
+```{r index189, echo=FALSE}
+knitr::include_graphics("images/save_file.png")
+```
+
 
 Du vil nå se filplasseringen i feltet.
 
-![](images/write_file_path.png)
+
+```{r index190, echo=FALSE}
+knitr::include_graphics("images/write_file_path.png")
+```
+
 
 ### Velg ev. WMS/WMTS-lag
 
@@ -99,15 +159,27 @@ Topografiske kart og flybilder er viktige hjelpemidler under kartlegging. Her ka
 
 #### Huk av boks(er) for å velge WMS/WMTS-lag
 
-![](images/select_map_layers.png)
+
+```{r index191, echo=FALSE}
+knitr::include_graphics("images/select_map_layers.png")
+```
+
 
 ### Klikk på `Lag geopackage-fil og forbered prosjekt` nederst i vinduet
 
-![](images/create_project_2.png)
+
+```{r index192, echo=FALSE}
+knitr::include_graphics("images/create_project_2.png")
+```
+
 
 Et prosjekt med filnavnet `NiN_kartlegging.qgz` blir nå opprettet automatisk i den oppgitte filplasseringen. I tillegg vil det opprettes en `.gpkg-fil` med kartlag og tabeller. Prosjektet med `.gpkg-filen` kan igjen åpnes fra denne filplasseringen senere. Kartlagene vil åpnes med prosjektet med mindre `.gpkg-filen` flyttes til et annet område. `.gpkg-filen` inneholder følgende:
 
-![](images/layers_1.png)
+
+```{r index193, echo=FALSE}
+knitr::include_graphics("images/layers_1.png")
+```
+
 
 **Opprettede kartlag og tabeller:**\
 *nin_helper_points* -- punktkartlag for å hjelpe kartleggeren i felt\
@@ -135,28 +207,48 @@ Relevante vektordata kan lastes ned fra [geonorge] (<https://www.geonorge.no>) h
 
 #### 1.3.1.1 Gå til `Layer` → `Add Layer` i menylinjen og klikk på `Add Vector Layer...`
 
-![](images/add_vector.png)
+
+```{r index194, echo=FALSE}
+knitr::include_graphics("images/add_vector.png")
+```
+
 
 Det vil nå dukke opp et vindu.
 
 #### Klikk på `...`
 
-![](images/add_vector2.png)
+
+```{r index195, echo=FALSE}
+knitr::include_graphics("images/add_vector2.png")
+```
+
 
 #### Naviger til mappen hvor vektorlaget er lagret
 
-#### ![](images/select_folder.png)
+
+```{r index196, echo=FALSE}
+knitr::include_graphics("images/select_folder.png")
+```
+
 
 #### Velg fil
 
 A. Klikk på filen\
 B. Klikk på `Open`
 
-![](images/add_vector3.png)
+
+```{r index197, echo=FALSE}
+knitr::include_graphics("images/add_vector3.png")
+```
+
 
 #### Klikk på `Add`
 
-![](images/add_vector4.png)
+
+```{r index198, echo=FALSE}
+knitr::include_graphics("images/add_vector4.png")
+```
+
 
 Filen vil nå være lagt inn i prosjektet.
 
@@ -172,41 +264,56 @@ Last ned rasterdata som `.tif` eller '.GeoTIFF'-filer og lagre dem i en mappe f�
 
 #### Gå til `Layer` → `Add Layer` i menylinjen og klikk på `Add Raster Layer...`
 
-![](images/add_raster.png)
+
+```{r index199, echo=FALSE}
+knitr::include_graphics("images/add_raster.png")
+```
+
 
 Det vil nå dukke opp et vindu.
 
 #### Klikk på `...`
 
-![](images/add_raster2.png)
+
+```{r index200, echo=FALSE}
+knitr::include_graphics("images/add_raster2.png")
+```
+
 
 #### Naviger til mappen hvor rasterlaget er lagret
 
-![](images/select_folder.png)
+
+```{r index201, echo=FALSE}
+knitr::include_graphics("images/select_folder.png")
+```
+
 
 #### Velg fil
 
 A. Klikk på filen\
 B. Klikk på `Open`
 
-![](images/add_raster4.png)
+
+```{r index202, echo=FALSE}
+knitr::include_graphics("images/add_raster4.png")
+```
+
 
 #### Klikk på `Add`
 
-![](images/add_raster5.png)
+
+```{r index203, echo=FALSE}
+knitr::include_graphics("images/add_raster5.png")
+```
+
 
 Filen vil nå være lagt inn i prosjektet.
 
+`r if (knitr::is_html_output()) {
+'
 ::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
-<div>
-
-← <a href="feltutstyr.html">Gå til forrige kapittel</a>
-
-</div>
-
-<div>
-
-<a href="eksportere-prosjekt.html">Gå til neste kapittel</a> →
-
-</div>
+<div> ← <a href="feltutstyr.html">Gå til forrige kapittel</a> </div>
+<div> <a href="eksportere-prosjekt.html">Gå til neste kapittel</a> → </div>
 :::
+'
+} `

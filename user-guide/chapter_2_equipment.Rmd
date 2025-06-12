@@ -2,36 +2,51 @@
 
 Vi anbefaler å bruke en håndholdt enhet med berøringsskjerm, digitaliseringspenn og innebygd GNSS-mottaker (aka GPS) for feltkartlegging. For å kunne kvalitetssikre kartleggingen vil det også være fordelaktig om enheten har innebygd kamera. Dersom du ikke vil eksportere prosjektet til enheten gjennom QFieldCloud, vil du også trenge en kabel som er kompatibel med både den stasjonære og håndholdte enheten. Det er mange enheter som oppfyller disse kriteriene. Vi bruker et nettbrett av typen Samsung Galaxy Tab Active4 Pro 5G (2023) med Android-operativsystem. Det er imidlertid også mulig å bruke andre typer nettbrett med andre operativsystemer. Dette inkluderer blant annet mobiltelefoner, bærbare datamaskiner eller andre enheter. I veiledningen forklarer vi hvordan kartleggingen gjennomføres ved bruk av berøringsskjerm, men dersom du bruker en enhet uten berøringsskjerm, vil du kunne utføre de samme operasjonene med datamus. I så fall vil venstreklikk og høyreklikk med datamus tilsvare klikk og langklikk med digitaliseringspennen.
 
-![](images/equipment5.jpeg)
+
+```{r index171, echo=FALSE}
+knitr::include_graphics("images/equipment5.jpeg")
+```
+
 
 Enheten er utstyrt med berøringsskjerm, digitaliseringspenn, kamera, håndtak og bæresele.
 
-![](images/equipment.jpeg)
+
+```{r index172, echo=FALSE}
+knitr::include_graphics("images/equipment.jpeg")
+```
+
 
 Digitaliseringspenn.
 
-![](images/equipment4.jpeg)
+
+```{r index173, echo=FALSE}
+knitr::include_graphics("images/equipment4.jpeg")
+```
+
 
 Håndtak på baksiden av enheten.
 
-![](images/equipment3.jpeg)
+
+```{r index174, echo=FALSE}
+knitr::include_graphics("images/equipment3.jpeg")
+```
+
 
 Håndtak på baksiden av enheten og bæresele.
 
-![](images/equipment6.jpeg)
+
+```{r index175, echo=FALSE}
+knitr::include_graphics("images/equipment6.jpeg")
+```
+
 
 En kabel som er kompatibel med enheten kan brukes til å importere prosjektet.
 
+`r if (knitr::is_html_output()) {
+'
 ::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
-<div>
-
-← <a href="introduksjon.html">Gå til forrige kapittel</a>
-
-</div>
-
-<div>
-
-<a href="oppsett-og-tilrettelegging.html">Gå til neste kapittel</a> →
-
-</div>
+<div> ← <a href="introduksjon.html">Gå til forrige kapittel</a> </div>
+<div> <a href="oppsett-og-tilrettelegging.html">Gå til neste kapittel</a> → </div>
 :::
+'
+} `
