@@ -50,9 +50,15 @@ klikk-på-create
 åpne-filutforsker-og-naviger-til-cusersusernameqfieldexport.-høyreklikk-deretter-på-prosjektmappen-og-klikk-på-copy
 åpne-filutforsker-og-naviger-til-this-pcgalaxy-tab-active4-pro-5ginternal-storageandroiddatach.opengis.qfieldfilesimported-projects.-høyreklikk-deretter-inni-mappen-of-klikk-på-paste
 importer-prosjekt-ved-hjelp-av-kabel
+åpne-filutforsker
+naviger-til-this-pcgalaxy-tab-active4-pro-5ginternal-storageandroiddatach.opengis.qfieldfilesimported-projects
+høyreklikk-på-nin_kartlegging-og-klikk-på-copy
+naviger-til-this-pcusernameqfieldexport
+høyreklikk-inni-mappen-og-klikk-på-paste
+klikk-på-yes.-du-kan-eventuelt-lage-en-backup-før-du-overskriver.
 klikk-på-ikonet-for-synchronize-project
 klikk-på-...-3
-naviger-til-this-pcgalaxy-tab-active4-pro-5ginternal-storageandroiddatach.opengis.qfieldfilesimported-projects.
+naviger-til-this-pcusernameqfieldexport-1
 klikk-på-synchronize
 eksporter-prosjektet-gjennom-qfieldcloud
 opprett-konto-for-qfieldcloud
