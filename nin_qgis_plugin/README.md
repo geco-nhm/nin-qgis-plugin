@@ -140,6 +140,7 @@ Navn og kontakinfo:
 [Peter Horvath](https://github.com/orgs/geco-nhm/people/peterhor)\
 [Anne B. Nilsen](https://github.com/orgs/geco-nhm/people/9ls1)\
 [Adam E. Naas](https://github.com/orgs/geco-nhm/people/naas94)
+
 ChatGPT har blitt brukt som hjelpemiddel under utvilkingen av programtillegget og veilederen.
 
 Programtillegget ble utviklet med finansiell støtte fra [NINA](https://www.nina.no/)

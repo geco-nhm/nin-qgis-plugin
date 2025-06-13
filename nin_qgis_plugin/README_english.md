@@ -139,6 +139,7 @@ Names and contact info:
 [Peter Horvath](https://github.com/orgs/geco-nhm/people/peterhor)\
 [Anne B. Nilsen](https://github.com/orgs/geco-nhm/people/9ls1)\
 [Adam E. Naas](https://github.com/orgs/geco-nhm/people/naas94)
+
 ChatGPT has been used as a tool during the development of the plugin and the user guide.
 
 The plugin was developed with financial support from [NINA](https://www.nina.no/)
