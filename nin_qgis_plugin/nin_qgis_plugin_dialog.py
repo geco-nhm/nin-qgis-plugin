@@ -110,7 +110,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         self.helpButton.clicked.connect(self.open_help_url)
     
     def open_help_url(self):
-        QDesktopServices.openUrl(QUrl("https://github.com/geco-nhm/nin-qgis-plugin/wiki"))
+        QDesktopServices.openUrl(QUrl("https://geco-nhm.github.io/nin-qgis-plugin/"))
 
     def load_type_combo_box(self):
 
