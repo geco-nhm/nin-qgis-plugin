@@ -16,11 +16,8 @@ site: bookdown::bookdown_site
 knitr::opts_chunk$set(
   echo = FALSE,
   fig.align = 'left',
-    fig.path = 'figures/',
   out.width = if (is_compressed) '80%' else '100%',
-  dpi = if (is_compressed) 72 else 300,
-  dev = if (is_compressed) 'png' else 'pdf',
-  fig.keep = if (is_compressed) 'none' else 'high'
+  dpi = if (is_compressed) 72 else 300
 )
 ```
 
