@@ -34,6 +34,8 @@ from qgis.PyQt.QtCore import pyqtSignal
 from qgis.gui import QgsFileWidget
 # from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import Qt  # Import Qt from PyQt5.QtCore
+from PyQt5.QtGui import QDesktopServices
+from PyQt5.QtCore import QUrl #for linking to github
 from PyQt5.QtWidgets import (
     QMessageBox, QComboBox, QListWidget,
     QListWidgetItem, QGroupBox, QCheckBox, QRadioButton, QHBoxLayout
@@ -103,6 +105,12 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
         # Set UI default values
         self.set_ui_default_values()
+
+        # Connect help button
+        self.helpButton.clicked.connect(self.open_help_url)
+    
+    def open_help_url(self):
+        QDesktopServices.openUrl(QUrl("https://geco-nhm.github.io/nin-qgis-plugin/"))
 
     def load_type_combo_box(self):
 
