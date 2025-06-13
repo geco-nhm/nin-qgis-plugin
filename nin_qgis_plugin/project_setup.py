@@ -531,52 +531,42 @@ class ProjectSetup:
                 aliasString=value
             )
 
-    def set_snap_ovelap(self):
+    def set_snap_overlap(self):
         '''
-        Sets the snapping tolerance to 5 meters snapping mode to "Follow Advanced Configuration". 
-        Sets enable avoid intersections for the polygon layer
+        Sets snapping tolerance to 1.0 meter on vertex and segments for the specific polygon layer,
+        while preserving existing snapping settings in the project.
+        Enables "Avoid Overlap" for that layer.
         '''
-        # https://qgis.org/pyqgis/master/core/QgsSnappingConfig.html
-        # https://qgis.org/pyqgis/master/gui/Qgis.html#qgis.gui.Qgis.SnappingType
-        # https://www.qgis.com/api/classQgsSnappingConfig_1_1IndividualLayerSettings.html#details
-        # Set the snapping tolerance on polygon (5 meters) on vertex and segments and avoid overlap
         pollyr = self.get_nin_polygons_layer()
 
-        # Create a new snapping config object
-        snapping_config = QgsSnappingConfig()
-        # Enable snapping
+        # Get current project snapping configuration
+        snapping_config = QGS_PROJECT.snappingConfig()
+
+        # Enable snapping and set mode to AdvancedConfiguration
         snapping_config.setEnabled(True)
-        # Set to AdvancedConfiguration
         snapping_config.setMode(QgsSnappingConfig.AdvancedConfiguration)
-        # Create the individual layer settings
+
+        # Define individual snapping settings
         snap_settings = QgsSnappingConfig.IndividualLayerSettings(
-            True,  # Enable snapping
-            Qgis.SnappingTypes(Qgis.SnappingType.Vertex |
-                               Qgis.SnappingType.Segment),
-            # QgsSnappingConfig.SnappingType.VertexAndSegment --> throws a bug in qgis 3.28, see https://github.com/qgis/QGIS/issues/52373
-            1.0,  # Tolerance
-            QgsTolerance.ProjectUnits,  # Tolerance type
-            0.0,  # minScale
-            0.0,   # maxScale
+            True,
+            Qgis.SnappingTypes(Qgis.SnappingType.Vertex | Qgis.SnappingType.Segment),
+            1.0,
+            QgsTolerance.ProjectUnits,
+            0.0,
+            0.0
         )
-        # Apply the individual settings to the layer
+
+        # Update snapping settings only for your polygon layer
         snapping_config.setIndividualLayerSettings(pollyr, snap_settings)
-        QGS_PROJECT.setSnappingConfig(
-            snapping_config
-        )  # Activate the snapping settings
+
+        # Apply updated snapping config to the project
+        QGS_PROJECT.setSnappingConfig(snapping_config)
 
         # Enable topological editing
-        # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setTopologicalEditing
         QGS_PROJECT.setTopologicalEditing(True)
 
-        # Set the snapping mode to "Follow Advanced Configuration" (=2) to avoid overlap on the polygon-layer
-        # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setAvoidIntersectionsMode
-        QGS_PROJECT.setAvoidIntersectionsMode(
-            Qgis.AvoidIntersectionsMode(2)
-        )
-
-        # Enable avoid intersections
-        # https://qgis.org/pyqgis/master/core/QgsProject.html#qgis.core.QgsProject.setAvoidIntersectionsLayers
+        # Enable "Avoid Overlap" behavior
+        QGS_PROJECT.setAvoidIntersectionsMode(Qgis.AvoidIntersectionsMode(2))
         QGS_PROJECT.setAvoidIntersectionsLayers([pollyr])
 
 
@@ -722,7 +712,7 @@ def main(
         )
 
     # Adjust project snapping and overlap options
-    project_setup.set_snap_ovelap()
+    project_setup.set_snap_overlap()
 
     # Save the project
     project_path = str(Path(gpkg_path).parent / "NiN_kartlegging.qgz")
