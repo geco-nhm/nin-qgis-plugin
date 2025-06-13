@@ -1,0 +1,86 @@
+% -------------------------------
+% preamble.tex
+% -------------------------------
+
+% Page layout and margins
+\usepackage[a4paper, margin=1in]{geometry}
+
+% Custom footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\contentsname}{Innhold}
+
+% Prevent blank pages between chapters
+\let\cleardoublepage\clearpage
+
+% Title formatting (no "Chapter", tighter spacing)
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}
+  {\thechapter}{1em}{}
+\titlespacing*{\chapter}        {0pt}{-10pt}{10pt}
+\titlespacing*{\section}        {0pt}{6pt}{2pt}
+\titlespacing*{\subsection}     {0pt}{4pt}{1pt}
+\titlespacing*{\subsubsection}  {0pt}{3pt}{0.5pt}
+
+% Reduce vertical space around figures
+\setlength{\intextsep}{4pt}
+\setlength{\textfloatsep}{4pt}
+\setlength{\floatsep}{2pt}
+\raggedbottom
+
+% Inline code formatting (wrappable + styled)
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\PassOptionsToPackage{most}{tcolorbox}  % Avoid option clash
+\usepackage{tcolorbox}
+
+\newtcbox{\inlinecode}{on line,
+  box align=base,
+  colback=gray!20,
+  colframe=gray!80,
+  boxrule=0.3pt,
+  arc=2pt,
+  top=1pt,
+  bottom=1pt,
+  left=2pt,
+  right=2pt,
+  fontupper=\ttfamily\footnotesize,
+  breakable,
+  enhanced,
+  sharp corners,
+  boxsep=1pt
+}
+\let\oldtexttt\texttt
+\renewcommand{\texttt}[1]{\inlinecode{#1}}
+
+% Image handling and figure placement
+\usepackage{graphicx}
+\usepackage{float}
+\restylefloat{figure}
+\floatplacement{figure}{H}
+\usepackage[export]{adjustbox}
+
+% Auto-center all images
+\makeatletter
+\patchcmd{\includegraphics}
+  {\@gobble}
+  {\centering\@gobble}
+  {}{}
+\makeatother
+
+% Default image scaling
+\setkeys{Gin}{width=\linewidth, keepaspectratio}
+
+% Force all figures to be centered and positioned HERE
+\let\oldfigure\figure
+\let\endoldfigure\endfigure
+\renewenvironment{figure}[1][H]{%
+  \oldfigure[H]
+  \centering
+}{%
+  \endoldfigure
+}

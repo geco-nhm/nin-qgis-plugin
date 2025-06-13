@@ -1,0 +1,10 @@
+book_filename: "book"
+rmd_files:
+  - index.Rmd
+  - chapter_1_introduction.Rmd
+  - chapter_2_equipment.Rmd
+  - chapter_3_setup.Rmd
+  - chapter_4_export.Rmd
+  - chapter_5_mapping.Rmd
+  - chapter_6_troubleshooting.Rmd
+delete_merged_file: true

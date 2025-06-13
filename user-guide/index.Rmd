@@ -1,0 +1,54 @@
+---
+output:
+  bookdown::gitbook:
+    css: style.css
+  bookdown::pdf_book:
+    latex_engine: xelatex
+    toc: true
+    number_sections: true
+    includes:
+      in_header: preamble.tex
+documentclass: book
+site: bookdown::bookdown_site
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  fig.align = 'left',
+  out.width = if (is_compressed) '80%' else '100%',
+  dpi = if (is_compressed) 72 else 300
+)
+```
+
+# Veiledning i bruk av programtillegget Natur i Norge kartlegging {#forside .unnumbered}
+
+```{r index169, echo=FALSE, out.width='30pt', out.height='30pt'}
+knitr::include_graphics("images/nin_toolbar_icon.png")
+```
+
+Velkommen til veilederen for Natur i Norge kartlegging i QGIS og QField.
+
+`r if (knitr::is_html_output()) knitr::asis_output('
+## Innhold {.unnumbered}
+
+-   [1 Introduksjon](#introduksjon)  
+-   [2 Feltutstyr](#feltutstyr)  
+-   [3 Oppsett og tilrettelegging](#oppsett-og-tilrettelegging)  
+-   [4 Eksportere og importere prosjekt](#eksportere-prosjekt)  
+-   [5 Kartlegging](#kartlegging)  
+-   [6 Kvalitetssikring](#kvalitetssikring)
+
+')`
+
+`r if (knitr::is_html_output()) {
+'
+::: {style="display: flex; justify-content: space-between; margin-top: 3em;"}
+<div> ← <a href="https://github.com/geco-nhm/nin-qgis-plugin">Gå til GitHub-siden for programtillegget</a> </div>
+<div> <a href="introduksjon.html">Gå til første kapittel</a> → </div>
+:::
+'
+} `
+
+
+*Last updated: `r format(Sys.Date(), "%B %d, %Y")`*
