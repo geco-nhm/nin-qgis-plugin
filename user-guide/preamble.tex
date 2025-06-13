@@ -1,8 +1,12 @@
+% -------------------------------
 % preamble.tex
+% -------------------------------
 
-\usepackage[a4paper, margin=1in]{geometry}  % 1-inch margins
+% Page layout and margins
+\usepackage[a4paper, margin=1in]{geometry}
 
-\usepackage{fancyhdr}     % Custom footers
+% Custom footer
+\usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot[C]{\thepage}
@@ -12,31 +16,26 @@
 % Prevent blank pages between chapters
 \let\cleardoublepage\clearpage
 
-% Use titlesec to control heading appearance and spacing
+% Title formatting (no "Chapter", tighter spacing)
 \usepackage{titlesec}
-
-% Chapter formatting (no "Chapter" label and tighter spacing)
 \titleformat{\chapter}[hang]
   {\normalfont\huge\bfseries}
   {\thechapter}{1em}{}
-\titlespacing*{\chapter}
-  {0pt}{-10pt}{10pt}
+\titlespacing*{\chapter}        {0pt}{-10pt}{10pt}
+\titlespacing*{\section}        {0pt}{6pt}{2pt}
+\titlespacing*{\subsection}     {0pt}{4pt}{1pt}
+\titlespacing*{\subsubsection}  {0pt}{3pt}{0.5pt}
 
-% Section spacing
-\titlespacing*{\section}       {0pt}{6pt}{2pt}
-\titlespacing*{\subsection}    {0pt}{4pt}{1pt}
-\titlespacing*{\subsubsection} {0pt}{3pt}{0.5pt}
-
-% Reduce vertical space around floats
+% Reduce vertical space around figures
 \setlength{\intextsep}{4pt}
 \setlength{\textfloatsep}{4pt}
 \setlength{\floatsep}{2pt}
+\raggedbottom
 
-\raggedbottom  % Avoid stretching page vertically
-
-% Inline code formatting
+% Inline code formatting (wrappable + styled)
 \usepackage{xcolor}
 \usepackage{etoolbox}
+\PassOptionsToPackage{most}{tcolorbox}  % Avoid option clash
 \usepackage{tcolorbox}
 
 \newtcbox{\inlinecode}{on line,
@@ -49,16 +48,20 @@
   bottom=1pt,
   left=2pt,
   right=2pt,
-  fontupper=\ttfamily\footnotesize
+  fontupper=\ttfamily\footnotesize,
+  breakable,
+  enhanced,
+  sharp corners,
+  boxsep=1pt
 }
 \let\oldtexttt\texttt
 \renewcommand{\texttt}[1]{\inlinecode{#1}}
 
-% Image handling and placement
+% Image handling and figure placement
 \usepackage{graphicx}
 \usepackage{float}
 \restylefloat{figure}
-\floatplacement{figure}{H}  % Enforce HERE placement
+\floatplacement{figure}{H}
 \usepackage[export]{adjustbox}
 
 % Auto-center all images
@@ -72,8 +75,7 @@
 % Default image scaling
 \setkeys{Gin}{width=\linewidth, keepaspectratio}
 
-% --- Force all figures to appear exactly where placed and centered ---
-\usepackage{float}
+% Force all figures to be centered and positioned HERE
 \let\oldfigure\figure
 \let\endoldfigure\endfigure
 \renewenvironment{figure}[1][H]{%
