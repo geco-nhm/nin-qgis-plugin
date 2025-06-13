@@ -6,11 +6,12 @@
 name=Natur i Norge kartlegging
 qgisMinimumVersion=3.34.8
 description=Natur i Norge (NiN) mapping tool.
-version=0.2
+version=0.3
 author=Lasse Keetz, Peter Horvath, Anne B. Nilsen
 email=peter.horvath@nhm.uio.no
 
-about=Denne plugin er designet for å lage et QGIS-prosjekt for kartlegging av naturen ved bruk av NiN3.0-systemet i felt.This plugin is designed to create a QGIS project for mapping nature using the NiN3.0 system in the field. 
+about=Artsdatabanken lanserte Natur i Norge (NiN) versjon 3.0 i 2024. I den forbindelse er det utviklet et programtillegg (plugin) for QGIS som tilrettelegger for feltbasert kartlegging etter NiN 3.0. Formålet med programtillegget er å gjøre NiN-kartlegging mer tilgjengelig og effektiv – både for fagpersoner og brukere uten spesialisert teknisk kompetanse. The Norwegian Biodiversity Information Centre (Artsdatabanken) launched version 3.0 of Nature in Norway (NiN) in 2024. To support this, a plugin has been developed for QGIS to facilitate field-based mapping according to NiN 3.0. The purpose of the plugin is to make NiN mapping more accessible and efficient – for both professionals and users without specialized technical expertise.
+
 
 tracker=https://github.com/geco-nhm/nin-qgis-plugin/issues
 repository=https://github.com/geco-nhm/nin-qgis-plugin.git
