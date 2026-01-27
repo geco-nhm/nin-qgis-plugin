@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Veiledning: Opprette nye felt og legge dem inn i skjema i QGIS</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="advanced_guide_style.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Veiledning: Opprette nye felt og legge dem inn i
+skjema i QGIS</h1>
+</header>
+<h1
+id="veiledning-opprette-nye-felt-og-legge-dem-inn-i-skjema-i-qgis">Veiledning:
+Opprette nye felt og legge dem inn i skjema i QGIS</h1>
+<p>Denne veiledningen beskriver hvordan du oppretter nye felt i et lag
+og legger dem inn i redigeringsskjemaet (Attributes Form) i QGIS.
+Skjermbildene er referert direkte i teksten slik at dokumentet kan
+eksporteres til HTML.</p>
+<hr />
+<h2 id="åpne-egenskaper-for-laget">1. Åpne egenskaper for laget</h2>
+<figure>
+<img src="images/Screenshot%202026-01-20%20at%2018.02.10.png"
+alt="Skjermbilde 1 – Åpne egenskaper for laget" />
+<figcaption aria-hidden="true">Skjermbilde 1 – Åpne egenskaper for
+laget</figcaption>
+</figure>
+<ul>
+<li>Høyreklikk på laget (nin_polygons) i laglisten.</li>
+<li>Velg Properties… (Egenskaper) fra menyen.</li>
+<li>I dialogen som åpnes, velg fanen Fields i venstremenyen.</li>
+</ul>
+<p>Dette viser alle eksisterende attributtfelt i laget.</p>
+<hr />
+<h2 id="aktiver-redigering-av-felt">2. Aktiver redigering av felt</h2>
+<figure>
+<img src="images/Screenshot%202026-01-20%20at%2018.02.25.png"
+alt="Skjermbilde 2 – Aktiver redigering" />
+<figcaption aria-hidden="true">Skjermbilde 2 – Aktiver
+redigering</figcaption>
+</figure>
+<ul>
+<li>Klikk på blyant-ikonet øverst i feltlisten for å aktivere redigering
+av strukturen.</li>
+<li>Når redigering er aktivert, kan du legge til, slette eller endre
+felt.</li>
+</ul>
+<hr />
+<h2 id="legg-til-nytt-felt">3. Legg til nytt felt</h2>
+<figure>
+<img src="images/Screenshot%202026-01-20%20at%2018.04.02.png"
+alt="Skjermbilde 3 – Legg til felt" />
+<figcaption aria-hidden="true">Skjermbilde 3 – Legg til
+felt</figcaption>
+</figure>
+<ul>
+<li>Klikk på ikonet Legg til felt (gult ark med grønt plusstegn).</li>
+<li>Dialogen Add Field åpnes.</li>
+</ul>
+<hr />
+<h2 id="opprett-feltet-nve_id">4. Opprett feltet NVE_ID</h2>
+<figure>
+<img src="images/Screenshot%202026-01-20%20at%2018.05.07.png"
+alt="Skjermbilde 4 – Definer feltet NVE_ID" />
+<figcaption aria-hidden="true">Skjermbilde 4 – Definer feltet
+NVE_ID</figcaption>
+</figure>
+<ul>
+<li>Skriv NVE_ID i feltet Name.</li>
+<li>Velg datatype Integer (32 bit).</li>
+<li>Kontroller at Provider type settes automatisk til integer.</li>
+<li>Klikk OK for å opprette feltet.</li>
+</ul>
+<p>Dette feltet brukes til å lagre numerisk ID fra NVE.</p>
+<hr />
+<h2 id="opprett-feltet-firma">5. Opprett feltet firma</h2>
+<figure>
+<img src="images/Screenshot%202026-01-20%20at%2018.05.52.png"
+alt="Skjermbilde 5 – Velg tekstfelt" />
+<figcaption aria-hidden="true">Skjermbilde 5 – Velg
+tekstfelt</figcaption>
+</figure>
+<ul>
+<li>Klikk igjen på Legg til felt.</li>
+<li>Skriv firma i Name.</li>
+<li>Velg datatype Text (string).</li>
+</ul>
+<hr />
+<h2 id="angi-lengde-for-tekstfelt">6. Angi lengde for tekstfelt</h2>
+<figure>
+<img src="images/Screenshot%202026-01-20%20at%2018.06.07.png"
+alt="Skjermbilde 6 – Angi lengde" />
+<figcaption aria-hidden="true">Skjermbilde 6 – Angi lengde</figcaption>
+</figure>
+<ul>
+<li>Når datatype er satt til tekst, angi Length = 50.</li>
+<li>Klikk OK for å opprette feltet.</li>
+</ul>
+<p>Dette bestemmer maksimal lengde på teksten som kan lagres i
+feltet.</p>
+<hr />
+<h2 id="kontroller-at-feltene-er-lagt-til">7. Kontroller at feltene er
+lagt til</h2>
+<figure>
+<img src="images/Screenshot%202026-01-20%20at%2018.06.18.png"
+alt="Skjermbilde 7 – Feltene er opprettet" />
+<figcaption aria-hidden="true">Skjermbilde 7 – Feltene er
+opprettet</figcaption>
+</figure>
+<ul>
+<li>De nye feltene NVE_ID og firma vises nå nederst i feltlisten.</li>
+<li>Klikk Apply eller OK for å lagre endringene i lagets struktur.</li>
+</ul>
+<hr />
+<h2 id="åpne-fanen-attributes-form">8. Åpne fanen Attributes Form</h2>
+<figure>
+<img src="images/Screenshot%202026-01-20%20at%2018.07.13.png"
+alt="Skjermbilde 8 – Attributes Form" />
+<figcaption aria-hidden="true">Skjermbilde 8 – Attributes
+Form</figcaption>
+</figure>
+<ul>
+<li>Gå til fanen Attributes Form i venstremenyen.</li>
+<li>Her konfigureres hvordan redigeringsskjemaet for laget skal se
+ut.</li>
+</ul>
+<hr />
+<h2 id="flytt-feltet-nve_id-inn-i-skjemaet">9. Flytt feltet NVE_ID inn i
+skjemaet</h2>
+<figure>
+<img src="images/Screenshot%202026-01-20%20at%2018.08.16.png"
+alt="Skjermbilde 9 – Dra NVE_ID inn i skjema" />
+<figcaption aria-hidden="true">Skjermbilde 9 – Dra NVE_ID inn i
+skjema</figcaption>
+</figure>
+<ul>
+<li>Finn feltet NVE_ID i listen Available Widgets.</li>
+<li>Dra feltet over til ønsket plassering i Form Layout (for eksempel
+øverst under Type 1).</li>
+</ul>
+<hr />
+<h2 id="flytt-feltet-firma-inn-i-skjemaet">10. Flytt feltet firma inn i
+skjemaet</h2>
+<figure>
+<img src="images/Screenshot%202026-01-20%20at%2018.08.46.png"
+alt="Skjermbilde 10 – Dra firma inn i skjema" />
+<figcaption aria-hidden="true">Skjermbilde 10 – Dra firma inn i
+skjema</figcaption>
+</figure>
+<ul>
+<li>Finn feltet firma i Available Widgets.</li>
+<li>Dra feltet til ønsket plassering i skjemaet, rett under NVE_ID.</li>
+</ul>
+<hr />
+<h2 id="lagre-oppsettet">11. Lagre oppsettet</h2>
+<ul>
+<li>Klikk Apply eller OK for å lagre skjemaoppsettet.</li>
+<li>Når du nå åpner attributtskjemaet for laget, vil feltene NVE_ID og
+firma vises i skjemaet.</li>
+</ul>
+<hr />
+<h2 id="sett-felttype-til-value-map">12. Sett felttype til Value
+Map</h2>
+<figure>
+<img src="images/Screenshot%202026-01-20%20at%2018.10.59.png"
+alt="Skjermbilde 11 – Velg Widget Type Value Map" />
+<figcaption aria-hidden="true">Skjermbilde 11 – Velg Widget Type Value
+Map</figcaption>
+</figure>
+<ul>
+<li>Marker feltet firma i Form Layout.</li>
+<li>I høyre panel, under Widget Type, velg Value Map.</li>
+<li>Dette gjør at feltet vises som en nedtrekksliste med
+forhåndsdefinerte verdier.</li>
+</ul>
+<hr />
+<h2 id="legg-inn-verdier-i-value-map">13. Legg inn verdier i Value
+Map</h2>
+<figure>
+<img src="images/Screenshot%202026-01-20%20at%2018.13.21.png"
+alt="Skjermbilde 12 – Definer verdier i Value Map" />
+<figcaption aria-hidden="true">Skjermbilde 12 – Definer verdier i Value
+Map</figcaption>
+</figure>
+<ul>
+<li>I tabellen under Value og Description, legg inn ønskede koder og
+visningsnavn:
+<ul>
+<li>1 – biofokus</li>
+<li>2 – ecofact</li>
+<li>3 – norkonsult</li>
+<li>4 – multikonsult</li>
+</ul></li>
+<li>Alternativt kan du bruke Load Data from CSV File hvis listen finnes
+i en fil.</li>
+</ul>
+<p>Verdien i kolonnen Value lagres i databasen, mens Description vises i
+skjemaet.</p>
+<hr />
+<h2 id="kontroller-skjemaet-i-redigeringsmodus">14. Kontroller skjemaet
+i redigeringsmodus</h2>
+<figure>
+<img src="images/Screenshot%202026-01-20%20at%2018.15.56.png"
+alt="Skjermbilde 13 – Feltene vises i skjema" />
+<figcaption aria-hidden="true">Skjermbilde 13 – Feltene vises i
+skjema</figcaption>
+</figure>
+<ul>
+<li>Åpne attributtskjemaet for en flate i laget.</li>
+<li>Øverst i skjemaet vises nå feltene:
+<ul>
+<li>NVE id – må være heltall</li>
+<li>firma (som nedtrekksliste)</li>
+</ul></li>
+</ul>
+<p>Dette bekrefter at både nye felt og skjemaoppsett fungerer
+korrekt.</p>
+<hr />
+<h2 id="velg-verdi-fra-nedtrekkslisten">15. Velg verdi fra
+nedtrekkslisten</h2>
+<figure>
+<img src="images/Screenshot%202026-01-20%20at%2018.16.43.png"
+alt="Skjermbilde 14 – Velg firma fra liste" />
+<figcaption aria-hidden="true">Skjermbilde 14 – Velg firma fra
+liste</figcaption>
+</figure>
+<ul>
+<li>Klikk på nedtrekkslisten for feltet firma.</li>
+<li>Velg ønsket firma fra listen (for eksempel norkonsult).</li>
+<li>Verdien lagres automatisk når objektet lagres.</li>
+</ul>
+<h2 id="resultat">Resultat</h2>
+<p>Du har nå:</p>
+<ul>
+<li>Opprettet nye felt i attributtabellen.</li>
+<li>Definert riktig datatype og lengde.</li>
+<li>Lagt feltene inn i redigeringsskjemaet slik at de kan fylles ut ved
+digitalisering eller redigering.</li>
+<li>Konfigurert feltet firma som en nedtrekksliste med forhåndsdefinerte
+verdier.</li>
+</ul>
+<p>Denne strukturen fungerer direkte for eksport til HTML (for eksempel
+via MkDocs, Pandoc eller Sphinx).</p>
+</body>
+</html>
