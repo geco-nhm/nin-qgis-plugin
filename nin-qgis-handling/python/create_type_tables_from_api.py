@@ -1,10 +1,28 @@
 #!/usr/bin/env python3
 '''Test script for making requests to the NiN API'''
 
+import time
 from pathlib import Path
 import requests
 import tomllib
 import pandas as pd
+
+
+def get_with_retry(url, timeout=30, retries=3, backoff=5):
+    """Make a GET request with timeout and retry logic."""
+    for attempt in range(retries):
+        try:
+            response = requests.get(url, timeout=timeout)
+            return response
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
+            if attempt < retries - 1:
+                wait = backoff * (attempt + 1)
+                print(f"\nRequest to {url} failed (attempt {attempt+1}/{retries}): {e}")
+                print(f"Retrying in {wait}s...")
+                time.sleep(wait)
+            else:
+                print(f"\nRequest to {url} failed after {retries} attempts: {e}")
+                raise
 
 with open(
     file=Path(__file__).parents[1] / 'config.toml',
@@ -30,7 +48,7 @@ VERBOSE = False
 # }
 
 # GET request for alle koder
-allekoder_response = requests.get(ALLEKODER_URL)  # , headers=headers)
+allekoder_response = get_with_retry(ALLEKODER_URL)  # , headers=headers)
 
 # Checking if the request was successful
 if allekoder_response.status_code == 200:
@@ -118,7 +136,7 @@ if allekoder_response.status_code == 200:
 
                 # MAKE NEW API REQUEST FOR CURRENTS HOVEDTYPE'S
                 # GRUNNTYPER
-                kodeforhovedtype_response = requests.get(
+                kodeforhovedtype_response = get_with_retry(
                     KODEFORHOVEDTYPE_URL + hovedtyp['kode']['id']
                 )
 
