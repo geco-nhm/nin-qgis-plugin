@@ -10,14 +10,19 @@ import pandas as pd
 
 from helpers import sort_mixed_list
 
+# Reusable session for connection pooling
+_session = requests.Session()
 
-def get_with_retry(url, timeout=30, retries=3, backoff=5):
+
+def get_with_retry(url, timeout=(10, 30), retries=3, backoff=5):
     """Make a GET request with timeout and retry logic."""
     for attempt in range(retries):
         try:
-            response = requests.get(url, timeout=timeout)
+            response = _session.get(url, timeout=timeout)
             return response
-        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
+        except (requests.exceptions.Timeout,
+                requests.exceptions.ConnectionError,
+                requests.exceptions.ReadTimeout) as e:
             if attempt < retries - 1:
                 wait = backoff * (attempt + 1)
                 print(f"\nRequest to {url} failed (attempt {attempt+1}/{retries}): {e}")
