@@ -144,6 +144,27 @@ python3 generate_api_version_info.py
 
 ---
 
+### Verify CSV Tables (Tests)
+
+After regenerating the CSV tables, you can run the test suite to verify that the plugin data is up-to-date and internally consistent. The tests do **not** require QGIS — only `pandas` and `pytest`.
+
+```bash
+cd <project_root>
+python -m pytest tests_csv/ -v
+```
+
+The test suite (`tests_csv/test_csv_tables.py`) checks:
+
+* **API version info** — `nin_api_version_info.txt` exists, contains a valid commit SHA, and is less than 90 days old.
+* **File existence** — All expected attribute table CSVs and field meta CSVs are present.
+* **CSV integrity** — Tables are non-empty, contain a unique `fid` column, and meta files have the required columns (`name`, `type`, `length`, `precision`).
+* **Meta ↔ attribute consistency** — Field names defined in meta CSVs match the column headers in the corresponding attribute tables.
+* **Hierarchy foreign keys** — Foreign key references between `typer` → `hovedtypegrupper` → `hovedtyper` → `grunntyper` and mapping units (`M005`, `M020`, `M050`) contain no orphans.
+* **Variable tables** — `var_grunntyper` has the expected columns and references valid `grunntyper` fids; variable tables for each mapping scale are non-empty.
+* **Row count sanity** — Minimum expected row counts for `grunntyper` (500+), mapping units (100+ each), and `var_grunntyper` (1000+).
+
+---
+
 # Under the hood
 
 Short description which changes are happening in which file.
