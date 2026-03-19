@@ -43,9 +43,13 @@ mamba activate nin-qgis-env
 poetry install
 ```
 
-### Symbolic Link to QGIS Plugin Directory (Windows only)
+### Symbolic Link to QGIS Plugin Directory
 
-To use the plugin in QGIS, create a symbolic link from the plugin folder to the QGIS profile directory. Open PowerShell **as administrator** and run:
+To use the plugin in QGIS during development, create a symbolic link from the plugin folder to the QGIS profile directory. Replace `QGIS3` with `QGIS4` in the paths below if you are using QGIS 4.
+
+#### Windows
+
+Open PowerShell **as administrator** and run:
 
 ```powershell
 New-Item -ItemType SymbolicLink `
@@ -53,12 +57,33 @@ New-Item -ItemType SymbolicLink `
   -Target "<path_to_nin_qgis_plugin>\nin_qgis_plugin"
 ```
 
-For example, with a default QGIS installation path:
+For example, with a default QGIS 3 installation path:
 
 ```powershell
 New-Item -ItemType SymbolicLink `
   -Path "C:\Users\<user>\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\nin-qgis-plugin" `
   -Target "C:\Users\<user>\Documents\GitHub\nin-qgis-plugin\nin_qgis_plugin"
+```
+
+#### macOS
+
+```bash
+ln -s <path_to_nin_qgis_plugin>/nin_qgis_plugin \
+  "$HOME/Library/Application Support/QGIS/QGIS3/profiles/default/python/plugins/nin_qgis_plugin"
+```
+
+For example, with QGIS 3:
+
+```bash
+ln -s /Users/<user>/Documents/GitHub/nin-qgis-plugin/nin_qgis_plugin \
+  "/Users/<user>/Library/Application Support/QGIS/QGIS3/profiles/default/python/plugins/nin_qgis_plugin"
+```
+
+Or with QGIS 4:
+
+```bash
+ln -s /Users/<user>/Documents/GitHub/nin-qgis-plugin/nin_qgis_plugin \
+  "/Users/<user>/Library/Application Support/QGIS/QGIS4/profiles/default/python/plugins/nin_qgis_plugin"
 ```
 
 ---
