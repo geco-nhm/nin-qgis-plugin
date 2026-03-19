@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 '''Test script for making requests to the NiN API'''
 
+import time
 from pathlib import Path
 import requests
 import tomllib
@@ -8,6 +9,28 @@ from tqdm import tqdm  # Progress bar
 import pandas as pd
 
 from helpers import sort_mixed_list
+
+# Reusable session for connection pooling
+_session = requests.Session()
+
+
+def get_with_retry(url, timeout=(10, 30), retries=3, backoff=5):
+    """Make a GET request with timeout and retry logic."""
+    for attempt in range(retries):
+        try:
+            response = _session.get(url, timeout=timeout)
+            return response
+        except (requests.exceptions.Timeout,
+                requests.exceptions.ConnectionError,
+                requests.exceptions.ReadTimeout) as e:
+            if attempt < retries - 1:
+                wait = backoff * (attempt + 1)
+                print(f"\nRequest to {url} failed (attempt {attempt+1}/{retries}): {e}")
+                print(f"Retrying in {wait}s...")
+                time.sleep(wait)
+            else:
+                print(f"\nRequest to {url} failed after {retries} attempts: {e}")
+                raise
 
 # Load config
 with open(
@@ -35,7 +58,7 @@ CSV_SAVE_PATH = Path(config['csv_save_paths']['attribute_tables']).resolve()
 
 if CREATE_OVERVIEW:
     # GET request for alle koder
-    var_allekoder_response = requests.get(VARIABLER_ALLEKODER_URL)
+    var_allekoder_response = get_with_retry(VARIABLER_ALLEKODER_URL)
 
     # Checking if the request was successful
     if var_allekoder_response.status_code == 200:
@@ -95,7 +118,7 @@ if CREATE_OVERVIEW:
 if CREATE_TYPER:
 
     # GET request for alle koder
-    typer_allekoder_response = requests.get(
+    typer_allekoder_response = get_with_retry(
         TYPER_ALLEKODER_URL
     )
 
@@ -141,7 +164,7 @@ if CREATE_TYPER:
 
                     # MAKE NEW API REQUEST FOR CURRENTS HOVEDTYPE'S
                     # GRUNNTYPER
-                    kodeforhovedtype_response = requests.get(
+                    kodeforhovedtype_response = get_with_retry(
                         KODEFORHOVEDTYPE_URL + hovedtyp['kode']['id']
                     )
 
@@ -154,7 +177,7 @@ if CREATE_TYPER:
                         for grunntyp in kodeforhovedtype_data['grunntyper']:
 
                             # Grunntype API request
-                            kodeforgrunntype_response = requests.get(
+                            kodeforgrunntype_response = get_with_retry(
                                 KODEFORGRUNNTYPE_URL + grunntyp['kode']['id']
                             )
 

@@ -4,5 +4,5 @@ Note: this file is manually created by running
 
 ----
 
-nin-kode-api (https://github.com/Artsdatabanken/nin-kode-api.git) latest commit: 8e6f88467f5817ece603e6255b6b3d3b92b921cd
-date: 2025/05/08, 16:27:32
+nin-kode-api (https://github.com/Artsdatabanken/nin-kode-api.git) latest commit: b68054a64030efc093c9a75905f14fd58722905c
+date: 2026/03/17, 14:07:59
