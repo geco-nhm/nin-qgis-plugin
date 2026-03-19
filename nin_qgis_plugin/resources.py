@@ -2,9 +2,12 @@
 
 # Resource object code
 #
-# Created by: The Resource Compiler for PyQt5 (Qt v5.15.2)
+# Originally created by: The Resource Compiler for PyQt5 (Qt v5.15.2)
 #
-# WARNING! All changes made in this file will be lost!
+# NOTE: This file was manually patched to use qgis.PyQt instead of PyQt5
+# for Qt5/Qt6 compatibility. If you regenerate this file with pyrcc5,
+# you must re-apply the import change below:
+#   from PyQt5 import QtCore  ->  from qgis.PyQt import QtCore
 
 from qgis.PyQt import QtCore
 

@@ -43,11 +43,11 @@ FIELD_DEFINITIONS_CSV_PATH = Path(__file__).parent / \
 def get_qvariant(qvariant: str) -> Any:
     '''
     Returns QVariant object for corresponding short-hand strings.
-    Raises an error if provided string does not match a supported Qvariant type.
+    Raises an error if provided string does not match a supported QVariant type.
     '''
 
     if qvariant not in _FIELD_TYPES:
-        raise ValueError("Qvariant Type not supported!")
+        raise ValueError(f"QVariant type '{qvariant}' not supported!")
     return _FIELD_TYPES[qvariant]
 
 
