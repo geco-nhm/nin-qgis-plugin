@@ -27,17 +27,17 @@ def get_qvariant(qvariant: str) -> Any:
     '''
 
     if qvariant == 'Int':
-        return QVariant.Int
+        return QVariant.Type.Int
     if qvariant == 'String':
-        return QVariant.String
+        return QVariant.Type.String
     if qvariant == 'Date':
-        return QVariant.Date
+        return QVariant.Type.Date
     if qvariant == 'Double':
-        return QVariant.Double
+        return QVariant.Type.Double
     if qvariant == 'DateTime':
-        return QVariant.DateTime
+        return QVariant.Type.DateTime
     if qvariant == 'Bool':
-        return QVariant.Bool
+        return QVariant.Type.Bool
     raise ValueError("Qvariant Type not supported!")
 
 
@@ -264,7 +264,7 @@ def main(
 
     with edit(helper_point_layer):
         provider = helper_point_layer.dataProvider()
-        provider.addAttributes([QgsField("Comment", QVariant.String)])
+        provider.addAttributes([QgsField("Comment", QVariant.Type.String)])
         helper_point_layer.updateFields()
 
     write_layer_to_gpkg_file(

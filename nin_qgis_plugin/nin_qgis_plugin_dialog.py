@@ -30,16 +30,13 @@ from . import create_gpkg as cgpkg
 from . import project_setup as ps
 
 from qgis.PyQt import QtWidgets, uic
-from qgis.PyQt.QtCore import pyqtSignal
-from qgis.gui import QgsFileWidget
-# from PyQt5 import QtWidgets, uic
-from PyQt5.QtCore import Qt  # Import Qt from PyQt5.QtCore
-from PyQt5.QtGui import QDesktopServices
-from PyQt5.QtCore import QUrl #for linking to github
-from PyQt5.QtWidgets import (
+from qgis.PyQt.QtCore import pyqtSignal, Qt, QUrl
+from qgis.PyQt.QtGui import QDesktopServices
+from qgis.PyQt.QtWidgets import (
     QMessageBox, QComboBox, QListWidget,
     QListWidgetItem, QGroupBox, QCheckBox, QRadioButton, QHBoxLayout
 )
+from qgis.gui import QgsFileWidget
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'nin_qgis_plugin_dialog_base.ui'
@@ -158,11 +155,11 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
                     # Creating a new list item for each matching row.
                     item = QListWidgetItem(row['navn'])
                     # Setting the display text and additional data for the list item.
-                    item.setData(Qt.UserRole, row['kode_id'])
+                    item.setData(Qt.ItemDataRole.UserRole, row['kode_id'])
                     # Making the list item checkable and setting its initial check state.
-                    item.setFlags(item.flags() | Qt.ItemIsUserCheckable)
+                    item.setFlags(item.flags() | Qt.ItemFlag.ItemIsUserCheckable)
                     # Set initial state to unchecked
-                    item.setCheckState(Qt.Unchecked)
+                    item.setCheckState(Qt.CheckState.Unchecked)
                     # Adding the list item to the QListWidget.
                     self.selectHovetypegrupperWidget.addItem(item)
 
@@ -172,11 +169,11 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         selected_items = []
         for index in range(self.selectHovetypegrupperWidget.count()):
             item = self.selectHovetypegrupperWidget.item(index)
-            if item.checkState() == Qt.Checked:
+            if item.checkState() == Qt.CheckState.Checked:
                 selected_items.append({
                     'display_text': item.text(),
                     # Retrieve associated data
-                    'kode_id': item.data(Qt.UserRole)
+                    'kode_id': item.data(Qt.ItemDataRole.UserRole)
                 })
 
         return selected_items
@@ -215,7 +212,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
         # Set 'typer' combo box default
         self.comboBox.setCurrentIndex(
-            self.comboBox.findText("C-PE-NA Natursystem", Qt.MatchFixedString)
+            self.comboBox.findText("C-PE-NA Natursystem", Qt.MatchFlag.MatchFixedString)
         )
 
         # Setting default values for QListWidget
@@ -223,11 +220,11 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         items_to_select = ["NA-T Fastmarkssystemer"]
         for item_to_select in items_to_select:
             items = self.selectHovetypegrupperWidget.findItems(
-                item_to_select, Qt.MatchExactly
+                item_to_select, Qt.MatchFlag.MatchExactly
             )
             for item in items:
                 # This sets the item as selected
-                item.setCheckState(Qt.Checked)
+                item.setCheckState(Qt.CheckState.Checked)
 
     def load_project(self) -> None:
         '''

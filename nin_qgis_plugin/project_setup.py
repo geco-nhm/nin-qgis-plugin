@@ -27,7 +27,7 @@ from qgis.core import (
     Qgis,               # for AvoidIntersectionsMode
     edit
 )
-from PyQt5.QtGui import QColor, QFont
+from qgis.PyQt.QtGui import QColor, QFont
 
 from .attr_table_settings.value_relations import get_value_relations
 from .attr_table_settings.default_values import get_default_values
