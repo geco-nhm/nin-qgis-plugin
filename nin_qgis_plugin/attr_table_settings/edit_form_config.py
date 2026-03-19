@@ -31,14 +31,13 @@ def adjust_layer_edit_form(layer: QgsVectorLayer) -> QgsVectorLayer:
     # to 3.32 it was handled differently
     qgis_version = Qgis.version().split(".")
 
-    if int(qgis_version[0]) >= 3:
-        if int(qgis_version[1]) < 32:
-            edit_form_config.setLayout(1)
-        else:
-            # Change to 'TabLayout', aka Drag and drop layout
-            edit_form_config.setLayout(
-                Qgis.AttributeFormLayout(1)
-            )
+    if int(qgis_version[0]) >= 4 or (int(qgis_version[0]) == 3 and int(qgis_version[1]) >= 32):
+        # Change to 'TabLayout', aka Drag and drop layout
+        edit_form_config.setLayout(
+            Qgis.AttributeFormLayout(1)
+        )
+    elif int(qgis_version[0]) == 3:
+        edit_form_config.setLayout(1)
     else:
         raise NotImplementedError(
             f"Your Qgis version '{Qgis.version()}' is not supported, please download latest."

@@ -442,9 +442,6 @@ class ProjectSetup:
             # Refresh layer
             layer.triggerRepaint()
 
-            # Add the layer to the project
-            QGS_PROJECT.addMapLayer(layer)
-
         # Layer is "nin_polygons" hard coded in def_init
         layer.saveStyleToDatabase(layer.name(),"Default style for {}".format(layer.name()),True,"")
 

@@ -60,9 +60,6 @@
       <property name="storageMode">
        <enum>QgsFileWidget::SaveFile</enum>
       </property>
-      <property name="options">
-       <set>QFileDialog::ReadOnly</set>
-      </property>
      </widget>
     </item>
     <item row="1" column="0">
