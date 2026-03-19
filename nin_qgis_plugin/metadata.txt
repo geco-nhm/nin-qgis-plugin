@@ -22,7 +22,15 @@ repository=https://github.com/geco-nhm/nin-qgis-plugin.git
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-# changelog=
+changelog=
+    0.4:
+    - Added QGIS 4.0 and Qt6 compatibility (qgisMaximumVersion=4.99)
+    - Replaced all direct PyQt5 imports with qgis.PyQt abstraction layer
+    - Fully qualified Qt enums for Qt6 (e.g. Qt.ItemDataRole.UserRole, Qt.CheckState.Checked)
+    - Fixed QVariant field types to use QMetaType.Type on Qt6, with Qt5 fallback
+    - Fixed edit form layout version check for QGIS 4
+    - Removed deprecated QFileDialog.ReadOnly option from .ui file
+    - Fixed duplicate nin_polygons layer in layer tree
 
 # Tags are comma separated with spaces allowed
 tags=python, field mapping, Norway, NiN, 
