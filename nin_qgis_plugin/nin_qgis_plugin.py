@@ -28,7 +28,7 @@ from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
 from qgis.core import QgsVectorLayer, QgsField, QgsProject, QgsFeature
-from PyQt5.QtCore import QVariant
+from qgis.PyQt.QtCore import QVariant
 
 # Initialize Qt resources from file resources.py
 from .resources import *

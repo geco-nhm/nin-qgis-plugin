@@ -14,6 +14,26 @@ from qgis.core import (
 )
 from qgis.PyQt.QtCore import QVariant
 
+try:
+    from qgis.PyQt.QtCore import QMetaType
+    _FIELD_TYPES = {
+        'Int': QMetaType.Type.Int,
+        'String': QMetaType.Type.QString,
+        'Date': QMetaType.Type.QDate,
+        'Double': QMetaType.Type.Double,
+        'DateTime': QMetaType.Type.QDateTime,
+        'Bool': QMetaType.Type.Bool,
+    }
+except (ImportError, AttributeError):
+    _FIELD_TYPES = {
+        'Int': QVariant.Int,
+        'String': QVariant.String,
+        'Date': QVariant.Date,
+        'Double': QVariant.Double,
+        'DateTime': QVariant.DateTime,
+        'Bool': QVariant.Bool,
+    }
+
 ATTRIBUTE_TABLES_PATH = Path(__file__).parent / 'csv' / \
     'attribute_tables'
 FIELD_DEFINITIONS_CSV_PATH = Path(__file__).parent / \
@@ -23,22 +43,12 @@ FIELD_DEFINITIONS_CSV_PATH = Path(__file__).parent / \
 def get_qvariant(qvariant: str) -> Any:
     '''
     Returns QVariant object for corresponding short-hand strings.
-    Raises an error if provided string does not match a supported Qvariant type.
+    Raises an error if provided string does not match a supported QVariant type.
     '''
 
-    if qvariant == 'Int':
-        return QVariant.Int
-    if qvariant == 'String':
-        return QVariant.String
-    if qvariant == 'Date':
-        return QVariant.Date
-    if qvariant == 'Double':
-        return QVariant.Double
-    if qvariant == 'DateTime':
-        return QVariant.DateTime
-    if qvariant == 'Bool':
-        return QVariant.Bool
-    raise ValueError("Qvariant Type not supported!")
+    if qvariant not in _FIELD_TYPES:
+        raise ValueError(f"QVariant type '{qvariant}' not supported!")
+    return _FIELD_TYPES[qvariant]
 
 
 def create_empty_layer(
@@ -264,7 +274,7 @@ def main(
 
     with edit(helper_point_layer):
         provider = helper_point_layer.dataProvider()
-        provider.addAttributes([QgsField("Comment", QVariant.String)])
+        provider.addAttributes([QgsField("Comment", _FIELD_TYPES['String'])])
         helper_point_layer.updateFields()
 
     write_layer_to_gpkg_file(
