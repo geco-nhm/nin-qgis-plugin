@@ -5,3 +5,5 @@ __pycache__/
 *.zip
 .DS_Store
 .venv/
+# Generated Sphinx metadata can contain hash-like values that trigger secret scanners.
+nin_qgis_plugin/help/build/**/.buildinfo

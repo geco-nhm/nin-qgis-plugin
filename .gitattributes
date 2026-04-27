@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Exclude development/build helper scripts from release archives.
+nin_qgis_plugin/scripts/compile_strings.py export-ignore
+nin_qgis_plugin/scripts/run_env_linux.py export-ignore
+nin_qgis_plugin/scripts/update_strings.py export-ignore

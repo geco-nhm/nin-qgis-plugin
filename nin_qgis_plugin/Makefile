@@ -109,7 +109,7 @@ test: compile transcompile
 	@echo "----------------------"
 	@echo "If you get a 'no module named qgis.core error, try sourcing"
 	@echo "the helper script we have provided first then run make test."
-	@echo "e.g. source run-env-linux.sh <path to qgis install>; make test"
+	@echo "e.g. eval \"$$(python scripts/run_env_linux.py --print-exports <path>)\"; make test"
 	@echo "----------------------"
 
 deploy: compile doc transcompile
@@ -185,16 +185,14 @@ transup:
 	@echo "------------------------------------------------"
 	@echo "Updating translation files with any new strings."
 	@echo "------------------------------------------------"
-	@chmod +x scripts/update-strings.sh
-	@scripts/update-strings.sh $(LOCALES)
+	@python scripts/update_strings.py $(LOCALES)
 
 transcompile:
 	@echo
 	@echo "----------------------------------------"
 	@echo "Compiled translation files to .qm files."
 	@echo "----------------------------------------"
-	@chmod +x scripts/compile-strings.sh
-	@scripts/compile-strings.sh $(LRELEASE) $(LOCALES)
+	@python scripts/compile_strings.py $(LRELEASE) $(LOCALES)
 
 transclean:
 	@echo
@@ -227,7 +225,7 @@ pylint:
 	@echo "----------------------"
 	@echo "If you get a 'no module named qgis.core' error, try sourcing"
 	@echo "the helper script we have provided first then run make pylint."
-	@echo "e.g. source run-env-linux.sh <path to qgis install>; make pylint"
+	@echo "e.g. eval \"$$(python scripts/run_env_linux.py --print-exports <path>)\"; make pylint"
 	@echo "----------------------"
 
 

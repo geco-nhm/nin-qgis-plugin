@@ -7,8 +7,16 @@
 
 import sys
 import getpass
-import xmlrpc.client
+import xmlrpc.client  # nosec B411 - hardened by defusedxml monkey patch below.
+try:
+    from defusedxml import xmlrpc as defused_xmlrpc
+except ImportError as exc:
+    raise SystemExit(
+        "Missing required dependency 'defusedxml'. Install it to run secure XML-RPC uploads."
+    ) from exc
 from optparse import OptionParser
+
+defused_xmlrpc.monkey_patch()
 
 standard_library.install_aliases()
 
