@@ -24,14 +24,12 @@
 
 from pathlib import Path
 
-from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt
+from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
-from qgis.core import QgsVectorLayer, QgsField, QgsProject, QgsFeature
-from qgis.PyQt.QtCore import QVariant
 
 # Initialize Qt resources from file resources.py
-from .resources import *
+from . import resources  # noqa: F401
 
 # Import the code for the dialog
 from .nin_qgis_plugin_dialog import NinMapperDialogWidget
@@ -233,7 +231,7 @@ class NinMapper:
             # dialog may not exist if:
             #    first run of plugin
             #    removed on close (see self.onClosePlugin method)
-            if self.dialog == None:
+            if self.dialog is None:
                 # Create the dialog (after translation) and keep reference
                 self.dialog = NinMapperDialogWidget(self.canvas)
 

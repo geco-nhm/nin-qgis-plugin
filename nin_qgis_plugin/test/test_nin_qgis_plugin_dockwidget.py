@@ -14,8 +14,6 @@ __copyright__ = 'Copyright 2024, Lasse Keetz, Peter Horvath'
 
 import unittest
 
-from qgis.PyQt.QtGui import QDockWidget
-
 from nin_qgis_plugin_dockwidget import NinMapperDockWidget
 
 from utilities import get_qgis_app
@@ -38,8 +36,8 @@ class NinMapperDockWidgetTest(unittest.TestCase):
         """Test we can click OK."""
         pass
 
+
 if __name__ == "__main__":
-    suite = unittest.makeSuite(NinMapperDialogTest)
+    suite = unittest.makeSuite(NinMapperDockWidgetTest)
     runner = unittest.TextTestRunner(verbosity=2)
     runner.run(suite)
-

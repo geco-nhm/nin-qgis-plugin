@@ -22,9 +22,9 @@ def get_field_aliases() -> dict:
         # grunntype_or_klenhet': 'Grunntype/Kartleggingsenhet'
         'variabler': 'Variabler',
         'kode_id_label': 'Påskrift',
-        'andel_kle_1': 'Andel av naturtype 1', 
-        'andel_kle_2': 'Andel av naturtype 2', 
-        'andel_kle_3': 'Andel av naturtype 3', 
+        'andel_kle_1': 'Andel av naturtype 1',
+        'andel_kle_2': 'Andel av naturtype 2',
+        'andel_kle_3': 'Andel av naturtype 3',
     }
 
     return field_aliases

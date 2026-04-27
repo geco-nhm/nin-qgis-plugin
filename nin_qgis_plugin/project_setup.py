@@ -1,7 +1,7 @@
 '''Adapt project setting for NiN-mapping'''
 
 from pathlib import Path
-from typing import Union, Literal, List
+from typing import Union, List
 import random
 import pandas as pd
 
@@ -13,7 +13,6 @@ from qgis.core import (
     QgsEditorWidgetSetup,
     QgsFieldConstraints,
     QgsCoordinateReferenceSystem,
-    QgsRelation,
     QgsCategorizedSymbolRenderer,
     QgsRendererCategory,
     QgsSymbol,
@@ -82,7 +81,7 @@ class ProjectSetup:
 
         # Accessing layers' tree root
         root = QgsProject.instance().layerTreeRoot()
-        
+
         # Add layer groups
         groupNameList = ['Tabeller']  # May add several group names in the []
         for groupName in groupNameList:
@@ -106,11 +105,11 @@ class ProjectSetup:
             # Create layer
             sub_vlayer = QgsVectorLayer(uri, name, 'ogr')
             sub_vlayers.append(sub_vlayer)
-            
+
             # Add layer to map
             mygroup = root.findGroup("Tabeller")            # Add the layer to the "Tabeller"-group
             root.findGroup("Tabeller").setItemVisibilityChecked(False)  # Uncheck the Tabeller-group
-            if name not in ('nin_polygons','nin_helper_points'):        # Only adding table-layers to this group
+            if name not in ('nin_polygons', 'nin_helper_points'):        # Only adding table-layers to this group
                 QGS_PROJECT.addMapLayer(sub_vlayer, False)  # Add layer to map (False: don't show layer on top in TOC, but insert the layer at given position p)
                 mygroup.insertLayer(p, sub_vlayer)          # place the layer in pth posistion from top of TOC
             else:
@@ -249,28 +248,25 @@ class ProjectSetup:
     def set_constraints_expression(self, layer, field_name, expression, proj_crs):
         # Get the field index
         field_index = layer.fields().indexFromName(field_name)
-        
+
         if field_index == -1:
             print(f"Field '{field_name}' not found in the layer.")
             return
 
-        # Get the field
-        field = layer.fields().field(field_index)
-
         # https://api.qgis.org/api/classQgsVectorLayer.html
-        # ConstraintStrengthSoft = User is warned if constraint is violated but feature can still be accepted. 
+        # ConstraintStrengthSoft = User is warned if constraint is violated but feature can still be accepted.
         layer.setFieldConstraint(field_index, QgsFieldConstraints.ConstraintExpression, QgsFieldConstraints.ConstraintStrengthSoft)
         layer.setConstraintExpression(field_index, expression)
 
         # If decimal degrees, the CRS is transformed to UTM33 N before computing planimetric area
         # If that's the case, the field "area"'s default value must be changed
-        if proj_crs=='EPSG:4258':
+        if proj_crs == 'EPSG:4258':
             default_value = QgsDefaultValue()
             default_value.setExpression("round(area(Transform($geometry,'"+proj_crs+"','EPSG:25833')),1)")
             layer.setDefaultValueDefinition(field_index, default_value)
 
         # Update the field in the layer
-        layer.updateFields()        
+        layer.updateFields()
         print(f"Constraints expression for field '{field_name}' set to '{expression}'.")
 
     def field_to_datetime(
@@ -410,15 +406,15 @@ class ProjectSetup:
 
             # ... setting expression as label... if not specified with kode_id_label then labeled with "ikke kartlagt"
             # otherwise the represented value in kode_id_label is shortened to omit the mapping scale (string in the middle between dashes)
-            label_settings.fieldName =r"""
+            label_settings.fieldName = r"""
             CASE
-                WHEN "type" IN (1,2,3,4,5) THEN 
-                    regexp_substr(represent_value("hovedtype"), '^[A-Z]+-[A-Z0-9]+') 
-                WHEN "kode_id_label" IS NULL AND "grunntype_or_klenhet_2" IS NULL THEN 
+                WHEN "type" IN (1,2,3,4,5) THEN
+                    regexp_substr(represent_value("hovedtype"), '^[A-Z]+-[A-Z0-9]+')
+                WHEN "kode_id_label" IS NULL AND "grunntype_or_klenhet_2" IS NULL THEN
                     'ikke kartlagt'
-                WHEN "grunntype_or_klenhet_2" IS NULL THEN 
+                WHEN "grunntype_or_klenhet_2" IS NULL THEN
                     regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-')
-                ELSE 
+                ELSE
                     regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-') || ' / ' || regexp_replace(represent_value("grunntype_or_klenhet_2"), '^([A-Z0-9]+)-(?:[A-Z0-9]+-)?([A-Z0-9]+).*$', '\\1-\\2')
             END
             """
@@ -443,7 +439,7 @@ class ProjectSetup:
             layer.triggerRepaint()
 
         # Layer is "nin_polygons" hard coded in def_init
-        layer.saveStyleToDatabase(layer.name(),"Default style for {}".format(layer.name()),True,"")
+        layer.saveStyleToDatabase(layer.name(), "Default style for {}".format(layer.name()), True, "")
 
     def add_wms_layer(
         self,
@@ -606,15 +602,14 @@ def main(
     # Set MMU depending on the chosen mapping scale
     layer_name = "nin_polygons"
     field_name = "area"
-    if selected_mapping_scale=="grunntyper":
+    if selected_mapping_scale == "grunntyper":
         expression = "area($geometry)>=1"   # Secure MMU
-    elif selected_mapping_scale=="M005":
+    elif selected_mapping_scale == "M005":
         expression = "area($geometry)>=500"   # Secure MMU
-    elif selected_mapping_scale=="M020":
+    elif selected_mapping_scale == "M020":
         expression = "area($geometry)>=2500"  # Secure MMU
     else:
         expression = "area($geometry)>=10000"  # Secure MMU
-
 
     # Set default values defined in 'default_values.py'
     for default_value in get_default_values(
@@ -632,7 +627,7 @@ def main(
             constraint_description=default_value.get("constraint_description", None),
             not_null=default_value.get("not_null", False),
             enforce_not_null=default_value.get("enforce_not_null", False),
-            
+
         )
 
     # Set value relations defined in 'value_relations.py'
@@ -666,10 +661,9 @@ def main(
 
     # Get the layer by name
     layer = QgsProject.instance().mapLayersByName(layer_name)[0]
-    
+
     # Set the conatraints expression for the specified field
     project_setup.set_constraints_expression(layer, field_name, expression, proj_crs)
-
 
     # Add Norway topography WMS raster layer
     if wms_settings['checkBoxNorgeTopo']:

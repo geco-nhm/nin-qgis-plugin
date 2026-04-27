@@ -305,8 +305,9 @@ def main(
         )
         # Add fields to attribute table
         table_layer = add_layer_attributes_from_file(
-            attribute_csv_file_path=FIELD_DEFINITIONS_CSV_PATH /
-            f'{name}_meta.csv',
+            attribute_csv_file_path=(
+                FIELD_DEFINITIONS_CSV_PATH / f'{name}_meta.csv'
+            ),
             layer=table_layer,
         )
         # Populate attribute table

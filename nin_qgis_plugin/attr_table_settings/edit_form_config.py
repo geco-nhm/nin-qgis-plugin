@@ -134,7 +134,7 @@ def adjust_layer_edit_form(layer: QgsVectorLayer) -> QgsVectorLayer:
             )
             cur_tab.addChildElement(editor_field)
             # root_container.addChildElement(editor_field)
-    
+
     # Set as layers new form config
     layer.setEditFormConfig(edit_form_config)
 

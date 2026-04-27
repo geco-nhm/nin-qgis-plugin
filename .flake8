@@ -1,0 +1,6 @@
+[flake8]
+max-line-length = 220
+extend-ignore = E114, E116, E265
+per-file-ignores =
+    nin_qgis_plugin/test/test_init.py: E402
+

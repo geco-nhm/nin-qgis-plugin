@@ -3,7 +3,6 @@
 from typing import List, Union
 from pathlib import Path
 
-from qgis.core import QgsProject
 import pandas as pd
 
 CSV_ROOT_PATH = Path(__file__).parents[1] / 'csv' / 'attribute_tables'
@@ -58,7 +57,7 @@ def get_default_values(
         {
             "layer_name": "nin_polygons",
             "field_name": "area",
-            "default_value_expression": "round(area($geometry),1)", # always planimetric
+            "default_value_expression": "round(area($geometry),1)",  # always planimetric
             "make_field_uneditable": True,
             "apply_on_update": False,
         },
@@ -131,7 +130,7 @@ def get_default_values(
             },
             "constraints": "(\"andel_kle_1\" + \"andel_kle_2\" + \"andel_kle_3\") = 100 AND \"andel_kle_3\" <= \"andel_kle_2\"",
             "constraint_description": "Andel grunntype 3 må være <= andel grunntype 2",
-            "make_field_uneditable": False, #
+            "make_field_uneditable": False,
             "apply_on_update": True,
         },
         {
@@ -152,7 +151,6 @@ def get_default_values(
 
     # If only one hovedtypegruppe selected, also set as default
     if len(selected_hovedtypegrupper) == 1:
-        
         hovedtypegruppe_fid = get_fid_from_kode_id(
             attr_table_csv_path=CSV_ROOT_PATH / 'hovedtypegrupper_attribute_table.csv',
             kode_id=selected_hovedtypegrupper[0]['kode_id'],

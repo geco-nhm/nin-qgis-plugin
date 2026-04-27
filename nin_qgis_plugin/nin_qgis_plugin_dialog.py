@@ -24,7 +24,7 @@
 
 import os
 import csv
-import re  #search string
+import re  # search string
 from pathlib import Path
 from . import create_gpkg as cgpkg
 from . import project_setup as ps
@@ -34,7 +34,7 @@ from qgis.PyQt.QtCore import pyqtSignal, Qt, QUrl
 from qgis.PyQt.QtGui import QDesktopServices
 from qgis.PyQt.QtWidgets import (
     QMessageBox, QComboBox, QListWidget,
-    QListWidgetItem, QGroupBox, QCheckBox, QRadioButton, QHBoxLayout
+    QListWidgetItem, QGroupBox, QCheckBox, QRadioButton
 )
 from qgis.gui import QgsFileWidget
 
@@ -105,7 +105,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
         # Connect help button
         self.helpButton.clicked.connect(self.open_help_url)
-    
+
     def open_help_url(self):
         QDesktopServices.openUrl(QUrl("https://geco-nhm.github.io/nin-qgis-plugin/"))
 
@@ -189,8 +189,6 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         the file picker widget.
         '''
 
-        file_suffix = ".gpkg"
-
         selected_path = Path(self.file_widget.filePath()).resolve()  # convert relative path to absolute
         print(selected_path)
         # Check if the directory exists
@@ -230,7 +228,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         '''
         Loads project settings
         '''
-        crs = ''  #Iniate
+        crs = ''  # Iniate
         # Alt. 1 Retrieve CRS from radiobutton
         # for i in range(self.horizontalLayoutCRS.count()):
              # widget = self.horizontalLayoutCRS.itemAt(i).widget()
@@ -258,7 +256,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
                 "Velg koordinatsystem"
             )
             return
- 
+
         # Retrieve user selection in WMS checkboxes
         wms_settings = {
             box: self.wms_box_group.findChild(QCheckBox, box).isChecked()
@@ -295,7 +293,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             return
 
         # Including the mapping scale in the filename
-        fpath_str = self.file_widget.filePath() # filepath as string
+        fpath_str = self.file_widget.filePath()  # filepath as string
         fpath = Path(fpath_str)                 # filepath as data
         basename = fpath.stem
         path = fpath.parent

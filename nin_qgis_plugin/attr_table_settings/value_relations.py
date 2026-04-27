@@ -5,6 +5,7 @@ from qgis.core import QgsProject
 
 QGIS_PROJECT = QgsProject.instance()
 
+
 def get_value_relations(
     selected_type_id: List[str],
     selected_mapping_scale: str,
@@ -12,6 +13,7 @@ def get_value_relations(
 ) -> tuple[dict]:
     '''Returns hardcoded value relations as a tuple'''
 
+    additional_filter = None
     if selected_items:
         selected_kode_ids = [f"'{item['kode_id']}'" for item in selected_items]
         # passing the selected "Hovedtypegrupper" from the UI
