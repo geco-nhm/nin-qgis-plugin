@@ -1,31 +1,27 @@
 """Defines the value relations between nin_polygons fields"""
 
+import csv
 from typing import List, Union
 from pathlib import Path
-
-import pandas as pd
 
 CSV_ROOT_PATH = Path(__file__).parents[1] / 'csv' / 'attribute_tables'
 
 
 def get_fid_from_kode_id(
     attr_table_csv_path: Union[str, Path],
-    kode_id: Union[str, List[str]],
+    kode_id: str,
 ) -> int:
     '''Retrieves the fid in an attribute table from kode_id'''
 
-    df = pd.read_csv(
-        attr_table_csv_path,
-        index_col=False,
-        encoding="utf-8",
+    with open(attr_table_csv_path, newline='', encoding='utf-8') as csv_file:
+        reader = csv.DictReader(csv_file)
+        for row in reader:
+            if row['kode_id'] == kode_id:
+                return int(row['fid'])
+
+    raise ValueError(
+        f"Could not find kode_id '{kode_id}' in '{attr_table_csv_path}'."
     )
-
-    fid = df.loc[
-        df["kode_id"] == kode_id,
-        "fid"
-    ].values[0]
-
-    return int(fid)
 
 
 def get_default_values(
