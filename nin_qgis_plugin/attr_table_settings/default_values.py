@@ -9,7 +9,7 @@ CSV_ROOT_PATH = Path(__file__).parents[1] / 'csv' / 'attribute_tables'
 
 def get_fid_from_kode_id(
     attr_table_csv_path: Union[str, Path],
-    kode_id: Union[str, List[str]],
+    kode_id: str,
 ) -> int:
     '''Retrieves the fid in an attribute table from kode_id'''
 

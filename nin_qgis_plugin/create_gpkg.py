@@ -44,14 +44,22 @@ def _read_csv_rows(csv_path: Union[str, Path]) -> list[dict[str, str]]:
         return list(csv.DictReader(csv_file))
 
 
-def _normalize_attribute_value(value: Any) -> Any:
+def _normalize_attribute_value(value: Any, field_type: Any) -> Any:
     if value == '':
         return None
 
     if isinstance(value, str):
         stripped_value = value.strip()
-        if stripped_value.lower() in {'true', 'false'}:
+
+        if field_type == _FIELD_TYPES['Int']:
+            return int(stripped_value)
+
+        if field_type == _FIELD_TYPES['Double']:
+            return float(stripped_value)
+
+        if field_type == _FIELD_TYPES['Bool'] and stripped_value.lower() in {'true', 'false'}:
             return stripped_value.lower() == 'true'
+
         return stripped_value
 
     return value
@@ -207,7 +215,11 @@ def add_attribute_values_from_csv(
 
             for col_name in field_names:
                 field_idx = layer.fields().lookupField(col_name)
-                new_value = _normalize_attribute_value(row.get(col_name, ''))
+                field_type = layer.fields()[field_idx].type()
+                new_value = _normalize_attribute_value(
+                    row.get(col_name, ''),
+                    field_type,
+                )
 
                 layer.changeAttributeValue(
                     feature.id(), field_idx, new_value
