@@ -1,9 +1,9 @@
 '''Adapt project setting for NiN-mapping'''
 
+import csv
 from pathlib import Path
 from typing import Union, List
 import random
-import pandas as pd
 
 from qgis.core import (
     QgsDataProvider,
@@ -36,6 +36,12 @@ from .attr_table_settings.edit_form_config import adjust_layer_edit_form
 
 QGS_PROJECT = QgsProject.instance()
 # PROJECT_CRS = "EPSG:25833"
+
+
+def _read_csv_column(csv_path: Union[str, Path], column_name: str) -> list[str]:
+    with open(csv_path, newline='', encoding='utf-8') as csv_file:
+        reader = csv.DictReader(csv_file)
+        return [row[column_name] for row in reader if row.get(column_name)]
 
 
 class ProjectSetup:
@@ -348,11 +354,9 @@ class ProjectSetup:
             'attribute_tables' / \
             f"{self.selected_mapping_scale}_attribute_table.csv"
 
-        attribute_table = pd.read_csv(
-            attribute_table_path,
-            index_col=False,
-            encoding="utf-8",
-        )
+        unique_values = list(dict.fromkeys(
+            _read_csv_column(attribute_table_path, 'kode_id')
+        ))
 
         # Function to generate random color
         def random_color():
@@ -367,7 +371,6 @@ class ProjectSetup:
         else:
             # Prepare categorized symbology
             categories = []
-            unique_values = attribute_table['kode_id'].unique()
 
             for value in unique_values:
                 symbol = QgsSymbol.defaultSymbol(layer.geometryType())

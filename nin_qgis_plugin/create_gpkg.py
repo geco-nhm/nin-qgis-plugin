@@ -1,11 +1,10 @@
 '''Creates an empty geopackage (.gpkg) with vectors and attribute tables for NiN-mapping'''
 # -*- coding: utf-8 -*-
 
+import csv
 import os
 from pathlib import Path
 from typing import Any, Union
-import pandas as pd
-import numpy as np
 
 from qgis.core import (
     QgsField, QgsVectorFileWriter,
@@ -38,6 +37,24 @@ ATTRIBUTE_TABLES_PATH = Path(__file__).parent / 'csv' / \
     'attribute_tables'
 FIELD_DEFINITIONS_CSV_PATH = Path(__file__).parent / \
     'csv' / 'layer_fields_meta'
+
+
+def _read_csv_rows(csv_path: Union[str, Path]) -> list[dict[str, str]]:
+    with open(csv_path, newline='', encoding='utf-8') as csv_file:
+        return list(csv.DictReader(csv_file))
+
+
+def _normalize_attribute_value(value: Any) -> Any:
+    if value == '':
+        return None
+
+    if isinstance(value, str):
+        stripped_value = value.strip()
+        if stripped_value.lower() in {'true', 'false'}:
+            return stripped_value.lower() == 'true'
+        return stripped_value
+
+    return value
 
 
 def get_qvariant(qvariant: str) -> Any:
@@ -125,15 +142,11 @@ def add_layer_attributes_from_file(
     https://gis.stackexchange.com/questions/262549/pyqgis-adding-fields-to-a-feature-layer
     '''
 
-    attribute_df = pd.read_csv(
-        attribute_csv_file_path,
-        delimiter=",",  # comma delimited
-        header=0,  # Column names stored in row 0
-    )
+    attribute_rows = _read_csv_rows(attribute_csv_file_path)
 
     data_provider = layer.dataProvider()
 
-    for _, row in attribute_df.iterrows():
+    for row in attribute_rows:
 
         # Extract and cast attribute metadata
         attribute_name = str(row['name'])
@@ -178,36 +191,23 @@ def add_attribute_values_from_csv(
     https://gis.stackexchange.com/questions/330269/adding-values-to-field-using-pyqgis
     '''
 
-    # Read csv
-    attribute_df = pd.read_csv(
-        csv_path,
-        index_col=False,
-        delimiter=",",  # comma delimited
-        header=0,  # Column names stored in row 0
-    ).infer_objects()
+    attribute_rows = _read_csv_rows(csv_path)
+    field_names = [field.name() for field in layer.fields()]
 
     with edit(layer):
         # Add new features
-        for _ in range(attribute_df.shape[0]):
+        for _ in attribute_rows:
             layer.addFeature(QgsFeature(layer.fields()))
 
     with edit(layer):
 
         # Loop through dataframe rows
         for idx, feature in enumerate(layer.getFeatures()):
+            row = attribute_rows[idx]
 
-            for col_name in attribute_df.columns:
+            for col_name in field_names:
                 field_idx = layer.fields().lookupField(col_name)
-                new_value = attribute_df.loc[idx, col_name]
-
-                # OBS! This is hacking around the fact that layer.changeAttributeValue()
-                # cannot deal with numpy data types from pandas. Use with caution.
-                if pd.isnull(new_value):
-                    new_value = None
-                elif isinstance(new_value, np.int64):
-                    new_value = int(new_value)
-                elif isinstance(new_value, np.float64):
-                    new_value = float(new_value)
+                new_value = _normalize_attribute_value(row.get(col_name, ''))
 
                 layer.changeAttributeValue(
                     feature.id(), field_idx, new_value
