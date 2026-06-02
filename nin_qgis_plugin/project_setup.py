@@ -44,6 +44,14 @@ def _read_csv_column(csv_path: Union[str, Path], column_name: str) -> list[str]:
         return [row[column_name] for row in reader if row.get(column_name)]
 
 
+def _utm_zone_from_crs(crs: str) -> str:
+    crs_digits = ''.join(character for character in str(crs) if character.isdigit())
+    if len(crs_digits) < 2:
+        raise ValueError(f"Could not derive UTM zone from CRS: {crs}")
+
+    return crs_digits[-2:]
+
+
 class ProjectSetup:
     '''
     Helper class to adjust the QGIS project options.
@@ -694,9 +702,12 @@ def main(
 
     # Add "Norway in images" WMTS raster layer
     if wms_settings['checkBoxNiB']:
-        crs_zone = proj_crs[-2:]
+        crs_zone = _utm_zone_from_crs(proj_crs)
         project_setup.add_wms_layer(
-            wms_service_url=f"http://opencache.statkart.no/gatekeeper/gk/gk.open_nib_utm{crs_zone}_wmts_v2?",
+            wms_service_url=(
+                f"https://tilecache.norgeibilder.no/wmts/utm{crs_zone}_euref89"
+                "?SERVICE=WMTS&REQUEST=GetCapabilities"
+            ),
             wms_layer_names=f'Nibcache_UTM{crs_zone}_EUREF89_v2',
             wms_style='default',
             wms_crs=proj_crs,
