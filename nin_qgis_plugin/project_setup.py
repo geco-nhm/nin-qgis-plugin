@@ -1,6 +1,7 @@
 '''Adapt project setting for NiN-mapping'''
 
 import csv
+import os
 from pathlib import Path
 from typing import Union, List
 import random
@@ -50,6 +51,10 @@ def _utm_zone_from_crs(crs: str) -> str:
         raise ValueError(f"Could not derive UTM zone from CRS: {crs}")
 
     return crs_digits[-2:]
+
+
+def _nib_token() -> str:
+    return os.getenv('NIN_NIB_TOKEN') or os.getenv('NIB_TOKEN') or ''
 
 
 class ProjectSetup:
@@ -469,7 +474,8 @@ class ProjectSetup:
         # Format the WMS URI
         # wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&format=image/png&url={wms_service_url}"
         if wmts == '1':
-            wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&tileMatrixSet=default028mm&format=image/png&url={wms_service_url}"
+            tile_matrix_set = f"utm{_utm_zone_from_crs(wms_crs)}_euref89"
+            wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&tileMatrixSet={tile_matrix_set}&format=image/png&url={wms_service_url}"
         else:
             wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&format=image/png&url={wms_service_url}"
 
@@ -703,11 +709,13 @@ def main(
     # Add "Norway in images" WMTS raster layer
     if wms_settings['checkBoxNiB']:
         crs_zone = _utm_zone_from_crs(proj_crs)
+        nib_token = _nib_token()
+        nib_capabilities_url = f"https://tilecache.norgeibilder.no/wmts/utm{crs_zone}_euref89?SERVICE=WMTS&REQUEST=GetCapabilities"
+        if nib_token:
+            nib_capabilities_url += f"&token={nib_token}"
+
         project_setup.add_wms_layer(
-            wms_service_url=(
-                f"https://tilecache.norgeibilder.no/wmts/utm{crs_zone}_euref89"
-                "?SERVICE=WMTS&REQUEST=GetCapabilities"
-            ),
+            wms_service_url=nib_capabilities_url,
             wms_layer_names=f'Nibcache_UTM{crs_zone}_EUREF89_v2',
             wms_style='default',
             wms_crs=proj_crs,
