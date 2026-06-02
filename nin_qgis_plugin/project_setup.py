@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 from typing import Union, List
 import random
+from urllib.parse import quote_plus
 
 from qgis.core import (
     QgsDataProvider,
@@ -25,6 +26,7 @@ from qgis.core import (
     QgsSnappingConfig,  # for snapping settings
     QgsTolerance,       # for snapping tolerance type (pixel or project units)
     Qgis,               # for AvoidIntersectionsMode
+    QgsMessageLog,
     edit
 )
 from qgis.PyQt.QtGui import QColor, QFont
@@ -55,6 +57,14 @@ def _utm_zone_from_crs(crs: str) -> str:
 
 def _nib_token() -> str:
     return os.getenv('NIN_NIB_TOKEN') or os.getenv('NIB_TOKEN') or ''
+
+
+def _nib_username() -> str:
+    return os.getenv('NIN_NIB_USERNAME') or os.getenv('NIB_USERNAME') or ''
+
+
+def _nib_authcfg() -> str:
+    return os.getenv('NIN_NIB_AUTHCFG') or os.getenv('NIB_AUTHCFG') or ''
 
 
 class ProjectSetup:
@@ -466,31 +476,61 @@ class ProjectSetup:
         new_qgis_layer_name: str,
         wmts: str,
         zoom_to_extent=True,
+        authcfg: str = '',
     ) -> None:
         '''
         Adds WMS layers from a specified URL to the project instance.
         '''
 
-        # Format the WMS URI
-        # wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&format=image/png&url={wms_service_url}"
+        # Format the WMS/WMTS URI
+        # WMTS endpoints differ in matrix set naming between services/QGIS versions,
+        # so try a small set of URI variants and keep the first valid layer.
+        authcfg_param = f"&authcfg={quote_plus(authcfg)}" if authcfg else ''
+        wms_layer = None
         if wmts == '1':
-            tile_matrix_set = f"utm{_utm_zone_from_crs(wms_crs)}_euref89"
-            wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&tileMatrixSet={tile_matrix_set}&format=image/png&url={wms_service_url}"
-        else:
-            wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&format=image/png&url={wms_service_url}"
+            tile_matrix_candidates = [
+                f"utm{_utm_zone_from_crs(wms_crs)}_euref89",
+                'default028mm',
+            ]
+            wmts_uri_candidates = [
+                f"type=wmts&crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&tileMatrixSet={tile_matrix_set}&format=image/png{authcfg_param}&url={wms_service_url}"
+                for tile_matrix_set in tile_matrix_candidates
+            ]
+            wmts_uri_candidates.append(
+                f"type=wmts&crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&format=image/png{authcfg_param}&url={wms_service_url}"
+            )
 
-        # Create a new raster layer using the WMS URI
-        wms_layer = QgsRasterLayer(
-            wms_uri,
-            f'{new_qgis_layer_name}',
-            'wms',
-        )
+            for wmts_uri in wmts_uri_candidates:
+                candidate_layer = QgsRasterLayer(
+                    wmts_uri,
+                    f'{new_qgis_layer_name}',
+                    'wms',
+                )
+                if candidate_layer.isValid():
+                    wms_layer = candidate_layer
+                    break
+        else:
+            wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&format=image/png{authcfg_param}&url={wms_service_url}"
+            wms_layer = QgsRasterLayer(
+                wms_uri,
+                f'{new_qgis_layer_name}',
+                'wms',
+            )
 
         # Check if the layer is valid
-        if not wms_layer.isValid():
+        if wms_layer is None or not wms_layer.isValid():
+            safe_url = wms_service_url
+            if '&token=' in safe_url:
+                safe_url = safe_url.split('&token=')[0] + '&token=<redacted>'
             print(
                 f"WMS layer '{new_qgis_layer_name}' failed to load! "
                 + "Make sure the provided URI information is correct!"
+            )
+            QgsMessageLog.logMessage(
+                f"Failed to load layer '{new_qgis_layer_name}' from '{safe_url}'. "
+                + "If this is NiB WMTS in QGIS 4, verify Esri authentication settings (username + token) and token validity.",
+                'NiN plugin',
+                Qgis.Warning,
             )
         else:
             # Add the layer to the QGIS project
@@ -709,10 +749,14 @@ def main(
     # Add "Norway in images" WMTS raster layer
     if wms_settings['checkBoxNiB']:
         crs_zone = _utm_zone_from_crs(proj_crs)
-        nib_token = _nib_token()
+        nib_authcfg = (wms_settings.get('nib_authcfg') or '').strip() or _nib_authcfg()
+        nib_username = (wms_settings.get('nib_username') or '').strip() or _nib_username()
+        nib_token = (wms_settings.get('nib_token') or '').strip() or _nib_token()
         nib_capabilities_url = f"https://tilecache.norgeibilder.no/wmts/utm{crs_zone}_euref89?SERVICE=WMTS&REQUEST=GetCapabilities"
-        if nib_token:
-            nib_capabilities_url += f"&token={nib_token}"
+        if nib_username and not nib_authcfg:
+            nib_capabilities_url += f"&username={quote_plus(nib_username)}"
+        if nib_token and not nib_authcfg:
+            nib_capabilities_url += f"&token={quote_plus(nib_token)}"
 
         project_setup.add_wms_layer(
             wms_service_url=nib_capabilities_url,
@@ -722,6 +766,7 @@ def main(
             new_qgis_layer_name=f'Nibcache_UTM{crs_zone}_EUREF89_v2',
             wmts='1',
             zoom_to_extent=True,
+            authcfg=nib_authcfg,
         )
 
     # Adjust project snapping and overlap options
