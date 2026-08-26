@@ -8,6 +8,8 @@ import tomllib
 import pandas as pd
 
 from fid_stability import assign_append_only_fids
+from fid_stability import build_fid_remap
+from fid_stability import remap_foreign_key_values
 
 # Reusable session for connection pooling
 _session = requests.Session()
@@ -108,27 +110,32 @@ def stabilize_relation_fids(
 
     for table_name, identity_columns in identity_columns_by_table.items():
         table_df = dataframes[table_name]
-        temp_fids = [int(fid) for fid in table_df['fid'].tolist()]
         stable_fids = assign_append_only_fids(
             rows=table_df.to_dict('records'),
             identity_columns=identity_columns,
             existing_csv_path=CSV_SAVE_PATH / f'{table_name}_attribute_table.csv',
             table_name=table_name,
         )
-        temp_to_stable_fid_maps[table_name] = dict(zip(temp_fids, stable_fids))
+        temp_to_stable_fid_maps[table_name] = build_fid_remap(
+            rows=table_df.to_dict('records'),
+            assigned_fids=stable_fids,
+        )
         dataframes[table_name]['fid'] = stable_fids
 
-    dataframes['hovedtypegrupper']['typer_fkey'] = dataframes['hovedtypegrupper'][
-        'typer_fkey'
-    ].map(temp_to_stable_fid_maps['typer'])
-    dataframes['hovedtyper']['hovedtypegrupper_fkey'] = dataframes['hovedtyper'][
-        'hovedtypegrupper_fkey'
-    ].map(temp_to_stable_fid_maps['hovedtypegrupper'])
+    dataframes['hovedtypegrupper']['typer_fkey'] = remap_foreign_key_values(
+        values=dataframes['hovedtypegrupper']['typer_fkey'].tolist(),
+        fid_remap=temp_to_stable_fid_maps['typer'],
+    )
+    dataframes['hovedtyper']['hovedtypegrupper_fkey'] = remap_foreign_key_values(
+        values=dataframes['hovedtyper']['hovedtypegrupper_fkey'].tolist(),
+        fid_remap=temp_to_stable_fid_maps['hovedtypegrupper'],
+    )
 
     for table_name in ('grunntyper', 'M005', 'M020', 'M050'):
-        dataframes[table_name]['hovedtyper_fkey'] = dataframes[table_name][
-            'hovedtyper_fkey'
-        ].map(temp_to_stable_fid_maps['hovedtyper'])
+        dataframes[table_name]['hovedtyper_fkey'] = remap_foreign_key_values(
+            values=dataframes[table_name]['hovedtyper_fkey'].tolist(),
+            fid_remap=temp_to_stable_fid_maps['hovedtyper'],
+        )
 
     return dataframes
 

@@ -86,3 +86,26 @@ def assign_append_only_fids(
         next_fid += 1
 
     return assigned_fids
+
+
+def build_fid_remap(
+    rows: list[dict[str, Any]],
+    assigned_fids: list[int],
+) -> dict[int, int]:
+    return {
+        int(_normalize_identity_value(row.get('fid'))): assigned_fid
+        for row, assigned_fid in zip(rows, assigned_fids)
+    }
+
+
+def remap_foreign_key_values(
+    values: Iterable[Any],
+    fid_remap: dict[int, int],
+) -> list[int]:
+    remapped_values: list[int] = []
+
+    for value in values:
+        normalized_value = int(_normalize_identity_value(value))
+        remapped_values.append(fid_remap[normalized_value])
+
+    return remapped_values

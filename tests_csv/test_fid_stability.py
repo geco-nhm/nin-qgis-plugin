@@ -98,6 +98,53 @@ def test_assign_append_only_fids_rejects_duplicate_identity_rows():
             )
 
 
+def test_reordered_rows_preserve_stable_fids_and_parent_relationships():
+    existing_typer_csv = 'fid,kode_id\n7,C-PE-NA\n3,C-LI\n'
+    existing_hovedtypegrupper_csv = 'fid,kode_id\n10,NA-T\n11,LI-S\n'
+
+    typer_rows = [
+        {'fid': 0, 'kode_id': 'C-LI'},
+        {'fid': 1, 'kode_id': 'C-PE-NA'},
+    ]
+    hovedtypegrupper_rows = [
+        {'fid': 0, 'kode_id': 'LI-S', 'typer_fkey': 0},
+        {'fid': 1, 'kode_id': 'NA-T', 'typer_fkey': 1},
+    ]
+
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        tmp_path = Path(tmp_dir)
+        typer_csv_path = tmp_path / 'typer_attribute_table.csv'
+        hovedtypegrupper_csv_path = tmp_path / 'hovedtypegrupper_attribute_table.csv'
+        typer_csv_path.write_text(existing_typer_csv, encoding='utf-8')
+        hovedtypegrupper_csv_path.write_text(existing_hovedtypegrupper_csv, encoding='utf-8')
+
+        stable_typer_fids = FID_STABILITY.assign_append_only_fids(
+            rows=typer_rows,
+            identity_columns=('kode_id',),
+            existing_csv_path=typer_csv_path,
+            table_name='typer',
+        )
+        typer_fid_remap = FID_STABILITY.build_fid_remap(
+            rows=typer_rows,
+            assigned_fids=stable_typer_fids,
+        )
+
+        stable_hovedtypegruppe_fids = FID_STABILITY.assign_append_only_fids(
+            rows=hovedtypegrupper_rows,
+            identity_columns=('kode_id',),
+            existing_csv_path=hovedtypegrupper_csv_path,
+            table_name='hovedtypegrupper',
+        )
+        remapped_parent_fkeys = FID_STABILITY.remap_foreign_key_values(
+            values=[row['typer_fkey'] for row in hovedtypegrupper_rows],
+            fid_remap=typer_fid_remap,
+        )
+
+    assert stable_typer_fids == [3, 7]
+    assert stable_hovedtypegruppe_fids == [11, 10]
+    assert remapped_parent_fkeys == [3, 7]
+
+
 @pytest.mark.parametrize('table_name', ['var_grunntyper', 'var_M005', 'var_M020', 'var_M050'])
 def test_variable_tables_have_unique_stable_identity(table_name):
     csv_path = ATTRIBUTE_TABLES_DIR / f'{table_name}_attribute_table.csv'
