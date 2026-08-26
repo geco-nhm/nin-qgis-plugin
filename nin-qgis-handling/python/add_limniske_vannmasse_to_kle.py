@@ -9,6 +9,8 @@ from pathlib import Path
 import tomllib
 import pandas as pd
 
+from fid_stability import assign_append_only_fids
+
 with open(
     file=Path(__file__).parents[1] / 'config.toml',
     mode="rb",
@@ -18,6 +20,18 @@ with open(
 
 CSV_ROOT_PATH = Path(config['csv_save_paths']['attribute_tables'])
 LIMNIC_KODE_ID = "NA-F"
+
+
+def stabilize_kle_fids(table_name: str, df: pd.DataFrame) -> pd.DataFrame:
+    stable_fids = assign_append_only_fids(
+        rows=df.to_dict('records'),
+        identity_columns=('kode_id',),
+        existing_csv_path=CSV_ROOT_PATH / f'{table_name}_attribute_table.csv',
+        table_name=table_name,
+    )
+    result = df.copy()
+    result['fid'] = stable_fids
+    return result
 
 
 def main() -> None:
@@ -69,6 +83,9 @@ def main() -> None:
             updated_navn = " ".join(updated_navn)
 
             # Copy grunntype entries to KLE dataframes
+            if dfs[kle]['kode_id'].eq(updated_kode_id).any():
+                continue
+
             dfs[kle].loc[cur_idx, 'fid'] = cur_idx
             dfs[kle].loc[cur_idx, 'hovedtyper_fkey'] = \
                 row['hovedtyper_fkey']
@@ -86,6 +103,9 @@ def main() -> None:
             ] = updated_kode_id
 
     # print(dfs[kle].convert_dtypes().dtypes)
+
+    for kle in kartleggingsenheter:
+        dfs[kle] = stabilize_kle_fids(kle, dfs[kle])
 
     for dfs_to_save in (["grunntyper"] + kartleggingsenheter):
         dfs[dfs_to_save].convert_dtypes().to_csv(

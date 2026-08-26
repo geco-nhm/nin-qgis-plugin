@@ -7,6 +7,8 @@ import requests
 import tomllib
 import pandas as pd
 
+from fid_stability import assign_append_only_fids
+
 # Reusable session for connection pooling
 _session = requests.Session()
 
@@ -45,6 +47,90 @@ CSV_SAVE_PATH = Path(config['csv_save_paths']['attribute_tables']).resolve()
 
 # Print results for testing?
 VERBOSE = False
+LIMNIC_KODE_ID = 'NA-F'
+
+
+def append_limnic_grunntyper_to_mapping_units(
+    dataframes: dict[str, pd.DataFrame],
+) -> dict[str, pd.DataFrame]:
+    hoofdtypegruppe_fid = dataframes['hovedtypegrupper'].loc[
+        dataframes['hovedtypegrupper']['kode_id'] == LIMNIC_KODE_ID,
+        'fid',
+    ].values[0]
+    hovedtyper_fids = dataframes['hovedtyper'].loc[
+        dataframes['hovedtyper']['hovedtypegrupper_fkey'] == hoofdtypegruppe_fid,
+        'fid',
+    ].values
+    limnic_grunntyper = dataframes['grunntyper'].loc[
+        dataframes['grunntyper']['hovedtyper_fkey'].isin(hovedtyper_fids)
+    ]
+
+    for _, row in limnic_grunntyper.iterrows():
+        for kle in ('M005', 'M020', 'M050'):
+            updated_kode_id_parts = str(row['kode_id']).split('-')
+            updated_kode_id_parts.insert(1, f'-{kle}-')
+            updated_kode_id = ''.join(updated_kode_id_parts)
+
+            dataframes['grunntyper'].loc[
+                dataframes['grunntyper']['kode_id'] == row['kode_id'],
+                f'kartleggingsenhet_{kle.lower()}_fkey',
+            ] = updated_kode_id
+
+            if dataframes[kle]['kode_id'].eq(updated_kode_id).any():
+                continue
+
+            cur_idx = dataframes[kle].shape[0]
+            updated_navn = str(row['navn']).split(' ')
+            updated_navn[0] = updated_kode_id
+
+            dataframes[kle].loc[cur_idx, 'fid'] = cur_idx
+            dataframes[kle].loc[cur_idx, 'hovedtyper_fkey'] = row['hovedtyper_fkey']
+            dataframes[kle].loc[cur_idx, 'langkode'] = row['langkode']
+            dataframes[kle].loc[cur_idx, 'kode_id'] = updated_kode_id
+            dataframes[kle].loc[cur_idx, 'navn'] = ' '.join(updated_navn)
+
+    return dataframes
+
+
+def stabilize_relation_fids(
+    dataframes: dict[str, pd.DataFrame],
+) -> dict[str, pd.DataFrame]:
+    identity_columns_by_table = {
+        'typer': ('kode_id',),
+        'hovedtypegrupper': ('kode_id',),
+        'hovedtyper': ('kode_id',),
+        'grunntyper': ('kode_id',),
+        'M005': ('kode_id',),
+        'M020': ('kode_id',),
+        'M050': ('kode_id',),
+    }
+    temp_to_stable_fid_maps: dict[str, dict[int, int]] = {}
+
+    for table_name, identity_columns in identity_columns_by_table.items():
+        table_df = dataframes[table_name]
+        temp_fids = [int(fid) for fid in table_df['fid'].tolist()]
+        stable_fids = assign_append_only_fids(
+            rows=table_df.to_dict('records'),
+            identity_columns=identity_columns,
+            existing_csv_path=CSV_SAVE_PATH / f'{table_name}_attribute_table.csv',
+            table_name=table_name,
+        )
+        temp_to_stable_fid_maps[table_name] = dict(zip(temp_fids, stable_fids))
+        dataframes[table_name]['fid'] = stable_fids
+
+    dataframes['hovedtypegrupper']['typer_fkey'] = dataframes['hovedtypegrupper'][
+        'typer_fkey'
+    ].map(temp_to_stable_fid_maps['typer'])
+    dataframes['hovedtyper']['hovedtypegrupper_fkey'] = dataframes['hovedtyper'][
+        'hovedtypegrupper_fkey'
+    ].map(temp_to_stable_fid_maps['hovedtypegrupper'])
+
+    for table_name in ('grunntyper', 'M005', 'M020', 'M050'):
+        dataframes[table_name]['hovedtyper_fkey'] = dataframes[table_name][
+            'hovedtyper_fkey'
+        ].map(temp_to_stable_fid_maps['hovedtyper'])
+
+    return dataframes
 
 # Optional: headers can be used to provide additional information with your request
 # headers = {
@@ -224,6 +310,9 @@ if allekoder_response.status_code == 200:
         if VERBOSE:
             print("-"*15+"\n")
 
+
+    dataframes = append_limnic_grunntyper_to_mapping_units(dataframes)
+    dataframes = stabilize_relation_fids(dataframes)
 
     # Save DataFrames to csv tables
     for df_name, df in dataframes.items():
