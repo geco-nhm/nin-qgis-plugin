@@ -6,6 +6,8 @@ import os
 from pathlib import Path
 from typing import Any, Union
 
+from .catalogue_provenance import build_catalogue_provenance
+from .catalogue_provenance import CATALOGUE_PROVENANCE_TABLE_NAME
 from qgis.core import (
     QgsField, QgsVectorFileWriter,
     QgsCoordinateTransformContext, QgsVectorLayer,
@@ -37,6 +39,40 @@ ATTRIBUTE_TABLES_PATH = Path(__file__).parent / 'csv' / \
     'attribute_tables'
 FIELD_DEFINITIONS_CSV_PATH = Path(__file__).parent / \
     'csv' / 'layer_fields_meta'
+
+
+def add_catalogue_provenance_table(
+    gpkg_path: Union[str, Path],
+) -> None:
+    provenance_layer = create_empty_layer(
+        layer_name=CATALOGUE_PROVENANCE_TABLE_NAME,
+        geometry=None,
+        crs=None,
+        data_provider='memory',
+    )
+
+    provider = provenance_layer.dataProvider()
+    provider.addAttributes([
+        QgsField('plugin_version', _FIELD_TYPES['String'], len=32),
+        QgsField('nin_kode_api_sha', _FIELD_TYPES['String'], len=40),
+        QgsField('generated_at', _FIELD_TYPES['String'], len=32),
+    ])
+    provenance_layer.updateFields()
+
+    provenance = build_catalogue_provenance()
+
+    with edit(provenance_layer):
+        feature = QgsFeature(provenance_layer.fields())
+        feature.setAttribute('plugin_version', provenance['plugin_version'])
+        feature.setAttribute('nin_kode_api_sha', provenance['nin_kode_api_sha'])
+        feature.setAttribute('generated_at', provenance['generated_at'])
+        provenance_layer.addFeature(feature)
+
+    write_layer_to_gpkg_file(
+        gpkg_out_path=gpkg_path,
+        layer=provenance_layer,
+        extend_existing=True,
+    )
 
 
 def _read_csv_rows(csv_path: Union[str, Path]) -> list[dict[str, str]]:
@@ -335,6 +371,8 @@ def main(
         )
 
         del table_layer
+
+    add_catalogue_provenance_table(gpkg_path=gpkg_path)
 
     print(
         f"Created new .gpkg file in '{gpkg_path}'."

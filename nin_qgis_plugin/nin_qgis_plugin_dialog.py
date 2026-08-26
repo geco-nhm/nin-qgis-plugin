@@ -34,7 +34,8 @@ from qgis.PyQt.QtCore import pyqtSignal, Qt, QUrl
 from qgis.PyQt.QtGui import QDesktopServices
 from qgis.PyQt.QtWidgets import (
     QMessageBox, QComboBox, QListWidget,
-    QListWidgetItem, QGroupBox, QCheckBox, QRadioButton
+    QListWidgetItem, QGroupBox, QCheckBox, QRadioButton,
+    QInputDialog, QLineEdit
 )
 from qgis.gui import QgsFileWidget
 
@@ -262,6 +263,59 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             box: self.wms_box_group.findChild(QCheckBox, box).isChecked()
             for box in self.wms_check_box_names
         }
+
+        if wms_settings.get('checkBoxNiB'):
+            nib_authcfg = os.getenv('NIN_NIB_AUTHCFG') or os.getenv('NIB_AUTHCFG')
+            if not nib_authcfg:
+                nib_authcfg, ok = QInputDialog.getText(
+                    self,
+                    "Norge i bilder auth-konfigurasjon (valgfri)",
+                    "Authcfg-ID (valgfri). La stå tom for brukernavn/token:",
+                    QLineEdit.EchoMode.Normal,
+                )
+                if not ok:
+                    return
+                nib_authcfg = nib_authcfg.strip() if nib_authcfg else ""
+
+            nib_username = os.getenv('NIN_NIB_USERNAME') or os.getenv('NIB_USERNAME')
+            if not nib_authcfg and not nib_username:
+                nib_username, ok = QInputDialog.getText(
+                    self,
+                    "Norge i bilder brukernavn",
+                    "Skriv inn GeoID-brukernavn for NiB:",
+                    QLineEdit.EchoMode.Normal,
+                )
+                nib_username = nib_username.strip() if nib_username else ""
+                if not ok or not nib_username:
+                    QMessageBox.information(
+                        None,
+                        "NiB-brukernavn mangler",
+                        "Norge i bilder (WMTS) krever brukernavn og token."
+                    )
+                    return
+
+            nib_token = os.getenv('NIN_NIB_TOKEN') or os.getenv('NIB_TOKEN')
+            if not nib_authcfg and not nib_token:
+                nib_token, ok = QInputDialog.getText(
+                    self,
+                    "Norge i bilder token",
+                    "Skriv inn NiB-token (hentes fra services.norgeibilder.no/token):",
+                    QLineEdit.EchoMode.Normal,
+                )
+                nib_token = nib_token.strip() if nib_token else ""
+                if not ok or not nib_token:
+                    QMessageBox.information(
+                        None,
+                        "NiB-token mangler",
+                        "Norge i bilder (WMTS) krever brukernavn og token."
+                    )
+                    return
+
+            if nib_authcfg:
+                wms_settings['nib_authcfg'] = nib_authcfg
+            else:
+                wms_settings['nib_username'] = nib_username
+                wms_settings['nib_token'] = nib_token
 
         if not self.get_selected_htgr_items():
             QMessageBox.information(
