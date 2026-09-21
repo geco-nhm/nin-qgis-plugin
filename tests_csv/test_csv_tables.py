@@ -91,9 +91,12 @@ class TestCSVFilesExist:
         meta_path = FIELD_META_PATH / f"{table_name}_meta.csv"
         assert meta_path.exists(), f"Missing meta file: {meta_path}"
 
-    def test_nin_polygons_meta_exists(self):
-        meta_path = FIELD_META_PATH / "nin_polygons_meta.csv"
-        assert meta_path.exists(), f"Missing nin_polygons_meta.csv"
+    @pytest.mark.parametrize(
+        "layer_name", ["nin_polygons", "nin_points", "nin_lines"]
+    )
+    def test_mapping_layer_meta_exists(self, layer_name):
+        meta_path = FIELD_META_PATH / f"{layer_name}_meta.csv"
+        assert meta_path.exists(), f"Missing {layer_name}_meta.csv"
 
 
 # ---------- CSV Integrity ----------

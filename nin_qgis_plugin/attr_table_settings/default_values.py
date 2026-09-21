@@ -1,10 +1,13 @@
-"""Defines the value relations between nin_polygons fields"""
+"""Defines the default field values and widget settings of the mapping layers"""
 
 import csv
 from typing import List, Union
 from pathlib import Path
 
 CSV_ROOT_PATH = Path(__file__).parents[1] / 'csv' / 'attribute_tables'
+
+POLYGON_LAYER_NAME = 'nin_polygons'
+LINE_LAYER_NAME = 'nin_lines'
 
 
 def get_fid_from_kode_id(
@@ -27,59 +30,62 @@ def get_fid_from_kode_id(
 def get_default_values(
     selected_type_id: str,
     selected_hovedtypegrupper: List[str],
+    layer_name: str = POLYGON_LAYER_NAME,
 ) -> List[dict]:
-    """Returns a list of predefined default values"""
+    """
+    Returns a list of predefined default values for the given mapping layer.
+
+    All mapping layers (polygons, points, lines) share the single-type fields.
+    Only 'nin_polygons' gets the area, mosaic and Type 2/3 share fields, and
+    only 'nin_lines' gets the length field.
+    """
 
     type_fid = get_fid_from_kode_id(
         attr_table_csv_path=CSV_ROOT_PATH / 'typer_attribute_table.csv',
         kode_id=selected_type_id,
     )
 
-    default_field_values: List[dict] = [
+    common_field_values: List[dict] = [
         {
-            "layer_name": "nin_polygons",
             "field_name": "fid",
             "default_value_expression": "",
             "make_field_uneditable": True,
             "apply_on_update": False,
         },
         {
-            "layer_name": "nin_polygons",
             "field_name": "regdato",
             "default_value_expression": "now()",
             "make_field_uneditable": True,
             "apply_on_update": False,
         },
         {
-            "layer_name": "nin_polygons",
-            "field_name": "area",
-            "default_value_expression": "round(area($geometry),1)",  # always planimetric
-            "make_field_uneditable": True,
-            "apply_on_update": False,
-        },
-        {
-            "layer_name": "nin_polygons",
             "field_name": "type",
             "default_value_expression": f"{type_fid}",
             "make_field_uneditable": True,
             "apply_on_update": True,
         },
         {
-            "layer_name": "nin_polygons",
             "field_name": "kode_id_label",
             "default_value_expression": '''"grunntype_or_klenhet"''',
             "make_field_uneditable": True,
             "apply_on_update": True,
         },
         {
-            "layer_name": "nin_polygons",
             "field_name": "variabler",
             "default_value_expression": "",
             "make_field_uneditable": True,
             "apply_on_update": False,
         },
+    ]
+
+    polygon_field_values: List[dict] = [
         {
-            "layer_name": "nin_polygons",
+            "field_name": "area",
+            "default_value_expression": "round(area($geometry),1)",  # always planimetric
+            "make_field_uneditable": True,
+            "apply_on_update": False,
+        },
+        {
             "field_name": "andel_kle_1",
             "default_value_expression": "100.0",
             "widget_type": "Range",
@@ -98,7 +104,6 @@ def get_default_values(
             "apply_on_update": False,
         },
         {
-            "layer_name": "nin_polygons",
             "field_name": "andel_kle_2",
             "default_value_expression": "if(\"andel_kle_1\"=100, 0, 100-(\"andel_kle_1\" + \"andel_kle_3\"))",
             "widget_type": "Range",
@@ -114,7 +119,6 @@ def get_default_values(
             "apply_on_update": True,
         },
         {
-            "layer_name": "nin_polygons",
             "field_name": "andel_kle_3",
             "default_value_expression": "if((\"andel_kle_1\" + \"andel_kle_2\")=100, 0, 100 - (\"andel_kle_1\" + \"andel_kle_2\"))",
             "widget_type": "Range",
@@ -130,20 +134,33 @@ def get_default_values(
             "apply_on_update": True,
         },
         {
-            "layer_name": "nin_polygons",
             "field_name": "sammensatt",
             "default_value_expression": '''if("andel_kle_1" = 100, False, if("andel_kle_1" < 100, if("mosaikk" = True, False, True), True))''',
             "make_field_uneditable": False,
             "apply_on_update": False,
         },
         {
-            "layer_name": "nin_polygons",
             "field_name": "mosaikk",
             "default_value_expression": '''if("andel_kle_1" = 100, False, if("andel_kle_1" < 100, if("sammensatt" = True, False, True), True))''',
             "make_field_uneditable": False,
             "apply_on_update": False,
         },
     ]
+
+    line_field_values: List[dict] = [
+        {
+            "field_name": "lengde",
+            "default_value_expression": "round(length($geometry),1)",  # always planimetric
+            "make_field_uneditable": True,
+            "apply_on_update": False,
+        },
+    ]
+
+    default_field_values = list(common_field_values)
+    if layer_name == POLYGON_LAYER_NAME:
+        default_field_values.extend(polygon_field_values)
+    elif layer_name == LINE_LAYER_NAME:
+        default_field_values.extend(line_field_values)
 
     # If only one hovedtypegruppe selected, also set as default
     if len(selected_hovedtypegrupper) == 1:
@@ -154,11 +171,13 @@ def get_default_values(
 
         default_field_values.append(
             {
-                "layer_name": "nin_polygons",
                 "field_name": "hovedtypegruppe",
                 "default_value_expression": f"{hovedtypegruppe_fid}",
                 "make_field_uneditable": True,
             }
         )
+
+    for default_value in default_field_values:
+        default_value["layer_name"] = layer_name
 
     return default_field_values

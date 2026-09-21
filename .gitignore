@@ -7,3 +7,5 @@ __pycache__/
 .venv/
 # Generated Sphinx metadata can contain hash-like values that trigger secret scanners.
 nin_qgis_plugin/help/build/**/.buildinfo
+# QGIS style database created when running the plugin tests headlessly
+symbology-style.db

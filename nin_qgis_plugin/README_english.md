@@ -74,6 +74,7 @@ The plugin lets you configure a custom mapping project with options to:
 -   The `nin_polygons` layer is configured with:
     -   Random color symbology
     -   Labels based on minor type within the selected major-type group
+-   The `nin_points` and `nin_lines` layers are configured with the same colour symbology and drop-down lists as `nin_polygons`, but with a single-type form (no mosaic/composite fields). Use them for nature types too small to draw as polygons (e.g. springs) and for linear structures (e.g. rock walls).
 
 ## 3.3 Further customization
 
@@ -104,6 +105,8 @@ When fieldwork is complete, data can be synced back to QGIS for further processi
     -   Choose `sammensatt` or `mosaikk`
 7.  Optionally take a photo (if device has a camera)
 8.  Click `OK` to save the polygon
+
+Nature types smaller than the minimum mapping unit for the scale, or linear in shape, are recorded the same way in the `nin_points` (point) and `nin_lines` (line) layers. Their form has a single set of NiN attributes, variables, photo and comment.
 
 Mapping guidelines are available at [Artsdatabanken's website](https://www.artsdatabanken.no).
 

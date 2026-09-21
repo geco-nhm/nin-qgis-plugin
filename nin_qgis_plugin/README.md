@@ -75,6 +75,7 @@ Programtillegget gir deg følgende valgmuligheter for å sette opp et tilpasset 
 -   Kartlaget `nin_polygons` settes opp med:
     -   Tilfeldig fargesymbologi
     -   Skriftmarkering (label) basert på grunntype innenfpr den utvalgte hovedtypegruppen
+-   Kartlagene `nin_points` og `nin_lines` settes opp med samme fargesymbologi og nedtrekkslister som `nin_polygons`, men med ett skjema for én naturtype (ingen mosaikk/sammensatt). Bruk dem til naturtyper som er for små til å tegnes som polygon (f.eks. kilder) og til linjeformede strukturer (f.eks. bergvegg).
 
 ## 3.3 Videre tilpasning
 
@@ -105,6 +106,8 @@ Når feltarbeidet er ferdig kan dataene synkroniseres tilbake til QGIS for vider
     -   Velg `sammensatt` eller `mosaikk`
 7.  Ta eventuelt bilde (hvis enheten har kamera)
 8.  Klikk `OK` for å lagre polygonet
+
+Naturtyper som er mindre enn minsteareal for målestokken, eller som er linjeformede, registreres på samme måte i lagene `nin_points` (punkt) og `nin_lines` (linje). Skjemaet der har ett sett NiN-attributter, variabler, bilde og kommentar.
 
 Kartleggingsveiledning finnes på [Artsdatabankens nettsider](https://www.artsdatabanken.no).
 
