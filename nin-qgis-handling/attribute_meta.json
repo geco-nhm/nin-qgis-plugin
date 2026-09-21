@@ -108,6 +108,119 @@
             }
         }
     },
+    "nin_points": {
+        "fields": {
+            "fid": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "regdato": {
+                "dtype": "DateTime",
+                "length": 0,
+                "precision": 0
+            },
+            "type": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "hovedtypegruppe": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "hovedtype": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "grunntype_or_klenhet": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "variabler": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kode_id_label": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "photo": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kommentar": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }
+        }
+    },
+    "nin_lines": {
+        "fields": {
+            "fid": {
+                "dtype": "Int",
+                "length": 4,
+                "precision": 0
+            },
+            "lengde": {
+                "dtype": "Double",
+                "length": 0,
+                "precision": 4
+            },
+            "regdato": {
+                "dtype": "DateTime",
+                "length": 0,
+                "precision": 0
+            },
+            "type": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "hovedtypegruppe": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "hovedtype": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "grunntype_or_klenhet": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "variabler": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kode_id_label": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "photo": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            },
+            "kommentar": {
+                "dtype": "String",
+                "length": 0,
+                "precision": 0
+            }
+        }
+    },
     "typer": {
         "fields": {
             "fid": {

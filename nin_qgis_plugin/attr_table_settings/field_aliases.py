@@ -1,6 +1,6 @@
 """
-Defines the human-readable aliases in the nin_polygons form
-editor.
+Defines the human-readable aliases in the form editors of the
+mapping layers (nin_polygons, nin_points, nin_lines).
 """
 
 
@@ -10,6 +10,8 @@ def get_field_aliases() -> dict:
     field_aliases = {
         'fid': 'ID',
         'area': 'Areal (m²)',
+        'lengde': 'Lengde (m)',
+        'kommentar': 'Kommentar',
         'regdato': 'Dato',
         'type': 'Type',
         'hovedtypegruppe': 'Hovedtypegruppe',

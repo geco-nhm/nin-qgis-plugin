@@ -1,0 +1,11 @@
+name,type,length,precision
+fid,Int,4,0
+regdato,DateTime,0,0
+type,String,0,0
+hovedtypegruppe,String,0,0
+hovedtype,String,0,0
+grunntype_or_klenhet,String,0,0
+variabler,String,0,0
+kode_id_label,String,0,0
+photo,String,0,0
+kommentar,String,0,0

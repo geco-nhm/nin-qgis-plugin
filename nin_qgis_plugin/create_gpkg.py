@@ -40,6 +40,18 @@ ATTRIBUTE_TABLES_PATH = Path(__file__).parent / 'csv' / \
 FIELD_DEFINITIONS_CSV_PATH = Path(__file__).parent / \
     'csv' / 'layer_fields_meta'
 
+# Classified mapping layers written to every geopackage as
+# (layer name, geometry type). Each has a '<name>_meta.csv' field definition.
+# Order matters: 'project_setup.load_gpkg_layers()' adds each of these on top
+# of the layer tree, so later entries end up above earlier ones.
+MAPPING_LAYERS = (
+    ('nin_polygons', 'multipolygon'),
+    ('nin_points', 'point'),
+    ('nin_lines', 'linestring'),
+)
+MAPPING_LAYER_NAMES = tuple(name for name, _ in MAPPING_LAYERS)
+HELPER_POINT_LAYER_NAME = 'nin_helper_points'
+
 
 def add_catalogue_provenance_table(
     gpkg_path: Union[str, Path],
@@ -264,6 +276,37 @@ def add_attribute_values_from_csv(
     return layer
 
 
+def _write_mapping_layer(
+    gpkg_path: Union[str, Path],
+    layer_name: str,
+    geometry: str,
+    crs: str,
+    extend_existing: bool,
+) -> None:
+    '''
+    Creates an empty mapping layer with the fields defined in
+    'csv/layer_fields_meta/<layer_name>_meta.csv' and writes it to the geopackage.
+    '''
+
+    layer = create_empty_layer(
+        layer_name=layer_name,
+        geometry=geometry,
+        crs=crs,
+        data_provider='memory',
+    )
+
+    layer = add_layer_attributes_from_file(
+        attribute_csv_file_path=FIELD_DEFINITIONS_CSV_PATH / f'{layer_name}_meta.csv',
+        layer=layer,
+    )
+
+    write_layer_to_gpkg_file(
+        gpkg_out_path=gpkg_path,
+        layer=layer,
+        extend_existing=extend_existing,
+    )
+
+
 def main(
     selected_mapping_scale: str,
     gpkg_path: Union[str, Path],
@@ -278,43 +321,24 @@ def main(
     if gpkg_path.is_file():
         os.remove(gpkg_path)
 
-    # Define paths to attribute csvs
-    nin_polygons_meta_csv_path = FIELD_DEFINITIONS_CSV_PATH \
-        / 'nin_polygons_meta.csv'
-
     # Define CRS string (EPSG:25833 -> ETRS89 / UTM zone 33N)
     # crs = "epsg:25833"
     crs = proj_crs
 
-    # Create NiN multipolygon layer
-    # print(
-    #    f"Creating NiN multipolygon layer with attributes defined in {nin_polygons_meta_csv_path}."
-    # )
-    nin_polygons_layer = create_empty_layer(
-        layer_name='nin_polygons',
-        geometry='multipolygon',
-        crs=crs,
-        data_provider='memory',
-    )
-
-    # Add attributes to nin polygon layer from csv file
-    nin_polygons_layer = add_layer_attributes_from_file(
-        attribute_csv_file_path=nin_polygons_meta_csv_path,
-        layer=nin_polygons_layer,
-    )
-
-    # Save to created geopackage
-    write_layer_to_gpkg_file(
-        gpkg_out_path=gpkg_path,
-        layer=nin_polygons_layer,
-        extend_existing=False,  # Create new .gpkg here!
-    )
-
-    # print("Written nin polygon layer to .gpkg file.")
+    # Create the classified mapping layers (polygons, points, lines).
+    # The first one creates the .gpkg, the rest extend it.
+    for idx, (layer_name, geometry) in enumerate(MAPPING_LAYERS):
+        _write_mapping_layer(
+            gpkg_path=gpkg_path,
+            layer_name=layer_name,
+            geometry=geometry,
+            crs=crs,
+            extend_existing=idx > 0,
+        )
 
     # Add helper point layer
     helper_point_layer = create_empty_layer(
-        layer_name='nin_helper_points',
+        layer_name=HELPER_POINT_LAYER_NAME,
         geometry='multipoint',
         crs=crs,
         data_provider='memory',
@@ -331,8 +355,8 @@ def main(
         extend_existing=True,
     )
 
-    # Remove vector layers from memory
-    del nin_polygons_layer, helper_point_layer
+    # Remove vector layer from memory
+    del helper_point_layer
 
     # Create attribute tables! MAKE SURE .CSV FILES EXIST AND ARE NAMED CORRECTLY
     table_names = (

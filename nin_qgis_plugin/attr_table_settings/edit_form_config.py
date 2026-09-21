@@ -17,15 +17,15 @@ from qgis.core import (
 # QTabWidget, QVBoxLayout, QLineEdit, QLabel, QWidget, QComboBox
 # )
 
+# Form layouts:
+# 'polygon': three tabs (Type 1/2/3) with mosaic share fields, for nin_polygons.
+# 'simple': one container with the single-type fields, for nin_points and nin_lines.
+POLYGON_LAYOUT = 'polygon'
+SIMPLE_LAYOUT = 'simple'
 
-def adjust_layer_edit_form(layer: QgsVectorLayer) -> QgsVectorLayer:
-    '''TODO.'''
 
-    # Retrieve fields
-    fields = layer.fields()
-
-    # Retrieve existing edit form configuration
-    edit_form_config = layer.editFormConfig()
+def _set_drag_and_drop_layout(edit_form_config) -> None:
+    '''Switches the form to the "drag and drop" (tab) layout.'''
 
     # OBS! We need to check Qgis version here, because prior
     # to 3.32 it was handled differently
@@ -43,9 +43,72 @@ def adjust_layer_edit_form(layer: QgsVectorLayer) -> QgsVectorLayer:
             f"Your Qgis version '{Qgis.version()}' is not supported, please download latest."
         )
 
+
+def _add_fields_to_container(container, fields, field_names) -> None:
+    '''Adds the named fields (skipping ones the layer lacks) to a form container.'''
+
+    for field in field_names:
+        field_idx = fields.indexFromName(field)
+        if field_idx < 0:
+            continue
+        editor_field = QgsAttributeEditorField(
+            name=field,
+            idx=field_idx,
+            parent=container,
+        )
+        container.addChildElement(editor_field)
+
+
+def adjust_layer_edit_form(
+    layer: QgsVectorLayer,
+    layout: str = POLYGON_LAYOUT,
+) -> QgsVectorLayer:
+    '''
+    Configures the edit form of a mapping layer.
+
+    layout: 'polygon' (three type tabs, nin_polygons) or
+            'simple' (one container, nin_points / nin_lines).
+    '''
+
+    if layout not in (POLYGON_LAYOUT, SIMPLE_LAYOUT):
+        raise ValueError(f"Unknown edit form layout '{layout}'.")
+
+    # Retrieve fields
+    fields = layer.fields()
+
+    # Retrieve existing edit form configuration
+    edit_form_config = layer.editFormConfig()
+    _set_drag_and_drop_layout(edit_form_config)
+
     # Retrieve root container and clear default layout
     root_container = edit_form_config.invisibleRootContainer()
     root_container.clear()
+
+    if layout == SIMPLE_LAYOUT:
+        container = QgsAttributeEditorContainer(
+            name="Type",
+            parent=root_container,
+        )
+        edit_form_config.addTab(container)
+
+        _add_fields_to_container(
+            container=container,
+            fields=fields,
+            field_names=[
+                'type',
+                'hovedtypegruppe',
+                'hovedtype',
+                'grunntype_or_klenhet',
+                'variabler',
+                'kode_id_label',
+                'lengde',  # nin_lines only, skipped when missing
+                'photo',
+                'kommentar',
+            ],
+        )
+
+        layer.setEditFormConfig(edit_form_config)
+        return layer
 
     # Add the tabs
     tab_1 = QgsAttributeEditorContainer(
@@ -80,9 +143,6 @@ def adjust_layer_edit_form(layer: QgsVectorLayer) -> QgsVectorLayer:
     # edit_form_config.addTab(....) # -> QgsAttributeEditorElement
     # QgsAttributeEditorElement(type: Qgis.AttributeEditorType, name: Optional[str], parent: Optional[QgsAttributeEditorElement] = None)
     # AttributeEditorType(0) -> AeTypeContainer
-
-    # Containers for different tabs
-    # main_tab_container = Qgis.AttributeEditorType(0)
 
     # Add all fields that should be shown in main tab
     fields_to_include = {
@@ -123,17 +183,11 @@ def adjust_layer_edit_form(layer: QgsVectorLayer) -> QgsVectorLayer:
     }
 
     for _, tab_fields in fields_to_include.items():
-
-        cur_tab = tab_fields['tab']
-
-        for field in tab_fields['fields']:
-            editor_field = QgsAttributeEditorField(
-                name=field,
-                idx=fields.indexFromName(field),
-                parent=cur_tab,
-            )
-            cur_tab.addChildElement(editor_field)
-            # root_container.addChildElement(editor_field)
+        _add_fields_to_container(
+            container=tab_fields['tab'],
+            fields=fields,
+            field_names=tab_fields['fields'],
+        )
 
     # Set as layers new form config
     layer.setEditFormConfig(edit_form_config)

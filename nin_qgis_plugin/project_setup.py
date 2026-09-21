@@ -18,6 +18,8 @@ from qgis.core import (
     QgsCategorizedSymbolRenderer,
     QgsRendererCategory,
     QgsSymbol,
+    QgsMarkerSymbol,
+    QgsLineSymbol,
     QgsPalLayerSettings,
     QgsTextFormat,
     QgsVectorLayerSimpleLabeling,
@@ -35,10 +37,52 @@ from .attr_table_settings.value_relations import get_value_relations
 from .attr_table_settings.default_values import get_default_values
 from .attr_table_settings.field_aliases import get_field_aliases
 from .attr_table_settings.edit_form_config import adjust_layer_edit_form
+from .attr_table_settings.edit_form_config import POLYGON_LAYOUT, SIMPLE_LAYOUT
+from .create_gpkg import MAPPING_LAYER_NAMES, HELPER_POINT_LAYER_NAME
 
 
 QGS_PROJECT = QgsProject.instance()
 # PROJECT_CRS = "EPSG:25833"
+
+# Label expression for nin_polygons: if not specified with kode_id_label then
+# labeled with "ikke kartlagt", otherwise the represented value in kode_id_label
+# is shortened to omit the mapping scale (string in the middle between dashes).
+# A second type (mosaic/composite polygon) is appended after ' / '.
+POLYGON_LABEL_EXPRESSION = r"""
+            CASE
+                WHEN "type" IN (1,2,3,4,5) THEN
+                    regexp_substr(represent_value("hovedtype"), '^[A-Z]+-[A-Z0-9]+')
+                WHEN "kode_id_label" IS NULL AND "grunntype_or_klenhet_2" IS NULL THEN
+                    'ikke kartlagt'
+                WHEN "grunntype_or_klenhet_2" IS NULL THEN
+                    regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-')
+                ELSE
+                    regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-') || ' / ' || regexp_replace(represent_value("grunntype_or_klenhet_2"), '^([A-Z0-9]+)-(?:[A-Z0-9]+-)?([A-Z0-9]+).*$', '\\1-\\2')
+            END
+            """
+# Regexp explanation:
+# ^([A-Z0-9]+)-
+# Captures the first part (e.g., TK01).
+# (?:[A-Z0-9]+-)?
+# Matches (but does not capture) an optional middle part (e.g., M005-).
+# ([A-Z0-9]+)
+# Captures the third part (e.g., 19).
+# .*$
+# Matches and removes everything after the third part (optional descriptive text).
+# '\\1-\\2'
+# Keeps only the first and third parts, removing the middle part and anything extra at the end.
+
+# Label expression for nin_points and nin_lines (single type, no Type 2/3 fields).
+SIMPLE_LABEL_EXPRESSION = r"""
+            CASE
+                WHEN "type" IN (1,2,3,4,5) THEN
+                    regexp_substr(represent_value("hovedtype"), '^[A-Z]+-[A-Z0-9]+')
+                WHEN "kode_id_label" IS NULL THEN
+                    'ikke kartlagt'
+                ELSE
+                    regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-')
+            END
+            """
 
 
 def _read_csv_column(csv_path: Union[str, Path], column_name: str) -> list[str]:
@@ -93,13 +137,19 @@ class ProjectSetup:
         self.canvas = canvas
         self.proj_crs = proj_crs
         self.nin_polygons_layer_name = nin_polygons_layer_name
+        # One colour per kode_id, shared by all mapping layers in this project
+        self._kode_id_palette: Union[dict, None] = None
+
+    def get_layer(self, layer_name: str) -> QgsVectorLayer:
+        '''Returns the project layer with the given name.'''
+        return QGS_PROJECT.mapLayersByName(layer_name)[0]
 
     def get_nin_polygons_layer(self):
         '''
         Returns the nin_polygons layer with layer name defined
         in 'self.nin_polygons_layer_name'.
         '''
-        return QGS_PROJECT.mapLayersByName(self.nin_polygons_layer_name)[0]
+        return self.get_layer(self.nin_polygons_layer_name)
 
     def load_gpkg_layers(self) -> List[QgsVectorLayer]:
         '''
@@ -138,7 +188,7 @@ class ProjectSetup:
             # Add layer to map
             mygroup = root.findGroup("Tabeller")            # Add the layer to the "Tabeller"-group
             root.findGroup("Tabeller").setItemVisibilityChecked(False)  # Uncheck the Tabeller-group
-            if name not in ('nin_polygons', 'nin_helper_points'):        # Only adding table-layers to this group
+            if name not in (*MAPPING_LAYER_NAMES, HELPER_POINT_LAYER_NAME):  # Only adding table-layers to this group
                 QGS_PROJECT.addMapLayer(sub_vlayer, False)  # Add layer to map (False: don't show layer on top in TOC, but insert the layer at given position p)
                 mygroup.insertLayer(p, sub_vlayer)          # place the layer in pth posistion from top of TOC
             else:
@@ -207,18 +257,25 @@ class ProjectSetup:
         constraint_description: str = None,
         not_null: bool = False,
         enforce_not_null: bool = False,
+        layer: QgsVectorLayer = None,
     ) -> None:
         #print(f"apply_on_update for {field_name}: {apply_on_update}")
         '''
         Adds QGIS field logic to populate field values automatically when creating
         new features. Optionally toggles "Apply default value on update."
+
+        Applies to 'layer' if given, otherwise to the nin_polygons layer.
         '''
 
         # Get layer from project
-        layer = self.get_nin_polygons_layer()
+        if layer is None:
+            layer = self.get_nin_polygons_layer()
 
         # Find the index of the field
         field_index = layer.fields().indexOf(field_name)
+        if field_index < 0:
+            print(f"Field '{field_name}' not found in layer '{layer.name()}', skipping defaults.")
+            return
 
         # Create a QgsDefaultValue object with the expression and
         # set it as the default value for the field
@@ -300,10 +357,12 @@ class ProjectSetup:
 
     def field_to_datetime(
         self,
-        field_name: str
+        field_name: str,
+        layer: QgsVectorLayer = None,
     ) -> None:
         '''
         Adjusts save and display options for the specified DateTime field.
+        Applies to 'layer' if given, otherwise to the nin_polygons layer.
 
         From: https://gisunchained.wordpress.com/2019/09/30/configure-editing-form-widgets-using-pyqgis/
         '''
@@ -315,7 +374,8 @@ class ProjectSetup:
             'field_iso_format': False,
         }
 
-        layer = self.get_nin_polygons_layer()
+        if layer is None:
+            layer = self.get_nin_polygons_layer()
 
         fields = layer.fields()
         field_idx = fields.indexOf(field_name)
@@ -365,107 +425,134 @@ class ProjectSetup:
         else:
             raise ValueError(f"Invalid crs given: {crs}")
 
+    def get_kode_id_palette(self) -> dict:
+        '''
+        Returns one colour (RGB tuple) per 'kode_id' of the selected mapping
+        scale. Built once per project run so that polygons, points and lines
+        show the same colour for the same mapping unit.
+        '''
+
+        if self._kode_id_palette is None:
+            attribute_table_path = Path(__file__).parent / 'csv' / \
+                'attribute_tables' / \
+                f"{self.selected_mapping_scale}_attribute_table.csv"
+
+            unique_values = list(dict.fromkeys(
+                _read_csv_column(attribute_table_path, 'kode_id')
+            ))
+
+            self._kode_id_palette = {
+                value: tuple(random.randint(0, 255) for _ in range(3))
+                for value in unique_values
+            }
+
+        return self._kode_id_palette
+
+    def set_kode_id_styling(
+        self,
+        layer: QgsVectorLayer,
+        label_expression: str,
+        label_placement,
+        symbol_alpha: int = 128,
+    ) -> None:
+        '''
+        Defines a categorized symbology (one colour per 'kode_id' of the
+        mapping units, red for unmatched values) and an expression label
+        for a mapping layer. Works for polygon, point and line layers.
+        '''
+
+        if not layer.isValid():
+            print(f"Failed to load layer {layer.name()}")
+            return
+
+        # Prepare categorized symbology
+        categories = []
+
+        for value, (red, green, blue) in self.get_kode_id_palette().items():
+            symbol = QgsSymbol.defaultSymbol(layer.geometryType())
+            self._size_symbol(symbol)
+            symbol.setColor(QColor(red, green, blue, symbol_alpha))
+            category = QgsRendererCategory(value, symbol, str(value))
+            categories.append(category)
+
+        # Add a default category for all other strings
+        default_symbol = QgsSymbol.defaultSymbol(layer.geometryType())
+        self._size_symbol(default_symbol)
+        # Red color
+        default_symbol.setColor(QColor(255, 0, 0, symbol_alpha))
+        default_category = QgsRendererCategory(
+            None, default_symbol, "Other")
+        categories.append(default_category)
+
+        renderer = QgsCategorizedSymbolRenderer(
+            'represent_value("kode_id_label")',
+            categories
+        )
+
+        layer.setRenderer(renderer)
+
+        # Set up labeling
+        label_settings = QgsPalLayerSettings()
+        # https://gis.stackexchange.com/questions/469969/using-label-placement-via-pyqgis
+        # https://qgis.org/pyqgis/master/gui/Qgis.html#qgis.gui.Qgis.LabelPlacement
+        label_settings.placement = label_placement
+
+        text_format = QgsTextFormat()
+        text_format.setFont(QFont("Arial", 12))
+        text_format.setSize(12)
+        text_format.setColor(QColor(0, 0, 0))  # Black color for text
+        label_settings.setFormat(text_format)
+
+        label_settings.fieldName = label_expression
+        label_settings.isExpression = True
+        labeling = QgsVectorLayerSimpleLabeling(label_settings)
+        layer.setLabeling(labeling)
+        layer.setLabelsEnabled(True)
+
+        # Refresh layer
+        layer.triggerRepaint()
+
+        layer.saveStyleToDatabase(layer.name(), "Default style for {}".format(layer.name()), True, "")
+
+    @staticmethod
+    def _size_symbol(symbol: QgsSymbol) -> None:
+        '''Gives point markers and lines a size that is visible in the field.'''
+
+        if isinstance(symbol, QgsMarkerSymbol):
+            symbol.setSize(3.0)  # mm
+        elif isinstance(symbol, QgsLineSymbol):
+            symbol.setWidth(0.8)  # mm
+
     def set_nin_polygons_styling(self) -> None:
         '''
         Defines the symbology and labels of the nin_polygons layer.
         '''
 
-        # Here we set the random color categorized symbology for each 'kode_id' of
-        # the mapping units and label also with 'kode_id'
-        # Load the attribute table
-        attribute_table_path = Path(__file__).parent / 'csv' / \
-            'attribute_tables' / \
-            f"{self.selected_mapping_scale}_attribute_table.csv"
+        self.set_kode_id_styling(
+            layer=self.get_nin_polygons_layer(),
+            label_expression=POLYGON_LABEL_EXPRESSION,
+            label_placement=Qgis.LabelPlacement.OverPoint,
+            symbol_alpha=128,  # semi-transparent fill
+        )
 
-        unique_values = list(dict.fromkeys(
-            _read_csv_column(attribute_table_path, 'kode_id')
-        ))
+    def set_point_line_styling(self, layer: QgsVectorLayer) -> None:
+        '''
+        Defines the symbology and labels of the nin_points / nin_lines layers.
+        '''
 
-        # Function to generate random color
-        def random_color():
-            # Adding 128 as the alpha value for semi-transparency
-            return [random.randint(0, 255) for _ in range(3)] + [128]
+        is_line = isinstance(
+            QgsSymbol.defaultSymbol(layer.geometryType()), QgsLineSymbol
+        )
 
-        # Load the layer
-        layer = self.get_nin_polygons_layer()
-
-        if not layer.isValid():
-            print(f"Failed to load layer {self.nin_polygons_layer_name}")
-        else:
-            # Prepare categorized symbology
-            categories = []
-
-            for value in unique_values:
-                symbol = QgsSymbol.defaultSymbol(layer.geometryType())
-                color = random_color()
-                # Use the RGB + Alpha values
-                symbol.setColor(QColor(color[0], color[1], color[2], color[3]))
-                category = QgsRendererCategory(value, symbol, str(value))
-                categories.append(category)
-
-            # Add a default category for all other strings
-            default_symbol = QgsSymbol.defaultSymbol(layer.geometryType())
-            # Red color with semi-transparency
-            default_symbol.setColor(QColor(255, 0, 0, 128))
-            default_category = QgsRendererCategory(
-                None, default_symbol, "Other")
-            categories.append(default_category)
-
-            renderer = QgsCategorizedSymbolRenderer(
-                'represent_value("kode_id_label")',
-                categories
-            )
-
-            layer.setRenderer(renderer)
-
-            # Set up labeling
-            label_settings = QgsPalLayerSettings()
-            # https://gis.stackexchange.com/questions/469969/using-label-placement-via-pyqgis
-            # https://qgis.org/pyqgis/master/gui/Qgis.html#qgis.gui.Qgis.LabelPlacement
-            label_settings.placement = Qgis.LabelPlacement.OverPoint
-
-            text_format = QgsTextFormat()
-            text_format.setFont(QFont("Arial", 12))
-            text_format.setSize(12)
-            text_format.setColor(QColor(0, 0, 0))  # Black color for text
-            label_settings.setFormat(text_format)
-
-            # ... setting expression as label... if not specified with kode_id_label then labeled with "ikke kartlagt"
-            # otherwise the represented value in kode_id_label is shortened to omit the mapping scale (string in the middle between dashes)
-            label_settings.fieldName = r"""
-            CASE
-                WHEN "type" IN (1,2,3,4,5) THEN
-                    regexp_substr(represent_value("hovedtype"), '^[A-Z]+-[A-Z0-9]+')
-                WHEN "kode_id_label" IS NULL AND "grunntype_or_klenhet_2" IS NULL THEN
-                    'ikke kartlagt'
-                WHEN "grunntype_or_klenhet_2" IS NULL THEN
-                    regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-')
-                ELSE
-                    regexp_replace(represent_value("kode_id_label"), '-[^-]+-', '-') || ' / ' || regexp_replace(represent_value("grunntype_or_klenhet_2"), '^([A-Z0-9]+)-(?:[A-Z0-9]+-)?([A-Z0-9]+).*$', '\\1-\\2')
-            END
-            """
-            # Regexp explanation:
-            # ^([A-Z0-9]+)-
-            # Captures the first part (e.g., TK01).
-            # (?:[A-Z0-9]+-)?
-            # Matches (but does not capture) an optional middle part (e.g., M005-).
-            # ([A-Z0-9]+)
-            # Captures the third part (e.g., 19).
-            # .*$
-            # Matches and removes everything after the third part (optional descriptive text).
-            # '\\1-\\2'
-            # Keeps only the first and third parts, removing the middle part and anything extra at the end.
-
-            label_settings.isExpression = True
-            labeling = QgsVectorLayerSimpleLabeling(label_settings)
-            layer.setLabeling(labeling)
-            layer.setLabelsEnabled(True)
-
-            # Refresh layer
-            layer.triggerRepaint()
-
-        # Layer is "nin_polygons" hard coded in def_init
-        layer.saveStyleToDatabase(layer.name(), "Default style for {}".format(layer.name()), True, "")
+        self.set_kode_id_styling(
+            layer=layer,
+            label_expression=SIMPLE_LABEL_EXPRESSION,
+            label_placement=(
+                Qgis.LabelPlacement.Line if is_line
+                else Qgis.LabelPlacement.AroundPoint
+            ),
+            symbol_alpha=255,  # opaque markers and lines
+        )
 
     def add_wms_layer(
         self,
@@ -553,10 +640,15 @@ class ProjectSetup:
 
             self.canvas.refresh()
 
-    def set_field_aliases(self, aliases: dict) -> None:
+    def set_field_aliases(
+        self,
+        aliases: dict,
+        layer: QgsVectorLayer = None,
+    ) -> None:
         '''
-        Sets human-readable aliases for the field names in
-        the nin_polygons layer.
+        Sets human-readable aliases for the field names in a mapping layer
+        ('layer' if given, otherwise nin_polygons). Aliases for fields the
+        layer does not have are skipped.
         '''
 
         # Adjust grunntype/kle name based on selected scale
@@ -570,22 +662,27 @@ class ProjectSetup:
             aliases['grunntype_or_klenhet_3'] = 'Kartleggingsenhet 3'
 
         # Get layer
-        layer = self.get_nin_polygons_layer()
+        if layer is None:
+            layer = self.get_nin_polygons_layer()
 
         # Get layer fields
         fields = layer.fields()
 
         for key, value in aliases.items():
+            field_index = fields.indexFromName(key)
+            if field_index < 0:
+                continue
             layer.setFieldAlias(
-                index=fields.indexFromName(key),
+                index=field_index,
                 aliasString=value
             )
 
     def set_snap_overlap(self):
         '''
-        Sets snapping tolerance to 1.0 meter on vertex and segments for the specific polygon layer,
-        while preserving existing snapping settings in the project.
-        Enables "Avoid Overlap" for that layer.
+        Sets snapping tolerance to 1.0 meter on vertex and segments for the
+        mapping layers (polygons, points, lines), while preserving existing
+        snapping settings in the project.
+        Enables "Avoid Overlap" for the polygon layer.
         '''
         pollyr = self.get_nin_polygons_layer()
 
@@ -606,8 +703,11 @@ class ProjectSetup:
             0.0
         )
 
-        # Update snapping settings only for your polygon layer
-        snapping_config.setIndividualLayerSettings(pollyr, snap_settings)
+        # Update snapping settings for the mapping layers
+        for layer_name in MAPPING_LAYER_NAMES:
+            snapping_config.setIndividualLayerSettings(
+                self.get_layer(layer_name), snap_settings
+            )
 
         # Apply updated snapping config to the project
         QGS_PROJECT.setSnappingConfig(snapping_config)
@@ -649,15 +749,73 @@ def main(
     # project_setup.set_project_crs(crs=PROJECT_CRS)
     project_setup.set_project_crs(crs=proj_crs)
 
-    # Adjust datetime format of regdato
-    project_setup.field_to_datetime(field_name='regdato')
+    # Configure the mapping layers (polygons, points, lines): widgets,
+    # default values, hierarchical dropdowns, styling, aliases and edit form
+    for layer_name in MAPPING_LAYER_NAMES:
+        layer = project_setup.get_layer(layer_name)
+        is_polygon_layer = layer_name == project_setup.nin_polygons_layer_name
 
-    project_setup.set_photo_widget(
-        layer=project_setup.get_nin_polygons_layer(),
-    )
+        # Adjust datetime format of regdato
+        project_setup.field_to_datetime(field_name='regdato', layer=layer)
 
-    # Set MMU depending on the chosen mapping scale
-    layer_name = "nin_polygons"
+        project_setup.set_photo_widget(layer=layer)
+
+        # Set default values defined in 'default_values.py'
+        for default_value in get_default_values(
+            selected_type_id=selected_type_id,
+            selected_hovedtypegrupper=selected_items,
+            layer_name=layer_name,
+        ):
+            project_setup.set_layer_field_default_values(
+                field_name=default_value["field_name"],
+                default_value_expression=default_value["default_value_expression"],
+                make_field_uneditable=default_value["make_field_uneditable"],
+                apply_on_update=default_value.get("apply_on_update", False),
+                widget_type=default_value.get("widget_type", None),
+                widget_config=default_value.get("widget_config", None),
+                constraints=default_value.get("constraints", None),
+                constraint_description=default_value.get("constraint_description", None),
+                not_null=default_value.get("not_null", False),
+                enforce_not_null=default_value.get("enforce_not_null", False),
+                layer=layer,
+            )
+
+        # Set value relations defined in 'value_relations.py'
+        for rel in get_value_relations(
+            selected_type_id=selected_type_id,
+            selected_mapping_scale=selected_mapping_scale,
+            selected_items=selected_items,
+            layer_name=layer_name,
+        ):
+            project_setup.field_to_value_relation(
+                primary_attribute_table_layer=rel["primary_attribute_table_layer"],
+                forgein_attribute_table_layer=rel["forgein_attribute_table_layer"],
+                primary_key_field_name=rel["primary_key_field_name"],
+                foreign_key_field_name=rel["foreign_key_field_name"],
+                foreign_field_to_display=rel["foreign_field_to_display"],
+                filter_expression=rel["filter_expression"],
+                allow_multi_selection=rel["allow_multi"],
+            )
+
+        # Adjust styling
+        if is_polygon_layer:
+            project_setup.set_nin_polygons_styling()
+        else:
+            project_setup.set_point_line_styling(layer=layer)
+
+        # Set field aliases
+        project_setup.set_field_aliases(
+            aliases=get_field_aliases(),
+            layer=layer,
+        )
+
+        # Adjust edit form
+        adjust_layer_edit_form(
+            layer=layer,
+            layout=POLYGON_LAYOUT if is_polygon_layer else SIMPLE_LAYOUT,
+        )
+
+    # Set MMU depending on the chosen mapping scale (polygons only)
     field_name = "area"
     if selected_mapping_scale == "grunntyper":
         expression = "area($geometry)>=1"   # Secure MMU
@@ -668,59 +826,10 @@ def main(
     else:
         expression = "area($geometry)>=10000"  # Secure MMU
 
-    # Set default values defined in 'default_values.py'
-    for default_value in get_default_values(
-        selected_type_id=selected_type_id,
-        selected_hovedtypegrupper=selected_items,
-    ):
-        project_setup.set_layer_field_default_values(
-            field_name=default_value["field_name"],
-            default_value_expression=default_value["default_value_expression"],
-            make_field_uneditable=default_value["make_field_uneditable"],
-            apply_on_update=default_value.get("apply_on_update", False),
-            widget_type=default_value.get("widget_type", None),
-            widget_config=default_value.get("widget_config", None),
-            constraints=default_value.get("constraints", None),
-            constraint_description=default_value.get("constraint_description", None),
-            not_null=default_value.get("not_null", False),
-            enforce_not_null=default_value.get("enforce_not_null", False),
-
-        )
-
-    # Set value relations defined in 'value_relations.py'
-    for rel in get_value_relations(
-        selected_type_id=selected_type_id,
-        selected_mapping_scale=selected_mapping_scale,
-        selected_items=selected_items,
-    ):
-        project_setup.field_to_value_relation(
-            primary_attribute_table_layer=rel["primary_attribute_table_layer"],
-            forgein_attribute_table_layer=rel["forgein_attribute_table_layer"],
-            primary_key_field_name=rel["primary_key_field_name"],
-            foreign_key_field_name=rel["foreign_key_field_name"],
-            foreign_field_to_display=rel["foreign_field_to_display"],
-            filter_expression=rel["filter_expression"],
-            allow_multi_selection=rel["allow_multi"],
-        )
-
-    # Adjust styling
-    project_setup.set_nin_polygons_styling()
-
-    # Set field aliases
-    project_setup.set_field_aliases(
-        aliases=get_field_aliases()
+    # Set the constraints expression for the specified field
+    project_setup.set_constraints_expression(
+        project_setup.get_nin_polygons_layer(), field_name, expression, proj_crs
     )
-
-    # TEST: Adjust nin polygon edit form
-    adjust_layer_edit_form(
-        layer=project_setup.get_nin_polygons_layer()
-    )
-
-    # Get the layer by name
-    layer = QgsProject.instance().mapLayersByName(layer_name)[0]
-
-    # Set the conatraints expression for the specified field
-    project_setup.set_constraints_expression(layer, field_name, expression, proj_crs)
 
     # Add Norway topography WMS raster layer
     if wms_settings['checkBoxNorgeTopo']:

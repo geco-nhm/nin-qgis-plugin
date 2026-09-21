@@ -205,6 +205,8 @@ Short description which changes are happening in which file.
 | Layer name             | Geometry       | Purpose                                       |
 | ---------------------- | -------------- | --------------------------------------------- |
 | `nin_polygons`         | `multipolygon` | Main mapping layer for classified polygons    |
+| `nin_points`           | `point`        | Classified points for types below the MMU (e.g. springs); single type, no mosaic fields |
+| `nin_lines`            | `linestring`   | Classified lines for linear structures (e.g. rock walls); single type, `lengde` field |
 | `nin_helper_points`    | `multipoint`   | Temporary data or helper points               |
 | `typer`                | None           | Attribute hierarchy: top-level types          |
 | `hovedtypegrupper`     | None           | Subtypes of `typer`                           |
