@@ -41,7 +41,9 @@ FIELD_DEFINITIONS_CSV_PATH = Path(__file__).parent / \
     'csv' / 'layer_fields_meta'
 
 # Classified mapping layers written to every geopackage as
-# (layer name, geometry type). Each has a '<name>_meta.csv' field definition.
+# (base layer name, geometry type). Each has a '<base name>_meta.csv' field
+# definition. The layer in the geopackage is named '<base name>_<scale>'
+# (e.g. 'nin_polygons_M005', issue #66), see 'mapping_layer_name()'.
 # Order matters: 'project_setup.load_gpkg_layers()' adds each of these on top
 # of the layer tree, so later entries end up above earlier ones.
 MAPPING_LAYERS = (
@@ -49,8 +51,22 @@ MAPPING_LAYERS = (
     ('nin_points', 'point'),
     ('nin_lines', 'linestring'),
 )
-MAPPING_LAYER_NAMES = tuple(name for name, _ in MAPPING_LAYERS)
+MAPPING_LAYER_BASE_NAMES = tuple(name for name, _ in MAPPING_LAYERS)
+POLYGON_LAYER_BASE_NAME = 'nin_polygons'
 HELPER_POINT_LAYER_NAME = 'nin_helper_points'
+
+
+def mapping_layer_name(base_name: str, selected_mapping_scale: str) -> str:
+    '''Name of a mapping layer in the geopackage: 'nin_polygons' + 'M005' -> 'nin_polygons_M005'.'''
+    return f"{base_name}_{selected_mapping_scale}"
+
+
+def mapping_layer_names(selected_mapping_scale: str) -> dict[str, str]:
+    '''Maps each base layer name to its scale-suffixed geopackage layer name.'''
+    return {
+        base_name: mapping_layer_name(base_name, selected_mapping_scale)
+        for base_name in MAPPING_LAYER_BASE_NAMES
+    }
 
 
 def add_catalogue_provenance_table(
@@ -279,13 +295,14 @@ def add_attribute_values_from_csv(
 def _write_mapping_layer(
     gpkg_path: Union[str, Path],
     layer_name: str,
+    base_name: str,
     geometry: str,
     crs: str,
     extend_existing: bool,
 ) -> None:
     '''
-    Creates an empty mapping layer with the fields defined in
-    'csv/layer_fields_meta/<layer_name>_meta.csv' and writes it to the geopackage.
+    Creates an empty mapping layer named 'layer_name' with the fields defined in
+    'csv/layer_fields_meta/<base_name>_meta.csv' and writes it to the geopackage.
     '''
 
     layer = create_empty_layer(
@@ -296,7 +313,7 @@ def _write_mapping_layer(
     )
 
     layer = add_layer_attributes_from_file(
-        attribute_csv_file_path=FIELD_DEFINITIONS_CSV_PATH / f'{layer_name}_meta.csv',
+        attribute_csv_file_path=FIELD_DEFINITIONS_CSV_PATH / f'{base_name}_meta.csv',
         layer=layer,
     )
 
@@ -325,12 +342,13 @@ def main(
     # crs = "epsg:25833"
     crs = proj_crs
 
-    # Create the classified mapping layers (polygons, points, lines).
-    # The first one creates the .gpkg, the rest extend it.
-    for idx, (layer_name, geometry) in enumerate(MAPPING_LAYERS):
+    # Create the classified mapping layers (polygons, points, lines), named
+    # with the mapping scale suffix. The first one creates the .gpkg, the rest extend it.
+    for idx, (base_name, geometry) in enumerate(MAPPING_LAYERS):
         _write_mapping_layer(
             gpkg_path=gpkg_path,
-            layer_name=layer_name,
+            layer_name=mapping_layer_name(base_name, selected_mapping_scale),
+            base_name=base_name,
             geometry=geometry,
             crs=crs,
             extend_existing=idx > 0,

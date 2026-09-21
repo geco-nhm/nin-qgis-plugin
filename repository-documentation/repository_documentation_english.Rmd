@@ -69,9 +69,9 @@ The plugin lets you configure a custom mapping project with options to:
 -   All layers from the `.gpkg` file are loaded
 -   Hierarchical dependencies are established (between major types and major-type groups)
 -   `Topological editing` is enabled
--   `Avoid overlap` is enabled for `nin_polygons`
+-   `Avoid overlap` is enabled for `nin_polygons_<scale>`
 -   Snapping is set to 5 px (vertices and segments)
--   The `nin_polygons` layer is configured with:
+-   The `nin_polygons_<scale>` layer is configured with:
     -   Random color symbology
     -   Labels based on minor type within the selected major-type group
 
@@ -94,7 +94,7 @@ When fieldwork is complete, data can be synced back to QGIS for further processi
 
 ## 3.5 Mapping procedure
 
-1.  Select the `nin_polygons` layer
+1.  Select the `nin_polygons_<scale>` layer
 2.  Enable editing
 3.  Add a new polygon
 4.  Fill in NiN attributes in the form

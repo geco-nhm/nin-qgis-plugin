@@ -7,11 +7,14 @@ import unittest
 from pathlib import Path
 
 from nin_qgis_plugin.create_gpkg import main as create_gpkg
-from nin_qgis_plugin.create_gpkg import MAPPING_LAYER_NAMES, HELPER_POINT_LAYER_NAME
+from nin_qgis_plugin.create_gpkg import HELPER_POINT_LAYER_NAME, mapping_layer_names
 
 from .utilities import get_qgis_app
 
 QGIS_APP = get_qgis_app()
+
+SCALE = 'M005'
+LAYER_NAMES = mapping_layer_names(SCALE)
 
 COMMON_FIELDS = {
     'fid', 'regdato', 'type', 'hovedtypegruppe', 'hovedtype',
@@ -26,7 +29,7 @@ class TestCreateGpkgLayers(unittest.TestCase):
         cls.tmp_dir = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
         cls.gpkg_path = Path(cls.tmp_dir.name) / 'nin_test.gpkg'
         create_gpkg(
-            selected_mapping_scale='M005',
+            selected_mapping_scale=SCALE,
             gpkg_path=cls.gpkg_path,
             proj_crs='EPSG:25833',
         )
@@ -40,6 +43,14 @@ class TestCreateGpkgLayers(unittest.TestCase):
             row[1] for row in conn.execute(f'PRAGMA table_info("{table_name}")')
         }
 
+    def test_layer_names_carry_the_mapping_scale_suffix(self):
+        self.assertEqual(LAYER_NAMES['nin_polygons'], 'nin_polygons_M005')
+        self.assertEqual(LAYER_NAMES['nin_points'], 'nin_points_M005')
+        self.assertEqual(LAYER_NAMES['nin_lines'], 'nin_lines_M005')
+        self.assertEqual(
+            mapping_layer_names('grunntyper')['nin_polygons'], 'nin_polygons_grunntyper'
+        )
+
     def test_mapping_layers_have_expected_geometry(self):
         self.assertTrue(self.gpkg_path.exists())
 
@@ -48,18 +59,18 @@ class TestCreateGpkgLayers(unittest.TestCase):
                 'SELECT table_name, geometry_type_name FROM gpkg_geometry_columns'
             ).fetchall())
 
-        self.assertEqual(geometry_types['nin_polygons'], 'MULTIPOLYGON')
-        self.assertEqual(geometry_types['nin_points'], 'POINT')
-        self.assertEqual(geometry_types['nin_lines'], 'LINESTRING')
+        self.assertEqual(geometry_types[LAYER_NAMES['nin_polygons']], 'MULTIPOLYGON')
+        self.assertEqual(geometry_types[LAYER_NAMES['nin_points']], 'POINT')
+        self.assertEqual(geometry_types[LAYER_NAMES['nin_lines']], 'LINESTRING')
         self.assertIn(HELPER_POINT_LAYER_NAME, geometry_types)
-        for layer_name in MAPPING_LAYER_NAMES:
-            self.assertIn(layer_name, geometry_types)
+        # No unsuffixed mapping layers left behind
+        self.assertNotIn('nin_polygons', geometry_types)
 
     def test_point_and_line_layers_have_single_type_fields(self):
         with sqlite3.connect(self.gpkg_path) as conn:
-            polygon_columns = self._columns(conn, 'nin_polygons')
-            point_columns = self._columns(conn, 'nin_points')
-            line_columns = self._columns(conn, 'nin_lines')
+            polygon_columns = self._columns(conn, LAYER_NAMES['nin_polygons'])
+            point_columns = self._columns(conn, LAYER_NAMES['nin_points'])
+            line_columns = self._columns(conn, LAYER_NAMES['nin_lines'])
 
         for columns in (polygon_columns, point_columns, line_columns):
             self.assertTrue(COMMON_FIELDS <= columns, columns)

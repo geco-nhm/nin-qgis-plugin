@@ -30,10 +30,13 @@ def get_fid_from_kode_id(
 def get_default_values(
     selected_type_id: str,
     selected_hovedtypegrupper: List[str],
-    layer_name: str = POLYGON_LAYER_NAME,
+    base_layer_name: str = POLYGON_LAYER_NAME,
 ) -> List[dict]:
     """
     Returns a list of predefined default values for the given mapping layer.
+
+    base_layer_name is the layer kind ('nin_polygons', 'nin_points' or
+    'nin_lines'), without the mapping scale suffix used in the geopackage.
 
     All mapping layers (polygons, points, lines) share the single-type fields.
     Only 'nin_polygons' gets the area, mosaic and Type 2/3 share fields, and
@@ -157,9 +160,9 @@ def get_default_values(
     ]
 
     default_field_values = list(common_field_values)
-    if layer_name == POLYGON_LAYER_NAME:
+    if base_layer_name == POLYGON_LAYER_NAME:
         default_field_values.extend(polygon_field_values)
-    elif layer_name == LINE_LAYER_NAME:
+    elif base_layer_name == LINE_LAYER_NAME:
         default_field_values.extend(line_field_values)
 
     # If only one hovedtypegruppe selected, also set as default
@@ -178,6 +181,6 @@ def get_default_values(
         )
 
     for default_value in default_field_values:
-        default_value["layer_name"] = layer_name
+        default_value["layer_name"] = base_layer_name
 
     return default_field_values
