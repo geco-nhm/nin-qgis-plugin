@@ -8,7 +8,7 @@ Denne veiledningen beskriver hvordan du oppretter nye felt i et lag og legger de
 
 ![Skjermbilde 1 – Åpne egenskaper for laget](images/Screenshot%202026-01-20%20at%2018.02.10.png)
 
-- Høyreklikk på laget (nin_polygons) i laglisten.
+- Høyreklikk på laget (nin_polygons_<målestokk>, f.eks. nin_polygons_M005) i laglisten.
 - Velg Properties… (Egenskaper) fra menyen.
 - I dialogen som åpnes, velg fanen Fields i venstremenyen.
 
