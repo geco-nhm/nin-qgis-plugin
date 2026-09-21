@@ -13,9 +13,14 @@ def get_value_relations(
     selected_mapping_scale: str,
     selected_items: List[str],
     layer_name: str = POLYGON_LAYER_NAME,
+    base_layer_name: str = POLYGON_LAYER_NAME,
 ) -> tuple[dict]:
     '''
     Returns hardcoded value relations as a tuple.
+
+    layer_name is the project layer to configure (e.g. 'nin_polygons_M005'),
+    base_layer_name its kind without the scale suffix ('nin_polygons',
+    'nin_points' or 'nin_lines').
 
     Every mapping layer (polygons, points, lines) gets the single-type
     hierarchy (type -> hovedtypegruppe -> hovedtype -> grunntype/KLE),
@@ -99,7 +104,7 @@ def get_value_relations(
         },
     ]
 
-    if layer_name == POLYGON_LAYER_NAME:
+    if base_layer_name == POLYGON_LAYER_NAME:
         for suffix in ('_2', '_3'):
             value_relations.extend([
                 {

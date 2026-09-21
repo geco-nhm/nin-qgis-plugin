@@ -204,15 +204,17 @@ Short description which changes are happening in which file.
 
 | Layer name             | Geometry       | Purpose                                       |
 | ---------------------- | -------------- | --------------------------------------------- |
-| `nin_polygons`         | `multipolygon` | Main mapping layer for classified polygons    |
-| `nin_points`           | `point`        | Classified points for types below the MMU (e.g. springs); single type, no mosaic fields |
-| `nin_lines`            | `linestring`   | Classified lines for linear structures (e.g. rock walls); single type, `lengde` field |
+| `nin_polygons_<scale>` | `multipolygon` | Main mapping layer for classified polygons    |
+| `nin_points_<scale>`   | `point`        | Classified points for types below the MMU (e.g. springs); single type, no mosaic fields |
+| `nin_lines_<scale>`    | `linestring`   | Classified lines for linear structures (e.g. rock walls); single type, `lengde` field |
 | `nin_helper_points`    | `multipoint`   | Temporary data or helper points               |
 | `typer`                | None           | Attribute hierarchy: top-level types          |
 | `hovedtypegrupper`     | None           | Subtypes of `typer`                           |
 | `hovedtyper`           | None           | Subtypes of `hovedtypegrupper`                |
 | `M005`, `M020`, `M050` | None           | Mapping scale-specific `mapping units`       |
 | `var_<scale>`          | None           | Variables per mapping unit (e.g., `var_M005`) |
+
+`<scale>` is the mapping scale chosen in the dialog (`grunntyper`, `M005`, `M020` or `M050`), e.g. `nin_polygons_M005` (issue #66). The field definitions of the mapping layers are keyed by the base name (`nin_polygons_meta.csv`).
 
 ### 2. **Populating Fields and Records**
 
@@ -236,7 +238,7 @@ Short description which changes are happening in which file.
 **Functionality:**
 
 * **Deterministic semi-transparent color per `kode_id_label`** from attribute table for selected mapping scale. The colour is a hash of the `kode_id` (`symbology_colors.kode_id_color()`), so the same mapping unit has the same colour in every project and on every computer.
-* Coded using `QgsCategorizedSymbolRenderer`; the same palette is applied to `nin_polygons`, `nin_points` and `nin_lines`.
+* Coded using `QgsCategorizedSymbolRenderer`; the same palette is applied to the polygon, point and line layers.
 
 **Example:**
 
@@ -331,7 +333,7 @@ Defined by:
 **Effect:**
 
 * Snapping tolerance: **1.0 meter** (vertex & segment).
-* **Avoid intersections**: enabled for `nin_polygons`.
+* **Avoid intersections**: enabled for `nin_polygons_<scale>`.
 * Topological editing: enabled.
 
 ---

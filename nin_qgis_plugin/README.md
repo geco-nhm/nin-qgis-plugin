@@ -70,12 +70,12 @@ Programtillegget gir deg følgende valgmuligheter for å sette opp et tilpasset 
 -   Alle kartlag fra `.gpkg`-filer lastes inn
 -   Hierarkiske relasjoner opprettes (mellom hovedtyper og hovedtypegrupper)
 -   `Topological editing` aktiveres
--   `Avoid overlap` aktiveres i `nin_polygons`
+-   `Avoid overlap` aktiveres i `nin_polygons_<målestokk>`
 -   Snapping settes til 5 px (hjørner og segmenter)
--   Kartlaget `nin_polygons` settes opp med:
+-   Kartlaget `nin_polygons_<målestokk>` settes opp med:
     -   Fast fargesymbologi per kartleggingsenhet (samme farge i alle prosjekter)
     -   Skriftmarkering (label) basert på grunntype innenfpr den utvalgte hovedtypegruppen
--   Kartlagene `nin_points` og `nin_lines` settes opp med samme fargesymbologi og nedtrekkslister som `nin_polygons`, men med ett skjema for én naturtype (ingen mosaikk/sammensatt). Bruk dem til naturtyper som er for små til å tegnes som polygon (f.eks. kilder) og til linjeformede strukturer (f.eks. bergvegg).
+-   Kartlagene `nin_points_<målestokk>` og `nin_lines_<målestokk>` settes opp med samme fargesymbologi og nedtrekkslister som `nin_polygons_<målestokk>`, men med ett skjema for én naturtype (ingen mosaikk/sammensatt). Bruk dem til naturtyper som er for små til å tegnes som polygon (f.eks. kilder) og til linjeformede strukturer (f.eks. bergvegg).
 
 ## 3.3 Videre tilpasning
 
@@ -96,7 +96,7 @@ Når feltarbeidet er ferdig kan dataene synkroniseres tilbake til QGIS for vider
 
 ## 3.5 Kartleggingsprosedyre
 
-1.  Velg laget `nin_polygons`
+1.  Velg laget `nin_polygons_<målestokk>`
 2.  Slå på redigering
 3.  Legg til nytt polygon
 4.  Fyll ut NiN-attributter i registreringsskjemaet
@@ -107,7 +107,7 @@ Når feltarbeidet er ferdig kan dataene synkroniseres tilbake til QGIS for vider
 7.  Ta eventuelt bilde (hvis enheten har kamera)
 8.  Klikk `OK` for å lagre polygonet
 
-Naturtyper som er mindre enn minsteareal for målestokken, eller som er linjeformede, registreres på samme måte i lagene `nin_points` (punkt) og `nin_lines` (linje). Skjemaet der har ett sett NiN-attributter, variabler, bilde og kommentar.
+Naturtyper som er mindre enn minsteareal for målestokken, eller som er linjeformede, registreres på samme måte i lagene `nin_points_<målestokk>` (punkt) og `nin_lines_<målestokk>` (linje). Skjemaet der har ett sett NiN-attributter, variabler, bilde og kommentar.
 
 Kartleggingsveiledning finnes på [Artsdatabankens nettsider](https://www.artsdatabanken.no).
 

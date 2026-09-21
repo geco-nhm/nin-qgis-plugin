@@ -37,7 +37,12 @@ from .attr_table_settings.default_values import get_default_values
 from .attr_table_settings.field_aliases import get_field_aliases
 from .attr_table_settings.edit_form_config import adjust_layer_edit_form
 from .attr_table_settings.edit_form_config import POLYGON_LAYOUT, SIMPLE_LAYOUT
-from .create_gpkg import MAPPING_LAYER_NAMES, HELPER_POINT_LAYER_NAME
+from .create_gpkg import (
+    HELPER_POINT_LAYER_NAME,
+    POLYGON_LAYER_BASE_NAME,
+    mapping_layer_name,
+    mapping_layer_names,
+)
 from .symbology_colors import kode_id_color
 
 
@@ -136,10 +141,12 @@ class ProjectSetup:
         selected_mapping_scale: str,
         canvas,
         proj_crs: str,
-        nin_polygons_layer_name: str = "nin_polygons",
+        nin_polygons_layer_name: Union[str, None] = None,
     ) -> None:
         '''
         Constructor defining instance variables.
+
+        nin_polygons_layer_name defaults to 'nin_polygons_<scale>'.
         '''
 
         self.gpkg_path = gpkg_path
@@ -148,7 +155,12 @@ class ProjectSetup:
         self.selected_mapping_scale = selected_mapping_scale
         self.canvas = canvas
         self.proj_crs = proj_crs
-        self.nin_polygons_layer_name = nin_polygons_layer_name
+        # Geopackage layer names carry the mapping scale suffix (issue #66):
+        # {'nin_polygons': 'nin_polygons_M005', 'nin_points': 'nin_points_M005', ...}
+        self.mapping_layer_names = mapping_layer_names(selected_mapping_scale)
+        self.nin_polygons_layer_name = nin_polygons_layer_name or mapping_layer_name(
+            POLYGON_LAYER_BASE_NAME, selected_mapping_scale
+        )
         # One colour per kode_id, shared by all mapping layers in this project
         self._kode_id_palette: Union[dict, None] = None
 
@@ -200,7 +212,7 @@ class ProjectSetup:
             # Add layer to map
             mygroup = root.findGroup("Tabeller")            # Add the layer to the "Tabeller"-group
             root.findGroup("Tabeller").setItemVisibilityChecked(False)  # Uncheck the Tabeller-group
-            if name not in (*MAPPING_LAYER_NAMES, HELPER_POINT_LAYER_NAME):  # Only adding table-layers to this group
+            if name not in (*self.mapping_layer_names.values(), HELPER_POINT_LAYER_NAME):  # Only adding table-layers to this group
                 QGS_PROJECT.addMapLayer(sub_vlayer, False)  # Add layer to map (False: don't show layer on top in TOC, but insert the layer at given position p)
                 mygroup.insertLayer(p, sub_vlayer)          # place the layer in pth posistion from top of TOC
             else:
@@ -722,7 +734,7 @@ class ProjectSetup:
         )
 
         # Update snapping settings for the mapping layers
-        for layer_name in MAPPING_LAYER_NAMES:
+        for layer_name in self.mapping_layer_names.values():
             snapping_config.setIndividualLayerSettings(
                 self.get_layer(layer_name), snap_settings
             )
@@ -757,7 +769,6 @@ def main(
         selected_mapping_scale=selected_mapping_scale,
         canvas=canvas,
         proj_crs=proj_crs,
-        nin_polygons_layer_name="nin_polygons",
     )
 
     # Load all layers from geopackage
@@ -769,9 +780,9 @@ def main(
 
     # Configure the mapping layers (polygons, points, lines): widgets,
     # default values, hierarchical dropdowns, styling, aliases and edit form
-    for layer_name in MAPPING_LAYER_NAMES:
+    for base_name, layer_name in project_setup.mapping_layer_names.items():
         layer = project_setup.get_layer(layer_name)
-        is_polygon_layer = layer_name == project_setup.nin_polygons_layer_name
+        is_polygon_layer = base_name == POLYGON_LAYER_BASE_NAME
 
         # Adjust datetime format of regdato
         project_setup.field_to_datetime(field_name='regdato', layer=layer)
@@ -782,7 +793,7 @@ def main(
         for default_value in get_default_values(
             selected_type_id=selected_type_id,
             selected_hovedtypegrupper=selected_items,
-            layer_name=layer_name,
+            base_layer_name=base_name,
         ):
             project_setup.set_layer_field_default_values(
                 field_name=default_value["field_name"],
@@ -804,6 +815,7 @@ def main(
             selected_mapping_scale=selected_mapping_scale,
             selected_items=selected_items,
             layer_name=layer_name,
+            base_layer_name=base_name,
         ):
             project_setup.field_to_value_relation(
                 primary_attribute_table_layer=rel["primary_attribute_table_layer"],

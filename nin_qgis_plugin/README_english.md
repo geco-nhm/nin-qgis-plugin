@@ -69,12 +69,12 @@ The plugin lets you configure a custom mapping project with options to:
 -   All layers from the `.gpkg` file are loaded
 -   Hierarchical dependencies are established (between major types and major-type groups)
 -   `Topological editing` is enabled
--   `Avoid overlap` is enabled for `nin_polygons`
+-   `Avoid overlap` is enabled for `nin_polygons_<scale>`
 -   Snapping is set to 5 px (vertices and segments)
--   The `nin_polygons` layer is configured with:
+-   The `nin_polygons_<scale>` layer is configured with:
     -   Fixed colour symbology per mapping unit (same colour in every project)
     -   Labels based on minor type within the selected major-type group
--   The `nin_points` and `nin_lines` layers are configured with the same colour symbology and drop-down lists as `nin_polygons`, but with a single-type form (no mosaic/composite fields). Use them for nature types too small to draw as polygons (e.g. springs) and for linear structures (e.g. rock walls).
+-   The `nin_points_<scale>` and `nin_lines_<scale>` layers are configured with the same colour symbology and drop-down lists as `nin_polygons_<scale>`, but with a single-type form (no mosaic/composite fields). Use them for nature types too small to draw as polygons (e.g. springs) and for linear structures (e.g. rock walls).
 
 ## 3.3 Further customization
 
@@ -95,7 +95,7 @@ When fieldwork is complete, data can be synced back to QGIS for further processi
 
 ## 3.5 Mapping procedure
 
-1.  Select the `nin_polygons` layer
+1.  Select the `nin_polygons_<scale>` layer
 2.  Enable editing
 3.  Add a new polygon
 4.  Fill in NiN attributes in the form
@@ -106,7 +106,7 @@ When fieldwork is complete, data can be synced back to QGIS for further processi
 7.  Optionally take a photo (if device has a camera)
 8.  Click `OK` to save the polygon
 
-Nature types smaller than the minimum mapping unit for the scale, or linear in shape, are recorded the same way in the `nin_points` (point) and `nin_lines` (line) layers. Their form has a single set of NiN attributes, variables, photo and comment.
+Nature types smaller than the minimum mapping unit for the scale, or linear in shape, are recorded the same way in the `nin_points_<scale>` (point) and `nin_lines_<scale>` (line) layers. Their form has a single set of NiN attributes, variables, photo and comment.
 
 Mapping guidelines are available at [Artsdatabanken's website](https://www.artsdatabanken.no).
 
