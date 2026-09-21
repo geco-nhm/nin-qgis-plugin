@@ -8,6 +8,7 @@ import tomllib
 from tqdm import tqdm  # Progress bar
 import pandas as pd
 
+from fid_stability import assign_append_only_fids
 from helpers import sort_mixed_list
 
 # Reusable session for connection pooling
@@ -54,6 +55,21 @@ VERBOSE = True
 
 # Output csv files save path
 CSV_SAVE_PATH = Path(config['csv_save_paths']['attribute_tables']).resolve()
+
+
+def stabilize_variable_table_fids(
+    table_name: str,
+    df: pd.DataFrame,
+) -> pd.DataFrame:
+    stable_fids = assign_append_only_fids(
+        rows=df.to_dict('records'),
+        identity_columns=('grunntype_or_kle_fkey', 'var_kode_id', 'maaleskala'),
+        existing_csv_path=CSV_SAVE_PATH / f'{table_name}_attribute_table.csv',
+        table_name=table_name,
+    )
+    result = df.copy()
+    result['fid'] = stable_fids
+    return result
 
 
 if CREATE_OVERVIEW:
@@ -267,6 +283,11 @@ if CREATE_TYPER:
                         print(
                             f'Failed to retrieve data: {kodeforhovedtype_response.status_code}'
                         )
+
+        dataframes['var_grunntyper'] = stabilize_variable_table_fids(
+            table_name='var_grunntyper',
+            df=dataframes['var_grunntyper'],
+        )
 
         # Save DataFrames to csv tables
         for df_name, df in dataframes.items():

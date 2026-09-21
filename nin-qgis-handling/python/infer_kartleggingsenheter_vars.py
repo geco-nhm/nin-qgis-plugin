@@ -9,6 +9,7 @@ import tomllib
 from tqdm import tqdm  # Progress bar
 import pandas as pd
 
+from fid_stability import assign_append_only_fids
 from helpers import sort_mixed_list
 
 # Load config
@@ -25,6 +26,21 @@ INCLUDED_KARTLEGGINGSENEHTER = [
     'M020',
     'M050',
 ]
+
+
+def stabilize_variable_table_fids(
+    table_name: str,
+    df: pd.DataFrame,
+) -> pd.DataFrame:
+    stable_fids = assign_append_only_fids(
+        rows=df.to_dict('records'),
+        identity_columns=('grunntype_or_kle_fkey', 'var_kode_id', 'maaleskala'),
+        existing_csv_path=CSV_ROOT_PATH / f'var_{table_name}_attribute_table.csv',
+        table_name=f'var_{table_name}',
+    )
+    result = df.copy()
+    result['fid'] = stable_fids
+    return result
 
 
 def main() -> None:
@@ -245,6 +261,12 @@ def main() -> None:
                     ] = f"{hacky_list[0]} {hacky_list[1]}: {hacky_list[2]}({concat_var_vals})"
 
                     kle_var_fid += 1
+
+    for df_name, df in var_kartleggingsenheter_dfs.items():
+        var_kartleggingsenheter_dfs[df_name] = stabilize_variable_table_fids(
+            table_name=df_name,
+            df=df,
+        )
 
     # FINALLY, save all dfs to csv
     for df_name, df in var_kartleggingsenheter_dfs.items():
