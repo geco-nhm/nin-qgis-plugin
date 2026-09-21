@@ -300,7 +300,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
                     self,
                     "Norge i bilder token",
                     "Skriv inn NiB-token (hentes fra services.norgeibilder.no/token):",
-                    QLineEdit.EchoMode.Normal,
+                    QLineEdit.EchoMode.Password,
                 )
                 nib_token = nib_token.strip() if nib_token else ""
                 if not ok or not nib_token:

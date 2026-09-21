@@ -50,6 +50,23 @@ That meant previously valid field data could silently change meaning after catal
 
 These rules keep the current `ValueRelation` contract intact while making regenerated row ids stable for existing identities.
 
+The fix is catalogue-side, so it protects every mapping layer that stores catalogue `fid`s through `ValueRelation` widgets: `nin_polygons`, and the `nin_points` / `nin_lines` layers added in #29.
+
+## Also in this PR: Norge i bilder (NiB) WMTS authentication
+
+This branch was cut from `norge_i_bilder` and therefore carries its commits (issue #71):
+
+- [nin_qgis_plugin/nin_qgis_plugin_dialog.py](nin_qgis_plugin/nin_qgis_plugin_dialog.py): prompts for a NiB auth config id, or username + token (token input masked); environment variables `NIN_NIB_AUTHCFG` / `NIN_NIB_USERNAME` / `NIN_NIB_TOKEN` are used when set.
+- [nin_qgis_plugin/project_setup.py](nin_qgis_plugin/project_setup.py): builds the NiB WMTS GetCapabilities URL from the project UTM zone, tries the service-specific and default tile matrix sets, passes `authcfg`, and logs failures to the QGIS message log.
+- The WMS/WMTS service URL is percent-encoded before it is embedded as the `url=` parameter of the provider URI. Without this, `QgsDataSourceUri` splits the NiB URL at its first `&` and the token never reaches the server.
+
+## Review follow-ups (Copilot)
+
+- Token prompt now uses `EchoMode.Password`.
+- Service URL encoding as described above.
+- The limnic `kode_id` construction (`'FM05-01'` -> `'FM05-M005-01'`) is correct for the catalogue: every grunntype `kode_id` has exactly one dash. Both scripts now raise if that assumption is ever violated instead of producing a malformed id.
+- An accidentally committed `symbology-style.db` was removed and is now ignored.
+
 ## Validation
 
 ### Focused tests

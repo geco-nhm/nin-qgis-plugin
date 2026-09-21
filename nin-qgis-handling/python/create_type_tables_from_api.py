@@ -69,7 +69,13 @@ def append_limnic_grunntyper_to_mapping_units(
 
     for _, row in limnic_grunntyper.iterrows():
         for kle in ('M005', 'M020', 'M050'):
+            # Grunntype kode_ids have exactly one dash (e.g. 'FM05-01'); the
+            # KLE id is built by inserting the scale: 'FM05-01' -> 'FM05-M005-01'.
             updated_kode_id_parts = str(row['kode_id']).split('-')
+            if len(updated_kode_id_parts) != 2:
+                raise ValueError(
+                    f"Unexpected grunntype kode_id format: {row['kode_id']!r}"
+                )
             updated_kode_id_parts.insert(1, f'-{kle}-')
             updated_kode_id = ''.join(updated_kode_id_parts)
 

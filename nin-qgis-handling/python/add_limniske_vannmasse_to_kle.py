@@ -74,6 +74,10 @@ def main() -> None:
             # Updated kode id example: FM05-M005-01
             old_kode_id = str(row['kode_id'])
             updated_kode_id = old_kode_id.split("-")
+            if len(updated_kode_id) != 2:
+                raise ValueError(
+                    f"Unexpected grunntype kode_id format: {old_kode_id!r}"
+                )
             updated_kode_id.insert(1, f"-{kle}-")
             updated_kode_id = "".join(updated_kode_id)
 

@@ -99,6 +99,18 @@ def _utm_zone_from_crs(crs: str) -> str:
     return crs_digits[-2:]
 
 
+def _encode_uri_value(value: str) -> str:
+    '''
+    Encodes a value for use inside a QGIS provider URI (e.g. the 'url=' part
+    of a WMS/WMTS URI). Mirrors QgsDataSourceUri::encodedUri(), which escapes
+    only '&' and '=' (verified against QGIS 3.40: '%' is passed through and
+    only '%26' / '%3D' are decoded), so full percent-encoding via
+    urllib.parse.quote would NOT be decoded and must not be used here.
+    '''
+
+    return value.replace('&', '%26').replace('=', '%3D')
+
+
 def _nib_token() -> str:
     return os.getenv('NIN_NIB_TOKEN') or os.getenv('NIB_TOKEN') or ''
 
@@ -573,6 +585,10 @@ class ProjectSetup:
         # WMTS endpoints differ in matrix set naming between services/QGIS versions,
         # so try a small set of URI variants and keep the first valid layer.
         authcfg_param = f"&authcfg={quote_plus(authcfg)}" if authcfg else ''
+        # The service URL is a value inside the provider URI, so any '&' or '='
+        # it contains (e.g. GetCapabilities parameters, NiB token) must be
+        # escaped or QgsDataSourceUri splits it into separate params.
+        encoded_service_url = _encode_uri_value(wms_service_url)
         wms_layer = None
         if wmts == '1':
             tile_matrix_candidates = [
@@ -580,11 +596,11 @@ class ProjectSetup:
                 'default028mm',
             ]
             wmts_uri_candidates = [
-                f"type=wmts&crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&tileMatrixSet={tile_matrix_set}&format=image/png{authcfg_param}&url={wms_service_url}"
+                f"type=wmts&crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&tileMatrixSet={tile_matrix_set}&format=image/png{authcfg_param}&url={encoded_service_url}"
                 for tile_matrix_set in tile_matrix_candidates
             ]
             wmts_uri_candidates.append(
-                f"type=wmts&crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&format=image/png{authcfg_param}&url={wms_service_url}"
+                f"type=wmts&crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&format=image/png{authcfg_param}&url={encoded_service_url}"
             )
 
             for wmts_uri in wmts_uri_candidates:
@@ -597,7 +613,7 @@ class ProjectSetup:
                     wms_layer = candidate_layer
                     break
         else:
-            wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&format=image/png{authcfg_param}&url={wms_service_url}"
+            wms_uri = f"crs={wms_crs}&layers={wms_layer_names}&styles={wms_style}&format=image/png{authcfg_param}&url={encoded_service_url}"
             wms_layer = QgsRasterLayer(
                 wms_uri,
                 f'{new_qgis_layer_name}',
