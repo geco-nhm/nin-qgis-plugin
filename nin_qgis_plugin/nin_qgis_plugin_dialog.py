@@ -107,6 +107,16 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         # Connect help button
         self.helpButton.clicked.connect(self.open_help_url)
 
+        # Enable the "create project" button only once the mandatory inputs
+        # (CRS, at least one hovedtypegruppe, .gpkg location) are set (#47)
+        for radio_button in self.findChildren(QRadioButton):
+            radio_button.toggled.connect(self.update_run_button_state)
+        self.selectHovetypegrupperWidget.itemChanged.connect(
+            self.update_run_button_state
+        )
+        self.file_widget.fileChanged.connect(self.update_run_button_state)
+        self.update_run_button_state()
+
     def open_help_url(self):
         QDesktopServices.openUrl(QUrl("https://geco-nhm.github.io/nin-qgis-plugin/"))
 
@@ -163,6 +173,46 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
                     item.setCheckState(Qt.CheckState.Unchecked)
                     # Adding the list item to the QListWidget.
                     self.selectHovetypegrupperWidget.addItem(item)
+
+        # A reloaded list has no checked items yet
+        self.update_run_button_state()
+
+    def get_selected_crs(self) -> str:
+        '''
+        Returns the CRS chosen with the radio buttons as 'EPSG:<code>',
+        or '' when none is checked. The code is read from the button text,
+        e.g. 'UTM 32 (25832)' -> 'EPSG:25832'.
+        '''
+        for radiobutton in self.findChildren(QRadioButton):
+            if radiobutton.isChecked():
+                match = re.search(r'\((\d+)\)', radiobutton.text())
+                if match:
+                    return "EPSG:" + match.group(1)
+        return ''
+
+    def get_missing_mandatory_inputs(self) -> list:
+        '''Returns the (Norwegian) names of mandatory inputs not yet set.'''
+        missing = []
+        if not self.get_selected_crs():
+            missing.append('koordinatsystem')
+        if not self.get_selected_htgr_items():
+            missing.append('hovedtypegruppe')
+        file_widget = getattr(self, 'file_widget', None)
+        if file_widget is None or not file_widget.filePath():
+            missing.append('lagringssted for .gpkg-fila')
+        return missing
+
+    def update_run_button_state(self, *_args) -> None:
+        '''
+        Enables "Lag geopackage-fil og forbered prosjekt" only when CRS,
+        hovedtypegruppe(r) and the .gpkg location are set (#47). The tooltip
+        tells the user what is still missing.
+        '''
+        missing = self.get_missing_mandatory_inputs()
+        self.changeProjectSettingsButton.setEnabled(not missing)
+        self.changeProjectSettingsButton.setToolTip(
+            '' if not missing else 'Velg ' + ', '.join(missing) + ' først'
+        )
 
     # DEBUG
     # print the selected items from the listWidget
@@ -229,27 +279,11 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         '''
         Loads project settings
         '''
-        crs = ''  # Iniate
-        # Alt. 1 Retrieve CRS from radiobutton
-        # for i in range(self.horizontalLayoutCRS.count()):
-             # widget = self.horizontalLayoutCRS.itemAt(i).widget()
-             # if isinstance(widget, QRadioButton) and widget.isChecked():
-                 # # print(f"Checked RadioButton: {widget.text()}")
-                 # # break
-                 # QMessageBox.information(
-                        # None,
-                        # "Koordinatsystem valgt",
-                        # widget.text()
-                    # )
-                 # return
+        # Retrieve CRS from the checked radio button ('UTM 32 (25832)' -> 'EPSG:25832')
+        crs = self.get_selected_crs()
 
-        # Alt. 2 Retrieve CRS from radiobutton (If The radiobutton text is 'UTM 32 (25832)', then match.group(1) = 25832 i.e. the EPSG-code)
-        for radiobutton in self.findChildren(QRadioButton):          # Iterate through all the children of type QRadioButton and check which one is checked
-            if radiobutton.isChecked():
-                match = re.search(r'\((\d+)\)', radiobutton.text())  # Use regular expression to find the number within parentheses
-                crs = "EPSG:" + match.group(1)                      # match.group(1) extract the number from the ()
-
-        # CRS must be chosen
+        # CRS must be chosen (the button is disabled until it is, see
+        # update_run_button_state; this is a safety net)
         if crs == '':
             QMessageBox.information(
                 None,

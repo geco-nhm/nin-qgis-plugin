@@ -58,7 +58,7 @@ Programtillegget gir deg følgende valgmuligheter for å sette opp et tilpasset 
     -   Koordinatsystem
     -   Lagringsmappe
     -   Ønskede bakgrunnskart
-4.  Klikk på `Lag geopackage-fil og forbered prosjekt`
+4.  Klikk på `Lag geopackage-fil og forbered prosjekt` (knappen aktiveres først når koordinatsystem, minst én hovedtypegruppe og lagringssted er valgt)
 
 **Dette oppretter automatisk:**
 

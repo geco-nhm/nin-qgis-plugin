@@ -57,7 +57,7 @@ The plugin lets you configure a custom mapping project with options to:
     -   Coordinate reference system
     -   Storage folder
     -   Desired background maps
-4.  Click `Lag geopackage-fil og forbered prosjekt`
+4.  Click `Lag geopackage-fil og forbered prosjekt` (the button is enabled once a CRS, at least one major-type group and the storage location are set)
 
 **This will automatically create:**
 
