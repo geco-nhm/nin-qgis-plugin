@@ -235,8 +235,8 @@ Short description which changes are happening in which file.
 **Method:** `ProjectSetup.set_nin_polygons_styling()`
 **Functionality:**
 
-* **Random semi-transparent color per `kode_id_label`** from attribute table for selected mapping scale.
-* Coded using `QgsCategorizedSymbolRenderer`.
+* **Deterministic semi-transparent color per `kode_id_label`** from attribute table for selected mapping scale. The colour is a hash of the `kode_id` (`symbology_colors.kode_id_color()`), so the same mapping unit has the same colour in every project and on every computer.
+* Coded using `QgsCategorizedSymbolRenderer`; the same palette is applied to `nin_polygons`, `nin_points` and `nin_lines`.
 
 **Example:**
 

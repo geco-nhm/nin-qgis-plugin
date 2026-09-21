@@ -73,7 +73,7 @@ Programtillegget gir deg følgende valgmuligheter for å sette opp et tilpasset 
 -   `Avoid overlap` aktiveres i `nin_polygons`
 -   Snapping settes til 5 px (hjørner og segmenter)
 -   Kartlaget `nin_polygons` settes opp med:
-    -   Tilfeldig fargesymbologi
+    -   Fast fargesymbologi per kartleggingsenhet (samme farge i alle prosjekter)
     -   Skriftmarkering (label) basert på grunntype innenfpr den utvalgte hovedtypegruppen
 -   Kartlagene `nin_points` og `nin_lines` settes opp med samme fargesymbologi og nedtrekkslister som `nin_polygons`, men med ett skjema for én naturtype (ingen mosaikk/sammensatt). Bruk dem til naturtyper som er for små til å tegnes som polygon (f.eks. kilder) og til linjeformede strukturer (f.eks. bergvegg).
 

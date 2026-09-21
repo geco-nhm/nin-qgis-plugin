@@ -4,7 +4,6 @@ import csv
 import os
 from pathlib import Path
 from typing import Union, List
-import random
 from urllib.parse import quote_plus
 
 from qgis.core import (
@@ -39,6 +38,7 @@ from .attr_table_settings.field_aliases import get_field_aliases
 from .attr_table_settings.edit_form_config import adjust_layer_edit_form
 from .attr_table_settings.edit_form_config import POLYGON_LAYOUT, SIMPLE_LAYOUT
 from .create_gpkg import MAPPING_LAYER_NAMES, HELPER_POINT_LAYER_NAME
+from .symbology_colors import kode_id_color
 
 
 QGS_PROJECT = QgsProject.instance()
@@ -440,8 +440,10 @@ class ProjectSetup:
     def get_kode_id_palette(self) -> dict:
         '''
         Returns one colour (RGB tuple) per 'kode_id' of the selected mapping
-        scale. Built once per project run so that polygons, points and lines
-        show the same colour for the same mapping unit.
+        scale. Colours are derived deterministically from the code (see
+        'symbology_colors.kode_id_color'), so the same mapping unit gets the
+        same colour on polygons, points and lines, in every project and on
+        every computer.
         '''
 
         if self._kode_id_palette is None:
@@ -454,7 +456,7 @@ class ProjectSetup:
             ))
 
             self._kode_id_palette = {
-                value: tuple(random.randint(0, 255) for _ in range(3))
+                value: kode_id_color(value)
                 for value in unique_values
             }
 

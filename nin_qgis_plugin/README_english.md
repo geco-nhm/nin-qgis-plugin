@@ -72,7 +72,7 @@ The plugin lets you configure a custom mapping project with options to:
 -   `Avoid overlap` is enabled for `nin_polygons`
 -   Snapping is set to 5 px (vertices and segments)
 -   The `nin_polygons` layer is configured with:
-    -   Random color symbology
+    -   Fixed colour symbology per mapping unit (same colour in every project)
     -   Labels based on minor type within the selected major-type group
 -   The `nin_points` and `nin_lines` layers are configured with the same colour symbology and drop-down lists as `nin_polygons`, but with a single-type form (no mosaic/composite fields). Use them for nature types too small to draw as polygons (e.g. springs) and for linear structures (e.g. rock walls).
 
