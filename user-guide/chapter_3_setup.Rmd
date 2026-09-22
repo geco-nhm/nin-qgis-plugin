@@ -183,7 +183,9 @@ knitr::include_graphics("images/layers_1.png")
 
 **Opprettede kartlag og tabeller:**\
 *nin_helper_points* -- punktkartlag for å hjelpe kartleggeren i felt\
-*nin_polygons* -- polygonkartlag for å registrere kartleggingsenheter i felt\
+*nin_polygons_\<målestokk\>* (f.eks. *nin_polygons_M005*) -- polygonkartlag for å registrere kartleggingsenheter i felt\
+*nin_points_\<målestokk\>* -- punktkartlag for naturtyper som er for små til å tegnes som polygon (f.eks. kilder)\
+*nin_lines_\<målestokk\>* -- linjekartlag for linjeformede strukturer (f.eks. bergvegg)\
 *Tabeller* -- tabeller som inneholder typene og variablene som brukes i typesystemene
 
 **Importerte kartlag (avhengig av valgene i vinduet):**\

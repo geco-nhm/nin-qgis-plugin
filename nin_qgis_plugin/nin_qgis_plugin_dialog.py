@@ -38,6 +38,7 @@ from qgis.PyQt.QtWidgets import (
     QInputDialog, QLineEdit
 )
 from qgis.gui import QgsFileWidget
+from qgis.core import QgsProject
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'nin_qgis_plugin_dialog_base.ui'
@@ -77,6 +78,12 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             'checkBoxNorgeTopoGraa',
             'checkBoxNiB',
         ]
+
+        # "Add to open project" (#72): only meaningful when a saved project is open
+        self.add_to_open_project_box = self.findChild(
+            QCheckBox, 'checkBoxAddToOpenProject'
+        )
+        self.update_add_to_open_project_state()
 
         # Load the first combo box
         self.load_type_combo_box()
@@ -119,6 +126,36 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
     def open_help_url(self):
         QDesktopServices.openUrl(QUrl("https://geco-nhm.github.io/nin-qgis-plugin/"))
+
+    def showEvent(self, event) -> None:
+        # The user may have opened or saved a project since the dialog was created
+        self.update_add_to_open_project_state()
+        super().showEvent(event)
+
+    def update_add_to_open_project_state(self) -> None:
+        '''
+        Enables "Legg kartlagene til i åpent prosjekt" only when the open QGIS
+        project has been saved to a file (#72); otherwise there is nothing to
+        add to and NiN_kartlegging.qgz is created as before.
+        '''
+        project_file = QgsProject.instance().fileName()
+        self.add_to_open_project_box.setEnabled(bool(project_file))
+        if project_file:
+            self.add_to_open_project_box.setToolTip(
+                f"Kartlagene legges til i {project_file}, som lagres på nytt"
+            )
+        else:
+            self.add_to_open_project_box.setChecked(False)
+            self.add_to_open_project_box.setToolTip(
+                "Ingen lagret prosjekt er åpent i QGIS"
+            )
+
+    def add_to_open_project(self) -> bool:
+        '''True when the layers should be added to the open project (#72).'''
+        return (
+            self.add_to_open_project_box.isEnabled()
+            and self.add_to_open_project_box.isChecked()
+        )
 
     def load_type_combo_box(self):
 
@@ -411,6 +448,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             proj_crs=crs,
             wms_settings=wms_settings,
             selected_mapping_scale=self.selectMappingScale.currentText(),
+            add_to_open_project=self.add_to_open_project(),
         )
 
     def closeEvent(self, event) -> None:

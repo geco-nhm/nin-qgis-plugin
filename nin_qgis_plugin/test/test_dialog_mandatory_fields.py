@@ -58,6 +58,33 @@ class TestMandatoryInputs(unittest.TestCase):
         self._set_all_hovedtypegrupper(Qt.CheckState.Checked)
         self.assertTrue(self.button.isEnabled())
 
+    def test_add_to_open_project_requires_a_saved_project(self):
+        from qgis.core import QgsProject
+
+        box = self.dialog.add_to_open_project_box
+        project = QgsProject.instance()
+        original_file_name = project.fileName()
+        try:
+            project.setFileName('')
+            self.dialog.update_add_to_open_project_state()
+            self.assertFalse(box.isEnabled())
+            self.assertFalse(box.isChecked())
+            self.assertFalse(self.dialog.add_to_open_project())
+
+            project.setFileName('C:/tmp/eksisterende.qgz')
+            self.dialog.update_add_to_open_project_state()
+            self.assertTrue(box.isEnabled())
+            self.assertIn('eksisterende.qgz', box.toolTip())
+            box.setChecked(True)
+            self.assertTrue(self.dialog.add_to_open_project())
+
+            project.setFileName('')
+            self.dialog.update_add_to_open_project_state()
+            self.assertFalse(box.isEnabled())
+            self.assertFalse(self.dialog.add_to_open_project())
+        finally:
+            project.setFileName(original_file_name)
+
     def test_changing_type_reloads_list_and_disables_button(self):
         self.radio_25833.setChecked(True)
         self.dialog.file_widget.setFilePath('C:/tmp/kartlegging.gpkg')

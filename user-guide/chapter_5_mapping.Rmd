@@ -162,7 +162,7 @@ Du vil nå lære hvordan du kan redigere kartlag. Vi har zoomet inn på kartlegg
 
 #### Klikk på menyknappen
 
-#### Langklikk på kartlaget (f.eks. nin_polygons som brukes til kartlegging)
+#### Langklikk på kartlaget (f.eks. nin_polygons_M005 som brukes til kartlegging)
 
 
 ```{r index15, echo=FALSE}
@@ -180,7 +180,7 @@ Kartlaget har ingen registrerte polygoner og det vil derfor ikke skje noe i kart
 
 ### Slå på redigeringsmodus {#redigeringsmodus}
 
-#### Klikk på kartlaget du ønsker å redigere (f.eks. nin_polygons) slik at knappen lyser grønt
+#### Klikk på kartlaget du ønsker å redigere (f.eks. nin_polygons_M005) slik at knappen lyser grønt
 
 
 ```{r index17, echo=FALSE}
@@ -558,7 +558,7 @@ knitr::include_graphics("images/neighbour_polygon2.png")
 
 Den markerte polygonen vil nå lyse gult.
 
-##### Klikk på polygonens ID nedenfor `nin_polygons`
+##### Klikk på polygonens ID nedenfor `nin_polygons_<målestokk>`
 
 
 ```{r index59, echo=FALSE}
@@ -671,7 +671,7 @@ Du vil nå se at polygongrensene har endret seg.
 
 Den markerte polygonen vil nå lyse gult.
 
-##### Klikk på polygonens ID nedenfor `nin_polygons`
+##### Klikk på polygonens ID nedenfor `nin_polygons_<målestokk>`
 
 
 ```{r index72, echo=FALSE}
@@ -739,7 +739,7 @@ Polygonen vil nå være splittet. Begge polygonene vil tilegnes attributter fra 
 
 Den markerte polygonen vil nå lyse gult.
 
-##### Klikk på polygonens ID nedenfor `nin_polygons`
+##### Klikk på polygonens ID nedenfor `nin_polygons_<målestokk>`
 
 
 ```{r index80, echo=FALSE}
@@ -807,7 +807,7 @@ Deler av polygonen vil nå være fjernet.
 
 Den markerte polygonen vil nå lyse gult.
 
-##### Klikk på polygonens ID nedenfor `nin_polygons`
+##### Klikk på polygonens ID nedenfor `nin_polygons_<målestokk>`
 
 
 ```{r index88, echo=FALSE}
@@ -877,7 +877,7 @@ Deler av polygonen vil nå være fjernet. Hvis du ønsker at det nyopprette hull
 
 Den markerte polygonen vil nå lyse gult.
 
-##### Klikk på polygonens ID nedenfor `nin_polygons`
+##### Klikk på polygonens ID nedenfor `nin_polygons_<målestokk>`
 
 
 ```{r index96, echo=FALSE}
@@ -969,7 +969,7 @@ knitr::include_graphics("images/stop_editing.png")
 
 Den markerte polygonen vil nå lyse gult. Etter splitting av polygon vil den splittede polygonen få samme ID som kildepolygonene. Etter redigering derimot, vil den nyopprettede polygonen få en ny ID.
 
-#### Klikk på polygonens ID nedenfor `nin_polygons`
+#### Klikk på polygonens ID nedenfor `nin_polygons_<målestokk>`
 
 
 ```{r index107, echo=FALSE}

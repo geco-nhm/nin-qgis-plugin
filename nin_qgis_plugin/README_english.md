@@ -43,7 +43,7 @@ The plugin lets you configure a custom mapping project with options to:
 
 -   Select type system and relevant major-type groups
 -   Choose preferred mapping scale
--   Define storage location for the project
+-   Define storage location for the project, or add the layers to an already open project
 -   Set coordinate reference system (CRS) for project and `.gpkg` files
 -   Choose background maps
 

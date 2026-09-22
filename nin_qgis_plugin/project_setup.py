@@ -185,10 +185,10 @@ class ProjectSetup:
         # Accessing layers' tree root
         root = QgsProject.instance().layerTreeRoot()
 
-        # Add layer groups
+        # Add layer groups (reuse an existing group when adding to an open project)
         groupNameList = ['Tabeller']  # May add several group names in the []
         for groupName in groupNameList:
-            group = root.addGroup(groupName)
+            group = root.findGroup(groupName) or root.addGroup(groupName)
             group.setExpanded(False)   # Collapse the layer group
 
         layer = QgsVectorLayer(
@@ -758,8 +758,18 @@ def main(
     proj_crs: str,
     wms_settings: dict,
     selected_mapping_scale="M005",  # ??? Hardkoda? Hva med grunntyper?
+    add_to_open_project: bool = False,
 ) -> None:
-    '''Adapt QGIS project settings.'''
+    '''
+    Adapt QGIS project settings.
+
+    add_to_open_project (issue #72): when True and the open QGIS project has
+    a file name, the layers are added to that project, its CRS is kept and it
+    is saved in place. Otherwise the project is saved as
+    'NiN_kartlegging.qgz' next to the geopackage and set to the chosen CRS.
+    '''
+
+    keep_open_project = bool(add_to_open_project and QGS_PROJECT.fileName())
 
     # Pass user selection to create ProjectSetup() instance
     project_setup = ProjectSetup(
@@ -774,9 +784,9 @@ def main(
     # Load all layers from geopackage
     _ = project_setup.load_gpkg_layers()
 
-    # Set default values for type + hovedtype UI choices
-    # project_setup.set_project_crs(crs=PROJECT_CRS)
-    project_setup.set_project_crs(crs=proj_crs)
+    # Set the project CRS (an existing project keeps its own CRS)
+    if not keep_open_project:
+        project_setup.set_project_crs(crs=proj_crs)
 
     # Configure the mapping layers (polygons, points, lines): widgets,
     # default values, hierarchical dropdowns, styling, aliases and edit form
@@ -911,7 +921,9 @@ def main(
     # Adjust project snapping and overlap options
     project_setup.set_snap_overlap()
 
-    # Save the project
-    project_path = str(Path(gpkg_path).parent / "NiN_kartlegging.qgz")
-    QGS_PROJECT.setFileName(project_path)
+    # Save the project: in place when adding to an open project (#72),
+    # otherwise as NiN_kartlegging.qgz next to the geopackage
+    if not keep_open_project:
+        project_path = str(Path(gpkg_path).parent / "NiN_kartlegging.qgz")
+        QGS_PROJECT.setFileName(project_path)
     QGS_PROJECT.write()

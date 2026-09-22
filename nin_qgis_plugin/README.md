@@ -44,7 +44,7 @@ Programtillegget gir deg følgende valgmuligheter for å sette opp et tilpasset 
 
 -   Velge typesystem og relevante hovedtypegrupper
 -   Velge ønsket kartleggingsmålestokk
--   Velge lagringsplassering for prosjektet
+-   Velge lagringsplassering for prosjektet, eller legge kartlagene til i et allerede åpent prosjekt
 -   Definere koordinatsystem for prosjekt og `.gpkg`-filer
 -   Velge bakgrunnskart
 
