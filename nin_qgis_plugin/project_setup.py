@@ -38,6 +38,7 @@ from qgis.PyQt.QtGui import QColor, QFont
 from qgis.PyQt.QtNetwork import QNetworkRequest
 
 from .nib_access import classify_nib_capabilities_response
+from .wmts_capabilities import WmtsCapabilitiesError, select_wmts_layer_parameters
 
 from .attr_table_settings.value_relations import get_value_relations
 from .attr_table_settings.default_values import get_default_values
@@ -131,16 +132,14 @@ def _enum_member(owner, enum_name: str, member: str):
     return getattr(owner, member)
 
 
-def check_nib_access(capabilities_url: str, authcfg: str = '') -> Union[str, None]:
+def fetch_url(url: str, authcfg: str = '') -> tuple:
     '''
-    Requests the Norge i bilder WMTS GetCapabilities document with the
-    user's credentials and returns a Norwegian error message when the
-    service cannot be reached or rejects the login, or None when access works.
-    The layer is only added when this passes, so a bad token is reported to
-    the user instead of silently producing a missing layer.
+    Blocking GET through the QGIS network stack (proxy settings, and the
+    authentication configuration when given). Returns
+    (status code or None, body bytes, network error text or '').
     '''
 
-    request = QNetworkRequest(QUrl(capabilities_url))
+    request = QNetworkRequest(QUrl(url))
     blocking_request = QgsBlockingNetworkRequest()
     if authcfg:
         blocking_request.setAuthCfg(authcfg)
@@ -156,11 +155,32 @@ def check_nib_access(capabilities_url: str, authcfg: str = '') -> Union[str, Non
     if status_code is None and not network_error and error_code != no_error:
         network_error = str(error_code)
 
-    return classify_nib_capabilities_response(
-        status_code=int(status_code) if status_code is not None else None,
-        body=bytes(reply.content()),
-        network_error=network_error,
+    return (
+        int(status_code) if status_code is not None else None,
+        bytes(reply.content()),
+        network_error,
     )
+
+
+def fetch_nib_capabilities(capabilities_url: str, authcfg: str = '') -> tuple:
+    '''
+    Requests the Norge i bilder WMTS GetCapabilities document with the
+    user's credentials. Returns (capabilities bytes or None, Norwegian error
+    message or None). The layer is only added when this passes, so a bad
+    token is reported to the user instead of silently producing a missing
+    layer.
+    '''
+
+    status_code, body, network_error = fetch_url(capabilities_url, authcfg)
+    error = classify_nib_capabilities_response(
+        status_code=status_code, body=body, network_error=network_error,
+    )
+    return (None if error else body), error
+
+
+def check_nib_access(capabilities_url: str, authcfg: str = '') -> Union[str, None]:
+    '''Returns a Norwegian error message when NiB cannot be used, else None.'''
+    return fetch_nib_capabilities(capabilities_url, authcfg)[1]
 
 
 def _nib_token() -> str:
@@ -687,22 +707,35 @@ class ProjectSetup:
         wmts: str,
         zoom_to_extent=True,
         authcfg: str = '',
+        tile_matrix_set: str = '',
+        image_format: str = 'image/png',
     ) -> bool:
         '''
         Adds WMS layers from a specified URL to the project instance.
         Returns True when the layer was valid and added, False otherwise.
+
+        For WMTS, pass the tile matrix set read from the capabilities (see
+        wmts_capabilities.select_wmts_layer_parameters); the URI is then
+        built exactly like the QGIS connection dialog builds it. Without it
+        a few common tile matrix set names are tried.
         '''
 
         # Format the WMS/WMTS URI
-        # WMTS endpoints differ in matrix set naming between services/QGIS versions,
-        # so try a small set of URI variants and keep the first valid layer.
         authcfg_param = f"&authcfg={quote_plus(authcfg)}" if authcfg else ''
         # The service URL is a value inside the provider URI, so any '&' or '='
-        # it contains (e.g. GetCapabilities parameters, NiB token) must be
-        # escaped or QgsDataSourceUri splits it into separate params.
+        # it contains (e.g. GetCapabilities parameters) must be escaped or
+        # QgsDataSourceUri splits it into separate params.
         encoded_service_url = _encode_uri_value(wms_service_url)
         wms_layer = None
-        if wmts == '1':
+        if wmts == '1' and tile_matrix_set:
+            # Same parameter set as a WMTS layer added from the QGIS browser
+            wms_uri = (
+                f"crs={wms_crs}&dpiMode=7&format={image_format}&layers={wms_layer_names}"
+                f"&styles={wms_style}&tileMatrixSet={tile_matrix_set}"
+                f"&url={encoded_service_url}{authcfg_param}"
+            )
+            wms_layer = QgsRasterLayer(wms_uri, f'{new_qgis_layer_name}', 'wms')
+        elif wmts == '1':
             tile_matrix_candidates = [
                 f"utm{_utm_zone_from_crs(wms_crs)}_euref89",
                 'default028mm',
@@ -1016,19 +1049,34 @@ def main(
         crs_zone = _utm_zone_from_crs(proj_crs)
         nib_authcfg = (wms_settings.get('nib_authcfg') or '').strip() or _nib_authcfg()
         nib_token = (wms_settings.get('nib_token') or '').strip() or _nib_token()
-        nib_capabilities_url = f"https://tilecache.norgeibilder.no/wmts/utm{crs_zone}_euref89?SERVICE=WMTS&REQUEST=GetCapabilities"
+        # Bare service URL, as in a QGIS WMTS connection; QGIS appends the
+        # GetCapabilities parameters itself
+        nib_service_url = f"https://tilecache.norgeibilder.no/wmts/utm{crs_zone}_euref89"
+        nib_capabilities_url = f"{nib_service_url}?SERVICE=WMTS&REQUEST=GetCapabilities"
         nib_layer_name = f'Nibcache_UTM{crs_zone}_EUREF89_v2'
 
         nib_error = None
+        nib_parameters = None
         if not nib_authcfg:
             if not nib_token:
                 nib_error = 'Ingen token for Norge i bilder ble oppgitt.'
             else:
                 nib_authcfg, nib_error = ensure_nib_auth_config(nib_token)
 
-        # Verify the login first so a bad token is reported, not silently skipped
+        # Verify the login first so a bad token is reported, not silently
+        # skipped, and read layer/style/format/tile matrix set from the
+        # capabilities instead of guessing them
         if not nib_error:
-            nib_error = check_nib_access(nib_capabilities_url, authcfg=nib_authcfg)
+            capabilities, nib_error = fetch_nib_capabilities(
+                nib_capabilities_url, authcfg=nib_authcfg
+            )
+        if not nib_error:
+            try:
+                nib_parameters = select_wmts_layer_parameters(
+                    capabilities, nib_layer_name, proj_crs
+                )
+            except WmtsCapabilitiesError as exception:
+                nib_error = str(exception)
 
         if nib_error:
             QgsMessageLog.logMessage(
@@ -1037,17 +1085,26 @@ def main(
             warnings.append(
                 f"{nib_error} Kartlaget fra Norge i bilder ble ikke lagt til."
             )
-        elif not project_setup.add_wms_layer(
-            wms_service_url=nib_capabilities_url,
-            wms_layer_names=nib_layer_name,
-            wms_style='default',
-            wms_crs=proj_crs,
-            new_qgis_layer_name=nib_layer_name,
-            wmts='1',
-            zoom_to_extent=True,
-            authcfg=nib_authcfg,
-        ):
-            warnings.append(_layer_failed(nib_layer_name))
+        else:
+            QgsMessageLog.logMessage(
+                f"Norge i bilder: legger til {nib_parameters['layer']} "
+                f"(stil {nib_parameters['style']}, format {nib_parameters['format']}, "
+                f"flisrutenett {nib_parameters['tile_matrix_set']})",
+                'NiN plugin', Qgis.Info,
+            )
+            if not project_setup.add_wms_layer(
+                wms_service_url=nib_service_url,
+                wms_layer_names=nib_parameters['layer'],
+                wms_style=nib_parameters['style'],
+                wms_crs=proj_crs,
+                new_qgis_layer_name=nib_parameters['layer'],
+                wmts='1',
+                zoom_to_extent=False,  # keep the extent of the mapping area
+                authcfg=nib_authcfg,
+                tile_matrix_set=nib_parameters['tile_matrix_set'],
+                image_format=nib_parameters['format'],
+            ):
+                warnings.append(_layer_failed(nib_parameters['layer']))
 
     # Adjust project snapping and overlap options
     project_setup.set_snap_overlap()
