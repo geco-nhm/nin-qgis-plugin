@@ -26,6 +26,7 @@ velg-filnavn
 velg-ev.-wmswmts-lag
 huk-av-bokser-for-å-velge-wmswmts-lag
 klikk-på-lag-geopackage-fil-og-forbered-prosjekt-nederst-i-vinduet
+nib-token
 tilpass-prosjekt
 legge-til-vektordata
 gå-til-layer-add-layer-i-menylinjen-og-klikk-på-add-vector-layer...
@@ -112,10 +113,10 @@ klikk-og-skyv-digitaliseringspennen-i-motsatt-retning-av-den-retningen-du-ønske
 redigere-kartlag
 synliggjør-kartlaget-på-samme-måte-som-vist-i-del
 klikk-på-menyknappen
-langklikk-på-kartlaget-f.eks.-nin_polygons-som-brukes-til-kartlegging
+langklikk-på-kartlaget-f.eks.-nin_polygons_m005-som-brukes-til-kartlegging
 huk-av-show-on-map-for-å-synliggjøre-kartlaget
 redigeringsmodus
-klikk-på-kartlaget-du-ønsker-å-redigere-f.eks.-nin_polygons-slik-at-knappen-lyser-grønt
+klikk-på-kartlaget-du-ønsker-å-redigere-f.eks.-nin_polygons_m005-slik-at-knappen-lyser-grønt
 klikk-på-symbolet-med-redigeringspennen-for-å-slå-på-redigeringsmodus
 klikk-på-tilbakepila-for-å-gå-tilbake-til-kartvinduet
 utfigurer-ny-polygon
@@ -160,7 +161,7 @@ utfigurer-og-registrer-nye-polygoner
 rediger-utfigurering-til-eksisterende-polygoner
 redigere-hjørnekoordinater
 langklikk-på-en-polygon-du-vil-redigere
-klikk-på-polygonens-id-nedenfor-nin_polygons
+klikk-på-polygonens-id-nedenfor-nin_polygons_målestokk
 klikk-på-symbolet-for-å-endre-utfigurering
 klikk-på-...-for-å-velge-endringsverktøy
 klikk-på-symbolet-for-verktøyet-for-å-redigere-hjørnekoordinater
@@ -174,7 +175,7 @@ angre-eller-trekke-tilbake-endringer-av-hjørnekoordinater
 klikk-på-den-grønne-haken-for-å-godta-endringene
 splitte-polygon
 langklikk-på-en-polygon-du-vil-redigere-1
-klikk-på-polygonens-id-nedenfor-nin_polygons-1
+klikk-på-polygonens-id-nedenfor-nin_polygons_målestokk-1
 klikk-på-symbolet-for-å-endre-utfigurering-1
 klikk-på-...-for-å-velge-endringsverktøy-1
 klikk-på-symbolet-for-verktøyet-for-å-splitte-polygoner
@@ -182,7 +183,7 @@ splitt-polygonen-ved-å-opprette-hjørnekoordinater-gjennom-polygonen.-det-førs
 klikk-på-den-grønne-haken-for-å-godta-splittingen
 formforandringsverktøyet
 langklikk-en-polygon-du-vil-redigere
-klikk-på-polygonens-id-nedenfor-nin_polygons-2
+klikk-på-polygonens-id-nedenfor-nin_polygons_målestokk-2
 klikk-på-symbolet-for-å-endre-utfigurering-2
 klikk-på-...-for-å-velge-endringsverktøy-2
 klikk-på-symbolet-for-verktøyet-for-å-redigere-form
@@ -190,7 +191,7 @@ fjerne-deler-av-polygonen-ved-å-opprette-hjørnekoordinater-gjennom-polygonen.-
 klikk-på-den-grønne-haken-for-å-godta-splittingen-1
 utviskingsverktøy
 langklikk-på-en-polygon-du-vil-redigere-2
-klikk-på-polygonens-id-nedenfor-nin_polygons-3
+klikk-på-polygonens-id-nedenfor-nin_polygons_målestokk-3
 klikk-på-symbolet-for-å-endre-utfigurering-3
 klikk-på-...-for-å-velge-endringsverktøy-3
 klikk-på-symbolet-for-viskeverktøyet
@@ -199,7 +200,7 @@ klikk-inni-polygonen-for-å-viske-ut-deler-av-polygonen
 klikk-på-den-grønne-haken-for-å-godta-utviskingen
 ringfyllingsverktøyet
 langklikk-på-en-polygon-du-vil-redigere-3
-klikk-på-polygonens-id-nedenfor-nin_polygons-4
+klikk-på-polygonens-id-nedenfor-nin_polygons_målestokk-4
 klikk-på-symbolet-for-å-endre-utfigurering-4
 klikk-på-...-for-å-velge-endringsverktøy-4
 klikk-på-symbolet-for-verktøyet-for-å-lage-polygoner-inni-andre-polygoner
@@ -210,7 +211,7 @@ fyll-ut-registreringsskjema-som-vist-i-del-...-registreringsskjema-for-å-oppret
 klikk-på-stop-editing-for-å-stoppe-redigering
 rediger-attributter
 langklikk-på-en-polygon-du-vil-redigere-4
-klikk-på-polygonens-id-nedenfor-nin_polygons-5
+klikk-på-polygonens-id-nedenfor-nin_polygons_målestokk-5
 klikk-på-symbolet-for-å-endre-attributter
 endre-attributter-som-vist-i-del-...-registreringsskjema-og-klikk-på-den-hvite-haken-for-å-godta-endringene
 klikk-på-tilbakepila-for-å-gå-ut-av-attributtendringsmodusen
@@ -325,3 +326,20 @@ venstreklikk-på-det-opprinnelige-kartlaget
 gå-til-styles-copy-styles-og-klikk-på-all-style-categories
 venstreklikk-på-det-nye-kartlaget
 gå-til-styles-paste-styles-og-klikk-på-all-style-categories
+egne-felt
+åpne-egenskaper-for-laget
+aktiver-redigering-av-felt
+legg-til-nytt-felt
+opprett-feltet-nve_id
+opprett-feltet-firma
+angi-lengde-for-tekstfelt
+kontroller-at-feltene-er-lagt-til
+åpne-fanen-attributes-form
+flytt-feltet-nve_id-inn-i-skjemaet
+flytt-feltet-firma-inn-i-skjemaet
+lagre-oppsettet
+sett-felttype-til-value-map
+legg-inn-verdier-i-value-map
+kontroller-skjemaet-i-redigeringsmodus
+velg-verdi-fra-nedtrekkslisten
+resultat
