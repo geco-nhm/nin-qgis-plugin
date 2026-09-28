@@ -26,10 +26,10 @@
     <item row="8" column="0">
      <widget class="QCheckBox" name="checkBoxAddToOpenProject">
       <property name="text">
-       <string>Legg kartlagene til i åpent prosjekt (ikke lag NiN_kartlegging.qgz)</string>
+       <string>Legg til NiN-programtilleggets kartlag og oppsett i det åpne (eksisterende) QGIS-prosjektet</string>
       </property>
       <property name="toolTip">
-       <string>Krever at et lagret prosjekt er åpent i QGIS</string>
+       <string>Krever at et lagret prosjekt er åpent i QGIS. Uten avkryssing opprettes et nytt prosjekt ved siden av geopackage-fila.</string>
       </property>
      </widget>
     </item>
@@ -206,12 +206,28 @@
         <rect>
          <x>6</x>
          <y>46</y>
-         <width>661</width>
+         <width>200</width>
          <height>20</height>
         </rect>
        </property>
        <property name="text">
         <string>Norge i bilder (WMTS)</string>
+       </property>
+      </widget>
+      <widget class="QToolButton" name="nibInfoButton">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>44</y>
+         <width>150</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Åpner veiledningen om brukernavn og token for Norge i bilder</string>
+       </property>
+       <property name="text">
+        <string>Info om NiB-token</string>
        </property>
       </widget>
      </widget>

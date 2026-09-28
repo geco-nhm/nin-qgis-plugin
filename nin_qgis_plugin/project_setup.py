@@ -28,9 +28,14 @@ from qgis.core import (
     QgsTolerance,       # for snapping tolerance type (pixel or project units)
     Qgis,               # for AvoidIntersectionsMode
     QgsMessageLog,
+    QgsBlockingNetworkRequest,
     edit
 )
+from qgis.PyQt.QtCore import QUrl
 from qgis.PyQt.QtGui import QColor, QFont
+from qgis.PyQt.QtNetwork import QNetworkRequest
+
+from .nib_access import classify_nib_capabilities_response
 
 from .attr_table_settings.value_relations import get_value_relations
 from .attr_table_settings.default_values import get_default_values
@@ -114,6 +119,46 @@ def _encode_uri_value(value: str) -> str:
     '''
 
     return value.replace('&', '%26').replace('=', '%3D')
+
+
+def _enum_member(owner, enum_name: str, member: str):
+    '''Qt5/Qt6 compatible enum lookup: owner.member or owner.EnumName.member.'''
+    scoped = getattr(owner, enum_name, None)
+    if scoped is not None and hasattr(scoped, member):
+        return getattr(scoped, member)
+    return getattr(owner, member)
+
+
+def check_nib_access(capabilities_url: str, authcfg: str = '') -> Union[str, None]:
+    '''
+    Requests the Norge i bilder WMTS GetCapabilities document with the
+    user's credentials and returns a Norwegian error message when the
+    service cannot be reached or rejects the login, or None when access works.
+    The layer is only added when this passes, so a bad token is reported to
+    the user instead of silently producing a missing layer.
+    '''
+
+    request = QNetworkRequest(QUrl(capabilities_url))
+    blocking_request = QgsBlockingNetworkRequest()
+    if authcfg:
+        blocking_request.setAuthCfg(authcfg)
+
+    error_code = blocking_request.get(request, True)
+    reply = blocking_request.reply()
+
+    no_error = _enum_member(QgsBlockingNetworkRequest, 'ErrorCode', 'NoError')
+    status_attribute = _enum_member(QNetworkRequest, 'Attribute', 'HttpStatusCodeAttribute')
+    status_code = reply.attribute(status_attribute)
+    network_error = reply.errorString() if error_code != no_error else ''
+
+    if status_code is None and not network_error and error_code != no_error:
+        network_error = str(error_code)
+
+    return classify_nib_capabilities_response(
+        status_code=int(status_code) if status_code is not None else None,
+        body=bytes(reply.content()),
+        network_error=network_error,
+    )
 
 
 def _nib_token() -> str:
@@ -590,9 +635,10 @@ class ProjectSetup:
         wmts: str,
         zoom_to_extent=True,
         authcfg: str = '',
-    ) -> None:
+    ) -> bool:
         '''
         Adds WMS layers from a specified URL to the project instance.
+        Returns True when the layer was valid and added, False otherwise.
         '''
 
         # Format the WMS/WMTS URI
@@ -649,26 +695,28 @@ class ProjectSetup:
                 'NiN plugin',
                 Qgis.Warning,
             )
-        else:
-            # Add the layer to the QGIS project
-            # Add the WMS layer to the project (it will be added to the top)
-            # The second parameter set to False prevents auto-add
-            QGS_PROJECT.addMapLayer(wms_layer, False)
+            return False
 
-            # Get the root (top-level) node of the layer tree
-            root = QGS_PROJECT.layerTreeRoot()
+        # Add the layer to the QGIS project
+        # Add the WMS layer to the project (it will be added to the top)
+        # The second parameter set to False prevents auto-add
+        QGS_PROJECT.addMapLayer(wms_layer, False)
 
-            # Create a new layer tree node for the added WMS layer
-            wms_layer_node = QgsLayerTreeLayer(wms_layer)
+        # Get the root (top-level) node of the layer tree
+        root = QGS_PROJECT.layerTreeRoot()
 
-            # Insert the new layer's node at the bottom of the layer tree
-            # Index -1 inserts at the bottom
-            root.insertChildNode(-1, wms_layer_node)
+        # Create a new layer tree node for the added WMS layer
+        wms_layer_node = QgsLayerTreeLayer(wms_layer)
 
-            if zoom_to_extent:
-                self.canvas.setExtent(wms_layer.extent())
+        # Insert the new layer's node at the bottom of the layer tree
+        # Index -1 inserts at the bottom
+        root.insertChildNode(-1, wms_layer_node)
 
-            self.canvas.refresh()
+        if zoom_to_extent:
+            self.canvas.setExtent(wms_layer.extent())
+
+        self.canvas.refresh()
+        return True
 
     def set_field_aliases(
         self,
@@ -759,9 +807,13 @@ def main(
     wms_settings: dict,
     selected_mapping_scale="M005",  # ??? Hardkoda? Hva med grunntyper?
     add_to_open_project: bool = False,
-) -> None:
+) -> List[str]:
     '''
     Adapt QGIS project settings.
+
+    Returns a list of user-facing (Norwegian) warnings, e.g. background
+    layers that could not be loaded or a failed Norge i bilder login.
+    An empty list means everything was set up.
 
     add_to_open_project (issue #72): when True and the open QGIS project has
     a file name, the layers are added to that project, its CRS is kept and it
@@ -871,9 +923,17 @@ def main(
         project_setup.get_nin_polygons_layer(), field_name, expression, proj_crs
     )
 
+    warnings: List[str] = []
+
+    def _layer_failed(layer_name: str) -> str:
+        return (
+            f"Bakgrunnskartet '{layer_name}' kunne ikke lastes. "
+            "Se meldingsloggen 'NiN plugin' i QGIS for detaljer."
+        )
+
     # Add Norway topography WMS raster layer
     if wms_settings['checkBoxNorgeTopo']:
-        project_setup.add_wms_layer(
+        if not project_setup.add_wms_layer(
             wms_service_url="https://wms.geonorge.no/skwms1/wms.topo?",
             wms_layer_names='topo',
             wms_style='default',
@@ -881,11 +941,12 @@ def main(
             new_qgis_layer_name="Topografisk norgeskart",
             wmts='0',
             zoom_to_extent=True,
-        )
+        ):
+            warnings.append(_layer_failed("Topografisk norgeskart"))
 
     # Add Norway topography grayscale WMS raster layer
     if wms_settings['checkBoxNorgeTopoGraa']:
-        project_setup.add_wms_layer(
+        if not project_setup.add_wms_layer(
             wms_service_url="https://wms.geonorge.no/skwms1/wms.topograatone?",
             wms_layer_names='topograatone',
             wms_style='default',
@@ -893,7 +954,8 @@ def main(
             new_qgis_layer_name="Topografisk norgeskart gråtone",
             wmts='0',
             zoom_to_extent=True,
-        )
+        ):
+            warnings.append(_layer_failed("Topografisk norgeskart gråtone"))
 
     # Add "Norway in images" WMTS raster layer
     if wms_settings['checkBoxNiB']:
@@ -907,16 +969,28 @@ def main(
         if nib_token and not nib_authcfg:
             nib_capabilities_url += f"&token={quote_plus(nib_token)}"
 
-        project_setup.add_wms_layer(
+        nib_layer_name = f'Nibcache_UTM{crs_zone}_EUREF89_v2'
+
+        # Verify the login first so a bad token is reported, not silently skipped
+        nib_error = check_nib_access(nib_capabilities_url, authcfg=nib_authcfg)
+        if nib_error:
+            QgsMessageLog.logMessage(
+                f"Norge i bilder: {nib_error}", 'NiN plugin', Qgis.Warning
+            )
+            warnings.append(
+                f"{nib_error} Kartlaget fra Norge i bilder ble ikke lagt til."
+            )
+        elif not project_setup.add_wms_layer(
             wms_service_url=nib_capabilities_url,
-            wms_layer_names=f'Nibcache_UTM{crs_zone}_EUREF89_v2',
+            wms_layer_names=nib_layer_name,
             wms_style='default',
             wms_crs=proj_crs,
-            new_qgis_layer_name=f'Nibcache_UTM{crs_zone}_EUREF89_v2',
+            new_qgis_layer_name=nib_layer_name,
             wmts='1',
             zoom_to_extent=True,
             authcfg=nib_authcfg,
-        )
+        ):
+            warnings.append(_layer_failed(nib_layer_name))
 
     # Adjust project snapping and overlap options
     project_setup.set_snap_overlap()
@@ -927,3 +1001,5 @@ def main(
         project_path = str(Path(gpkg_path).parent / "NiN_kartlegging.qgz")
         QGS_PROJECT.setFileName(project_path)
     QGS_PROJECT.write()
+
+    return warnings

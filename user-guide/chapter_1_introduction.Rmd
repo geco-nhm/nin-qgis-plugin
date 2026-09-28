@@ -68,6 +68,7 @@ Veilederen gir deg innsikt i følgende:
 -   Redigering av kartlag i QField
 -   Praktiske tips for NiN-kartlegging
 -   Import og etterarbeid av data i QGIS
+-   Hvordan du legger til egne felt i registreringsskjemaet
 
 ## Nyttige lenker og ressurser
 

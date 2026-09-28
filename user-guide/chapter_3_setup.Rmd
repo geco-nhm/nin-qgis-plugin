@@ -193,6 +193,17 @@ knitr::include_graphics("images/layers_1.png")
 *Topografisk norgeskart gråtone* -- landsdekkende kart med høydekoter og hovedøkosystemer i gråtoner\
 *Nibcache_UTM32_EUREF89_v2* -- landsdekkende sammenstilte nyeste flybilder
 
+### Norge i bilder: brukernavn og token {#nib-token}
+
+Flybildene fra [Norge i bilder](https://www.norgeibilder.no/) krever innlogging. Slik får du dem inn i prosjektet:
+
+1.  Du trenger en brukerkonto (GeoID) med tilgang til Norge i bilder.
+2.  Gå til <https://services.norgeibilder.no/token>, logg inn og lag et token. Tokenet er en lang tekststreng med begrenset gyldighetstid, så du må lage et nytt når det er utløpt.
+3.  Huk av *Norge i bilder (WMTS)* i programtillegget. Når du klikker på `Lag geopackage-fil og forbered prosjekt`, blir du bedt om brukernavn og token. Lim inn tokenet (det vises som prikker).
+4.  Slipp å skrive inn hver gang: legg brukernavn og token i miljøvariablene `NIN_NIB_USERNAME` og `NIN_NIB_TOKEN`, eller bruk en autentiseringskonfigurasjon i QGIS og oppgi dens ID (miljøvariabel `NIN_NIB_AUTHCFG`).
+
+Programtillegget kontrollerer innloggingen mot Norge i bilder før kartlaget legges til. Dersom innloggingen feiler, får du en melding om dette når prosjektet er opprettet, og kartlaget blir ikke lagt til. Kontroller da at brukernavnet er riktig og at tokenet ikke er utløpt. Knappen `Info om NiB-token` ved siden av avkryssingsboksen åpner denne siden.
+
 ## Tilpass prosjekt {#tilpass-prosjekt}
 
 ### Legge til vektordata

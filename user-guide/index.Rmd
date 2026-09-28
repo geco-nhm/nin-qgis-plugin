@@ -38,6 +38,7 @@ Velkommen til veilederen for Natur i Norge kartlegging i QGIS og QField.
 -   [4 Eksportere og importere prosjekt](#eksportere-prosjekt)  
 -   [5 Kartlegging](#kartlegging)  
 -   [6 Kvalitetssikring](#kvalitetssikring)
+-   [7 Egne felt i skjemaet](#egne-felt)
 
 ')`
 

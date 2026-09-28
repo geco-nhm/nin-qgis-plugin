@@ -40,6 +40,8 @@ from qgis.PyQt.QtWidgets import (
 from qgis.gui import QgsFileWidget
 from qgis.core import QgsProject
 
+from .nib_access import NIB_HELP_URL
+
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'nin_qgis_plugin_dialog_base.ui'
 ))
@@ -114,6 +116,9 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         # Connect help button
         self.helpButton.clicked.connect(self.open_help_url)
 
+        # Info button next to the Norge i bilder checkbox: how to get a token
+        self.nibInfoButton.clicked.connect(self.open_nib_help_url)
+
         # Enable the "create project" button only once the mandatory inputs
         # (CRS, at least one hovedtypegruppe, .gpkg location) are set (#47)
         for radio_button in self.findChildren(QRadioButton):
@@ -126,6 +131,10 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
     def open_help_url(self):
         QDesktopServices.openUrl(QUrl("https://geco-nhm.github.io/nin-qgis-plugin/"))
+
+    def open_nib_help_url(self):
+        '''Opens the guide section on Norge i bilder username and token.'''
+        QDesktopServices.openUrl(QUrl(NIB_HELP_URL))
 
     def showEvent(self, event) -> None:
         # The user may have opened or saved a project since the dialog was created
@@ -440,7 +449,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         )
 
         # Run project_setup.py
-        ps.main(
+        warnings = ps.main(
             selected_items=self.get_selected_htgr_items(),
             selected_type_id=self.get_selected_type_id(),
             gpkg_path=self.geopackage_path,
@@ -450,6 +459,21 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             selected_mapping_scale=self.selectMappingScale.currentText(),
             add_to_open_project=self.add_to_open_project(),
         )
+
+        # Tell the user about background layers that did not load, in
+        # particular a failed Norge i bilder login (not just a missing layer)
+        if warnings:
+            message = "\n\n".join(warnings)
+            if wms_settings.get('checkBoxNiB'):
+                message += (
+                    "\n\nVeiledning om brukernavn og token for Norge i bilder:\n"
+                    f"{NIB_HELP_URL}"
+                )
+            QMessageBox.warning(
+                self,
+                "Prosjektet er opprettet, men ikke alle bakgrunnskart ble lastet",
+                message,
+            )
 
     def closeEvent(self, event) -> None:
         self.closingPlugin.emit()

@@ -7,4 +7,5 @@ rmd_files:
   - chapter_4_export.Rmd
   - chapter_5_mapping.Rmd
   - chapter_6_troubleshooting.Rmd
+  - chapter_7_custom_fields.Rmd
 delete_merged_file: true
