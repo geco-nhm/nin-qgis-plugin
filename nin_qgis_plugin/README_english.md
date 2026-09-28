@@ -43,7 +43,7 @@ The plugin lets you configure a custom mapping project with options to:
 
 -   Select type system and relevant major-type groups
 -   Choose preferred mapping scale
--   Define storage location for the project, or add the layers to an already open project
+-   Choose between a new QGIS project in the storage folder, or adding the NiN layers to the project that is already open
 -   Set coordinate reference system (CRS) for project and `.gpkg` files
 -   Choose background maps
 

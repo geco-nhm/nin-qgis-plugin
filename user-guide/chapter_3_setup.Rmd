@@ -173,7 +173,12 @@ knitr::include_graphics("images/create_project_2.png")
 ```
 
 
-Et prosjekt med filnavnet `NiN_kartlegging.qgz` blir nå opprettet automatisk i den oppgitte filplasseringen. I tillegg vil det opprettes en `.gpkg-fil` med kartlag og tabeller. Prosjektet med `.gpkg-filen` kan igjen åpnes fra denne filplasseringen senere. Kartlagene vil åpnes med prosjektet med mindre `.gpkg-filen` flyttes til et annet område. `.gpkg-filen` inneholder følgende:
+Under *Hvor skal NiN-kartlagene og oppsettet legges?* velger du ett av to alternativer:
+
+-   **Lag et nytt QGIS-prosjekt**: et prosjekt med filnavnet `NiN_kartlegging.qgz` opprettes i mappa du valgte under *Velg hvor geopackage-fila skal lagres*. Dette er standardvalget.
+-   **Bruk QGIS-prosjektet som er åpent nå**: NiN-kartlagene og oppsettet legges inn i prosjektet du allerede har åpent (for eksempel et prosjekt med egne bakgrunnskart og data), og prosjektet lagres med sitt eget filnavn og koordinatsystem. Valget er bare tilgjengelig når det åpne prosjektet er lagret til fil.
+
+I begge tilfeller opprettes en `.gpkg-fil` med kartlag og tabeller i den valgte mappa. Prosjektet med `.gpkg-filen` kan igjen åpnes fra denne filplasseringen senere. Kartlagene vil åpnes med prosjektet med mindre `.gpkg-filen` flyttes til et annet område. `.gpkg-filen` inneholder følgende:
 
 
 ```{r index193, echo=FALSE}
@@ -195,14 +200,32 @@ knitr::include_graphics("images/layers_1.png")
 
 ### Norge i bilder: brukernavn og token {#nib-token}
 
-Flybildene fra [Norge i bilder](https://www.norgeibilder.no/) krever innlogging. Slik får du dem inn i prosjektet:
+Flybildene i kartlaget *Norge i bilder (WMTS)* hentes fra Kartverkets tjeneste [Norge i bilder](https://norgeibilder.no/) (NiB). Tjenesten er ikke åpen for alle: tilgang gis til partene i Norge digitalt og til andre som har inngått avtale om tilgang til dataene. Se [Geonorges side om Norge i bilder-tjenestene](https://www.geonorge.no/nib) for detaljer og oppdaterte tjenesteadresser.
 
-1.  Du trenger en brukerkonto (GeoID) med tilgang til Norge i bilder.
-2.  Gå til <https://services.norgeibilder.no/token>, logg inn og lag et token. Tokenet er en lang tekststreng med begrenset gyldighetstid, så du må lage et nytt når det er utløpt.
-3.  Huk av *Norge i bilder (WMTS)* i programtillegget. Når du klikker på `Lag geopackage-fil og forbered prosjekt`, blir du bedt om brukernavn og token. Lim inn tokenet (det vises som prikker).
-4.  Slipp å skrive inn hver gang: legg brukernavn og token i miljøvariablene `NIN_NIB_USERNAME` og `NIN_NIB_TOKEN`, eller bruk en autentiseringskonfigurasjon i QGIS og oppgi dens ID (miljøvariabel `NIN_NIB_AUTHCFG`).
+**1. Skaff en GeoID-bruker med tilgang til Norge i bilder**
 
-Programtillegget kontrollerer innloggingen mot Norge i bilder før kartlaget legges til. Dersom innloggingen feiler, får du en melding om dette når prosjektet er opprettet, og kartlaget blir ikke lagt til. Kontroller da at brukernavnet er riktig og at tokenet ikke er utløpt. Knappen `Info om NiB-token` ved siden av avkryssingsboksen åpner denne siden.
+Brukernavn og passord er en GeoID-bruker, det samme du logger inn med på <https://norgeibilder.no/>. Har du ikke en slik bruker, kan du be om tilgang via [Kartverkets skjema for BAAT-tilgang](https://www.kartverket.no/geodataarbeid/norge-digitalt/skjemaside-baat-tilgang). Spørsmål om tilgang og partsavtale rettes til [kundesenter\@kartverket.no](mailto:kundesenter@kartverket.no).
+
+**2. Lag et token**
+
+Alle NiB-tjenestene (WMS og WMTS) krever et token i tillegg til brukeren. Tokenet lages på <https://services.norgeibilder.no/token>:
+
+-   Logg inn med GeoID-brukernavn og -passord.
+-   Under *Client* velger du hva tokenet skal knyttes til. Velg *IP address* (tokenet virker bare fra IP-adressen du lager det fra) når du skal bruke det i QGIS på samme maskin og nett. *HTTP Referer* er beregnet på nettsider.
+-   Velg gyldighetstid under *Expiration*. Tokenet er tidsbegrenset (fra én time til én uke er det som Geonorge oppgir). Velg lang nok tid til å dekke feltperioden, og lag et nytt token når det er utløpt.
+-   Klikk *Generate Token* og kopier hele tekststrengen som vises.
+
+Merk: fordi tokenet er knyttet til IP-adressen, må du lage et nytt token dersom du bytter nett (for eksempel fra kontoret til mobilt bredbånd i felt) eller når det er utløpt.
+
+**3. Legg inn brukernavn og token i programtillegget**
+
+Huk av *Norge i bilder (WMTS)* i vinduet. Når du klikker på `Lag geopackage-fil og forbered prosjekt`, blir du først spurt om en eventuell autentiseringskonfigurasjon i QGIS (la feltet stå tomt om du ikke bruker det), deretter om GeoID-brukernavn og til slutt om token. Lim inn tokenet (det vises som prikker). Programtillegget sender tokenet som parameteren `token` i adressen til WMTS-tjenesten, slik Geonorge beskriver.
+
+Slipp å skrive inn hver gang: legg brukernavn og token i miljøvariablene `NIN_NIB_USERNAME` og `NIN_NIB_TOKEN`, eller opprett en autentiseringskonfigurasjon i QGIS (*Innstillinger → Alternativer → Autentisering*) og oppgi dens ID i miljøvariabelen `NIN_NIB_AUTHCFG`.
+
+**4. Hvis det ikke virker**
+
+Programtillegget kontrollerer innloggingen mot Norge i bilder før kartlaget legges til. Dersom tjenesten avviser brukernavn eller token, eller ikke kan nås, får du en melding om dette når prosjektet er opprettet, og kartlaget blir ikke lagt til. Kontroller da at brukernavnet er riktig, at tokenet ikke er utløpt, og at du er på samme nett som da tokenet ble laget. Lag eventuelt et nytt token og opprett prosjektet på nytt, eller legg til kartlaget manuelt i QGIS med tokenet i adressen (se Geonorge-siden for adressene til WMTS-tjenestene per UTM-sone). Knappen `Info om NiB-token` ved siden av avkryssingsboksen åpner denne siden.
 
 ## Tilpass prosjekt {#tilpass-prosjekt}
 

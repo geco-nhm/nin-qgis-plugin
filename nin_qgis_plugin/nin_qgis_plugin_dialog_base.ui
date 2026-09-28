@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>581</width>
-    <height>542</height>
+    <height>622</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,18 +19,37 @@
      <x>10</x>
      <y>10</y>
      <width>561</width>
-     <height>471</height>
+     <height>551</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="8" column="0">
-     <widget class="QCheckBox" name="checkBoxAddToOpenProject">
-      <property name="text">
-       <string>Legg til NiN-programtilleggets kartlag og oppsett i det åpne (eksisterende) QGIS-prosjektet</string>
+     <widget class="QGroupBox" name="groupBoxProject">
+      <property name="title">
+       <string>Hvor skal NiN-kartlagene og oppsettet legges?</string>
       </property>
-      <property name="toolTip">
-       <string>Krever at et lagret prosjekt er åpent i QGIS. Uten avkryssing opprettes et nytt prosjekt ved siden av geopackage-fila.</string>
-      </property>
+      <layout class="QVBoxLayout" name="verticalLayoutProject">
+       <item>
+        <widget class="QRadioButton" name="radioNewProject">
+         <property name="text">
+          <string>Lag et nytt QGIS-prosjekt (NiN_kartlegging.qgz) i mappa valgt under «Velg hvor geopackage-fila skal lagres»</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioOpenProject">
+         <property name="text">
+          <string>Bruk QGIS-prosjektet som er åpent nå: NiN-kartlagene opprettes der, og prosjektet lagres med sitt eget navn</string>
+         </property>
+         <property name="toolTip">
+          <string>Krever at et lagret prosjekt er åpent i QGIS</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
     <item row="6" column="0">
@@ -238,7 +257,7 @@
    <property name="geometry">
     <rect>
      <x>486</x>
-     <y>487</y>
+     <y>567</y>
      <width>85</width>
      <height>31</height>
     </rect>

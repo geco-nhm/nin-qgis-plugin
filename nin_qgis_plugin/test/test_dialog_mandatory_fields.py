@@ -61,26 +61,34 @@ class TestMandatoryInputs(unittest.TestCase):
     def test_add_to_open_project_requires_a_saved_project(self):
         from qgis.core import QgsProject
 
-        box = self.dialog.add_to_open_project_box
+        new_radio = self.dialog.new_project_radio
+        open_radio = self.dialog.open_project_radio
         project = QgsProject.instance()
         original_file_name = project.fileName()
         try:
             project.setFileName('')
             self.dialog.update_add_to_open_project_state()
-            self.assertFalse(box.isEnabled())
-            self.assertFalse(box.isChecked())
+            self.assertFalse(open_radio.isEnabled())
+            self.assertTrue(new_radio.isChecked())
             self.assertFalse(self.dialog.add_to_open_project())
 
             project.setFileName('C:/tmp/eksisterende.qgz')
             self.dialog.update_add_to_open_project_state()
-            self.assertTrue(box.isEnabled())
-            self.assertIn('eksisterende.qgz', box.toolTip())
-            box.setChecked(True)
+            self.assertTrue(open_radio.isEnabled())
+            self.assertIn('eksisterende.qgz', open_radio.toolTip())
+            open_radio.setChecked(True)
+            self.assertFalse(new_radio.isChecked())
             self.assertTrue(self.dialog.add_to_open_project())
+
+            # The project radios must not interfere with the CRS radios (#47)
+            self.radio_25833.setChecked(True)
+            self.assertTrue(open_radio.isChecked())
+            self.assertEqual(self.dialog.get_selected_crs(), 'EPSG:25833')
 
             project.setFileName('')
             self.dialog.update_add_to_open_project_state()
-            self.assertFalse(box.isEnabled())
+            self.assertFalse(open_radio.isEnabled())
+            self.assertTrue(new_radio.isChecked())
             self.assertFalse(self.dialog.add_to_open_project())
         finally:
             project.setFileName(original_file_name)

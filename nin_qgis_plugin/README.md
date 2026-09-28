@@ -44,7 +44,7 @@ Programtillegget gir deg følgende valgmuligheter for å sette opp et tilpasset 
 
 -   Velge typesystem og relevante hovedtypegrupper
 -   Velge ønsket kartleggingsmålestokk
--   Velge lagringsplassering for prosjektet, eller legge kartlagene til i et allerede åpent prosjekt
+-   Velge om det skal lages et nytt QGIS-prosjekt i lagringsmappa, eller om NiN-kartlagene skal legges inn i prosjektet som allerede er åpent
 -   Definere koordinatsystem for prosjekt og `.gpkg`-filer
 -   Velge bakgrunnskart
 

@@ -81,10 +81,10 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
             'checkBoxNiB',
         ]
 
-        # "Add to open project" (#72): only meaningful when a saved project is open
-        self.add_to_open_project_box = self.findChild(
-            QCheckBox, 'checkBoxAddToOpenProject'
-        )
+        # Where the NiN layers go (#72): a new project next to the gpkg, or
+        # the project that is open now (only when it has been saved to a file)
+        self.new_project_radio = self.findChild(QRadioButton, 'radioNewProject')
+        self.open_project_radio = self.findChild(QRadioButton, 'radioOpenProject')
         self.update_add_to_open_project_state()
 
         # Load the first combo box
@@ -121,7 +121,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
 
         # Enable the "create project" button only once the mandatory inputs
         # (CRS, at least one hovedtypegruppe, .gpkg location) are set (#47)
-        for radio_button in self.findChildren(QRadioButton):
+        for radio_button in self.crs_radio_buttons():
             radio_button.toggled.connect(self.update_run_button_state)
         self.selectHovetypegrupperWidget.itemChanged.connect(
             self.update_run_button_state
@@ -148,23 +148,30 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         add to and NiN_kartlegging.qgz is created as before.
         '''
         project_file = QgsProject.instance().fileName()
-        self.add_to_open_project_box.setEnabled(bool(project_file))
+        self.open_project_radio.setEnabled(bool(project_file))
         if project_file:
-            self.add_to_open_project_box.setToolTip(
+            self.open_project_radio.setToolTip(
                 f"Kartlagene legges til i {project_file}, som lagres på nytt"
             )
         else:
-            self.add_to_open_project_box.setChecked(False)
-            self.add_to_open_project_box.setToolTip(
-                "Ingen lagret prosjekt er åpent i QGIS"
+            self.new_project_radio.setChecked(True)
+            self.open_project_radio.setToolTip(
+                "Ikke tilgjengelig: ingen lagret prosjekt er åpent i QGIS"
             )
 
     def add_to_open_project(self) -> bool:
         '''True when the layers should be added to the open project (#72).'''
         return (
-            self.add_to_open_project_box.isEnabled()
-            and self.add_to_open_project_box.isChecked()
+            self.open_project_radio.isEnabled()
+            and self.open_project_radio.isChecked()
         )
+
+    def crs_radio_buttons(self) -> list:
+        '''The CRS radio buttons (named radioBtn<EPSG>), not the project ones.'''
+        return [
+            button for button in self.findChildren(QRadioButton)
+            if button.objectName().startswith('radioBtn')
+        ]
 
     def load_type_combo_box(self):
 
@@ -229,7 +236,7 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         or '' when none is checked. The code is read from the button text,
         e.g. 'UTM 32 (25832)' -> 'EPSG:25832'.
         '''
-        for radiobutton in self.findChildren(QRadioButton):
+        for radiobutton in self.crs_radio_buttons():
             if radiobutton.isChecked():
                 match = re.search(r'\((\d+)\)', radiobutton.text())
                 if match:
