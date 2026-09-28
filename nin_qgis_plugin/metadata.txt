@@ -29,7 +29,7 @@ changelog=
     - Mapping layers are named with the chosen scale, e.g. nin_polygons_M005 (#66)
     - The create-project button stays disabled until CRS, hovedtypegruppe and gpkg location are set (#47)
     - Option to add the layers to the open QGIS project instead of creating NiN_kartlegging.qgz (#72)
-    - Norge i bilder: info button to the token guide, and a clear message when the login fails or a background map cannot be loaded (#71)
+    - Norge i bilder: the token is stored as a QGIS authentication configuration (sent as X-Esri-Authorization header on every tile request; a token in the URL never reached the tiles), only the token is asked for, an info button opens the token guide, and a clear message is shown when the login fails or a background map cannot be loaded (#71)
     0.4:
     - QGIS 4.0 / Qt6 compatibility
     - Updated CSV tables from NiN-Kode API (2026)

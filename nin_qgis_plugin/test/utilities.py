@@ -4,6 +4,7 @@
 import os
 import sys
 import logging
+import tempfile
 from pathlib import Path
 
 
@@ -66,6 +67,8 @@ def get_qgis_app():
 
     if QGIS_APP is None:
         gui_flag = True  # All test will run qgis in gui mode
+        # Never touch the user's real authentication database from tests
+        os.environ.setdefault('QGIS_AUTH_DB_DIR_PATH', tempfile.mkdtemp(prefix='nin_qgis_auth_'))
         prefix_path = _qgis_prefix_path()
         if prefix_path:
             QgsApplication.setPrefixPath(prefix_path, True)

@@ -29,6 +29,8 @@ from qgis.core import (
     Qgis,               # for AvoidIntersectionsMode
     QgsMessageLog,
     QgsBlockingNetworkRequest,
+    QgsApplication,
+    QgsAuthMethodConfig,
     edit
 )
 from qgis.PyQt.QtCore import QUrl
@@ -165,8 +167,58 @@ def _nib_token() -> str:
     return os.getenv('NIN_NIB_TOKEN') or os.getenv('NIB_TOKEN') or ''
 
 
-def _nib_username() -> str:
-    return os.getenv('NIN_NIB_USERNAME') or os.getenv('NIB_USERNAME') or ''
+# Name of the QGIS authentication configuration the plugin creates for the
+# Norge i bilder token (visible under Settings -> Options -> Authentication)
+NIB_AUTHCFG_NAME = 'NiN plugin: Norge i bilder'
+
+
+def ensure_nib_auth_config(token: str) -> tuple:
+    '''
+    Stores the Norge i bilder token as a QGIS "EsriToken" authentication
+    configuration and returns (authcfg id, error message or None).
+
+    QGIS only forwards URL parameters of a WMTS URL to GetCapabilities, not
+    to the GetTile requests, so a token in the URL loads the layer but every
+    tile is unauthorized. The EsriToken method adds the header
+    'X-Esri-Authorization: Bearer <token>' to every request, which is what
+    Geonorge documents for the NiB services. An existing configuration with
+    the plugin's name is updated so users can renew the token by running
+    the plugin again.
+    '''
+
+    manager = QgsApplication.authManager()
+
+    # Unlocks the authentication database; in QGIS desktop this prompts for
+    # the master password (or asks to create one) when needed.
+    if not manager.masterPasswordIsSet() and not manager.setMasterPassword(True):
+        return '', (
+            'Kunne ikke låse opp QGIS sin autentiseringsdatabase (hovedpassord), '
+            'så tokenet kunne ikke lagres.'
+        )
+
+    existing_id = ''
+    for config_id, existing in manager.availableAuthMethodConfigs().items():
+        if existing.name() == NIB_AUTHCFG_NAME:
+            existing_id = config_id
+            break
+
+    config = QgsAuthMethodConfig('EsriToken')
+    config.setName(NIB_AUTHCFG_NAME)
+    config.setConfig('token', token)
+
+    if existing_id:
+        config.setId(existing_id)
+        stored = manager.updateAuthenticationConfig(config)
+    else:
+        stored = manager.storeAuthenticationConfig(config)
+        # The Python binding returns (bool, config) for the store call
+        if isinstance(stored, tuple):
+            stored = stored[0]
+
+    if not stored or not config.id():
+        return '', 'Kunne ikke lagre tokenet som autentiseringskonfigurasjon i QGIS.'
+
+    return config.id(), None
 
 
 def _nib_authcfg() -> str:
@@ -691,7 +743,7 @@ class ProjectSetup:
             )
             QgsMessageLog.logMessage(
                 f"Failed to load layer '{new_qgis_layer_name}' from '{safe_url}'. "
-                + "If this is NiB WMTS in QGIS 4, verify Esri authentication settings (username + token) and token validity.",
+                + "If this is the NiB WMTS, verify the token (authentication configuration 'NiN plugin: Norge i bilder').",
                 'NiN plugin',
                 Qgis.Warning,
             )
@@ -957,22 +1009,27 @@ def main(
         ):
             warnings.append(_layer_failed("Topografisk norgeskart gråtone"))
 
-    # Add "Norway in images" WMTS raster layer
+    # Add "Norway in images" WMTS raster layer. The token is sent as the
+    # 'X-Esri-Authorization' header through a QGIS authentication
+    # configuration (see ensure_nib_auth_config), never as a URL parameter.
     if wms_settings['checkBoxNiB']:
         crs_zone = _utm_zone_from_crs(proj_crs)
         nib_authcfg = (wms_settings.get('nib_authcfg') or '').strip() or _nib_authcfg()
-        nib_username = (wms_settings.get('nib_username') or '').strip() or _nib_username()
         nib_token = (wms_settings.get('nib_token') or '').strip() or _nib_token()
         nib_capabilities_url = f"https://tilecache.norgeibilder.no/wmts/utm{crs_zone}_euref89?SERVICE=WMTS&REQUEST=GetCapabilities"
-        if nib_username and not nib_authcfg:
-            nib_capabilities_url += f"&username={quote_plus(nib_username)}"
-        if nib_token and not nib_authcfg:
-            nib_capabilities_url += f"&token={quote_plus(nib_token)}"
-
         nib_layer_name = f'Nibcache_UTM{crs_zone}_EUREF89_v2'
 
+        nib_error = None
+        if not nib_authcfg:
+            if not nib_token:
+                nib_error = 'Ingen token for Norge i bilder ble oppgitt.'
+            else:
+                nib_authcfg, nib_error = ensure_nib_auth_config(nib_token)
+
         # Verify the login first so a bad token is reported, not silently skipped
-        nib_error = check_nib_access(nib_capabilities_url, authcfg=nib_authcfg)
+        if not nib_error:
+            nib_error = check_nib_access(nib_capabilities_url, authcfg=nib_authcfg)
+
         if nib_error:
             QgsMessageLog.logMessage(
                 f"Norge i bilder: {nib_error}", 'NiN plugin', Qgis.Warning

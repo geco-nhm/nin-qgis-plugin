@@ -352,41 +352,29 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         }
 
         if wms_settings.get('checkBoxNiB'):
-            nib_authcfg = os.getenv('NIN_NIB_AUTHCFG') or os.getenv('NIB_AUTHCFG')
-            if not nib_authcfg:
-                nib_authcfg, ok = QInputDialog.getText(
-                    self,
-                    "Norge i bilder auth-konfigurasjon (valgfri)",
-                    "Authcfg-ID (valgfri). La stå tom for brukernavn/token:",
-                    QLineEdit.EchoMode.Normal,
-                )
-                if not ok:
-                    return
-                nib_authcfg = nib_authcfg.strip() if nib_authcfg else ""
+            # The token is the only thing needed: project_setup stores it as a
+            # QGIS authentication configuration that adds it to every request.
+            # Advanced users can instead point to their own configuration via
+            # NIN_NIB_AUTHCFG, or supply the token via NIN_NIB_TOKEN.
+            nib_authcfg = (
+                os.getenv('NIN_NIB_AUTHCFG') or os.getenv('NIB_AUTHCFG') or ''
+            ).strip()
+            nib_token = (
+                os.getenv('NIN_NIB_TOKEN') or os.getenv('NIB_TOKEN') or ''
+            ).strip()
 
-            nib_username = os.getenv('NIN_NIB_USERNAME') or os.getenv('NIB_USERNAME')
-            if not nib_authcfg and not nib_username:
-                nib_username, ok = QInputDialog.getText(
-                    self,
-                    "Norge i bilder brukernavn",
-                    "Skriv inn GeoID-brukernavn for NiB:",
-                    QLineEdit.EchoMode.Normal,
-                )
-                nib_username = nib_username.strip() if nib_username else ""
-                if not ok or not nib_username:
-                    QMessageBox.information(
-                        None,
-                        "NiB-brukernavn mangler",
-                        "Norge i bilder (WMTS) krever brukernavn og token."
-                    )
-                    return
-
-            nib_token = os.getenv('NIN_NIB_TOKEN') or os.getenv('NIB_TOKEN')
             if not nib_authcfg and not nib_token:
                 nib_token, ok = QInputDialog.getText(
                     self,
-                    "Norge i bilder token",
-                    "Skriv inn NiB-token (hentes fra services.norgeibilder.no/token):",
+                    "Norge i bilder: token",
+                    "Lim inn tokenet du har laget på https://services.norgeibilder.no/token\n"
+                    "(logg inn med GeoID-brukeren din, la «Client» stå på «Request IP»,\n"
+                    "velg gyldighetstid under «Expiration» og klikk «Generate Token»).\n\n"
+                    "Tokenet er en lang tekststreng med bokstaver, tall og tegn som - og _\n"
+                    "(ikke brukernavnet eller passordet ditt). Det vises som prikker mens\n"
+                    "du limer inn. Tokenet lagres i QGIS som autentiseringskonfigurasjonen\n"
+                    "«NiN plugin: Norge i bilder» og oppdateres neste gang du limer inn et nytt.\n"
+                    "Trykk på «Info om NiB-token» i hovedvinduet for veiledning.",
                     QLineEdit.EchoMode.Password,
                 )
                 nib_token = nib_token.strip() if nib_token else ""
@@ -394,14 +382,23 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
                     QMessageBox.information(
                         None,
                         "NiB-token mangler",
-                        "Norge i bilder (WMTS) krever brukernavn og token."
+                        "Norge i bilder (WMTS) krever et token. Kartlaget ble ikke valgt."
+                    )
+                    return
+                if len(nib_token) < 20 or ' ' in nib_token:
+                    QMessageBox.warning(
+                        None,
+                        "Dette ser ikke ut som et NiB-token",
+                        "Et token fra services.norgeibilder.no/token er en lang "
+                        "tekststreng uten mellomrom (vanligvis flere hundre tegn). "
+                        "Lim inn hele strengen fra feltet som vises etter "
+                        "«Generate Token», ikke brukernavnet eller passordet ditt."
                     )
                     return
 
             if nib_authcfg:
                 wms_settings['nib_authcfg'] = nib_authcfg
             else:
-                wms_settings['nib_username'] = nib_username
                 wms_settings['nib_token'] = nib_token
 
         if not self.get_selected_htgr_items():

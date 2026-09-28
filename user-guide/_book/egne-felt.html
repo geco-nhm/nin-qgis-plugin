@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Veiledning i bruk av programtillegget Natur i Norge kartlegging | book.knit</title>
+  <title>7 Egne felt i skjemaet | book.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Veiledning i bruk av programtillegget Natur i Norge kartlegging | book.knit" />
+  <meta property="og:title" content="7 Egne felt i skjemaet | book.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Veiledning i bruk av programtillegget Natur i Norge kartlegging | book.knit" />
+  <meta name="twitter:title" content="7 Egne felt i skjemaet | book.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="kvalitetssikring.html"/>
 
-<link rel="next" href="introduksjon.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -296,37 +296,167 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<!--bookdown:title:end-->
-<!--bookdown:title:start-->
-<div id="forside" class="section level1 unnumbered hasAnchor">
-<h1>Veiledning i bruk av programtillegget Natur i Norge kartlegging<a href="index.html#forside" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><img src="images/nin_toolbar_icon.png" width="30pt" height="30pt" style="display: block; margin: auto auto auto 0;" /></p>
-<p>Velkommen til veilederen for Natur i Norge kartlegging i QGIS og QField.</p>
-<div id="innhold" class="section level2 unnumbered hasAnchor">
-<h2>Innhold<a href="index.html#innhold" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="egne-felt" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Egne felt i skjemaet<a href="egne-felt.html#egne-felt" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Dette kapittelet beskriver hvordan du oppretter egne felt i et kartlag og legger dem inn i redigeringsskjemaet (<em>Attributes Form</em>) i QGIS. Eksempelet legger til et heltallsfelt <code>NVE_ID</code> og et tekstfelt <code>firma</code> med nedtrekksliste. Framgangsmåten er den samme for polygon-, punkt- og linjelagene som programtillegget oppretter.</p>
+<div id="åpne-egenskaper-for-laget" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Åpne egenskaper for laget<a href="egne-felt.html#%C3%A5pne-egenskaper-for-laget" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/add_field_01.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
 <ul>
-<li><a href="introduksjon.html#introduksjon">1 Introduksjon</a><br />
-</li>
-<li><a href="feltutstyr.html#feltutstyr">2 Feltutstyr</a><br />
-</li>
-<li><a href="oppsett-og-tilrettelegging.html#oppsett-og-tilrettelegging">3 Oppsett og tilrettelegging</a><br />
-</li>
-<li><a href="eksportere-prosjekt.html#eksportere-prosjekt">4 Eksportere og importere prosjekt</a><br />
-</li>
-<li><a href="kartlegging.html#kartlegging">5 Kartlegging</a><br />
-</li>
-<li><a href="kvalitetssikring.html#kvalitetssikring">6 Kvalitetssikring</a></li>
-<li><a href="egne-felt.html#egne-felt">7 Egne felt i skjemaet</a></li>
+<li>Høyreklikk på laget (<code>nin_polygons_&lt;målestokk&gt;</code>, f.eks. <code>nin_polygons_M005</code>) i laglisten.</li>
+<li>Velg <em>Properties…</em> (Egenskaper) fra menyen.</li>
+<li>I dialogen som åpnes, velg fanen <em>Fields</em> i venstremenyen.</li>
 </ul>
+<p>Dette viser alle eksisterende attributtfelt i laget.</p>
+</div>
+<div id="aktiver-redigering-av-felt" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Aktiver redigering av felt<a href="egne-felt.html#aktiver-redigering-av-felt" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/add_field_02.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li>Klikk på blyant-ikonet øverst i feltlisten for å aktivere redigering av strukturen.</li>
+<li>Når redigering er aktivert, kan du legge til, slette eller endre felt.</li>
+</ul>
+</div>
+<div id="legg-til-nytt-felt" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Legg til nytt felt<a href="egne-felt.html#legg-til-nytt-felt" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/add_field_03.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li>Klikk på ikonet <em>Legg til felt</em> (gult ark med grønt plusstegn).</li>
+<li>Dialogen <em>Add Field</em> åpnes.</li>
+</ul>
+</div>
+<div id="opprett-feltet-nve_id" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Opprett feltet NVE_ID<a href="egne-felt.html#opprett-feltet-nve_id" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/add_field_04.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li>Skriv <code>NVE_ID</code> i feltet <em>Name</em>.</li>
+<li>Velg datatype <em>Integer (32 bit)</em>.</li>
+<li>Kontroller at <em>Provider type</em> settes automatisk til <em>integer</em>.</li>
+<li>Klikk <em>OK</em> for å opprette feltet.</li>
+</ul>
+<p>Dette feltet brukes til å lagre numerisk ID fra NVE.</p>
+</div>
+<div id="opprett-feltet-firma" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Opprett feltet firma<a href="egne-felt.html#opprett-feltet-firma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/add_field_05.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li>Klikk igjen på <em>Legg til felt</em>.</li>
+<li>Skriv <code>firma</code> i <em>Name</em>.</li>
+<li>Velg datatype <em>Text (string)</em>.</li>
+</ul>
+</div>
+<div id="angi-lengde-for-tekstfelt" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Angi lengde for tekstfelt<a href="egne-felt.html#angi-lengde-for-tekstfelt" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/add_field_06.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li>Når datatype er satt til tekst, angi <em>Length</em> = 50.</li>
+<li>Klikk <em>OK</em> for å opprette feltet.</li>
+</ul>
+<p>Dette bestemmer maksimal lengde på teksten som kan lagres i feltet.</p>
+</div>
+<div id="kontroller-at-feltene-er-lagt-til" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> Kontroller at feltene er lagt til<a href="egne-felt.html#kontroller-at-feltene-er-lagt-til" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/add_field_07.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li>De nye feltene <code>NVE_ID</code> og <code>firma</code> vises nå nederst i feltlisten.</li>
+<li>Klikk <em>Apply</em> eller <em>OK</em> for å lagre endringene i lagets struktur.</li>
+</ul>
+</div>
+<div id="åpne-fanen-attributes-form" class="section level2 hasAnchor" number="7.8">
+<h2><span class="header-section-number">7.8</span> Åpne fanen Attributes Form<a href="egne-felt.html#%C3%A5pne-fanen-attributes-form" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/add_field_08.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li>Gå til fanen <em>Attributes Form</em> i venstremenyen.</li>
+<li>Her konfigureres hvordan redigeringsskjemaet for laget skal se ut.</li>
+</ul>
+</div>
+<div id="flytt-feltet-nve_id-inn-i-skjemaet" class="section level2 hasAnchor" number="7.9">
+<h2><span class="header-section-number">7.9</span> Flytt feltet NVE_ID inn i skjemaet<a href="egne-felt.html#flytt-feltet-nve_id-inn-i-skjemaet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/add_field_09.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li>Finn feltet <code>NVE_ID</code> i listen <em>Available Widgets</em>.</li>
+<li>Dra feltet over til ønsket plassering i <em>Form Layout</em> (for eksempel øverst under <em>Type 1</em>).</li>
+</ul>
+</div>
+<div id="flytt-feltet-firma-inn-i-skjemaet" class="section level2 hasAnchor" number="7.10">
+<h2><span class="header-section-number">7.10</span> Flytt feltet firma inn i skjemaet<a href="egne-felt.html#flytt-feltet-firma-inn-i-skjemaet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/add_field_10.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li>Finn feltet <code>firma</code> i <em>Available Widgets</em>.</li>
+<li>Dra feltet til ønsket plassering i skjemaet, rett under <code>NVE_ID</code>.</li>
+</ul>
+</div>
+<div id="lagre-oppsettet" class="section level2 hasAnchor" number="7.11">
+<h2><span class="header-section-number">7.11</span> Lagre oppsettet<a href="egne-felt.html#lagre-oppsettet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Klikk <em>Apply</em> eller <em>OK</em> for å lagre skjemaoppsettet.</li>
+<li>Når du nå åpner attributtskjemaet for laget, vil feltene <code>NVE_ID</code> og <code>firma</code> vises i skjemaet.</li>
+</ul>
+</div>
+<div id="sett-felttype-til-value-map" class="section level2 hasAnchor" number="7.12">
+<h2><span class="header-section-number">7.12</span> Sett felttype til Value Map<a href="egne-felt.html#sett-felttype-til-value-map" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/add_field_11.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li>Marker feltet <code>firma</code> i <em>Form Layout</em>.</li>
+<li>I høyre panel, under <em>Widget Type</em>, velg <em>Value Map</em>.</li>
+<li>Dette gjør at feltet vises som en nedtrekksliste med forhåndsdefinerte verdier.</li>
+</ul>
+</div>
+<div id="legg-inn-verdier-i-value-map" class="section level2 hasAnchor" number="7.13">
+<h2><span class="header-section-number">7.13</span> Legg inn verdier i Value Map<a href="egne-felt.html#legg-inn-verdier-i-value-map" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/add_field_12.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li>I tabellen under <em>Value</em> og <em>Description</em>, legg inn ønskede koder og visningsnavn:
+<ul>
+<li>1 – biofokus</li>
+<li>2 – ecofact</li>
+<li>3 – norkonsult</li>
+<li>4 – multikonsult</li>
+</ul></li>
+<li>Alternativt kan du bruke <em>Load Data from CSV File</em> hvis listen finnes i en fil.</li>
+</ul>
+<p>Verdien i kolonnen <em>Value</em> lagres i databasen, mens <em>Description</em> vises i skjemaet.</p>
+</div>
+<div id="kontroller-skjemaet-i-redigeringsmodus" class="section level2 hasAnchor" number="7.14">
+<h2><span class="header-section-number">7.14</span> Kontroller skjemaet i redigeringsmodus<a href="egne-felt.html#kontroller-skjemaet-i-redigeringsmodus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/add_field_13.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li>Åpne attributtskjemaet for en flate i laget.</li>
+<li>Øverst i skjemaet vises nå feltene:
+<ul>
+<li><em>NVE id</em> – må være heltall</li>
+<li><em>firma</em> (som nedtrekksliste)</li>
+</ul></li>
+</ul>
+<p>Dette bekrefter at både nye felt og skjemaoppsett fungerer korrekt.</p>
+</div>
+<div id="velg-verdi-fra-nedtrekkslisten" class="section level2 hasAnchor" number="7.15">
+<h2><span class="header-section-number">7.15</span> Velg verdi fra nedtrekkslisten<a href="egne-felt.html#velg-verdi-fra-nedtrekkslisten" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/add_field_14.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li>Klikk på nedtrekkslisten for feltet <code>firma</code>.</li>
+<li>Velg ønsket firma fra listen (for eksempel norkonsult).</li>
+<li>Verdien lagres automatisk når objektet lagres.</li>
+</ul>
+</div>
+<div id="resultat" class="section level2 hasAnchor" number="7.16">
+<h2><span class="header-section-number">7.16</span> Resultat<a href="egne-felt.html#resultat" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Du har nå:</p>
+<ul>
+<li>Opprettet nye felt i attributtabellen.</li>
+<li>Definert riktig datatype og lengde.</li>
+<li>Lagt feltene inn i redigeringsskjemaet slik at de kan fylles ut ved digitalisering eller redigering.</li>
+<li>Konfigurert feltet <code>firma</code> som en nedtrekksliste med forhåndsdefinerte verdier.</li>
+</ul>
+<p>Husk at feltene bare finnes i dette prosjektets <code>.gpkg</code>-fil. Dersom du oppretter et nytt prosjekt med programtillegget, må feltene legges til på nytt.</p>
 <div style="display: flex; justify-content: space-between; margin-top: 3em;">
 <div>
-← <a href="https://github.com/geco-nhm/nin-qgis-plugin">Gå til GitHub-siden for programtillegget</a>
+← <a href="kvalitetssikring.html">Gå til forrige kapittel</a>
 </div>
 <div>
-<a href="introduksjon.html">Gå til første kapittel</a> →
+<a href="index.html">Gå til forsiden</a> →
 </div>
 </div>
-<p><em>Last updated: september 28, 2026</em></p>
 
 </div>
 </div>
@@ -335,8 +465,8 @@
           </div>
         </div>
       </div>
+<a href="kvalitetssikring.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="introduksjon.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

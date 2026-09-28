@@ -217,15 +217,17 @@ Alle NiB-tjenestene (WMS og WMTS) krever et token i tillegg til brukeren. Tokene
 
 Merk: fordi tokenet er knyttet til IP-adressen, må du lage et nytt token dersom du bytter nett (for eksempel fra kontoret til mobilt bredbånd i felt) eller når det er utløpt.
 
-**3. Legg inn brukernavn og token i programtillegget**
+**3. Lim inn tokenet i programtillegget**
 
-Huk av *Norge i bilder (WMTS)* i vinduet. Når du klikker på `Lag geopackage-fil og forbered prosjekt`, blir du først spurt om en eventuell autentiseringskonfigurasjon i QGIS (la feltet stå tomt om du ikke bruker det), deretter om GeoID-brukernavn og til slutt om token. Lim inn tokenet (det vises som prikker). Programtillegget sender tokenet som parameteren `token` i adressen til WMTS-tjenesten, slik Geonorge beskriver.
+Huk av *Norge i bilder (WMTS)* i vinduet. Når du klikker på `Lag geopackage-fil og forbered prosjekt`, blir du bedt om tokenet. Lim inn hele tekststrengen fra token-siden (den vises som prikker). Brukernavn og passord skal ikke oppgis i programtillegget; de brukes bare når du lager tokenet.
 
-Slipp å skrive inn hver gang: legg brukernavn og token i miljøvariablene `NIN_NIB_USERNAME` og `NIN_NIB_TOKEN`, eller opprett en autentiseringskonfigurasjon i QGIS (*Innstillinger → Alternativer → Autentisering*) og oppgi dens ID i miljøvariabelen `NIN_NIB_AUTHCFG`.
+Programtillegget lagrer tokenet som en autentiseringskonfigurasjon i QGIS med navnet *NiN plugin: Norge i bilder*, og QGIS sender det med i alle forespørsler til tjenesten (som `X-Esri-Authorization`-hode, slik Geonorge beskriver). Første gang kan QGIS be deg om å opprette et hovedpassord for autentiseringsdatabasen; det er QGIS sitt eget passord for å beskytte lagrede tokener, ikke GeoID-passordet ditt. Konfigurasjonen finner du igjen under *Innstillinger → Alternativer → Autentisering*, og den oppdateres automatisk når du limer inn et nytt token i programtillegget.
+
+Slipp å lime inn hver gang: legg tokenet i miljøvariabelen `NIN_NIB_TOKEN`, eller oppgi ID-en til en egen autentiseringskonfigurasjon i miljøvariabelen `NIN_NIB_AUTHCFG`.
 
 **4. Hvis det ikke virker**
 
-Programtillegget kontrollerer innloggingen mot Norge i bilder før kartlaget legges til. Dersom tjenesten avviser brukernavn eller token, eller ikke kan nås, får du en melding om dette når prosjektet er opprettet, og kartlaget blir ikke lagt til. Kontroller da at brukernavnet er riktig, at tokenet ikke er utløpt, og at du er på samme nett som da tokenet ble laget. Lag eventuelt et nytt token og opprett prosjektet på nytt, eller legg til kartlaget manuelt i QGIS med tokenet i adressen (se Geonorge-siden for adressene til WMTS-tjenestene per UTM-sone). Knappen `Info om NiB-token` ved siden av avkryssingsboksen åpner denne siden.
+Programtillegget kontrollerer innloggingen mot Norge i bilder før kartlaget legges til. Dersom tjenesten avviser tokenet, eller ikke kan nås, får du en melding om dette når prosjektet er opprettet, og kartlaget blir ikke lagt til. Kontroller da at tokenet er limt inn i sin helhet, at det ikke er utløpt, og at du er på samme nett som da tokenet ble laget. Lag eventuelt et nytt token og opprett prosjektet på nytt. Knappen `Info om NiB-token` ved siden av avkryssingsboksen åpner denne siden.
 
 ## Tilpass prosjekt {#tilpass-prosjekt}
 
