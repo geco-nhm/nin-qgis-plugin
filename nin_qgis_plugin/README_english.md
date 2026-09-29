@@ -31,9 +31,9 @@ The plugin can be installed via the QGIS Plugin Manager:
 
 Since development is ongoing, newer versions may be available on GitHub before being added to the QGIS plugin repository:
 
--   Go to <https://github.com/Artsdatabanken/nin-innsyn>
--   Download the `.zip` file
--   Extract it and add it manually via `Plugins` → `Install from ZIP`
+-   Go to <https://github.com/geco-nhm/nin-qgis-plugin/releases>
+-   Download `nin_qgis_plugin-<version>.zip` from the latest release (not the "Source code" zip, which contains the whole repository including the guide and cannot be installed)
+-   In QGIS: `Plugins` → `Manage and Install Plugins...` → `Install from ZIP`, choose the file and click `Install Plugin`
 
 # 3 Usage
 

@@ -32,9 +32,9 @@ Programtillegget kan installeres via programtilleggsmenyen i QGIS:
 
 Ettersom utviklingen skjer løpende, lastes nye versjoner jevnlig opp til GitHub. Dersom du ønsker den nyeste versjonen før den er tilgjengelig i QGIS sitt programtilleggsbibliotek, kan du:
 
--   Gå til <https://github.com/Artsdatabanken/nin-innsyn>
--   Last ned `.zip`-filen
--   Pakk ut og legg til manuelt via `Plugins` → `Install from ZIP`
+-   Gå til <https://github.com/geco-nhm/nin-qgis-plugin/releases>
+-   Last ned fila `nin_qgis_plugin-<versjon>.zip` under nyeste utgivelse (ikke «Source code»-zipen, den inneholder hele kodelageret med veiledningen og kan ikke installeres)
+-   I QGIS: `Plugins` → `Manage and Install Plugins...` → `Install from ZIP`, velg fila og klikk `Install Plugin`
 
 # 3 Bruk
 
