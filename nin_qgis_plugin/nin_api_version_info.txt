@@ -1,6 +1,6 @@
 NinKode API version information, retrieved when the NiN QGIS plugin csv tables were created.
 Note: this file is manually created by running
-'./nin-qgis-handling/python/generate_api_version_info.py'.
+'./catalogue_tools/generate_api_version_info.py'.
 
 ----
 

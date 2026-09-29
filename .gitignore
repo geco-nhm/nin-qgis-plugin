@@ -1,14 +1,19 @@
 *.gpkg*
 /nin_qgis_plugin/zip_build
 __pycache__/
+.pytest_cache/
 *.qgz*
 *.zip
 .DS_Store
 .venv/
-# Generated Sphinx metadata can contain hash-like values that trigger secret scanners.
-nin_qgis_plugin/help/build/**/.buildinfo
+# R session files
+.Rhistory
+.RData
+.Rproj.user/
+# Rendered user guide; published to the gh-pages branch by scripts/publish_book.R
+docs/user-guide/_book/
 # QGIS style database created when running the plugin tests headlessly
 symbology-style.db
 
-# Plugin zips built by build_plugin_zip.py
+# Plugin zips built by scripts/build_plugin_zip.py
 dist/

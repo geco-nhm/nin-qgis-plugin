@@ -286,7 +286,7 @@
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>help/info_button.webp</normaloff>help/info_button.webp</iconset>
+        <normaloff>info_button.webp</normaloff>info_button.webp</iconset>
       </property>
      </widget>
     </item>

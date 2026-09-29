@@ -7,12 +7,10 @@ from pathlib import Path
 
 
 PLUGIN_METADATA_PATH = Path(__file__).with_name('metadata.txt')
-# The version file is generated at the repository root and copied into the
-# plugin folder so it ships in the plugin zip (an installed plugin has no
-# repository root above it). The plugin-local copy is preferred.
+# The version file is generated into the plugin folder so it ships in the
+# plugin zip (an installed plugin has no repository root above it).
 API_VERSION_FILE_CANDIDATES = (
     Path(__file__).with_name('nin_api_version_info.txt'),
-    Path(__file__).resolve().parents[1] / 'nin_api_version_info.txt',
 )
 API_VERSION_FILE_PATH = API_VERSION_FILE_CANDIDATES[0]
 UNKNOWN_API_SHA = 'unknown'
@@ -39,8 +37,8 @@ def read_nin_kode_api_sha(
 ) -> str:
     '''
     Returns the nin-kode-api commit SHA recorded in nin_api_version_info.txt.
-    Without an explicit path, the plugin-local copy is used, then the
-    repository root copy. When no file exists (should not happen for a
+    Without an explicit path, the file in the plugin folder is used.
+    When no file exists (should not happen for a
     packaged plugin, but must never break project creation), 'unknown' is
     returned so the provenance table still records the plugin version.
     '''
