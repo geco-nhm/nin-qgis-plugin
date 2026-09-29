@@ -7,7 +7,7 @@ Planen og status står i [symbology/PLAN.md](../../symbology/PLAN.md).
 | Steg | Innhold | Status |
 | --- | --- | --- |
 | 1 | Fyllfarge for hver hovedtype | Utkast 2, revidert etter kommentarene til NiN 2-utkastet |
-| 2 | Skravur og symboler for kartleggingsenhetene, i tre målestokker | Ikke startet |
+| 2 | Skravur og symboler for kartleggingsenhetene, i tre målestokker | Utkast 1 til gjennomsyn |
 | 3 | Stilfiler for QGIS (QML) | Ikke startet |
 | 4 | Kartografien tas i bruk i programtillegget | Ikke startet |
 
@@ -79,6 +79,99 @@ Med simulert rød-grønn fargesvakhet blir 18 til 22 av 2 556 fargepar
 vanskelige å skille. Derfor bærer også skravur og påskrift informasjon, og
 fargen alene skal aldri være eneste kjennetegn.
 
+## Steg 2: skravur og symboler
+
+Oversikten ligger i [symboloversikt.html](symboloversikt.html). Den viser
+alle enhetene i de tre målestokkene side om side, med en forklaring til hvert
+symbol.
+
+Symbolene er ikke tegnet for hånd. De er beregnet fra miljøvariablene som
+definerer hver kartleggingsenhet i NiN-katalogen, med reglene i
+`variable_rules.csv` og `hovedtype_patterns.csv`.
+
+| Målestokk | Enheter | Bare fyllfarge | Med skravur | Skilt med stiplet skravur eller ekstra symbol |
+| --- | --- | --- | --- | --- |
+| 1:5 000 | 388 | 25 | 294 | 25 |
+| 1:20 000 | 212 | 25 | 149 | 6 |
+| 1:50 000 | 116 | 30 | 53 | 2 |
+
+### Reglene
+
+| Virkemiddel | Viser | Verdier |
+| --- | --- | --- |
+| Skravurvinkel | Kalkinnhold (LM-KA) | Skrå = kalkfattig, vannrett = intermediær, loddrett = kalkrik |
+| Skravurfarge | Uttørkingsfare, uttørkingseksponering og tørrleggingsvarighet | Blå, grå, oransje, mørk rød: fra friskt til tørt |
+| Blå symboler | Vannpåvirkning: kilde, fuktig mark, vannsprut, overrisling, bølger og strøm | Sirkel, strek, kryss og rute |
+| Hvit sirkel | Snøleiepreg | |
+| Mørke firkanter og trekanter | Kornstørrelse, substrat og løsmassetype | |
+| Mørk ring | Type inngrep i sterkt endret mark | |
+| Gulbrune symboler | Hevd og gjødsling | Rute og trekant |
+| Grønn sirkel | Skog i våtmark, og skogpreg i annen mark | |
+
+Tre regler gjelder alle symboler:
+
+1. En variabel tegnes bare når den skiller enheter i samme hovedtype i den
+   aktuelle målestokken.
+2. Laveste trinn av en variabel har ikke symbol. Høyere trinn har større
+   symbol. Tetthet brukes ikke til å vise grad.
+3. Et symbol har skravur og høyst tre typer symboler.
+
+Noen hovedtyper har et fast kjennetegn på alle enhetene, for eksempel grønn
+sirkel for skog i våtmark og blå skravur for flommark. De står i
+`hovedtype_patterns.csv`.
+
+### Aggregering mellom målestokkene
+
+De samme reglene brukes i alle tre målestokker. En enhet i grov målestokk
+dekker et videre spenn av hver variabel, og færre variabler skiller enhetene
+fra hverandre. Symbolene får derfor færre deler jo grovere målestokken er.
+
+| Målestokk | Deler oppå fyllfargen, gjennomsnitt | Eksempel: Fastmarksskogsmark TB01 |
+| --- | --- | --- |
+| 1:50 000 | 1,1 | Skravurvinkel viser kalkinnhold |
+| 1:20 000 | 1,6 | I tillegg skravurfarge for uttørkingsfare og blå sirkel for fuktig mark |
+| 1:5 000 | 1,8 | Samme virkemidler, med flere trinn |
+
+Hver enhet er koblet til enheten den hører til i neste grovere målestokk
+(kolonnen `parent_kode_id`). Koblingen går gjennom grunntypene i katalogen.
+
+Skravurvinkelen settes ut fra midten av enhetens spenn i kalkinnhold. En
+enhet som dekker hele spennet, har ikke skravur. Av enhetene i 1:5 000 har
+374 av 386 samme skravurvinkel som enheten de hører til i 1:20 000. Fra
+1:20 000 til 1:50 000 gjelder det 131 av 212, fordi enhetene i 1:50 000 ofte
+spenner over både kalkfattig og intermediær.
+
+### Kolonnene i symboltabellene
+
+`symbology_M005.csv`, `symbology_M020.csv` og `symbology_M050.csv` har én rad
+per kartleggingsenhet. Alle mål er i millimeter på papir eller skjerm og er
+uavhengige av kartets målestokk.
+
+| Kolonne | Innhold |
+| --- | --- |
+| `kode_id`, `navn` | Kartleggingsenheten |
+| `hovedtype` | Hovedtypen enheten hører til |
+| `parent_kode_id` | Enheten den hører til i neste grovere målestokk. Tom i 1:50 000 |
+| `fill_hex`, `outline_hex` | Fyllfarge og omrissfarge |
+| `hatch_angle` | Skravurvinkel i grader mot klokka fra vannrett. Tom betyr ingen skravur |
+| `hatch_colour`, `hatch_style` | Skravurfarge og linjetype: `solid`, `dashed` (2,4 mm strek, 1,2 mm mellomrom) eller `dotted` (0,5 og 1,1 mm) |
+| `hatch_spacing_mm`, `hatch_width_mm` | Avstand mellom skravurlinjene, målt vinkelrett på linjene, og linjetykkelse |
+| `marker1_shape` til `marker3_shape` | Symbolform: `circle`, `ring`, `square`, `triangle`, `diamond`, `star`, `cross`, `cross2`, `line` eller `arrowhead` |
+| `marker1_colour` til `marker3_colour` | Symbolfarge. Hvite symboler har mørk kantlinje |
+| `marker1_size_mm` til `marker3_size_mm` | Største utstrekning av symbolet; diameter for sirkel og ring |
+| `marker1_filled` til `marker3_filled` | 1 = fylt, 0 = bare omriss |
+| `marker_spacing_mm` | Avstand mellom symbolene, vannrett og loddrett. Hver symboltype er forskjøvet i ruta slik at de ikke dekker hverandre |
+| `forklaring` | Hva hver del av symbolet viser |
+
+### Kjente svakheter i utkast 1
+
+| Svakhet | Omfang |
+| --- | --- |
+| Symboler med fire deler oppå fyllfargen er tunge å lese | 27 enheter i 1:5 000, 10 i 1:20 000 og 3 i 1:50 000. De fleste er i TG01 Nakne løsmasser |
+| Enheter som reglene ikke skiller, får stiplet skravur eller et nøytralt symbol uten egen betydning | 25 enheter i 1:5 000. Gjelder særlig TI01 og TM06, der katalogen ikke har variabler som skiller enhetene |
+| To enheter i 1:5 000 er ikke koblet til noen enhet i 1:20 000 i katalogen | TA01-M005-23 Fuglestein og fugleberg, TC02-M005-04 Kalkfattig til litt kalkrik grotte |
+| Symbolene er bare kontrollert i oversikten, ikke i QGIS eller på trykk | Gjøres i steg 3 |
+
 ## Kommentarer til NiN 2-utkastet og hvordan de er fulgt opp
 
 Utkastet til kartografi for NiN 2 fra desember 2020 har kommentarer fra
@@ -111,11 +204,11 @@ kommentarene, og viser hvilke hovedtyper i NiN 3.0 de gjelder.
 | Antall klasser er usikkert; bruk Artsdatabanken som fasit | Alt leses fra katalogen som hentes fra Artsdatabankens API. En test melder fra når katalogen og fargene ikke stemmer overens |
 | Stilfiler i QML kan bare brukes i QGIS | Symbolene lagres i åpne CSV-tabeller. QML lages fra tabellene i steg 3 |
 
-### Skal følges opp i steg 2 (skravur og symboler)
+### Fulgt opp i steg 2 (skravur og symboler)
 
-| Kommentar | Regel for steg 2 |
+| Kommentar | Oppfølging |
 | --- | --- |
-| Alt som er knyttet til fuktighet og vann, bør vises med blått (T15, T18, T30, T31-C-13/14, T32-C-9/10) | Blå skravur eller blå symboler betyr vannpåvirkning: kilde, flom, fosse og fuktutforminger. Gjelder i alle hovedtyper |
+| Alt som er knyttet til fuktighet og vann, bør vises med blått (T15, T18, T30, T31-C-13/14, T32-C-9/10) | Blå skravur eller blå symboler betyr vannpåvirkning: kilde, flom, fosse og fuktutforminger. Gjelder i alle hovedtyper. TD04, TE03, TE04, TE08 og TF02 har blå skravur |
 | Ny fastmark på tidligere våtmark (T36): blå symboler | TM02, TM04 og TM05 får blå symboler |
 | Skog i våtmark (V2, V8): grønn skravur, helst fylte grønne sirkler | VB01, VF01, VF02 og VI01 får grønne fylte sirkler |
 | Treplantasje: grønne symboler | TM06 får grønne symboler |
@@ -123,14 +216,14 @@ kommentarene, og viser hvilke hovedtyper i NiN 3.0 de gjelder.
 | Torvtak og grøftet torvmark (V11, V12): blå skravur som viser myr | VM01–VM03 får blå skravur |
 | Skravur i V6 bør ha grunnfargen til T7 Snøleie, slik at økologien kobles | VC04 får skravur i fargen til TC08 |
 | Skravur i V7 bør ha fargen til T19 Oppfrysingsmark | VC05 og VE01 får skravur i fargen til TE05 |
-| Vanskelig å skille typer på vinkel og tetthet i skravur; slitsomt å lese kart med mye skravur | Få og klart ulike vinkler. Tetthet brukes aldri alene. Symboler foretrekkes framfor skravur der det er mulig |
-| Flere symboltyper er ofte vanskelige å lese | Få symboltyper, og hver har én betydning |
-| Skravurlinjer var knapt synlige (L4) | Krav til kontrast mellom skravur og fyllfarge, kontrollert automatisk |
+| Vanskelig å skille typer på vinkel og tetthet i skravur; slitsomt å lese kart med mye skravur | Tre vinkler for kalkinnhold og én nøytral. Tetthet brukes ikke; grad vises med symbolstørrelse |
+| Flere symboltyper er ofte vanskelige å lese | Ti symbolformer. Form og farge har samme betydning i alle hovedtyper |
+| Skravurlinjer var knapt synlige (L4) | Skravur og symboler gjøres mørkere eller lysere til lyshetsforskjellen mot fyllfargen er minst 0,22. Kontrolleres automatisk |
 | Uklart hvilke virkemidler som hører til hovedtype og hvilke til kartleggingsenhet | Fyllfarge viser hovedtype. Skravur og symboler viser kartleggingsenhet |
-| Hovedtyper betinget av spesielle miljøvariabler er sjeldne; mindre viktig at de skilles veldig klart | Enkleste symboler går til de vanligste typene |
-| Definer symbolstørrelse (diameter?) og forskjellen på forskyvning og offset | Hver kolonne i symboltabellen får entydig definisjon og enhet |
+| Hovedtyper betinget av spesielle miljøvariabler er sjeldne; mindre viktig at de skilles veldig klart | Ikke fulgt opp ennå. Reglene er like for vanlige og sjeldne typer |
+| Definer symbolstørrelse (diameter?) og forskjellen på forskyvning og offset | Se «Kolonnene i symboltabellene» |
 | Hvordan fungerer kartografien i digitale kart? | Størrelser oppgis i millimeter og kontrolleres i QGIS på skjerm i steg 3 |
-| Prinsippene fra «myrkosten» (vegetasjonskart, 1980) har stor tro | Vurderes for våtmark. Kilden er ikke blant referansefilene |
+| Prinsippene fra «myrkosten» (vegetasjonskart, 1980) har stor tro | Ikke fulgt opp. Kilden er ikke blant referansefilene |
 
 ### Ikke overførbare
 
@@ -151,6 +244,12 @@ kommentarene, og viser hvilke hovedtyper i NiN 3.0 de gjelder.
 | `symbology_tools/colour.py` | Fargeregning: OKLab, fargeforskjell og simulert fargesyn |
 | `symbology_tools/palette.py` | Leser og kontrollerer fargene |
 | `symbology_tools/render_palette_overview.py` | Lager `fargeoversikt.html` |
+| `nin_qgis_plugin/csv/symbology/variable_rules.csv` | Regler: hvilken variabel som styrer hvilket virkemiddel. Rekkefølgen er prioritet |
+| `nin_qgis_plugin/csv/symbology/hovedtype_patterns.csv` | Faste kjennetegn for enkelte hovedtyper |
+| `nin_qgis_plugin/csv/symbology/symbology_M005.csv`, `_M020.csv`, `_M050.csv` | Resultat: ett symbol per kartleggingsenhet. Lages av `patterns.py`, redigeres ikke for hånd |
+| `symbology_tools/patterns.py` | Beregner og kontrollerer symbolene |
+| `symbology_tools/render_symbol_overview.py` | Lager `symboloversikt.html` |
+| `tests/unit/test_symbology_patterns.py` | Enhetstester |
 | `tests/unit/test_symbology_palette.py` | Enhetstester |
 | `symbology/` | Tidligere kartografi for NiN 2, til inspirasjon |
 
@@ -160,6 +259,16 @@ kommentarene, og viser hvilke hovedtyper i NiN 3.0 de gjelder.
 2. Kontroller fargene: `python symbology_tools/palette.py`
 3. Lag oversikten på nytt: `python symbology_tools/render_palette_overview.py`
 4. Kjør testene: `python -m pytest -q`
+
+## Endre en regel for skravur eller symboler
+
+1. Endre `variable_rules.csv` eller `hovedtype_patterns.csv`.
+2. Beregn symbolene på nytt: `python symbology_tools/patterns.py`
+3. Lag oversikten på nytt: `python symbology_tools/render_symbol_overview.py`
+4. Kjør testene: `python -m pytest -q`
+
+De samme stegene kjøres når NiN-katalogen er oppdatert. En test feiler hvis
+symboltabellene ikke stemmer med katalogen og reglene.
 
 ## Legge til en ny hovedtype
 

@@ -1,6 +1,6 @@
 # SYMBOLOGY_3.0 — plan
 
-Branch: `symbology`. Status: **iteration 1 committed (draft 2), iteration 2 in progress**. Last updated 2026-09-29.
+Branch: `symbology`. Status: **iterations 1 and 2 committed as drafts, awaiting review; iteration 3 next**. Last updated 2026-09-29.
 
 Iteration 1 output: `nin_qgis_plugin/csv/symbology/hovedtype_colours.csv`,
 `docs/symbology/fargeoversikt.html`, documentation in `docs/symbology/README.md`.
@@ -76,73 +76,31 @@ Three independent visual channels, so each answers one question.
 
 ### 3.1 Fill colour: hue family per ecosystem
 
-Hovedtyper are grouped into colour families; within a family they differ in
-lightness and slightly in hue. Fills stay light to medium so that overlay
-patterns and the background map remain readable.
-
-| Family | Hovedtyper (examples) | Colour | Convention |
-| --- | --- | --- | --- |
-| Forest | TB01, TF01, TF02, TI01, TM06 | Greens | N50, AR5, old NiN |
-| Semi-natural | TK01, TK02, TL01, TD05, TE08 | Yellows | Old NiN T31–T34 |
-| Heath | TK03, TH01 | Ochre, orange | Old NiN T34 |
-| Arable and intensive | TO01–TO04, TN01–TN03 | Orange to pale red | AR5 jordbruk |
-| Alpine heath, grassland, snowbed | TA03, TA04, TC08, TD06 | Olive, grey-green | Vegetation maps |
-| Bare rock, scree, boulder | TA01, TA02, TD01, TC01, TC02 | Greys, grey-beige | Old NiN "fjell: grå" |
-| Bare sediment, shore, dunes | TG01, TC03, TE01, TE03 | Sand, beige | |
-| Disturbance (slide, frost, flood) | TE02, TD02, TE05, TE09 | Browns | Old NiN "jord: brun" |
-| Strongly modified | TM01–TM05 | Neutral greys, dark outline | Old NiN T35–T39 |
-| Mire and wetland | VA01, VC01, VC02 ... | Purples | Old NiN "myr: lilla" |
-| Wetland forest | VB01, VF01, VF02, VI01 | Green-purple blend | Forest and mire |
-| Semi-natural wetland | VK01, VK02 | Yellow-purple blend | |
-| Lake bottom | NA-L | Medium blues | |
-| River bottom | NA-O | Teal blues | |
-| Marine bottom | NA-M | Light to deep sea blues | Sea charts |
-| Water bodies | NA-F | Pale blues | |
-| Snow and ice | NA-I | Near-white cyan | N50 bre |
-
-The palette is hand-curated in one file and machine-checked (minimum colour
-distance between hovedtyper that can be neighbours, colour-blind simulation).
+Done in iteration 1. The families, the rules and the numbers are in
+`docs/symbology/README.md`; the colours are in
+`nin_qgis_plugin/csv/symbology/hovedtype_colours.csv`.
 
 ### 3.2 Overlay pattern: a grammar driven by the defining variables
 
-Each defining variable is bound to one visual property, the same in every
-hovedtype, so the map reader learns it once.
+Done in iteration 2 (draft 1). Each defining variable is bound to one visual
+property, the same in every hovedtype: `variable_rules.csv`. Fixed marks per
+hovedtype are in `hovedtype_patterns.csv`. Units that the rules cannot
+separate are told apart by dashed or dotted hatch, then by a neutral marker.
+Simple markers only, no custom font, so legends work in QGIS.
 
-| Variable | Visual property | Values |
-| --- | --- | --- |
-| LM-KA Kalkinnhold | Hatch angle | fattig 45°, intermediær 0°, rik 90°; spacing for sub-steps |
-| LM-UF, LM-UE Uttørking | Hatch colour | blue, grey, yellow |
-| LM-KI Kildevannspåvirkning | Outline | blue dotted |
-| LM-HI, LM-HG Hevd, gjødsling | Outline or dashed hatch | brown dotted; dashed = weaker |
-| LM-SV Snødekke | Hatch colour | white, orange, dark red |
-| LM-MF Myrflatepreg | Solid vs dashed | flate solid, kant dashed |
-| Grain size, substrate | Dot pattern | size and density |
-| Slide, flood, littoral | Glyph pattern | `^`, `~`, `:` |
+### 3.3 Aggregation between scales
 
-Units that the grammar cannot separate (no variable rows, or two units with
-the same result) get a pattern from an ordered fallback library. A validator
-guarantees that every symbol is unique within its hovedtype.
+The first plan was top-down inheritance: a child keeps its parent's symbol
+and adds a modifier. Iteration 2 uses a simpler rule instead, because it
+keeps one meaning per visual property at every scale:
 
-Patterns use simple markers, not a custom font, so legends work in QGIS.
+- The same rules are applied at every scale to the unit's own variable ranges.
+- A variable is drawn only where it separates units of the hovedtype at
+  that scale, so coarse scales get simpler symbols.
+- Every unit records its parent at the next coarser scale (`parent_kode_id`).
 
-### 3.3 Aggregation between scales: symbol inheritance
-
-Symbols are assigned top-down along the nesting tree.
-
-| Scale | Rule | Result |
-| --- | --- | --- |
-| M050 | Fill + primary property only (usually hatch angle, or no pattern when the hovedtype has one unit) | Calm map, at most a few patterns per hovedtype |
-| M020 | Inherits the M050 parent's symbol and adds one modifier (colour or spacing) | Children look like their parent |
-| M005 | Inherits the M020 parent's symbol and adds one more modifier (dash, density, outline) | Full detail |
-
-Example, Fastmarksskogsmark TB01: M050 `Kalkskog` = green with vertical
-hatch. Its M020 child `Frisk kalkskog og kalk-bærlyngskog` = the same with
-blue hatch (moist). Its M005 child `Frisk kalkskog` = the same, solid;
-`Kalk-bærlyngskog` = the same, dashed.
-
-Pattern sizes are in millimetres, so the pattern looks the same on paper at
-every scale. The 4 units that straddle two parents inherit from the parent
-holding most of their grunntyper; this is listed in the documentation.
+Cost: a child does not always share its parent's hatch angle (131 of 212
+do between M020 and M050). Open for review.
 
 ### 3.4 Rules taken from the 2020 review comments
 
@@ -190,7 +148,7 @@ nin_qgis_plugin/csv/symbology/symbology_M005.csv, _M020.csv, _M050.csv
 | # | Deliverable | Review point |
 | --- | --- | --- |
 | 0 | Reference material committed; this plan | Plan approved |
-| 1 | Hovedtype palette (138 colours) + colour overview | Colours accepted |
+| 1 | Hovedtype palette (72 colours, land and wetland) + colour overview | Colours accepted |
 | 2 | Pattern grammar + symbols for all three scales + rendered overview + validator | Symbols accepted |
 | 3 | QML export, tested in QGIS against the old QML | Works in QGIS |
 | 4 | Plugin integration (replaces hash colours), unit tests, user guide chapter | Release |
