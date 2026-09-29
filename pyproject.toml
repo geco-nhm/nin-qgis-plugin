@@ -14,7 +14,8 @@ pb-tool = "^3.1.0"
 tqdm = "^4.66.4"
 
 [tool.pytest.ini_options]
-# The QGIS tests in tests/qgis run with unittest and need a QGIS Python
+# Only the unit tests are collected by pytest. The tests in tests/qgis need a
+# Python interpreter that ships with QGIS and are run with unittest instead.
 testpaths = ["tests/unit"]
 pythonpath = ["."]
 
