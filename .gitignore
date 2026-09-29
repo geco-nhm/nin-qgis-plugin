@@ -9,3 +9,6 @@ __pycache__/
 nin_qgis_plugin/help/build/**/.buildinfo
 # QGIS style database created when running the plugin tests headlessly
 symbology-style.db
+
+# Plugin zips built by build_plugin_zip.py
+dist/

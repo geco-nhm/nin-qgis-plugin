@@ -361,3 +361,17 @@ Defined by:
 | Adds photo             | Manual file path | Take photo with tablet/phone with inline preview                  |
 
 
+
+---
+
+## RELEASE PROCEDURE
+
+1. Make sure `master` is green: `python-qgis-ltr.bat -m pytest tests_csv -q` and `python-qgis-ltr.bat -m unittest discover -s nin_qgis_plugin/test -t .`.
+2. Refresh the API version file if it is older than 90 days: `nin-qgis-handling/python/generate_api_version_info.py` (writes the root file and the copy in `nin_qgis_plugin/`, which is the one an installed plugin reads).
+3. Set `version=` in `nin_qgis_plugin/metadata.txt` and complete the `changelog=` block. Commit as `release: vX.Y`.
+4. Tag and push: `git tag -a vX.Y -m "vX.Y"` then `git push origin master --tags`.
+5. Build the zip: `python build_plugin_zip.py` -> `dist/nin_qgis_plugin-X.Y.zip`. Test it once with *Plugins -> Install from ZIP* in a QGIS without the development symlink.
+6. Upload the zip on <https://plugins.qgis.org/plugins/nin_qgis_plugin/> (*Add version*, OSGeo login), or run `nin_qgis_plugin/plugin_upload.py dist/nin_qgis_plugin-X.Y.zip`.
+7. Create the GitHub release from the tag (*Releases -> Draft a new release*, generate notes, attach the zip).
+8. Publish the user guide if it changed: render with `publish_book.R` (or `bookdown::render_book`) and push `user-guide/_book` to `gh-pages`: `git subtree push --prefix user-guide/_book origin gh-pages`.
+9. Close the issues listed in the changelog.

@@ -11,14 +11,15 @@ from datetime import datetime
 import textwrap
 
 VERSION_INFO_FILE_PATH = Path(__file__).parents[2] / 'nin_api_version_info.txt'
+# Copy shipped inside the plugin (read by catalogue_provenance.py in an
+# installed plugin, where no repository root exists)
+PLUGIN_VERSION_INFO_FILE_PATH = (
+    Path(__file__).parents[2] / 'nin_qgis_plugin' / 'nin_api_version_info.txt'
+)
 
 
 def main() -> None:
     '''Run as standalone script.'''
-
-    # If file exists, delete
-    if VERSION_INFO_FILE_PATH.is_file():
-        VERSION_INFO_FILE_PATH.unlink()
 
     # Retrieve current NiN Kode API github HEAD SHA
     kode_api_git_sha = str(subprocess.check_output(
@@ -46,7 +47,11 @@ def main() -> None:
             date: {datetime.now().strftime('%Y/%m/%d, %H:%M:%S')}"""
         ))
 
-    print(f"Successfully created {VERSION_INFO_FILE_PATH}!")
+    PLUGIN_VERSION_INFO_FILE_PATH.write_text(
+        VERSION_INFO_FILE_PATH.read_text(encoding='utf-8'), encoding='utf-8'
+    )
+
+    print(f"Successfully created {VERSION_INFO_FILE_PATH} and {PLUGIN_VERSION_INFO_FILE_PATH}!")
 
 
 if __name__ == "__main__":

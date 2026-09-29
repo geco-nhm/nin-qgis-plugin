@@ -7,7 +7,15 @@ from pathlib import Path
 
 
 PLUGIN_METADATA_PATH = Path(__file__).with_name('metadata.txt')
-API_VERSION_FILE_PATH = Path(__file__).resolve().parents[1] / 'nin_api_version_info.txt'
+# The version file is generated at the repository root and copied into the
+# plugin folder so it ships in the plugin zip (an installed plugin has no
+# repository root above it). The plugin-local copy is preferred.
+API_VERSION_FILE_CANDIDATES = (
+    Path(__file__).with_name('nin_api_version_info.txt'),
+    Path(__file__).resolve().parents[1] / 'nin_api_version_info.txt',
+)
+API_VERSION_FILE_PATH = API_VERSION_FILE_CANDIDATES[0]
+UNKNOWN_API_SHA = 'unknown'
 CATALOGUE_PROVENANCE_TABLE_NAME = 'catalogue_provenance'
 
 
@@ -27,8 +35,24 @@ def read_plugin_version(metadata_path: Path = PLUGIN_METADATA_PATH) -> str:
 
 
 def read_nin_kode_api_sha(
-    version_info_path: Path = API_VERSION_FILE_PATH,
+    version_info_path: Path | None = None,
 ) -> str:
+    '''
+    Returns the nin-kode-api commit SHA recorded in nin_api_version_info.txt.
+    Without an explicit path, the plugin-local copy is used, then the
+    repository root copy. When no file exists (should not happen for a
+    packaged plugin, but must never break project creation), 'unknown' is
+    returned so the provenance table still records the plugin version.
+    '''
+
+    if version_info_path is None:
+        version_info_path = next(
+            (candidate for candidate in API_VERSION_FILE_CANDIDATES if candidate.is_file()),
+            None,
+        )
+        if version_info_path is None:
+            return UNKNOWN_API_SHA
+
     for line in version_info_path.read_text(encoding='utf-8').splitlines():
         if 'latest commit:' not in line:
             continue
