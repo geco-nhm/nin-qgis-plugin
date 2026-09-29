@@ -2,12 +2,12 @@
 #
 #   Rscript scripts/publish_book.R          (run from the repository root)
 #
-# The rendered book (user-guide/_book) is not tracked on master. It is copied
+# The rendered book (docs/user-guide/_book) is not tracked on master. It is copied
 # into a temporary worktree of the gh-pages branch and pushed from there.
 # Set NIN_GUIDE_PDF_DIR to also render the PDF versions into that folder.
 
 repo_root <- normalizePath(getwd(), winslash = "/")
-if (!file.exists(file.path(repo_root, "user-guide", "index.Rmd"))) {
+if (!file.exists(file.path(repo_root, "docs", "user-guide", "index.Rmd"))) {
   stop("Run this script from the repository root.")
 }
 
@@ -17,7 +17,7 @@ git <- function(...) {
 }
 
 # Render the book (HTML GitBook version)
-setwd(file.path(repo_root, "user-guide"))
+setwd(file.path(repo_root, "docs", "user-guide"))
 is_compressed <- FALSE
 bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook")
 
@@ -34,7 +34,7 @@ if (nzchar(pdf_dir)) {
 setwd(repo_root)
 
 # Copy _book into a worktree of gh-pages and push
-book_dir <- file.path(repo_root, "user-guide", "_book")
+book_dir <- file.path(repo_root, "docs", "user-guide", "_book")
 worktree <- file.path(tempdir(), "nin-gh-pages")
 git("fetch", "origin", "gh-pages")
 git("worktree", "add", "--force", "-B", "gh-pages", shQuote(worktree), "origin/gh-pages")

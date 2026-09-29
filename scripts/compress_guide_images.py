@@ -1,5 +1,5 @@
 '''
-Compresses the user guide screenshots in user-guide/images.
+Compresses the user guide screenshots in docs/user-guide/images.
 
     pip install Pillow
     python scripts/compress_guide_images.py            -> dry run, prints the plan
@@ -8,7 +8,7 @@ Compresses the user guide screenshots in user-guide/images.
 Large, photo-like PNGs (screenshots with aerial imagery) are converted to JPEG,
 which is visually identical at a fraction of the size. Small PNGs and PNGs with
 transparency stay PNG and are only re-saved losslessly. References in the
-user-guide .Rmd files are updated to the new file names.
+user guide .Rmd files are updated to the new file names.
 '''
 
 import argparse
@@ -19,7 +19,7 @@ from pathlib import Path
 from PIL import Image
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-GUIDE_DIR = REPO_ROOT / 'user-guide'
+GUIDE_DIR = REPO_ROOT / 'docs' / 'user-guide'
 IMAGE_DIR = GUIDE_DIR / 'images'
 
 JPEG_QUALITY = 85

@@ -13,6 +13,10 @@ requests = "^2.32.3"
 pb-tool = "^3.1.0"
 tqdm = "^4.66.4"
 
+[tool.pytest.ini_options]
+# The QGIS tests in tests/qgis run with unittest and need a QGIS Python
+testpaths = ["tests/unit"]
+pythonpath = ["."]
 
 [build-system]
 requires = ["poetry-core"]
