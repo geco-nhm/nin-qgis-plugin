@@ -1,0 +1,73 @@
+kode_id,navn,colour_family,fill_hex
+NA-TB01,Fastmarksskogsmark,skog,#8ACA8B
+NA-TF01,Sand- og dyneskogsmark,skog,#63AE6B
+NA-TF02,Flomskogsmark,skog,#74B891
+NA-TI01,Klart endret skogsmark,skog,#8BBB9F
+NA-TM06,Sterkt endret skogsmark,skog,#7C8B65
+NA-TA03,Arktisk-alpin hei og leside,fjell,#CCA779
+NA-TA04,Arktisk-alpin grasmark,fjell,#E6CA85
+NA-TD06,Rabbe,fjell,#A87E4E
+NA-TC08,Snøleie,fjell,#EDEBFF
+NA-TD05,Naturlig beitebetinget eng,naturlig_eng,#EEEABC
+NA-TE08,Flommarkseng,naturlig_eng,#DEE0AE
+NA-TD04,Fosse-eng,naturlig_eng,#E5EDDF
+NA-TC05,Strandeng,naturlig_eng,#E9E697
+NA-TC06,Fuglefjell-eng,naturlig_eng,#D9BC64
+NA-TC07,Fugletopp,naturlig_eng,#A3A369
+NA-TK01,Semi-naturlig eng,semi_naturlig_eng,#FCE765
+NA-TK02,Semi-naturlig strandeng,semi_naturlig_eng,#F8D46C
+NA-TL01,Ny eng med semi-naturlig preg,semi_naturlig_eng,#F2F4A6
+NA-TN02,"Blomsterenger, usprøytete vegkanter og liknende med semi-naturlig hevdpreg",semi_naturlig_eng,#E7DF5A
+NA-TK03,Kystlynghei,hei,#DCA548
+NA-TH01,Avskoget hei og eng,hei,#F1B465
+NA-TO01,Åker,jordbruk,#FDB07B
+NA-TO02,Oppdyrket mark med semi-naturlig engpreg,jordbruk,#FAD69F
+NA-TO03,Oppdyrket varig eng,jordbruk,#FFC8A7
+NA-TO04,Upløyd jordbruksmark med intensivt hevdpreg,jordbruk,#F19D82
+NA-TN01,Blomsterbed og annen hyppig bearbeidet mark,jordbruk,#EC866B
+NA-TN03,"Vegkanter, plener, parker og liknende uten semi-naturlig hevdpreg",jordbruk,#F5BBC5
+NA-TA01,Nakent berg,berg,#BBBEC1
+NA-TA02,Åpen grunnlendt mark,berg,#DDD9D2
+NA-TC01,Strandberg,berg,#8BA8BC
+NA-TC02,Grotte og overheng,berg,#8B87A2
+NA-TG01,Nakne løsmasser,losmasser,#E3B394
+NA-TC03,Løsmasse-strand,losmasser,#D1CBB8
+NA-TE01,Sanddynemark,losmasser,#FFEDCE
+NA-TC04,Saltanrikningsmark,losmasser,#FDECE8
+NA-TE06,Marin driftvoll,losmasser,#A3A289
+NA-TE07,Ferskvannsdriftvoll,losmasser,#B5B697
+NA-TE03,Åpen flomfastmark,losmasser,#BEE9E9
+NA-TE04,Langvarig oversvømt flommark,losmasser,#98BBC0
+NA-TD01,Rasmark,skred_frost,#A48D72
+NA-TD03,Rasmarkeng,skred_frost,#F7B49E
+NA-TE02,Aktiv skredmark,skred_frost,#A05E39
+NA-TD02,Flomskredmark,skred_frost,#BC9051
+NA-TE05,Oppfrysingsmark,skred_frost,#B98A8A
+NA-TE09,Isinnfrysingsmark,skred_frost,#DAB4BF
+NA-TM01,Hard sterkt endret fastmark,sterkt_endret,#84787A
+NA-TM02,Ny hard fastmark på tørrlagt ferskvannsbunn,sterkt_endret,#7A8892
+NA-TM03,Løs sterkt endret fastmark,sterkt_endret,#918781
+NA-TM04,Ny løs fastmark på tørrlagt ferskvannsbunn,sterkt_endret,#589D9A
+NA-TM05,Ny løs fastmark på drenert våtmark,sterkt_endret,#997780
+NA-VA01,Åpen jordvannsmyr,myr,#AF99E5
+NA-VC01,Åpen nedbørsmyr,myr,#CBB3EB
+NA-VG01,Ny naturgitt torvmark,myr,#DCC9FE
+NA-VC05,Permafrost-våtmark,myr,#A7B0D6
+NA-VE01,Oppfrysingsvåtmark,myr,#A17CBF
+NA-VG02,Ny naturgitt grunn våtmark,myr,#DCE2F6
+NA-VC02,Torvmarkskilde,kilde,#75A1DF
+NA-VC03,Grunnkilde,kilde,#8CAEEC
+NA-VC04,Våt- og kildesnøleie,kilde,#A6C8EC
+NA-VB01,Myr- og sumpskogsmark,vatmarksskog,#65B4B9
+NA-VF01,Nedbørsmyr-skogsmark,vatmarksskog,#3D948B
+NA-VF02,Strandsumpskogsmark,vatmarksskog,#A5D0D0
+NA-VI01,Klart endret våtmarksskogsmark,vatmarksskog,#688C82
+NA-VK01,Slåttemyr,semi_naturlig_vatmark,#FDC9DC
+NA-VK02,Semi-naturlig våteng,semi_naturlig_vatmark,#FFD5D1
+NA-VM01,Sterkt endret torvmark,sterkt_endret_vatmark,#9E6397
+NA-VM02,Ny torvmark på tidligere ferskvannsbunn,sterkt_endret_vatmark,#CA89A4
+NA-VM03,Ny torvmark på menneskebetinget forsumpet fastmark,sterkt_endret_vatmark,#E8B3E3
+NA-VM04,"Sterkt endret, ikke torvproduserende våtmark",sterkt_endret_vatmark,#7A6788
+NA-VM05,Ny grunn våtmark på tidligere ferskvannsbunn,sterkt_endret_vatmark,#9D90C2
+NA-VM06,Ny grunn våtmark på menneskebetinget forsumpet fastmark,sterkt_endret_vatmark,#BD9ABD
+NA-VO01,Sterkt tråkkpreget våtmark,sterkt_endret_vatmark,#926364
