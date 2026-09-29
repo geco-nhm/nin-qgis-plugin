@@ -151,12 +151,14 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         self.open_project_radio.setEnabled(bool(project_file))
         if project_file:
             self.open_project_radio.setToolTip(
-                f"Kartlagene legges til i {project_file}, som lagres på nytt"
+                f"NiN-kartlagene og oppsettet legges inn i {project_file}, "
+                "som lagres på nytt med sitt eget filnavn og koordinatsystem."
             )
         else:
             self.new_project_radio.setChecked(True)
             self.open_project_radio.setToolTip(
-                "Ikke tilgjengelig: ingen lagret prosjekt er åpent i QGIS"
+                "Ikke tilgjengelig: ingen lagret prosjekt er åpent i QGIS. "
+                "Lagre prosjektet først, eller velg nytt prosjekt."
             )
 
     def add_to_open_project(self) -> bool:
@@ -262,10 +264,15 @@ class NinMapperDialogWidget(QtWidgets.QDialog, FORM_CLASS):
         tells the user what is still missing.
         '''
         missing = self.get_missing_mandatory_inputs()
+        message = '' if not missing else 'Velg ' + ', '.join(missing) + ' først'
         self.changeProjectSettingsButton.setEnabled(not missing)
-        self.changeProjectSettingsButton.setToolTip(
-            '' if not missing else 'Velg ' + ', '.join(missing) + ' først'
+        self.changeProjectSettingsButton.setToolTip(message)
+        # Also shown as a line under the button: a tooltip on a disabled
+        # button is easy to miss
+        self.labelMissingInputs.setText(
+            '' if not missing else 'Mangler: ' + ', '.join(missing)
         )
+        self.labelMissingInputs.setVisible(bool(missing))
 
     # DEBUG
     # print the selected items from the listWidget

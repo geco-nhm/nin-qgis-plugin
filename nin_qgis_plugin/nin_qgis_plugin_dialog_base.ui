@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>581</width>
-    <height>622</height>
+    <height>647</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <x>10</x>
      <y>10</y>
      <width>561</width>
-     <height>551</height>
+     <height>576</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -32,7 +32,10 @@
        <item>
         <widget class="QRadioButton" name="radioNewProject">
          <property name="text">
-          <string>Lag et nytt QGIS-prosjekt (NiN_kartlegging.qgz) i mappa valgt under «Velg hvor geopackage-fila skal lagres»</string>
+          <string>Nytt QGIS-prosjekt (NiN_kartlegging.qgz) i mappa for geopackage-fila</string>
+         </property>
+         <property name="toolTip">
+          <string>Prosjektet lagres som NiN_kartlegging.qgz i mappa du velger under «Velg hvor geopackage-fila skal lagres».</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -42,10 +45,10 @@
        <item>
         <widget class="QRadioButton" name="radioOpenProject">
          <property name="text">
-          <string>Bruk QGIS-prosjektet som er åpent nå: NiN-kartlagene opprettes der, og prosjektet lagres med sitt eget navn</string>
+          <string>Prosjektet som er åpent nå (NiN-kartlagene legges til der)</string>
          </property>
          <property name="toolTip">
-          <string>Krever at et lagret prosjekt er åpent i QGIS</string>
+          <string>NiN-kartlagene og oppsettet legges inn i det åpne prosjektet, som lagres med sitt eget filnavn og koordinatsystem. Krever at prosjektet er lagret til fil.</string>
          </property>
         </widget>
        </item>
@@ -133,6 +136,19 @@
      <widget class="QPushButton" name="changeProjectSettingsButton">
       <property name="text">
        <string>Lag geopackage-fil og forbered prosjekt</string>
+      </property>
+     </widget>
+    </item>
+    <item row="17" column="0">
+     <widget class="QLabel" name="labelMissingInputs">
+      <property name="styleSheet">
+       <string>color: #b00020;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -257,7 +273,7 @@
    <property name="geometry">
     <rect>
      <x>486</x>
-     <y>567</y>
+     <y>592</y>
      <width>85</width>
      <height>31</height>
     </rect>
@@ -266,7 +282,7 @@
     <item row="0" column="0">
      <widget class="QPushButton" name="helpButton">
       <property name="text">
-       <string> info</string>
+       <string>Veiledning</string>
       </property>
       <property name="icon">
        <iconset>

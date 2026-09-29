@@ -36,6 +36,9 @@ class TestMandatoryInputs(unittest.TestCase):
         self.assertFalse(self.button.isEnabled())
         self.assertIn('koordinatsystem', self.button.toolTip())
         self.assertIn('lagringssted', self.button.toolTip())
+        # The same information is shown as a line under the button
+        self.assertTrue(self.dialog.labelMissingInputs.text().startswith('Mangler: '))
+        self.assertIn('koordinatsystem', self.dialog.labelMissingInputs.text())
 
         self.radio_25833.setChecked(True)
         self.assertEqual(self.dialog.get_selected_crs(), 'EPSG:25833')
@@ -45,6 +48,7 @@ class TestMandatoryInputs(unittest.TestCase):
         self.dialog.file_widget.setFilePath('C:/tmp/kartlegging.gpkg')
         self.assertTrue(self.button.isEnabled())
         self.assertEqual(self.button.toolTip(), '')
+        self.assertEqual(self.dialog.labelMissingInputs.text(), '')
 
     def test_button_disabled_again_when_no_hovedtypegruppe_is_checked(self):
         self.radio_25833.setChecked(True)
