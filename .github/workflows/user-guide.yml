@@ -1,0 +1,74 @@
+name: User guide
+
+# Renders the user guide (docs/user-guide) with bookdown.
+# Pull requests: render only, the result is attached to the run as an artifact.
+# Push to master or manual run: render and publish to the gh-pages branch.
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "docs/user-guide/**"
+      - ".github/workflows/user-guide.yml"
+  pull_request:
+    paths:
+      - "docs/user-guide/**"
+      - ".github/workflows/user-guide.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: user-guide-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-pandoc@v2
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::bookdown
+            any::rmarkdown
+            any::knitr
+
+      - name: Render the book
+        working-directory: docs/user-guide
+        run: |
+          Rscript -e 'is_compressed <- FALSE; bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook")'
+
+      - name: Check that all images made it into the book
+        working-directory: docs/user-guide
+        run: |
+          missing=0
+          for image in $(grep -oh 'images/[A-Za-z0-9_.-]*\.\(png\|jpg\|jpeg\)' *.Rmd | sort -u); do
+            if [ ! -f "_book/$image" ]; then
+              echo "Missing in rendered book: $image"
+              missing=1
+            fi
+          done
+          exit $missing
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: user-guide
+          path: docs/user-guide/_book
+          retention-days: 14
+
+      - name: Publish to gh-pages
+        if: github.event_name != 'pull_request'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/user-guide/_book
+          commit_message: Update book
