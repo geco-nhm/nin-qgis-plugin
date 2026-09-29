@@ -4,6 +4,8 @@
 | --- | --- |
 | `nin_qgis_plugin/` | The plugin itself; everything in here ships in the plugin zip |
 | `catalogue_tools/` | Scripts that build the CSV catalogue tables from the NiN Kode API |
+| `symbology_tools/` | Scripts that build, check and render the symbology tables |
+| `symbology/` | NiN 2 cartography kept as reference, the symbology plan and exported QML style files |
 | `tests/unit/` | pytest tests that run without QGIS |
 | `tests/qgis/` | unittest tests that need a QGIS Python |
 | `scripts/` | Build, upload and user guide publishing scripts |
@@ -248,7 +250,7 @@ Short description which changes are happening in which file.
 **Method:** `ProjectSetup.set_nin_polygons_styling()`
 **Functionality:**
 
-* **Deterministic semi-transparent color per `kode_id_label`** from attribute table for selected mapping scale. The colour is a hash of the `kode_id` (`symbology_colors.kode_id_color()`), so the same mapping unit has the same colour in every project and on every computer.
+* **One symbol per `kode_id_label`** for the selected mapping scale, read from the symbology tables in `nin_qgis_plugin/csv/symbology` (`symbology_styles.load_unit_styles()`, `symbology_symbols.create_symbol()`). The fill colour shows the hovedtype and is semi-transparent on polygons; hatch and markers show the mapping unit. Types without a symbol fall back to the colour of their hovedtype, then of their hovedtypegruppe, then to a hash of the `kode_id` (`symbology_colors.kode_id_color()`). The symbology is documented in `docs/symbology/README.md` and built with the scripts in `symbology_tools/`.
 * Coded using `QgsCategorizedSymbolRenderer`; the same palette is applied to the polygon, point and line layers.
 
 **Example:**

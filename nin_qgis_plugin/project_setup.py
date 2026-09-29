@@ -51,7 +51,8 @@ from .create_gpkg import (
     mapping_layer_name,
     mapping_layer_names,
 )
-from .symbology_colors import kode_id_color
+from .symbology_styles import load_unit_styles
+from .symbology_symbols import create_symbol
 
 
 QGS_PROJECT = QgsProject.instance()
@@ -279,7 +280,7 @@ class ProjectSetup:
             POLYGON_LAYER_BASE_NAME, selected_mapping_scale
         )
         # One colour per kode_id, shared by all mapping layers in this project
-        self._kode_id_palette: Union[dict, None] = None
+        self._unit_styles: Union[dict, None] = None
 
     def get_layer(self, layer_name: str) -> QgsVectorLayer:
         '''Returns the project layer with the given name.'''
@@ -566,30 +567,18 @@ class ProjectSetup:
         else:
             raise ValueError(f"Invalid crs given: {crs}")
 
-    def get_kode_id_palette(self) -> dict:
+    def get_unit_styles(self) -> dict:
         '''
-        Returns one colour (RGB tuple) per 'kode_id' of the selected mapping
-        scale. Colours are derived deterministically from the code (see
-        'symbology_colors.kode_id_color'), so the same mapping unit gets the
-        same colour on polygons, points and lines, in every project and on
-        every computer.
+        Returns one style per 'kode_id' of the selected mapping scale, from
+        the symbology tables (see 'symbology_styles.load_unit_styles'). The
+        same mapping unit gets the same colour on polygons, points and
+        lines, in every project and on every computer.
         '''
 
-        if self._kode_id_palette is None:
-            attribute_table_path = Path(__file__).parent / 'csv' / \
-                'attribute_tables' / \
-                f"{self.selected_mapping_scale}_attribute_table.csv"
+        if self._unit_styles is None:
+            self._unit_styles = load_unit_styles(self.selected_mapping_scale)
 
-            unique_values = list(dict.fromkeys(
-                _read_csv_column(attribute_table_path, 'kode_id')
-            ))
-
-            self._kode_id_palette = {
-                value: kode_id_color(value)
-                for value in unique_values
-            }
-
-        return self._kode_id_palette
+        return self._unit_styles
 
     def set_kode_id_styling(
         self,
@@ -599,9 +588,11 @@ class ProjectSetup:
         symbol_alpha: int = 128,
     ) -> None:
         '''
-        Defines a categorized symbology (one colour per 'kode_id' of the
+        Defines a categorized symbology (one symbol per 'kode_id' of the
         mapping units, red for unmatched values) and an expression label
         for a mapping layer. Works for polygon, point and line layers.
+        'symbol_alpha' applies to the fill colour of polygons; hatch and
+        markers stay opaque.
         '''
 
         if not layer.isValid():
@@ -611,10 +602,8 @@ class ProjectSetup:
         # Prepare categorized symbology
         categories = []
 
-        for value, (red, green, blue) in self.get_kode_id_palette().items():
-            symbol = QgsSymbol.defaultSymbol(layer.geometryType())
-            self._size_symbol(symbol)
-            symbol.setColor(QColor(red, green, blue, symbol_alpha))
+        for value, style in self.get_unit_styles().items():
+            symbol = create_symbol(style, layer.geometryType(), symbol_alpha)
             category = QgsRendererCategory(value, symbol, str(value))
             categories.append(category)
 

@@ -8,8 +8,8 @@ Planen og status står i [symbology/PLAN.md](../../symbology/PLAN.md).
 | --- | --- | --- |
 | 1 | Fyllfarge for hver hovedtype | Utkast 2, revidert etter kommentarene til NiN 2-utkastet |
 | 2 | Skravur og symboler for kartleggingsenhetene, i tre målestokker | Utkast 1 til gjennomsyn |
-| 3 | Stilfiler for QGIS (QML) | Ikke startet |
-| 4 | Kartografien tas i bruk i programtillegget | Ikke startet |
+| 3 | Stilfiler for QGIS (QML) | Utkast 1, tegnet og kontrollert i QGIS 3.40 |
+| 4 | Kartografien tas i bruk i programtillegget | Koden er på plass og testet. Ikke prøvd i et kartleggingsprosjekt. Brukerveiledningen er ikke oppdatert |
 
 Hver hovedtypegruppe har en grunnfarge. For fastmarkssystemer (NA-T) og
 våtmarkssystemer (NA-V) har hver av de 72 hovedtypene sin egen farge. De
@@ -170,7 +170,50 @@ uavhengige av kartets målestokk.
 | Symboler med fire deler oppå fyllfargen er tunge å lese | 27 enheter i 1:5 000, 10 i 1:20 000 og 3 i 1:50 000. De fleste er i TG01 Nakne løsmasser |
 | Enheter som reglene ikke skiller, får stiplet skravur eller et nøytralt symbol uten egen betydning | 25 enheter i 1:5 000. Gjelder særlig TI01 og TM06, der katalogen ikke har variabler som skiller enhetene |
 | To enheter i 1:5 000 er ikke koblet til noen enhet i 1:20 000 i katalogen | TA01-M005-23 Fuglestein og fugleberg, TC02-M005-04 Kalkfattig til litt kalkrik grotte |
-| Symbolene er bare kontrollert i oversikten, ikke i QGIS eller på trykk | Gjøres i steg 3 |
+| Symbolene er kontrollert i oversikten og tegnet i QGIS, men ikke prøvd på trykk eller i felt | Alle enheter |
+
+## Steg 3: stilfiler for QGIS
+
+| Fil | Innhold |
+| --- | --- |
+| `symbology/qml/NiN3_M005.qml` | Stil for 1:5 000, 759 enheter |
+| `symbology/qml/NiN3_M020.qml` | Stil for 1:20 000, 493 enheter |
+| `symbology/qml/NiN3_M050.qml` | Stil for 1:50 000, 332 enheter |
+
+Stilfilene gjelder flatelag der koden til kartleggingsenheten står i feltet
+`kode_id`, for eksempel `TB01-M005-03`. I QGIS lastes en stil inn fra
+lagegenskapene: Symbologi, Stil, Last inn stil.
+
+Enheter i limniske og marine systemer og i snø og is har bare grunnfargen
+til hovedtypegruppa.
+
+Prøvekart tegnet av QGIS 3.40 i 1:1000, ett rektangel på 34 × 22 mm per
+enhet i fastmark og våtmark:
+
+- [qgis_M050.png](qgis_M050.png)
+- [qgis_M020.png](qgis_M020.png)
+- [qgis_M005.png](qgis_M005.png)
+
+Stilfilene og prøvekartene lages med
+`python-qgis-ltr.bat symbology_tools/export_qml.py`.
+
+## Steg 4: programtillegget
+
+Programtillegget leser symboltabellene og bygger symbolene når et prosjekt
+opprettes. De erstatter fargene som tidligere ble beregnet fra koden.
+
+| Lag | Symbol |
+| --- | --- |
+| Flater | Fyllfarge med 50 % gjennomsiktighet, slik at flybildet synes. Skravur og symboler er ikke gjennomsiktige |
+| Punkter | Sirkel i fyllfargen |
+| Linjer | Linje i fyllfargen |
+
+En type som ikke har eget symbol, får den første fargen som finnes av disse:
+fargen til hovedtypen, grunnfargen til hovedtypegruppa, og til slutt en farge
+beregnet fra koden. Det gjelder blant annet grunntyper.
+
+Eksisterende prosjekter endres ikke. Stilen lagres i prosjektets GeoPackage
+når prosjektet opprettes.
 
 ## Kommentarer til NiN 2-utkastet og hvordan de er fulgt opp
 
@@ -202,7 +245,7 @@ kommentarene, og viser hvilke hovedtyper i NiN 3.0 de gjelder.
 | Kan fargepaletter eller symboler holdes av til systemet endres? Kan typer enkelt legges til og trekkes fra? | `reserved_colours.csv` har ledige farger i hver familie. Farger er lagret per kode og endres ikke når nye typer kommer til |
 | Kodene bør ha ledende nuller slik at de sorteres riktig | Løst i NiN 3.0: kodene har ledende nuller (`TB01-M005-01`) |
 | Antall klasser er usikkert; bruk Artsdatabanken som fasit | Alt leses fra katalogen som hentes fra Artsdatabankens API. En test melder fra når katalogen og fargene ikke stemmer overens |
-| Stilfiler i QML kan bare brukes i QGIS | Symbolene lagres i åpne CSV-tabeller. QML lages fra tabellene i steg 3 |
+| Stilfiler i QML kan bare brukes i QGIS | Symbolene lagres i åpne CSV-tabeller med definerte kolonner. QML lages fra tabellene |
 
 ### Fulgt opp i steg 2 (skravur og symboler)
 
@@ -222,7 +265,7 @@ kommentarene, og viser hvilke hovedtyper i NiN 3.0 de gjelder.
 | Uklart hvilke virkemidler som hører til hovedtype og hvilke til kartleggingsenhet | Fyllfarge viser hovedtype. Skravur og symboler viser kartleggingsenhet |
 | Hovedtyper betinget av spesielle miljøvariabler er sjeldne; mindre viktig at de skilles veldig klart | Ikke fulgt opp ennå. Reglene er like for vanlige og sjeldne typer |
 | Definer symbolstørrelse (diameter?) og forskjellen på forskyvning og offset | Se «Kolonnene i symboltabellene» |
-| Hvordan fungerer kartografien i digitale kart? | Størrelser oppgis i millimeter og kontrolleres i QGIS på skjerm i steg 3 |
+| Hvordan fungerer kartografien i digitale kart? | Størrelser er i millimeter og uavhengige av kartets målestokk. Tegnet i QGIS i steg 3 |
 | Prinsippene fra «myrkosten» (vegetasjonskart, 1980) har stor tro | Ikke fulgt opp. Kilden er ikke blant referansefilene |
 
 ### Ikke overførbare
@@ -250,6 +293,10 @@ kommentarene, og viser hvilke hovedtyper i NiN 3.0 de gjelder.
 | `symbology_tools/patterns.py` | Beregner og kontrollerer symbolene |
 | `symbology_tools/render_symbol_overview.py` | Lager `symboloversikt.html` |
 | `tests/unit/test_symbology_patterns.py` | Enhetstester |
+| `nin_qgis_plugin/symbology_styles.py` | Programtillegget: leser symboltabellene |
+| `nin_qgis_plugin/symbology_symbols.py` | Programtillegget: bygger QGIS-symboler |
+| `symbology_tools/export_qml.py` | Lager stilfiler og prøvekart. Krever QGIS |
+| `tests/unit/test_symbology_styles.py`, `tests/qgis/test_symbology_symbols.py` | Tester for programtillegget |
 | `tests/unit/test_symbology_palette.py` | Enhetstester |
 | `symbology/` | Tidligere kartografi for NiN 2, til inspirasjon |
 
@@ -265,7 +312,8 @@ kommentarene, og viser hvilke hovedtyper i NiN 3.0 de gjelder.
 1. Endre `variable_rules.csv` eller `hovedtype_patterns.csv`.
 2. Beregn symbolene på nytt: `python symbology_tools/patterns.py`
 3. Lag oversikten på nytt: `python symbology_tools/render_symbol_overview.py`
-4. Kjør testene: `python -m pytest -q`
+4. Lag stilfilene på nytt: `python-qgis-ltr.bat symbology_tools/export_qml.py`
+5. Kjør testene: `python -m pytest -q`
 
 De samme stegene kjøres når NiN-katalogen er oppdatert. En test feiler hvis
 symboltabellene ikke stemmer med katalogen og reglene.

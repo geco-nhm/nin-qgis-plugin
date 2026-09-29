@@ -1,6 +1,6 @@
 # SYMBOLOGY_3.0 — plan
 
-Branch: `symbology`. Status: **iterations 1 and 2 committed as drafts, awaiting review; iteration 3 next**. Last updated 2026-09-29.
+Branch: `symbology`. Status: **all four iterations committed as first drafts, awaiting review**. Last updated 2026-09-29.
 
 Iteration 1 output: `nin_qgis_plugin/csv/symbology/hovedtype_colours.csv`,
 `docs/symbology/fargeoversikt.html`, documentation in `docs/symbology/README.md`.
@@ -145,13 +145,27 @@ nin_qgis_plugin/csv/symbology/symbology_M005.csv, _M020.csv, _M050.csv
 
 ## 5. Iterations
 
-| # | Deliverable | Review point |
+| # | Deliverable | Status |
 | --- | --- | --- |
-| 0 | Reference material committed; this plan | Plan approved |
-| 1 | Hovedtype palette (72 colours, land and wetland) + colour overview | Colours accepted |
-| 2 | Pattern grammar + symbols for all three scales + rendered overview + validator | Symbols accepted |
-| 3 | QML export, tested in QGIS against the old QML | Works in QGIS |
-| 4 | Plugin integration (replaces hash colours), unit tests, user guide chapter | Release |
+| 0 | Reference material committed; this plan | Done |
+| 1 | Hovedtype palette (72 colours, land and wetland) + colour overview | Draft 2, revised after the 2020 review comments. Needs colour review |
+| 2 | Pattern rules + symbols for all three scales + rendered overview + validator | Draft 1. Needs review |
+| 3 | QML export, rendered by QGIS 3.40 | Draft 1. Not compared side by side with the old QML, not tried in QGIS 4 |
+| 4 | Plugin integration (replaces hash colours), unit and QGIS tests | Code done and tested at symbol level. Not tried in a real project; user guide not updated |
+
+## 5.1 Open issues for the next round
+
+1. TG01 Nakne løsmasser is too heavy: up to four pattern layers, large open
+   markers. Nominal variables (løsmassetype) should not use size ranks.
+2. 25 units at M005 are separated only by tie-break (dashed hatch or a
+   neutral marker), mostly TI01 and TM06, where the catalogue has no
+   variable that separates the units.
+3. Aggregation: keep the same-rules approach, or return to strict
+   inheritance so that a child always shows its parent's hatch angle.
+4. Water groups (NA-L, NA-O, NA-M, NA-F, NA-I) have one fill per group.
+5. "Myrkosten" (vegetation map symbols, 1980) was recommended by two
+   reviewers but is not among the reference files.
+6. Print and field test, QGIS 4 test, user guide chapter.
 
 ## 6. Decisions (2026-09-29)
 
