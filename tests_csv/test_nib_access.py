@@ -2,7 +2,7 @@
 
 from nin_qgis_plugin.nib_access import (
     NIB_HELP_URL,
-    NIB_TOKEN_URL,
+    NIB_AUTH_PAGE_URL,
     classify_nib_capabilities_response,
 )
 
@@ -18,7 +18,7 @@ def test_http_401_and_403_are_reported_as_login_failures():
         message = classify_nib_capabilities_response(status, b'')
         assert 'avviste innloggingen' in message
         assert str(status) in message
-        assert NIB_TOKEN_URL in message
+        assert NIB_AUTH_PAGE_URL in message
 
 
 def test_other_http_errors_are_reported():

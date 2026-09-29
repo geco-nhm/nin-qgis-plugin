@@ -6,8 +6,9 @@ request itself lives in project_setup.check_nib_access().
 
 from typing import Optional, Union
 
-# Where users create their NiB token, and the plugin guide section about it
-NIB_TOKEN_URL = 'https://services.norgeibilder.no/token'
+# Web page where users generate their NiB token (a public address, not a
+# credential), and the plugin guide section about it
+NIB_AUTH_PAGE_URL = 'https://services.norgeibilder.no/token'  # nosec B105
 NIB_HELP_URL = (
     'https://geco-nhm.github.io/nin-qgis-plugin/'
     'oppsett-og-tilrettelegging.html#nib-token'
@@ -15,7 +16,7 @@ NIB_HELP_URL = (
 
 NIB_HINT = (
     'Kontroller brukernavn og token, og at tokenet ikke er utløpt. '
-    f'Nytt token lages på {NIB_TOKEN_URL}.'
+    f'Nytt token lages på {NIB_AUTH_PAGE_URL}.'
 )
 
 

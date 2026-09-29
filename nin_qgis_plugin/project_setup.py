@@ -445,19 +445,19 @@ class ProjectSetup:
                 )
                 layer.setFieldConstraint(
                     field_index,
-                    QgsFieldConstraints.ConstraintExpression
+                    QgsFieldConstraints.Constraint.ConstraintExpression
                 )
             # Apply Not Null constraint if specified
             if not_null:
                 layer.setFieldConstraint(
                     field_index,
-                    QgsFieldConstraints.ConstraintNotNull
+                    QgsFieldConstraints.Constraint.ConstraintNotNull
                 )
            # Enforce Not Null constraint if specified
             if enforce_not_null:
                 layer.setFieldConstraint(
                     field_index,
-                    QgsFieldConstraints.ConstraintNotNull,
+                    QgsFieldConstraints.Constraint.ConstraintNotNull,
                 )
             # Apply the "apply on update" setting
             widget_setup = layer.editorWidgetSetup(field_index)
@@ -482,7 +482,7 @@ class ProjectSetup:
 
         # https://api.qgis.org/api/classQgsVectorLayer.html
         # ConstraintStrengthSoft = User is warned if constraint is violated but feature can still be accepted.
-        layer.setFieldConstraint(field_index, QgsFieldConstraints.ConstraintExpression, QgsFieldConstraints.ConstraintStrengthSoft)
+        layer.setFieldConstraint(field_index, QgsFieldConstraints.Constraint.ConstraintExpression, QgsFieldConstraints.ConstraintStrength.ConstraintStrengthSoft)
         layer.setConstraintExpression(field_index, expression)
 
         # If decimal degrees, the CRS is transformed to UTM33 N before computing planimetric area
@@ -778,7 +778,7 @@ class ProjectSetup:
                 f"Failed to load layer '{new_qgis_layer_name}' from '{safe_url}'. "
                 + "If this is the NiB WMTS, verify the token (authentication configuration 'NiN plugin: Norge i bilder').",
                 'NiN plugin',
-                Qgis.Warning,
+                Qgis.MessageLevel.Warning,
             )
             return False
 
@@ -854,14 +854,14 @@ class ProjectSetup:
 
         # Enable snapping and set mode to AdvancedConfiguration
         snapping_config.setEnabled(True)
-        snapping_config.setMode(QgsSnappingConfig.AdvancedConfiguration)
+        snapping_config.setMode(QgsSnappingConfig.SnappingMode.AdvancedConfiguration)
 
         # Define individual snapping settings
         snap_settings = QgsSnappingConfig.IndividualLayerSettings(
             True,
             Qgis.SnappingTypes(Qgis.SnappingType.Vertex | Qgis.SnappingType.Segment),
             1.0,
-            QgsTolerance.ProjectUnits,
+            QgsTolerance.UnitType.ProjectUnits,
             0.0,
             0.0
         )
@@ -1080,7 +1080,7 @@ def main(
 
         if nib_error:
             QgsMessageLog.logMessage(
-                f"Norge i bilder: {nib_error}", 'NiN plugin', Qgis.Warning
+                f"Norge i bilder: {nib_error}", 'NiN plugin', Qgis.MessageLevel.Warning
             )
             warnings.append(
                 f"{nib_error} Kartlaget fra Norge i bilder ble ikke lagt til."
@@ -1090,7 +1090,7 @@ def main(
                 f"Norge i bilder: legger til {nib_parameters['layer']} "
                 f"(stil {nib_parameters['style']}, format {nib_parameters['format']}, "
                 f"flisrutenett {nib_parameters['tile_matrix_set']})",
-                'NiN plugin', Qgis.Info,
+                'NiN plugin', Qgis.MessageLevel.Info,
             )
             if not project_setup.add_wms_layer(
                 wms_service_url=nib_service_url,

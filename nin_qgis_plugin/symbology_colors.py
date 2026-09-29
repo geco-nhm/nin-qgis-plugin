@@ -28,7 +28,8 @@ def kode_id_color(kode_id: str) -> tuple[int, int, int]:
     the last digit still get clearly different colours.
     '''
 
-    digest = hashlib.sha1(str(kode_id).encode('utf-8')).digest()
+    # SHA-1 is used only to spread codes over the hue circle, not for security
+    digest = hashlib.sha1(str(kode_id).encode('utf-8'), usedforsecurity=False).digest()
 
     hue = int.from_bytes(digest[0:2], 'big') / 65535.0
     saturation = _MIN_SATURATION + (digest[2] / 255.0) * (_MAX_SATURATION - _MIN_SATURATION)

@@ -77,3 +77,9 @@ def test_unknown_layer_among_several_is_reported():
 def test_unparseable_document_is_reported():
     with pytest.raises(WmtsCapabilitiesError):
         select_wmts_layer_parameters(b'<html>not xml capabilities', 'x', 'EPSG:25832')
+
+
+def test_documents_with_entity_declarations_are_refused():
+    hostile = b'<?xml version="1.0"?><!DOCTYPE x [<!ENTITY a "aaaa">]>' + ESRI_CAPS.split(b'?>', 1)[1]
+    with pytest.raises(WmtsCapabilitiesError):
+        select_wmts_layer_parameters(hostile, 'Nibcache_UTM32_EUREF89_v2', 'EPSG:25832')

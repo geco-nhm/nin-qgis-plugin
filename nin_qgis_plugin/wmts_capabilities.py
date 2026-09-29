@@ -6,8 +6,22 @@ can be unit-tested with plain Python.
 """
 
 import re
-import xml.etree.ElementTree as ElementTree
 from typing import Optional
+
+# defusedxml is not shipped with the QGIS Python. When it is present it is
+# used; otherwise the standard parser is used after rejecting documents that
+# declare a DOCTYPE or entities, which is what makes XML parsing unsafe
+# (entity expansion and external entities).
+try:
+    import defusedxml.ElementTree as ElementTree
+    from xml.etree.ElementTree import ParseError  # nosec B405 - exception class only
+    _DEFUSED = True
+except ImportError:  # pragma: no cover - depends on the QGIS environment
+    import xml.etree.ElementTree as ElementTree  # nosec B405 - guarded, see _parse_xml
+    from xml.etree.ElementTree import ParseError  # nosec B405
+    _DEFUSED = False
+
+_XML_DECLARATION_PATTERN = re.compile(rb'<!\s*(DOCTYPE|ENTITY)', re.IGNORECASE)
 
 WMTS_NS = '{http://www.opengis.net/wmts/1.0}'
 OWS_NS = '{http://www.opengis.net/ows/1.1}'
@@ -17,6 +31,16 @@ PREFERRED_FORMATS = ('image/png', 'image/jpgpng', 'image/jpeg', 'image/jpg')
 
 class WmtsCapabilitiesError(ValueError):
     '''Raised with a Norwegian, user-facing message.'''
+
+
+def _parse_xml(document: bytes):
+    '''Parses a capabilities document; DOCTYPE/ENTITY declarations are refused.'''
+
+    if not _DEFUSED and _XML_DECLARATION_PATTERN.search(document or b''):
+        raise WmtsCapabilitiesError(
+            'Tjenestebeskrivelsen inneholder DOCTYPE/ENTITY-deklarasjoner og ble avvist.'
+        )
+    return ElementTree.fromstring(document)  # nosec B314 - defused or guarded above
 
 
 def _text(element, path: str) -> str:
@@ -50,8 +74,8 @@ def select_wmts_layer_parameters(
     '''
 
     try:
-        root = ElementTree.fromstring(capabilities_xml)
-    except ElementTree.ParseError as exception:
+        root = _parse_xml(capabilities_xml)
+    except ParseError as exception:
         raise WmtsCapabilitiesError(
             f'Tjenestebeskrivelsen (GetCapabilities) kunne ikke leses: {exception}'
         ) from exception

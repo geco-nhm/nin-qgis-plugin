@@ -7,7 +7,7 @@ name=Natur i Norge kartlegging
 qgisMinimumVersion=3.34.8
 qgisMaximumVersion=4.99
 description=Natur i Norge (NiN) mapping tool.
-version=0.5
+version=0.5.1
 author=Lasse Keetz, Peter Horvath, Anne B. Nilsen
 email=peter.horvath@nhm.uio.no
 
@@ -23,6 +23,8 @@ repository=https://github.com/geco-nhm/nin-qgis-plugin.git
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
 changelog=
+    0.5.1:
+    - Fixes from the plugins.qgis.org checks: defused WMTS capabilities parsing, non-security SHA-1 flag, renamed constant (Bandit); fully scoped Qt6 enum names; corrected manual install instructions
     0.5:
     - Added classified point and line layers (nin_points, nin_lines) for types below the MMU and linear structures (#29)
     - Symbology colours are now derived from the mapping unit code, so the same type has the same colour in every project (#62, #75)

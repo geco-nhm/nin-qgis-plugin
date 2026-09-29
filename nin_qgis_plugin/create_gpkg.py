@@ -186,7 +186,7 @@ def write_layer_to_gpkg_file(
 
     # Add to existing gpkg?
     if extend_existing:
-        options.actionOnExistingFile = QgsVectorFileWriter.CreateOrOverwriteLayer
+        options.actionOnExistingFile = QgsVectorFileWriter.ActionOnExistingFile.CreateOrOverwriteLayer
 
     # Printing for debugging
     #  print(f"Writing layer to '{gpkg_out_path}'")
