@@ -10,6 +10,8 @@ __pycache__/
 .Rhistory
 .RData
 .Rproj.user/
+# Rendered user guide; published to the gh-pages branch by scripts/publish_book.R
+user-guide/_book/
 # Generated Sphinx output
 nin_qgis_plugin/help/build/
 # QGIS style database created when running the plugin tests headlessly

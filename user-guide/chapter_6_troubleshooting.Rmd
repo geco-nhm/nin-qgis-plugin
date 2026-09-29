@@ -10,7 +10,7 @@ E. Duplisert hjørnekoordinat
 
 
 ```{r index236, echo=FALSE}
-knitr::include_graphics("images/quality3.png")
+knitr::include_graphics("images/quality3.jpg")
 ```
 
 
@@ -51,13 +51,13 @@ Programtillegget Topology Checker er nå tilgjengelig i QGIS.
 
 
 ```{r index240, echo=FALSE}
-knitr::include_graphics("images/quality.png")
+knitr::include_graphics("images/quality.jpg")
 ```
 
 
 
 ```{r index241, echo=FALSE}
-knitr::include_graphics("images/quality2.png")
+knitr::include_graphics("images/quality2.jpg")
 ```
 
 
@@ -67,7 +67,7 @@ Panelet for Topology Checker vil nå dukke opp.
 
 
 ```{r index242, echo=FALSE}
-knitr::include_graphics("images/quality4.png")
+knitr::include_graphics("images/quality4.jpg")
 ```
 
 
@@ -147,13 +147,13 @@ knitr::include_graphics("images/quality12.png")
 
 
 ```{r index251, echo=FALSE}
-knitr::include_graphics("images/quality13.png")
+knitr::include_graphics("images/quality13.jpg")
 ```
 
 
 
 ```{r index252, echo=FALSE}
-knitr::include_graphics("images/quality14.png")
+knitr::include_graphics("images/quality14.jpg")
 ```
 
 
@@ -163,13 +163,13 @@ Feilene som ble funnet og hvilken polygon de tilhørerer vil nå dukke opp i pan
 
 
 ```{r index253, echo=FALSE}
-knitr::include_graphics("images/fix.png")
+knitr::include_graphics("images/fix.jpg")
 ```
 
 
 
 ```{r index254, echo=FALSE}
-knitr::include_graphics("images/fix2.png")
+knitr::include_graphics("images/fix2.jpg")
 ```
 
 
@@ -183,7 +183,7 @@ Vi anbefaler å behandle overlapp mellom polygoner manuelt med Vertex Tool.
 
 
 ```{r index255, echo=FALSE}
-knitr::include_graphics("images/fix3.png")
+knitr::include_graphics("images/fix3.jpg")
 ```
 
 
@@ -191,7 +191,7 @@ knitr::include_graphics("images/fix3.png")
 
 
 ```{r index256, echo=FALSE}
-knitr::include_graphics("images/fix4.png")
+knitr::include_graphics("images/fix4.jpg")
 ```
 
 
@@ -199,7 +199,7 @@ knitr::include_graphics("images/fix4.png")
 
 
 ```{r index257, echo=FALSE}
-knitr::include_graphics("images/fix5.png")
+knitr::include_graphics("images/fix5.jpg")
 ```
 
 
@@ -209,7 +209,7 @@ Dette gjør du ved å endre på gamle hjørnekoordinater eller ved å opprette n
 
 
 ```{r index258, echo=FALSE}
-knitr::include_graphics("images/fix6.png")
+knitr::include_graphics("images/fix6.jpg")
 ```
 
 
@@ -217,7 +217,7 @@ knitr::include_graphics("images/fix6.png")
 
 
 ```{r index259, echo=FALSE}
-knitr::include_graphics("images/fix7.png")
+knitr::include_graphics("images/fix7.jpg")
 ```
 
 
@@ -225,7 +225,7 @@ knitr::include_graphics("images/fix7.png")
 
 
 ```{r index260, echo=FALSE}
-knitr::include_graphics("images/fix8.png")
+knitr::include_graphics("images/fix8.jpg")
 ```
 
 
@@ -233,7 +233,7 @@ knitr::include_graphics("images/fix8.png")
 
 
 ```{r index261, echo=FALSE}
-knitr::include_graphics("images/fix9.png")
+knitr::include_graphics("images/fix9.jpg")
 ```
 
 
@@ -241,13 +241,13 @@ knitr::include_graphics("images/fix9.png")
 
 
 ```{r index262, echo=FALSE}
-knitr::include_graphics("images/fix10.png")
+knitr::include_graphics("images/fix10.jpg")
 ```
 
 
 
 ```{r index263, echo=FALSE}
-knitr::include_graphics("images/fix11.png")
+knitr::include_graphics("images/fix11.jpg")
 ```
 
 
@@ -259,7 +259,7 @@ Legg merke til at overlappen som ble behandlet er borte fra panelet Vi kan hånd
 
 
 ```{r index264, echo=FALSE}
-knitr::include_graphics("images/geom.png")
+knitr::include_graphics("images/geom.jpg")
 ```
 
 
@@ -270,7 +270,7 @@ B. Dobbelklikk på `Fix geometries`
 
 
 ```{r index265, echo=FALSE}
-knitr::include_graphics("images/geom2.png")
+knitr::include_graphics("images/geom2.jpg")
 ```
 
 
@@ -315,7 +315,7 @@ knitr::include_graphics("images/geom5.png")
 
 
 ```{r index270, echo=FALSE}
-knitr::include_graphics("images/geom8.png")
+knitr::include_graphics("images/geom8.jpg")
 ```
 
 
@@ -327,7 +327,7 @@ Når du igjen klikker på `Validate All` vil du se at det ikke er flere invalide
 
 
 ```{r index271, echo=FALSE}
-knitr::include_graphics("images/geom11.png")
+knitr::include_graphics("images/geom11.jpg")
 ```
 
 
@@ -369,7 +369,7 @@ Merk at kartlaget ikke har fått samme stil som det opprinnelige kartlaget. Over
 
 
 ```{r index276, echo=FALSE}
-knitr::include_graphics("images/geom16.png")
+knitr::include_graphics("images/geom16.jpg")
 ```
 
 
@@ -495,7 +495,7 @@ knitr::include_graphics("images/geom36.png")
 
 
 ```{r index291, echo=FALSE}
-knitr::include_graphics("images/geom37.png")
+knitr::include_graphics("images/geom37.jpg")
 ```
 
 
@@ -527,7 +527,7 @@ knitr::include_graphics("images/geom21.png")
 
 
 ```{r index294, echo=FALSE}
-knitr::include_graphics("images/style.png")
+knitr::include_graphics("images/style.jpg")
 ```
 
 

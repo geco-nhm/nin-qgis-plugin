@@ -166,7 +166,7 @@ Du vil nå lære hvordan du kan redigere kartlag. Vi har zoomet inn på kartlegg
 
 
 ```{r index15, echo=FALSE}
-knitr::include_graphics("images/polygon_visibility.png")
+knitr::include_graphics("images/polygon_visibility.jpg")
 ```
 
 
@@ -174,7 +174,7 @@ knitr::include_graphics("images/polygon_visibility.png")
 
 
 ```{r index16, echo=FALSE}
-knitr::include_graphics("images/polygon_visibility2.png")
+knitr::include_graphics("images/polygon_visibility2.jpg")
 ```
 Kartlaget har ingen registrerte polygoner og det vil derfor ikke skje noe i kartvinduet ennå.
 
@@ -184,7 +184,7 @@ Kartlaget har ingen registrerte polygoner og det vil derfor ikke skje noe i kart
 
 
 ```{r index17, echo=FALSE}
-knitr::include_graphics("images/activate_layer.png")
+knitr::include_graphics("images/activate_layer.jpg")
 ```
 
 
@@ -202,7 +202,7 @@ knitr::include_graphics("images/digitisation_pen.png")
 
 
 ```{r index19, echo=FALSE}
-knitr::include_graphics("images/digitise.png")
+knitr::include_graphics("images/digitise.jpg")
 ```
 
 
@@ -214,13 +214,13 @@ knitr::include_graphics("images/digitise.png")
 
 
 ```{r index20, echo=FALSE}
-knitr::include_graphics("images/digitise3.png")
+knitr::include_graphics("images/digitise3.jpg")
 ```
 
 
 
 ```{r index21, echo=FALSE}
-knitr::include_graphics("images/digitise4.png")
+knitr::include_graphics("images/digitise4.jpg")
 ```
 
 
@@ -228,7 +228,7 @@ knitr::include_graphics("images/digitise4.png")
 
 
 ```{r index22, echo=FALSE}
-knitr::include_graphics("images/digitise5.png")
+knitr::include_graphics("images/digitise5.jpg")
 ```
 
 
@@ -238,7 +238,7 @@ knitr::include_graphics("images/digitise5.png")
 
 
 ```{r index23, echo=FALSE}
-knitr::include_graphics("images/digitise2.png")
+knitr::include_graphics("images/digitise2.jpg")
 ```
 
 
@@ -252,7 +252,7 @@ I registreringsskjemaet kan du velge hovedtypegruppe, hovedtype, kartleggingsenh
 
 
 ```{r index24, echo=FALSE}
-knitr::include_graphics("images/attribute_table.png")
+knitr::include_graphics("images/attribute_table.jpg")
 ```
 
 
@@ -262,13 +262,13 @@ Dersom polygonen har et mindre areal enn det som er anbefalt i kartleggingsveile
 
 
 ```{r index25, echo=FALSE}
-knitr::include_graphics("images/attribute_table.png")
+knitr::include_graphics("images/attribute_table.jpg")
 ```
 
 
 
 ```{r index26, echo=FALSE}
-knitr::include_graphics("images/minimum_mapping_unit.png")
+knitr::include_graphics("images/minimum_mapping_unit.jpg")
 ```
 
 
@@ -284,7 +284,7 @@ knitr::include_graphics("images/mapping_guidelines3.png")
 
 
 ```{r index28, echo=FALSE}
-knitr::include_graphics("images/select_major_type_group2.png")
+knitr::include_graphics("images/select_major_type_group2.jpg")
 ```
 
 
@@ -302,7 +302,7 @@ Her kan du velge mellom hovedtypegruppene som du valgte når du opprettet prosje
 
 
 ```{r index30, echo=FALSE}
-knitr::include_graphics("images/select_major_type.png")
+knitr::include_graphics("images/select_major_type.jpg")
 ```
 
 
@@ -318,7 +318,7 @@ knitr::include_graphics("images/select_major_type2.png")
 
 
 ```{r index32, echo=FALSE}
-knitr::include_graphics("images/select_mapping_unit.png")
+knitr::include_graphics("images/select_mapping_unit.jpg")
 ```
 
 
@@ -336,7 +336,7 @@ B. Påskriften som vil brukes til å merke polygonen
 
 
 ```{r index34, echo=FALSE}
-knitr::include_graphics("images/variables.png")
+knitr::include_graphics("images/variables.jpg")
 ```
 
 
@@ -352,7 +352,7 @@ knitr::include_graphics("images/mapping_guidelines2.png")
 
 
 ```{r index36, echo=FALSE}
-knitr::include_graphics("images/proportion.png")
+knitr::include_graphics("images/proportion.jpg")
 ```
 
 
@@ -364,7 +364,7 @@ Bruk **`+`** og **`-`** ved siden av feltet for å endre andelen med 10 %. Merk 
 
 
 ```{r index37, echo=FALSE}
-knitr::include_graphics("images/take_photo.png")
+knitr::include_graphics("images/take_photo.jpg")
 ```
 
 
@@ -382,7 +382,7 @@ knitr::include_graphics("images/equipment2.jpeg")
 
 
 ```{r index39, echo=FALSE}
-knitr::include_graphics("images/select_photo2.png")
+knitr::include_graphics("images/select_photo2.jpg")
 ```
 
 
@@ -406,7 +406,7 @@ Dersom kartleggingsenheten dekker mindre enn 100 % av polygonens areal, må du r
 
 
 ```{r index41, echo=FALSE}
-knitr::include_graphics("images/mosaic.png")
+knitr::include_graphics("images/mosaic.jpg")
 ```
 
 
@@ -414,7 +414,7 @@ knitr::include_graphics("images/mosaic.png")
 
 
 ```{r index42, echo=FALSE}
-knitr::include_graphics("images/mosaic2.png")
+knitr::include_graphics("images/mosaic2.jpg")
 ```
 
 
@@ -422,13 +422,13 @@ knitr::include_graphics("images/mosaic2.png")
 
 
 ```{r index43, echo=FALSE}
-knitr::include_graphics("images/mosaic7.png")
+knitr::include_graphics("images/mosaic7.jpg")
 ```
 
 
 
 ```{r index44, echo=FALSE}
-knitr::include_graphics("images/mosaic10.png")
+knitr::include_graphics("images/mosaic10.jpg")
 ```
 
 
@@ -438,7 +438,7 @@ Velg enten sammensatt eller mosaikk for polygonen. Det kan du gjøre ved å klik
 
 
 ```{r index45, echo=FALSE}
-knitr::include_graphics("images/mosaic9.png")
+knitr::include_graphics("images/mosaic9.jpg")
 ```
 
 
@@ -448,7 +448,7 @@ Hvis det gjenstår 20 % eller mer areal etter at kartleggingsenhet 1 og kartlegg
 
 
 ```{r index46, echo=FALSE}
-knitr::include_graphics("images/mosaic5.png")
+knitr::include_graphics("images/mosaic5.jpg")
 ```
 
 
@@ -460,11 +460,11 @@ Vi vil nå vise hvordan man angrer forrige redigering. Vi utfigurerer en ny poly
 
 
 ```{r index47, echo=FALSE}
-knitr::include_graphics("images/undo.png")
+knitr::include_graphics("images/undo.jpg")
 ```
  
 ```{r index48, echo=FALSE}
-knitr::include_graphics("images/undo1.png")
+knitr::include_graphics("images/undo1.jpg")
 ```
 
 
@@ -472,7 +472,7 @@ knitr::include_graphics("images/undo1.png")
 
 
 ```{r index49, echo=FALSE}
-knitr::include_graphics("images/undo2.png")
+knitr::include_graphics("images/undo2.jpg")
 ```
 
 
@@ -480,7 +480,7 @@ knitr::include_graphics("images/undo2.png")
 
 
 ```{r index50, echo=FALSE}
-knitr::include_graphics("images/undo3.png")
+knitr::include_graphics("images/undo3.jpg")
 ```
 
 
@@ -488,13 +488,13 @@ knitr::include_graphics("images/undo3.png")
 
 
 ```{r index51, echo=FALSE}
-knitr::include_graphics("images/undo4.png")
+knitr::include_graphics("images/undo4.jpg")
 ```
 
 
 
 ```{r index52, echo=FALSE}
-knitr::include_graphics("images/undo5.png")
+knitr::include_graphics("images/undo5.jpg")
 ```
 
 
@@ -506,7 +506,7 @@ Forrige redigering vil nå være angret.
 
 
 ```{r index53, echo=FALSE}
-knitr::include_graphics("images/redo.png")
+knitr::include_graphics("images/redo.jpg")
 ```
 
 
@@ -514,7 +514,7 @@ knitr::include_graphics("images/redo.png")
 
 
 ```{r index54, echo=FALSE}
-knitr::include_graphics("images/redo2.png")
+knitr::include_graphics("images/redo2.jpg")
 ```
 
 
@@ -522,13 +522,13 @@ knitr::include_graphics("images/redo2.png")
 
 
 ```{r index55, echo=FALSE}
-knitr::include_graphics("images/redo3.png")
+knitr::include_graphics("images/redo3.jpg")
 ```
 
 
 
 ```{r index56, echo=FALSE}
-knitr::include_graphics("images/redo4.png")
+knitr::include_graphics("images/redo4.jpg")
 ```
 
 
@@ -540,13 +540,13 @@ For å forhindre overlappende polygoner vil nye polygoner som utfigureres, autom
 
 
 ```{r index57, echo=FALSE}
-knitr::include_graphics("images/neighbour_polygon.png")
+knitr::include_graphics("images/neighbour_polygon.jpg")
 ```
 
 
 
 ```{r index58, echo=FALSE}
-knitr::include_graphics("images/neighbour_polygon2.png")
+knitr::include_graphics("images/neighbour_polygon2.jpg")
 ```
 
 
@@ -562,7 +562,7 @@ Den markerte polygonen vil nå lyse gult.
 
 
 ```{r index59, echo=FALSE}
-knitr::include_graphics("images/edit_polygon.png")
+knitr::include_graphics("images/edit_polygon.jpg")
 ```
 
 
@@ -570,7 +570,7 @@ knitr::include_graphics("images/edit_polygon.png")
 
 
 ```{r index60, echo=FALSE}
-knitr::include_graphics("images/edit_polygon2.png")
+knitr::include_graphics("images/edit_polygon2.jpg")
 ```
 
 
@@ -578,7 +578,7 @@ knitr::include_graphics("images/edit_polygon2.png")
 
 
 ```{r index61, echo=FALSE}
-knitr::include_graphics("images/edit_polygon3.png")
+knitr::include_graphics("images/edit_polygon3.jpg")
 ```
 
 
@@ -586,7 +586,7 @@ knitr::include_graphics("images/edit_polygon3.png")
 
 
 ```{r index62, echo=FALSE}
-knitr::include_graphics("images/edit_polygon4.png")
+knitr::include_graphics("images/edit_polygon4.jpg")
 ```
 
 
@@ -594,7 +594,7 @@ knitr::include_graphics("images/edit_polygon4.png")
 
 
 ```{r index63, echo=FALSE}
-knitr::include_graphics("images/edit_polygon5.png")
+knitr::include_graphics("images/edit_polygon5.jpg")
 ```
 
 
@@ -602,7 +602,7 @@ knitr::include_graphics("images/edit_polygon5.png")
 
 
 ```{r index64, echo=FALSE}
-knitr::include_graphics("images/edit_polygon6.png")
+knitr::include_graphics("images/edit_polygon6.jpg")
 ```
 
 
@@ -610,7 +610,7 @@ knitr::include_graphics("images/edit_polygon6.png")
 
 
 ```{r index65, echo=FALSE}
-knitr::include_graphics("images/edit_polygon7.png")
+knitr::include_graphics("images/edit_polygon7.jpg")
 ```
 
 
@@ -618,7 +618,7 @@ knitr::include_graphics("images/edit_polygon7.png")
 
 
 ```{r index66, echo=FALSE}
-knitr::include_graphics("images/edit_polygon14.png")
+knitr::include_graphics("images/edit_polygon14.jpg")
 ```
 
 
@@ -626,7 +626,7 @@ knitr::include_graphics("images/edit_polygon14.png")
 
 
 ```{r index67, echo=FALSE}
-knitr::include_graphics("images/edit_polygon9.png")
+knitr::include_graphics("images/edit_polygon9.jpg")
 ```
 
 
@@ -634,7 +634,7 @@ knitr::include_graphics("images/edit_polygon9.png")
 
 
 ```{r index68, echo=FALSE}
-knitr::include_graphics("images/edit_polygon10.png")
+knitr::include_graphics("images/edit_polygon10.jpg")
 ```
 
 
@@ -645,7 +645,7 @@ B. Klikk på **`X`** for trekke tilbake alle endringene
 
 
 ```{r index69, echo=FALSE}
-knitr::include_graphics("images/edit_polygon11.png")
+knitr::include_graphics("images/edit_polygon11.jpg")
 ```
 
 
@@ -653,13 +653,13 @@ knitr::include_graphics("images/edit_polygon11.png")
 
 
 ```{r index70, echo=FALSE}
-knitr::include_graphics("images/edit_polygon12.png")
+knitr::include_graphics("images/edit_polygon12.jpg")
 ```
 
 
 
 ```{r index71, echo=FALSE}
-knitr::include_graphics("images/edit_polygon13.png")
+knitr::include_graphics("images/edit_polygon13.jpg")
 ```
 
 
@@ -675,7 +675,7 @@ Den markerte polygonen vil nå lyse gult.
 
 
 ```{r index72, echo=FALSE}
-knitr::include_graphics("images/edit_polygon.png")
+knitr::include_graphics("images/edit_polygon.jpg")
 ```
 
 
@@ -683,7 +683,7 @@ knitr::include_graphics("images/edit_polygon.png")
 
 
 ```{r index73, echo=FALSE}
-knitr::include_graphics("images/edit_polygon2.png")
+knitr::include_graphics("images/edit_polygon2.jpg")
 ```
 
 
@@ -691,7 +691,7 @@ knitr::include_graphics("images/edit_polygon2.png")
 
 
 ```{r index74, echo=FALSE}
-knitr::include_graphics("images/edit_polygon3.png")
+knitr::include_graphics("images/edit_polygon3.jpg")
 ```
 
 
@@ -699,7 +699,7 @@ knitr::include_graphics("images/edit_polygon3.png")
 
 
 ```{r index75, echo=FALSE}
-knitr::include_graphics("images/split_polygon.png")
+knitr::include_graphics("images/split_polygon.jpg")
 ```
 
 
@@ -707,13 +707,13 @@ knitr::include_graphics("images/split_polygon.png")
 
 
 ```{r index76, echo=FALSE}
-knitr::include_graphics("images/split_polygon2.png")
+knitr::include_graphics("images/split_polygon2.jpg")
 ```
 
 
 
 ```{r index77, echo=FALSE}
-knitr::include_graphics("images/split_polygon3.png")
+knitr::include_graphics("images/split_polygon3.jpg")
 ```
 \
 
@@ -721,13 +721,13 @@ knitr::include_graphics("images/split_polygon3.png")
 
 
 ```{r index78, echo=FALSE}
-knitr::include_graphics("images/split_polygon4.png")
+knitr::include_graphics("images/split_polygon4.jpg")
 ```
 
 
 
 ```{r index79, echo=FALSE}
-knitr::include_graphics("images/split_polygon5.png")
+knitr::include_graphics("images/split_polygon5.jpg")
 ```
 
 
@@ -743,7 +743,7 @@ Den markerte polygonen vil nå lyse gult.
 
 
 ```{r index80, echo=FALSE}
-knitr::include_graphics("images/edit_polygon.png")
+knitr::include_graphics("images/edit_polygon.jpg")
 ```
 
 
@@ -751,7 +751,7 @@ knitr::include_graphics("images/edit_polygon.png")
 
 
 ```{r index81, echo=FALSE}
-knitr::include_graphics("images/edit_polygon2.png")
+knitr::include_graphics("images/edit_polygon2.jpg")
 ```
 
 
@@ -759,7 +759,7 @@ knitr::include_graphics("images/edit_polygon2.png")
 
 
 ```{r index82, echo=FALSE}
-knitr::include_graphics("images/edit_shape2.png")
+knitr::include_graphics("images/edit_shape2.jpg")
 ```
 
 
@@ -767,7 +767,7 @@ knitr::include_graphics("images/edit_shape2.png")
 
 
 ```{r index83, echo=FALSE}
-knitr::include_graphics("images/edit_shape.png")
+knitr::include_graphics("images/edit_shape.jpg")
 ```
 
 
@@ -775,13 +775,13 @@ knitr::include_graphics("images/edit_shape.png")
 
 
 ```{r index84, echo=FALSE}
-knitr::include_graphics("images/edit_shape3.png")
+knitr::include_graphics("images/edit_shape3.jpg")
 ```
 
 
 
 ```{r index85, echo=FALSE}
-knitr::include_graphics("images/edit_shape4.png")
+knitr::include_graphics("images/edit_shape4.jpg")
 ```
 
 
@@ -789,13 +789,13 @@ knitr::include_graphics("images/edit_shape4.png")
 
 
 ```{r index86, echo=FALSE}
-knitr::include_graphics("images/edit_shape5.png")
+knitr::include_graphics("images/edit_shape5.jpg")
 ```
 
 
 
 ```{r index87, echo=FALSE}
-knitr::include_graphics("images/edit_shape6.png")
+knitr::include_graphics("images/edit_shape6.jpg")
 ```
 
 
@@ -811,7 +811,7 @@ Den markerte polygonen vil nå lyse gult.
 
 
 ```{r index88, echo=FALSE}
-knitr::include_graphics("images/erase.png")
+knitr::include_graphics("images/erase.jpg")
 ```
 
 
@@ -819,7 +819,7 @@ knitr::include_graphics("images/erase.png")
 
 
 ```{r index89, echo=FALSE}
-knitr::include_graphics("images/erase2.png")
+knitr::include_graphics("images/erase2.jpg")
 ```
 
 
@@ -827,7 +827,7 @@ knitr::include_graphics("images/erase2.png")
 
 
 ```{r index90, echo=FALSE}
-knitr::include_graphics("images/erase3.png")
+knitr::include_graphics("images/erase3.jpg")
 ```
 
 
@@ -835,7 +835,7 @@ knitr::include_graphics("images/erase3.png")
 
 
 ```{r index91, echo=FALSE}
-knitr::include_graphics("images/erase4.png")
+knitr::include_graphics("images/erase4.jpg")
 ```
 
 
@@ -843,7 +843,7 @@ knitr::include_graphics("images/erase4.png")
 
 
 ```{r index92, echo=FALSE}
-knitr::include_graphics("images/erase5.png")
+knitr::include_graphics("images/erase5.jpg")
 ```
 
 
@@ -851,13 +851,13 @@ knitr::include_graphics("images/erase5.png")
 
 
 ```{r index93, echo=FALSE}
-knitr::include_graphics("images/erase6.png")
+knitr::include_graphics("images/erase6.jpg")
 ```
 
 
 
 ```{r index94, echo=FALSE}
-knitr::include_graphics("images/erase7.png")
+knitr::include_graphics("images/erase7.jpg")
 ```
 
 
@@ -865,7 +865,7 @@ knitr::include_graphics("images/erase7.png")
 
 
 ```{r index95, echo=FALSE}
-knitr::include_graphics("images/erase8.png")
+knitr::include_graphics("images/erase8.jpg")
 ```
 
 
@@ -881,7 +881,7 @@ Den markerte polygonen vil nå lyse gult.
 
 
 ```{r index96, echo=FALSE}
-knitr::include_graphics("images/fill_ring.png")
+knitr::include_graphics("images/fill_ring.jpg")
 ```
 
 
@@ -889,7 +889,7 @@ knitr::include_graphics("images/fill_ring.png")
 
 
 ```{r index97, echo=FALSE}
-knitr::include_graphics("images/fill_ring2.png")
+knitr::include_graphics("images/fill_ring2.jpg")
 ```
 
 
@@ -897,7 +897,7 @@ knitr::include_graphics("images/fill_ring2.png")
 
 
 ```{r index98, echo=FALSE}
-knitr::include_graphics("images/fill_ring3.png")
+knitr::include_graphics("images/fill_ring3.jpg")
 ```
 
 
@@ -905,7 +905,7 @@ knitr::include_graphics("images/fill_ring3.png")
 
 
 ```{r index99, echo=FALSE}
-knitr::include_graphics("images/fill_ring4.png")
+knitr::include_graphics("images/fill_ring4.jpg")
 ```
 
 
@@ -913,13 +913,13 @@ knitr::include_graphics("images/fill_ring4.png")
 
 
 ```{r index100, echo=FALSE}
-knitr::include_graphics("images/fill_ring5.png")
+knitr::include_graphics("images/fill_ring5.jpg")
 ```
 
 
 
 ```{r index101, echo=FALSE}
-knitr::include_graphics("images/fill_ring6.png")
+knitr::include_graphics("images/fill_ring6.jpg")
 ```
 
 
@@ -927,7 +927,7 @@ knitr::include_graphics("images/fill_ring6.png")
 
 
 ```{r index102, echo=FALSE}
-knitr::include_graphics("images/fill_ring7.png")
+knitr::include_graphics("images/fill_ring7.jpg")
 ```
 
 
@@ -935,7 +935,7 @@ knitr::include_graphics("images/fill_ring7.png")
 
 
 ```{r index103, echo=FALSE}
-knitr::include_graphics("images/fill_ring8.png")
+knitr::include_graphics("images/fill_ring8.jpg")
 ```
 
 
@@ -949,7 +949,7 @@ knitr::include_graphics("images/fill_ring9.png")
 
 
 ```{r index105, echo=FALSE}
-knitr::include_graphics("images/fill_ring10.png")
+knitr::include_graphics("images/fill_ring10.jpg")
 ```
 
 
@@ -959,7 +959,7 @@ Den nye polygonen vil dukke opp.
 
 
 ```{r index106, echo=FALSE}
-knitr::include_graphics("images/stop_editing.png")
+knitr::include_graphics("images/stop_editing.jpg")
 ```
 
 
@@ -973,7 +973,7 @@ Den markerte polygonen vil nå lyse gult. Etter splitting av polygon vil den spl
 
 
 ```{r index107, echo=FALSE}
-knitr::include_graphics("images/edit_attribute.png")
+knitr::include_graphics("images/edit_attribute.jpg")
 ```
 
 
@@ -981,7 +981,7 @@ knitr::include_graphics("images/edit_attribute.png")
 
 
 ```{r index108, echo=FALSE}
-knitr::include_graphics("images/edit_attribute2.png")
+knitr::include_graphics("images/edit_attribute2.jpg")
 ```
 
 
@@ -989,7 +989,7 @@ knitr::include_graphics("images/edit_attribute2.png")
 
 
 ```{r index109, echo=FALSE}
-knitr::include_graphics("images/edit_attribute3.png")
+knitr::include_graphics("images/edit_attribute3.jpg")
 ```
 
 
@@ -997,7 +997,7 @@ knitr::include_graphics("images/edit_attribute3.png")
 
 
 ```{r index110, echo=FALSE}
-knitr::include_graphics("images/edit_attribute4.png")
+knitr::include_graphics("images/edit_attribute4.jpg")
 ```
 
 
@@ -1005,11 +1005,11 @@ knitr::include_graphics("images/edit_attribute4.png")
 
 
 ```{r index111, echo=FALSE}
-knitr::include_graphics("images/edit_attribute5.png")
+knitr::include_graphics("images/edit_attribute5.jpg")
 ```
  
 ```{r index112, echo=FALSE}
-knitr::include_graphics("images/edit_attribute6.png")
+knitr::include_graphics("images/edit_attribute6.jpg")
 ```
 
 
@@ -1025,7 +1025,7 @@ Den markerte polygonen vil nå lyse gult.
 
 
 ```{r index113, echo=FALSE}
-knitr::include_graphics("images/delete_polygon2.png")
+knitr::include_graphics("images/delete_polygon2.jpg")
 ```
 
 
@@ -1033,7 +1033,7 @@ knitr::include_graphics("images/delete_polygon2.png")
 
 
 ```{r index114, echo=FALSE}
-knitr::include_graphics("images/delete_polygon3.png")
+knitr::include_graphics("images/delete_polygon3.jpg")
 ```
 
 
@@ -1041,7 +1041,7 @@ knitr::include_graphics("images/delete_polygon3.png")
 
 
 ```{r index115, echo=FALSE}
-knitr::include_graphics("images/delete_polygon4.png")
+knitr::include_graphics("images/delete_polygon4.jpg")
 ```
 
 
@@ -1049,7 +1049,7 @@ knitr::include_graphics("images/delete_polygon4.png")
 
 
 ```{r index116, echo=FALSE}
-knitr::include_graphics("images/delete_polygon5.png")
+knitr::include_graphics("images/delete_polygon5.jpg")
 ```
 
 
@@ -1057,7 +1057,7 @@ knitr::include_graphics("images/delete_polygon5.png")
 
 
 ```{r index117, echo=FALSE}
-knitr::include_graphics("images/delete_polygon6.png")
+knitr::include_graphics("images/delete_polygon6.jpg")
 ```
 
 
@@ -1065,11 +1065,11 @@ knitr::include_graphics("images/delete_polygon6.png")
 
 
 ```{r index118, echo=FALSE}
-knitr::include_graphics("images/delete_polygon7.png")
+knitr::include_graphics("images/delete_polygon7.jpg")
 ```
  
 ```{r index119, echo=FALSE}
-knitr::include_graphics("images/delete_polygon8.png")
+knitr::include_graphics("images/delete_polygon8.jpg")
 ```
 
 
@@ -1081,7 +1081,7 @@ Polygonen vil nå være slettet.
 
 
 ```{r index120, echo=FALSE}
-knitr::include_graphics("images/merge.png")
+knitr::include_graphics("images/merge.jpg")
 ```
 
 
@@ -1091,7 +1091,7 @@ De markerte polygonene vil nå lyse gult.
 
 
 ```{r index121, echo=FALSE}
-knitr::include_graphics("images/merge2.png")
+knitr::include_graphics("images/merge2.jpg")
 ```
 
 
@@ -1099,7 +1099,7 @@ knitr::include_graphics("images/merge2.png")
 
 
 ```{r index122, echo=FALSE}
-knitr::include_graphics("images/merge3.png")
+knitr::include_graphics("images/merge3.jpg")
 ```
 
 
@@ -1107,11 +1107,11 @@ knitr::include_graphics("images/merge3.png")
 
 
 ```{r index123, echo=FALSE}
-knitr::include_graphics("images/merge4.png")
+knitr::include_graphics("images/merge4.jpg")
 ```
  
 ```{r index124, echo=FALSE}
-knitr::include_graphics("images/merge5.png")
+knitr::include_graphics("images/merge5.jpg")
 ```
 
 
@@ -1119,7 +1119,7 @@ knitr::include_graphics("images/merge5.png")
 
 
 ```{r index125, echo=FALSE}
-knitr::include_graphics("images/merge6.png")
+knitr::include_graphics("images/merge6.jpg")
 ```
 
 
@@ -1127,7 +1127,7 @@ knitr::include_graphics("images/merge6.png")
 
 
 ```{r index126, echo=FALSE}
-knitr::include_graphics("images/merge7.png")
+knitr::include_graphics("images/merge7.jpg")
 ```
 
 
@@ -1135,7 +1135,7 @@ knitr::include_graphics("images/merge7.png")
 
 
 ```{r index127, echo=FALSE}
-knitr::include_graphics("images/merge8.png")
+knitr::include_graphics("images/merge8.jpg")
 ```
 
 
@@ -1145,7 +1145,7 @@ Polygonene vil nå være smeltet sammen.
 
 
 ```{r index128, echo=FALSE}
-knitr::include_graphics("images/merge9.png")
+knitr::include_graphics("images/merge9.jpg")
 ```
 
 
@@ -1153,11 +1153,11 @@ knitr::include_graphics("images/merge9.png")
 
 
 ```{r index129, echo=FALSE}
-knitr::include_graphics("images/merge10.png")
+knitr::include_graphics("images/merge10.jpg")
 ```
  
 ```{r index130, echo=FALSE}
-knitr::include_graphics("images/merge11.png")
+knitr::include_graphics("images/merge11.jpg")
 ```
 
 
@@ -1167,7 +1167,7 @@ knitr::include_graphics("images/merge11.png")
 
 
 ```{r index131, echo=FALSE}
-knitr::include_graphics("images/snapping.png")
+knitr::include_graphics("images/snapping.jpg")
 ```
 
 
@@ -1177,7 +1177,7 @@ For å unngå hull i kartet vil symbolet som forflytter seg med digitaliseringsp
 
 
 ```{r index132, echo=FALSE}
-knitr::include_graphics("images/snapping2.png")
+knitr::include_graphics("images/snapping2.jpg")
 ```
 
 
@@ -1185,13 +1185,13 @@ knitr::include_graphics("images/snapping2.png")
 
 
 ```{r index133, echo=FALSE}
-knitr::include_graphics("images/snapping3.png")
+knitr::include_graphics("images/snapping3.jpg")
 ```
 
 
 
 ```{r index134, echo=FALSE}
-knitr::include_graphics("images/snapping4.png")
+knitr::include_graphics("images/snapping4.jpg")
 ```
 
 
@@ -1203,19 +1203,19 @@ For å unngå overlapp mellom polygonene i kartet vil polygongrenser bli flyttet
 
 
 ```{r index135, echo=FALSE}
-knitr::include_graphics("images/topological_editing.png")
+knitr::include_graphics("images/topological_editing.jpg")
 ```
 
 
 
 ```{r index136, echo=FALSE}
-knitr::include_graphics("images/topological_editing2.png")
+knitr::include_graphics("images/topological_editing2.jpg")
 ```
 
 
 
 ```{r index137, echo=FALSE}
-knitr::include_graphics("images/topological_editing3.png")
+knitr::include_graphics("images/topological_editing3.jpg")
 ```
 
 
@@ -1225,7 +1225,7 @@ Denne funksjonen som kalles topologisk redigering kan slås av.
 
 
 ```{r index138, echo=FALSE}
-knitr::include_graphics("images/topological_editing4.png")
+knitr::include_graphics("images/topological_editing4.jpg")
 ```
 
 
@@ -1233,25 +1233,25 @@ knitr::include_graphics("images/topological_editing4.png")
 
 
 ```{r index139, echo=FALSE}
-knitr::include_graphics("images/topological_editing5.png")
+knitr::include_graphics("images/topological_editing5.jpg")
 ```
 
 
 
 ```{r index140, echo=FALSE}
-knitr::include_graphics("images/topological_editing6.png")
+knitr::include_graphics("images/topological_editing6.jpg")
 ```
 
 
 
 ```{r index141, echo=FALSE}
-knitr::include_graphics("images/topological_editing7.png")
+knitr::include_graphics("images/topological_editing7.jpg")
 ```
 
 
 
 ```{r index142, echo=FALSE}
-knitr::include_graphics("images/topological_editing8.png")
+knitr::include_graphics("images/topological_editing8.jpg")
 ```
 
 
@@ -1263,7 +1263,7 @@ Dersom du nå prøver å flytte en hjørnekoordinat som er felles for to polygon
 
 
 ```{r index143, echo=FALSE}
-knitr::include_graphics("images/free_draw.png")
+knitr::include_graphics("images/free_draw.jpg")
 ```
 
 
@@ -1271,7 +1271,7 @@ knitr::include_graphics("images/free_draw.png")
 
 
 ```{r index144, echo=FALSE}
-knitr::include_graphics("images/free_draw2.png")
+knitr::include_graphics("images/free_draw2.jpg")
 ```
 
 
@@ -1279,13 +1279,13 @@ knitr::include_graphics("images/free_draw2.png")
 
 
 ```{r index145, echo=FALSE}
-knitr::include_graphics("images/free_draw3.png")
+knitr::include_graphics("images/free_draw3.jpg")
 ```
 
 
 
 ```{r index146, echo=FALSE}
-knitr::include_graphics("images/free_draw4.png")
+knitr::include_graphics("images/free_draw4.jpg")
 ```
 
 
@@ -1295,7 +1295,7 @@ knitr::include_graphics("images/free_draw4.png")
 
 
 ```{r index147, echo=FALSE}
-knitr::include_graphics("images/delineate_angles.png")
+knitr::include_graphics("images/delineate_angles.jpg")
 ```
 
 
@@ -1303,7 +1303,7 @@ knitr::include_graphics("images/delineate_angles.png")
 
 
 ```{r index148, echo=FALSE}
-knitr::include_graphics("images/delineate_angles2.png")
+knitr::include_graphics("images/delineate_angles2.jpg")
 ```
 
 
@@ -1311,13 +1311,13 @@ knitr::include_graphics("images/delineate_angles2.png")
 
 
 ```{r index149, echo=FALSE}
-knitr::include_graphics("images/delineate_angles3.png")
+knitr::include_graphics("images/delineate_angles3.jpg")
 ```
 
 
 
 ```{r index150, echo=FALSE}
-knitr::include_graphics("images/delineate_angles4.png")
+knitr::include_graphics("images/delineate_angles4.jpg")
 ```
 
 
@@ -1327,7 +1327,7 @@ knitr::include_graphics("images/delineate_angles4.png")
 
 
 ```{r index151, echo=FALSE}
-knitr::include_graphics("images/gps.png")
+knitr::include_graphics("images/gps.jpg")
 ```
 
 
@@ -1335,7 +1335,7 @@ knitr::include_graphics("images/gps.png")
 
 
 ```{r index152, echo=FALSE}
-knitr::include_graphics("images/gps2.png")
+knitr::include_graphics("images/gps2.jpg")
 ```
 
 
@@ -1355,7 +1355,7 @@ Endre gjennomsiktigheten på kartlagene som ønsket. Dette kan gjøre det enkler
 
 
 ```{r index154, echo=FALSE}
-knitr::include_graphics("images/visibility.png")
+knitr::include_graphics("images/visibility.jpg")
 ```
 
 
@@ -1363,7 +1363,7 @@ knitr::include_graphics("images/visibility.png")
 
 
 ```{r index155, echo=FALSE}
-knitr::include_graphics("images/visibility2.png")
+knitr::include_graphics("images/visibility2.jpg")
 ```
 
 
@@ -1371,19 +1371,19 @@ knitr::include_graphics("images/visibility2.png")
 
 
 ```{r index156, echo=FALSE}
-knitr::include_graphics("images/visibility3.png")
+knitr::include_graphics("images/visibility3.jpg")
 ```
 
 
 
 ```{r index157, echo=FALSE}
-knitr::include_graphics("images/visibility4.png")
+knitr::include_graphics("images/visibility4.jpg")
 ```
 
 
 
 ```{r index158, echo=FALSE}
-knitr::include_graphics("images/visibility5.png")
+knitr::include_graphics("images/visibility5.jpg")
 ```
 
 
@@ -1395,7 +1395,7 @@ Sørg for at redigeringsmodus er på (se \@ref(redigeringsmodus) [Slå på redig
 
 
 ```{r index159, echo=FALSE}
-knitr::include_graphics("images/points.png")
+knitr::include_graphics("images/points.jpg")
 ```
 
 
@@ -1403,7 +1403,7 @@ knitr::include_graphics("images/points.png")
 
 
 ```{r index160, echo=FALSE}
-knitr::include_graphics("images/points2.png")
+knitr::include_graphics("images/points2.jpg")
 ```
 
 
@@ -1413,13 +1413,13 @@ Det vil nå dukke opp et nytt vindu.
 
 
 ```{r index161, echo=FALSE}
-knitr::include_graphics("images/points3.png")
+knitr::include_graphics("images/points3.jpg")
 ```
 
 
 
 ```{r index162, echo=FALSE}
-knitr::include_graphics("images/points4.png")
+knitr::include_graphics("images/points4.jpg")
 ```
 
 
@@ -1431,7 +1431,7 @@ Et punkt vil nå være opprettet.
 
 
 ```{r index163, echo=FALSE}
-knitr::include_graphics("images/return_home.png")
+knitr::include_graphics("images/return_home.jpg")
 ```
 
 
@@ -1439,7 +1439,7 @@ knitr::include_graphics("images/return_home.png")
 
 
 ```{r index164, echo=FALSE}
-knitr::include_graphics("images/return_home2.png")
+knitr::include_graphics("images/return_home2.jpg")
 ```
 
 
@@ -1457,7 +1457,7 @@ Du vil nå se hovedmenyen.
 
 
 ```{r index166, echo=FALSE}
-knitr::include_graphics("images/push.png")
+knitr::include_graphics("images/push.jpg")
 ```
 
 
@@ -1467,7 +1467,7 @@ Da ser man at skya har fått et siffer på seg. Det betyr at prosjektet på enhe
 
 
 ```{r index167, echo=FALSE}
-knitr::include_graphics("images/push2.png")
+knitr::include_graphics("images/push2.jpg")
 ```
 
 

@@ -373,5 +373,5 @@ Defined by:
 5. Build the zip: `python build_plugin_zip.py` -> `dist/nin_qgis_plugin-X.Y.zip`. Test it once with *Plugins -> Install from ZIP* in a QGIS without the development symlink.
 6. Upload the zip on <https://plugins.qgis.org/plugins/nin_qgis_plugin/> (*Add version*, OSGeo login), or run `nin_qgis_plugin/plugin_upload.py dist/nin_qgis_plugin-X.Y.zip`.
 7. Create the GitHub release from the tag (*Releases -> Draft a new release*, generate notes, attach the zip).
-8. Publish the user guide if it changed: render with `publish_book.R` (or `bookdown::render_book`) and push `user-guide/_book` to `gh-pages`: `git subtree push --prefix user-guide/_book origin gh-pages`.
+8. Publish the user guide if it changed: `Rscript scripts/publish_book.R` renders the book and pushes it to the `gh-pages` branch. The rendered book (`user-guide/_book`) is not tracked on `master`. Compress new screenshots first with `python scripts/compress_guide_images.py --apply` (needs `Pillow`).
 9. Close the issues listed in the changelog.
