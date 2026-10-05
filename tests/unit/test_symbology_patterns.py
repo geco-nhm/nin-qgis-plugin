@@ -11,7 +11,7 @@ from symbology_tools.patterns import (
     MIN_PATTERN_CONTRAST, OUTPUT_COLUMNS, build_symbology, catalogue_gaps,
     dryness_class, ensure_contrast, kalk_angle, load_hovedtype_patterns,
     load_variable_rules, marker_variant, symbol_signature, symbol_to_row,
-    validate_symbology, value_colour, value_midpoint, value_span,
+    validate_symbology, value_colour, value_midpoint, value_ranks, value_span,
 )
 
 
@@ -43,6 +43,23 @@ def test_dryness_class_goes_from_moist_to_dry():
     extent = (1, 8)
     classes = [dryness_class(values, extent) for values in ("a,b", "c,d", "e,f", "g,h")]
     assert classes == [0, 1, 2, 3]
+    # Blue only when the whole range is moist
+    assert dryness_class("b,c", extent) == 1
+    # A range over most of the scale says nothing
+    assert dryness_class("a,b,c,d,e,f", extent) is None
+
+
+def test_value_ranks_start_above_the_lowest_step():
+    scales = {"M005": [
+        {"variables": {"LM-VM": "0,a,b,c"}},
+        {"variables": {"LM-VM": "0,a"}},
+        {"variables": {"LM-VM": "b,c"}},
+        {"variables": {"LM-VM": "c"}},
+    ]}
+    ranks = value_ranks(scales, {"LM-VM": (0, 3)})["LM-VM"]
+    # Ranges that include the lowest step show nothing
+    assert ranks["0,a,b,c"] == 0 and ranks["0,a"] == 0
+    assert ranks["b,c"] == 1 and ranks["c"] == 2
 
 
 def test_marker_variant():
@@ -74,7 +91,7 @@ def test_ensure_contrast(fill_hex):
 
 def test_rules_use_known_elements():
     for rule in load_variable_rules().values():
-        assert rule["element"] in ("hatch_angle", "hatch_colour", "marker")
+        assert rule["element"] in ("hatch_angle", "hatch_colour", "hatch_style", "marker")
         assert bool(rule["shape"]) == (rule["element"] == "marker")
     for emblem in load_hovedtype_patterns().values():
         assert emblem["element"] in ("hatch_colour", "marker")
@@ -127,6 +144,10 @@ def test_coarser_scales_have_simpler_symbols(symbology):
 
 def test_forest_example(symbology):
     '''Kalkinnhold sets the angle; drought and moisture appear at finer scales.'''
+
+    # The common forest units include dry steps and must not show water
+    for kode_id in ("TB01-M020-01", "TB01-M020-02"):
+        assert _symbol(symbology, "M020", kode_id)["markers"] == []
 
     kalkskog = _symbol(symbology, "M050", "TB01-M050-02")
     assert kalkskog["hatch_angle"] == ANGLE_KALKRIK

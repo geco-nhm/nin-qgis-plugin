@@ -1,6 +1,6 @@
 # SYMBOLOGY_3.0 — plan
 
-Branch: `symbology`. Status: **all four iterations committed as first drafts, awaiting review**. Last updated 2026-09-29.
+Branch: `symbology`. Status: **first drafts of all iterations committed and tried on field data (2026-10-05); awaiting review**. Last updated 2026-09-29.
 
 Iteration 1 output: `nin_qgis_plugin/csv/symbology/hovedtype_colours.csv`,
 `docs/symbology/fargeoversikt.html`, documentation in `docs/symbology/README.md`.
@@ -151,21 +151,27 @@ nin_qgis_plugin/csv/symbology/symbology_M005.csv, _M020.csv, _M050.csv
 | 1 | Hovedtype palette (72 colours, land and wetland) + colour overview | Draft 2, revised after the 2020 review comments. Needs colour review |
 | 2 | Pattern rules + symbols for all three scales + rendered overview + validator | Draft 1. Needs review |
 | 3 | QML export, rendered by QGIS 3.40 | Draft 1. Not compared side by side with the old QML, not tried in QGIS 4 |
-| 4 | Plugin integration (replaces hash colours), unit and QGIS tests | Code done and tested at symbol level. Not tried in a real project; user guide not updated |
+| 4 | Plugin integration (replaces hash colours), unit and QGIS tests | Code done and tested at symbol level. User guide not updated |
+| 5 | Trial on three mapped areas (M020) with the plugin's symbols | Done 2026-10-05. Three rules corrected; findings in `docs/symbology/README.md` |
 
 ## 5.1 Open issues for the next round
 
 1. TG01 Nakne løsmasser is too heavy: up to four pattern layers, large open
-   markers. Nominal variables (løsmassetype) should not use size ranks.
-2. 25 units at M005 are separated only by tie-break (dashed hatch or a
-   neutral marker), mostly TI01 and TM06, where the catalogue has no
-   variable that separates the units.
+   markers. Proposal: give each løsmassetype (LT, 7 values) its own shade
+   of the sand fill, as the M050 units of TG01 are split by LT anyway;
+   then DK is one marker, ØD one coloured circle, KA the hatch.
+2. 31 units at M005 are separated only by a neutral tie-break (dashed
+   hatch or a neutral marker). Either accept, or add unit-level overrides
+   in `hovedtype_patterns.csv` for TI01, TM06 and TA01.
 3. Aggregation: keep the same-rules approach, or return to strict
    inheritance so that a child always shows its parent's hatch angle.
 4. Water groups (NA-L, NA-O, NA-M, NA-F, NA-I) have one fill per group.
 5. "Myrkosten" (vegetation map symbols, 1980) was recommended by two
    reviewers but is not among the reference files.
 6. Print and field test, QGIS 4 test, user guide chapter.
+7. From the trial: patterns vanish in polygons narrower than 40 m at
+   1:5 000; TA03 and TH01 look alike at 50 % fill transparency; kalkfattig
+   hatch covers most of the map.
 
 ## 6. Decisions (2026-09-29)
 

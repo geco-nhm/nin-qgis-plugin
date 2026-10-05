@@ -38,7 +38,7 @@ class TestSymbologySymbols(unittest.TestCase):
         self.assertEqual(fill.color().alpha(), 128)
         self.assertIsInstance(hatch, QgsLinePatternFillSymbolLayer)
         self.assertEqual(hatch.lineAngle(), 90)
-        self.assertEqual(hatch.distance(), 3)
+        self.assertEqual(hatch.distance(), 4)
         # Only the fill is transparent
         self.assertEqual(hatch.subSymbol().color().alpha(), 255)
         self.assertIsInstance(markers, QgsPointPatternFillSymbolLayer)

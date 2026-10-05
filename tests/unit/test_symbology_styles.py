@@ -39,7 +39,7 @@ def test_land_unit_has_a_full_symbol():
     style = load_unit_styles("M005")["TB01-M005-15"]
     assert style["fill_hex"] == "#8ACA8B"
     assert style["hatch"]["angle"] == 90
-    assert style["hatch"]["spacing_mm"] == 3
+    assert style["hatch"]["spacing_mm"] == 4
     assert [marker["shape"] for marker in style["markers"]] == ["circle"]
 
 

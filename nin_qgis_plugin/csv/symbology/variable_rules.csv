@@ -3,6 +3,7 @@ LM-KA,Kalkinnhold,hatch_angle,,,,"Skravurvinkel: skrå = kalkfattig, vannrett = 
 LM-UF,Uttørkingsfare,hatch_colour,,,,"Skravurfarge: blå = frisk, grå = noe tørkeutsatt, oransje = tørkeutsatt, mørk rød = svært tørkeutsatt"
 LM-UE,Uttørkingseksponering,hatch_colour,,,,"Skravurfarge: blå = lite eksponert, grå, oransje, mørk rød = svært eksponert"
 LM-TV,Tørrleggingsvarighet,hatch_colour,,,,"Skravurfarge: blå = sjelden tørrlagt, grå, oransje, mørk rød = lenge tørrlagt"
+LM-MF,Myrflatepreg,hatch_style,,,,"Stiplet skravur = myrkant, heltrukken skravur = myrflate"
 AD-ØD,Økologisk differensiering,marker,circle,#4A4A4A,A=fill:NA-TD06;B=fill:NA-TA03;C=#FFFFFF;D=#2E7D32,"Sirkel i fargen til naturtypen marka ligner: rabbe, fjellhei, snøleie (hvit) eller skog (grønn)"
 LM-KI,Kildevannspåvirkning,marker,circle,#1F5FBF,,"Blå sirkel: kildevannspåvirket"
 LM-VM,Vannmetning,marker,circle,#1F5FBF,,"Blå sirkel: fuktig mark"

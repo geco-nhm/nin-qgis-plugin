@@ -1,86 +1,86 @@
 kode_id,navn,hovedtype,parent_kode_id,fill_hex,outline_hex,hatch_angle,hatch_colour,hatch_style,hatch_spacing_mm,hatch_width_mm,marker1_shape,marker1_colour,marker1_size_mm,marker1_filled,marker2_shape,marker2_colour,marker2_size_mm,marker2_filled,marker3_shape,marker3_colour,marker3_size_mm,marker3_filled,marker_spacing_mm,forklaring
-TA01-M050-01,Svært kalkfattig til noe kalkrikt nakent berg,NA-TA01,,#BBBEC1,#FFFFFF,,,,,,circle,#FFFFFF,1.0,1,,,,,,,,,4.0,"Snødekkebetinget vekstsesongreduksjon 0,a,b,c,d,e,f: sirkel 1.0 mm"
-TA01-M050-02,Kalkrikt nakent berg,NA-TA01,,#BBBEC1,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
-TA02-M050-01,Kalkfattig til litt kalkrik åpen grunnlendt mark,NA-TA02,,#DDD9D2,#FFFFFF,0,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
-TA02-M050-02,Temmelig til ekstremt kalkrik åpen grunnlendt mark,NA-TA02,,#DDD9D2,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
-TA03-M050-01,Kalkfattig til litt kalkrik arktisk-alpin hei og leside,NA-TA03,,#CCA779,#FFFFFF,0,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
-TA03-M050-02,Kalkrik til saltanriket arktisk-alpin hei og leside,NA-TA03,,#CCA779,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold g,h,i,j: loddrett skravur"
-TA04-M050-01,Kalkfattig til litt kalkrik arktisk-alpin grasmark,NA-TA04,,#E6CA85,#FFFFFF,0,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
-TA04-M050-02,Klart kalkrik arktisk-alpin grasmark,NA-TA04,,#E6CA85,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
-TB01-M050-01,Kalkfattig til intermediær skog,NA-TB01,,#8ACA8B,#FFFFFF,0,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
-TB01-M050-02,Kalkskog,NA-TB01,,#8ACA8B,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
+TA01-M050-01,Svært kalkfattig til noe kalkrikt nakent berg,NA-TA01,,#BBBEC1,#FFFFFF,,,,,,,,,,,,,,,,,,,
+TA01-M050-02,Kalkrikt nakent berg,NA-TA01,,#BBBEC1,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
+TA02-M050-01,Kalkfattig til litt kalkrik åpen grunnlendt mark,NA-TA02,,#DDD9D2,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
+TA02-M050-02,Temmelig til ekstremt kalkrik åpen grunnlendt mark,NA-TA02,,#DDD9D2,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
+TA03-M050-01,Kalkfattig til litt kalkrik arktisk-alpin hei og leside,NA-TA03,,#CCA779,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
+TA03-M050-02,Kalkrik til saltanriket arktisk-alpin hei og leside,NA-TA03,,#CCA779,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i,j: loddrett skravur"
+TA04-M050-01,Kalkfattig til litt kalkrik arktisk-alpin grasmark,NA-TA04,,#E6CA85,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
+TA04-M050-02,Klart kalkrik arktisk-alpin grasmark,NA-TA04,,#E6CA85,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
+TB01-M050-01,Kalkfattig til intermediær skog,NA-TB01,,#8ACA8B,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
+TB01-M050-02,Kalkskog,NA-TB01,,#8ACA8B,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
 TC01-M050-01,Strandberg,NA-TC01,,#8BA8BC,#FFFFFF,,,,,,,,,,,,,,,,,,,
-TC02-M050-01,Kalkfattig til litt kalkrik grotte og overheng,NA-TC02,,#8B87A2,#FFFFFF,45,#3A3A3A,solid,3.0,0.3,arrowhead,#4A4A4A,1.0,1,,,,,,,,,4.0,"Kalkinnhold a,b,c,d,e,f: skrå skravur; Grottebetinget skjerming a,b,c,d: vinkel 1.0 mm"
-TC02-M050-02,Sterkt kalkrik grotte og overheng,NA-TC02,,#8B87A2,#FFFFFF,,,,,,arrowhead,#4A4A4A,2.2,1,,,,,,,,,4.0,"Grottebetinget skjerming a,b,c,d,y: vinkel 2.2 mm"
-TC03-M050-01,Leire- og siltstrand i geolittoral,NA-TC03,,#D1CBB8,#FFFFFF,135,#C45F00,solid,3.0,0.3,square,#3A3A3A,1.0,1,,,,,,,,,4.0,"Tørrleggingsvarighet c,d,e,f,g,h: oransje skravur; Dominerende kornstørrelse A,B: firkant 1.0 mm"
-TC03-M050-02,"Sand-, skjellsand-, grus-, og ruglebunn-strand i geo- til supralittoral",NA-TC03,,#D1CBB8,#FFFFFF,135,#C45F00,solid,3.0,0.3,square,#3A3A3A,2.2,1,,,,,,,,,4.0,"Tørrleggingsvarighet c,d,e,f,g,h,i,j,k: oransje skravur; Dominerende kornstørrelse C,D: firkant 2.2 mm"
-TC03-M050-03,Stein- og blokkstrand i geo- til supralittoral,NA-TC03,,#D1CBB8,#FFFFFF,135,#C45F00,solid,3.0,0.3,square,#3A3A3A,1.6,0,arrowhead,#4A4A4A,1.0,1,,,,,4.0,"Tørrleggingsvarighet c,d,e,f,g,h,i,j,k: oransje skravur; Dominerende kornstørrelse A,B,C,D,E,F,G: firkant 1.6 mm; Isbetinget forstyrrelsesintensitet 0,a,b,y: vinkel 1.0 mm"
+TC02-M050-01,Kalkfattig til litt kalkrik grotte og overheng,NA-TC02,,#8B87A2,#FFFFFF,45,#3A3A3A,solid,4.0,0.25,arrowhead,#4A4A4A,1.6,1,,,,,,,,,4.0,"Kalkinnhold a,b,c,d,e,f: skrå skravur; Grottebetinget skjerming a,b,c,d: vinkel 1.6 mm"
+TC02-M050-02,Sterkt kalkrik grotte og overheng,NA-TC02,,#8B87A2,#FFFFFF,,,,,,arrowhead,#4A4A4A,1.0,0,,,,,,,,,4.0,"Grottebetinget skjerming a,b,c,d,y: vinkel 1.0 mm"
+TC03-M050-01,Leire- og siltstrand i geolittoral,NA-TC03,,#D1CBB8,#FFFFFF,135,#C45F00,solid,4.0,0.25,square,#3A3A3A,1.6,1,,,,,,,,,4.0,"Tørrleggingsvarighet c,d,e,f,g,h: oransje skravur; Dominerende kornstørrelse A,B: firkant 1.6 mm"
+TC03-M050-02,"Sand-, skjellsand-, grus-, og ruglebunn-strand i geo- til supralittoral",NA-TC03,,#D1CBB8,#FFFFFF,,,,,,square,#3A3A3A,1.0,0,,,,,,,,,4.0,"Dominerende kornstørrelse C,D: firkant 1.0 mm"
+TC03-M050-03,Stein- og blokkstrand i geo- til supralittoral,NA-TC03,,#D1CBB8,#FFFFFF,,,,,,square,#3A3A3A,2.2,0,,,,,,,,,4.0,"Dominerende kornstørrelse A,B,C,D,E,F,G: firkant 2.2 mm"
 TC04-M050-01,Saltanrikningsmark,NA-TC04,,#FDECE8,#FFFFFF,,,,,,,,,,,,,,,,,,,
-TC05-M050-01,Strandeng,NA-TC05,,#E9E697,#FFFFFF,135,#C45F00,solid,3.0,0.3,cross,#00695C,1.0,0,square,#3A3A3A,1.0,1,,,,,4.0,"Tørrleggingsvarighet c,d,e,f,g,h,i,j,k: oransje skravur; Marin salinitet f,g,h: plusstegn 1.0 mm; Substrattype 0,A: firkant 1.0 mm"
-TC05-M050-02,Brakkvanns-strandeng,NA-TC05,,#E9E697,#FFFFFF,135,#C45F00,solid,3.0,0.3,,,,,,,,,,,,,,"Tørrleggingsvarighet c,d,e,f,g,h: oransje skravur"
+TC05-M050-01,Strandeng,NA-TC05,,#E9E697,#FFFFFF,,,,,,cross,#00695C,1.6,0,,,,,,,,,4.0,"Marin salinitet f,g,h: plusstegn 1.6 mm"
+TC05-M050-02,Brakkvanns-strandeng,NA-TC05,,#E9E697,#FFFFFF,135,#C45F00,solid,4.0,0.25,cross,#00695C,1.0,0,,,,,,,,,4.0,"Tørrleggingsvarighet c,d,e,f,g,h: oransje skravur; Marin salinitet b,c,d,e: plusstegn 1.0 mm"
 TC06-M050-01,Fuglefjell-eng,NA-TC06,,#D9BC64,#FFFFFF,,,,,,,,,,,,,,,,,,,
 TC07-M050-01,Fugletopp,NA-TC07,,#A3A369,#FFFFFF,,,,,,,,,,,,,,,,,,,
-TC08-M050-01,Kalkfattig til litt kalkrikt moderat til ekstremt snøleie,NA-TC08,,#EDEBFF,#FFFFFF,,,,,,circle,#FFFFFF,1.0,0,,,,,,,,,4.0,"Snødekkebetinget vekstsesongreduksjon a,b,c,d,e,f,g: sirkel 1.0 mm"
-TC08-M050-02,Sterkt kalkrikt moderat til ekstremt snøleie,NA-TC08,,#EDEBFF,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,circle,#FFFFFF,2.2,1,,,,,,,,,4.0,"Kalkinnhold g,h,i: loddrett skravur; Snødekkebetinget vekstsesongreduksjon a,b,c,d,e,f: sirkel 2.2 mm"
-TD01-M050-01,Kalkfattig til litt kalkrik rasmark,NA-TD01,,#A48D72,#FFFFFF,0,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
-TD01-M050-02,Sterkt kalkrik rasmark,NA-TD01,,#A48D72,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
+TC08-M050-01,Kalkfattig til litt kalkrikt moderat til ekstremt snøleie,NA-TC08,,#EDEBFF,#FFFFFF,,,,,,circle,#FFFFFF,1.6,0,,,,,,,,,4.0,"Snødekkebetinget vekstsesongreduksjon a,b,c,d,e,f,g: sirkel 1.6 mm"
+TC08-M050-02,Sterkt kalkrikt moderat til ekstremt snøleie,NA-TC08,,#EDEBFF,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,circle,#FFFFFF,1.0,0,,,,,,,,,4.0,"Kalkinnhold g,h,i: loddrett skravur; Snødekkebetinget vekstsesongreduksjon a,b,c,d,e,f: sirkel 1.0 mm"
+TD01-M050-01,Kalkfattig til litt kalkrik rasmark,NA-TD01,,#A48D72,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
+TD01-M050-02,Sterkt kalkrik rasmark,NA-TD01,,#A48D72,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
 TD02-M050-01,Flomskredmark,NA-TD02,,#BC9051,#FFFFFF,,,,,,,,,,,,,,,,,,,
-TD03-M050-01,Kalkfattig til litt kalkrik rasmarkeng og -hei,NA-TD03,,#F7B49E,#FFFFFF,,,,,,arrowhead,#4A4A4A,1.0,1,,,,,,,,,4.0,"Rasutsatthet b,c,d: vinkel 1.0 mm"
-TD03-M050-02,Klart kalkrik rasmarkeng og -hei,NA-TD03,,#F7B49E,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
-TD04-M050-01,Fosse-eng,NA-TD04,,#E5EDDF,#FFFFFF,135,#1F5FBF,solid,3.0,0.3,,,,,,,,,,,,,,Blå skravur: fossesprut
+TD03-M050-01,Kalkfattig til litt kalkrik rasmarkeng og -hei,NA-TD03,,#F7B49E,#FFFFFF,,,,,,,,,,,,,,,,,,,
+TD03-M050-02,Klart kalkrik rasmarkeng og -hei,NA-TD03,,#F7B49E,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
+TD04-M050-01,Fosse-eng,NA-TD04,,#E5EDDF,#FFFFFF,135,#1F5FBF,solid,4.0,0.25,,,,,,,,,,,,,,Blå skravur: fossesprut
 TD05-M050-01,Naturlig beitebetinget eng,NA-TD05,,#EEEABC,#FFFFFF,,,,,,,,,,,,,,,,,,,
-TD06-M050-01,Kalkfattig til litt kalkrik rabbe,NA-TD06,,#A87E4E,#FFFFFF,0,#3A3A3A,solid,3.0,0.3,line,#494949,1.0,0,,,,,,,,,4.0,"Kalkinnhold b,c,d,e,f: vannrett skravur; Vindutsatthet b,c,y: strek 1.0 mm"
-TD06-M050-02,Klart kalkrik til saltanriket ekstremrik rabbe,NA-TD06,,#A87E4E,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold g,h,i,j: loddrett skravur"
-TE01-M050-01,Kyst-sanddynemark,NA-TE01,,#FFEDCE,#FFFFFF,,,,,,circle,#1F5FBF,1.0,1,cross,#00695C,1.0,0,line,#4A4A4A,1.0,0,4.0,"Vannmetning 0,a,b,c: sirkel 1.0 mm; Marin salinitet 0,a,b,c,d,e,f,g: plusstegn 1.0 mm; Vindutsatthet a,b,c,y: strek 1.0 mm"
-TE01-M050-02,Innlands-sanddynemark,NA-TE01,,#FFEDCE,#FFFFFF,,,,,,star,#7F462B,1.0,1,,,,,,,,,4.0,"Sandstabilisering b,c,d,e,f,g,h: stjerne 1.0 mm"
-TE02-M050-01,Leir- og siltskred,NA-TE02,,#A05E39,#FFFFFF,,,,,,,,,,,,,,,,,,,
-TE02-M050-02,Sandskred,NA-TE02,,#A05E39,#FFFFFF,,,,,,square,#353535,1.0,1,,,,,,,,,4.0,Dominerende kornstørrelse C: firkant 1.0 mm
-TE02-M050-03,Grusskred,NA-TE02,,#A05E39,#FFFFFF,,,,,,square,#353535,1.6,1,,,,,,,,,4.0,Dominerende kornstørrelse D: firkant 1.6 mm
-TE03-M050-01,Åpen flomfastmark,NA-TE03,,#BEE9E9,#FFFFFF,135,#1F5FBF,solid,3.0,0.3,,,,,,,,,,,,,,Blå skravur: flompåvirket
-TE04-M050-01,Langvarig oversvømt flommark,NA-TE04,,#98BBC0,#FFFFFF,135,#1F5FBF,solid,3.0,0.3,,,,,,,,,,,,,,Blå skravur: flompåvirket
-TE05-M050-01,Kalkfattig til litt kalkrik oppfrysingsmark,NA-TE05,,#B98A8A,#FFFFFF,,,,,,arrowhead,#4A4A4A,1.0,1,,,,,,,,,4.0,"Oppfrysing b,c,d,y: vinkel 1.0 mm"
-TE05-M050-02,Sterkt kalkrik oppfrysingsmark,NA-TE05,,#B98A8A,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
+TD06-M050-01,Kalkfattig til litt kalkrik rabbe,NA-TD06,,#A87E4E,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,line,#494949,1.6,0,,,,,,,,,4.0,"Kalkinnhold b,c,d,e,f: vannrett skravur; Vindutsatthet b,c,y: strek 1.6 mm"
+TD06-M050-02,Klart kalkrik til saltanriket ekstremrik rabbe,NA-TD06,,#A87E4E,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,line,#494949,1.0,0,,,,,,,,,4.0,"Kalkinnhold g,h,i,j: loddrett skravur; Vindutsatthet b,c: strek 1.0 mm"
+TE01-M050-01,Kyst-sanddynemark,NA-TE01,,#FFEDCE,#FFFFFF,,,,,,line,#4A4A4A,1.6,0,,,,,,,,,4.0,"Vindutsatthet a,b,c,y: strek 1.6 mm"
+TE01-M050-02,Innlands-sanddynemark,NA-TE01,,#FFEDCE,#FFFFFF,,,,,,line,#4A4A4A,1.0,0,,,,,,,,,4.0,"Vindutsatthet a,b,c: strek 1.0 mm"
+TE02-M050-01,Leir- og siltskred,NA-TE02,,#A05E39,#FFFFFF,,,,,,square,#353535,1.0,1,,,,,,,,,4.0,"Dominerende kornstørrelse A,B: firkant 1.0 mm"
+TE02-M050-02,Sandskred,NA-TE02,,#A05E39,#FFFFFF,,,,,,square,#353535,1.6,1,,,,,,,,,4.0,Dominerende kornstørrelse C: firkant 1.6 mm
+TE02-M050-03,Grusskred,NA-TE02,,#A05E39,#FFFFFF,,,,,,square,#353535,2.2,1,,,,,,,,,4.0,Dominerende kornstørrelse D: firkant 2.2 mm
+TE03-M050-01,Åpen flomfastmark,NA-TE03,,#BEE9E9,#FFFFFF,135,#1F5FBF,solid,4.0,0.25,,,,,,,,,,,,,,Blå skravur: flompåvirket
+TE04-M050-01,Langvarig oversvømt flommark,NA-TE04,,#98BBC0,#FFFFFF,135,#1F5FBF,solid,4.0,0.25,,,,,,,,,,,,,,Blå skravur: flompåvirket
+TE05-M050-01,Kalkfattig til litt kalkrik oppfrysingsmark,NA-TE05,,#B98A8A,#FFFFFF,,,,,,,,,,,,,,,,,,,
+TE05-M050-02,Sterkt kalkrik oppfrysingsmark,NA-TE05,,#B98A8A,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
 TE06-M050-01,Marin driftvoll,NA-TE06,,#A3A289,#FFFFFF,,,,,,,,,,,,,,,,,,,
 TE07-M050-01,Ferskvannsdriftvoll,NA-TE07,,#B5B697,#FFFFFF,,,,,,,,,,,,,,,,,,,
-TE08-M050-01,Flommarkseng,NA-TE08,,#DEE0AE,#FFFFFF,135,#1F5FBF,solid,3.0,0.3,,,,,,,,,,,,,,Blå skravur: flompåvirket
-TE09-M050-01,Kalkfattig isinnfrysingsmark,NA-TE09,,#DAB4BF,#FFFFFF,45,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold b,c: skrå skravur"
-TE09-M050-02,Intermediær til litt kalkrik isinnfrysingsmark,NA-TE09,,#DAB4BF,#FFFFFF,0,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold d,e,f: vannrett skravur"
-TE09-M050-03,Klart kalkrik isinnfrysingsmark,NA-TE09,,#DAB4BF,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
+TE08-M050-01,Flommarkseng,NA-TE08,,#DEE0AE,#FFFFFF,135,#1F5FBF,solid,4.0,0.25,,,,,,,,,,,,,,Blå skravur: flompåvirket
+TE09-M050-01,Kalkfattig isinnfrysingsmark,NA-TE09,,#DAB4BF,#FFFFFF,45,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold b,c: skrå skravur"
+TE09-M050-02,Intermediær til litt kalkrik isinnfrysingsmark,NA-TE09,,#DAB4BF,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold d,e,f: vannrett skravur"
+TE09-M050-03,Klart kalkrik isinnfrysingsmark,NA-TE09,,#DAB4BF,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
 TF01-M050-01,Sand- og dyneskogsmark,NA-TF01,,#63AE6B,#FFFFFF,,,,,,,,,,,,,,,,,,,
-TF02-M050-01,Ferskvanns-flomskogsmark,NA-TF02,,#74B891,#FFFFFF,135,#1F5FBF,solid,3.0,0.3,,,,,,,,,,,,,,Blå skravur: flompåvirket
-TF02-M050-02,Brakkvanns-flomskogsmark,NA-TF02,,#74B891,#FFFFFF,135,#1F5FBF,solid,3.0,0.3,cross,#00695C,1.0,0,,,,,,,,,4.0,"Blå skravur: flompåvirket; Marin salinitet b,c,d: plusstegn 1.0 mm"
-TG01-M050-01,"Fjellnatur-pregede kalkfattige til svakt kalkrike stedegne grus-løsmasser, stein og blokkmark",NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,2.2,0,arrowhead,#4A4A4A,1.0,1,,,,,4.0,"Dominerende kornstørrelse D,E,F: firkant 2.2 mm; Permafrost 0,A: vinkel 1.0 mm"
-TG01-M050-02,"Fjellnatur-pregede sterkt kalkrike stedegne grus-løsmasser, stein og blokkmark",NA-TG01,,#E3B394,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,circle,#977447,1.6,1,square,#3A3A3A,2.2,0,arrowhead,#4A4A4A,1.0,1,4.0,"Kalkinnhold g,h,i: loddrett skravur; Økologisk differensiering A,B,C: sirkel 1.6 mm; Dominerende kornstørrelse D,E,F: firkant 2.2 mm; Permafrost 0,A: vinkel 1.0 mm"
-TG01-M050-03,Moreneblokkmark,NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,2.2,0,triangle,#3A3A3A,1.0,1,arrowhead,#4A4A4A,1.0,1,4.0,"Dominerende kornstørrelse D,E,F: firkant 2.2 mm; Løsmassetype B: trekant 1.0 mm; Permafrost 0,A: vinkel 1.0 mm"
-TG01-M050-04,"Hevet grus-, stein- og blokkstrand",NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,2.2,0,triangle,#3A3A3A,1.6,1,arrowhead,#4A4A4A,1.0,1,4.0,"Dominerende kornstørrelse D,E,F: firkant 2.2 mm; Løsmassetype C: trekant 1.6 mm; Permafrost 0,A: vinkel 1.0 mm"
-TG01-M050-05,Breforland og snøavsmeltingsområde,NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,1.6,0,triangle,#3A3A3A,2.2,1,arrowhead,#4A4A4A,1.0,1,4.0,"Dominerende kornstørrelse A,B,C,D,E,F,G: firkant 1.6 mm; Løsmassetype D: trekant 2.2 mm; Permafrost 0,A: vinkel 1.0 mm"
-TG01-M050-06,Konsoliderte marine bresedimenter,NA-TG01,,#E3B394,#FFFFFF,0,#3A3A3A,solid,3.0,0.3,square,#3A3A3A,2.2,0,triangle,#3A3A3A,1.0,0,arrowhead,#4A4A4A,1.0,1,4.0,"Kalkinnhold d,e,f,g,h,i: vannrett skravur; Dominerende kornstørrelse D,E,F: firkant 2.2 mm; Løsmassetype E: trekant 1.0 mm; Permafrost 0,A: vinkel 1.0 mm"
-TG01-M050-07,Historisk silt- og leirskred,NA-TG01,,#E3B394,#FFFFFF,0,#3A3A3A,solid,3.0,0.3,square,#3A3A3A,1.0,1,triangle,#3A3A3A,1.6,0,arrowhead,#4A4A4A,1.0,1,4.0,"Kalkinnhold e,f,g,h: vannrett skravur; Dominerende kornstørrelse A,B: firkant 1.0 mm; Løsmassetype F: trekant 1.6 mm; Permafrost 0,A: vinkel 1.0 mm"
+TF02-M050-01,Ferskvanns-flomskogsmark,NA-TF02,,#74B891,#FFFFFF,135,#1F5FBF,solid,4.0,0.25,,,,,,,,,,,,,,Blå skravur: flompåvirket
+TF02-M050-02,Brakkvanns-flomskogsmark,NA-TF02,,#74B891,#FFFFFF,135,#1F5FBF,solid,4.0,0.25,cross,#00695C,1.0,0,,,,,,,,,4.0,"Blå skravur: flompåvirket; Marin salinitet b,c,d: plusstegn 1.0 mm"
+TG01-M050-01,"Fjellnatur-pregede kalkfattige til svakt kalkrike stedegne grus-løsmasser, stein og blokkmark",NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,2.2,0,,,,,,,,,4.0,"Dominerende kornstørrelse D,E,F: firkant 2.2 mm"
+TG01-M050-02,"Fjellnatur-pregede sterkt kalkrike stedegne grus-løsmasser, stein og blokkmark",NA-TG01,,#E3B394,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,circle,#977447,1.6,1,square,#3A3A3A,2.2,0,,,,,4.0,"Kalkinnhold g,h,i: loddrett skravur; Økologisk differensiering A,B,C: sirkel 1.6 mm; Dominerende kornstørrelse D,E,F: firkant 2.2 mm"
+TG01-M050-03,Moreneblokkmark,NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,2.2,0,triangle,#3A3A3A,1.0,1,,,,,4.0,"Dominerende kornstørrelse D,E,F: firkant 2.2 mm; Løsmassetype B: trekant 1.0 mm"
+TG01-M050-04,"Hevet grus-, stein- og blokkstrand",NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,2.2,0,triangle,#3A3A3A,1.6,1,,,,,4.0,"Dominerende kornstørrelse D,E,F: firkant 2.2 mm; Løsmassetype C: trekant 1.6 mm"
+TG01-M050-05,Breforland og snøavsmeltingsområde,NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,1.6,0,triangle,#3A3A3A,2.2,1,,,,,4.0,"Dominerende kornstørrelse A,B,C,D,E,F,G: firkant 1.6 mm; Løsmassetype D: trekant 2.2 mm"
+TG01-M050-06,Konsoliderte marine bresedimenter,NA-TG01,,#E3B394,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,square,#3A3A3A,2.2,0,triangle,#3A3A3A,1.0,0,,,,,4.0,"Kalkinnhold d,e,f,g,h,i: vannrett skravur; Dominerende kornstørrelse D,E,F: firkant 2.2 mm; Løsmassetype E: trekant 1.0 mm"
+TG01-M050-07,Historisk silt- og leirskred,NA-TG01,,#E3B394,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,square,#3A3A3A,1.0,1,triangle,#3A3A3A,1.6,0,,,,,4.0,"Kalkinnhold e,f,g,h: vannrett skravur; Dominerende kornstørrelse A,B: firkant 1.0 mm; Løsmassetype F: trekant 1.6 mm"
 TG01-M050-08,Historisk skred av sand og grus,NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,2.2,1,triangle,#3A3A3A,1.6,0,,,,,4.0,"Dominerende kornstørrelse C,D: firkant 2.2 mm; Løsmassetype F: trekant 1.6 mm"
 TG01-M050-09,Historisk steinskred,NA-TG01,,#E3B394,#FFFFFF,,,,,,triangle,#3A3A3A,1.6,0,star,#4A4A4A,1.0,1,,,,,4.0,Løsmassetype F: trekant 1.6 mm; Skilles fra naboenhet med symbol: stjerne 1.0 mm
 TG01-M050-10,Historisk jordskred,NA-TG01,,#E3B394,#FFFFFF,,,,,,triangle,#3A3A3A,1.6,0,,,,,,,,,4.0,Løsmassetype F: trekant 1.6 mm
-TG01-M050-11,Synkehull i permafrost,NA-TG01,,#E3B394,#FFFFFF,,,,,,triangle,#3A3A3A,1.6,0,arrowhead,#4A4A4A,1.6,1,,,,,4.0,Løsmassetype F: trekant 1.6 mm; Permafrost A: vinkel 1.6 mm
-TG01-M050-12,Flomskredmateriale,NA-TG01,,#E3B394,#FFFFFF,,,,,,triangle,#3A3A3A,2.2,0,arrowhead,#4A4A4A,1.0,1,,,,,4.0,"Løsmassetype G: trekant 2.2 mm; Permafrost 0,A: vinkel 1.0 mm"
-TH01-M050-01,Kalkfattig til litt kalkrik avskoget hei og eng,NA-TH01,,#F1B465,#FFFFFF,0,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
-TH01-M050-02,Klart kalkrik avskoget hei og eng,NA-TH01,,#F1B465,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
+TG01-M050-11,Synkehull i permafrost,NA-TG01,,#E3B394,#FFFFFF,,,,,,triangle,#3A3A3A,1.6,0,arrowhead,#4A4A4A,1.0,1,,,,,4.0,Løsmassetype F: trekant 1.6 mm; Permafrost A: vinkel 1.0 mm
+TG01-M050-12,Flomskredmateriale,NA-TG01,,#E3B394,#FFFFFF,,,,,,triangle,#3A3A3A,2.2,0,,,,,,,,,4.0,Løsmassetype G: trekant 2.2 mm
+TH01-M050-01,Kalkfattig til litt kalkrik avskoget hei og eng,NA-TH01,,#F1B465,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
+TH01-M050-02,Klart kalkrik avskoget hei og eng,NA-TH01,,#F1B465,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
 TI01-M050-01,Klart endret skogsmark,NA-TI01,,#8BBB9F,#FFFFFF,,,,,,,,,,,,,,,,,,,
-TK01-M050-01,Kalkfattig til svakt kalkrik åpen semi-naturlig eng,NA-TK01,,#FCE765,#FFFFFF,0,#3A3A3A,solid,3.0,0.3,star,#7F462B,1.6,1,,,,,,,,,4.0,"Kalkinnhold b,c,d,e,f: vannrett skravur; Sandstabilisering j,k,y: stjerne 1.6 mm"
-TK01-M050-02,Klart kalkrik åpen semi-naturlig eng,NA-TK01,,#FCE765,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,star,#7F462B,1.0,1,,,,,,,,,4.0,"Kalkinnhold f,g,h,i: loddrett skravur; Sandstabilisering g,h,i,j,k,y: stjerne 1.0 mm"
+TK01-M050-01,Kalkfattig til svakt kalkrik åpen semi-naturlig eng,NA-TK01,,#FCE765,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,star,#7F462B,2.2,1,,,,,,,,,4.0,"Kalkinnhold b,c,d,e,f: vannrett skravur; Sandstabilisering j,k,y: stjerne 2.2 mm"
+TK01-M050-02,Klart kalkrik åpen semi-naturlig eng,NA-TK01,,#FCE765,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,star,#7F462B,1.6,1,,,,,,,,,4.0,"Kalkinnhold f,g,h,i: loddrett skravur; Sandstabilisering g,h,i,j,k,y: stjerne 1.6 mm"
 TK02-M050-01,Semi-naturlig strandeng,NA-TK02,,#F8D46C,#FFFFFF,,,,,,,,,,,,,,,,,,,
-TK03-M050-01,Kalkfattig til litt kalkrik bakli-hei  og kystlynghei,NA-TK03,,#DCA548,#FFFFFF,0,#AA5100,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur; Uttørkingsfare b,c,d,e,f,g: oransje skravur"
-TK03-M050-02,Sterkt kalkrik kystlynghei,NA-TK03,,#DCA548,#FFFFFF,90,#AA5100,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur; Uttørkingsfare d,e,f,g: oransje skravur"
-TL01-M050-01,Kalkfattig til litt kalkrik ny eng med semi-naturlig preg,NA-TL01,,#F2F4A6,#FFFFFF,0,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
-TL01-M050-02,Sterkt kalkrik ny eng med semi-naturlig preg,NA-TL01,,#F2F4A6,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
+TK03-M050-01,Kalkfattig til litt kalkrik bakli-hei  og kystlynghei,NA-TK03,,#DCA548,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
+TK03-M050-02,Sterkt kalkrik kystlynghei,NA-TK03,,#DCA548,#FFFFFF,90,#AA5100,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur; Uttørkingsfare d,e,f,g: oransje skravur"
+TL01-M050-01,Kalkfattig til litt kalkrik ny eng med semi-naturlig preg,NA-TL01,,#F2F4A6,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
+TL01-M050-02,Sterkt kalkrik ny eng med semi-naturlig preg,NA-TL01,,#F2F4A6,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
 TM01-M050-01,Hard sterkt endret fastmark,NA-TM01,,#84787A,#FFFFFF,,,,,,,,,,,,,,,,,,,
-TM02-M050-01,Ny hard fastmark på tørrlagt innsjøbunn,NA-TM02,,#7A8892,#FFFFFF,,,,,,circle,#00409A,1.0,1,,,,,,,,,4.0,Blå sirkel: tidligere ferskvannsbunn
-TM02-M050-02,Ny hard fastmark på tørrlagt elvebunn,NA-TM02,,#7A8892,#FFFFFF,,,,,,circle,#00409A,1.0,1,ring,#2B2B2B,1.0,0,,,,,4.0,Blå sirkel: tidligere ferskvannsbunn; Fysisk menneskepåvirket fastmark D: ring 1.0 mm
-TM03-M050-01,Sterkt endret fastmark med dekke av jord eller blandet sediment,NA-TM03,,#918781,#FFFFFF,,,,,,,,,,,,,,,,,,,
-TM03-M050-02,Sterkt endret fastmark med dekke av leire til grus,NA-TM03,,#918781,#FFFFFF,,,,,,square,#3A3A3A,2.2,1,,,,,,,,,4.0,"Dominerende kornstørrelse A,B,C,D: firkant 2.2 mm"
-TM03-M050-03,Sterkt endret fastmark av substrat preget av kjemisk påvirkning,NA-TM03,,#918781,#FFFFFF,,,,,,square,#3A3A3A,1.6,1,ring,#2B2B2B,1.0,0,,,,,4.0,"Dominerende kornstørrelse 0,A,B,C,D: firkant 1.6 mm; Fysisk menneskepåvirket fastmark F: ring 1.0 mm"
-TM03-M050-04,Sterkt endret fastmark av organisk avfall,NA-TM03,,#918781,#FFFFFF,,,,,,square,#3A3A3A,1.6,1,ring,#2B2B2B,2.2,0,,,,,4.0,"Dominerende kornstørrelse 0,A,B,C,D: firkant 1.6 mm; Fysisk menneskepåvirket fastmark G,H: ring 2.2 mm"
-TM03-M050-05,"Sterkt endret fastmark av løst, sterkt modifisert eller syntetisk substrat",NA-TM03,,#918781,#FFFFFF,,,,,,square,#3A3A3A,1.6,1,,,,,,,,,4.0,"Dominerende kornstørrelse 0,A,B,C,D: firkant 1.6 mm"
-TM04-M050-01,Ny løs fastmark på tørrlagt innsjøbunn,NA-TM04,,#589D9A,#FFFFFF,,,,,,circle,#0249A7,1.0,1,,,,,,,,,4.0,Blå sirkel: tidligere ferskvannsbunn
-TM04-M050-02,Ny løs fastmark på tørrlagt elvebunn,NA-TM04,,#589D9A,#FFFFFF,,,,,,circle,#0249A7,1.0,1,ring,#2B2B2B,1.0,0,,,,,4.0,Blå sirkel: tidligere ferskvannsbunn; Fysisk menneskepåvirket fastmark L: ring 1.0 mm
+TM02-M050-01,Ny hard fastmark på tørrlagt innsjøbunn,NA-TM02,,#7A8892,#FFFFFF,,,,,,circle,#00409A,1.0,1,ring,#2B2B2B,1.0,0,,,,,4.0,Blå sirkel: tidligere ferskvannsbunn; Fysisk menneskepåvirket fastmark C: ring 1.0 mm
+TM02-M050-02,Ny hard fastmark på tørrlagt elvebunn,NA-TM02,,#7A8892,#FFFFFF,,,,,,circle,#00409A,1.0,1,ring,#2B2B2B,1.6,0,,,,,4.0,Blå sirkel: tidligere ferskvannsbunn; Fysisk menneskepåvirket fastmark D: ring 1.6 mm
+TM03-M050-01,Sterkt endret fastmark med dekke av jord eller blandet sediment,NA-TM03,,#918781,#FFFFFF,,,,,,ring,#2B2B2B,1.0,0,,,,,,,,,4.0,Fysisk menneskepåvirket fastmark E: ring 1.0 mm
+TM03-M050-02,Sterkt endret fastmark med dekke av leire til grus,NA-TM03,,#918781,#FFFFFF,,,,,,square,#3A3A3A,1.6,1,ring,#2B2B2B,1.0,0,,,,,4.0,"Dominerende kornstørrelse A,B,C,D: firkant 1.6 mm; Fysisk menneskepåvirket fastmark E: ring 1.0 mm"
+TM03-M050-03,Sterkt endret fastmark av substrat preget av kjemisk påvirkning,NA-TM03,,#918781,#FFFFFF,,,,,,ring,#2B2B2B,1.6,0,,,,,,,,,4.0,Fysisk menneskepåvirket fastmark F: ring 1.6 mm
+TM03-M050-04,Sterkt endret fastmark av organisk avfall,NA-TM03,,#918781,#FFFFFF,,,,,,,,,,,,,,,,,,,
+TM03-M050-05,"Sterkt endret fastmark av løst, sterkt modifisert eller syntetisk substrat",NA-TM03,,#918781,#FFFFFF,,,,,,arrowhead,#4A4A4A,1.0,1,,,,,,,,,4.0,Skilles fra naboenhet med symbol: vinkel 1.0 mm
+TM04-M050-01,Ny løs fastmark på tørrlagt innsjøbunn,NA-TM04,,#589D9A,#FFFFFF,,,,,,circle,#0249A7,1.0,1,ring,#2B2B2B,1.0,0,,,,,4.0,Blå sirkel: tidligere ferskvannsbunn; Fysisk menneskepåvirket fastmark K: ring 1.0 mm
+TM04-M050-02,Ny løs fastmark på tørrlagt elvebunn,NA-TM04,,#589D9A,#FFFFFF,,,,,,circle,#0249A7,1.0,1,ring,#2B2B2B,1.6,0,,,,,4.0,Blå sirkel: tidligere ferskvannsbunn; Fysisk menneskepåvirket fastmark L: ring 1.6 mm
 TM05-M050-01,Ny løs fastmark på drenert våtmark,NA-TM05,,#997780,#FFFFFF,,,,,,circle,#003D93,1.0,1,,,,,,,,,4.0,Blå sirkel: tidligere våtmark
 TM06-M050-01,Sterkt endret skogsmark,NA-TM06,,#7C8B65,#FFFFFF,,,,,,circle,#00570B,1.0,1,,,,,,,,,4.0,Grønn sirkel: sterkt endret mark som oppfattes som skog
 TM06-M050-02,Sterkt endret skogsmark i mellomsuksesjonsstadium,NA-TM06,,#7C8B65,#FFFFFF,,,,,,circle,#00570B,1.0,1,arrowhead,#464646,1.0,1,,,,,4.0,Grønn sirkel: sterkt endret mark som oppfattes som skog; Skilles fra naboenhet med symbol: vinkel 1.0 mm
@@ -91,26 +91,26 @@ TO01-M050-01,Åker,NA-TO01,,#FDB07B,#FFFFFF,,,,,,,,,,,,,,,,,,,
 TO02-M050-01,Oppdyrket mark med semi-naturlig engpreg,NA-TO02,,#FAD69F,#FFFFFF,,,,,,,,,,,,,,,,,,,
 TO03-M050-01,Oppdyrket varig eng,NA-TO03,,#FFC8A7,#FFFFFF,,,,,,,,,,,,,,,,,,,
 TO04-M050-01,Upløyd jordbruksmark med intensivt hevdpreg,NA-TO04,,#F19D82,#FFFFFF,,,,,,,,,,,,,,,,,,,
-VA01-M050-01,Svært kalkfattig til litt kalkrik mykmatte til øvre tuenivå,NA-VA01,,#AF99E5,#FFFFFF,135,#9F4B00,solid,3.0,0.3,cross,#00695C,1.0,0,,,,,,,,,4.0,"Tørrleggingsvarighet c,d,e,f,g,h,i,j,k: oransje skravur; Marin salinitet 0,a,b,c,d: plusstegn 1.0 mm"
-VA01-M050-02,Temmelig til ekstremt kalkrikt mattenivå i myrkant til nedre tuenivå,NA-VA01,,#AF99E5,#FFFFFF,90,#9F4B00,solid,3.0,0.3,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur; Tørrleggingsvarighet c,d,e,f,g,h,i,j: oransje skravur"
-VB01-M050-01,Svært kalkfattig til litt kalkrik myr- og sumpskogsmark,NA-VB01,,#65B4B9,#FFFFFF,,,,,,circle,#26762B,1.0,1,circle,#1F5FBF,1.0,1,,,,,4.0,"Grønn sirkel: skog i våtmark; Kildevannspåvirkning 0,a,b,c: sirkel 1.0 mm"
-VB01-M050-02,Klart kalkrik myr- og sumpskogsmark,NA-VB01,,#65B4B9,#FFFFFF,90,#3A3A3A,solid,3.0,0.3,circle,#26762B,1.0,1,,,,,,,,,4.0,"Grønn sirkel: skog i våtmark; Kalkinnhold g,h,i: loddrett skravur"
+VA01-M050-01,Svært kalkfattig til litt kalkrik mykmatte til øvre tuenivå,NA-VA01,,#AF99E5,#FFFFFF,,,,,,,,,,,,,,,,,,,
+VA01-M050-02,Temmelig til ekstremt kalkrikt mattenivå i myrkant til nedre tuenivå,NA-VA01,,#AF99E5,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
+VB01-M050-01,Svært kalkfattig til litt kalkrik myr- og sumpskogsmark,NA-VB01,,#65B4B9,#FFFFFF,,,,,,circle,#26762B,1.0,1,,,,,,,,,4.0,Grønn sirkel: skog i våtmark
+VB01-M050-02,Klart kalkrik myr- og sumpskogsmark,NA-VB01,,#65B4B9,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,circle,#26762B,1.0,1,,,,,,,,,4.0,"Grønn sirkel: skog i våtmark; Kalkinnhold g,h,i: loddrett skravur"
 VC01-M050-01,Åpen nedbørsmyr,NA-VC01,,#CBB3EB,#FFFFFF,,,,,,,,,,,,,,,,,,,
 VC02-M050-01,Torvmarkskilde,NA-VC02,,#75A1DF,#FFFFFF,,,,,,,,,,,,,,,,,,,
 VC03-M050-01,Grunnkilde,NA-VC03,,#8CAEEC,#FFFFFF,,,,,,,,,,,,,,,,,,,
-VC04-M050-01,Våt- og kildesnøleie,NA-VC04,,#A6C8EC,#FFFFFF,135,#807E90,solid,3.0,0.3,,,,,,,,,,,,,,Skravur i fargen til snøleie: kobler våtsnøleie til snøleie
-VC05-M050-01,Permafrost-våtmark,NA-VC05,,#A7B0D6,#FFFFFF,135,#8E6262,solid,3.0,0.3,,,,,,,,,,,,,,Skravur i fargen til oppfrysingsmark: kobler frostpreget våtmark til oppfrysingsmark
-VE01-M050-01,Oppfrysingsvåtmark,NA-VE01,,#A17CBF,#FFFFFF,135,#F7C5C5,solid,3.0,0.3,,,,,,,,,,,,,,Skravur i fargen til oppfrysingsmark: kobler frostpreget våtmark til oppfrysingsmark
+VC04-M050-01,Våt- og kildesnøleie,NA-VC04,,#A6C8EC,#FFFFFF,135,#807E90,solid,4.0,0.25,,,,,,,,,,,,,,Skravur i fargen til snøleie: kobler våtsnøleie til snøleie
+VC05-M050-01,Permafrost-våtmark,NA-VC05,,#A7B0D6,#FFFFFF,135,#8E6262,solid,4.0,0.25,,,,,,,,,,,,,,Skravur i fargen til oppfrysingsmark: kobler frostpreget våtmark til oppfrysingsmark
+VE01-M050-01,Oppfrysingsvåtmark,NA-VE01,,#A17CBF,#FFFFFF,135,#F7C5C5,solid,4.0,0.25,,,,,,,,,,,,,,Skravur i fargen til oppfrysingsmark: kobler frostpreget våtmark til oppfrysingsmark
 VF01-M050-01,Nedbørsmyr-skogsmark,NA-VF01,,#3D948B,#FFFFFF,,,,,,circle,#00560A,1.0,1,,,,,,,,,4.0,Grønn sirkel: skog i våtmark
 VF02-M050-01,Strandsumpskogsmark,NA-VF02,,#A5D0D0,#FFFFFF,,,,,,circle,#2E7D32,1.0,1,,,,,,,,,4.0,Grønn sirkel: skog i våtmark
 VG01-M050-01,Ny naturgitt torvmark,NA-VG01,,#DCC9FE,#FFFFFF,,,,,,,,,,,,,,,,,,,
 VG02-M050-01,Ny naturgitt grunn våtmark,NA-VG02,,#DCE2F6,#FFFFFF,,,,,,,,,,,,,,,,,,,
 VI01-M050-01,Klart endret våtmarksskogsmark,NA-VI01,,#688C82,#FFFFFF,,,,,,circle,#005509,1.0,1,,,,,,,,,4.0,Grønn sirkel: skog i våtmark
-VK01-M050-01,Slåttemyr,NA-VK01,,#FDC9DC,#FFFFFF,135,#B1910A,solid,3.0,0.3,,,,,,,,,,,,,,Gul skravur: semi-naturlig
-VK02-M050-01,Semi-naturlig våteng,NA-VK02,,#FFD5D1,#FFFFFF,135,#B99706,solid,3.0,0.3,,,,,,,,,,,,,,Gul skravur: semi-naturlig
-VM01-M050-01,Sterkt endret torvmark,NA-VM01,,#9E6397,#FFFFFF,135,#00378A,solid,3.0,0.3,,,,,,,,,,,,,,Blå skravur: opphav i myr
-VM02-M050-01,Ny torvmark på tidligere ferskvannsbunn,NA-VM02,,#CA89A4,#FFFFFF,135,#1959B9,solid,3.0,0.3,,,,,,,,,,,,,,Blå skravur: opphav i myr
-VM03-M050-01,Ny torvmark på menneskebetinget forsumpet fastmark,NA-VM03,,#E8B3E3,#FFFFFF,135,#1F5FBF,solid,3.0,0.3,,,,,,,,,,,,,,Blå skravur: opphav i myr
+VK01-M050-01,Slåttemyr,NA-VK01,,#FDC9DC,#FFFFFF,135,#B1910A,solid,4.0,0.25,,,,,,,,,,,,,,Gul skravur: semi-naturlig
+VK02-M050-01,Semi-naturlig våteng,NA-VK02,,#FFD5D1,#FFFFFF,135,#B99706,solid,4.0,0.25,,,,,,,,,,,,,,Gul skravur: semi-naturlig
+VM01-M050-01,Sterkt endret torvmark,NA-VM01,,#9E6397,#FFFFFF,135,#00378A,solid,4.0,0.25,,,,,,,,,,,,,,Blå skravur: opphav i myr
+VM02-M050-01,Ny torvmark på tidligere ferskvannsbunn,NA-VM02,,#CA89A4,#FFFFFF,135,#1959B9,solid,4.0,0.25,,,,,,,,,,,,,,Blå skravur: opphav i myr
+VM03-M050-01,Ny torvmark på menneskebetinget forsumpet fastmark,NA-VM03,,#E8B3E3,#FFFFFF,135,#1F5FBF,solid,4.0,0.25,,,,,,,,,,,,,,Blå skravur: opphav i myr
 VM04-M050-01,Sterkt endret ikke torvproduserende våtmark,NA-VM04,,#7A6788,#FFFFFF,,,,,,,,,,,,,,,,,,,
 VM05-M050-01,Ny grunn våtmark på tidligere ferskvannsbunn,NA-VM05,,#9D90C2,#FFFFFF,,,,,,,,,,,,,,,,,,,
 VM06-M050-01,Ny grunn våtmark på menneskebetinget forsumpet fastmark,NA-VM06,,#BD9ABD,#FFFFFF,,,,,,,,,,,,,,,,,,,

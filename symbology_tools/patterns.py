@@ -39,8 +39,8 @@ from symbology_tools.palette import (  # noqa: E402
 )
 
 # All sizes are millimetres on paper or screen, independent of map scale
-HATCH_SPACING_MM = 3.0
-HATCH_WIDTH_MM = 0.3
+HATCH_SPACING_MM = 4.0
+HATCH_WIDTH_MM = 0.25
 MARKER_SPACING_MM = 4.0
 MARKER_SIZES_MM = (1.0, 1.6, 2.2)
 MARKER_STROKE_WIDTH_MM = 0.25
@@ -59,9 +59,14 @@ KALK_BREAKS = (3.5, 6.5)
 KALK_FULL_SPAN = 7
 
 DEFAULT_HATCH_COLOUR = '#3A3A3A'
-# From moist to dry. Blue always means water.
+# From moist to dry. Blue always means water, so a unit is blue only when
+# its whole range lies in the moist quarter of the scale.
 DRYNESS_COLOURS = ('#1F5FBF', '#5A5A5A', '#C45F00', '#8E1B1B')
 DRYNESS_LABELS = ('blå', 'grå', 'oransje', 'mørk rød')
+DRYNESS_BLUE_MAX_POSITION = 0.25
+# A unit that spans this share of the scale or more says nothing about
+# dryness and keeps the neutral hatch colour
+DRYNESS_FULL_SPAN = 2 / 3
 
 HATCH_STYLES = ('solid', 'dashed', 'dotted')
 
@@ -240,11 +245,27 @@ def varying_variables(scale_units: list) -> set:
     }
 
 
-def value_ranks(scales: dict) -> dict:
+def within_lower_half(values: str, extent: tuple) -> bool:
+    '''True when a range of steps lies entirely in the lower half of the variable.'''
+
+    low, high = extent
+    return max(step_index(step) for step in values.split(',')) <= (low + high) / 2
+
+
+def includes_lowest_step(values: str, extent: tuple) -> bool:
+    '''True when a range of steps includes the lowest step of the variable.'''
+
+    return min(step_index(step) for step in values.split(',')) <= extent[0]
+
+
+def value_ranks(scales: dict, extents: dict) -> dict:
     '''
     Returns {var_kode_id: {values: rank}} over the units of one hovedtype
     at all scales, so that a value has the same rank at every scale.
-    Rank 0 is the lowest value.
+
+    Rank 0 means 'nothing to show': the range includes the lowest step of
+    the variable, so the unit may be without the property. The other
+    values get rank 1, 2, ... from low to high.
     '''
 
     distinct_values = {}
@@ -253,29 +274,30 @@ def value_ranks(scales: dict) -> dict:
             for variable, values in unit['variables'].items():
                 distinct_values.setdefault(variable, set()).add(values)
 
-    return {
-        variable: {
-            values: rank for rank, values in enumerate(
-                sorted(value_set, key=lambda values: (value_midpoint(values), value_span(values), values))
-            )
-        }
-        for variable, value_set in distinct_values.items()
-    }
+    ranks = {}
+    for variable, value_set in distinct_values.items():
+        extent = extents.get(variable, (0, 0))
+        ranks[variable] = {}
+        ranked = sorted(
+            (values for values in value_set if not includes_lowest_step(values, extent)),
+            key=lambda values: (value_midpoint(values), value_span(values), values),
+        )
+        for values in value_set:
+            ranks[variable][values] = ranked.index(values) + 1 if values in ranked else 0
+
+    return ranks
 
 
-def dryness_extents() -> dict:
+def variable_extents() -> dict:
     '''
-    Returns {var_kode_id: (lowest, highest step index)} for the variables
-    drawn as hatch colour, from all grunntyper, so the colour classes are
-    the same in every hovedtype.
+    Returns {var_kode_id: (lowest, highest step index)} over all grunntyper,
+    so that classes and ranks mean the same in every hovedtype. The special
+    end steps 'y' and 'z' are left out.
     '''
 
-    rules = load_variable_rules()
     extents = {}
     for row in read_csv_rows(ATTRIBUTE_TABLES_PATH / 'var_grunntyper_attribute_table.csv'):
         variable = row['var_kode_id']
-        if rules.get(variable, {}).get('element') != 'hatch_colour':
-            continue
         indices = [step_index(step) for step in row['values'].split(',') if step not in ('y', 'z')]
         if indices:
             low, high = extents.get(variable, (min(indices), max(indices)))
@@ -298,12 +320,23 @@ def kalk_angle(values: str):
     return ANGLE_KALKRIK
 
 
-def dryness_class(values: str, extent: tuple) -> int:
-    '''Returns 0 (moist) to 3 (dry) for a range of steps of a dryness variable.'''
+def dryness_class(values: str, extent: tuple):
+    '''
+    Returns 0 (moist) to 3 (dry) for a range of steps of a dryness
+    variable, or None when the range covers most of the scale.
+    '''
 
     low, high = extent
-    position = (value_midpoint(values) - low) / (high - low)
-    return min(int(position * len(DRYNESS_COLOURS)), len(DRYNESS_COLOURS) - 1)
+    if value_span(values) >= DRYNESS_FULL_SPAN * (high - low + 1):
+        return None
+
+    indices = [step_index(step) for step in values.split(',')]
+    highest_position = (max(indices) - low) / (high - low)
+    if highest_position <= DRYNESS_BLUE_MAX_POSITION:
+        return 0
+
+    midpoint_position = (value_midpoint(values) - low) / (high - low)
+    return max(1, min(int(midpoint_position * len(DRYNESS_COLOURS)), len(DRYNESS_COLOURS) - 1))
 
 
 def marker_variant(shape: str, rank: int):
@@ -363,6 +396,7 @@ def build_symbol(unit: dict, hovedtype: str, varying: set, ranks: dict, context:
         'hatch_angle': None,
         'hatch_colour': None,
         'hatch_style': None,
+        'hatch_style_fixed': False,
         'markers': [],
         'explanation': [],
     }
@@ -391,17 +425,30 @@ def build_symbol(unit: dict, hovedtype: str, varying: set, ranks: dict, context:
         for variable, rule in rules.items():
             if rule['element'] == 'hatch_colour' and variable in varying and variable in variables:
                 dryness = dryness_class(variables[variable], extents[variable])
-                symbol['hatch_colour'] = DRYNESS_COLOURS[dryness]
-                symbol['explanation'].append(
-                    f"{rule['navn']} {variables[variable]}: {DRYNESS_LABELS[dryness]} skravur"
-                )
+                if dryness is not None:
+                    symbol['hatch_colour'] = DRYNESS_COLOURS[dryness]
+                    symbol['explanation'].append(
+                        f"{rule['navn']} {variables[variable]}: {DRYNESS_LABELS[dryness]} skravur"
+                    )
                 break
 
-    if symbol['hatch_colour'] and symbol['hatch_angle'] is None:
+    for variable, rule in rules.items():
+        if rule['element'] == 'hatch_style' and variable in varying and variable in variables:
+            # A range entirely in the lower half (for example myrkant) is
+            # dashed; the upper half and ranges over both halves are solid
+            dashed = within_lower_half(variables[variable], extents[variable])
+            symbol['hatch_style'] = HATCH_STYLES[1] if dashed else HATCH_STYLES[0]
+            symbol['hatch_style_fixed'] = True
+            symbol['explanation'].append(
+                f"{rule['navn']} {variables[variable]}: {'stiplet' if dashed else 'heltrukken'} skravur"
+            )
+            break
+
+    if (symbol['hatch_colour'] or symbol['hatch_style_fixed']) and symbol['hatch_angle'] is None:
         symbol['hatch_angle'] = ANGLE_NEUTRAL
     if symbol['hatch_angle'] is not None:
         symbol['hatch_colour'] = ensure_contrast(symbol['hatch_colour'] or DEFAULT_HATCH_COLOUR, fill_hex)
-        symbol['hatch_style'] = HATCH_STYLES[0]
+        symbol['hatch_style'] = symbol['hatch_style'] or HATCH_STYLES[0]
 
     add_variable_markers(symbol, variables, varying, ranks, context)
 
@@ -497,7 +544,7 @@ def break_ties(symbols: list, units: dict) -> None:
             symbol['kode_id'],
         ))
 
-        has_hatch = group[0]['hatch_angle'] is not None
+        has_hatch = group[0]['hatch_angle'] is not None and not group[0]['hatch_style_fixed']
         has_room = len(group[0]['markers']) < MAX_MARKERS
         styles = HATCH_STYLES if has_hatch else (None,)
 
@@ -540,7 +587,7 @@ def build_context() -> dict:
     return {
         'rules': rules,
         'hovedtype_patterns': load_hovedtype_patterns(),
-        'extents': dryness_extents(),
+        'extents': variable_extents(),
         'fills': load_hovedtype_colours(),
         'variable_names': variable_names,
         # A variable without a rule has the same shape in every hovedtype
@@ -558,7 +605,7 @@ def build_symbology() -> dict:
     symbology = {scale: [] for scale in MAPPING_SCALES}
 
     for hovedtype, scales in sorted(load_units().items()):
-        ranks = value_ranks(scales)
+        ranks = value_ranks(scales, context['extents'])
 
         for scale, scale_units in scales.items():
             varying = varying_variables(scale_units)
