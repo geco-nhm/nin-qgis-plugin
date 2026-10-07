@@ -4,8 +4,8 @@ mapping scales and writes them to
 
     nin_qgis_plugin/csv/symbology/symbology_M005.csv, _M020.csv, _M050.csv
 
-    python symbology_tools/patterns.py              (variant A, used by the plugin)
-    python symbology_tools/patterns.py --variant B  (proposal, see VARIANTS)
+    python symbology_tools/patterns.py              (variant B, used by the plugin)
+    python symbology_tools/patterns.py --variant A  (the first draft, kept for comparison)
 
 A symbol has three parts:
 
@@ -42,13 +42,15 @@ from symbology_tools.palette import (  # noqa: E402
     REPO_ROOT, SYMBOLOGY_PATH, load_hovedtype_colours, load_subtype_colours, read_csv_rows,
 )
 
-# Variant A is the symbology the plugin uses. Variant B is a proposal:
-# kalkfattig is the unhatched baseline, and drought is drawn with coloured
-# circles instead of hatch colour, so that it shows also without a hatch.
+# Variant B is the symbology the plugin uses (chosen 2026-10-08): kalkfattig
+# is the unhatched baseline, and drought is drawn as coloured rings, so that
+# it shows also where there is no hatch. Variant A, the first draft with
+# hatch for kalkfattig and drought as hatch colour, is kept for comparison.
 VARIANTS = ('A', 'B')
+DEFAULT_VARIANT = 'B'
 OUTPUT_PATHS = {
-    'A': SYMBOLOGY_PATH,
-    'B': REPO_ROOT / 'symbology' / 'forslag_B',
+    'A': REPO_ROOT / 'symbology' / 'utkast_A',
+    'B': SYMBOLOGY_PATH,
 }
 
 # All sizes are millimetres on paper or screen, independent of map scale
@@ -84,8 +86,12 @@ DRYNESS_FULL_SPAN = 2 / 3
 HATCH_STYLES = ('solid', 'dashed', 'dotted')
 # Dashed means myrkant, so only dotted is used to tell units apart
 TIE_BREAK_HATCH_STYLES = ('solid', 'dotted')
-# Variant B: drought class 1 (grey, the commonest) is the baseline without circle
+# Variant B: drought class 1 (grey, the commonest) is the baseline without ring.
+# Drought is a ring, so that 'frisk' (blue ring) differs from moist and
+# spring-fed ground (filled blue circle).
 DRYNESS_BASELINE_CLASS = 1
+DRYNESS_SHAPE = 'ring'
+DRYNESS_MARKER_SIZE_MM = 1.6
 
 # Shapes without an inside: they cannot be drawn open or filled
 STROKE_SHAPES = ('line', 'cross', 'cross2', 'ring')
@@ -323,7 +329,7 @@ def variable_extents() -> dict:
     return extents
 
 
-def kalk_angle(values: str, variant: str = 'A'):
+def kalk_angle(values: str, variant: str = DEFAULT_VARIANT):
     '''
     Returns the hatch angle for a range of LM-KA steps, or None. In variant
     B kalkfattig is the baseline and has no hatch.
@@ -462,15 +468,15 @@ def build_symbol(unit: dict, hovedtype: str, varying: set, ranks: dict, context:
                         f"{rule['navn']} {variables[variable]}: {DRYNESS_LABELS[dryness]} skravur"
                     )
                 elif dryness is not None and dryness != DRYNESS_BASELINE_CLASS:
-                    # Variant B: a circle in the drought colour; the grey class has none
+                    # Variant B: a ring in the drought colour; the grey class has none
                     symbol['markers'].append({
-                        'shape': 'circle',
+                        'shape': DRYNESS_SHAPE,
                         'colour': ensure_contrast(DRYNESS_COLOURS[dryness], fill_hex),
-                        'size_mm': MARKER_SIZES_MM[0],
-                        'filled': True,
+                        'size_mm': DRYNESS_MARKER_SIZE_MM,
+                        'filled': False,
                     })
                     symbol['explanation'].append(
-                        f"{rule['navn']} {variables[variable]}: {DRYNESS_LABELS[dryness]} sirkel"
+                        f"{rule['navn']} {variables[variable]}: {DRYNESS_LABELS[dryness]} ring"
                     )
                 break
 
@@ -624,7 +630,7 @@ def _style_name(style: str) -> str:
     return {'dashed': 'stiplet', 'dotted': 'prikket'}[style]
 
 
-def build_context(variant: str = 'A') -> dict:
+def build_context(variant: str = DEFAULT_VARIANT) -> dict:
     variable_names = {}
     for scale in MAPPING_SCALES:
         for row in read_csv_rows(ATTRIBUTE_TABLES_PATH / f'var_{scale}_attribute_table.csv'):
@@ -655,7 +661,7 @@ def build_context(variant: str = 'A') -> dict:
     }
 
 
-def build_symbology(variant: str = 'A') -> dict:
+def build_symbology(variant: str = DEFAULT_VARIANT) -> dict:
     '''Returns {scale: [symbol, ...]} for all units, sorted by code.'''
 
     context = build_context(variant)
@@ -774,7 +780,7 @@ def main() -> int:
     '''Execute as standalone script'''
 
     parser = argparse.ArgumentParser(description='Builds the symbol tables.')
-    parser.add_argument('--variant', choices=VARIANTS, default='A')
+    parser.add_argument('--variant', choices=VARIANTS, default=DEFAULT_VARIANT)
     variant = parser.parse_args().variant
 
     symbology = build_symbology(variant)

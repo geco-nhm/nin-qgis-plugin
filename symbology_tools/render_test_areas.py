@@ -2,16 +2,19 @@
 Draws real mapping data with the symbology and evaluates how the symbols
 work on it. Needs a Python with QGIS:
 
-    python-qgis-ltr.bat symbology_tools/render_test_areas.py [--variant B]
+    python-qgis-ltr.bat symbology_tools/render_test_areas.py [--variant A]
 
-    symbology/*.gpkg  ->  docs/symbology/testkart_<scale>[_forslag_B].png and .pdf
+    symbology/*.gpkg  ->  docs/symbology/testkart_<scale>.png and .pdf      all areas, at the mapping scale
+                          docs/symbology/testkart_<scale>_omrade_<n>.png    one area each, enlarged
 
 Each GeoPackage holds one polygon layer made by the plugin, with the unit
 in 'kode_id_label' as the fid of the row in the attribute table of the
 mapping scale. The mapping scale is read from the data: it is the scale
 whose units belong to the hovedtype stored on each polygon. All layers
-are drawn together in one map, at the mapping scale, with the plugin's
-own symbols and fill opacity. A grey topographic map from Kartverket is
+are drawn together in one map at the mapping scale, and each area again
+on its own page, enlarged (DETAIL_SCALE). The symbols are the plugin's
+own, for the mapping scale, with the plugin's fill opacity; only the map
+is enlarged. A grey topographic map from Kartverket is
 drawn below when the network allows.
 """
 
@@ -61,12 +64,21 @@ from qgis.PyQt.QtGui import QColor, QFont  # noqa: E402
 
 from nin_qgis_plugin.symbology_styles import ATTRIBUTE_TABLES_PATH, load_unit_styles  # noqa: E402
 from nin_qgis_plugin.symbology_symbols import create_fill_symbol  # noqa: E402
-from symbology_tools.patterns import OUTPUT_PATHS, VARIANTS  # noqa: E402
+from symbology_tools.patterns import DEFAULT_VARIANT, OUTPUT_PATHS, VARIANTS  # noqa: E402
 
 GPKG_PATH = REPO_ROOT / 'symbology'
 OUTPUT_PATH = REPO_ROOT / 'docs' / 'symbology'
 
 MAPPING_SCALES = {'M005': 5000, 'M020': 20000, 'M050': 50000}
+
+# Scale of the enlarged map of each area
+DETAIL_SCALE = 7500
+
+VARIANT_TEXTS = {
+    'A': 'utkast A (erstattet av B)',
+    'B': 'utkast B (brukes i programtillegget)',
+}
+FILE_SUFFIXES = {'A': '_utkast_A', 'B': ''}
 
 # Same as the plugin (project_setup.POLYGON_FILL_ALPHA): 65 % opaque fill
 FILL_ALPHA = round(0.65 * 255)
@@ -239,35 +251,45 @@ def backdrop_layer():
     return layer if layer.isValid() else None
 
 
-def export_map(project, layers: list, legend_layer, mapping_scale: str, variant: str) -> list:
-    '''Exports an A4 landscape layout with map, legend and scale bar.'''
+def export_map(project, layers: list, legend_layer, mapping_scale: str, variant: str,
+               display_scale: int = 0, area_name: str = '', file_stem: str = '') -> list:
+    '''
+    Exports an A4 landscape layout with map, legend and scale bar. Without
+    'display_scale' the map is drawn at the mapping scale.
+    '''
 
     scale = MAPPING_SCALES[mapping_scale]
-    variant_text = 'utkast A (brukes i programtillegget)' if variant == 'A' else 'forslag B (kalkfattig uten skravur)'
+    display_scale = display_scale or scale
+    variant_text = VARIANT_TEXTS[variant]
 
     layout = QgsPrintLayout(project)
     layout.initializeDefaults()
     layout.pageCollection().page(0).setPageSize(QgsLayoutSize(297, 210, QgsUnitTypes.LayoutMillimeters))
 
     map_item = QgsLayoutItemMap(layout)
-    map_item.attemptSetSceneRect(QRectF(10, 22, 112, 112))
+    frame_height = 112 if display_scale == scale else 172
+    map_item.attemptSetSceneRect(QRectF(10, 22, 112, frame_height))
     map_item.setFrameEnabled(True)
     map_item.setLayers(layers)
     map_item.setCrs(QgsCoordinateReferenceSystem('EPSG:25832'))
     map_item.zoomToExtent(legend_layer.extent())
-    map_item.setScale(scale)
+    map_item.setScale(display_scale)
     layout.addLayoutItem(map_item)
 
     title = QgsLayoutItemLabel(layout)
-    title.setText(f'NiN 3.0 kartografi, {variant_text}')
+    title.setText(f'NiN 3.0 kartografi, {variant_text}' + (f' · {area_name}' if area_name else ''))
     title.setFont(QFont('Arial', 13))
     title.attemptSetSceneRect(QRectF(10, 6, 277, 7))
     layout.addLayoutItem(title)
 
     subtitle = QgsLayoutItemLabel(layout)
+    drawn = (
+        f'kartet er tegnet i 1:{scale:,}' if display_scale == scale
+        else f'forstørret utsnitt i 1:{display_scale:,} med symbolene for 1:{scale:,}'
+    )
     subtitle.setText(
         f'Kartlagt i målestokk 1:{scale:,} (kartleggingsenheter {mapping_scale}) · '
-        f'kartet er tegnet i 1:{scale:,} · fyll 65 % dekkende'.replace(',', ' ')
+        f'{drawn} · fyll 65 % dekkende'.replace(',', ' ')
     )
     subtitle.setFont(QFont('Arial', 8))
     subtitle.attemptSetSceneRect(QRectF(10, 13, 277, 5))
@@ -283,6 +305,8 @@ def export_map(project, layers: list, legend_layer, mapping_scale: str, variant:
     legend.setSymbolWidth(9)
     legend.setSymbolHeight(5)
     legend.setColumnCount(2)
+    # Only the units that are visible in the map
+    legend.setLegendFilterByMapEnabled(True)
     legend.setSplitLayer(True)
     legend.setEqualColumnWidth(True)
     legend.attemptSetSceneRect(QRectF(130, 22, 160, 175))
@@ -298,31 +322,35 @@ def export_map(project, layers: list, legend_layer, mapping_scale: str, variant:
     scale_bar.setStyle('Single Box')
     scale_bar.setUnits(QgsUnitTypes.DistanceMeters)
     scale_bar.setNumberOfSegments(2)
-    scale_bar.setUnitsPerSegment(250 if scale >= 20000 else 100)
+    scale_bar.setUnitsPerSegment(250 if display_scale >= 20000 else 100)
     scale_bar.setUnitLabel('m')
     scale_bar.setFont(QFont('Arial', 7))
-    scale_bar.attemptMove(QgsLayoutPoint(10, 138, QgsUnitTypes.LayoutMillimeters))
+    scale_bar.attemptMove(QgsLayoutPoint(130, 182 if display_scale != scale else 138, QgsUnitTypes.LayoutMillimeters)
+                          if display_scale != scale else QgsLayoutPoint(10, 138, QgsUnitTypes.LayoutMillimeters))
     layout.addLayoutItem(scale_bar)
 
     note = QgsLayoutItemLabel(layout)
     note.setText('Bakgrunn: Kartverket, topografisk gråtone. Stiplet ramme: kartlagt område.')
     note.setFont(QFont('Arial', 6))
-    note.attemptSetSceneRect(QRectF(10, 150, 112, 10))
+    if display_scale == scale:
+        note.attemptSetSceneRect(QRectF(10, 150, 112, 10))
+    else:
+        note.attemptSetSceneRect(QRectF(130, 196, 160, 5))
     layout.addLayoutItem(note)
 
     exporter = QgsLayoutExporter(layout)
-    suffix = '' if variant == 'A' else '_forslag_B'
+    file_stem = file_stem or f'testkart_{mapping_scale}{FILE_SUFFIXES[variant]}'
     written = []
 
     image_settings = QgsLayoutExporter.ImageExportSettings()
     image_settings.dpi = EXPORT_DPI
-    image_path = OUTPUT_PATH / f'testkart_{mapping_scale}{suffix}.png'
+    image_path = OUTPUT_PATH / f'{file_stem}.png'
     if exporter.exportToImage(str(image_path), image_settings) == QgsLayoutExporter.Success:
         written.append(image_path)
 
     pdf_settings = QgsLayoutExporter.PdfExportSettings()
     pdf_settings.dpi = EXPORT_DPI
-    pdf_path = OUTPUT_PATH / f'testkart_{mapping_scale}{suffix}.pdf'
+    pdf_path = OUTPUT_PATH / f'{file_stem}.pdf'
     if exporter.exportToPdf(str(pdf_path), pdf_settings) == QgsLayoutExporter.Success:
         written.append(pdf_path)
 
@@ -410,7 +438,7 @@ def main() -> int:
     '''Execute as standalone script'''
 
     parser = argparse.ArgumentParser(description='Draws the test areas with the symbology.')
-    parser.add_argument('--variant', choices=VARIANTS, default='A')
+    parser.add_argument('--variant', choices=VARIANTS, default=DEFAULT_VARIANT)
     variant = parser.parse_args().variant
 
     QgsApplication.setPrefixPath(QgsApplication.prefixPath(), True)
@@ -444,6 +472,23 @@ def main() -> int:
         print(f'Wrote {path.relative_to(REPO_ROOT)}')
 
     evaluate(layer, mapping_scale, styles)
+
+    # One enlarged map per area, only for the variant the plugin uses
+    if variant == DEFAULT_VARIANT:
+        for source in source_layers:
+            number = source.name().split('_')[1]
+            area_layer = merged_layer([source])
+            style_layer(area_layer, mapping_scale, styles)
+            area_frame = area_frames([source])
+            area_layers = [area_frame, area_layer] + layers[2:]
+            for map_layer in (area_frame, area_layer):
+                project.addMapLayer(map_layer, False)
+            for path in export_map(
+                project, area_layers, area_layer, mapping_scale, variant,
+                display_scale=DETAIL_SCALE, area_name=f'Område {number}',
+                file_stem=f'testkart_{mapping_scale}_omrade_{number}',
+            ):
+                print(f'Wrote {path.relative_to(REPO_ROOT)}')
 
     # Release the layers before QGIS shuts down, or the interpreter crashes on exit
     project.clear()

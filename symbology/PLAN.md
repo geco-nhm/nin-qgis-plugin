@@ -1,6 +1,6 @@
 # SYMBOLOGY_3.0 — plan
 
-Branch: `symbology`. Status: **draft 2 committed 2026-10-07: TG01 shades, 65 % fill, trial at 1:20 000, proposal B; awaiting review**. Last updated 2026-09-29.
+Branch: `symbology`. Status: **variant B chosen and in the plugin (2026-10-07); awaiting review before field and print tests**. Last updated 2026-09-29.
 
 Iteration 1 output: `nin_qgis_plugin/csv/symbology/hovedtype_colours.csv`,
 `docs/symbology/fargeoversikt.html`, documentation in `docs/symbology/README.md`.
@@ -153,7 +153,7 @@ nin_qgis_plugin/csv/symbology/symbology_M005.csv, _M020.csv, _M050.csv
 | 3 | QML export, rendered by QGIS 3.40 | Draft 1. Not compared side by side with the old QML, not tried in QGIS 4 |
 | 4 | Plugin integration (replaces hash colours), unit and QGIS tests | Code done and tested at symbol level. User guide not updated |
 | 5 | Trial on three mapped areas (M020) with the plugin's symbols | Done 2026-10-05; redrawn at the mapping scale 1:20 000 on 2026-10-07. Three rules corrected; findings in `docs/symbology/README.md` |
-| 6 | Proposal B: kalkfattig as unhatched baseline, drought as coloured circles | Built and tried 2026-10-07 (`--variant B`); not used by the plugin. Recommendation in the README |
+| 6 | Variant B: kalkfattig as unhatched baseline, drought as coloured rings | Chosen 2026-10-07 and used by the plugin. Variant A kept in `symbology/utkast_A` |
 
 ## 5.1 Open issues for the next round
 
@@ -170,8 +170,9 @@ nin_qgis_plugin/csv/symbology/symbology_M005.csv, _M020.csv, _M050.csv
 7. From the trial at 1:20 000: patterns vanish in 223 of 263 polygons
    (narrower than 160 m). Fill is now 65 % opaque. Kalkfattig hatch covered
    95 % of the area, which led to proposal B (13 %).
-8. Proposal B: give moist (LM-VM) and frisk (dryness class 0) different
-   marks, so that B needs no more tie-breaks than A. Then decide A or B.
+8. Done: variant B chosen. Moist ground is a filled blue circle, frisk a
+   blue ring. B needs 34 tie-breaks at M005 against 31 in A; the three
+   extra (TA01) were only told apart in A by two near-identical greys.
 
 ## 6. Decisions (2026-09-29)
 
@@ -184,3 +185,4 @@ nin_qgis_plugin/csv/symbology/symbology_M005.csv, _M020.csv, _M050.csv
 | Fill opacity (2026-10-07) | Polygon fills 65 % opaque in the plugin. |
 | Tie-breaks (2026-10-07) | Accepted, as long as every unit keeps its own symbol (checked automatically). |
 | TG01 (2026-10-07) | One shade of the fill per løsmassetype. |
+| Variant (2026-10-07) | B: kalkfattig without hatch, drought as rings; moist and frisk get different marks. |

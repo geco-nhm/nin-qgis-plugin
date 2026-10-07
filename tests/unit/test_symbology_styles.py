@@ -40,7 +40,7 @@ def test_land_unit_has_a_full_symbol():
     assert style["fill_hex"] == "#8ACA8B"
     assert style["hatch"]["angle"] == 90
     assert style["hatch"]["spacing_mm"] == 4
-    assert [marker["shape"] for marker in style["markers"]] == ["circle"]
+    assert [marker["shape"] for marker in style["markers"]] == ["ring", "circle"]
 
 
 def test_water_unit_has_the_colour_of_its_hovedtypegruppe():

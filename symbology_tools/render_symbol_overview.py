@@ -3,7 +3,7 @@ Renders the symbols of all mapping units to a standalone HTML overview
 (Norwegian):
 
     python symbology_tools/render_symbol_overview.py              -> docs/symbology/symboloversikt.html
-    python symbology_tools/render_symbol_overview.py --variant B  -> docs/symbology/symboloversikt_forslag_B.html
+    python symbology_tools/render_symbol_overview.py --variant A  -> docs/symbology/symboloversikt_utkast_A.html
 
 Each hovedtype is shown as a table with one column per mapping scale. A
 unit stands to the right of the unit it belongs to at the coarser scale,
@@ -31,18 +31,19 @@ from symbology_tools.palette import (  # noqa: E402
 from symbology_tools.patterns import (  # noqa: E402
     ANGLE_INTERMEDIAER, ANGLE_KALKFATTIG, ANGLE_KALKRIK, ANGLE_NEUTRAL,
     DEFAULT_HATCH_COLOUR, DRYNESS_COLOURS, HATCH_SPACING_MM, HATCH_WIDTH_MM,
-    MARKER_SIZES_MM, MARKER_SPACING_MM, MARKER_STROKE_WIDTH_MM, STROKE_SHAPES, VARIANTS,
+    MARKER_SIZES_MM, MARKER_SPACING_MM, MARKER_STROKE_WIDTH_MM, STROKE_SHAPES, VARIANTS, DEFAULT_VARIANT,
+    DRYNESS_MARKER_SIZE_MM, DRYNESS_SHAPE,
     build_symbology, load_hovedtype_patterns, load_variable_rules, validate_symbology,
 )
 from symbology_tools.render_palette_overview import SCALE_LABELS, short_code  # noqa: E402
 
 OUTPUT_PATHS = {
-    'A': REPO_ROOT / 'docs' / 'symbology' / 'symboloversikt.html',
-    'B': REPO_ROOT / 'docs' / 'symbology' / 'symboloversikt_forslag_B.html',
+    'A': REPO_ROOT / 'docs' / 'symbology' / 'symboloversikt_utkast_A.html',
+    'B': REPO_ROOT / 'docs' / 'symbology' / 'symboloversikt.html',
 }
 VARIANT_TITLES = {
-    'A': 'utkast A, brukes i programtillegget',
-    'B': 'forslag B, kalkfattig uten skravur',
+    'A': 'utkast A, erstattet av B',
+    'B': 'utkast B, brukes i programtillegget',
 }
 
 # Screen pixels per millimetre in the overview. Symbols are drawn larger
@@ -369,12 +370,12 @@ def render_legend(counter: list, variant: str) -> str:
             sample('Loddrett skravur', 'Kalkrik', hatch_angle=ANGLE_KALKRIK),
             sample('Skravur mot venstre', 'Hovedtypens faste kjennetegn eller myrkant, uten kalkinformasjon', hatch_angle=ANGLE_NEUTRAL),
         ]
-        dry_marker = {'shape': 'circle', 'size_mm': MARKER_SIZES_MM[0], 'filled': True}
+        dry_marker = {'shape': DRYNESS_SHAPE, 'size_mm': DRYNESS_MARKER_SIZE_MM, 'filled': False}
         hatch += [
-            sample('Blå sirkel, liten', 'Hele enheten er frisk eller sjelden tørrlagt', markers=[{**dry_marker, 'colour': DRYNESS_COLOURS[0]}]),
-            sample('Ingen tørkesirkel', 'Noe tørkeutsatt, eller spenner over det meste av skalaen'),
-            sample('Oransje sirkel', 'Tørkeutsatt', markers=[{**dry_marker, 'colour': DRYNESS_COLOURS[2]}]),
-            sample('Mørk rød sirkel', 'Svært tørkeutsatt', markers=[{**dry_marker, 'colour': DRYNESS_COLOURS[3]}]),
+            sample('Blå ring', 'Hele enheten er frisk eller sjelden tørrlagt (fylt blå sirkel betyr fuktig mark)', markers=[{**dry_marker, 'colour': DRYNESS_COLOURS[0]}]),
+            sample('Ingen tørkering', 'Noe tørkeutsatt, eller spenner over det meste av skalaen'),
+            sample('Oransje ring', 'Tørkeutsatt', markers=[{**dry_marker, 'colour': DRYNESS_COLOURS[2]}]),
+            sample('Mørk rød ring', 'Svært tørkeutsatt', markers=[{**dry_marker, 'colour': DRYNESS_COLOURS[3]}]),
         ]
     hatch += [
         sample('Stiplet skravur', 'Myrkant (hele enheten ligger i myrkant-delen av myrflatepreg)', hatch_angle=ANGLE_INTERMEDIAER, hatch_style='dashed'),
@@ -407,7 +408,7 @@ def render_legend(counter: list, variant: str) -> str:
         for row in subtype['colours'].values():
             shades.append(sample(f"{short_code(hovedtype)} {row['navn']}", row['begrunnelse'], fill_hex=row['fill_hex']))
 
-    first_title = 'Skravur' if variant == 'A' else 'Skravur og tørkesirkler'
+    first_title = 'Skravur' if variant == 'A' else 'Skravur og tørkeringer'
     return (
         '<h2>Tegnforklaring</h2>'
         '<p class="lead">De samme reglene gjelder i alle hovedtyper og i alle målestokker. '
@@ -474,7 +475,7 @@ def main() -> int:
     '''Execute as standalone script'''
 
     parser = argparse.ArgumentParser(description='Draws the symbol overview.')
-    parser.add_argument('--variant', choices=VARIANTS, default='A')
+    parser.add_argument('--variant', choices=VARIANTS, default=DEFAULT_VARIANT)
     variant = parser.parse_args().variant
 
     symbology = build_symbology(variant)

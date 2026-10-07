@@ -23,7 +23,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DOCS_PATH = REPO_ROOT / 'docs' / 'symbology'
 
-PAGES = ('fargeoversikt', 'symboloversikt', 'symboloversikt_forslag_B')
+PAGES = ('fargeoversikt', 'symboloversikt', 'symboloversikt_utkast_A')
 
 BROWSER_CANDIDATES = (
     r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe',

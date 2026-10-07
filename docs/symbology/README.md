@@ -7,21 +7,23 @@ Planen og status står i [symbology/PLAN.md](../../symbology/PLAN.md).
 | Steg | Innhold | Status |
 | --- | --- | --- |
 | 1 | Fyllfarge for hver hovedtype | Utkast 2, revidert etter kommentarene til NiN 2-utkastet |
-| 2 | Skravur og symboler for kartleggingsenhetene, i tre målestokker | Utkast 2: egne nyanser for TG01, tre regler rettet etter prøving |
-| 3 | Stilfiler for QGIS (QML) | Utkast 2, tegnet og kontrollert i QGIS 3.40 |
-| 4 | Kartografien tas i bruk i programtillegget | Koden er på plass og testet. Fyll 65 % dekkende. Brukerveiledningen er ikke oppdatert |
-| 5 | Prøving på kartlagte data | Tre områder kartlagt i 1:20 000, tegnet i 1:20 000 og vurdert |
-| 6 | Forslag B: kalkfattig uten skravur | Laget og prøvd på de samme dataene, til vurdering |
+| 2 | Skravur og symboler for kartleggingsenhetene, i tre målestokker | Utkast B valgt 2026-10-07: kalkfattig uten skravur, tørke som ringer, egne nyanser for TG01 |
+| 3 | Stilfiler for QGIS (QML) | Utkast B, tegnet og kontrollert i QGIS 3.40 |
+| 4 | Kartografien tas i bruk i programtillegget | Utkast B er tatt i bruk. Fyll 65 % dekkende. Brukerveiledningen er ikke oppdatert |
+| 5 | Prøving på kartlagte data | Tre områder kartlagt i 1:20 000: samlet kart i 1:20 000 og forstørrede utsnitt per område |
 
 Utskriftsklare oversikter (A4, med sidetall):
 
 | Oversikt | Nettleser | PDF |
 | --- | --- | --- |
 | Farger for hovedtyper | [fargeoversikt.html](fargeoversikt.html) | [fargeoversikt.pdf](fargeoversikt.pdf) |
-| Symboler, utkast A (brukes i programtillegget) | [symboloversikt.html](symboloversikt.html) | [symboloversikt.pdf](symboloversikt.pdf) |
-| Symboler, forslag B | [symboloversikt_forslag_B.html](symboloversikt_forslag_B.html) | [symboloversikt_forslag_B.pdf](symboloversikt_forslag_B.pdf) |
-| Prøvekart 1:20 000, utkast A | [testkart_M020.png](testkart_M020.png) | [testkart_M020.pdf](testkart_M020.pdf) |
-| Prøvekart 1:20 000, forslag B | [testkart_M020_forslag_B.png](testkart_M020_forslag_B.png) | [testkart_M020_forslag_B.pdf](testkart_M020_forslag_B.pdf) |
+| Symboler, utkast B (brukes i programtillegget) | [symboloversikt.html](symboloversikt.html) | [symboloversikt.pdf](symboloversikt.pdf) |
+| Symboler, utkast A (til sammenligning) | [symboloversikt_utkast_A.html](symboloversikt_utkast_A.html) | [symboloversikt_utkast_A.pdf](symboloversikt_utkast_A.pdf) |
+| Prøvekart 1:20 000, alle tre områder | [testkart_M020.png](testkart_M020.png) | [testkart_M020.pdf](testkart_M020.pdf) |
+| Prøvekart, område 1 forstørret (1:7 500) | [testkart_M020_omrade_1.png](testkart_M020_omrade_1.png) | [testkart_M020_omrade_1.pdf](testkart_M020_omrade_1.pdf) |
+| Prøvekart, område 2 forstørret (1:7 500) | [testkart_M020_omrade_2.png](testkart_M020_omrade_2.png) | [testkart_M020_omrade_2.pdf](testkart_M020_omrade_2.pdf) |
+| Prøvekart, område 3 forstørret (1:7 500) | [testkart_M020_omrade_3.png](testkart_M020_omrade_3.png) | [testkart_M020_omrade_3.pdf](testkart_M020_omrade_3.pdf) |
+| Prøvekart 1:20 000, utkast A (til sammenligning) | [testkart_M020_utkast_A.png](testkart_M020_utkast_A.png) | [testkart_M020_utkast_A.pdf](testkart_M020_utkast_A.pdf) |
 
 Hver hovedtypegruppe har en grunnfarge. For fastmarkssystemer (NA-T) og
 våtmarkssystemer (NA-V) har hver av de 72 hovedtypene sin egen farge. De
@@ -101,28 +103,37 @@ Symbolene er ikke tegnet for hånd. De er beregnet fra miljøvariablene som
 definerer hver kartleggingsenhet i NiN-katalogen, med reglene i
 `variable_rules.csv`, `hovedtype_patterns.csv` og `subtype_colours.csv`.
 
+Programtillegget bruker utkast B (valgt 2026-10-07). Utkast A er tatt vare
+på til sammenligning; se «Utkast A og B» nedenfor.
+
 | Målestokk | Enheter | Bare fyllfarge | Med skravur | Skilt med prikket skravur eller nøytralt symbol |
 | --- | --- | --- | --- | --- |
-| 1:5 000 | 388 | 27 | 290 | 31 |
-| 1:20 000 | 212 | 29 | 144 | 10 |
-| 1:50 000 | 116 | 35 | 49 | 3 |
+| 1:5 000 | 388 | 36 | 215 | 34 |
+| 1:20 000 | 212 | 39 | 109 | 14 |
+| 1:50 000 | 116 | 36 | 45 | 3 |
 
 ### Reglene
 
 | Virkemiddel | Viser | Verdier |
 | --- | --- | --- |
-| Skravurvinkel | Kalkinnhold (LM-KA) | Skrå = kalkfattig, vannrett = intermediær, loddrett = kalkrik. En enhet som spenner over nesten hele skalaen, har ingen vinkel for kalk |
-| Skravurfarge | Uttørkingsfare, uttørkingseksponering og tørrleggingsvarighet | Blå bare når hele spennet ligger i den fuktigste fjerdedelen. Ellers grå, oransje eller mørk rød etter midten av spennet. Et spenn over mer enn to tredeler av skalaen gir grå |
-| Skravurtype | Myrflatepreg | Stiplet = hele spennet ligger i myrkant-halvdelen. Heltrukken = myrflate, eller både kant og flate |
+| Ingen skravur | Kalkfattig (grunntilstand), eller kalkinnhold skiller ikke enhetene | |
+| Skravurvinkel | Kalkinnhold (LM-KA) | Vannrett = intermediær, loddrett = kalkrik |
+| Ring | Uttørkingsfare, uttørkingseksponering og tørrleggingsvarighet | Blå ring = hele enheten er frisk. Ingen ring = noe tørkeutsatt (grunntilstand), eller spenner over det meste av skalaen. Oransje ring = tørkeutsatt. Mørk rød ring = svært tørkeutsatt |
+| Fylt blå sirkel | Vannpåvirkning: kilde, fuktig mark, vannsprut | Skiller seg fra den blå ringen for frisk mark |
+| Stiplet skravur | Myrkant: hele spennet i myrflatepreg ligger i myrkant-halvdelen | Uten kalkskravur tegnes den mot venstre |
 | Prikket skravur | Ingen egen betydning | Skiller to enheter som ellers ville fått likt symbol |
+| Skravur mot venstre | Hovedtypens faste kjennetegn, for eksempel blå for flommark og gul for semi-naturlig våtmark | |
 | Nyanse av fyllfargen | Løsmassetype i TG01 Nakne løsmasser | Sju nyanser av sandfargen |
-| Blå symboler | Vannpåvirkning: kilde, fuktig mark, vannsprut, overrisling, bølger og strøm | Sirkel, strek, kryss og rute |
+| Andre blå symboler | Overrisling, bølger og strøm, vanntilførsel | Strek, kryss og rute |
 | Hvit sirkel | Snøleiepreg | |
 | Mørke firkanter | Kornstørrelse og substrat | Større firkant = grovere |
 | Mørk ring | Type inngrep i sterkt endret mark | |
 | Gulbrune symboler | Hevd og gjødsling | Rute og trekant |
 | Sirkel i farge fra en annen hovedtype | Hva marka ligner (økologisk differensiering) | Rabbe, fjellhei, snøleie (hvit), skog (grønn) |
 | Grønn sirkel | Skog i våtmark, og skogpreg i annen mark | |
+
+Sirkler og ringer handler om vann: fylt blå = fuktig eller kildepåvirket,
+blå ring = frisk, oransje og mørk rød ring = tørt, hvit = snø.
 
 Tre regler gjelder alle symboler:
 
@@ -132,22 +143,23 @@ Tre regler gjelder alle symboler:
    Symbolet betyr at egenskapen gjelder hele enheten. Enheter som ligger
    helt over det laveste trinnet, får symbol, og større symbol jo høyere
    trinn. Tetthet brukes ikke til å vise grad.
-3. Et symbol har skravur og høyst tre typer symboler.
+3. Den vanligste tilstanden tegnes ikke: kalkfattig har ingen skravur, og
+   noe tørkeutsatt har ingen ring.
 
-Noen hovedtyper har et fast kjennetegn på alle enhetene, for eksempel grønn
-sirkel for skog i våtmark og blå skravur for flommark. De står i
-`hovedtype_patterns.csv`.
+Et symbol har skravur og høyst tre typer symboler. Noen hovedtyper har et
+fast kjennetegn på alle enhetene, for eksempel grønn sirkel for skog i
+våtmark. De står i `hovedtype_patterns.csv`.
 
 ### TG01 Nakne løsmasser: nyanse per løsmassetype
 
 TG01 har 41 enheter i 1:5 000. De er kombinasjoner av løsmassetype (sju
-verdier), kornstørrelse, hva marka ligner og kalkinnhold. I utkast 1 ble
+verdier), kornstørrelse, hva marka ligner og kalkinnhold. Først ble
 løsmassetypen vist med en trekant i sju varianter, og de fleste enhetene
 fikk tre eller fire mønsterlag oppå fyllfargen.
 
-Nå får hver løsmassetype sin egen nyanse av sandfargen, slik
-hovedtypene har hver sin farge. Enhetene i 1:50 000 er delt etter
-løsmassetype, så der skiller fyllfargen dem alene.
+Nå får hver løsmassetype sin egen nyanse av sandfargen, slik hovedtypene har
+hver sin farge. Enhetene i 1:50 000 er delt etter løsmassetype, så der
+skiller fyllfargen dem alene.
 
 | Løsmassetype | Farge | Begrunnelse |
 | --- | --- | --- |
@@ -166,7 +178,7 @@ dominerende). Resultat i 1:5 000:
 | Mønsterlag oppå fyllfargen | 0 | 1 | 2 | 3 | 4 |
 | --- | --- | --- | --- | --- | --- |
 | Før (trekant for løsmassetype) | 1 | 5 | 16 | 18 | 1 |
-| Nå (nyanse for løsmassetype) | 5 | 13 | 15 | 8 | 0 |
+| Nå (nyanse for løsmassetype, utkast B) | 5 | 15 | 16 | 5 | 0 |
 
 Regelen er generell: `subtype_colours.csv` kan gi nyanser til andre
 hovedtyper der én variabel deler enhetene i tydelige grupper.
@@ -180,16 +192,16 @@ fra hverandre. Symbolene får derfor færre deler jo grovere målestokken er.
 | Målestokk | Mønsterlag oppå fyllfargen, gjennomsnitt | Eksempel: Fastmarksskogsmark TB01 |
 | --- | --- | --- |
 | 1:50 000 | 0,9 | Kalkfattig til intermediær skog: vannrett skravur. Kalkskog: loddrett skravur |
-| 1:20 000 | 1,3 | Blåbær-bærlyngskog: skrå skravur. Lyng- og lavskog: skrå skravur i mørk rød (tørkeutsatt) |
-| 1:5 000 | 1,6 | Blåbærfuktskog: skrå blå skravur (frisk) og blå sirkel (fuktig mark) |
+| 1:20 000 | 1,3 | Blåbær-bærlyngskog: bare fyllfarge. Lyng- og lavskog: mørk rød ring (svært tørkeutsatt) |
+| 1:5 000 | 1,7 | Blåbærskog: blå ring (frisk). Blåbærfuktskog: blå ring og fylt blå sirkel (frisk og fuktig) |
 
 Hver enhet er koblet til enheten den hører til i neste grovere målestokk
 (kolonnen `parent_kode_id`). Koblingen går gjennom grunntypene i katalogen.
 
 Skravurvinkelen settes ut fra midten av enhetens spenn i kalkinnhold. Av
-enhetene i 1:5 000 har 369 av 386 samme skravurvinkel som enheten de hører
-til i 1:20 000. Fra 1:20 000 til 1:50 000 gjelder det 132 av 212, fordi
-enhetene i 1:50 000 ofte spenner over både kalkfattig og intermediær.
+enhetene i 1:5 000 har 370 av 386 samme skravur som enheten de hører til i
+1:20 000. Fra 1:20 000 til 1:50 000 gjelder det 146 av 212, fordi enhetene i
+1:50 000 ofte spenner over både kalkfattig og intermediær.
 
 ### Nøytrale skillesymboler
 
@@ -209,9 +221,9 @@ Nøytralt skillesymbol trengs av to grunner:
 | Grunn | Eksempel |
 | --- | --- |
 | Katalogen har ingen variabel som skiller enhetene | TI01 Klart endret skogsmark: «hugd» mot «treslagstypeskiftet» er ikke en miljøvariabel. TM06 Sterkt endret skogsmark: enhetene er suksesjonsstadier |
-| To spenn havner i samme klasse | TA01 Nakent berg: uttørkingseksponering har seks trinn i 1:5 000, men skravurfargen har fire klasser |
+| To spenn havner i samme klasse | TA01 Nakent berg: uttørkingseksponering har seks trinn i 1:5 000, men ringen har tre farger og grunntilstanden |
 
-Enheter med nøytralt skillesymbol i 1:5 000: TA01 (9), VA01 (6), TI01 (4),
+Enheter med nøytralt skillesymbol i 1:5 000: TA01 (12), VA01 (6), TI01 (4),
 TA03, TG01, TM03 og TM06 (2 hver), TD06, TO04, VB01 og VC05 (1 hver).
 
 ### Kolonnene i symboltabellene
@@ -231,16 +243,17 @@ uavhengige av kartets målestokk.
 | `hatch_spacing_mm`, `hatch_width_mm` | Avstand mellom skravurlinjene (4 mm), målt vinkelrett på linjene, og linjetykkelse (0,25 mm) |
 | `marker1_shape` til `marker3_shape` | Symbolform: `circle`, `ring`, `square`, `triangle`, `diamond`, `star`, `cross`, `cross2`, `line` eller `arrowhead` |
 | `marker1_colour` til `marker3_colour` | Symbolfarge. Hvite symboler har mørk kantlinje |
-| `marker1_size_mm` til `marker3_size_mm` | Største utstrekning av symbolet; diameter for sirkel og ring |
+| `marker1_size_mm` til `marker3_size_mm` | Største utstrekning av symbolet; diameter for sirkel og ring. Tørkeringen er 1,6 mm |
 | `marker1_filled` til `marker3_filled` | 1 = fylt, 0 = bare omriss |
 | `marker_spacing_mm` | Avstand mellom symbolene, vannrett og loddrett. Hver symboltype er forskjøvet i ruta slik at de ikke dekker hverandre |
 | `forklaring` | Hva hver del av symbolet viser |
 
-### Kjente svakheter i utkast 2
+### Kjente svakheter
 
 | Svakhet | Omfang |
 | --- | --- |
-| Symboler med fire mønsterlag oppå fyllfargen er tunge å lese | 8 enheter i 1:5 000: TK01 Semi-naturlig eng (6) og TF02 Flomskogsmark (2) |
+| Symboler med fire mønsterlag oppå fyllfargen er tunge å lese | 11 enheter i 1:5 000: TK01 Semi-naturlig eng (9) og TF02 Flomskogsmark (2); 1 i 1:20 000 (TK01) |
+| Kalkfattig og «kalkinnhold skiller ikke enhetene» ser like ut | Forskjellen går fram av påskriften og tegnforklaringen |
 | To enheter i 1:5 000 er ikke koblet til noen enhet i 1:20 000 i katalogen | TA01-M005-23 Fuglestein og fugleberg, TC02-M005-04 Kalkfattig til litt kalkrik grotte |
 | Symbolene er tegnet i QGIS og prøvd på kartlagte data, men ikke på trykk eller i felt | Alle enheter |
 
@@ -291,20 +304,29 @@ når prosjektet opprettes.
 ## Steg 5: prøving på kartlagte data
 
 Tre kartlagte områder fra samme prosjekt (500 × 1000 m hver, 337 figurer,
-25 kartleggingsenheter) er tegnet sammen i ett kart med programtilleggets
-egne symboler, 65 % dekkende fyll, over Kartverkets gråtonekart.
+25 kartleggingsenheter) er tegnet med programtilleggets egne symboler, 65 %
+dekkende fyll, over Kartverkets gråtonekart.
 
 **Målestokk.** Områdene er kartlagt i 1:20 000. Det framgår av dataene:
 `kode_id_label` peker på rader i katalogtabellen, og bare i tabellen for
 1:20 000 hører enheten til den hovedtypen som også er lagret på figuren (263
 av 267 kartlagte figurer; 0 i 1:5 000 og 1:50 000. De fire andre viser til
-en enhet som ikke lenger finnes i katalogen). Enhetskodene har derfor
-formen `TH01-M020-01`. Kartet er tegnet i 1:20 000, og påskriftene viser
-koden uten målestokk (`TH01-01`), slik programtillegget gjør.
+en enhet som ikke lenger finnes i katalogen). Enhetskodene har derfor formen
+`TH01-M020-01`. Påskriftene viser koden uten målestokk (`TH01-01`), slik
+programtillegget gjør.
 
-- [testkart_M020.png](testkart_M020.png) ([pdf](testkart_M020.pdf))
+| Kart | Målestokk | Innhold |
+| --- | --- | --- |
+| [testkart_M020.png](testkart_M020.png) ([pdf](testkart_M020.pdf)) | 1:20 000 | Alle tre områder |
+| [testkart_M020_omrade_1.png](testkart_M020_omrade_1.png) ([pdf](testkart_M020_omrade_1.pdf)) | 1:7 500 | Område 1, forstørret |
+| [testkart_M020_omrade_2.png](testkart_M020_omrade_2.png) ([pdf](testkart_M020_omrade_2.pdf)) | 1:7 500 | Område 2, forstørret |
+| [testkart_M020_omrade_3.png](testkart_M020_omrade_3.png) ([pdf](testkart_M020_omrade_3.pdf)) | 1:7 500 | Område 3, forstørret |
 
-Kartet lages med `python-qgis-ltr.bat symbology_tools/render_test_areas.py`
+De forstørrede utsnittene bruker de samme enhetene og symbolene for 1:20 000;
+bare kartet er forstørret. Tegnforklaringen viser enhetene som finnes i
+utsnittet.
+
+Kartene lages med `python-qgis-ltr.bat symbology_tools/render_test_areas.py`
 fra GeoPackage-filene i `symbology/`. Skriptet finner målestokken fra dataene.
 GeoPackage-filene er ikke sjekket inn i Git.
 
@@ -330,9 +352,9 @@ Nabofigurer med ulik enhet (490 par) skilles slik:
 | Hva skiller symbolene | Par |
 | --- | --- |
 | Fyllfarge, ofte sammen med skravur eller symbol | 417 |
-| Bare skravurvinkel (samme hovedtype, ulikt kalkinnhold) | 60 |
-| Bare skravurfarge (samme hovedtype, ulik uttørkingsfare) | 9 |
-| Bare symbol (TM03-01 mot TM03-02) | 4 |
+| Bare skravurvinkel (samme hovedtype, ulikt kalkinnhold) | 53 |
+| Bare symbol | 13 |
+| Skravurvinkel og symbol | 7 |
 
 Alle par av nabofigurer med ulik enhet har ulike symboler.
 
@@ -340,50 +362,45 @@ Det som fungerer:
 
 - Hovedtypene leses av fargen: skog grønn, avskoget hei oker, fjellhei
   lysebrun, myr lilla, sterkt endret grå. Skillet skog–fjell er tydelig.
+- Kartet er roligere enn med utkast A: 13 % av det kartlagte arealet har
+  skravur, mot 95 %. Skravur betyr nå at marka er kalkrikere enn vanlig, og
+  kalkrik mark er lett å finne.
 - Med 65 % dekkende fyll kan fjellhei (TA03, lysebrun) og avskoget hei
-  (TH01, oker) skilles på fargen i prøvekartet, og bakgrunnskartet synes
-  fortsatt.
-- De vanligste parene innen samme hovedtype (TH01-01 mot TH01-02, TB01-01
-  mot TB01-02) skilles av skravurvinkel.
+  (TH01, oker) skilles på fargen, og bakgrunnskartet synes fortsatt.
 
 Det som ikke fungerer godt nok i 1:20 000:
 
 | Svakhet | Omfang | Mulig tiltak |
 | --- | --- | --- |
-| Mønsteret får ikke plass i smale figurer. Et mønster trenger to ruter à 4 mm, det vil si 160 m i terrenget | 223 av 263 figurer med symbol er smalere enn 160 m | Påskriften bærer koden. Større avstand og større symboler i 1:20 000 og 1:50 000 vil vise mønsteret i flere figurer, men gjør det grovere |
-| Skrå skravur dekker nesten hele kartet, fordi kalkfattig mark er vanligst | 95 % av det kartlagte arealet har skravur | Se forslag B |
+| Mønsteret får ikke plass i smale figurer. Et mønster trenger to ruter à 4 mm, det vil si 160 m i terrenget | 136 figurer med mønster er smalere enn 160 m | Påskriften bærer koden. Større avstand og større symboler i 1:20 000 og 1:50 000 vil vise mønsteret i flere figurer, men gjør det grovere |
 | Påskriftene overlapper | Mange små figurer | Påskrift bare på figurer over en minstestørrelse, eller bare når figuren velges |
 | Fire figurer viser til en enhet (fid 493) som ikke finnes i katalogen | Katalogen er regenerert etter kartleggingen | Ikke et kartografispørsmål; de vises røde |
 
-## Forslag B: kalkfattig uten skravur
+## Utkast A og B
 
-Forslaget er laget og prøvd, men ikke tatt i bruk i programtillegget.
+Utkast A var det første utkastet. Utkast B ble valgt 2026-10-07 etter
+prøving på de samme dataene. A er tatt vare på til sammenligning:
 
-- Symboloversikt: [symboloversikt_forslag_B.html](symboloversikt_forslag_B.html)
-  ([pdf](symboloversikt_forslag_B.pdf))
-- Prøvekart 1:20 000: [testkart_M020_forslag_B.png](testkart_M020_forslag_B.png)
-  ([pdf](testkart_M020_forslag_B.pdf))
-- Symboltabeller: `symbology/forslag_B/symbology_M005.csv` osv.
+- Symboloversikt: [symboloversikt_utkast_A.html](symboloversikt_utkast_A.html)
+  ([pdf](symboloversikt_utkast_A.pdf))
+- Prøvekart 1:20 000: [testkart_M020_utkast_A.png](testkart_M020_utkast_A.png)
+  ([pdf](testkart_M020_utkast_A.pdf))
+- Symboltabeller: `symbology/utkast_A/symbology_M005.csv` osv.
 
-### Regler
-
-| Virkemiddel | Utkast A | Forslag B |
+| Virkemiddel | Utkast A | Utkast B |
 | --- | --- | --- |
 | Kalkfattig | Skrå skravur | Ingen skravur (grunntilstand) |
 | Intermediær og kalkrik | Vannrett og loddrett skravur | Uendret |
-| Uttørkingsfare, uttørkingseksponering, tørrleggingsvarighet | Skravurfarge: blå, grå, oransje, mørk rød | Liten sirkel i samme farger. Den grå klassen (den vanligste) er grunntilstand uten sirkel |
-| Myrkant uten kalkskravur | Stiplet skravur | Stiplet skravur mot venstre. Myrflate uten kalkskravur får ingen skravur |
+| Uttørkingsfare, uttørkingseksponering, tørrleggingsvarighet | Skravurfarge: blå, grå, oransje, mørk rød | Ring i samme farger. Den grå klassen er grunntilstand uten ring |
+| Fuktig mark mot frisk mark | Blå sirkel mot blå skravur | Fylt blå sirkel mot blå ring |
 
-Uttørking får en egen bærer overalt, ikke bare der kalkinnholdet ikke
+I B har uttørking én bærer overalt, ikke bare der kalkinnholdet ikke
 varierer. Da betyr hvert virkemiddel én ting i hele kartet: skravur er kalk,
-sirkelens farge er vannbalanse (blå = fuktig eller frisk, hvit = snø,
-oransje og mørk rød = tørt). Om uttørking skulle vises med skravurfarge der
-det er skravur og med sirkel der det ikke er det, måtte kartleseren lære to
-tegn for samme egenskap.
+ringen er tørke. Om uttørking skulle vises med skravurfarge der det er
+skravur og med ring der det ikke er det, måtte kartleseren lære to tegn for
+samme egenskap.
 
-### Sammenligning
-
-| | Utkast A | Forslag B |
+| | Utkast A | Utkast B |
 | --- | --- | --- |
 | Kartlagt areal med skravur, prøvekartet | 95 % | 13 % |
 | Kartlagt areal med skravur eller symbol | 99 % | 28 % |
@@ -391,28 +408,17 @@ tegn for samme egenskap.
 | Nabopar med ulik enhet og likt symbol | 0 | 0 |
 | Nabopar innen samme hovedtype som skilles | 73 av 73 | 73 av 73 |
 | Enheter med bare fyllfarge, 1:5 000 / 1:20 000 / 1:50 000 | 27 / 29 / 35 | 36 / 39 / 36 |
-| Enheter med nøytralt skillesymbol, 1:5 000 | 31 | 37 |
+| Enheter med nøytralt skillesymbol, 1:5 000 | 31 | 34 |
 | Enheter med fire mønsterlag, 1:5 000 | 8 | 11 |
 
-Vurdering:
+De tre ekstra nøytrale skillesymbolene i B er alle i TA01 Nakent berg. I A
+skilte disse enhetene seg bare ved to nesten like grånyanser i skravuren
+(den grå tørkeklassen mot standardfargen for skravur), som en kartleser ikke
+ville se. I B er likheten synlig, og enhetene får et skillesymbol.
 
-- Kartet blir mye roligere. Den vanligste marka (kalkfattig, noe
-  tørkeutsatt) får bare fyllfarge, og skravur betyr nå at marka er
-  kalkrikere enn vanlig. Det gjør kalkrik mark lett å finne.
-- Kalkfattig og «kalkinnhold skiller ikke enhetene» ser like ut. Forskjellen
-  går fram av påskriften og tegnforklaringen.
-- Fuktig mark (blå sirkel for vannmetning) og frisk mark (blå sirkel for
-  uttørkingsfare) får samme tegn. Det er økologisk rimelig, men i noen
-  hovedtyper blir to enheter like og må skilles med nøytralt symbol. Derfor
-  trengs 37 i stedet for 31 slike i 1:5 000, blant annet for Blåbærfuktskog
-  mot Blåbærskog (TB01).
-- Forslaget løser ikke problemet med smale figurer, men halverer omtrent
-  antallet figurer der mønsteret ikke får plass, fordi færre figurer har
-  mønster.
-
-Anbefaling: forslag B gir et klart bedre kartbilde i 1:20 000. Før det tas i
-bruk bør fuktig og frisk mark få to ulike tegn, slik at de seks ekstra
-skillesymbolene forsvinner.
+En første versjon av B viste både frisk og fuktig mark som fylt blå sirkel.
+Det ga 37 nøytrale skillesymboler, blant annet for Blåbærfuktskog mot
+Blåbærskog. Med blå ring for frisk mark er det rettet.
 
 ## Kommentarer til NiN 2-utkastet og hvordan de er fulgt opp
 
@@ -489,16 +495,16 @@ kommentarene, og viser hvilke hovedtyper i NiN 3.0 de gjelder.
 | `nin_qgis_plugin/csv/symbology/variable_rules.csv` | Regler: hvilken variabel som styrer hvilket virkemiddel. Rekkefølgen er prioritet |
 | `nin_qgis_plugin/csv/symbology/hovedtype_patterns.csv` | Faste kjennetegn for enkelte hovedtyper |
 | `nin_qgis_plugin/csv/symbology/subtype_colours.csv` | Nyanser av fyllfargen per verdi av én variabel (TG01 per løsmassetype) |
-| `symbology/forslag_B/` | Symboltabeller for forslag B. Brukes ikke av programtillegget |
+| `symbology/utkast_A/` | Symboltabeller for utkast A, til sammenligning. Brukes ikke av programtillegget |
 | `nin_qgis_plugin/csv/symbology/symbology_M005.csv`, `_M020.csv`, `_M050.csv` | Resultat: ett symbol per kartleggingsenhet. Lages av `patterns.py`, redigeres ikke for hånd |
 | `symbology_tools/patterns.py` | Beregner og kontrollerer symbolene |
-| `symbology_tools/render_symbol_overview.py` | Lager `symboloversikt.html`, og `symboloversikt_forslag_B.html` med `--variant B` |
+| `symbology_tools/render_symbol_overview.py` | Lager `symboloversikt.html`, og `symboloversikt_utkast_A.html` med `--variant A` |
 | `symbology_tools/print_overviews.py` | Skriver oversiktene ut til PDF med Edge eller Chrome |
 | `tests/unit/test_symbology_patterns.py` | Enhetstester |
 | `nin_qgis_plugin/symbology_styles.py` | Programtillegget: leser symboltabellene |
 | `nin_qgis_plugin/symbology_symbols.py` | Programtillegget: bygger QGIS-symboler |
 | `symbology_tools/export_qml.py` | Lager stilfiler og prøvekart. Krever QGIS |
-| `symbology_tools/render_test_areas.py` | Tegner og vurderer kartlagte data fra `symbology/*.gpkg` i kartleggingsmålestokken. `--variant B` for forslag B. Krever QGIS |
+| `symbology_tools/render_test_areas.py` | Tegner og vurderer kartlagte data fra `symbology/*.gpkg`: samlet kart i kartleggingsmålestokken og forstørrede utsnitt per område. `--variant A` for utkast A. Krever QGIS |
 | `tests/unit/test_symbology_styles.py`, `tests/qgis/test_symbology_symbols.py` | Tester for programtillegget |
 | `tests/unit/test_symbology_palette.py` | Enhetstester |
 | `symbology/` | Tidligere kartografi for NiN 2, til inspirasjon |
@@ -515,12 +521,12 @@ kommentarene, og viser hvilke hovedtyper i NiN 3.0 de gjelder.
 
 1. Endre `variable_rules.csv`, `hovedtype_patterns.csv` eller `subtype_colours.csv`.
 2. Beregn symbolene på nytt: `python symbology_tools/patterns.py`, og
-   `python symbology_tools/patterns.py --variant B` for forslaget
+   `python symbology_tools/patterns.py --variant A` for sammenligningen
 3. Lag oversiktene på nytt: `python symbology_tools/render_symbol_overview.py`
-   (med og uten `--variant B`), deretter `python symbology_tools/print_overviews.py`
+   (med og uten `--variant A`), deretter `python symbology_tools/print_overviews.py`
 4. Lag stilfilene på nytt: `python-qgis-ltr.bat symbology_tools/export_qml.py`
 5. Lag prøvekartene på nytt: `python-qgis-ltr.bat symbology_tools/render_test_areas.py`
-   (med og uten `--variant B`)
+   (med og uten `--variant A`)
 6. Kjør testene: `python -m pytest -q`
 
 De samme stegene kjøres når NiN-katalogen er oppdatert. En test feiler hvis

@@ -32,9 +32,12 @@ def test_value_midpoint_and_span():
 
 
 def test_kalk_angle():
-    assert kalk_angle("a,b") == ANGLE_KALKFATTIG
+    # Variant B (the plugin): kalkfattig is the baseline without hatch
+    assert kalk_angle("a,b") is None
     assert kalk_angle("d,e,f") == ANGLE_INTERMEDIAER
     assert kalk_angle("g,h,i") == ANGLE_KALKRIK
+    # Variant A: kalkfattig has a diagonal hatch
+    assert kalk_angle("a,b", "A") == ANGLE_KALKFATTIG
     # A unit that covers the whole gradient says nothing about kalkinnhold
     assert kalk_angle("a,b,c,d,e,f,g,h,i") is None
 
@@ -142,6 +145,10 @@ def test_coarser_scales_have_simpler_symbols(symbology):
     assert mean_layers("M050") < mean_layers("M020") < mean_layers("M005")
 
 
+def _marks(symbol):
+    return [(marker["shape"], marker["colour"]) for marker in symbol["markers"]]
+
+
 def test_forest_example(symbology):
     '''Kalkinnhold sets the angle; drought and moisture appear at finer scales.'''
 
@@ -153,8 +160,18 @@ def test_forest_example(symbology):
     assert kalkskog["hatch_angle"] == ANGLE_KALKRIK
     assert kalkskog["markers"] == []
 
+    # Frisk is a blue ring, moist ground a filled blue circle
+    blue = DRYNESS_COLOURS[0]
+    assert _marks(_symbol(symbology, "M005", "TB01-M005-01")) == [("ring", blue)]
+    assert _marks(_symbol(symbology, "M005", "TB01-M005-13")) == [("ring", blue), ("circle", blue)]
+
     hogstaudeskog = _symbol(symbology, "M005", "TB01-M005-15")
     assert hogstaudeskog["hatch_angle"] == ANGLE_KALKRIK
+    assert _marks(hogstaudeskog) == [("ring", blue), ("circle", blue)]
+
+
+def test_variant_a_draws_drought_as_hatch_colour():
+    hogstaudeskog = _symbol(build_symbology("A"), "M005", "TB01-M005-15")
     assert hogstaudeskog["hatch_colour"] == DRYNESS_COLOURS[0]
     assert [marker["shape"] for marker in hogstaudeskog["markers"]] == ["circle"]
 
@@ -199,23 +216,18 @@ def test_dashed_hatch_only_means_myrkant(symbology):
                 assert any("Myrflatepreg" in part for part in symbol["explanation"]), symbol["kode_id"]
 
 
-@pytest.fixture(scope="module")
-def symbology_b():
-    return build_symbology("B")
+def test_variant_a_is_valid():
+    assert validate_symbology(build_symbology("A")) == []
 
 
-def test_variant_b_is_valid(symbology_b):
-    assert validate_symbology(symbology_b) == []
-
-
-def test_variant_b_has_no_hatch_for_kalkfattig(symbology_b):
+def test_kalkfattig_has_no_hatch(symbology):
     for scale in MAPPING_SCALES:
-        for symbol in symbology_b[scale]:
+        for symbol in symbology[scale]:
             assert symbol["hatch_angle"] != ANGLE_KALKFATTIG, symbol["kode_id"]
 
 
-def test_variant_b_draws_drought_as_circles(symbology_b):
-    lavskog = _symbol(symbology_b, "M005", "TB01-M005-10")  # kalkfattig and very dry
+def test_drought_is_a_ring(symbology):
+    lavskog = _symbol(symbology, "M005", "TB01-M005-10")  # kalkfattig and very dry
     assert lavskog["hatch_angle"] is None
-    assert [marker["shape"] for marker in lavskog["markers"]] == ["circle"]
-    assert lavskog["markers"][0]["colour"] == DRYNESS_COLOURS[3]
+    assert _marks(lavskog) == [("ring", DRYNESS_COLOURS[3])]
+    assert lavskog["markers"][0]["filled"] is False

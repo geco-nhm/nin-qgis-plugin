@@ -10,14 +10,14 @@ TA04-M050-02,Klart kalkrik arktisk-alpin grasmark,NA-TA04,,#E6CA85,#FFFFFF,90,#3
 TB01-M050-01,Kalkfattig til intermediær skog,NA-TB01,,#8ACA8B,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
 TB01-M050-02,Kalkskog,NA-TB01,,#8ACA8B,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
 TC01-M050-01,Strandberg,NA-TC01,,#8BA8BC,#FFFFFF,,,,,,,,,,,,,,,,,,,
-TC02-M050-01,Kalkfattig til litt kalkrik grotte og overheng,NA-TC02,,#8B87A2,#FFFFFF,45,#3A3A3A,solid,4.0,0.25,arrowhead,#4A4A4A,1.6,1,,,,,,,,,4.0,"Kalkinnhold a,b,c,d,e,f: skrå skravur; Grottebetinget skjerming a,b,c,d: vinkel 1.6 mm"
+TC02-M050-01,Kalkfattig til litt kalkrik grotte og overheng,NA-TC02,,#8B87A2,#FFFFFF,,,,,,arrowhead,#4A4A4A,1.6,1,,,,,,,,,4.0,"Kalkinnhold a,b,c,d,e,f: kalkfattig, ingen skravur; Grottebetinget skjerming a,b,c,d: vinkel 1.6 mm"
 TC02-M050-02,Sterkt kalkrik grotte og overheng,NA-TC02,,#8B87A2,#FFFFFF,,,,,,arrowhead,#4A4A4A,1.0,0,,,,,,,,,4.0,"Grottebetinget skjerming a,b,c,d,y: vinkel 1.0 mm"
-TC03-M050-01,Leire- og siltstrand i geolittoral,NA-TC03,,#D1CBB8,#FFFFFF,135,#C45F00,solid,4.0,0.25,square,#3A3A3A,1.6,1,,,,,,,,,4.0,"Tørrleggingsvarighet c,d,e,f,g,h: oransje skravur; Dominerende kornstørrelse A,B: firkant 1.6 mm"
+TC03-M050-01,Leire- og siltstrand i geolittoral,NA-TC03,,#D1CBB8,#FFFFFF,,,,,,ring,#C45F00,1.6,0,square,#3A3A3A,1.6,1,,,,,4.0,"Tørrleggingsvarighet c,d,e,f,g,h: oransje ring; Dominerende kornstørrelse A,B: firkant 1.6 mm"
 TC03-M050-02,"Sand-, skjellsand-, grus-, og ruglebunn-strand i geo- til supralittoral",NA-TC03,,#D1CBB8,#FFFFFF,,,,,,square,#3A3A3A,1.0,0,,,,,,,,,4.0,"Dominerende kornstørrelse C,D: firkant 1.0 mm"
 TC03-M050-03,Stein- og blokkstrand i geo- til supralittoral,NA-TC03,,#D1CBB8,#FFFFFF,,,,,,square,#3A3A3A,2.2,0,,,,,,,,,4.0,"Dominerende kornstørrelse A,B,C,D,E,F,G: firkant 2.2 mm"
 TC04-M050-01,Saltanrikningsmark,NA-TC04,,#FDECE8,#FFFFFF,,,,,,,,,,,,,,,,,,,
 TC05-M050-01,Strandeng,NA-TC05,,#E9E697,#FFFFFF,,,,,,cross,#00695C,1.6,0,,,,,,,,,4.0,"Marin salinitet f,g,h: plusstegn 1.6 mm"
-TC05-M050-02,Brakkvanns-strandeng,NA-TC05,,#E9E697,#FFFFFF,135,#C45F00,solid,4.0,0.25,cross,#00695C,1.0,0,,,,,,,,,4.0,"Tørrleggingsvarighet c,d,e,f,g,h: oransje skravur; Marin salinitet b,c,d,e: plusstegn 1.0 mm"
+TC05-M050-02,Brakkvanns-strandeng,NA-TC05,,#E9E697,#FFFFFF,,,,,,ring,#C45F00,1.6,0,cross,#00695C,1.0,0,,,,,4.0,"Tørrleggingsvarighet c,d,e,f,g,h: oransje ring; Marin salinitet b,c,d,e: plusstegn 1.0 mm"
 TC06-M050-01,Fuglefjell-eng,NA-TC06,,#D9BC64,#FFFFFF,,,,,,,,,,,,,,,,,,,
 TC07-M050-01,Fugletopp,NA-TC07,,#A3A369,#FFFFFF,,,,,,,,,,,,,,,,,,,
 TC08-M050-01,Kalkfattig til litt kalkrikt moderat til ekstremt snøleie,NA-TC08,,#EDEBFF,#FFFFFF,,,,,,circle,#FFFFFF,1.6,0,,,,,,,,,4.0,"Snødekkebetinget vekstsesongreduksjon a,b,c,d,e,f,g: sirkel 1.6 mm"
@@ -43,7 +43,7 @@ TE05-M050-02,Sterkt kalkrik oppfrysingsmark,NA-TE05,,#B98A8A,#FFFFFF,90,#3A3A3A,
 TE06-M050-01,Marin driftvoll,NA-TE06,,#A3A289,#FFFFFF,,,,,,,,,,,,,,,,,,,
 TE07-M050-01,Ferskvannsdriftvoll,NA-TE07,,#B5B697,#FFFFFF,,,,,,,,,,,,,,,,,,,
 TE08-M050-01,Flommarkseng,NA-TE08,,#DEE0AE,#FFFFFF,135,#1F5FBF,solid,4.0,0.25,,,,,,,,,,,,,,Blå skravur: flompåvirket
-TE09-M050-01,Kalkfattig isinnfrysingsmark,NA-TE09,,#DAB4BF,#FFFFFF,45,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold b,c: skrå skravur"
+TE09-M050-01,Kalkfattig isinnfrysingsmark,NA-TE09,,#DAB4BF,#FFFFFF,,,,,,,,,,,,,,,,,,,"Kalkinnhold b,c: kalkfattig, ingen skravur"
 TE09-M050-02,Intermediær til litt kalkrik isinnfrysingsmark,NA-TE09,,#DAB4BF,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold d,e,f: vannrett skravur"
 TE09-M050-03,Klart kalkrik isinnfrysingsmark,NA-TE09,,#DAB4BF,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
 TF01-M050-01,Sand- og dyneskogsmark,NA-TF01,,#63AE6B,#FFFFFF,,,,,,,,,,,,,,,,,,,
@@ -68,7 +68,7 @@ TK01-M050-01,Kalkfattig til svakt kalkrik åpen semi-naturlig eng,NA-TK01,,#FCE7
 TK01-M050-02,Klart kalkrik åpen semi-naturlig eng,NA-TK01,,#FCE765,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,star,#7F462B,1.6,1,,,,,,,,,4.0,"Kalkinnhold f,g,h,i: loddrett skravur; Sandstabilisering g,h,i,j,k,y: stjerne 1.6 mm"
 TK02-M050-01,Semi-naturlig strandeng,NA-TK02,,#F8D46C,#FFFFFF,,,,,,,,,,,,,,,,,,,
 TK03-M050-01,Kalkfattig til litt kalkrik bakli-hei  og kystlynghei,NA-TK03,,#DCA548,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
-TK03-M050-02,Sterkt kalkrik kystlynghei,NA-TK03,,#DCA548,#FFFFFF,90,#AA5100,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur; Uttørkingsfare d,e,f,g: oransje skravur"
+TK03-M050-02,Sterkt kalkrik kystlynghei,NA-TK03,,#DCA548,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,ring,#AA5100,1.6,0,,,,,,,,,4.0,"Kalkinnhold g,h,i: loddrett skravur; Uttørkingsfare d,e,f,g: oransje ring"
 TL01-M050-01,Kalkfattig til litt kalkrik ny eng med semi-naturlig preg,NA-TL01,,#F2F4A6,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
 TL01-M050-02,Sterkt kalkrik ny eng med semi-naturlig preg,NA-TL01,,#F2F4A6,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
 TM01-M050-01,Hard sterkt endret fastmark,NA-TM01,,#84787A,#FFFFFF,,,,,,,,,,,,,,,,,,,
