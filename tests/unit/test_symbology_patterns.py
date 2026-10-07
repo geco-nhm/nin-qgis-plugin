@@ -178,3 +178,44 @@ def test_wetland_forest_has_green_circles(symbology):
 def test_known_catalogue_gaps(symbology):
     gaps = {symbol["kode_id"] for symbols in catalogue_gaps(symbology).values() for symbol in symbols}
     assert gaps == {"TA01-M005-23", "TC02-M005-04"}
+
+
+def test_tg01_uses_a_shade_per_losmassetype(symbology):
+    '''TG01 shows løsmassetype as a shade of the fill, not as a marker.'''
+
+    tg01 = [symbol for symbol in symbology["M050"] if symbol["hovedtype"] == "NA-TG01"]
+    assert len({symbol["fill_hex"] for symbol in tg01}) == 7
+    for scale in MAPPING_SCALES:
+        for symbol in symbology[scale]:
+            if symbol["hovedtype"] == "NA-TG01":
+                assert len(symbol["markers"]) + (symbol["hatch_angle"] is not None) <= 3
+                assert all(marker["shape"] != "triangle" for marker in symbol["markers"])
+
+
+def test_dashed_hatch_only_means_myrkant(symbology):
+    for scale in MAPPING_SCALES:
+        for symbol in symbology[scale]:
+            if symbol["hatch_style"] == "dashed":
+                assert any("Myrflatepreg" in part for part in symbol["explanation"]), symbol["kode_id"]
+
+
+@pytest.fixture(scope="module")
+def symbology_b():
+    return build_symbology("B")
+
+
+def test_variant_b_is_valid(symbology_b):
+    assert validate_symbology(symbology_b) == []
+
+
+def test_variant_b_has_no_hatch_for_kalkfattig(symbology_b):
+    for scale in MAPPING_SCALES:
+        for symbol in symbology_b[scale]:
+            assert symbol["hatch_angle"] != ANGLE_KALKFATTIG, symbol["kode_id"]
+
+
+def test_variant_b_draws_drought_as_circles(symbology_b):
+    lavskog = _symbol(symbology_b, "M005", "TB01-M005-10")  # kalkfattig and very dry
+    assert lavskog["hatch_angle"] is None
+    assert [marker["shape"] for marker in lavskog["markers"]] == ["circle"]
+    assert lavskog["markers"][0]["colour"] == DRYNESS_COLOURS[3]

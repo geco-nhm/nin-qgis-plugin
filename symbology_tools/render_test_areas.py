@@ -1,20 +1,25 @@
 """
-Draws real mapping data with the symbology, as a map per GeoPackage, to see
-how the symbols work on field data. Needs a Python with QGIS:
+Draws real mapping data with the symbology and evaluates how the symbols
+work on it. Needs a Python with QGIS:
 
-    python-qgis-ltr.bat symbology_tools/render_test_areas.py [M020]
+    python-qgis-ltr.bat symbology_tools/render_test_areas.py [--variant B]
 
-    symbology/*.gpkg  ->  docs/symbology/testkart_<layer>.png and .pdf
+    symbology/*.gpkg  ->  docs/symbology/testkart_<scale>[_forslag_B].png and .pdf
 
 Each GeoPackage holds one polygon layer made by the plugin, with the unit
 in 'kode_id_label' as the fid of the row in the attribute table of the
-mapping scale. The symbols are the plugin's own (symbology_symbols.py),
-with the same half-transparent fill as in a mapping project. A grey
-topographic map from Kartverket is drawn below when the network allows.
+mapping scale. The mapping scale is read from the data: it is the scale
+whose units belong to the hovedtype stored on each polygon. All layers
+are drawn together in one map, at the mapping scale, with the plugin's
+own symbols and fill opacity. A grey topographic map from Kartverket is
+drawn below when the network allows.
 """
 
+import argparse
+import os
 import csv
 import sys
+from collections import Counter
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -26,7 +31,9 @@ from qgis.core import (  # noqa: E402
     QgsApplication,
     QgsCategorizedSymbolRenderer,
     QgsCoordinateReferenceSystem,
+    QgsFeature,
     QgsFillSymbol,
+    QgsGeometry,
     QgsLayoutExporter,
     QgsLayoutItemLabel,
     QgsLayoutItemLegend,
@@ -41,6 +48,8 @@ from qgis.core import (  # noqa: E402
     QgsProviderRegistry,
     QgsRasterLayer,
     QgsRendererCategory,
+    QgsSingleSymbolRenderer,
+    QgsSpatialIndex,
     QgsTextBufferSettings,
     QgsTextFormat,
     QgsUnitTypes,
@@ -52,14 +61,20 @@ from qgis.PyQt.QtGui import QColor, QFont  # noqa: E402
 
 from nin_qgis_plugin.symbology_styles import ATTRIBUTE_TABLES_PATH, load_unit_styles  # noqa: E402
 from nin_qgis_plugin.symbology_symbols import create_fill_symbol  # noqa: E402
+from symbology_tools.patterns import OUTPUT_PATHS, VARIANTS  # noqa: E402
 
 GPKG_PATH = REPO_ROOT / 'symbology'
 OUTPUT_PATH = REPO_ROOT / 'docs' / 'symbology'
 
-# Same as the plugin: the fill lets the background map show through
-FILL_ALPHA = 128
-MAP_SCALE = 5000
-EXPORT_DPI = 200
+MAPPING_SCALES = {'M005': 5000, 'M020': 20000, 'M050': 50000}
+
+# Same as the plugin (project_setup.POLYGON_FILL_ALPHA): 65 % opaque fill
+FILL_ALPHA = round(0.65 * 255)
+EXPORT_DPI = 300
+
+# Size of one pattern cell in millimetres on the map; a polygon narrower
+# than two cells cannot show its pattern
+PATTERN_CELL_MM = 4.0
 
 # Kartverket's open grey topographic map, used as backdrop
 BACKDROP_URI = (
@@ -67,14 +82,15 @@ BACKDROP_URI = (
     '&tileMatrixSet=utm32n&url=https://cache.kartverket.no/v1/wmts/1.0.0/WMTSCapabilities.xml'
 )
 
+UNKNOWN_COLOUR = '#FF4040'
 
 
-def load_unit_codes(mapping_scale: str) -> dict:
-    '''Returns {fid as text: kode_id} from the attribute table of the scale.'''
+def read_attribute_table(mapping_scale: str) -> dict:
+    '''Returns {fid as text: row} from the attribute table of the scale.'''
 
     csv_path = ATTRIBUTE_TABLES_PATH / f'{mapping_scale}_attribute_table.csv'
     with open(csv_path, newline='', encoding='utf-8') as csv_file:
-        return {row['fid']: row['kode_id'] for row in csv.DictReader(csv_file)}
+        return {row['fid']: row for row in csv.DictReader(csv_file)}
 
 
 def polygon_layers() -> list:
@@ -90,61 +106,132 @@ def polygon_layers() -> list:
     return layers
 
 
-def style_layer(layer: QgsVectorLayer, mapping_scale: str, unit_codes: dict) -> dict:
+def detect_mapping_scale(layers: list) -> tuple:
     '''
-    Styles the layer like the plugin does. The renderer classifies on the
-    fid in 'kode_id_label' and labels the categories with the unit code.
-    Returns {kode_id: feature count} for the units in the layer.
+    Returns (scale, {scale: matching polygons}). A polygon matches a scale
+    when its 'kode_id_label' is a unit of that scale that belongs to the
+    hovedtype stored on the polygon. The fids alone are ambiguous, because
+    every scale table starts at fid 0.
     '''
 
-    styles = load_unit_styles(mapping_scale)
-    used = {}
-    for feature in layer.getFeatures():
-        fid = feature['kode_id_label']
-        if fid not in (None, NULL):
-            used[str(fid)] = used.get(str(fid), 0) + 1
+    matches = Counter()
+    for scale in MAPPING_SCALES:
+        table = read_attribute_table(scale)
+        for layer in layers:
+            for feature in layer.getFeatures():
+                row = table.get(str(feature['kode_id_label']))
+                if row and row['hovedtyper_fkey'] == str(feature['hovedtype']):
+                    matches[scale] += 1
 
-    categories = []
-    for fid, count in sorted(used.items(), key=lambda item: unit_codes.get(item[0], 'ZZZ')):
-        kode_id = unit_codes.get(fid)
-        if kode_id in styles:
-            symbol = create_fill_symbol(styles[kode_id], FILL_ALPHA)
-            label = f'{kode_id} ({count})'
-        else:
-            symbol = QgsFillSymbol.createSimple({'color': f'255,0,0,{FILL_ALPHA}', 'outline_color': 'white'})
-            label = f'ukjent fid {fid} ({count})'
-        categories.append(QgsRendererCategory(fid, symbol, label))
+    return matches.most_common(1)[0][0], dict(matches)
 
-    categories.append(QgsRendererCategory(
-        None, QgsFillSymbol.createSimple({'color': '255,255,255,0', 'outline_color': '#C0392B', 'outline_width': '0.4', 'outline_style': 'dash'}),
-        'ikke kartlagt',
-    ))
-    layer.setRenderer(QgsCategorizedSymbolRenderer('kode_id_label', categories))
 
+def merged_layer(layers: list) -> QgsVectorLayer:
+    '''Copies the polygons of all layers into one memory layer.'''
+
+    merged = QgsVectorLayer(
+        'MultiPolygon?crs=EPSG:25832&field=kode_id_label:string(10)&field=omrade:string(40)',
+        'NiN-kartlegging', 'memory',
+    )
+    features = []
+    for layer in layers:
+        for source in layer.getFeatures():
+            feature = QgsFeature(merged.fields())
+            feature.setGeometry(source.geometry())
+            value = source['kode_id_label']
+            feature['kode_id_label'] = None if value in (None, NULL) else str(value)
+            feature['omrade'] = layer.name()
+            features.append(feature)
+    merged.dataProvider().addFeatures(features)
+    merged.updateExtents()
+    return merged
+
+
+def area_frames(layers: list) -> QgsVectorLayer:
+    '''Returns the extent of each mapped area, drawn as a dashed frame.'''
+
+    frames = QgsVectorLayer('Polygon?crs=EPSG:25832&field=navn:string(40)', 'Kartlagte områder', 'memory')
+    features = []
+    for layer in layers:
+        feature = QgsFeature(frames.fields())
+        feature.setGeometry(QgsGeometry.fromRect(layer.extent()))
+        # 'omrade_2_polygoner' -> 'Område 2'
+        feature['navn'] = 'Område ' + layer.name().split('_')[1]
+        features.append(feature)
+    frames.dataProvider().addFeatures(features)
+    frames.setRenderer(QgsSingleSymbolRenderer(QgsFillSymbol.createSimple({
+        'color': '0,0,0,0', 'outline_color': '#3A3A3A', 'outline_width': '0.3', 'outline_style': 'dash',
+    })))
+    frames.setLabeling(QgsVectorLayerSimpleLabeling(_label_settings('"navn"', 7, bold=True)))
+    frames.setLabelsEnabled(True)
+    return frames
+
+
+def _label_settings(expression: str, size: float, bold: bool = False) -> QgsPalLayerSettings:
     text_buffer = QgsTextBufferSettings()
     text_buffer.setEnabled(True)
-    text_buffer.setSize(0.7)
+    text_buffer.setSize(0.6)
     text_buffer.setColor(QColor(255, 255, 255))
 
+    font = QFont('Arial')
+    font.setBold(bold)
     text_format = QgsTextFormat()
-    text_format.setFont(QFont('Arial'))
-    text_format.setSize(6)
+    text_format.setFont(font)
+    text_format.setSize(size)
     text_format.setColor(QColor(0, 0, 0))
     text_format.setBuffer(text_buffer)
 
-    # Label: the unit code without the scale, like the plugin's label
-    cases = ''.join(
-        f"WHEN \"kode_id_label\" = '{fid}' THEN '{unit_codes[fid].replace('-' + mapping_scale, '')}' "
-        for fid in used if fid in unit_codes
-    )
     settings = QgsPalLayerSettings()
-    settings.fieldName = f"CASE {cases}WHEN \"kode_id_label\" IS NULL THEN 'ikke kartlagt' ELSE 'ukjent' END"
+    settings.fieldName = expression
     settings.isExpression = True
     settings.setFormat(text_format)
-    layer.setLabeling(QgsVectorLayerSimpleLabeling(settings))
+    return settings
+
+
+def style_layer(layer: QgsVectorLayer, mapping_scale: str, styles: dict) -> dict:
+    '''
+    Styles the layer like the plugin does: one symbol per unit, labelled
+    with the unit code without the scale. Returns {fid: feature count}.
+    '''
+
+    table = read_attribute_table(mapping_scale)
+    used = Counter(
+        feature['kode_id_label'] for feature in layer.getFeatures()
+        if feature['kode_id_label'] not in (None, NULL)
+    )
+
+    categories = []
+    for fid, count in sorted(used.items(), key=lambda item: table.get(item[0], {}).get('kode_id', 'ZZZ')):
+        row = table.get(fid)
+        if row and row['kode_id'] in styles:
+            symbol = create_fill_symbol(styles[row['kode_id']], FILL_ALPHA)
+            name = row['navn'].removeprefix(row['kode_id']).strip()
+            if len(name) > 38:
+                name = name[:36].rstrip() + '…'
+            label = f"{row['kode_id']}  {name} ({count})"
+        else:
+            symbol = QgsFillSymbol.createSimple({'color': UNKNOWN_COLOUR, 'outline_color': 'white'})
+            label = f'Enhet {fid} finnes ikke i katalogen ({count})'
+        categories.append(QgsRendererCategory(fid, symbol, label))
+
+    categories.append(QgsRendererCategory(
+        None,
+        QgsFillSymbol.createSimple({
+            'color': '255,255,255,0', 'outline_color': '#C0392B', 'outline_width': '0.3', 'outline_style': 'dash',
+        }),
+        'Ikke kartlagt',
+    ))
+    layer.setRenderer(QgsCategorizedSymbolRenderer('kode_id_label', categories))
+
+    # 'TH01-M020-01' -> 'TH01-01', as the plugin labels the polygons
+    cases = ''.join(
+        f"WHEN \"kode_id_label\" = '{fid}' THEN '{table[fid]['kode_id'].replace('-' + mapping_scale, '')}' "
+        for fid in used if fid in table
+    )
+    layer.setLabeling(QgsVectorLayerSimpleLabeling(_label_settings(f'CASE {cases}ELSE NULL END', 5)))
     layer.setLabelsEnabled(True)
 
-    return {unit_codes.get(fid, f'fid {fid}'): count for fid, count in used.items()}
+    return dict(used)
 
 
 def backdrop_layer():
@@ -152,44 +239,57 @@ def backdrop_layer():
     return layer if layer.isValid() else None
 
 
-def export_map(project: QgsProject, layer: QgsVectorLayer, backdrop, title: str) -> list:
-    '''Exports a layout with map, legend and scale bar. Returns the files written.'''
+def export_map(project, layers: list, legend_layer, mapping_scale: str, variant: str) -> list:
+    '''Exports an A4 landscape layout with map, legend and scale bar.'''
+
+    scale = MAPPING_SCALES[mapping_scale]
+    variant_text = 'utkast A (brukes i programtillegget)' if variant == 'A' else 'forslag B (kalkfattig uten skravur)'
 
     layout = QgsPrintLayout(project)
     layout.initializeDefaults()
-    page = layout.pageCollection().page(0)
-    page.setPageSize(QgsLayoutSize(210, 210, QgsUnitTypes.LayoutMillimeters))
+    layout.pageCollection().page(0).setPageSize(QgsLayoutSize(297, 210, QgsUnitTypes.LayoutMillimeters))
 
     map_item = QgsLayoutItemMap(layout)
-    map_item.attemptSetSceneRect(QRectF(8, 12, 110, 192))
+    map_item.attemptSetSceneRect(QRectF(10, 22, 112, 112))
     map_item.setFrameEnabled(True)
-    map_item.setLayers([layer] + ([backdrop] if backdrop else []))
-    map_item.setCrs(layer.crs())
-    extent = layer.extent()
-    extent.grow(10)
-    map_item.zoomToExtent(extent)
-    map_item.setScale(MAP_SCALE)
+    map_item.setLayers(layers)
+    map_item.setCrs(QgsCoordinateReferenceSystem('EPSG:25832'))
+    map_item.zoomToExtent(legend_layer.extent())
+    map_item.setScale(scale)
     layout.addLayoutItem(map_item)
 
-    label = QgsLayoutItemLabel(layout)
-    label.setText(f'{title} · 1:{MAP_SCALE} · NiN 3.0 kartografi, utkast')
-    label.setFont(QFont('Arial', 11))
-    label.attemptSetSceneRect(QRectF(8, 3, 196, 8))
-    layout.addLayoutItem(label)
+    title = QgsLayoutItemLabel(layout)
+    title.setText(f'NiN 3.0 kartografi, {variant_text}')
+    title.setFont(QFont('Arial', 13))
+    title.attemptSetSceneRect(QRectF(10, 6, 277, 7))
+    layout.addLayoutItem(title)
+
+    subtitle = QgsLayoutItemLabel(layout)
+    subtitle.setText(
+        f'Kartlagt i målestokk 1:{scale:,} (kartleggingsenheter {mapping_scale}) · '
+        f'kartet er tegnet i 1:{scale:,} · fyll 65 % dekkende'.replace(',', ' ')
+    )
+    subtitle.setFont(QFont('Arial', 8))
+    subtitle.attemptSetSceneRect(QRectF(10, 13, 277, 5))
+    layout.addLayoutItem(subtitle)
 
     legend = QgsLayoutItemLegend(layout)
     legend.setLinkedMap(map_item)
     legend.setAutoUpdateModel(False)
-    legend.setTitle('Kartleggingsenheter')
+    legend.setTitle(f'Kartleggingsenheter {mapping_scale}')
     legend.setStyleFont(QgsLegendStyle.Title, QFont('Arial', 9))
-    legend.setStyleFont(QgsLegendStyle.Subgroup, QFont('Arial', 7))
-    legend.setStyleFont(QgsLegendStyle.SymbolLabel, QFont('Arial', 7))
+    legend.setStyleFont(QgsLegendStyle.Subgroup, QFont('Arial', 1))
+    legend.setStyleFont(QgsLegendStyle.SymbolLabel, QFont('Arial', 6))
     legend.setSymbolWidth(9)
     legend.setSymbolHeight(5)
-    legend.attemptSetSceneRect(QRectF(124, 12, 80, 190))
+    legend.setColumnCount(2)
+    legend.setSplitLayer(True)
+    legend.setEqualColumnWidth(True)
+    legend.attemptSetSceneRect(QRectF(130, 22, 160, 175))
     root = legend.model().rootGroup()
     root.clear()
-    root.addLayer(layer)
+    node = root.addLayer(legend_layer)
+    node.setCustomProperty('legend/title-style', 'hidden')
     legend.setFrameEnabled(False)
     layout.addLayoutItem(legend)
 
@@ -198,34 +298,120 @@ def export_map(project: QgsProject, layer: QgsVectorLayer, backdrop, title: str)
     scale_bar.setStyle('Single Box')
     scale_bar.setUnits(QgsUnitTypes.DistanceMeters)
     scale_bar.setNumberOfSegments(2)
-    scale_bar.setUnitsPerSegment(100)
+    scale_bar.setUnitsPerSegment(250 if scale >= 20000 else 100)
     scale_bar.setUnitLabel('m')
     scale_bar.setFont(QFont('Arial', 7))
-    scale_bar.attemptMove(QgsLayoutPoint(12, 196, QgsUnitTypes.LayoutMillimeters))
+    scale_bar.attemptMove(QgsLayoutPoint(10, 138, QgsUnitTypes.LayoutMillimeters))
     layout.addLayoutItem(scale_bar)
 
+    note = QgsLayoutItemLabel(layout)
+    note.setText('Bakgrunn: Kartverket, topografisk gråtone. Stiplet ramme: kartlagt område.')
+    note.setFont(QFont('Arial', 6))
+    note.attemptSetSceneRect(QRectF(10, 150, 112, 10))
+    layout.addLayoutItem(note)
+
     exporter = QgsLayoutExporter(layout)
+    suffix = '' if variant == 'A' else '_forslag_B'
     written = []
 
     image_settings = QgsLayoutExporter.ImageExportSettings()
     image_settings.dpi = EXPORT_DPI
-    image_path = OUTPUT_PATH / f'testkart_{layer.name()}.png'
+    image_path = OUTPUT_PATH / f'testkart_{mapping_scale}{suffix}.png'
     if exporter.exportToImage(str(image_path), image_settings) == QgsLayoutExporter.Success:
         written.append(image_path)
 
     pdf_settings = QgsLayoutExporter.PdfExportSettings()
     pdf_settings.dpi = EXPORT_DPI
-    pdf_path = OUTPUT_PATH / f'testkart_{layer.name()}.pdf'
+    pdf_path = OUTPUT_PATH / f'testkart_{mapping_scale}{suffix}.pdf'
     if exporter.exportToPdf(str(pdf_path), pdf_settings) == QgsLayoutExporter.Success:
         written.append(pdf_path)
 
     return written
 
 
+def _symbol_signature(style: dict) -> tuple:
+    hatch = style['hatch']
+    return (
+        style['fill_hex'],
+        (hatch['angle'], hatch['colour'], hatch['style']) if hatch else None,
+        tuple((m['shape'], m['colour'], m['size_mm'], m['filled']) for m in style['markers']),
+    )
+
+
+def _difference(style_1: dict, style_2: dict) -> str:
+    '''Names the parts in which two symbols differ.'''
+
+    signature_1, signature_2 = _symbol_signature(style_1), _symbol_signature(style_2)
+    hatch_1, hatch_2 = signature_1[1] or (None,) * 3, signature_2[1] or (None,) * 3
+    parts = []
+    if signature_1[0] != signature_2[0]:
+        parts.append('fyll')
+    if hatch_1[0] != hatch_2[0]:
+        parts.append('skravurvinkel')
+    elif hatch_1 != hatch_2:
+        parts.append('skravurfarge eller -type')
+    if signature_1[2] != signature_2[2]:
+        parts.append('symbol')
+    return ' + '.join(parts) or 'likt'
+
+
+def evaluate(layer: QgsVectorLayer, mapping_scale: str, styles: dict) -> None:
+    '''Prints how the symbols separate neighbours and how much of the map is patterned.'''
+
+    table = read_attribute_table(mapping_scale)
+    min_width_m = 2 * PATTERN_CELL_MM / 1000 * MAPPING_SCALES[mapping_scale]
+
+    features = {feature.id(): feature for feature in layer.getFeatures()}
+    index = QgsSpatialIndex(layer.getFeatures())
+
+    def style_of(feature):
+        row = table.get(feature['kode_id_label'])
+        return styles.get(row['kode_id']) if row else None
+
+    pairs, same_fill = Counter(), Counter()
+    area = Counter()
+    narrow = 0
+    for fid, feature in features.items():
+        style = style_of(feature)
+        if style is None:
+            continue
+        geometry = feature.geometry()
+        box = geometry.boundingBox()
+        has_pattern = bool(style['hatch'] or style['markers'])
+        area['all'] += geometry.area()
+        area['hatch'] += geometry.area() if style['hatch'] else 0
+        area['pattern'] += geometry.area() if has_pattern else 0
+        if has_pattern and min(box.width(), box.height()) < min_width_m:
+            narrow += 1
+
+        for other_id in index.intersects(box):
+            other = features[other_id]
+            other_style = style_of(other)
+            if other_id <= fid or other_style is None or other['kode_id_label'] == feature['kode_id_label']:
+                continue
+            if not geometry.touches(other.geometry()) and not geometry.intersects(other.geometry()):
+                continue
+            pairs[_difference(style, other_style)] += 1
+            if style['fill_hex'] == other_style['fill_hex']:
+                codes = sorted((style['kode_id'], other_style['kode_id']))
+                same_fill[(codes[0], codes[1], _difference(style, other_style))] += 1
+
+    print(f'  Neighbour pairs of different units ({sum(pairs.values())}), by what separates the symbols:')
+    for difference, count in pairs.most_common():
+        print(f'    {count:4d}  {difference}')
+    print('  Neighbours with the same fill:')
+    for (code_1, code_2, difference), count in same_fill.most_common():
+        print(f'    {count:4d}  {code_1} | {code_2}: {difference}')
+    print(f"  Area with hatch: {area['hatch'] / area['all']:.0%}, with any pattern: {area['pattern'] / area['all']:.0%}")
+    print(f'  Polygons with a pattern but narrower than {min_width_m:.0f} m (two pattern cells): {narrow}')
+
+
 def main() -> int:
     '''Execute as standalone script'''
 
-    mapping_scale = sys.argv[1] if len(sys.argv) > 1 else 'M020'
+    parser = argparse.ArgumentParser(description='Draws the test areas with the symbology.')
+    parser.add_argument('--variant', choices=VARIANTS, default='A')
+    variant = parser.parse_args().variant
 
     QgsApplication.setPrefixPath(QgsApplication.prefixPath(), True)
     application = QgsApplication([], False)
@@ -233,29 +419,42 @@ def main() -> int:
 
     project = QgsProject.instance()
     project.setCrs(QgsCoordinateReferenceSystem('EPSG:25832'))
-    unit_codes = load_unit_codes(mapping_scale)
 
+    source_layers = polygon_layers()
+    mapping_scale, matches = detect_mapping_scale(source_layers)
+    print(f'Mapping scale read from the data: {mapping_scale} (matching polygons per scale: {matches})')
+
+    styles = load_unit_styles(mapping_scale, OUTPUT_PATHS[variant])
+    layer = merged_layer(source_layers)
+    used = style_layer(layer, mapping_scale, styles)
+    frames = area_frames(source_layers)
+    print(f'{layer.featureCount()} polygons in {len(source_layers)} areas, {len(used)} units')
+
+    layers = [frames, layer]
     backdrop = backdrop_layer()
     if backdrop:
-        project.addMapLayer(backdrop, False)
+        layers.append(backdrop)
         print('Backdrop: Kartverket topografisk gråtone')
     else:
         print('Backdrop: none (Kartverket WMTS not reachable)')
+    for map_layer in layers:
+        project.addMapLayer(map_layer, False)
 
-    for layer in polygon_layers():
-        used = style_layer(layer, mapping_scale, unit_codes)
-        project.addMapLayer(layer, False)
-        print(f'{layer.name()}: {layer.featureCount()} polygons, {len(used)} units')
-        for path in export_map(project, layer, backdrop, layer.name()):
-            print(f'  wrote {path.relative_to(REPO_ROOT)}')
+    for path in export_map(project, layers, layer, mapping_scale, variant):
+        print(f'Wrote {path.relative_to(REPO_ROOT)}')
 
-    project_path = OUTPUT_PATH / 'testkart.qgz'
-    project.write(str(project_path))
-    print(f'Wrote {project_path.relative_to(REPO_ROOT)}')
+    evaluate(layer, mapping_scale, styles)
+
+    # Release the layers before QGIS shuts down, or the interpreter crashes on exit
+    project.clear()
 
     application.exitQgis()
     return 0
 
 
 if __name__ == '__main__':
-    sys.exit(main())
+    exit_code = main()
+    sys.stdout.flush()
+    # QGIS can crash in its own teardown after a layout export; all output
+    # is written at this point, so leave without running the teardown
+    os._exit(exit_code)

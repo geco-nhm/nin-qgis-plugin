@@ -117,3 +117,9 @@ def test_jordvannsmyr_is_stronger_than_nedbormyr():
     jordvannsmyr = _oklch(colours["NA-VA01"]["fill_hex"])
     nedborsmyr = _oklch(colours["NA-VC01"]["fill_hex"])
     assert jordvannsmyr[0] < nedborsmyr[0] and jordvannsmyr[1] > nedborsmyr[1]
+
+
+def test_subtype_shades_are_checked_with_the_other_fills():
+    labels = [label for label in all_fills() if label.startswith("NA-TG01 LM-LT=")]
+    # Value A uses the fill of TG01 itself
+    assert len(labels) == 6

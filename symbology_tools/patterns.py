@@ -4,11 +4,14 @@ mapping scales and writes them to
 
     nin_qgis_plugin/csv/symbology/symbology_M005.csv, _M020.csv, _M050.csv
 
-    python symbology_tools/patterns.py
+    python symbology_tools/patterns.py              (variant A, used by the plugin)
+    python symbology_tools/patterns.py --variant B  (proposal, see VARIANTS)
 
 A symbol has three parts:
 
-    fill      the colour of the hovedtype (see palette.py), same at all scales
+    fill      the colour of the hovedtype (see palette.py), same at all scales;
+              a few hovedtyper use a shade per value of one variable
+              ('subtype_colours.csv'), for example TG01 per løsmassetype
     hatch     parallel lines; angle and colour carry meaning
     markers   up to three repeated markers; shape, colour and size carry meaning
 
@@ -22,6 +25,7 @@ that scale. Coarse scales have fewer separating variables, so their symbols
 have fewer parts.
 """
 
+import argparse
 import csv
 import sys
 from collections import Counter
@@ -35,8 +39,17 @@ from symbology_tools.colour import (  # noqa: E402
 )
 from symbology_tools.palette import (  # noqa: E402
     ATTRIBUTE_TABLES_PATH, INCLUDED_HOVEDTYPEGRUPPER, MAPPING_SCALES, OUTLINE_HEX,
-    SYMBOLOGY_PATH, load_hovedtype_colours, read_csv_rows,
+    REPO_ROOT, SYMBOLOGY_PATH, load_hovedtype_colours, load_subtype_colours, read_csv_rows,
 )
+
+# Variant A is the symbology the plugin uses. Variant B is a proposal:
+# kalkfattig is the unhatched baseline, and drought is drawn with coloured
+# circles instead of hatch colour, so that it shows also without a hatch.
+VARIANTS = ('A', 'B')
+OUTPUT_PATHS = {
+    'A': SYMBOLOGY_PATH,
+    'B': REPO_ROOT / 'symbology' / 'forslag_B',
+}
 
 # All sizes are millimetres on paper or screen, independent of map scale
 HATCH_SPACING_MM = 4.0
@@ -69,6 +82,10 @@ DRYNESS_BLUE_MAX_POSITION = 0.25
 DRYNESS_FULL_SPAN = 2 / 3
 
 HATCH_STYLES = ('solid', 'dashed', 'dotted')
+# Dashed means myrkant, so only dotted is used to tell units apart
+TIE_BREAK_HATCH_STYLES = ('solid', 'dotted')
+# Variant B: drought class 1 (grey, the commonest) is the baseline without circle
+DRYNESS_BASELINE_CLASS = 1
 
 # Shapes without an inside: they cannot be drawn open or filled
 STROKE_SHAPES = ('line', 'cross', 'cross2', 'ring')
@@ -306,15 +323,18 @@ def variable_extents() -> dict:
     return extents
 
 
-def kalk_angle(values: str):
-    '''Returns the hatch angle for a range of LM-KA steps, or None.'''
+def kalk_angle(values: str, variant: str = 'A'):
+    '''
+    Returns the hatch angle for a range of LM-KA steps, or None. In variant
+    B kalkfattig is the baseline and has no hatch.
+    '''
 
     if value_span(values) >= KALK_FULL_SPAN:
         return None
 
     midpoint = value_midpoint(values)
     if midpoint <= KALK_BREAKS[0]:
-        return ANGLE_KALKFATTIG
+        return None if variant == 'B' else ANGLE_KALKFATTIG
     if midpoint <= KALK_BREAKS[1]:
         return ANGLE_INTERMEDIAER
     return ANGLE_KALKRIK
@@ -382,9 +402,18 @@ def build_symbol(unit: dict, hovedtype: str, varying: set, ranks: dict, context:
     '''Builds the symbol of one unit from the rules. Ties are broken later.'''
 
     rules, extents, fills = context['rules'], context['extents'], context['fills']
+    variant = context['variant']
     emblem = context['hovedtype_patterns'].get(hovedtype)
     fill_hex = fills[hovedtype]['fill_hex']
     variables = unit['variables']
+    explanation = []
+
+    # A shade of the fill per value of one variable, when the unit has one value
+    subtype = context['subtypes'].get(hovedtype)
+    if subtype and variables.get(subtype['variable']) in subtype['colours']:
+        row = subtype['colours'][variables[subtype['variable']]]
+        fill_hex = row['fill_hex']
+        explanation.append(f"{row['navn']}: egen nyanse av fyllfargen")
 
     symbol = {
         'kode_id': unit['kode_id'],
@@ -398,7 +427,7 @@ def build_symbol(unit: dict, hovedtype: str, varying: set, ranks: dict, context:
         'hatch_style': None,
         'hatch_style_fixed': False,
         'markers': [],
-        'explanation': [],
+        'explanation': explanation,
     }
 
     if emblem and emblem['element'] == 'marker':
@@ -411,12 +440,14 @@ def build_symbol(unit: dict, hovedtype: str, varying: set, ranks: dict, context:
         symbol['explanation'].append(emblem['betydning'])
 
     if 'LM-KA' in varying and 'LM-KA' in variables:
-        symbol['hatch_angle'] = kalk_angle(variables['LM-KA'])
+        symbol['hatch_angle'] = kalk_angle(variables['LM-KA'], variant)
         if symbol['hatch_angle'] is not None:
             label = {ANGLE_KALKFATTIG: 'skrå', ANGLE_INTERMEDIAER: 'vannrett', ANGLE_KALKRIK: 'loddrett'}
             symbol['explanation'].append(
                 f"Kalkinnhold {variables['LM-KA']}: {label[symbol['hatch_angle']]} skravur"
             )
+        elif variant == 'B' and value_span(variables['LM-KA']) < KALK_FULL_SPAN:
+            symbol['explanation'].append(f"Kalkinnhold {variables['LM-KA']}: kalkfattig, ingen skravur")
 
     if emblem and emblem['element'] == 'hatch_colour':
         symbol['hatch_colour'] = resolve_colour(emblem['colour_hex'], fills)
@@ -425,10 +456,21 @@ def build_symbol(unit: dict, hovedtype: str, varying: set, ranks: dict, context:
         for variable, rule in rules.items():
             if rule['element'] == 'hatch_colour' and variable in varying and variable in variables:
                 dryness = dryness_class(variables[variable], extents[variable])
-                if dryness is not None:
+                if dryness is not None and variant == 'A':
                     symbol['hatch_colour'] = DRYNESS_COLOURS[dryness]
                     symbol['explanation'].append(
                         f"{rule['navn']} {variables[variable]}: {DRYNESS_LABELS[dryness]} skravur"
+                    )
+                elif dryness is not None and dryness != DRYNESS_BASELINE_CLASS:
+                    # Variant B: a circle in the drought colour; the grey class has none
+                    symbol['markers'].append({
+                        'shape': 'circle',
+                        'colour': ensure_contrast(DRYNESS_COLOURS[dryness], fill_hex),
+                        'size_mm': MARKER_SIZES_MM[0],
+                        'filled': True,
+                    })
+                    symbol['explanation'].append(
+                        f"{rule['navn']} {variables[variable]}: {DRYNESS_LABELS[dryness]} sirkel"
                     )
                 break
 
@@ -437,11 +479,14 @@ def build_symbol(unit: dict, hovedtype: str, varying: set, ranks: dict, context:
             # A range entirely in the lower half (for example myrkant) is
             # dashed; the upper half and ranges over both halves are solid
             dashed = within_lower_half(variables[variable], extents[variable])
-            symbol['hatch_style'] = HATCH_STYLES[1] if dashed else HATCH_STYLES[0]
-            symbol['hatch_style_fixed'] = True
-            symbol['explanation'].append(
-                f"{rule['navn']} {variables[variable]}: {'stiplet' if dashed else 'heltrukken'} skravur"
-            )
+            has_hatch = symbol['hatch_angle'] is not None or symbol['hatch_colour']
+            # Variant B: myrflate without a hatch stays without one (baseline)
+            if dashed or has_hatch or variant == 'A':
+                symbol['hatch_style'] = HATCH_STYLES[1] if dashed else HATCH_STYLES[0]
+                symbol['hatch_style_fixed'] = True
+                symbol['explanation'].append(
+                    f"{rule['navn']} {variables[variable]}: {'stiplet' if dashed else 'heltrukken'} skravur"
+                )
             break
 
     if (symbol['hatch_colour'] or symbol['hatch_style_fixed']) and symbol['hatch_angle'] is None:
@@ -460,13 +505,18 @@ def add_variable_markers(symbol: dict, variables: dict, varying: set, ranks: dic
 
     rules = context['rules']
     generic_shapes = context['generic_shapes']
+    subtype = context['subtypes'].get(symbol['hovedtype'])
+    # The variable that sets the shade of the fill is not drawn again
+    fill_variable = subtype['variable'] if subtype else None
 
     marker_variables = [
         variable for variable, rule in rules.items()
         if rule['element'] == 'marker' and variable in varying
     ]
     # Variables without a rule come last, in a fixed order
-    marker_variables += sorted(variable for variable in varying if variable not in rules)
+    marker_variables += sorted(
+        variable for variable in varying if variable not in rules and variable != fill_variable
+    )
 
     for variable in marker_variables:
         if len(symbol['markers']) >= MAX_MARKERS or variable not in variables:
@@ -522,7 +572,8 @@ def break_ties(symbols: list, units: dict) -> None:
     '''
     Makes symbols that are still equal different. Equal symbols are put in
     the order of their variables and code; the first keeps its symbol, the
-    next ones get a dashed or dotted hatch, then a neutral marker.
+    next one gets a dotted hatch, the next ones a neutral marker. Dashed is
+    not used here, because it means myrkant.
     '''
 
     groups = {}
@@ -546,7 +597,7 @@ def break_ties(symbols: list, units: dict) -> None:
 
         has_hatch = group[0]['hatch_angle'] is not None and not group[0]['hatch_style_fixed']
         has_room = len(group[0]['markers']) < MAX_MARKERS
-        styles = HATCH_STYLES if has_hatch else (None,)
+        styles = TIE_BREAK_HATCH_STYLES if has_hatch else (None,)
 
         variants = [(style, None) for style in styles]
         if has_room:
@@ -573,7 +624,7 @@ def _style_name(style: str) -> str:
     return {'dashed': 'stiplet', 'dotted': 'prikket'}[style]
 
 
-def build_context() -> dict:
+def build_context(variant: str = 'A') -> dict:
     variable_names = {}
     for scale in MAPPING_SCALES:
         for row in read_csv_rows(ATTRIBUTE_TABLES_PATH / f'var_{scale}_attribute_table.csv'):
@@ -582,10 +633,16 @@ def build_context() -> dict:
     rules = load_variable_rules()
     used_shapes = {rule['shape'] for rule in rules.values() if rule['shape']}
     free_shapes = [shape for shape in GENERIC_SHAPES if shape not in used_shapes] or list(GENERIC_SHAPES)
-    unruled = sorted(variable for variable in variable_names if variable not in rules)
+    fill_variables = {subtype['variable'] for subtype in load_subtype_colours().values()}
+    unruled = sorted(
+        variable for variable in variable_names
+        if variable not in rules and variable not in fill_variables
+    )
 
     return {
+        'variant': variant,
         'rules': rules,
+        'subtypes': load_subtype_colours(),
         'hovedtype_patterns': load_hovedtype_patterns(),
         'extents': variable_extents(),
         'fills': load_hovedtype_colours(),
@@ -598,10 +655,10 @@ def build_context() -> dict:
     }
 
 
-def build_symbology() -> dict:
+def build_symbology(variant: str = 'A') -> dict:
     '''Returns {scale: [symbol, ...]} for all units, sorted by code.'''
 
-    context = build_context()
+    context = build_context(variant)
     symbology = {scale: [] for scale in MAPPING_SCALES}
 
     for hovedtype, scales in sorted(load_units().items()):
@@ -703,9 +760,10 @@ def symbol_to_row(symbol: dict) -> dict:
     return row
 
 
-def write_symbology(symbology: dict) -> None:
+def write_symbology(symbology: dict, output_path: Path = SYMBOLOGY_PATH) -> None:
+    output_path.mkdir(parents=True, exist_ok=True)
     for scale, symbols in symbology.items():
-        csv_path = SYMBOLOGY_PATH / f'symbology_{scale}.csv'
+        csv_path = output_path / f'symbology_{scale}.csv'
         with open(csv_path, 'w', newline='', encoding='utf-8') as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=OUTPUT_COLUMNS, lineterminator='\n')
             writer.writeheader()
@@ -715,7 +773,11 @@ def write_symbology(symbology: dict) -> None:
 def main() -> int:
     '''Execute as standalone script'''
 
-    symbology = build_symbology()
+    parser = argparse.ArgumentParser(description='Builds the symbol tables.')
+    parser.add_argument('--variant', choices=VARIANTS, default='A')
+    variant = parser.parse_args().variant
+
+    symbology = build_symbology(variant)
     problems = validate_symbology(symbology)
 
     for scale, symbols in symbology.items():
@@ -738,8 +800,8 @@ def main() -> int:
             print(f"  {problem}")
         return 1
 
-    write_symbology(symbology)
-    print(f"\nWrote symbology tables to {SYMBOLOGY_PATH}")
+    write_symbology(symbology, OUTPUT_PATHS[variant])
+    print(f"\nWrote variant {variant} symbology tables to {OUTPUT_PATHS[variant]}")
     return 0
 
 

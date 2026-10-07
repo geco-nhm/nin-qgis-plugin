@@ -1,6 +1,6 @@
 # SYMBOLOGY_3.0 — plan
 
-Branch: `symbology`. Status: **first drafts of all iterations committed and tried on field data (2026-10-05); awaiting review**. Last updated 2026-09-29.
+Branch: `symbology`. Status: **draft 2 committed 2026-10-07: TG01 shades, 65 % fill, trial at 1:20 000, proposal B; awaiting review**. Last updated 2026-09-29.
 
 Iteration 1 output: `nin_qgis_plugin/csv/symbology/hovedtype_colours.csv`,
 `docs/symbology/fargeoversikt.html`, documentation in `docs/symbology/README.md`.
@@ -152,26 +152,26 @@ nin_qgis_plugin/csv/symbology/symbology_M005.csv, _M020.csv, _M050.csv
 | 2 | Pattern rules + symbols for all three scales + rendered overview + validator | Draft 1. Needs review |
 | 3 | QML export, rendered by QGIS 3.40 | Draft 1. Not compared side by side with the old QML, not tried in QGIS 4 |
 | 4 | Plugin integration (replaces hash colours), unit and QGIS tests | Code done and tested at symbol level. User guide not updated |
-| 5 | Trial on three mapped areas (M020) with the plugin's symbols | Done 2026-10-05. Three rules corrected; findings in `docs/symbology/README.md` |
+| 5 | Trial on three mapped areas (M020) with the plugin's symbols | Done 2026-10-05; redrawn at the mapping scale 1:20 000 on 2026-10-07. Three rules corrected; findings in `docs/symbology/README.md` |
+| 6 | Proposal B: kalkfattig as unhatched baseline, drought as coloured circles | Built and tried 2026-10-07 (`--variant B`); not used by the plugin. Recommendation in the README |
 
 ## 5.1 Open issues for the next round
 
-1. TG01 Nakne løsmasser is too heavy: up to four pattern layers, large open
-   markers. Proposal: give each løsmassetype (LT, 7 values) its own shade
-   of the sand fill, as the M050 units of TG01 are split by LT anyway;
-   then DK is one marker, ØD one coloured circle, KA the hatch.
-2. 31 units at M005 are separated only by a neutral tie-break (dashed
-   hatch or a neutral marker). Either accept, or add unit-level overrides
-   in `hovedtype_patterns.csv` for TI01, TM06 and TA01.
+1. Done: TG01 shows løsmassetype as one of seven shades of its fill
+   (`subtype_colours.csv`); at most three pattern layers.
+2. Accepted (2026-10-07): neutral tie-breaks stay. Every unit still has
+   its own symbol; only the fill is shared within a hovedtype.
 3. Aggregation: keep the same-rules approach, or return to strict
    inheritance so that a child always shows its parent's hatch angle.
 4. Water groups (NA-L, NA-O, NA-M, NA-F, NA-I) have one fill per group.
 5. "Myrkosten" (vegetation map symbols, 1980) was recommended by two
    reviewers but is not among the reference files.
 6. Print and field test, QGIS 4 test, user guide chapter.
-7. From the trial: patterns vanish in polygons narrower than 40 m at
-   1:5 000; TA03 and TH01 look alike at 50 % fill transparency; kalkfattig
-   hatch covers most of the map.
+7. From the trial at 1:20 000: patterns vanish in 223 of 263 polygons
+   (narrower than 160 m). Fill is now 65 % opaque. Kalkfattig hatch covered
+   95 % of the area, which led to proposal B (13 %).
+8. Proposal B: give moist (LM-VM) and frisk (dryness class 0) different
+   marks, so that B needs no more tie-breaks than A. Then decide A or B.
 
 ## 6. Decisions (2026-09-29)
 
@@ -181,3 +181,6 @@ nin_qgis_plugin/csv/symbology/symbology_M005.csv, _M020.csv, _M050.csv
 | Pattern style | Hybrid, rule-based: hatch, dots, simple glyphs and dotted outlines. No custom font. |
 | Plugin use | The new symbology replaces the hash colours. Standalone QML files are also produced. |
 | Language | Norwegian for documentation and overview. |
+| Fill opacity (2026-10-07) | Polygon fills 65 % opaque in the plugin. |
+| Tie-breaks (2026-10-07) | Accepted, as long as every unit keeps its own symbol (checked automatically). |
+| TG01 (2026-10-07) | One shade of the fill per løsmassetype. |

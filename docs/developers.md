@@ -250,7 +250,7 @@ Short description which changes are happening in which file.
 **Method:** `ProjectSetup.set_nin_polygons_styling()`
 **Functionality:**
 
-* **One symbol per `kode_id_label`** for the selected mapping scale, read from the symbology tables in `nin_qgis_plugin/csv/symbology` (`symbology_styles.load_unit_styles()`, `symbology_symbols.create_symbol()`). The fill colour shows the hovedtype and is semi-transparent on polygons; hatch and markers show the mapping unit. Types without a symbol fall back to the colour of their hovedtype, then of their hovedtypegruppe, then to a hash of the `kode_id` (`symbology_colors.kode_id_color()`). The symbology is documented in `docs/symbology/README.md` and built with the scripts in `symbology_tools/`.
+* **One symbol per `kode_id_label`** for the selected mapping scale, read from the symbology tables in `nin_qgis_plugin/csv/symbology` (`symbology_styles.load_unit_styles()`, `symbology_symbols.create_symbol()`). The fill colour shows the hovedtype and is 65 % opaque on polygons (`project_setup.POLYGON_FILL_ALPHA`); hatch and markers show the mapping unit. Types without a symbol fall back to the colour of their hovedtype, then of their hovedtypegruppe, then to a hash of the `kode_id` (`symbology_colors.kode_id_color()`). The symbology is documented in `docs/symbology/README.md` and built with the scripts in `symbology_tools/`.
 * Coded using `QgsCategorizedSymbolRenderer`; the same palette is applied to the polygon, point and line layers.
 
 **Example:**

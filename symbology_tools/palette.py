@@ -6,6 +6,8 @@ The colours are hand-curated in 'nin_qgis_plugin/csv/symbology/':
     hovedtypegruppe_colours.csv   base colour of the seven hovedtypegrupper
     hovedtype_colours.csv         one fill per hovedtype with mapping units
     reserved_colours.csv          free colours held back for future hovedtyper
+    subtype_colours.csv           shades of a hovedtype fill per value of one
+                                  variable (TG01 per løsmassetype)
     colour_families.csv           the families and why they have their hue
 
 These files are the single source of truth: nothing is derived from a
@@ -111,6 +113,19 @@ def load_reserved_colours() -> list[dict]:
     return read_csv_rows(SYMBOLOGY_PATH / 'reserved_colours.csv')
 
 
+def load_subtype_colours() -> dict:
+    '''
+    Returns {hovedtype: {'variable': var_kode_id, 'colours': {value: row}}}
+    from subtype_colours.csv.
+    '''
+
+    subtypes = {}
+    for row in read_csv_rows(SYMBOLOGY_PATH / 'subtype_colours.csv'):
+        subtype = subtypes.setdefault(row['hovedtype'], {'variable': row['var_kode_id'], 'colours': {}})
+        subtype['colours'][row['value']] = row
+    return subtypes
+
+
 def load_mapped_hovedtypegrupper() -> dict:
     '''
     Returns {hovedtypegruppe kode_id: info} for every hovedtypegruppe that
@@ -179,14 +194,24 @@ def load_mapped_hovedtyper() -> dict:
 def all_fills() -> dict:
     '''
     Returns {label: (colour_family, fill_hex)} for every fill that can end
-    up in a map or is held in reserve: the hovedtyper, the reserved colours
-    and the group colour of the hovedtypegrupper without hovedtype colours.
+    up in a map or is held in reserve: the hovedtyper, their subtype shades,
+    the reserved colours and the group colour of the hovedtypegrupper
+    without hovedtype colours.
     '''
 
+    colours = load_hovedtype_colours()
     fills = {
         kode_id: (row['colour_family'], row['fill_hex'])
-        for kode_id, row in load_hovedtype_colours().items()
+        for kode_id, row in colours.items()
     }
+
+    # A shade equal to the fill of its own hovedtype is not a new colour
+    for hovedtype, subtype in load_subtype_colours().items():
+        for value, row in subtype['colours'].items():
+            if row['fill_hex'].upper() != colours[hovedtype]['fill_hex'].upper():
+                fills[f"{hovedtype} {subtype['variable']}={value}"] = (
+                    colours[hovedtype]['colour_family'], row['fill_hex']
+                )
 
     family_counts = {}
     for row in load_reserved_colours():

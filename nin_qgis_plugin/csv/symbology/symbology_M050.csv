@@ -49,18 +49,18 @@ TE09-M050-03,Klart kalkrik isinnfrysingsmark,NA-TE09,,#DAB4BF,#FFFFFF,90,#3A3A3A
 TF01-M050-01,Sand- og dyneskogsmark,NA-TF01,,#63AE6B,#FFFFFF,,,,,,,,,,,,,,,,,,,
 TF02-M050-01,Ferskvanns-flomskogsmark,NA-TF02,,#74B891,#FFFFFF,135,#1F5FBF,solid,4.0,0.25,,,,,,,,,,,,,,Blå skravur: flompåvirket
 TF02-M050-02,Brakkvanns-flomskogsmark,NA-TF02,,#74B891,#FFFFFF,135,#1F5FBF,solid,4.0,0.25,cross,#00695C,1.0,0,,,,,,,,,4.0,"Blå skravur: flompåvirket; Marin salinitet b,c,d: plusstegn 1.0 mm"
-TG01-M050-01,"Fjellnatur-pregede kalkfattige til svakt kalkrike stedegne grus-løsmasser, stein og blokkmark",NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,2.2,0,,,,,,,,,4.0,"Dominerende kornstørrelse D,E,F: firkant 2.2 mm"
-TG01-M050-02,"Fjellnatur-pregede sterkt kalkrike stedegne grus-løsmasser, stein og blokkmark",NA-TG01,,#E3B394,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,circle,#977447,1.6,1,square,#3A3A3A,2.2,0,,,,,4.0,"Kalkinnhold g,h,i: loddrett skravur; Økologisk differensiering A,B,C: sirkel 1.6 mm; Dominerende kornstørrelse D,E,F: firkant 2.2 mm"
-TG01-M050-03,Moreneblokkmark,NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,2.2,0,triangle,#3A3A3A,1.0,1,,,,,4.0,"Dominerende kornstørrelse D,E,F: firkant 2.2 mm; Løsmassetype B: trekant 1.0 mm"
-TG01-M050-04,"Hevet grus-, stein- og blokkstrand",NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,2.2,0,triangle,#3A3A3A,1.6,1,,,,,4.0,"Dominerende kornstørrelse D,E,F: firkant 2.2 mm; Løsmassetype C: trekant 1.6 mm"
-TG01-M050-05,Breforland og snøavsmeltingsområde,NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,1.6,0,triangle,#3A3A3A,2.2,1,,,,,4.0,"Dominerende kornstørrelse A,B,C,D,E,F,G: firkant 1.6 mm; Løsmassetype D: trekant 2.2 mm"
-TG01-M050-06,Konsoliderte marine bresedimenter,NA-TG01,,#E3B394,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,square,#3A3A3A,2.2,0,triangle,#3A3A3A,1.0,0,,,,,4.0,"Kalkinnhold d,e,f,g,h,i: vannrett skravur; Dominerende kornstørrelse D,E,F: firkant 2.2 mm; Løsmassetype E: trekant 1.0 mm"
-TG01-M050-07,Historisk silt- og leirskred,NA-TG01,,#E3B394,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,square,#3A3A3A,1.0,1,triangle,#3A3A3A,1.6,0,,,,,4.0,"Kalkinnhold e,f,g,h: vannrett skravur; Dominerende kornstørrelse A,B: firkant 1.0 mm; Løsmassetype F: trekant 1.6 mm"
-TG01-M050-08,Historisk skred av sand og grus,NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,2.2,1,triangle,#3A3A3A,1.6,0,,,,,4.0,"Dominerende kornstørrelse C,D: firkant 2.2 mm; Løsmassetype F: trekant 1.6 mm"
-TG01-M050-09,Historisk steinskred,NA-TG01,,#E3B394,#FFFFFF,,,,,,triangle,#3A3A3A,1.6,0,star,#4A4A4A,1.0,1,,,,,4.0,Løsmassetype F: trekant 1.6 mm; Skilles fra naboenhet med symbol: stjerne 1.0 mm
-TG01-M050-10,Historisk jordskred,NA-TG01,,#E3B394,#FFFFFF,,,,,,triangle,#3A3A3A,1.6,0,,,,,,,,,4.0,Løsmassetype F: trekant 1.6 mm
-TG01-M050-11,Synkehull i permafrost,NA-TG01,,#E3B394,#FFFFFF,,,,,,triangle,#3A3A3A,1.6,0,arrowhead,#4A4A4A,1.0,1,,,,,4.0,Løsmassetype F: trekant 1.6 mm; Permafrost A: vinkel 1.0 mm
-TG01-M050-12,Flomskredmateriale,NA-TG01,,#E3B394,#FFFFFF,,,,,,triangle,#3A3A3A,2.2,0,,,,,,,,,4.0,Løsmassetype G: trekant 2.2 mm
+TG01-M050-01,"Fjellnatur-pregede kalkfattige til svakt kalkrike stedegne grus-løsmasser, stein og blokkmark",NA-TG01,,#E3B394,#FFFFFF,,,,,,square,#3A3A3A,2.2,0,,,,,,,,,4.0,"Stedegne løsmasser: egen nyanse av fyllfargen; Dominerende kornstørrelse D,E,F: firkant 2.2 mm"
+TG01-M050-02,"Fjellnatur-pregede sterkt kalkrike stedegne grus-løsmasser, stein og blokkmark",NA-TG01,,#E3B394,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,circle,#977447,1.6,1,square,#3A3A3A,2.2,0,,,,,4.0,"Stedegne løsmasser: egen nyanse av fyllfargen; Kalkinnhold g,h,i: loddrett skravur; Økologisk differensiering A,B,C: sirkel 1.6 mm; Dominerende kornstørrelse D,E,F: firkant 2.2 mm"
+TG01-M050-03,Moreneblokkmark,NA-TG01,,#B7A494,#FFFFFF,,,,,,square,#3A3A3A,2.2,0,,,,,,,,,4.0,"Morene: egen nyanse av fyllfargen; Dominerende kornstørrelse D,E,F: firkant 2.2 mm"
+TG01-M050-04,"Hevet grus-, stein- og blokkstrand",NA-TG01,,#E8CFAD,#FFFFFF,,,,,,square,#3A3A3A,2.2,0,,,,,,,,,4.0,"Hevet strand: egen nyanse av fyllfargen; Dominerende kornstørrelse D,E,F: firkant 2.2 mm"
+TG01-M050-05,Breforland og snøavsmeltingsområde,NA-TG01,,#CDACA5,#FFFFFF,,,,,,square,#3A3A3A,1.6,0,,,,,,,,,4.0,"Breforland og snøavsmeltingsområde: egen nyanse av fyllfargen; Dominerende kornstørrelse A,B,C,D,E,F,G: firkant 1.6 mm"
+TG01-M050-06,Konsoliderte marine bresedimenter,NA-TG01,,#CA97A0,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,square,#3A3A3A,2.2,0,,,,,,,,,4.0,"Konsoliderte marine bresedimenter: egen nyanse av fyllfargen; Kalkinnhold d,e,f,g,h,i: vannrett skravur; Dominerende kornstørrelse D,E,F: firkant 2.2 mm"
+TG01-M050-07,Historisk silt- og leirskred,NA-TG01,,#AE6D57,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,square,#3A3A3A,1.0,1,,,,,,,,,4.0,"Historisk skred: egen nyanse av fyllfargen; Kalkinnhold e,f,g,h: vannrett skravur; Dominerende kornstørrelse A,B: firkant 1.0 mm"
+TG01-M050-08,Historisk skred av sand og grus,NA-TG01,,#AE6D57,#FFFFFF,,,,,,square,#3A3A3A,2.2,1,,,,,,,,,4.0,"Historisk skred: egen nyanse av fyllfargen; Dominerende kornstørrelse C,D: firkant 2.2 mm"
+TG01-M050-09,Historisk steinskred,NA-TG01,,#AE6D57,#FFFFFF,,,,,,star,#424242,1.0,1,,,,,,,,,4.0,Historisk skred: egen nyanse av fyllfargen; Skilles fra naboenhet med symbol: stjerne 1.0 mm
+TG01-M050-10,Historisk jordskred,NA-TG01,,#AE6D57,#FFFFFF,,,,,,,,,,,,,,,,,,,Historisk skred: egen nyanse av fyllfargen
+TG01-M050-11,Synkehull i permafrost,NA-TG01,,#AE6D57,#FFFFFF,,,,,,arrowhead,#424242,1.0,1,,,,,,,,,4.0,Historisk skred: egen nyanse av fyllfargen; Permafrost A: vinkel 1.0 mm
+TG01-M050-12,Flomskredmateriale,NA-TG01,,#BC9171,#FFFFFF,,,,,,,,,,,,,,,,,,,Flomskredmateriale: egen nyanse av fyllfargen
 TH01-M050-01,Kalkfattig til litt kalkrik avskoget hei og eng,NA-TH01,,#F1B465,#FFFFFF,0,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold b,c,d,e,f: vannrett skravur"
 TH01-M050-02,Klart kalkrik avskoget hei og eng,NA-TH01,,#F1B465,#FFFFFF,90,#3A3A3A,solid,4.0,0.25,,,,,,,,,,,,,,"Kalkinnhold g,h,i: loddrett skravur"
 TI01-M050-01,Klart endret skogsmark,NA-TI01,,#8BBB9F,#FFFFFF,,,,,,,,,,,,,,,,,,,

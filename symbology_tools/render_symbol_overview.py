@@ -2,17 +2,20 @@
 Renders the symbols of all mapping units to a standalone HTML overview
 (Norwegian):
 
-    python symbology_tools/render_symbol_overview.py
-    -> docs/symbology/symboloversikt.html
+    python symbology_tools/render_symbol_overview.py              -> docs/symbology/symboloversikt.html
+    python symbology_tools/render_symbol_overview.py --variant B  -> docs/symbology/symboloversikt_forslag_B.html
 
 Each hovedtype is shown as a table with one column per mapping scale. A
 unit stands to the right of the unit it belongs to at the coarser scale,
 so the aggregation between scales can be read directly.
 
 Symbols are drawn as inline SVG from the same tables the QGIS styles are
-made from. No external dependencies.
+made from. No external dependencies. The page is laid out for printing on
+A4 landscape (print to PDF from the browser).
 """
 
+import argparse
+import datetime
 import html
 import sys
 from math import cos, pi, sin
@@ -23,17 +26,24 @@ if __package__ in (None, ''):
 
 from symbology_tools.palette import (  # noqa: E402
     INCLUDED_HOVEDTYPEGRUPPER, MAPPING_SCALES, REPO_ROOT, load_hovedtype_colours,
-    load_hovedtypegruppe_colours, load_mapped_hovedtyper,
+    load_hovedtypegruppe_colours, load_mapped_hovedtyper, load_subtype_colours,
 )
 from symbology_tools.patterns import (  # noqa: E402
     ANGLE_INTERMEDIAER, ANGLE_KALKFATTIG, ANGLE_KALKRIK, ANGLE_NEUTRAL,
     DEFAULT_HATCH_COLOUR, DRYNESS_COLOURS, HATCH_SPACING_MM, HATCH_WIDTH_MM,
-    MARKER_SPACING_MM, MARKER_STROKE_WIDTH_MM, STROKE_SHAPES, build_symbology,
-    load_hovedtype_patterns, load_variable_rules, validate_symbology,
+    MARKER_SIZES_MM, MARKER_SPACING_MM, MARKER_STROKE_WIDTH_MM, STROKE_SHAPES, VARIANTS,
+    build_symbology, load_hovedtype_patterns, load_variable_rules, validate_symbology,
 )
 from symbology_tools.render_palette_overview import SCALE_LABELS, short_code  # noqa: E402
 
-OUTPUT_PATH = REPO_ROOT / 'docs' / 'symbology' / 'symboloversikt.html'
+OUTPUT_PATHS = {
+    'A': REPO_ROOT / 'docs' / 'symbology' / 'symboloversikt.html',
+    'B': REPO_ROOT / 'docs' / 'symbology' / 'symboloversikt_forslag_B.html',
+}
+VARIANT_TITLES = {
+    'A': 'utkast A, brukes i programtillegget',
+    'B': 'forslag B, kalkfattig uten skravur',
+}
 
 # Screen pixels per millimetre in the overview. Symbols are drawn larger
 # than in print so that they can be studied.
@@ -75,7 +85,10 @@ PAGE_STYLE = '''
   .table-wrap { overflow-x: auto; }
   table { border-collapse: collapse; width: 100%; min-width: 900px; table-layout: fixed; }
   th { text-align: left; font-weight: 600; font-size: 12px; color: #4A524D; padding: 4px 8px; border-bottom: 1px solid #DDDBD2; }
-  td { padding: 6px 8px; vertical-align: top; border-bottom: 1px solid #EEEDE7; border-left: 1px solid #EEEDE7; }
+  td { padding: 6px 8px; vertical-align: top; border-left: 1px solid #EEEDE7; }
+  tr.group td { border-top: 1.5px solid #B9B7AE; }
+  tr.middle td:not(:first-child) { border-top: 1px solid #DDDBD2; }
+  tr.sub td:last-child { border-top: 1px solid #EEEDE7; }
   td:first-child { border-left: 0; }
   .unit { display: flex; gap: 10px; align-items: flex-start; }
   .unit svg { flex: none; border-radius: 2px; box-shadow: 0 0 0 1px #C9C7BE; }
@@ -86,7 +99,38 @@ PAGE_STYLE = '''
   .legend .unit { align-items: center; }
   .legend .code { white-space: normal; }
   .missing { color: #8A8F8B; font-size: 12px; }
-  @media print { body { background: #fff; } .card { break-inside: avoid; } }
+  .swatch-row { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 10px; }
+
+  @page {
+    size: A4 landscape;
+    margin: 12mm 10mm 14mm;
+    @bottom-left { content: "NiN 3.0 kartografi · PAGE_FOOTER"; font: 7.5pt Arial, sans-serif; color: #5A625D; }
+    @bottom-right { content: "Side " counter(page) " av " counter(pages); font: 7.5pt Arial, sans-serif; color: #5A625D; }
+  }
+  .printed { color: #5A625D; font-size: 12px; margin: 0 0 16px; }
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: #fff; padding: 0; font-size: 9pt; }
+    main { max-width: none; }
+    h1 { font-size: 17pt; }
+    h2 { font-size: 13pt; margin: 7mm 0 1mm; break-after: avoid; }
+    h3, .card-head, .family-head, .note, .reason { break-after: avoid; }
+    p { max-width: none; }
+    .card, .family { border: 0; border-radius: 0; padding: 0; margin-top: 5mm; box-shadow: none; }
+    .table-wrap { overflow: visible; }
+    table { min-width: 0 !important; }
+    thead { display: table-header-group; }
+    tr { break-inside: avoid; }
+    .legend { break-inside: avoid; }
+    td { padding: 2.5px 6px; }
+    .unit { gap: 6px; }
+    .unit svg { width: 20mm; height: 9.2mm; }
+    .code { font-size: 7.5pt; }
+    .name { font-size: 7.5pt; line-height: 1.2; }
+    .why { font-size: 6.5pt; line-height: 1.2; margin-top: 1px; }
+    .chip { width: 10mm; height: 5mm; }
+    .card-head { margin-bottom: 2mm; }
+  }
 '''
 
 
@@ -188,21 +232,27 @@ def symbol_svg(symbol: dict, element_id: str) -> str:
     )
 
 
-def unit_cell(symbol: dict, rowspan: int, element_id: str) -> str:
+def unit_cell(symbol: dict, element_id: str) -> str:
     explanation = '. '.join(symbol['explanation'])
     why = f'<div class="why">{html.escape(explanation)}</div>' if explanation else ''
     # 'TB01-M005-03' is shown as 'TB01-03'; the column tells the scale
     code = f"{symbol['kode_id'].split('-')[0]}-{symbol['kode_id'].split('-')[-1]}"
 
     return (
-        f'<td rowspan="{rowspan}"><div class="unit">{symbol_svg(symbol, element_id)}'
+        f'<td><div class="unit">{symbol_svg(symbol, element_id)}'
         f'<div><div class="code">{html.escape(code)}</div>'
         f'<div class="name">{html.escape(symbol["navn"])}</div>{why}</div></div></td>'
     )
 
 
-def empty_cell(rowspan: int) -> str:
-    return f'<td rowspan="{rowspan}"><span class="missing">Ingen enhet i katalogen</span></td>'
+def empty_cell() -> str:
+    return '<td><span class="missing">Ingen enhet i katalogen</span></td>'
+
+
+def continued_cell() -> str:
+    '''A cell below the first row of a coarser unit: the unit continues.'''
+
+    return '<td class="cont"></td>'
 
 
 def build_tree(symbols_by_scale: dict) -> list:
@@ -246,22 +296,26 @@ def render_hovedtype(kode_id: str, colour: dict, symbols_by_scale: dict, emblem:
         counter[0] += 1
         return f's{counter[0]}'
 
+    # One row per unit at the finest scale. A coarser unit is shown on the
+    # first row of its group only, so the table can break between any two
+    # rows when printed (cells spanning rows cannot be split over pages).
     for coarse, middles in build_tree(symbols_by_scale):
-        coarse_rows = sum(max(len(fines), 1) for _, fines in middles) or 1
-        coarse_cell = unit_cell(coarse, coarse_rows, next_id()) if coarse else empty_cell(coarse_rows)
+        coarse_cell = unit_cell(coarse, next_id()) if coarse else empty_cell()
+        row_class = 'group'
 
         if not middles:
-            rows.append(f'<tr>{coarse_cell}{empty_cell(1)}{empty_cell(1)}</tr>')
+            rows.append(f'<tr class="{row_class}">{coarse_cell}{empty_cell()}{empty_cell()}</tr>')
             continue
 
         for middle, fines in middles:
-            middle_rows = max(len(fines), 1)
-            middle_cell = unit_cell(middle, middle_rows, next_id()) if middle else empty_cell(middle_rows)
-            fine_cells = [unit_cell(fine, 1, next_id()) for fine in fines] or [empty_cell(1)]
+            middle_cell = unit_cell(middle, next_id()) if middle else empty_cell()
+            fine_cells = [unit_cell(fine, next_id()) for fine in fines] or [empty_cell()]
 
             for fine_cell in fine_cells:
-                rows.append(f'<tr>{coarse_cell}{middle_cell}{fine_cell}</tr>')
-                coarse_cell = middle_cell = ''
+                rows.append(f'<tr class="{row_class}">{coarse_cell}{middle_cell}{fine_cell}</tr>')
+                coarse_cell = middle_cell = continued_cell()
+                row_class = 'sub'
+            row_class = 'middle'
 
     headers = ''.join(
         f'<th>{SCALE_LABELS[scale]} · {len(symbols_by_scale[scale])} enheter</th>'
@@ -274,12 +328,13 @@ def render_hovedtype(kode_id: str, colour: dict, symbols_by_scale: dict, emblem:
         f'<div class="card-head"><span class="chip" style="background:{colour["fill_hex"]}"></span>'
         f'<h3>{short_code(kode_id)} {html.escape(colour["navn"])}</h3></div>'
         f'{note}'
-        f'<div class="table-wrap"><table><tr>{headers}</tr>{"".join(rows)}</table></div>'
+        f'<div class="table-wrap"><table><thead><tr>{headers}</tr></thead>'
+        f'<tbody>{"".join(rows)}</tbody></table></div>'
         '</section>'
     )
 
 
-def render_legend(counter: list) -> str:
+def render_legend(counter: list, variant: str) -> str:
     '''Returns the key to the rules, drawn with the same code as the symbols.'''
 
     fill = '#F1EFE6'
@@ -296,16 +351,34 @@ def render_legend(counter: list) -> str:
             f'<div><div class="code">{html.escape(name)}</div><div class="name">{html.escape(text)}</div></div></div>'
         )
 
-    hatch = [
-        sample('Skrå skravur', 'Kalkfattig', hatch_angle=ANGLE_KALKFATTIG),
-        sample('Vannrett skravur', 'Intermediær', hatch_angle=ANGLE_INTERMEDIAER),
-        sample('Loddrett skravur', 'Kalkrik', hatch_angle=ANGLE_KALKRIK),
-        sample('Skravur mot venstre', 'Skravuren sier ikke noe om kalkinnhold', hatch_angle=ANGLE_NEUTRAL),
-        sample('Blå skravur', 'Frisk eller sjelden tørrlagt; vannpåvirket', hatch_angle=ANGLE_KALKFATTIG, hatch_colour=DRYNESS_COLOURS[0]),
-        sample('Grå skravur', 'Noe tørkeutsatt', hatch_angle=ANGLE_KALKFATTIG, hatch_colour=DRYNESS_COLOURS[1]),
-        sample('Oransje skravur', 'Tørkeutsatt', hatch_angle=ANGLE_KALKFATTIG, hatch_colour=DRYNESS_COLOURS[2]),
-        sample('Mørk rød skravur', 'Svært tørkeutsatt', hatch_angle=ANGLE_KALKFATTIG, hatch_colour=DRYNESS_COLOURS[3]),
-        sample('Stiplet eller prikket', 'Skiller to enheter som ellers ville fått likt symbol', hatch_angle=ANGLE_KALKFATTIG, hatch_style='dashed'),
+    if variant == 'A':
+        hatch = [
+            sample('Skrå skravur', 'Kalkfattig', hatch_angle=ANGLE_KALKFATTIG),
+            sample('Vannrett skravur', 'Intermediær', hatch_angle=ANGLE_INTERMEDIAER),
+            sample('Loddrett skravur', 'Kalkrik', hatch_angle=ANGLE_KALKRIK),
+            sample('Skravur mot venstre', 'Skravuren sier ikke noe om kalkinnhold', hatch_angle=ANGLE_NEUTRAL),
+            sample('Blå skravur', 'Hele enheten er frisk eller sjelden tørrlagt', hatch_angle=ANGLE_KALKFATTIG, hatch_colour=DRYNESS_COLOURS[0]),
+            sample('Grå skravur', 'Noe tørkeutsatt, eller spenner over det meste av skalaen', hatch_angle=ANGLE_KALKFATTIG, hatch_colour=DRYNESS_COLOURS[1]),
+            sample('Oransje skravur', 'Tørkeutsatt', hatch_angle=ANGLE_KALKFATTIG, hatch_colour=DRYNESS_COLOURS[2]),
+            sample('Mørk rød skravur', 'Svært tørkeutsatt', hatch_angle=ANGLE_KALKFATTIG, hatch_colour=DRYNESS_COLOURS[3]),
+        ]
+    else:
+        hatch = [
+            sample('Ingen skravur', 'Kalkfattig, eller kalkinnhold skiller ikke enhetene'),
+            sample('Vannrett skravur', 'Intermediær', hatch_angle=ANGLE_INTERMEDIAER),
+            sample('Loddrett skravur', 'Kalkrik', hatch_angle=ANGLE_KALKRIK),
+            sample('Skravur mot venstre', 'Hovedtypens faste kjennetegn eller myrkant, uten kalkinformasjon', hatch_angle=ANGLE_NEUTRAL),
+        ]
+        dry_marker = {'shape': 'circle', 'size_mm': MARKER_SIZES_MM[0], 'filled': True}
+        hatch += [
+            sample('Blå sirkel, liten', 'Hele enheten er frisk eller sjelden tørrlagt', markers=[{**dry_marker, 'colour': DRYNESS_COLOURS[0]}]),
+            sample('Ingen tørkesirkel', 'Noe tørkeutsatt, eller spenner over det meste av skalaen'),
+            sample('Oransje sirkel', 'Tørkeutsatt', markers=[{**dry_marker, 'colour': DRYNESS_COLOURS[2]}]),
+            sample('Mørk rød sirkel', 'Svært tørkeutsatt', markers=[{**dry_marker, 'colour': DRYNESS_COLOURS[3]}]),
+        ]
+    hatch += [
+        sample('Stiplet skravur', 'Myrkant (hele enheten ligger i myrkant-delen av myrflatepreg)', hatch_angle=ANGLE_INTERMEDIAER, hatch_style='dashed'),
+        sample('Prikket skravur', 'Skiller to enheter som ellers ville fått likt symbol, uten egen betydning', hatch_angle=ANGLE_INTERMEDIAER, hatch_style='dotted'),
     ]
 
     markers, seen = [], set()
@@ -329,16 +402,28 @@ def render_legend(counter: list) -> str:
             'shape': emblem['shape'], 'colour': emblem['colour_hex'], 'size_mm': 1.0, 'filled': True,
         }]))
 
+    shades = []
+    for hovedtype, subtype in load_subtype_colours().items():
+        for row in subtype['colours'].values():
+            shades.append(sample(f"{short_code(hovedtype)} {row['navn']}", row['begrunnelse'], fill_hex=row['fill_hex']))
+
+    first_title = 'Skravur' if variant == 'A' else 'Skravur og tørkesirkler'
     return (
         '<h2>Tegnforklaring</h2>'
         '<p class="lead">De samme reglene gjelder i alle hovedtyper og i alle målestokker. '
-        'Større symbol betyr mer av egenskapen. Laveste trinn har ikke symbol.</p>'
-        f'<section class="card"><h3>Skravur</h3><div class="legend" style="margin-top:10px">{"".join(hatch)}</div></section>'
+        'En enhet som omfatter det laveste trinnet av en variabel, får ikke symbol for den: '
+        'symbolet betyr at egenskapen gjelder hele enheten. Større symbol betyr høyere trinn. '
+        'Tetthet brukes ikke til å vise grad.</p>'
+        f'<section class="card"><h3>{first_title}</h3><div class="legend" style="margin-top:10px">{"".join(hatch)}</div></section>'
         f'<section class="card"><h3>Symboler</h3><div class="legend" style="margin-top:10px">{"".join(markers)}</div></section>'
+        '<section class="card"><h3>Nyanser av fyllfargen</h3>'
+        '<p class="note">TG01 Nakne løsmasser har én nyanse av sandfargen per løsmassetype, '
+        'i stedet for et eget symbol.</p>'
+        f'<div class="legend">{"".join(shades)}</div></section>'
     )
 
 
-def render_page(symbology: dict) -> str:
+def render_page(symbology: dict, variant: str) -> str:
     colours = load_hovedtype_colours()
     gruppe_colours = load_hovedtypegruppe_colours()
     mapped_hovedtyper = load_mapped_hovedtyper()
@@ -350,7 +435,7 @@ def render_page(symbology: dict) -> str:
         for symbol in symbols:
             by_hovedtype.setdefault(symbol['hovedtype'], {s: [] for s in MAPPING_SCALES})[scale].append(symbol)
 
-    sections = [render_legend(counter)]
+    sections = [render_legend(counter, variant)]
     for hovedtypegruppe in INCLUDED_HOVEDTYPEGRUPPER:
         sections.append(
             f'<h2>{short_code(hovedtypegruppe)} '
@@ -367,9 +452,12 @@ def render_page(symbology: dict) -> str:
     return (
         '<!DOCTYPE html>\n<html lang="nb">\n<head>\n<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-        '<title>NiN 3.0 symboloversikt</title>\n'
-        f'<style>{PAGE_STYLE}</style>\n</head>\n<body>\n<main>\n'
-        '<h1>NiN 3.0 kartografi: symboler for kartleggingsenheter</h1>\n'
+        f'<title>NiN 3.0 symboloversikt {variant}</title>\n'
+        f'<style>{PAGE_STYLE.replace("PAGE_FOOTER", "symboloversikt, " + VARIANT_TITLES[variant])}</style>\n'
+        '</head>\n<body>\n<main>\n'
+        f'<h1>NiN 3.0 kartografi: symboler for kartleggingsenheter ({VARIANT_TITLES[variant]})</h1>\n'
+        f'<p class="printed">Laget {datetime.date.today():%d.%m.%Y} fra symboltabellene. '
+        'Utskrift: A4 liggende.</p>\n'
         f'<p class="lead">Fastmarkssystemer og våtmarkssystemer: {totals}. Fyllfargen viser '
         'hovedtypen. Skravur og symboler viser kartleggingsenheten og er beregnet fra '
         'miljøvariablene som definerer enheten.</p>\n'
@@ -385,7 +473,11 @@ def render_page(symbology: dict) -> str:
 def main() -> int:
     '''Execute as standalone script'''
 
-    symbology = build_symbology()
+    parser = argparse.ArgumentParser(description='Draws the symbol overview.')
+    parser.add_argument('--variant', choices=VARIANTS, default='A')
+    variant = parser.parse_args().variant
+
+    symbology = build_symbology(variant)
     problems = validate_symbology(symbology)
     if problems:
         print("The symbology is not valid, nothing was rendered:")
@@ -393,9 +485,10 @@ def main() -> int:
             print(f"  {problem}")
         return 1
 
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_PATH.write_text(render_page(symbology), encoding='utf-8', newline='\n')
-    print(f"Wrote {OUTPUT_PATH.relative_to(REPO_ROOT)}")
+    output_path = OUTPUT_PATHS[variant]
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(render_page(symbology, variant), encoding='utf-8', newline='\n')
+    print(f"Wrote {output_path.relative_to(REPO_ROOT)}")
     return 0
 
 

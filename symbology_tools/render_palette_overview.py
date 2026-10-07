@@ -9,6 +9,7 @@ hovedtyper of each group. It has no external dependencies, so it can be
 opened from disk, printed or sent by e-mail.
 """
 
+import datetime
 import html
 import sys
 from pathlib import Path
@@ -19,7 +20,7 @@ if __package__ in (None, ''):
 from symbology_tools.colour import hex_to_rgb, rgb_to_oklch  # noqa: E402
 from symbology_tools.palette import (  # noqa: E402
     DOMINANT_HOVEDTYPER, INCLUDED_HOVEDTYPEGRUPPER, MAPPING_SCALES, OUTLINE_HEX,
-    REPO_ROOT, load_colour_families, load_hovedtype_colours,
+    REPO_ROOT, load_colour_families, load_hovedtype_colours, load_subtype_colours,
     load_hovedtypegruppe_colours, load_mapped_hovedtyper,
     load_mapped_hovedtypegrupper, load_reserved_colours, validate_palette,
 )
@@ -68,6 +69,8 @@ PAGE_STYLE = '''
   th { text-align: left; font-weight: 600; font-size: 12px; color: #4A524D; padding: 4px 12px 4px 0; border-bottom: 1px solid #DDDBD2; }
   td { padding: 5px 12px 5px 0; border-bottom: 1px solid #EEEDE7; vertical-align: middle; }
   tr:last-child td { border-bottom: 0; }
+  tr.shade td { padding-top: 2px; padding-bottom: 2px; font-size: 13px; }
+  tr.shade .swatch { width: 48px; height: 20px; margin-left: 24px; }
   .swatch { width: 72px; height: 28px; border-radius: 3px; box-shadow: 0 0 0 1px #C9C7BE; }
   .code { font-weight: 600; white-space: nowrap; }
   .tag { font-size: 11px; font-weight: 600; color: #4A524D; border: 1px solid #C9C7BE; border-radius: 3px; padding: 0 5px; margin-left: 8px; white-space: nowrap; }
@@ -76,7 +79,44 @@ PAGE_STYLE = '''
   .reserved { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin-top: 12px; font-size: 13px; color: #4A524D; }
   .reserved div { display: flex; gap: 8px; align-items: center; }
   .reserved .swatch { width: 40px; height: 20px; }
-  @media print { body { background: #fff; } .card { break-inside: avoid; } }
+
+  @page {
+    size: A4 portrait;
+    margin: 12mm 10mm 14mm;
+    @bottom-left { content: "NiN 3.0 kartografi · fargeoversikt"; font: 7.5pt Arial, sans-serif; color: #5A625D; }
+    @bottom-right { content: "Side " counter(page) " av " counter(pages); font: 7.5pt Arial, sans-serif; color: #5A625D; }
+  }
+  .printed { color: #5A625D; font-size: 12px; margin: 0 0 16px; }
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: #fff; padding: 0; font-size: 9pt; }
+    main { max-width: none; }
+    h1 { font-size: 17pt; }
+    h2 { font-size: 13pt; margin: 7mm 0 1mm; break-after: avoid; }
+    h3, .card-head, .family-head, .note, .reason { break-after: avoid; }
+    p { max-width: none; }
+    .card, .family { border: 0; border-radius: 0; padding: 0; margin-top: 5mm; box-shadow: none; }
+    .table-wrap { overflow: visible; }
+    table { min-width: 0 !important; }
+    thead { display: table-header-group; }
+    tr { break-inside: avoid; }
+    .legend { break-inside: avoid; }
+    .mosaic { break-inside: avoid; }
+    .mosaic span { flex-basis: 13mm; height: 8mm; font-size: 6.5pt; }
+    table { font-size: 8.5pt; }
+    th:nth-child(1) { width: 19mm; }
+    th:nth-child(2) { width: 14mm; }
+    th:nth-child(4) { width: 18mm; }
+    th:nth-child(5) { width: 24mm; }
+    th:nth-child(n+6) { width: 14mm; }
+    td { padding: 2px 6px 2px 0; }
+    .swatch { width: 16mm; height: 6mm; }
+    tr.shade .swatch { width: 11mm; height: 4.5mm; margin-left: 5mm; }
+    tr.shade td { font-size: 8pt; }
+    th.num { white-space: nowrap; }
+    th:nth-child(n+6) { width: 16mm; }
+    .hex, td.num { font-size: 7.5pt; }
+  }
 '''
 
 
@@ -128,9 +168,9 @@ def render_hovedtypegrupper() -> str:
         'våtmark har hver hovedtype sin egen farge. De andre gruppene tegnes '
         'foreløpig med grunnfargen for alle kartleggingsenheter.</p>'
         '<section class="card"><div class="table-wrap"><table>'
-        '<tr><th>Farge</th><th>Kode</th><th>Hovedtypegruppe</th><th>Hex</th><th>RGB</th>'
-        f'{scale_headers()}</tr>'
-        f'{"".join(rows)}'
+        '<thead><tr><th>Farge</th><th>Kode</th><th>Hovedtypegruppe</th><th>Hex</th><th>RGB</th>'
+        f'{scale_headers()}</tr></thead>'
+        f'<tbody>{"".join(rows)}</tbody>'
         '</table></div></section>'
     )
 
@@ -159,6 +199,21 @@ def render_family(family_key: str, family: dict, members: list, mapped_hovedtype
             '</tr>'
         )
 
+    shade_rows = []
+    subtypes = load_subtype_colours()
+    for kode_id, _ in members:
+        for value, row in subtypes.get(kode_id, {}).get('colours', {}).items():
+            shade_rows.append(
+                '<tr class="shade">'
+                f'<td><div class="swatch" style="background:{row["fill_hex"]}"></div></td>'
+                f'<td class="code">{short_code(kode_id)}·{value}</td>'
+                f'<td>Løsmassetype: {html.escape(row["navn"])}</td>'
+                f'<td class="hex">{row["fill_hex"]}</td>'
+                f'<td class="hex">{rgb_text(row["fill_hex"])}</td>'
+                '<td></td><td></td><td></td>'
+                '</tr>'
+            )
+
     reserved = ''.join(
         f'<div><span class="swatch" style="background:{row["fill_hex"]}"></span>'
         f'<span class="hex">{row["fill_hex"]}</span></div>'
@@ -173,9 +228,9 @@ def render_family(family_key: str, family: dict, members: list, mapped_hovedtype
         '</div>'
         f'<p class="reason">{html.escape(family["begrunnelse"])}.</p>'
         '<div class="table-wrap"><table>'
-        '<tr><th>Farge</th><th>Kode</th><th>Hovedtype</th><th>Hex</th><th>RGB</th>'
-        f'{scale_headers()}</tr>'
-        f'{"".join(rows)}'
+        '<thead><tr><th>Farge</th><th>Kode</th><th>Hovedtype</th><th>Hex</th><th>RGB</th>'
+        f'{scale_headers()}</tr></thead>'
+        f'<tbody>{"".join(rows)}{"".join(shade_rows)}</tbody>'
         '</table></div>'
         f'<div class="reserved">Holdt av til nye hovedtyper: {reserved}</div>'
         '</section>'
@@ -222,6 +277,8 @@ def render_page() -> str:
         '<title>NiN 3.0 fargeoversikt</title>\n'
         f'<style>{PAGE_STYLE}</style>\n</head>\n<body>\n<main>\n'
         '<h1>NiN 3.0 kartografi: farger</h1>\n'
+        f'<p class="printed">Laget {datetime.date.today():%d.%m.%Y} fra fargetabellene. '
+        'Utskrift: A4 stående.</p>\n'
         '<p class="lead">Hver hovedtype har én fyllfarge, og den er lik i alle tre '
         'målestokker. Beslektede hovedtyper har farger fra samme fargefamilie. '
         'Klar grønn er forbeholdt skogsmark. Kartleggingsenhetene innen en '

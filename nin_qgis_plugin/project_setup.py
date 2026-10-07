@@ -56,6 +56,10 @@ from .symbology_symbols import create_symbol
 
 
 QGS_PROJECT = QgsProject.instance()
+
+# Polygon fills are 65 % opaque, so the background map shows through while
+# neighbouring hovedtyper stay distinguishable. Hatch and markers are opaque.
+POLYGON_FILL_ALPHA = round(0.65 * 255)
 # PROJECT_CRS = "EPSG:25833"
 
 # Label expression for nin_polygons: if not specified with kode_id_label then
@@ -664,7 +668,7 @@ class ProjectSetup:
             layer=self.get_nin_polygons_layer(),
             label_expression=POLYGON_LABEL_EXPRESSION,
             label_placement=Qgis.LabelPlacement.OverPoint,
-            symbol_alpha=128,  # semi-transparent fill
+            symbol_alpha=POLYGON_FILL_ALPHA,
         )
 
     def set_point_line_styling(self, layer: QgsVectorLayer) -> None:

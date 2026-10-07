@@ -96,15 +96,17 @@ def _style_from_row(row: dict) -> dict:
     return style
 
 
-def load_unit_styles(mapping_scale: str) -> dict:
+def load_unit_styles(mapping_scale: str, symbology_path: Path = SYMBOLOGY_PATH) -> dict:
     '''
     Returns {kode_id: style} for every unit in the attribute table of the
     mapping scale ('M005', 'M020', 'M050' or 'grunntyper'), in table order.
+    'symbology_path' selects another set of symbol tables, for example a
+    proposal in symbology/forslag_B.
     '''
 
     symbol_rows = {
         row['kode_id']: row
-        for row in _read_csv_rows(SYMBOLOGY_PATH / f'symbology_{mapping_scale}.csv')
+        for row in _read_csv_rows(symbology_path / f'symbology_{mapping_scale}.csv')
     }
     hovedtype_fills = _fill_colours('hovedtype_colours.csv')
     gruppe_fills = _fill_colours('hovedtypegruppe_colours.csv')

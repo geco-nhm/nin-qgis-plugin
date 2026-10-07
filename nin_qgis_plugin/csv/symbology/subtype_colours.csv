@@ -1,0 +1,8 @@
+hovedtype,var_kode_id,value,navn,fill_hex,begrunnelse
+NA-TG01,LM-LT,A,Stedegne løsmasser,#E3B394,Grunnfargen til hovedtypen
+NA-TG01,LM-LT,B,Morene,#B7A494,Gråere og mørkere sand
+NA-TG01,LM-LT,C,Hevet strand,#E8CFAD,"Lys, gul sand som strand"
+NA-TG01,LM-LT,D,Breforland og snøavsmeltingsområde,#CDACA5,"Kjølig, gråbeige"
+NA-TG01,LM-LT,E,Konsoliderte marine bresedimenter,#CA97A0,Rosagrå leirfarge
+NA-TG01,LM-LT,F,Historisk skred,#AE6D57,"Brun, beslektet med skred- og rasmark"
+NA-TG01,LM-LT,G,Flomskredmateriale,#BC9171,"Brun, beslektet med flomskredmark"
