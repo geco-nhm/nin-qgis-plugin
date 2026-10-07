@@ -473,22 +473,21 @@ def main() -> int:
 
     evaluate(layer, mapping_scale, styles)
 
-    # One enlarged map per area, only for the variant the plugin uses
-    if variant == DEFAULT_VARIANT:
-        for source in source_layers:
-            number = source.name().split('_')[1]
-            area_layer = merged_layer([source])
-            style_layer(area_layer, mapping_scale, styles)
-            area_frame = area_frames([source])
-            area_layers = [area_frame, area_layer] + layers[2:]
-            for map_layer in (area_frame, area_layer):
-                project.addMapLayer(map_layer, False)
-            for path in export_map(
-                project, area_layers, area_layer, mapping_scale, variant,
-                display_scale=DETAIL_SCALE, area_name=f'Område {number}',
-                file_stem=f'testkart_{mapping_scale}_omrade_{number}',
-            ):
-                print(f'Wrote {path.relative_to(REPO_ROOT)}')
+    # One enlarged map per area
+    for source in source_layers:
+        number = source.name().split('_')[1]
+        area_layer = merged_layer([source])
+        style_layer(area_layer, mapping_scale, styles)
+        area_frame = area_frames([source])
+        area_layers = [area_frame, area_layer] + layers[2:]
+        for map_layer in (area_frame, area_layer):
+            project.addMapLayer(map_layer, False)
+        for path in export_map(
+            project, area_layers, area_layer, mapping_scale, variant,
+            display_scale=DETAIL_SCALE, area_name=f'Område {number}',
+            file_stem=f'testkart_{mapping_scale}{FILE_SUFFIXES[variant]}_omrade_{number}',
+        ):
+            print(f'Wrote {path.relative_to(REPO_ROOT)}')
 
     # Release the layers before QGIS shuts down, or the interpreter crashes on exit
     project.clear()
