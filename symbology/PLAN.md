@@ -11,6 +11,9 @@ scope.
 
 ## 1. What was ingested
 
+The NiN 2 material below was background for this work only. It is kept
+locally (ignored by git) and is not part of the repository.
+
 | Source | What it gives us |
 | --- | --- |
 | NiN 2 cartography specification (Word) | Full NiN 2.x 1:5000 specification: fill, outline and hatch per unit (RGB, line width, rotation, spacing). 344 classes. |

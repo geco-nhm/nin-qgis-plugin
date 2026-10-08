@@ -17,3 +17,11 @@ symbology-style.db
 
 # Plugin zips built by scripts/build_plugin_zip.py
 dist/
+
+# NiN 2 cartography used as background for the NiN 3.0 symbology; kept
+# locally only, not part of the repository
+/symbology/*.docx
+/symbology/*.jpg
+/symbology/*.png
+/symbology/*.qml
+/symbology/*.pptx

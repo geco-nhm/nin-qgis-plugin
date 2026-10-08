@@ -507,7 +507,7 @@ kommentarene, og viser hvilke hovedtyper i NiN 3.0 de gjelder.
 | `symbology_tools/render_test_areas.py` | Tegner og vurderer kartlagte data fra `symbology/*.gpkg`: samlet kart i kartleggingsmålestokken og forstørrede utsnitt per område. `--variant A` for utkast A. Krever QGIS |
 | `tests/unit/test_symbology_styles.py`, `tests/qgis/test_symbology_symbols.py` | Tester for programtillegget |
 | `tests/unit/test_symbology_palette.py` | Enhetstester |
-| `symbology/` | Tidligere kartografi for NiN 2, til inspirasjon |
+| `symbology/` | Planen (`PLAN.md`), stilfiler og tabeller for utkast A. Den tidligere kartografien for NiN 2 ble brukt som bakgrunn og ligger ikke i repoet |
 
 ## Endre en farge
 
