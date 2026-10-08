@@ -19,11 +19,6 @@ Utskriftsklare oversikter (A4, med sidetall):
 | Farger for hovedtyper | [fargeoversikt.html](fargeoversikt.html) | [fargeoversikt.pdf](fargeoversikt.pdf) |
 | Symboler, utkast B (brukes i programtillegget) | [symboloversikt.html](symboloversikt.html) | [symboloversikt.pdf](symboloversikt.pdf) |
 | Symboler, utkast A (til sammenligning) | [symboloversikt_utkast_A.html](symboloversikt_utkast_A.html) | [symboloversikt_utkast_A.pdf](symboloversikt_utkast_A.pdf) |
-| Prøvekart 1:20 000, alle tre områder | [testkart_M020.png](testkart_M020.png) | [testkart_M020.pdf](testkart_M020.pdf) |
-| Prøvekart, område 1 forstørret (1:7 500) | [testkart_M020_omrade_1.png](testkart_M020_omrade_1.png) | [testkart_M020_omrade_1.pdf](testkart_M020_omrade_1.pdf) |
-| Prøvekart, område 2 forstørret (1:7 500) | [testkart_M020_omrade_2.png](testkart_M020_omrade_2.png) | [testkart_M020_omrade_2.pdf](testkart_M020_omrade_2.pdf) |
-| Prøvekart, område 3 forstørret (1:7 500) | [testkart_M020_omrade_3.png](testkart_M020_omrade_3.png) | [testkart_M020_omrade_3.pdf](testkart_M020_omrade_3.pdf) |
-| Prøvekart 1:20 000, utkast A (til sammenligning) | [testkart_M020_utkast_A.png](testkart_M020_utkast_A.png) | [testkart_M020_utkast_A.pdf](testkart_M020_utkast_A.pdf) |
 
 Hver hovedtypegruppe har en grunnfarge. For fastmarkssystemer (NA-T) og
 våtmarkssystemer (NA-V) har hver av de 72 hovedtypene sin egen farge. De
@@ -317,10 +312,9 @@ programtillegget gjør.
 
 | Kart | Målestokk | Innhold |
 | --- | --- | --- |
-| [testkart_M020.png](testkart_M020.png) ([pdf](testkart_M020.pdf)) | 1:20 000 | Alle tre områder |
-| [testkart_M020_omrade_1.png](testkart_M020_omrade_1.png) ([pdf](testkart_M020_omrade_1.pdf)) | 1:7 500 | Område 1, forstørret |
-| [testkart_M020_omrade_2.png](testkart_M020_omrade_2.png) ([pdf](testkart_M020_omrade_2.pdf)) | 1:7 500 | Område 2, forstørret |
-| [testkart_M020_omrade_3.png](testkart_M020_omrade_3.png) ([pdf](testkart_M020_omrade_3.pdf)) | 1:7 500 | Område 3, forstørret |
+| `testkart_M020` | 1:20 000 | Alle tre områder |
+| `testkart_M020_omrade_1`, `_2`, `_3` | 1:7 500 | Hvert område forstørret |
+| `testkart_M020_utkast_A` og `testkart_M020_utkast_A_omrade_*` | Som over | Utkast A, til sammenligning |
 
 De forstørrede utsnittene bruker de samme enhetene og symbolene for 1:20 000;
 bare kartet er forstørret. Tegnforklaringen viser enhetene som finnes i
@@ -328,7 +322,8 @@ utsnittet.
 
 Kartene lages med `python-qgis-ltr.bat symbology_tools/render_test_areas.py`
 fra GeoPackage-filene i `symbology/`. Skriptet finner målestokken fra dataene.
-GeoPackage-filene er ikke sjekket inn i Git.
+Kartene viser kartlagte data og legges bare lokalt i `docs/symbology/`; de er
+holdt utenfor repoet, i likhet med GeoPackage-filene.
 
 ### Tre feil som ble funnet og rettet
 
@@ -383,8 +378,7 @@ prøving på de samme dataene. A er tatt vare på til sammenligning:
 
 - Symboloversikt: [symboloversikt_utkast_A.html](symboloversikt_utkast_A.html)
   ([pdf](symboloversikt_utkast_A.pdf))
-- Prøvekart 1:20 000: [testkart_M020_utkast_A.png](testkart_M020_utkast_A.png)
-  ([pdf](testkart_M020_utkast_A.pdf))
+- Prøvekart: `testkart_M020_utkast_A` (lages lokalt, se steg 5)
 - Symboltabeller: `symbology/utkast_A/symbology_M005.csv` osv.
 
 | Virkemiddel | Utkast A | Utkast B |
